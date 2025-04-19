@@ -1,0 +1,166 @@
+/* กำหนดสีพาสเทลให้สดใส */
+:root {
+    --primary-light-green: #C8E6C9;  /* เขียวพาสเทลอ่อน */
+    --primary-green: #A5D6A7;  /* เขียวพาสเทลกลาง */
+    --primary-dark-green: #388E3C;  /* เขียวเข้ม */
+    --secondary-light-purple: #D1C4E9;  /* ม่วงพาสเทลอ่อน */
+    --secondary-purple: #9575CD;  /* ม่วงพาสเทลกลาง */
+    --accent-purple: #7E57C2;  /* ม่วงเข้ม */
+    --text-color: #333; /* สีข้อความ */
+    --background-color: #F4F4F4; /* สีพื้นหลัง */
+}
+
+/* ปรับสีพื้นฐานให้สอดคล้องกับธีมเขียว-ม่วง */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+header {
+    background: linear-gradient(45deg, var(--primary-green), var(--secondary-purple));
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent-purple);
+}
+
+/* Section Contact */
+.contact {
+    text-align: center;
+    padding: 120px 20px 50px 20px; /* เพิ่มระยะห่างด้านบนเพื่อให้ไม่ทับ header */
+    background: linear-gradient(45deg, var(--primary-light-green), var(--secondary-light-purple));
+    border-radius: 8px;
+}
+
+.contact-profile img {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form {
+    margin-top: 30px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+    transition: box-shadow 0.3s ease;
+}
+
+.contact-form:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.contact-form h2 {
+    color: var(--accent-purple);
+    font-size: 26px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: var(--accent-purple);
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--accent-purple);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: var(--primary-dark-green);
+    transform: translateY(-2px); /* เพิ่มความน่าสนใจเมื่อโฮเวอร์ปุ่ม */
+}
+
+.contact-form button:active {
+    transform: translateY(0); /* เมื่อคลิกปุ่มกลับสู่ตำแหน่งปกติ */
+}
+
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media a {
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--text-color);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.social-media a:hover {
+    color: var(--accent-purple);
+    transform: scale(1.1); /* เพิ่มขนาดเมื่อโฮเวอร์ */
+}
+
+/* Footer */
+footer {
+    background-color: var(--accent-purple);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* เพิ่มฟังก์ชันแอนิเมชัน */
+@keyframes bounceIn {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    60% {
+        transform: translateY(30px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.contact-form {
+    animation: bounceIn 0.8s ease-out;
+}

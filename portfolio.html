@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Nattapart Worakun</title>
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>Nattapart</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Search Bar with Autocomplete -->
+    <section class="search-section">
+        <input type="text" id="searchInput" placeholder="Search projects..." oninput="searchProjects()">
+        <ul id="autocomplete-list"></ul>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <h1>My Projects</h1>
+
+        <!-- Project 1 -->
+        <div class="project" data-tools="excel appsheets google sheets line notify sql">
+            <div class="project-image">
+                <img src="https://imgur.com/WdhBbTt.png" alt="Amino Acid Profile">
+            </div>
+            <div class="project-info">
+                <h2>Amino Acid Profile</h2>
+                <p>This project involves Amino Acid Profile analysis and sends alerts to LINE for results.</p>
+                <a href="https://github.com/Earthondev/Amino-Acid-Profile" target="_blank">View Project</a>
+            </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project" data-tools="google sheets appsheets sql line notify">
+            <div class="project-image">
+                <img src="https://imgur.com/qufXFl0.png" alt="Dashboard">
+            </div>
+            <div class="project-info">
+                <h2>Inventory Chemical</h2>
+                <p>This project handles chemical inventory and provides alerts when chemicals are running low.</p>
+                <a href="https://github.com/Earthondev/Inventory-Chemical" target="_blank">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Nattapart Worakun</p>
+    </footer>
+
+    <script src="portfolio.js"></script>
+</body>
+</html>

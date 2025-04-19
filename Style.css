@@ -1,0 +1,161 @@
+/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* กำหนดรูปภาพพื้นหลัง */
+body {
+    background-image: url('https://imgur.com/hXiO3jp'); /* ลิ้งค์ไปยังรูปพื้นหลัง */
+    background-size: cover; /* ให้รูปขยายเต็มจอ */
+    background-position: center bottom; /* ให้รูปอยู่ตรงกลางและติดกับขอบล่าง */
+    background-attachment: fixed; /* ให้พื้นหลังอยู่คงที่เมื่อเลื่อนหน้า */
+    height: 100vh; /* ทำให้พื้นที่ของ body ครอบคลุมทั้งหน้าจอ */
+    margin: 0; /* เอาค่า margin ออก */
+}
+
+
+
+/* พื้นหลังภาพเบลอ */
+.home-page {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* เพิ่มภาพเบลอเป็นพื้นหลัง */
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.imgur.com/hXiO3jp.jpg'); /* ใส่ URL ของภาพ */
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px); /* ทำให้ภาพเบลอ */
+    z-index: -1; /* ทำให้ภาพอยู่ด้านหลังของเนื้อหา */
+}
+
+/* รูปแบบของข้อความในหน้า */
+.intro-text {
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+header h1 {
+    font-size: 3em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.intro-text h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.intro-text p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* ปุ่ม */
+.intro-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    z-index: 1;
+}
+
+.button {
+    background-color: rgba(0, 128, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: rgba(0, 128, 0, 1);
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+    font-size: 0.9em;
+    color: white;
+    z-index: 1;
+}
+
+.profile-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .profile-card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .profile-image-container {
+    width: 200px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  .profile-card:hover .profile-image-container {
+    transform: scale(1.05);
+  }
+  
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .instagram-button {
+    background: linear-gradient(45deg, #9b6cf1, #6cd3b5);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background 0.3s ease, transform 0.2s;
+    width: fit-content;
+  }
+  
+  .instagram-button:hover {
+    background: linear-gradient(45deg, #8a5de0, #5bbfa4);
+    transform: scale(1.05);
+  }
+  
+  
