@@ -31,9 +31,11 @@ header.night-mode {
 
 nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: center; /* เปลี่ยนเป็น center */
     align-items: center;
-    padding: 0 1rem;
+    padding: 0 10px;
+    width: 100%;
+    gap: 20px; /* เพิ่ม gap เพื่อเว้นระยะห่างระหว่างลิงก์ */
 }
 
 nav a {
@@ -66,7 +68,53 @@ nav a.night-mode:hover {
     box-sizing: border-box;
 }
 
-@media (min-width: 768px) {
+/* CSS สำหรับจัดรูปโปรไฟล์ให้อยู่ตรงกลางบนมือถือและ iPad */
+@media (max-width: 1024px) { /* ครอบคลุมถึง iPad แนวตั้ง */
+    .about-container {
+        display: flex;
+        flex-direction: column; /* จัดเรียงเป็นคอลัมน์ */
+        align-items: center; /* จัดตรงกลางแนวนอน */
+        padding: 20px;
+        margin-top: 5rem;
+        min-height: calc(100vh - 5rem);
+        box-sizing: border-box;
+    }
+
+    .photo-zone {
+        width: 80%; /* ปรับขนาดตามต้องการ */
+        display: flex;
+        justify-content: center; /* จัดรูปให้อยู่ตรงกลางแนวนอน */
+        align-items: center; /* จัดรูปให้อยู่ตรงกลางแนวตั้ง (ถ้าจำเป็น) */
+        margin-top: 20px; /* ปรับระยะห่าง */
+        margin-bottom: 20px; /* ปรับระยะห่าง */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .profile-pic {
+        max-width: 100%; /* ปรับขนาดรูปให้ไม่เกิน Container */
+        height: auto;
+        display: block;
+        margin: 0 auto; /* จัดตรงกลางแนวนอน */
+    }
+
+    .text-zone {
+        width: 100%;
+        padding-right: 0;
+        text-align: center; /* จัดข้อความกลางบนมือถือและ iPad */
+    }
+
+    .skills-section,
+    .tools {
+        text-align: center; /* จัด Skills และ Tools ให้อยู่ตรงกลาง */
+        width: 90%; /* ปรับความกว้าง */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* CSS สำหรับ Desktop (ความกว้างมากกว่า 1024px) */
+@media (min-width: 1025px) {
     .about-container {
         flex-direction: row;
         justify-content: space-between;
@@ -77,7 +125,7 @@ nav a.night-mode:hover {
         flex: 1.2;
         padding-right: 40px;
         width: 60%;
-        text-align: left; /* จัดข้อความชิดซ้ายบน Desktop */
+        text-align: left;
     }
 
     .photo-zone {
@@ -85,6 +133,13 @@ nav a.night-mode:hover {
         justify-content: center;
         width: 40%;
         margin-left: 20px;
+        align-self: center; /* จัดรูปให้อยู่ตรงกลางแนวตั้งใน row */
+    }
+
+    .skills-section,
+    .tools {
+        text-align: left; /* จัด Skills และ Tools ชิดซ้ายบน Desktop */
+        width: 300px; /* หรือขนาดที่คุณต้องการ */
     }
 }
 
