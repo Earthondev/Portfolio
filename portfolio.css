@@ -2,12 +2,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #F4F4F4; /* สีพื้นหลังอ่อน */
+    color: #333; /* สีข้อความหลัก */
 }
 
 header {
-    background-color: #222;
+    background-color: #A5D6A7; /* สีเขียวพาสเทลกลาง (จาก Contact) */
     padding: 20px 0;
     text-align: center;
     position: fixed;
@@ -31,12 +31,27 @@ nav a {
 }
 
 nav a:hover {
-    color: #4CAF50;
+    color: #7E57C2; /* สีม่วงเข้ม (จาก Contact) */
 }
 
 .search-section {
     text-align: center;
-    margin-top: 80px;  /* Adjust for header */
+    margin-top: 80px; /* ปรับระยะห่างจาก Header */
+    padding: 20px; /* เพิ่ม Padding เล็กน้อย */
+    background-color: #D1C4E9; /* สีม่วงพาสเทลอ่อน (จาก Contact) */
+}
+#searchInput {
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 20px;
+    border: 2px solid #ccc;
+    outline: none;
+    color: #333; /* สีข้อความ */
+    background-color: white; /* สีพื้นหลัง */
+    font-size: 1em; /* ขนาดตัวอักษร */
+    display: block; /* ให้เป็น Block Element เพื่อจัด Margin ได้ง่าย */
+    margin: 20px auto; /* จัดกลาง */
 }
 
 #searchInput {
@@ -60,6 +75,8 @@ nav a:hover {
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 8px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #autocomplete-list li {
@@ -73,68 +90,102 @@ nav a:hover {
 }
 
 .portfolio {
-    padding: 100px 20px 50px 20px;  /* Adjust padding to account for the header */
+    padding: 100px 20px 50px 20px; /* ปรับ Padding */
     text-align: center;
+    background-color: #C8E6C9; /* สีเขียวพาสเทลอ่อน (จาก Contact) */
+}
+
+.portfolio h1 {
+    color: #7E57C2; /* สีม่วงเข้ม (จาก Contact) */
+    margin-bottom: 30px;
 }
 
 .project {
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* เปลี่ยนเป็น Column สำหรับ Responsive */
     align-items: center;
-    margin-bottom: 30px;
+    margin: 20px auto;
     background-color: white;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 20px;
     overflow: hidden;
-    max-width: 1200px;
-    margin: 20px auto;
+    max-width: 90%; /* ปรับ Max Width สำหรับ Responsive */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* ปรับเมื่อหน้าจอกว้างขึ้น */
+@media (min-width: 768px) {
+    .project {
+        flex-direction: row; /* กลับเป็น Row บน Desktop */
+        justify-content: center;
+    }
+
+    .project-info {
+        margin-left: 20px;
+        text-align: left;
+    }
+
+    .project-image {
+        flex-shrink: 0; /* ไม่ให้รูปย่อเกินไป */
+    }
+}
+
 .project:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px); /* ลดการยกเล็กน้อย */
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .project-image img {
-    width: 300px;
+    width: 100%; /* ให้รูปเต็มความกว้าง Container บนมือถือ */
+    max-width: 300px; /* ขนาดสูงสุดของรูป */
     height: auto;
     border-radius: 8px;
     object-fit: cover;
+    margin-bottom: 15px; /* เพิ่ม Margin ด้านล่างรูปบนมือถือ */
 }
 
 .project-info {
-    margin-left: 20px;
-    max-width: 600px;
-    text-align: left;
+    text-align: center; /* จัดข้อความกลางบนมือถือ */
 }
 
 .project-info h2 {
-    color: #4CAF50;
-    font-size: 24px;
-    margin-bottom: 15px;
+    color: #7E57C2; /* สีม่วงเข้ม (จาก Contact) */
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
 
 .project-info p {
-    font-size: 16px;
+    font-size: 0.9em;
     line-height: 1.6;
     color: #555;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .project-info a {
     text-decoration: none;
     color: #fff;
-    background-color: #4CAF50;
-    padding: 10px 20px;
+    background-color: #7E57C2; /* สีม่วงเข้ม (จาก Contact) */
+    padding: 8px 15px;
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s;
 }
 
 .project-info a:hover {
-    background-color: #45a049;
+    background-color: #9575CD; /* สีม่วงพาสเทลกลาง (จาก Contact) */
+}
+
+footer {
+    background-color: #9575CD; /* สีม่วงพาสเทลกลาง (จาก Contact) */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 0.8em;
 }
 
 footer {
