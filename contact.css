@@ -7,21 +7,36 @@
     --secondary-purple: #9575CD;
     --accent-purple: #7E57C2;
     --text-color: #333;
-    --background-color: #F4F4F4;
+    --background-image: url('https://imgur.com/mDgV9Ce');
 }
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--background-color);
+    background-image: var(--background-image);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* ทำให้พื้นหลังอยู่กับที่ */
     color: var(--text-color);
     line-height: 1.6;
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7); /* สีขาวโปร่งแสงสำหรับเบลอ */
+    z-index: -1; /* ให้อยู่หลังพื้นหลังหลัก */
+    backdrop-filter: blur(5px); /* เอฟเฟกต์เบลอ */
+}
+
 header {
     background: linear-gradient(45deg, var(--primary-green), var(--secondary-purple));
-    padding: 15px 0; /* ปรับ Padding ให้เล็กลงสำหรับมือถือ */
+    padding: 15px 0;
     text-align: center;
     position: fixed;
     top: 0;
@@ -32,9 +47,9 @@ header {
 
 nav {
     display: flex;
-    justify-content: space-around; /* กระจายลิงก์ให้เต็มพื้นที่ */
+    justify-content: space-around;
     align-items: center;
-    padding: 0 10px; /* เพิ่ม Padding ด้านข้างเล็กน้อย */
+    padding: 0 10px;
 }
 
 nav a {
@@ -42,8 +57,8 @@ nav a {
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
-    font-size: 0.9em; /* ปรับขนาด Font สำหรับมือถือ */
-    padding: 8px 10px; /* ปรับ Padding ปุ่ม Navigation */
+    font-size: 0.9em;
+    padding: 8px 10px;
 }
 
 nav a:hover {
@@ -52,14 +67,16 @@ nav a:hover {
 
 .contact {
     text-align: center;
-    padding: 80px 20px 30px 20px; /* ปรับ Padding ด้านบนและล่างสำหรับมือถือ */
-    background: linear-gradient(45deg, var(--primary-light-green), var(--secondary-light-purple));
+    padding: 80px 20px 30px 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* เพิ่มพื้นหลังโปร่งแสงให Section */
     border-radius: 8px;
-    margin-top: 0; /* ลบ Margin Top ที่อาจเกินมา */
+    margin-top: 0;
+    margin: 20px auto; /* จัด Section ให้อยู่ตรงกลาง */
+    max-width: 95%; /* จำกัดความกว้าง Section */
 }
 
 .contact h1 {
-    font-size: 2em; /* ปรับขนาด Font สำหรับมือถือ */
+    font-size: 2em;
     margin-bottom: 20px;
 }
 
@@ -70,22 +87,20 @@ nav a:hover {
 }
 
 .contact-profile img {
-    width: 60%; /* ปรับขนาดรูปให้เล็กลงและยืดหยุ่น */
-    max-width: 200px; /* กำหนดขนาดสูงสุด */
-    height: auto;
+    width: 150px; /* ปรับขนาดรูปให้เล็กลง */
+    height: 150px;
     object-fit: cover;
-    border-radius: 50%; /* ทำให้เป็นวงกลม */
+    border-radius: 8px; /* ทำให้เป็นสี่เหลี่ยม */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .contact-form {
     margin-top: 20px;
-    background-color: white;
-    padding: 20px; /* ปรับ Padding สำหรับมือถือ */
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 95%; /* ทำให้ฟอร์มเต็มความกว้างบนมือถือ */
-    margin: 0 auto;
+    max-width: 95%;
+    margin: 20px auto;
     transition: box-shadow 0.3s ease;
 }
 
@@ -95,7 +110,7 @@ nav a:hover {
 
 .contact-form h2 {
     color: var(--accent-purple);
-    font-size: 1.5em; /* ปรับขนาด Font สำหรับมือถือ */
+    font-size: 1.5em;
     margin-bottom: 10px;
     font-weight: bold;
 }
@@ -103,19 +118,19 @@ nav a:hover {
 .contact-form label {
     display: block;
     margin-bottom: 5px;
-    font-size: 0.9em; /* ปรับขนาด Font สำหรับมือถือ */
+    font-size: 0.9em;
     color: var(--text-color);
 }
 
 .contact-form input, .contact-form textarea {
-    width: calc(100% - 24px); /* ปรับขนาด Input และ Textarea ให้เต็ม */
+    width: calc(100% - 24px);
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 8px;
-    border: 1px solid #ccc; /* ลดความหนาของ Border */
+    border: 1px solid #ccc;
     outline: none;
     transition: border-color 0.3s ease;
-    font-size: 0.9em; /* ปรับขนาด Font สำหรับมือถือ */
+    font-size: 0.9em;
 }
 
 .contact-form input:focus, .contact-form textarea:focus {
@@ -124,7 +139,7 @@ nav a:hover {
 
 .contact-form button {
     width: 100%;
-    padding: 10px; /* ปรับ Padding ปุ่ม */
+    padding: 10px;
     background-color: var(--accent-purple);
     color: white;
     border: none;
@@ -132,7 +147,7 @@ nav a:hover {
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    font-size: 1em; /* ปรับขนาด Font ปุ่ม */
+    font-size: 1em;
 }
 
 .contact-form button:hover {
@@ -144,37 +159,59 @@ nav a:hover {
     transform: translateY(0);
 }
 
-.social-media img {
-    width: 30px; /* ปรับขนาด Icon */
-    height: 30px;
-    vertical-align: middle; /* จัดให้อยู่กึ่งกลางแนวตั้งกับข้อความ (ถ้ามี) */
-    transition: transform 0.3s;
+.social-media-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
 }
 
-.social-media img:hover {
-    transform: scale(1.2);
+.social-media-vertical a {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s, transform 0.3s;
 }
 
-/* สำหรับ Font Awesome */
-.social-media i {
-    font-size: 1.5em; /* ปรับขนาด Icon */
-    transition: transform 0.3s;
+.social-media-vertical a:hover {
+    color: var(--accent-purple);
+    transform: scale(1.05);
 }
 
-.social-media i:hover {
-    transform: scale(1.2);
+.instagram-icon {
+    font-size: 2em;
+    margin-right: 10px;
+    color: #E1306C; /* สี Instagram */
+}
+
+.linkedin-icon {
+    font-size: 2em;
+    margin-right: 10px;
+    color: #0077B5; /* สี LinkedIn */
+}
+
+.github-icon {
+    font-size: 2em;
+    margin-right: 10px;
+    color: #333; /* สี GitHub */
+}
+
+.social-media-vertical span {
+    font-weight: bold;
 }
 
 footer {
     background-color: var(--accent-purple);
     color: white;
     text-align: center;
-    padding: 15px 0; /* ปรับ Padding Footer */
+    padding: 15px 0;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    font-size: 0.8em; /* ปรับขนาด Font Footer */
+    font-size: 0.8em;
 }
 
 /* Animation */
