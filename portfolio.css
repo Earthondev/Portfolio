@@ -36,9 +36,10 @@ nav a:hover {
 
 .search-section {
     text-align: center;
+    margin-top: 80px; /* คุณมีอันนี้อยู่แล้ว */
     padding: 20px;
     background-color: #D1C4E9;
-    padding-top: 80px; /* ปรับ Padding ด้านบนให้เท่ากับหรือมากกว่าความสูง Header */
+    padding-top: 100px; /* เพิ่ม Padding ด้านบน */
 }
 #searchInput {
     padding: 10px;
