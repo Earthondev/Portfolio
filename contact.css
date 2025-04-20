@@ -7,31 +7,15 @@
     --secondary-purple: #9575CD;
     --accent-purple: #7E57C2;
     --text-color: #333;
-    --background-image: url('https://imgur.com/mDgV9Ce');
 }
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: var(--background-image);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* ทำให้พื้นหลังอยู่กับที่ */
     color: var(--text-color);
     line-height: 1.6;
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.7); /* สีขาวโปร่งแสงสำหรับเบลอ */
-    z-index: -1; /* ให้อยู่หลังพื้นหลังหลัก */
-    backdrop-filter: blur(5px); /* เอฟเฟกต์เบลอ */
+    background-color: #f4f4f4; /* สีพื้นหลังสำรอง */
 }
 
 header {
@@ -68,11 +52,12 @@ nav a:hover {
 .contact {
     text-align: center;
     padding: 80px 20px 30px 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* เพิ่มพื้นหลังโปร่งแสงให Section */
+    background-color: rgba(255, 255, 255, 0.8); /* พื้นหลังโปร่งแสงสำหรับ Section */
     border-radius: 8px;
     margin-top: 0;
-    margin: 20px auto; /* จัด Section ให้อยู่ตรงกลาง */
-    max-width: 95%; /* จำกัดความกว้าง Section */
+    margin: 20px auto;
+    max-width: 95%;
+    padding-bottom: 60px; /* เพิ่ม padding ด้านล่างเพื่อไม่ให้เนื้อหาชิดขอบล่าง */
 }
 
 .contact h1 {
@@ -87,152 +72,86 @@ nav a:hover {
 }
 
 .contact-profile img {
-    width: 150px; /* ปรับขนาดรูปให้เล็กลง */
+    width: 150px;
     height: 150px;
     object-fit: cover;
-    border-radius: 8px; /* ทำให้เป็นสี่เหลี่ยม */
+    border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.contact-form {
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 95%;
-    margin: 20px auto;
-    transition: box-shadow 0.3s ease;
-}
-
-.contact-form:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-.contact-form h2 {
-    color: var(--accent-purple);
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.contact-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 0.9em;
-    color: var(--text-color);
-}
-
-.contact-form input, .contact-form textarea {
-    width: calc(100% - 24px);
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    outline: none;
-    transition: border-color 0.3s ease;
-    font-size: 0.9em;
-}
-
-.contact-form input:focus, .contact-form textarea:focus {
-    border-color: var(--accent-purple);
-}
-
-.contact-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: var(--accent-purple);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-size: 1em;
-}
-
-.contact-form button:hover {
-    background-color: var(--primary-dark-green);
-    transform: translateY(-2px);
-}
-
-.contact-form button:active {
-    transform: translateY(0);
-}
-
-.social-media-vertical {
+.contact-links {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 15px;
     margin-top: 30px;
 }
 
-.social-media-vertical a {
-    display: flex;
+.button, .instagram-button, .linkedin-button, .github-button, a {
+    cursor: pointer;
+    display: inline-flex;
     align-items: center;
-    margin-bottom: 15px;
+    justify-content: center;
+    padding: 0.6rem 1.2rem; /* ปรับ Padding */
     text-decoration: none;
-    color: var(--text-color);
-    transition: color 0.3s, transform 0.3s;
-}
-
-.social-media-vertical a:hover {
-    color: var(--accent-purple);
-    transform: scale(1.05);
-}
-
-.instagram-icon {
-    font-size: 2em;
-    margin-right: 10px;
-    color: #E1306C; /* สี Instagram */
-}
-
-.linkedin-icon {
-    font-size: 2em;
-    margin-right: 10px;
-    color: #0077B5; /* สี LinkedIn */
-}
-
-.github-icon {
-    font-size: 2em;
-    margin-right: 10px;
-    color: #333; /* สี GitHub */
-}
-
-.social-media-vertical span {
     font-weight: bold;
+    border-radius: 10px;
+    transition: background 0.3s ease, transform 0.2s;
+    width: fit-content;
+    font-size: 1em; /* ปรับขนาด Font */
+    white-space: nowrap; /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-footer {
-    background-color: var(--accent-purple);
+.instagram-button {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
     color: white;
-    text-align: center;
-    padding: 15px 0;
+}
+
+.linkedin-button {
+    background-color: #0077B5;
+    color: white;
+}
+
+.github-button {
+    background-color: #333;
+    color: white;
+}
+
+.instagram-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.linkedin-button:hover {
+    background-color: #005a82;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.github-button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.instagram-button i,
+.linkedin-button i,
+.github-button i {
+    margin-right: 0.5rem;
+    font-size: 1.2em;
+}
+
+/* พื้นหลังภาพเบลอ */
+.background-image {
     position: fixed;
-    bottom: 0;
+    top: 0;
     left: 0;
     width: 100%;
-    font-size: 0.8em;
-}
-
-/* Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.contact > * { /* เลือกทุก Element ลูกของ .contact */
-    animation: fadeIn 0.5s ease-out forwards;
-    opacity: 0;
-}
-
-.contact > *:nth-child(2) { /* รูปโปรไฟล์ */
-    animation-delay: 0.2s;
-}
-
-.contact > *:nth-child(3) { /* ฟอร์ม */
-    animation-delay: 0.4s;
-}
-
-.contact > *:nth-child(4) { /* Social Media */
-    animation-delay: 0.6s;
+    height: 100%;
+    background-image: url('https://i.imgur.com/hXiO3jp.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    filter: blur(8px);
+    z-index: -1;
 }
