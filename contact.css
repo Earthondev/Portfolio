@@ -79,6 +79,8 @@ nav a:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
+/* ... CSS เดิม ... */
+
 .contact-links {
     display: flex;
     flex-direction: column;
@@ -86,6 +88,34 @@ nav a:hover {
     gap: 15px;
     margin-top: 30px;
 }
+
+.contact-links a {
+    /* ... CSS เดิม ... */
+    opacity: 0; /* เริ่มต้นด้วยความโปร่งใส 0 */
+    transform: translateY(20px); /* เลื่อนลงเล็กน้อย */
+    animation: fadeIn 0.5s ease-out forwards; /* เพิ่ม Animation */
+}
+
+/* กำหนด Delay ให้แต่ละปุ่ม */
+.contact-links a:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.contact-links a:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.contact-links a:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+/* Animation Keyframes (ถ้ายังไม่มี) */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ... CSS เดิม ... */
 
 .button, .instagram-button, .linkedin-button, .github-button, a {
     cursor: pointer;
