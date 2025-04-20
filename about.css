@@ -1,39 +1,39 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(to right, #c8e6c9, #e1bee7);
+    background: rgba(200, 230, 201, 0.6); /* เขียวพาสเทลอ่อน โปร่งแสงขึ้น */
     color: #333;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
 body.night-mode {
-    background: linear-gradient(to right, #2c3e50, #4527a0);
+    background: rgba(44, 62, 80, 0.7); /* เทาเข้ม โปร่งแสงขึ้น */
     color: #ecf0f1;
 }
 
 header {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.7); /* ขาว โปร่งแสงขึ้น */
     padding: 1rem 2rem;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px); /* เพิ่มความเบลอ */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 header.night-mode {
-    background-color: rgba(30, 30, 30, 0.8);
-    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+    background-color: rgba(30, 30, 30, 0.7); /* ดำ โปร่งแสงขึ้น */
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05);
 }
 
 nav {
     display: flex;
-    justify-content: space-around; /* จัดให้ลิงก์กระจายเท่าๆ กัน */
+    justify-content: space-around;
     align-items: center;
-    padding: 0 1rem; /* เพิ่ม padding ด้านข้างเล็กน้อย */
+    padding: 0 1rem;
 }
 
 nav a {
@@ -41,7 +41,7 @@ nav a {
     color: #4a148c;
     font-weight: bold;
     transition: color 0.3s ease;
-    font-size: 1rem; /* ปรับขนาด font เล็กน้อย */
+    font-size: 1rem;
 }
 
 nav a:hover {
@@ -58,15 +58,14 @@ nav a.night-mode:hover {
 
 .about-container {
     display: flex;
-    flex-direction: column; /* เปลี่ยนเป็น column สำหรับมือถือและ iPad */
-    align-items: center; /* จัดตรงกลางในแนวแกนขวาง */
-    padding: 20px; /* ลด padding สำหรับหน้าจอเล็ก */
-    margin-top: 5rem; /* ชดเชยความสูงของ header */
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 5rem;
     min-height: calc(100vh - 5rem);
     box-sizing: border-box;
 }
 
-/* ปรับสำหรับ iPad และ Desktop */
 @media (min-width: 768px) {
     .about-container {
         flex-direction: row;
@@ -78,6 +77,7 @@ nav a.night-mode:hover {
         flex: 1.2;
         padding-right: 40px;
         width: 60%;
+        text-align: left; /* จัดข้อความชิดซ้ายบน Desktop */
     }
 
     .photo-zone {
@@ -89,18 +89,18 @@ nav a.night-mode:hover {
 }
 
 .text-zone {
-    width: 100%; /* ทำให้เต็มความกว้างบนมือถือ */
-    padding-right: 0; /* ลบ padding ขวาบนมือถือ */
-    text-align: center; /* จัดข้อความกลางบนมือถือ */
+    width: 100%;
+    padding-right: 0;
+    text-align: center;
 }
 
 h1 {
-    font-size: 2.5rem; /* ลดขนาด font บนมือถือ */
+    font-size: 2.5rem;
     margin-bottom: 0.5rem;
 }
 
 .subtitle {
-    font-size: 1.2rem; /* ลดขนาด font บนมือถือ */
+    font-size: 1.2rem;
     color: #555;
     margin-bottom: 20px;
 }
@@ -110,33 +110,33 @@ h1 {
 }
 
 .bio {
-    font-size: 1rem; /* ลดขนาด font บนมือถือ */
+    font-size: 1rem;
     line-height: 1.7;
     margin-top: 15px;
 }
 
 .skills-section {
     margin-top: 30px;
-    border: 1px solid #ddd; /* ลดความหนาของ border บนมือถือ */
-    padding: 15px; /* ลด padding บนมือถือ */
-    width: 90%; /* ทำให้เต็มความกว้างบนมือถือ */
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 90%;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8); /* พื้นหลังโปร่งแสง */
     transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skills-section.night-mode {
     border-color: #555;
-    background-color: #333;
+    background-color: rgba(51, 51, 51, 0.8); /* พื้นหลังโปร่งแสง */
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
 }
 
 .skills-section h2 {
-    font-size: 1.3rem; /* ลดขนาด font บนมือถือ */
+    font-size: 1.3rem;
     margin-bottom: 10px;
     color: #333;
-    text-align: center; /* จัดกลางหัวข้อบนมือถือ */
+    text-align: center;
 }
 
 .skills-section h2.night-mode {
@@ -152,7 +152,7 @@ h1 {
     font-weight: 600;
     margin-bottom: 5px;
     color: #555;
-    font-size: 0.9rem; /* ลดขนาด font บนมือถือ */
+    font-size: 0.9rem;
 }
 
 .skill span.night-mode {
@@ -162,7 +162,7 @@ h1 {
 .bar {
     background-color: #f0f0f0;
     border-radius: 10px;
-    height: 8px; /* ลดความสูงของ bar บนมือถือ */
+    height: 8px;
     width: 100%;
     overflow: hidden;
 }
@@ -194,11 +194,11 @@ h1 {
 
 .tools {
     margin-top: 30px;
-    text-align: center; /* จัดกลางหัวข้อบนมือถือ */
+    text-align: center;
 }
 
 .tools h2 {
-    font-size: 1.3rem; /* ลดขนาด font บนมือถือ */
+    font-size: 1.3rem;
     margin-bottom: 10px;
     color: #333;
 }
@@ -209,19 +209,19 @@ h1 {
 
 .tools-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* ปรับขนาด minmax สำหรับมือถือ */
-    gap: 10px; /* ลด gap บนมือถือ */
-    padding: 15px; /* ลด padding บนมือถือ */
-    border: 1px solid #ddd; /* ลดความหนาของ border บนมือถือ */
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    gap: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8); /* พื้นหลังโปร่งแสง */
     transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tools-grid.night-mode {
     border-color: #555;
-    background-color: #333;
+    background-color: rgba(51, 51, 51, 0.8); /* พื้นหลังโปร่งแสง */
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
 }
 
@@ -233,16 +233,16 @@ h1 {
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     text-align: center;
     border-radius: 5px;
-    padding: 8px; /* ลด padding บนมือถือ */
+    padding: 8px;
 }
 
 .tool:hover {
-    transform: translateY(-3px); /* ลดการเลื่อนบนมือถือ */
+    transform: translateY(-3px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .tool img {
-    width: 40px; /* ลดขนาดไอคอนบนมือถือ */
+    width: 40px;
     height: 40px;
     object-fit: contain;
     margin-bottom: 3px;
@@ -254,7 +254,7 @@ h1 {
 }
 
 .tool p {
-    font-size: 0.8rem; /* ลดขนาด font บนมือถือ */
+    font-size: 0.8rem;
     color: #777;
     margin: 0;
     transition: color 0.3s ease;
@@ -265,35 +265,137 @@ h1 {
 }
 
 .photo-zone {
-    width: 80%; /* ทำให้เต็มความกว้างบนมือถือ */
-    margin-left: 0; /* ลบ margin ซ้ายบนมือถือ */
-    margin-top: 30px; /* เพิ่ม margin ด้านบนสำหรับมือถือ */
+    width: 80%;
+    margin-left: 0;
+    margin-top: 30px;
     perspective: 600px;
+    order: -1; /* ให้รูปภาพอยู่ก่อน Skills และ Tools */
+}
+
+@media (min-width: 768px) {
+    .photo-zone {
+        order: 0; /* กลับไปตำแหน่งเดิมบน Desktop */
+    }
 }
 
 .profile-pic {
-    width: 200px; /* ลดขนาดรูปบนมือถือ */
+    width: 200px;
     height: auto;
-    border-radius: 10px; /* ลดขนาด radius บนมือถือ */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* ลดขนาดเงาบนมือถือ */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95), box-shadow 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
 .profile-pic:hover {
-    transform: rotateY(5deg) scale(1.02); /* ลดเอฟเฟกต์ hover บนมือถือ */
+    transform: rotateY(5deg) scale(1.02);
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-.nav-link {
+.fire-counter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 30px;
-    text-align: center;
 }
 
-.nav-link a {
-    text-decoration: none;
-    color: #4a148c;
-    font-weight: bold;
-    font-size: 1rem; /* ลดขนาด font บนมือถือ */
-    padding: 8px 15px; /* ลด padding บนมือถือ */
-        border: 1px solid #4a148c; /* ลดความหนาของ border บนมือถือ */
+.fire-button {
+    font-size: 2em;
+    cursor: pointer;
+    animation: pulse 1s infinite alternate;
+    user-select: none;
+    transition: transform 0.1s ease-in-out;
+}
+
+.fire-button:active {
+    transform: scale(0.9);
+}
+
+.fire-count {
+    font-size: 1.2em;
+    margin-top: 5px;
+    color: #ff6d00;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
     }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+.fire-grow {
+    animation: growAndShake 0.3s infinite alternate;
+}
+
+@keyframes growAndShake {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(5deg);
+    }
+    100% {
+        transform: scale(1) rotate(-5deg);
+    }
+}
+.fire-shake {
+    animation: shake 0.3s infinite alternate;
+}
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(5px);
+    }
+}
+.fire-shake {
+    animation: shake 0.3s infinite alternate;
+}
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(5px);
+    }
+}
+.fire-shake {
+    animation: shake 0.3s infinite alternate;
+}
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(5px);
+    }
+}
+.fire-shake {
+    animation: shake 0.3s infinite alternate;
+}
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(5px);
+    }
+}
+.fire-shake {
+    animation: shake 0.3s infinite alternate;
+}       
