@@ -3,365 +3,297 @@ body {
     font-family: 'Inter', sans-serif;
     background: linear-gradient(to right, #c8e6c9, #e1bee7);
     color: #333;
-    transition: background 0.3s ease; /* เพิ่ม transition ให้ background */
-  }
-  
-  body.night-mode {
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.night-mode {
     background: linear-gradient(to right, #2c3e50, #4527a0);
     color: #ecf0f1;
-  }
-  
-  header {
+}
+
+header {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 1rem 2rem;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 100;
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  header.night-mode {
+}
+
+header.night-mode {
     background-color: rgba(30, 30, 30, 0.8);
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
-  }
-  
-  nav {
+}
+
+nav {
     display: flex;
-    gap: 1.5rem;
-  }
-  
-  nav a {
+    justify-content: space-around; /* จัดให้ลิงก์กระจายเท่าๆ กัน */
+    align-items: center;
+    padding: 0 1rem; /* เพิ่ม padding ด้านข้างเล็กน้อย */
+}
+
+nav a {
     text-decoration: none;
     color: #4a148c;
     font-weight: bold;
     transition: color 0.3s ease;
-  }
-  
-  nav a:hover {
+    font-size: 1rem; /* ปรับขนาด font เล็กน้อย */
+}
+
+nav a:hover {
     color: #7b1fa2;
-  }
-  
-  nav a.night-mode {
+}
+
+nav a.night-mode {
     color: #f39c12;
-  }
-  
-  nav a.night-mode:hover {
+}
+
+nav a.night-mode:hover {
     color: #e67e22;
-  }
-  
-  .about-container {
+}
+
+.about-container {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 60px;
-    min-height: calc(100vh - 5rem); /* Adjust for header height */
+    flex-direction: column; /* เปลี่ยนเป็น column สำหรับมือถือและ iPad */
+    align-items: center; /* จัดตรงกลางในแนวแกนขวาง */
+    padding: 20px; /* ลด padding สำหรับหน้าจอเล็ก */
+    margin-top: 5rem; /* ชดเชยความสูงของ header */
+    min-height: calc(100vh - 5rem);
     box-sizing: border-box;
-  }
-  
-  .text-zone {
-    flex: 1.2;
-    padding-right: 40px;
-    width: 60%;
-  }
-  
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 0;
-    color: inherit; /* ให้สีตาม body */
-  }
-  
-  .subtitle {
-    font-size: 1.5rem;
+}
+
+/* ปรับสำหรับ iPad และ Desktop */
+@media (min-width: 768px) {
+    .about-container {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 60px;
+    }
+
+    .text-zone {
+        flex: 1.2;
+        padding-right: 40px;
+        width: 60%;
+    }
+
+    .photo-zone {
+        flex: 0.8;
+        justify-content: center;
+        width: 40%;
+        margin-left: 20px;
+    }
+}
+
+.text-zone {
+    width: 100%; /* ทำให้เต็มความกว้างบนมือถือ */
+    padding-right: 0; /* ลบ padding ขวาบนมือถือ */
+    text-align: center; /* จัดข้อความกลางบนมือถือ */
+}
+
+h1 {
+    font-size: 2.5rem; /* ลดขนาด font บนมือถือ */
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem; /* ลดขนาด font บนมือถือ */
     color: #555;
-    margin-bottom: 30px;
-  }
-  
-  .subtitle.night-mode {
+    margin-bottom: 20px;
+}
+
+.subtitle.night-mode {
     color: #95a5a6;
-  }
-  
-  .bio {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-top: 20px;
-    color: inherit; /* ให้สีตาม body */
-  }
-  
-  .skills {
-    margin-top: 40px;
-    border: 2px solid #ddd;
-    padding: 20px;
-    width: 300px; /* เพิ่มขนาดเล็กน้อย */
+}
+
+.bio {
+    font-size: 1rem; /* ลดขนาด font บนมือถือ */
+    line-height: 1.7;
+    margin-top: 15px;
+}
+
+.skills-section {
+    margin-top: 30px;
+    border: 1px solid #ddd; /* ลดความหนาของ border บนมือถือ */
+    padding: 15px; /* ลด padding บนมือถือ */
+    width: 90%; /* ทำให้เต็มความกว้างบนมือถือ */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* เพิ่มเงา */
-    background-color: #fff; /* เพิ่มพื้นหลัง */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
     transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .skills.night-mode {
+}
+
+.skills-section.night-mode {
     border-color: #555;
     background-color: #333;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
-  }
-  
-  .skills h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
+}
+
+.skills-section h2 {
+    font-size: 1.3rem; /* ลดขนาด font บนมือถือ */
+    margin-bottom: 10px;
     color: #333;
-  }
-  
-  .skills h2.night-mode {
+    text-align: center; /* จัดกลางหัวข้อบนมือถือ */
+}
+
+.skills-section h2.night-mode {
     color: #eee;
-  }
-  
-  .skill {
-    margin-bottom: 25px;
-  }
-  
-  .skill span {
+}
+
+.skill {
+    margin-bottom: 20px;
+}
+
+.skill span {
     display: block;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     color: #555;
-  }
-  
-  .skill span.night-mode {
+    font-size: 0.9rem; /* ลดขนาด font บนมือถือ */
+}
+
+.skill span.night-mode {
     color: #ddd;
-  }
-  
-  .bar {
+}
+
+.bar {
     background-color: #f0f0f0;
     border-radius: 10px;
-    height: 12px;
+    height: 8px; /* ลดความสูงของ bar บนมือถือ */
     width: 100%;
     overflow: hidden;
-  }
-  
-  .bar.night-mode {
+}
+
+.bar.night-mode {
     background-color: #444;
-  }
-  
-  .progress {
+}
+
+.progress {
     height: 100%;
     border-radius: 10px;
-    transition: width 0.4s ease-in-out; /* ลดความช้าเล็กน้อย */
-  }
-  
-  .progress.high {
+    transition: width 0.4s ease-in-out;
+}
+
+.progress.high {
     width: 90%;
-    background: linear-gradient(to right, #81c784, #4caf50); /* เขียวอ่อน-เขียวเข้ม */
-  }
-  
-  .progress.medium {
+    background: linear-gradient(to right, #81c784, #4caf50);
+}
+
+.progress.medium {
     width: 60%;
-    background: linear-gradient(to right, #ffb74d, #ff9800); /* ส้มอ่อน-ส้มเข้ม */
-  }
-  
-  .progress.low {
+    background: linear-gradient(to right, #ffb74d, #ff9800);
+}
+
+.progress.low {
     width: 30%;
-    background: linear-gradient(to right, #e57373, #f44336); /* แดงอ่อน-แดงเข้ม */
-  }
-  
-  .tools {
-    margin-top: 40px;
-  }
-  
-  .tools h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+    background: linear-gradient(to right, #e57373, #f44336);
+}
+
+.tools {
+    margin-top: 30px;
+    text-align: center; /* จัดกลางหัวข้อบนมือถือ */
+}
+
+.tools h2 {
+    font-size: 1.3rem; /* ลดขนาด font บนมือถือ */
+    margin-bottom: 10px;
     color: #333;
-  }
-  
-  .tools h2.night-mode {
+}
+
+.tools h2.night-mode {
     color: #eee;
-  }
-  
-  .tools-grid {
+}
+
+.tools-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-    gap: 15px;
-    padding: 20px;
-    border: 2px solid #ddd;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* ปรับขนาด minmax สำหรับมือถือ */
+    gap: 10px; /* ลด gap บนมือถือ */
+    padding: 15px; /* ลด padding บนมือถือ */
+    border: 1px solid #ddd; /* ลดความหนาของ border บนมือถือ */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* เพิ่มเงา */
-    background-color: #fff; /* เพิ่มพื้นหลัง */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
     transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .tools-grid.night-mode {
+}
+
+.tools-grid.night-mode {
     border-color: #555;
     background-color: #333;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
-  }
-  
-  .tool {
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
+}
+
+.tool {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     text-align: center;
-    border-radius: 5px; /* เพิ่มขอบมนเล็กน้อย */
-    padding: 10px; /* เพิ่ม padding เล็กน้อย */
-  }
-  
-  .tool:hover {
-    transform: translateY(-5px); /* เลื่อนขึ้นเล็กน้อยเมื่อ hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเมื่อ hover */
-  }
-  
-  .tool img {
-    width: 50px;
-    height: 50px;
+    border-radius: 5px;
+    padding: 8px; /* ลด padding บนมือถือ */
+}
+
+.tool:hover {
+    transform: translateY(-3px); /* ลดการเลื่อนบนมือถือ */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tool img {
+    width: 40px; /* ลดขนาดไอคอนบนมือถือ */
+    height: 40px;
     object-fit: contain;
-    margin-bottom: 5px;
-    transition: opacity 0.2s ease-in-out; /* เพิ่ม transition ให้ opacity */
-  }
-  
-  .tool:hover img {
-    opacity: 0.8; /* ลด opacity เล็กน้อยเมื่อ hover */
-  }
-  
-  .tool p {
-    font-size: 0.9rem;
+    margin-bottom: 3px;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.tool:hover img {
+    opacity: 0.8;
+}
+
+.tool p {
+    font-size: 0.8rem; /* ลดขนาด font บนมือถือ */
     color: #777;
     margin: 0;
     transition: color 0.3s ease;
-  }
-  
-  .tool p.night-mode {
+}
+
+.tool p.night-mode {
     color: #bbb;
-  }
-  
-  .photo-zone {
-    flex: 0.8;
-    display: flex;
-    justify-content: center;
-    width: 40%;
-    margin-left: 20px;
-    perspective: 600px; /* สำหรับเอฟเฟกต์ 3D */
-  }
-  
-  .profile-pic {
-    width: 300px;
+}
+
+.photo-zone {
+    width: 80%; /* ทำให้เต็มความกว้างบนมือถือ */
+    margin-left: 0; /* ลบ margin ซ้ายบนมือถือ */
+    margin-top: 30px; /* เพิ่ม margin ด้านบนสำหรับมือถือ */
+    perspective: 600px;
+}
+
+.profile-pic {
+    width: 200px; /* ลดขนาดรูปบนมือถือ */
     height: auto;
-    border-radius: 15px;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 10px; /* ลดขนาด radius บนมือถือ */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* ลดขนาดเงาบนมือถือ */
     transition: transform 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95), box-shadow 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  }
-  
-  .profile-pic:hover {
-    transform: rotateY(10deg) scale(1.05); /* เอียงเล็กน้อยและขยายเมื่อ hover */
-    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.2);
-  }
-  
-  .nav-link {
-    margin-top: 40px;
-    text-align: center; /* จัดปุ่มกลับไปหน้าหลักตรงกลาง */
-  }
-  
-  .nav-link a {
+}
+
+.profile-pic:hover {
+    transform: rotateY(5deg) scale(1.02); /* ลดเอฟเฟกต์ hover บนมือถือ */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.nav-link a {
     text-decoration: none;
     color: #4a148c;
     font-weight: bold;
-    font-size: 1.1rem;
-    padding: 10px 20px;
-    border: 2px solid #4a148c;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    display: inline-block; /* ทำให้จัดตรงกลางได้ */
-  }
-  
-  .nav-link a:hover {
-    background-color: #4a148c;
-    color: #fff;
-    transform: scale(1.03);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .nav-link a.night-mode {
-    color: #f39c12;
-    border-color: #f39c12;
-  }
-  
-  .nav-link a.night-mode:hover {
-    background-color: #f39c12;
-    color: #333;
-  }
-  
-  .like-button-container {
-    margin-top: 30px;
-    text-align: center;
-  }
-  
-  .like-button {
-    background-color: #ff6d00; /* สีส้มสดใส */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  }
-  
-  .like-button:hover {
-    background-color: #e65100; /* สีส้มเข้มขึ้น */
-    transform: scale(1.05);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .like-button.night-mode {
-    background-color: #f1c40f;
-    color: #333;
-  }
-  
-  .like-button.night-mode:hover {
-    background-color: #e67e22;
-  }
-  
-  .like-count {
-    display: block;
-    margin-top: 10px;
-    font-size: 0.9rem;
-    color: #777;
-    transition: color 0.3s ease;
-  }
-  
-  .like-count.night-mode {
-    color: #bbb;
-  }
-  
-  /* ปุ่ม Night Mode */
-  .night-mode-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    z-index: 1000;
-    transition: background-color 0.3s ease, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  }
-  
-  .night-mode-toggle:hover {
-    background-color: #555;
-    transform: scale(1.05);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  }
-  
-  .night-mode-toggle.night-mode {
-    background-color: #f39c12;
-    color: #333;
-  }
-  
-  .night-mode-toggle.night-mode:hover {
-    background-color: #e67e22;
-  }
+    font-size: 1rem; /* ลดขนาด font บนมือถือ */
+    padding: 8px 15px; /* ลด padding บนมือถือ */
+        border: 1px solid #4a148c; /* ลดความหนาของ border บนมือถือ */
+    }
