@@ -1,456 +1,100 @@
+:root {
+    --gradient-start: #dc2626;
+    --gradient-end: #991b1b;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.9);
+    --accent-color: #fecaca;
+}
+
 body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: rgba(200, 230, 201, 0.6); /* เขียวพาสเทลอ่อน โปร่งแสงขึ้น */
-    color: #333;
-    transition: background 0.3s ease, color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
 }
 
-body.night-mode {
-    background: rgba(44, 62, 80, 0.7); /* เทาเข้ม โปร่งแสงขึ้น */
-    color: #ecf0f1;
-}
-
-header {
-    background-color: rgba(255, 255, 255, 0.7); /* ขาว โปร่งแสงขึ้น */
-    padding: 1rem 2rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-    backdrop-filter: blur(15px); /* เพิ่มความเบลอ */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-header.night-mode {
-    background-color: rgba(30, 30, 30, 0.7); /* ดำ โปร่งแสงขึ้น */
-    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05);
-}
-
-nav {
-    display: flex;
-    justify-content: center; /* เปลี่ยนเป็น center */
-    align-items: center;
-    padding: 0 10px;
-    width: 100%;
-    gap: 20px; /* เพิ่ม gap เพื่อเว้นระยะห่างระหว่างลิงก์ */
-}
-
-nav a {
-    text-decoration: none;
-    color: #4a148c;
-    font-weight: bold;
-    transition: color 0.3s ease;
-    font-size: 1rem;
-}
-
-nav a:hover {
-    color: #7b1fa2;
-}
-
-nav a.night-mode {
-    color: #f39c12;
-}
-
-nav a.night-mode:hover {
-    color: #e67e22;
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .about-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    margin-top: 5rem;
-    min-height: calc(100vh - 5rem);
-    box-sizing: border-box;
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.6s ease-out;
 }
 
-/* CSS สำหรับจัดรูปโปรไฟล์ให้อยู่ตรงกลางบนมือถือและ iPad */
-@media (max-width: 1024px) { /* ครอบคลุมถึง iPad แนวตั้ง */
-    .about-container {
-        display: flex;
-        flex-direction: column; /* จัดเรียงเป็นคอลัมน์ */
-        align-items: center; /* จัดตรงกลางแนวนอน */
-        padding: 20px;
-        margin-top: 5rem;
-        min-height: calc(100vh - 5rem);
-        box-sizing: border-box;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-
-    .photo-zone {
-        width: 80%; /* ปรับขนาดตามต้องการ */
-        display: flex;
-        justify-content: center; /* จัดรูปให้อยู่ตรงกลางแนวนอน */
-        align-items: center; /* จัดรูปให้อยู่ตรงกลางแนวตั้ง (ถ้าจำเป็น) */
-        margin-top: 20px; /* ปรับระยะห่าง */
-        margin-bottom: 20px; /* ปรับระยะห่าง */
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .profile-pic {
-        max-width: 100%; /* ปรับขนาดรูปให้ไม่เกิน Container */
-        height: auto;
-        display: block;
-        margin: 0 auto; /* จัดตรงกลางแนวนอน */
-    }
-
-    .text-zone {
-        width: 100%;
-        padding-right: 0;
-        text-align: center; /* จัดข้อความกลางบนมือถือและ iPad */
-    }
-
-    .skills-section,
-    .tools {
-        text-align: center; /* จัด Skills และ Tools ให้อยู่ตรงกลาง */
-        width: 90%; /* ปรับความกว้าง */
-        margin-left: auto;
-        margin-right: auto;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* CSS สำหรับ Desktop (ความกว้างมากกว่า 1024px) */
-@media (min-width: 1025px) {
-    .about-container {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 60px;
-    }
-
-    .text-zone {
-        flex: 1.2;
-        padding-right: 40px;
-        width: 60%;
-        text-align: left;
-    }
-
-    .photo-zone {
-        flex: 0.8;
-        justify-content: center;
-        width: 40%;
-        margin-left: 20px;
-        align-self: center; /* จัดรูปให้อยู่ตรงกลางแนวตั้งใน row */
-    }
-
-    .skills-section,
-    .tools {
-        text-align: left; /* จัด Skills และ Tools ชิดซ้ายบน Desktop */
-        width: 300px; /* หรือขนาดที่คุณต้องการ */
-    }
-}
-
-.text-zone {
-    width: 100%;
-    padding-right: 0;
-    text-align: center;
-}
-
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.subtitle {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-.subtitle.night-mode {
-    color: #95a5a6;
-}
-
-.bio {
-    font-size: 1rem;
-    line-height: 1.7;
-    margin-top: 15px;
-}
-
-.skills-section {
-    margin-top: 30px;
-    border: 1px solid #ddd;
-    padding: 15px;
-    width: 90%;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    background-color: rgba(255, 255, 255, 0.8); /* พื้นหลังโปร่งแสง */
-    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.skills-section.night-mode {
-    border-color: #555;
-    background-color: rgba(51, 51, 51, 0.8); /* พื้นหลังโปร่งแสง */
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
-}
-
-.skills-section h2 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: #333;
-    text-align: center;
-}
-
-.skills-section h2.night-mode {
-    color: #eee;
-}
-
-.skill {
-    margin-bottom: 20px;
-}
-
-.skill span {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: #555;
-    font-size: 0.9rem;
-}
-
-.skill span.night-mode {
-    color: #ddd;
-}
-
-.bar {
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    height: 8px;
-    width: 100%;
-    overflow: hidden;
-}
-
-.bar.night-mode {
-    background-color: #444;
-}
-
-.progress {
-    height: 100%;
-    border-radius: 10px;
-    transition: width 0.4s ease-in-out;
-}
-
-.progress.high {
-    width: 90%;
-    background: linear-gradient(to right, #81c784, #4caf50);
-}
-
-.progress.medium {
-    width: 60%;
-    background: linear-gradient(to right, #ffb74d, #ff9800);
-}
-
-.progress.low {
-    width: 30%;
-    background: linear-gradient(to right, #e57373, #f44336);
-}
-
-.tools {
-    margin-top: 30px;
-    text-align: center;
-}
-
-.tools h2 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.tools h2.night-mode {
-    color: #eee;
-}
-
-.tools-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-    gap: 10px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    background-color: rgba(255, 255, 255, 0.8); /* พื้นหลังโปร่งแสง */
-    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.tools-grid.night-mode {
-    border-color: #555;
-    background-color: rgba(51, 51, 51, 0.8); /* พื้นหลังโปร่งแสง */
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
-}
-
-.tool {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    text-align: center;
-    border-radius: 5px;
-    padding: 8px;
-}
-
-.tool:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.tool img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    margin-bottom: 3px;
-    transition: opacity 0.2s ease-in-out;
-}
-
-.tool:hover img {
-    opacity: 0.8;
-}
-
-.tool p {
-    font-size: 0.8rem;
-    color: #777;
-    margin: 0;
-    transition: color 0.3s ease;
-}
-
-.tool p.night-mode {
-    color: #bbb;
-}
-
-.photo-zone {
-    width: 80%;
-    margin-left: 0;
-    margin-top: 30px;
-    perspective: 600px;
-    order: -1; /* ให้รูปภาพอยู่ก่อน Skills และ Tools */
-}
-
-@media (min-width: 768px) {
-    .photo-zone {
-        order: 0; /* กลับไปตำแหน่งเดิมบน Desktop */
-    }
-}
-
-.profile-pic {
+.photo-zone img {
     width: 200px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95), box-shadow 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 2rem;
+    display: block;
+    border: 4px solid var(--accent-color);
+    animation: glow 3s ease-in-out infinite alternate;
 }
 
-.profile-pic:hover {
-    transform: rotateY(5deg) scale(1.02);
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-.fire-counter-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
-}
-
-.fire-button {
-    font-size: 2em;
-    cursor: pointer;
-    animation: pulse 1s infinite alternate;
-    user-select: none;
-    transition: transform 0.1s ease-in-out;
-}
-
-.fire-button:active {
-    transform: scale(0.9);
-}
-
-.fire-count {
-    font-size: 1.2em;
-    margin-top: 5px;
-    color: #ff6d00;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px var(--accent-color),
+                   0 0 20px var(--accent-color);
     }
-    100% {
-        transform: scale(1.1);
+    to {
+        box-shadow: 0 0 20px var(--accent-color),
+                   0 0 30px var(--gradient-start);
     }
 }
 
-.fire-grow {
-    animation: growAndShake 0.3s infinite alternate;
+h1, h2, h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
 }
 
-@keyframes growAndShake {
-    0% {
-        transform: scale(1) rotate(0deg);
-    }
-    50% {
-        transform: scale(1.2) rotate(5deg);
-    }
-    100% {
-        transform: scale(1) rotate(-5deg);
-    }
+p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
 }
-.fire-shake {
-    animation: shake 0.3s infinite alternate;
+
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
 }
-@keyframes shake {
-    0% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(-5px);
-    }
-    100% {
-        transform: translateX(5px);
-    }
+
+.skill-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
 }
-.fire-shake {
-    animation: shake 0.3s infinite alternate;
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
 }
-@keyframes shake {
-    0% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(-5px);
-    }
-    100% {
-        transform: translateX(5px);
-    }
-}
-.fire-shake {
-    animation: shake 0.3s infinite alternate;
-}
-@keyframes shake {
-    0% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(-5px);
-    }
-    100% {
-        transform: translateX(5px);
-    }
-}
-.fire-shake {
-    animation: shake 0.3s infinite alternate;
-}
-@keyframes shake {
-    0% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(-5px);
-    }
-    100% {
-        transform: translateX(5px);
-    }
-}
-.fire-shake {
-    animation: shake 0.3s infinite alternate;
-}       

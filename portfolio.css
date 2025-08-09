@@ -1,197 +1,114 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #F4F4F4; /* สีพื้นหลังอ่อน */
-    color: #333; /* สีข้อความหลัก */
+:root {
+    --gradient-start: #dc2626;
+    --gradient-end: #991b1b;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.9);
+    --accent-color: #fecaca;
 }
 
-header {
-    background-color: #A5D6A7; /* สีเขียวพาสเทลกลาง (จาก Contact) */
-    padding: 20px 0;
-    text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
+.portfolio-container {
+    max-width: 1200px;
+    margin: 6rem auto 2rem;
+    padding: 2rem;
 }
 
-header .logo h1 {
-    font-size: 2rem;
-    color: #fff;
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
-nav a {
-    color: white;
-    margin: 0 20px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #7E57C2; /* สีม่วงเข้ม (จาก Contact) */
-}
-
-.search-section {
-    text-align: center;
-    margin-top: 80px; /* คุณมีอันนี้อยู่แล้ว */
-    padding: 20px;
-    background-color: #D1C4E9;
-    padding-top: 100px; /* เพิ่ม Padding ด้านบน */
-}
-#searchInput {
-    padding: 10px;
-    width: 80%;
-    max-width: 400px;
-    border-radius: 20px;
-    border: 2px solid #ccc;
-    outline: none;
-    color: #333; /* สีข้อความ */
-    background-color: white; /* สีพื้นหลัง */
-    font-size: 1em; /* ขนาดตัวอักษร */
-    display: block; /* ให้เป็น Block Element เพื่อจัด Margin ได้ง่าย */
-    margin: 20px auto; /* จัดกลาง */
-}
-
-#searchInput {
-    padding: 10px;
-    width: 80%;
-    max-width: 400px;
-    border-radius: 20px;
-    border: 2px solid #ccc;
-    outline: none;
-}
-
-#autocomplete-list {
-    list-style-type: none;
-    padding: 0;
-    max-height: 150px;
-    overflow-y: auto;
-    margin-top: 5px;
-    position: absolute;
-    width: 80%;
-    max-width: 400px;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-#autocomplete-list li {
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#autocomplete-list li:hover {
-    background-color: #f4f4f4;
-}
-
-.portfolio {
-    padding: 100px 20px 50px 20px; /* ปรับ Padding */
-    text-align: center;
-    background-color: #C8E6C9; /* สีเขียวพาสเทลอ่อน (จาก Contact) */
-}
-
-.portfolio h1 {
-    color: #7E57C2; /* สีม่วงเข้ม (จาก Contact) */
-    margin-bottom: 30px;
-}
-
-.project {
-    display: flex;
-    flex-direction: column; /* เปลี่ยนเป็น Column สำหรับ Responsive */
-    align-items: center;
-    margin: 20px auto;
-    background-color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 20px;
+.portfolio-item {
+    background: var(--card-bg);
+    border-radius: 1rem;
     overflow: hidden;
-    max-width: 90%; /* ปรับ Max Width สำหรับ Responsive */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease-out;
 }
 
-/* ปรับเมื่อหน้าจอกว้างขึ้น */
-@media (min-width: 768px) {
-    .project {
-        flex-direction: row; /* กลับเป็น Row บน Desktop */
-        justify-content: center;
-    }
-
-    .project-info {
-        margin-left: 20px;
-        text-align: left;
-    }
-
-    .project-image {
-        flex-shrink: 0; /* ไม่ให้รูปย่อเกินไป */
-    }
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
 
-.project:hover {
-    transform: translateY(-5px); /* ลดการยกเล็กน้อย */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.project-image img {
-    width: 100%; /* ให้รูปเต็มความกว้าง Container บนมือถือ */
-    max-width: 300px; /* ขนาดสูงสุดของรูป */
-    height: auto;
-    border-radius: 8px;
-    object-fit: cover;
-    margin-bottom: 15px; /* เพิ่ม Margin ด้านล่างรูปบนมือถือ */
-}
-
-.project-info {
-    text-align: center; /* จัดข้อความกลางบนมือถือ */
-}
-
-.project-info h2 {
-    color: #7E57C2; /* สีม่วงเข้ม (จาก Contact) */
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-.project-info p {
-    font-size: 0.9em;
-    line-height: 1.6;
-    color: #555;
-    margin-bottom: 15px;
-}
-
-.project-info a {
-    text-decoration: none;
-    color: #fff;
-    background-color: #7E57C2; /* สีม่วงเข้ม (จาก Contact) */
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.project-info a:hover {
-    background-color: #9575CD; /* สีม่วงพาสเทลกลาง (จาก Contact) */
-}
-
-footer {
-    background-color: #9575CD; /* สีม่วงพาสเทลกลาง (จาก Contact) */
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+.portfolio-image {
     width: 100%;
-    font-size: 0.8em;
+    height: 200px;
+    object-fit: cover;
 }
 
-footer {
-    background-color: #222;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
+.portfolio-content {
+    padding: 1.5rem;
+}
+
+.portfolio-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.portfolio-description {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.portfolio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.portfolio-tag {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    color: var(--accent-color);
+}
+
+.portfolio-links {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.portfolio-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.portfolio-link:hover {
+    color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .portfolio-container {
+        margin: 4rem 1rem 2rem;
+        padding: 1rem;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

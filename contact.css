@@ -1,187 +1,100 @@
-/* กำหนดสีพาสเทลให้สดใส */
 :root {
-    --primary-light-green: #C8E6C9;
-    --primary-green: #A5D6A7;
-    --primary-dark-green: #388E3C;
-    --secondary-light-purple: #D1C4E9;
-    --secondary-purple: #9575CD;
-    --accent-purple: #7E57C2;
-    --text-color: #333;
+    --gradient-start: #dc2626;
+    --gradient-end: #991b1b;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.9);
+    --accent-color: #fecaca;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: var(--text-color);
-    line-height: 1.6;
-    background-color: #f4f4f4; /* สีพื้นหลังสำรอง */
+.contact-container {
+    max-width: 800px;
+    margin: 6rem auto 2rem;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.6s ease-out;
 }
 
-header {
-    background: linear-gradient(45deg, var(--primary-green), var(--secondary-purple));
-    padding: 15px 0;
-    text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
+.contact-form {
+    display: grid;
+    gap: 1.5rem;
 }
 
-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0 10px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-    font-size: 0.9em;
-    padding: 8px 10px;
-}
-
-nav a:hover {
-    color: var(--accent-purple);
-}
-
-.contact {
-    text-align: center;
-    padding: 80px 20px 30px 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* พื้นหลังโปร่งแสงสำหรับ Section */
-    border-radius: 8px;
-    margin-top: 0;
-    margin: 20px auto;
-    max-width: 95%;
-    padding-bottom: 60px; /* เพิ่ม padding ด้านล่างเพื่อไม่ให้เนื้อหาชิดขอบล่าง */
-}
-
-.contact h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.contact-profile {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.contact-profile img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-/* ... CSS เดิม ... */
-
-.contact-links {
+.form-group {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    margin-top: 30px;
+    gap: 0.5rem;
 }
 
-.contact-links a {
-    /* ... CSS เดิม ... */
-    opacity: 0; /* เริ่มต้นด้วยความโปร่งใส 0 */
-    transform: translateY(20px); /* เลื่อนลงเล็กน้อย */
-    animation: fadeIn 0.5s ease-out forwards; /* เพิ่ม Animation */
+.form-group label {
+    color: var(--text-primary);
+    font-weight: 500;
 }
 
-/* กำหนด Delay ให้แต่ละปุ่ม */
-.contact-links a:nth-child(1) {
-    animation-delay: 0.3s;
+.form-group input,
+.form-group textarea {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+    font-family: inherit;
+    transition: all 0.3s ease;
 }
 
-.contact-links a:nth-child(2) {
-    animation-delay: 0.5s;
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(254, 202, 202, 0.2);
 }
 
-.contact-links a:nth-child(3) {
-    animation-delay: 0.7s;
-}
-
-/* Animation Keyframes (ถ้ายังไม่มี) */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ... CSS เดิม ... */
-
-.button, .instagram-button, .linkedin-button, .github-button, a {
+.submit-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--accent-color);
+    color: var(--gradient-start);
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
     cursor: pointer;
-    display: inline-flex;
-    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(254, 202, 202, 0.3);
+}
+
+.social-info {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
     justify-content: center;
-    padding: 0.6rem 1.2rem; /* ปรับ Padding */
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 10px;
-    transition: background 0.3s ease, transform 0.2s;
-    width: fit-content;
-    font-size: 1em; /* ปรับขนาด Font */
-    white-space: nowrap; /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    gap: 1.5rem;
+    margin-top: 1rem;
 }
 
-.instagram-button {
-    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-    color: white;
+.social-icon {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
 }
 
-.linkedin-button {
-    background-color: #0077B5;
-    color: white;
+.social-icon:hover {
+    color: var(--accent-color);
+    transform: translateY(-2px);
 }
 
-.github-button {
-    background-color: #333;
-    color: white;
-}
-
-.instagram-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.linkedin-button:hover {
-    background-color: #005a82;
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.github-button:hover {
-    background-color: #555;
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.instagram-button i,
-.linkedin-button i,
-.github-button i {
-    margin-right: 0.5rem;
-    font-size: 1.2em;
-}
-
-/* พื้นหลังภาพเบลอ */
-.background-image {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://i.imgur.com/hXiO3jp.jpg');
-    background-size: cover;
-    background-position: center bottom;
-    filter: blur(8px);
-    z-index: -1;
+@media (max-width: 768px) {
+    .contact-container {
+        margin: 4rem 1rem 2rem;
+        padding: 1.5rem;
+    }
 }
