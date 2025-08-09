@@ -1,4 +1,12 @@
-/* Reset and basic styles */
+:root {
+    --gradient-start: #dc2626;
+    --gradient-end: #991b1b;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.9);
+    --accent-color: #fecaca;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,212 +14,179 @@
 }
 
 body {
-    background-color: #f4f4f4; /* เพิ่มสีพื้นหลังหลัก */
-    color: #333; /* สีข้อความหลัก */
-    font-family: sans-serif; /* ฟอนต์เริ่มต้น */
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: var(--text-primary);
+    min-height: 100vh;
     line-height: 1.6;
-    overflow-y: auto; /* เพิ่ม Scrollbar ด้านขวาเมื่อเนื้อหาเกิน */
-}
-
-/* กำหนดรูปภาพพื้นหลัง (สำหรับ Desktop) */
-.home-page::before { /* ใช้ ::before pseudo-element */
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://i.imgur.com/hXiO3jp');
-    background-size: cover;
-    background-position: center bottom;
-    background-attachment: fixed;
-    z-index: -2; /* อยู่หลังพื้นหลังเบลอ */
-}
-
-/* พื้นหลังภาพเบลอ */
-.background-image {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://i.imgur.com/hXiO3jp.jpg');
-    background-size: cover;
-    background-position: center;
-    filter: blur(8px);
-    z-index: -1;
-}
-
-header {
     padding: 2rem 1rem;
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.profile {
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.3); /* สีพื้นหลัง Header โปร่งใส */
-    color: white;
-}
-
-header h1 {
-    font-size: 2.5em; /* ลดขนาด Font สำหรับมือถือ */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-}
-
-.profile-section {
-    display: flex;
-    justify-content: center;
-    padding: 2rem 1rem; /* ปรับ Padding สำหรับมือถือ */
-}
-
-.profile-card {
-    display: flex;
-    flex-direction: column; /* จัดเรียงแนวตั้งสำหรับมือถือ */
-    align-items: center;
-    gap: 1.5rem; /* ปรับ Gap สำหรับมือถือ */
-    background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    padding: 1.5rem; /* ปรับ Padding สำหรับมือถือ */
-    border-radius: 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    text-align: center; /* จัดข้อความกลางสำหรับมือถือ */
-}
-
-/* ปรับเมื่อหน้าจอกว้างขึ้น */
-@media (min-width: 768px) {
-    .profile-card {
-        flex-direction: row; /* จัดเรียงแนวนอนสำหรับ Desktop */
-        text-align: left; /* จัดข้อความชิดซ้ายสำหรับ Desktop */
-    }
-}
-
-.profile-image-container {
-    width: 150px; /* ปรับขนาดรูปสำหรับมือถือ */
-    height: 180px; /* ปรับขนาดรูปสำหรับมือถือ */
-    overflow: hidden;
-    border-radius: 1rem;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.profile-card:hover .profile-image-container {
-    transform: scale(1.05);
+    margin-bottom: 3rem;
 }
 
 .profile-image {
-    width: 100%;
-    height: 100%;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    border: 4px solid var(--accent-color);
     object-fit: cover;
-    transition: transform 0.3s ease;
+    animation: glow 3s ease-in-out infinite alternate;
 }
 
-.profile-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem; /* ปรับ Gap สำหรับมือถือ */
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px var(--accent-color),
+                   0 0 20px var(--accent-color);
+    }
+    to {
+        box-shadow: 0 0 20px var(--accent-color),
+                   0 0 30px var(--gradient-start);
+    }
 }
 
-.profile-info h2 {
-    font-size: 1.8em; /* ปรับขนาด Font สำหรับมือถือ */
-}
-
-.instagram-button {
-    background: linear-gradient(45deg, #9b6cf1, #6cd3b5);
-    color: white;
-    padding: 0.5rem 1rem; /* ปรับ Padding สำหรับมือถือ */
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 10px;
-    transition: background 0.3s ease, transform 0.2s;
-    width: fit-content;
-    font-size: 0.9em; /* ปรับขนาด Font สำหรับมือถือ */
-}
-
-.instagram-button:hover {
-    background: linear-gradient(45deg, #8a5de0, #5bbfa4);
-    transform: scale(1.05);
-}
-
-.intro {
-    padding: 2rem 1rem;
-    text-align: center;
-    color: white;
-    z-index: 1;
-}
-
-.intro-text h2 {
-    font-size: 2em; /* ปรับขนาด Font สำหรับมือถือ */
+.profile h1 {
+    font-size: 2rem;
     margin-bottom: 0.5rem;
 }
 
-.intro-text p {
-    font-size: 1em; /* ปรับขนาด Font สำหรับมือถือ */
+.profile p {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.section {
+    background: var(--card-bg);
+    border-radius: 1rem;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section h2 {
     margin-bottom: 1.5rem;
+    font-size: 1.5rem;
 }
 
-.intro-buttons {
-    display: flex;
-    flex-direction: column; /* จัดเรียงแนวตั้งสำหรับมือถือ */
-    align-items: center;
-    gap: 1rem; /* ปรับ Gap สำหรับมือถือ */
-    z-index: 1;
+.skills-grid, .certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
 }
 
-/* ปรับเมื่อหน้าจอกว้างขึ้น */
-@media (min-width: 768px) {
-    .intro-buttons {
-        flex-direction: row; /* จัดเรียงแนวนอนสำหรับ Desktop */
-        justify-content: center;
-        gap: 20px;
-    }
-}
-
-.button {
-    background-color: rgba(0, 128, 0, 0.8);
-    color: white;
-    padding: 0.8rem 1.5rem; /* ปรับ Padding สำหรับมือถือ */
-    border-radius: 5px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    font-size: 0.9em; /* ปรับขนาด Font สำหรับมือถือ */
-    width: 100%; /* ให้ปุ่มเต็มความกว้างบนมือถือ */
-}
-
-/* ปรับเมื่อหน้าจอกว้างขึ้น */
-@media (min-width: 768px) {
-    .button {
-        width: auto; /* ให้ปุ่มปรับขนาดตามเนื้อหาบน Desktop */
-        padding: 10px 20px;
-        font-size: 1em;
-    }
-}
-
-footer {
-    position: fixed; /* เปลี่ยนเป็น fixed */
-    bottom: 0;
-    left: 0;
+.skill-card, .cert-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
     text-align: center;
-    width: 100%;
-    font-size: 0.8em; /* ปรับขนาด Font สำหรับมือถือ */
-    color: white;
-    z-index: 2; /* ให้อยู่เหนือพื้นหลัง */
-    background-color: rgba(0, 0, 0, 0.5); /* เพิ่มพื้นหลังโปร่งใส */
-    padding: 0.5rem 0; /* ปรับ Padding สำหรับมือถือ */
+    transition: transform 0.3s ease;
 }
 
-/* ปรับเมื่อหน้าจอกว้างขึ้น */
-@media (min-width: 768px) {
-    footer {
-        position: absolute; /* กลับเป็น absolute บน Desktop */
-        bottom: 10px;
-        font-size: 0.9em;
-        padding: 0;
-        background-color: transparent; /* พื้นหลังโปร่งใสบน Desktop */
+.skill-card:hover, .cert-card:hover {
+    transform: translateY(-5px);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.project-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.social-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    gap: 0.5rem;
+}
+
+.social-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.social-button i {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
     }
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-.button, .instagram-button, a {
-    cursor: pointer;
+    
+    .profile h1 {
+        font-size: 1.5rem;
+    }
+    
+    .section {
+        padding: 1.5rem;
+    }
+    
+    .cert-card {
+        font-size: 0.9rem;
+    }
 }
