@@ -1,217 +1,166 @@
-/* Reset and basic styles */
+/* Link in bio styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: #f4f4f4; /* เพิ่มสีพื้นหลังหลัก */
-    color: #333; /* สีข้อความหลัก */
-    font-family: sans-serif; /* ฟอนต์เริ่มต้น */
-    line-height: 1.6;
-    overflow-y: auto; /* เพิ่ม Scrollbar ด้านขวาเมื่อเนื้อหาเกิน */
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  background: linear-gradient(135deg, #3b82f6, #a855f7);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-/* กำหนดรูปภาพพื้นหลัง (สำหรับ Desktop) */
-.home-page::before { /* ใช้ ::before pseudo-element */
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://i.imgur.com/hXiO3jp');
-    background-size: cover;
-    background-position: center bottom;
-    background-attachment: fixed;
-    z-index: -2; /* อยู่หลังพื้นหลังเบลอ */
+.container {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
 }
 
-/* พื้นหลังภาพเบลอ */
-.background-image {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://i.imgur.com/hXiO3jp.jpg');
-    background-size: cover;
-    background-position: center;
-    filter: blur(8px);
-    z-index: -1;
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin: 0 auto 1rem;
+  display: block;
 }
 
-header {
-    padding: 2rem 1rem;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.3); /* สีพื้นหลัง Header โปร่งใส */
-    color: white;
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
-header h1 {
-    font-size: 2.5em; /* ลดขนาด Font สำหรับมือถือ */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+.bio {
+  font-weight: 300;
+  font-size: 1rem;
+  margin-bottom: 2rem;
 }
 
-.profile-section {
-    display: flex;
-    justify-content: center;
-    padding: 2rem 1rem; /* ปรับ Padding สำหรับมือถือ */
+.divider {
+  width: 60%;
+  margin: 2rem auto;
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
 }
 
-.profile-card {
-    display: flex;
-    flex-direction: column; /* จัดเรียงแนวตั้งสำหรับมือถือ */
-    align-items: center;
-    gap: 1.5rem; /* ปรับ Gap สำหรับมือถือ */
-    background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    padding: 1.5rem; /* ปรับ Padding สำหรับมือถือ */
-    border-radius: 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    text-align: center; /* จัดข้อความกลางสำหรับมือถือ */
+section {
+  margin-bottom: 2rem;
 }
 
-/* ปรับเมื่อหน้าจอกว้างขึ้น */
-@media (min-width: 768px) {
-    .profile-card {
-        flex-direction: row; /* จัดเรียงแนวนอนสำหรับ Desktop */
-        text-align: left; /* จัดข้อความชิดซ้ายสำหรับ Desktop */
-    }
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
 }
 
-.profile-image-container {
-    width: 150px; /* ปรับขนาดรูปสำหรับมือถือ */
-    height: 180px; /* ปรับขนาดรูปสำหรับมือถือ */
-    overflow: hidden;
-    border-radius: 1rem;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 }
 
-.profile-card:hover .profile-image-container {
-    transform: scale(1.05);
+.card {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
 }
 
-.profile-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+.projects-list {
+  list-style: none;
+  padding: 0;
 }
 
-.profile-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem; /* ปรับ Gap สำหรับมือถือ */
+.projects-list li {
+  background: rgba(255, 255, 255, 0.15);
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.profile-info h2 {
-    font-size: 1.8em; /* ปรับขนาด Font สำหรับมือถือ */
+.email {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.instagram-button {
-    background: linear-gradient(45deg, #9b6cf1, #6cd3b5);
-    color: white;
-    padding: 0.5rem 1rem; /* ปรับ Padding สำหรับมือถือ */
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 10px;
-    transition: background 0.3s ease, transform 0.2s;
-    width: fit-content;
-    font-size: 0.9em; /* ปรับขนาด Font สำหรับมือถือ */
+.email:hover {
+  text-decoration: underline;
 }
 
-.instagram-button:hover {
-    background: linear-gradient(45deg, #8a5de0, #5bbfa4);
-    transform: scale(1.05);
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.intro {
-    padding: 2rem 1rem;
-    text-align: center;
-    color: white;
-    z-index: 1;
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: transform 0.2s ease, background 0.3s ease;
 }
 
-.intro-text h2 {
-    font-size: 2em; /* ปรับขนาด Font สำหรับมือถือ */
-    margin-bottom: 0.5rem;
+.social-btn:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.2);
 }
 
-.intro-text p {
-    font-size: 1em; /* ปรับขนาด Font สำหรับมือถือ */
-    margin-bottom: 1.5rem;
+.social-btn.youtube {
+  background: rgba(255, 0, 0, 0.6);
 }
 
-.intro-buttons {
-    display: flex;
-    flex-direction: column; /* จัดเรียงแนวตั้งสำหรับมือถือ */
-    align-items: center;
-    gap: 1rem; /* ปรับ Gap สำหรับมือถือ */
-    z-index: 1;
+.social-btn.youtube:hover {
+  background: rgba(255, 0, 0, 0.8);
 }
 
-/* ปรับเมื่อหน้าจอกว้างขึ้น */
-@media (min-width: 768px) {
-    .intro-buttons {
-        flex-direction: row; /* จัดเรียงแนวนอนสำหรับ Desktop */
-        justify-content: center;
-        gap: 20px;
-    }
+.social-btn.tiktok {
+  background: rgba(0, 0, 0, 0.6);
 }
 
-.button {
-    background-color: rgba(0, 128, 0, 0.8);
-    color: white;
-    padding: 0.8rem 1.5rem; /* ปรับ Padding สำหรับมือถือ */
-    border-radius: 5px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    font-size: 0.9em; /* ปรับขนาด Font สำหรับมือถือ */
-    width: 100%; /* ให้ปุ่มเต็มความกว้างบนมือถือ */
+.social-btn.tiktok:hover {
+  background: rgba(0, 0, 0, 0.8);
 }
 
-/* ปรับเมื่อหน้าจอกว้างขึ้น */
-@media (min-width: 768px) {
-    .button {
-        width: auto; /* ให้ปุ่มปรับขนาดตามเนื้อหาบน Desktop */
-        padding: 10px 20px;
-        font-size: 1em;
-    }
+.social-btn.linkedin {
+  background: rgba(0, 114, 177, 0.6);
+}
+
+.social-btn.linkedin:hover {
+  background: rgba(0, 114, 177, 0.8);
 }
 
 footer {
-    position: fixed; /* เปลี่ยนเป็น fixed */
-    bottom: 0;
-    left: 0;
-    text-align: center;
-    width: 100%;
-    font-size: 0.8em; /* ปรับขนาด Font สำหรับมือถือ */
-    color: white;
-    z-index: 2; /* ให้อยู่เหนือพื้นหลัง */
-    background-color: rgba(0, 0, 0, 0.5); /* เพิ่มพื้นหลังโปร่งใส */
-    padding: 0.5rem 0; /* ปรับ Padding สำหรับมือถือ */
+  font-size: 0.8rem;
+  margin-top: 2rem;
+  opacity: 0.8;
 }
 
-/* ปรับเมื่อหน้าจอกว้างขึ้น */
-@media (min-width: 768px) {
-    footer {
-        position: absolute; /* กลับเป็น absolute บน Desktop */
-        bottom: 10px;
-        font-size: 0.9em;
-        padding: 0;
-        background-color: transparent; /* พื้นหลังโปร่งใสบน Desktop */
-    }
-}
+@media (min-width: 600px) {
+  .social-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
-html {
-    scroll-behavior: smooth;
-}
-
-.button, .instagram-button, a {
-    cursor: pointer;
+  .social-btn {
+    flex: 1 1 calc(50% - 1rem);
+  }
 }
