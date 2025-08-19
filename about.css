@@ -5,6 +5,8 @@
     --text-primary: #ffffff;
     --text-secondary: rgba(255, 255, 255, 0.9);
     --accent-color: #fecaca;
+    --neutral-100: rgba(255, 255, 255, 0.08);
+    --neutral-200: rgba(255, 255, 255, 0.16);
 }
 
 body {
@@ -87,14 +89,15 @@ p {
 }
 
 .skill-item {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--neutral-100);
     padding: 1rem;
     border-radius: 0.5rem;
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
 
 .skill-item:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--neutral-200);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }

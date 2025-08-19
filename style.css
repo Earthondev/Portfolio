@@ -5,6 +5,10 @@
     --text-primary: #ffffff;
     --text-secondary: rgba(255, 255, 255, 0.9);
     --accent-color: #fecaca;
+    --neutral-100: rgba(255, 255, 255, 0.08);
+    --neutral-200: rgba(255, 255, 255, 0.16);
+    --neutral-800: rgba(0, 0, 0, 0.4);
+    --ring-color: rgba(254, 202, 202, 0.35);
 }
 
 * {
@@ -160,17 +164,78 @@ body {
     border-radius: 2rem;
     text-decoration: none;
     color: var(--text-primary);
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
     gap: 0.5rem;
 }
 
 .social-button:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--neutral-200);
     transform: translateY(-2px);
+    box-shadow: 0 6px 24px var(--neutral-800);
 }
 
 .social-button i {
     font-size: 1.2rem;
+}
+
+/* Global anchors and buttons */
+a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1rem;
+    border-radius: 9999px;
+    background: var(--neutral-100);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-primary);
+    transition: all 0.25s ease;
+}
+
+.button:hover {
+    background: var(--neutral-200);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px var(--neutral-800);
+}
+
+/* Cards and grid hover refinements */
+.skill-card, .cert-card, .project-card {
+    background: var(--neutral-100);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.skill-card:hover, .cert-card:hover, .project-card:hover {
+    background: var(--neutral-200);
+    box-shadow: 0 10px 30px var(--neutral-800);
+}
+
+/* Inputs look consistent with glass theme */
+input[type="text"], input[type="email"], textarea {
+    background: var(--neutral-100);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: var(--text-primary);
+    border-radius: 0.5rem;
+    padding: 0.75rem 0.875rem;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px var(--ring-color);
+}
+
+/* Optional subtle divider for sections */
+.section + .section {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 @media (max-width: 768px) {
