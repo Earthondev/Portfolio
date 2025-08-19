@@ -11,7 +11,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="contact.css">
-</head>
+    <style>
+        .contact-header { text-align: center; margin-bottom: 1rem; }
+        .contact-profile { text-align: center; margin: 1rem 0 2rem; }
+        .contact-profile img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-color); }
+    </style>
+    </head>
 <body>
     <nav class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-lg">
         <div class="max-w-6xl mx-auto px-4">
@@ -27,41 +32,36 @@
         </div>
     </nav>
 
-    <section class="contact">
-        <h1>Contact Me</h1>
-
+    <section class="contact contact-container">
+        <h1 class="contact-header">Contact Me</h1>
         <div class="contact-profile">
             <img src="https://imgur.com/NbLwK3F.jpg" alt="Nattapart Profile">
         </div>
-
-        <div class="contact-links">
-            <a
-                href="https://www.instagram.com/nattapart_on_earth/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="instagram-button"
-            >
-                <i class="fab fa-instagram"></i> Follow on Instagram
-            </a>
-            <a
-                href="https://www.linkedin.com/in/nattapart-worakun"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="linkedin-button"
-            >
-                <i class="fab fa-linkedin"></i> Connect on LinkedIn
-            </a>
-            <a
-                href="https://github.com/Earthondev"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="github-button"
-            >
-                <i class="fab fa-github"></i> View on GitHub
-            </a>
+        <form id="contact-form" class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="you@example.com">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="4" placeholder="How can I help?"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send</button>
+            <div id="form-status" style="margin-top:0.75rem; color: var(--text-secondary);"></div>
+        </form>
+        <div class="social-info">
+            <div class="social-links">
+                <a class="social-icon" href="https://www.instagram.com/nattapart_on_earth/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a class="social-icon" href="https://www.linkedin.com/in/nattapart-worakun" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                <a class="social-icon" href="https://github.com/Earthondev" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            </div>
         </div>
     </section>
 
-    <script src="contact.js"></script>
+    <script src="Contact.js"></script>
 </body>
 </html>
