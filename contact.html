@@ -34,10 +34,10 @@
 
     <section class="contact contact-container">
         <h1 class="contact-header">Contact Me</h1>
-        <div class="contact-profile">
+        <div class="contact-profile reveal">
             <img src="https://imgur.com/NbLwK3F.jpg" alt="Nattapart Profile">
         </div>
-        <form id="contact-form" class="contact-form">
+        <form id="contact-form" class="contact-form reveal">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" placeholder="Your name">
@@ -53,7 +53,7 @@
             <button type="submit" class="submit-btn">Send</button>
             <div id="form-status" style="margin-top:0.75rem; color: var(--text-secondary);"></div>
         </form>
-        <div class="social-info">
+        <div class="social-info reveal">
             <div class="social-links">
                 <a class="social-icon" href="https://www.instagram.com/nattapart_on_earth/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                 <a class="social-icon" href="https://www.linkedin.com/in/nattapart-worakun" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
@@ -62,6 +62,16 @@
         </div>
     </section>
 
+    <script>
+    (function() {
+        const els = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('show')); return; }
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('show'); io.unobserve(en.target); } });
+        }, { threshold: 0.12 });
+        els.forEach(e => io.observe(e));
+    })();
+    </script>
     <script src="Contact.js"></script>
 </body>
 </html>

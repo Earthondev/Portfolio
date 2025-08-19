@@ -27,10 +27,10 @@
         </div>
     </nav>
   <div class="about-container">
-    <div class="photo-zone">
+    <div class="photo-zone reveal">
       <img src="https://i.imgur.com/QuzxPug.png" alt="Profile" class="profile-pic"/>
     </div>
-    <div class="text-zone">
+    <div class="text-zone reveal">
       <h1>Hi, I'm Nattapart Worakun</h1>
       <p class="subtitle">Chemist ⚗️ turned Aspiring Data Analyst 📊</p>
       <p class="bio">
@@ -39,7 +39,7 @@
         <br/><br/>
         ตอนนี้ผมกำลังมุ่งสู่สาย Data Analyst/Data Scientist และกำลังพัฒนา Portfolio ที่คุณกำลังดูอยู่นี้เองครับ 😊
       </p>
-      <div class="skills-section">
+      <div class="skills-section reveal">
         <h2>Skills</h2>
         <div class="skill">
           <span>Excel + VBA Automation</span>
@@ -69,6 +69,24 @@
           <span>HTML + React (basic)</span>
           <div class="bar">
             <div class="progress medium"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section reveal" style="margin-top: 1.5rem;">
+        <h2>Highlights</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <h3 class="service-title">Process Automation</h3>
+            <p class="service-desc">ลดเวลางานซ้ำๆ ด้วย Google Sheets + Apps Script + AppSheet และแจ้งเตือนผ่าน LINE</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-title">Insightful Dashboards</h3>
+            <p class="service-desc">ออกแบบ Power BI Dashboard ที่สื่อสาร KPI ชัดเจน ใช้งานง่าย</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-title">Data Quality</h3>
+            <p class="service-desc">วางขั้นตอนทำความสะอาดข้อมูล (SQL/Spreadsheet) เพื่อความน่าเชื่อถือก่อนวิเคราะห์</p>
           </div>
         </div>
       </div>
@@ -111,6 +129,16 @@
       <span class="fire-count" id="fireCount">0</span>
     </div>
   </div>
+  <script>
+    (function() {
+      const els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('show')); return; }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('show'); io.unobserve(en.target); } });
+      }, { threshold: 0.12 });
+      els.forEach(e => io.observe(e));
+    })();
+  </script>
   <script src="about.js"></script>
 </body>
 </html>

@@ -28,37 +28,48 @@
     </nav>
 
     <!-- Search Bar with Autocomplete -->
-    <section class="search-section" style="max-width: 800px; margin: 6rem auto 2rem; padding: 0 1rem;">
-        <input type="text" id="searchInput" placeholder="Search projects...">
-        <ul id="autocomplete-list"></ul>
+    <section class="search-section" style="max-width: 960px; margin: 6rem auto 2rem; padding: 0 1rem;">
+        <input type="text" id="searchInput" placeholder="Search projects..." style="width:100%; padding:0.9rem 1rem; border-radius:0.75rem; background: rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); color:#fff;">
+        <ul id="autocomplete-list" style="margin-top:0.5rem; background: rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.12); border-radius:0.5rem; list-style:none; padding:0.25rem 0;"></ul>
     </section>
 
     <!-- Portfolio Section -->
     <section class="portfolio" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
-        <h1>My Projects</h1>
+        <h1 style="margin-bottom:1rem;">My Projects</h1>
 
-        <!-- Project 1 -->
-        <div class="project" data-tools="excel appsheets google sheets line notify sql">
-            <div class="project-image">
-                <img src="https://imgur.com/WdhBbTt.png" alt="Amino Acid Joblist">
-            </div>
-            <div class="project-info">
-                <h2>Amino Acid Profile</h2>
-                <p>This project involves Amino Acid Profile analysis and sends alerts to LINE for results.</p>
-                <a href="https://github.com/Earthondev/Amino-Acid-Profile" target="_blank">View Project</a>
-            </div>
-        </div>
+        <div class="portfolio-grid">
+            <article class="portfolio-item reveal">
+                <img class="portfolio-image" src="https://imgur.com/WdhBbTt.png" alt="Amino Acid Profile">
+                <div class="portfolio-content">
+                    <h2 class="portfolio-title">Amino Acid Profile</h2>
+                    <p class="portfolio-description">Amino Acid Profile analysis pipeline with LINE alerts and job tracking.</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Google Sheets</span>
+                        <span class="portfolio-tag">Apps Script</span>
+                        <span class="portfolio-tag">SQL</span>
+                        <span class="portfolio-tag">LINE Notify</span>
+                    </div>
+                    <div class="portfolio-links">
+                        <a class="portfolio-link" href="https://github.com/Earthondev/Amino-Acid-Profile" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</a>
+                    </div>
+                </div>
+            </article>
 
-        <!-- Project 2 -->
-        <div class="project" data-tools="google sheets appsheets sql line notify">
-            <div class="project-image">
-                <img src="https://imgur.com/qufXFl0.png" alt="Dashboard">
-            </div>
-            <div class="project-info">
-                <h2>Inventory Chemical</h2>
-                <p>This project handles chemical inventory and provides alerts when chemicals are running low.</p>
-                <a href="https://github.com/Earthondev/Inventory-Chemical" target="_blank">View Project</a>
-            </div>
+            <article class="portfolio-item reveal">
+                <img class="portfolio-image" src="https://imgur.com/qufXFl0.png" alt="Inventory Chemical">
+                <div class="portfolio-content">
+                    <h2 class="portfolio-title">Inventory Chemical</h2>
+                    <p class="portfolio-description">Inventory management with restock alerts and dashboard reporting.</p>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Google Sheets</span>
+                        <span class="portfolio-tag">AppSheet</span>
+                        <span class="portfolio-tag">Automation</span>
+                    </div>
+                    <div class="portfolio-links">
+                        <a class="portfolio-link" href="https://github.com/Earthondev/Inventory-Chemical" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</a>
+                    </div>
+                </div>
+            </article>
         </div>
     </section>
 
@@ -67,6 +78,16 @@
         <p>© 2025 Nattapart Worakun</p>
     </footer>
 
+    <script>
+    (function() {
+        const els = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('show')); return; }
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('show'); io.unobserve(en.target); } });
+        }, { threshold: 0.12 });
+        els.forEach(e => io.observe(e));
+    })();
+    </script>
     <script src="portfolio.js"></script>
 </body>
 </html>
