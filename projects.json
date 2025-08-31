@@ -14,24 +14,24 @@
       "การ์ด UI อ่านง่าย, responsive, มีระยะทางแสดง (เช่น 7.0 กม.)"
     ],
     "coverImage": {
-      "src": "/assets/projects/hanaihang/cover.webp",
+      "src": "./assets/projects/hanaihang/cover.webp",
       "alt": "หน้าค้นหาห้างใกล้คุณของ HaaNaiHang"
     },
     "gallery": [
       {
-        "src": "/assets/projects/hanaihang/cover.webp",
+        "src": "./assets/projects/hanaihang/cover.webp",
         "alt": "หน้าแรก: ปุ่มระบุตำแหน่ง + ช่องค้นหา + การ์ดห้าง"
       },
       {
-        "src": "/assets/projects/hanaihang/gallery-02.webp",
+        "src": "./assets/projects/hanaihang/gallery-02.webp",
         "alt": "Admin: ตารางรายการศูนย์การค้าและสรุปข้อมูลสำคัญ"
       },
       {
-        "src": "/assets/projects/hanaihang/gallery-03.webp",
+        "src": "./assets/projects/hanaihang/gallery-03.webp",
         "alt": "Admin: ฟอร์มเพิ่มร้านค้า—เลือกห้าง, ชั้น, หมวดหมู่, เวลาเปิดปิด"
       },
       {
-        "src": "/assets/projects/hanaihang/gallery-04.webp",
+        "src": "./assets/projects/hanaihang/gallery-04.webp",
         "alt": "หน้าค้นหา—ผลลัพธ์ห้างหลายรายการพร้อมระยะทาง"
       }
     ],

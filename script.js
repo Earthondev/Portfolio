@@ -79,10 +79,14 @@ async function loadJSON(url) {
 // Load data from JSON files with error handling
 async function loadData() {
     try {
+        console.log('Loading data from JSON files...');
         const [projectsData, servicesData] = await Promise.all([
-            loadJSON('/projects.json'),
-            loadJSON('services.json')
+            loadJSON('./projects.json'),
+            loadJSON('./services.json')
         ]);
+        
+        console.log('Projects data:', projectsData);
+        console.log('Services data:', servicesData);
         
         projects = projectsData;
         services = servicesData.services || [];
@@ -93,10 +97,12 @@ async function loadData() {
         renderCertifications(servicesData.certifications || []);
         
         // Show fallback message if no data loaded
-        if (projects.length === 0) {
+        if (!projects || projects.length === 0) {
+            console.warn('No projects data loaded');
             showFallbackMessage('projects');
         }
-        if (services.length === 0) {
+        if (!services || services.length === 0) {
+            console.warn('No services data loaded');
             showFallbackMessage('services');
         }
     } catch (error) {
