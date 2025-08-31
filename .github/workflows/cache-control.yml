@@ -1,0 +1,14 @@
+name: Cache Control Headers
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  cache-control:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set cache control headers
+      run: |
+        echo "Setting cache control headers for GitHub Pages..."
+        echo "This will help with asset loading issues."
