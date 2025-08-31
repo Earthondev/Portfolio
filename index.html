@@ -6,37 +6,36 @@
     <title>Nattapart Worakun - Data Analyst & BI Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-lg">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <a href="index.html" class="text-white font-semibold text-xl">Nattapart</a>
-                <div class="flex space-x-6">
-                    <a href="index.html" class="text-white hover:text-red-300 transition-colors">Home</a>
-                    <a href="about.html" class="text-white hover:text-red-300 transition-colors">About</a>
-                    <a href="portfolio.html" class="text-white hover:text-red-300 transition-colors">Portfolio</a>
-                    <a href="contact.html" class="text-white hover:text-red-300 transition-colors">Contact</a>
-                </div>
-            </div>
+    <!-- Enhanced Navigation with Glass Effect -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">Nattapart</a>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="navbar-nav" id="navbar-nav">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
     <!-- Main Container -->
-    <div class="container pt-20">
+    <div class="container">
         <!-- Profile Section -->
         <div class="profile reveal">
             <img src="https://i.imgur.com/AXhP8DP.jpg" alt="Nattapart Worakun" class="profile-image">
             <h1>Nattapart Worakun</h1>
             <p>Aspiring Data Analyst & BI Developer | Chemist turned Data Enthusiast | Building dashboards, automations, and insightful reports.</p>
         </div>
-
-
 
         <!-- Skills Section -->
         <div class="section reveal">
@@ -62,36 +61,41 @@
             </div>
         </div>
 
-        <!-- Connect Section -->
-        <div class="section reveal">
-            <h2>Connect with Me</h2>
-            <div class="social-links">
-                <a href="https://www.youtube.com/@earthyhk2405" target="_blank" class="social-button">
-                    <i class="fab fa-youtube"></i>
-                    <span>Solo IT Content</span>
+        <!-- Enhanced Contact Section -->
+        <div class="contact-section reveal">
+            <h2 class="contact-cta">🚀 Looking for a Data Analyst / BI Developer? Let's connect!</h2>
+            <div class="contact-grid">
+                <a href="https://www.youtube.com/@earthyhk2405" target="_blank" class="contact-item">
+                    <i class="fab fa-youtube contact-icon"></i>
+                    <span class="contact-text">Solo IT Content</span>
                 </a>
-                <a href="https://www.youtube.com/@OurUsualday" target="_blank" class="social-button">
-                    <i class="fab fa-youtube"></i>
-                    <span>Our Usual Day</span>
+                <a href="https://www.youtube.com/@OurUsualday" target="_blank" class="contact-item">
+                    <i class="fab fa-youtube contact-icon"></i>
+                    <span class="contact-text">Our Usual Day</span>
                 </a>
-                <a href="https://www.tiktok.com/@nattapart_on_earth" target="_blank" class="social-button">
-                    <i class="fab fa-tiktok"></i>
-                    <span>TikTok</span>
+                <a href="https://www.tiktok.com/@nattapart_on_earth" target="_blank" class="contact-item">
+                    <i class="fab fa-tiktok contact-icon"></i>
+                    <span class="contact-text">TikTok</span>
                 </a>
-                <a href="https://www.linkedin.com/in/nattapart-worakun-74a5a821b/" target="_blank" class="social-button">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
+                <a href="https://www.linkedin.com/in/nattapart-worakun-74a5a821b/" target="_blank" class="contact-item">
+                    <i class="fab fa-linkedin contact-icon"></i>
+                    <span class="contact-text">LinkedIn</span>
                 </a>
-                <a href="mailto:earthlikemwbb@gmail.com" class="social-button">
-                    <i class="fas fa-envelope"></i>
-                    <span>earthlikemwbb@gmail.com</span>
+                <a href="mailto:earthlikemwbb@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <span class="contact-text">Email</span>
                 </a>
             </div>
         </div>
     </div>
 
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <p>© 2025 Nattapart Worakun. All Rights Reserved.</p>
     </footer>
 

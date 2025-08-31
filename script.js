@@ -10,12 +10,18 @@ const skillsContainer = document.getElementById('skills-container');
 const certificationsContainer = document.getElementById('certifications-container');
 const searchInput = document.getElementById('searchInput');
 const filterButtons = document.querySelectorAll('.filter-btn');
+const navbar = document.getElementById('navbar');
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const navbarNav = document.getElementById('navbar-nav');
+const scrollToTopBtn = document.getElementById('scroll-to-top');
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
     loadData();
     setupEventListeners();
     setupModal();
+    setupNavbar();
+    setupScrollToTop();
 });
 
 // Load data from JSON files
@@ -386,4 +392,51 @@ function debounce(func, wait) {
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
+}
+
+// Setup navbar scroll effect
+function setupNavbar() {
+    if (!navbar) return;
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    // Mobile menu toggle
+    if (mobileMenuBtn && navbarNav) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navbarNav.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        navbarNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbarNav.classList.remove('active');
+            });
+        });
+    }
+}
+
+// Setup scroll to top button
+function setupScrollToTop() {
+    if (!scrollToTopBtn) return;
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    });
+    
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 }
