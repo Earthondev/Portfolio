@@ -4,8 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Nattapart Worakun</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID', {
+            page_title: 'Portfolio Projects',
+            page_location: window.location.href
+        });
+    </script>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore Nattapart Worakun's portfolio of data analysis, BI development, and automation projects. View case studies and technical implementations.">
+    <meta name="keywords" content="portfolio, projects, data analyst, BI developer, case studies, Thailand">
+    <meta name="author" content="Nattapart Worakun">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Portfolio - Nattapart Worakun">
+    <meta property="og:description" content="Explore featured projects in data analysis, BI development, and automation.">
+    <meta property="og:image" content="https://earthondev.github.io/Portfolio/assets/og-cover.webp">
+    <meta property="og:url" content="https://earthondev.github.io/Portfolio/portfolio.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Portfolio - Nattapart Worakun">
+    <meta name="twitter:description" content="Explore featured projects in data analysis, BI development, and automation.">
+    <meta name="twitter:image" content="https://earthondev.github.io/Portfolio/assets/og-cover.webp">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Fonts and Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,7 +55,7 @@
     <nav class="navbar" id="navbar">
         <div class="container">
             <a href="index.html" class="navbar-brand">Nattapart</a>
-            <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu">
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="navbar-nav" id="navbar-nav">
@@ -24,49 +63,51 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="portfolio.html" class="active">Portfolio</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="/resume.pdf" class="resume-btn" aria-label="Download Resume PDF">
+                    <i class="fas fa-download"></i>
+                    Resume
+                </a></li>
+                <li><button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                </button></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Portfolio Header -->
-    <section class="portfolio-header">
-        <div class="container">
-            <h1 class="portfolio-title">My Projects</h1>
-            <p class="portfolio-subtitle">Explore my latest work in data analysis, automation, and web development</p>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Portfolio Header -->
+        <div class="portfolio-header reveal">
+            <h1>Portfolio</h1>
+            <p>Explore my featured projects in data analysis, BI development, and automation. Each project showcases different skills and technologies.</p>
         </div>
-    </section>
 
-    <!-- Search and Filter Section -->
-    <section class="search-filter-section">
-        <div class="container">
-            <!-- Search Bar -->
+        <!-- Search and Filter Section -->
+        <div class="search-filter-section reveal">
             <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search projects..." class="search-input">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search projects..." aria-label="Search projects">
                 <i class="fas fa-search search-icon"></i>
             </div>
-
-            <!-- Filter Buttons -->
             <div class="filter-container">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="web-app">Web App</button>
-                <button class="filter-btn" data-filter="automation">Automation</button>
-                <button class="filter-btn" data-filter="admin">Admin Panel</button>
-                <button class="filter-btn" data-filter="ui-ux">UI/UX</button>
+                <button class="filter-btn active" data-filter="all" aria-label="Show all projects">All Projects</button>
+                <button class="filter-btn" data-filter="web-app" aria-label="Filter web applications">Web App</button>
+                <button class="filter-btn" data-filter="admin-panel" aria-label="Filter admin panels">Admin Panel</button>
+                <button class="filter-btn" data-filter="ui-ux" aria-label="Filter UI/UX projects">UI/UX</button>
+                <button class="filter-btn" data-filter="automation" aria-label="Filter automation projects">Automation</button>
+                <button class="filter-btn" data-filter="data-analysis" aria-label="Filter data analysis projects">Data Analysis</button>
             </div>
         </div>
-    </section>
 
-    <!-- Portfolio Grid -->
-    <section class="portfolio-section">
-        <div class="container">
-            <div id="projects-container" class="portfolio-grid">
+        <!-- Projects Section -->
+        <div class="portfolio-section">
+            <div id="projects-container" class="projects-grid">
                 <!-- Projects will be loaded dynamically -->
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Scroll to Top Button -->
-    <button class="scroll-to-top" id="scroll-to-top">
+    <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 

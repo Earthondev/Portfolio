@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nattapart Worakun - Data Analyst & BI Developer</title>
     
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID', {
+            page_title: 'Portfolio Home',
+            page_location: window.location.href
+        });
+    </script>
+    
     <!-- SEO Meta Tags -->
     <meta name="description" content="Nattapart Worakun – Data Analyst & BI Developer specializing in dashboards, automations, and insightful reports. Explore featured projects and data solutions.">
     <meta name="keywords" content="data analyst, BI developer, dashboard, automation, portfolio, Thailand">
@@ -44,7 +56,7 @@
     <nav class="navbar" id="navbar">
         <div class="container">
             <a href="index.html" class="navbar-brand">Nattapart</a>
-            <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu">
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="navbar-nav" id="navbar-nav">
@@ -52,6 +64,13 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="/resume.pdf" class="resume-btn" aria-label="Download Resume PDF">
+                    <i class="fas fa-download"></i>
+                    Resume
+                </a></li>
+                <li><button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                </button></li>
             </ul>
         </div>
     </nav>
@@ -63,6 +82,16 @@
             <img src="https://i.imgur.com/AXhP8DP.jpg" alt="Nattapart Worakun" class="profile-image">
             <h1>Nattapart Worakun</h1>
             <p>Aspiring Data Analyst & BI Developer | Chemist turned Data Enthusiast | Building dashboards, automations, and insightful reports.</p>
+            <div class="profile-actions">
+                <a href="/resume.pdf" class="btn-primary" aria-label="Download Resume PDF" onclick="trackEvent('resume_download', 'hero_section')">
+                    <i class="fas fa-download"></i>
+                    Download Resume (PDF)
+                </a>
+                <a href="mailto:earthlikemwbb@gmail.com" class="btn-secondary" aria-label="Send email" onclick="trackEvent('contact_click', 'hero_section')">
+                    <i class="fas fa-envelope"></i>
+                    Get in Touch
+                </a>
+            </div>
         </div>
 
         <!-- Skills Section -->
@@ -93,23 +122,23 @@
         <div class="contact-section reveal">
             <h2 class="contact-cta">🚀 Looking for a Data Analyst / BI Developer? Let's connect!</h2>
             <div class="contact-grid">
-                <a href="https://www.youtube.com/@earthyhk2405" target="_blank" class="contact-item">
+                <a href="https://www.youtube.com/@earthyhk2405" target="_blank" class="contact-item" onclick="trackEvent('social_click', 'youtube_solo')">
                     <i class="fab fa-youtube contact-icon"></i>
                     <span class="contact-text">Solo IT Content</span>
                 </a>
-                <a href="https://www.youtube.com/@OurUsualday" target="_blank" class="contact-item">
+                <a href="https://www.youtube.com/@OurUsualday" target="_blank" class="contact-item" onclick="trackEvent('social_click', 'youtube_usual')">
                     <i class="fab fa-youtube contact-icon"></i>
                     <span class="contact-text">Our Usual Day</span>
                 </a>
-                <a href="https://www.tiktok.com/@nattapart_on_earth" target="_blank" class="contact-item">
+                <a href="https://www.tiktok.com/@nattapart_on_earth" target="_blank" class="contact-item" onclick="trackEvent('social_click', 'tiktok')">
                     <i class="fab fa-tiktok contact-icon"></i>
                     <span class="contact-text">TikTok</span>
                 </a>
-                <a href="https://www.linkedin.com/in/nattapart-worakun-74a5a821b/" target="_blank" class="contact-item">
+                <a href="https://www.linkedin.com/in/nattapart-worakun-74a5a821b/" target="_blank" class="contact-item" onclick="trackEvent('social_click', 'linkedin')">
                     <i class="fab fa-linkedin contact-icon"></i>
                     <span class="contact-text">LinkedIn</span>
                 </a>
-                <a href="mailto:earthlikemwbb@gmail.com" class="contact-item">
+                <a href="mailto:earthlikemwbb@gmail.com" class="contact-item" onclick="trackEvent('contact_click', 'contact_section')">
                     <i class="fas fa-envelope contact-icon"></i>
                     <span class="contact-text">Email</span>
                 </a>
@@ -118,7 +147,7 @@
     </div>
 
     <!-- Scroll to Top Button -->
-    <button class="scroll-to-top" id="scroll-to-top">
+    <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 

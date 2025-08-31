@@ -2,6 +2,7 @@
 let projects = [];
 let services = [];
 let currentFilter = 'all';
+let currentTheme = localStorage.getItem('theme') || 'dark';
 
 // DOM Elements
 const projectsContainer = document.getElementById('projects-container');
@@ -14,6 +15,7 @@ const navbar = document.getElementById('navbar');
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const navbarNav = document.getElementById('navbar-nav');
 const scrollToTopBtn = document.getElementById('scroll-to-top');
+const themeToggle = document.getElementById('theme-toggle');
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
@@ -22,7 +24,45 @@ document.addEventListener('DOMContentLoaded', function() {
     setupModal();
     setupNavbar();
     setupScrollToTop();
+    setupThemeToggle();
+    applyTheme();
 });
+
+// Analytics tracking function
+function trackEvent(eventName, eventLabel) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, {
+            event_category: 'portfolio_interaction',
+            event_label: eventLabel
+        });
+    }
+    console.log(`Event tracked: ${eventName} - ${eventLabel}`);
+}
+
+// Theme toggle functionality
+function setupThemeToggle() {
+    if (!themeToggle) return;
+    
+    themeToggle.addEventListener('click', () => {
+        currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('theme', currentTheme);
+        applyTheme();
+        trackEvent('theme_toggle', currentTheme);
+    });
+}
+
+function applyTheme() {
+    const root = document.documentElement;
+    const themeIcon = themeToggle?.querySelector('i');
+    
+    if (currentTheme === 'light') {
+        root.classList.add('light-theme');
+        if (themeIcon) themeIcon.className = 'fas fa-sun';
+    } else {
+        root.classList.remove('light-theme');
+        if (themeIcon) themeIcon.className = 'fas fa-moon';
+    }
+}
 
 // Enhanced JSON loading with error handling
 async function loadJSON(url) {
@@ -84,6 +124,54 @@ function showFallbackMessage(type) {
     `;
 }
 
+// Setup navbar scroll effect
+function setupNavbar() {
+    if (!navbar) return;
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    // Mobile menu toggle
+    if (mobileMenuBtn && navbarNav) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navbarNav.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        navbarNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbarNav.classList.remove('active');
+            });
+        });
+    }
+}
+
+// Setup scroll to top button
+function setupScrollToTop() {
+    if (!scrollToTopBtn) return;
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    });
+    
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        trackEvent('scroll_to_top', 'button_click');
+    });
+}
+
 // Setup event listeners
 function setupEventListeners() {
     // Search functionality
@@ -107,6 +195,7 @@ function handleSearch(e) {
         project.stack.some(tech => tech.toLowerCase().includes(searchTerm))
     );
     renderProjects(filteredProjects);
+    trackEvent('project_search', searchTerm);
 }
 
 // Handle filter
@@ -126,9 +215,10 @@ function handleFilter(e) {
         ));
     
     renderProjects(filteredProjects);
+    trackEvent('project_filter', filter);
 }
 
-// Render projects
+// Render projects with enhanced features
 function renderProjects(projectsToRender = projects) {
     if (!projectsContainer) return;
     
@@ -141,70 +231,88 @@ function renderProjects(projectsToRender = projects) {
     attachCardEvents(projectsToRender);
 }
 
-// Convert project to card HTML
+// Enhanced project card HTML with case study button
 function toCardHTML(project) {
+    const hasCaseStudy = project.caseStudy || false;
+    
     return `
-        <article class="portfolio-item reveal" data-id="${project.id}">
+        <div class="portfolio-item" data-project-id="${project.id}">
             <div class="portfolio-image-container">
-                <img class="portfolio-image" src="${project.coverImage.src}" alt="${project.coverImage.alt}" 
-                     loading="lazy" onerror="this.src='https://via.placeholder.com/400x250/1f2937/ffffff?text=${encodeURIComponent(project.title)}'">
+                <img src="${project.coverImage.src}" alt="${project.coverImage.alt}" class="portfolio-image" loading="lazy">
                 <div class="portfolio-overlay">
-                    <button class="view-details-btn" data-id="${project.id}">
-                        <i class="fas fa-eye"></i> View Details
+                    <button class="view-details-btn" aria-label="View project details">
+                        <i class="fas fa-eye"></i>
+                        View Details
                     </button>
                 </div>
             </div>
             <div class="portfolio-content">
                 <div class="portfolio-header">
-                    <h2 class="portfolio-title">${project.title}</h2>
+                    <h3 class="portfolio-title">${project.title}</h3>
                     <span class="portfolio-year">${project.year}</span>
                 </div>
                 <p class="portfolio-summary">${project.summary}</p>
                 <div class="portfolio-meta">
                     <div class="portfolio-role">
                         <span class="meta-label">Role:</span>
-                        <span>${project.role.join(', ')}</span>
+                        ${project.role.map(role => `<span>${role}</span>`).join('')}
                     </div>
                     <div class="portfolio-stack">
-                        <span class="meta-label">Stack:</span>
-                        <span>${project.stack.slice(0, 3).join(', ')}${project.stack.length > 3 ? '...' : ''}</span>
+                        <span class="meta-label">Tech:</span>
+                        ${project.stack.map(tech => `<span>${tech}</span>`).join('')}
                     </div>
                 </div>
-                <div class="portfolio-tags">
-                    ${project.tags.map(tag => `<span class="portfolio-tag">${tag}</span>`).join('')}
-                </div>
                 <div class="portfolio-actions">
-                    <a class="portfolio-link" href="${project.links.live}" target="_blank" rel="noopener">
-                        <i class="fas fa-external-link-alt"></i> Live
+                    <a href="${project.links.live}" target="_blank" class="btn-primary" aria-label="View live demo" onclick="trackEvent('project_live_click', '${project.id}')">
+                        <i class="fas fa-external-link-alt"></i>
+                        Live Demo
                     </a>
-                    <a class="portfolio-link" href="${project.links.repo}" target="_blank" rel="noopener">
-                        <i class="fab fa-github"></i> Code
+                    <a href="${project.links.repo}" target="_blank" class="btn-secondary" aria-label="View source code" onclick="trackEvent('project_repo_click', '${project.id}')">
+                        <i class="fab fa-github"></i>
+                        Code
                     </a>
-                    <button class="btn-gallery" data-id="${project.id}">
-                        <i class="fas fa-images"></i> Screens
-                    </button>
+                    ${hasCaseStudy ? `
+                        <a href="/case-studies/${project.slug}.html" class="btn-case-study" aria-label="Read case study" onclick="trackEvent('case_study_click', '${project.id}')">
+                            <i class="fas fa-book-open"></i>
+                            Case Study
+                        </a>
+                    ` : ''}
                 </div>
+                ${project.gallery && project.gallery.length > 0 ? `
+                    <a href="#" class="btn-gallery" data-project-id="${project.id}" aria-label="View project screenshots">
+                        <i class="fas fa-images"></i>
+                        Screenshots (${project.gallery.length})
+                    </a>
+                ` : ''}
             </div>
-        </article>
+        </div>
     `;
 }
 
-// Attach card events
-function attachCardEvents(projects) {
-    // Gallery buttons
-    document.querySelectorAll('.btn-gallery').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const project = projects.find(p => p.id === btn.dataset.id);
-            if (project) openGalleryModal(project);
-        });
-    });
-    
-    // View details buttons
-    document.querySelectorAll('.view-details-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const project = projects.find(p => p.id === btn.dataset.id);
-            if (project) openProjectModal(project);
-        });
+// Attach card events with analytics
+function attachCardEvents(projectsToRender) {
+    projectsToRender.forEach(project => {
+        const card = document.querySelector(`[data-project-id="${project.id}"]`);
+        if (!card) return;
+        
+        // View details button
+        const viewBtn = card.querySelector('.view-details-btn');
+        if (viewBtn) {
+            viewBtn.addEventListener('click', () => {
+                openProjectModal(project);
+                trackEvent('project_view', project.id);
+            });
+        }
+        
+        // Gallery button
+        const galleryBtn = card.querySelector('.btn-gallery');
+        if (galleryBtn) {
+            galleryBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openGalleryModal(project);
+                trackEvent('project_gallery_view', project.id);
+            });
+        }
     });
 }
 
@@ -534,51 +642,4 @@ function debounce(func, wait) {
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
-}
-
-// Setup navbar scroll effect
-function setupNavbar() {
-    if (!navbar) return;
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-    
-    // Mobile menu toggle
-    if (mobileMenuBtn && navbarNav) {
-        mobileMenuBtn.addEventListener('click', () => {
-            navbarNav.classList.toggle('active');
-        });
-        
-        // Close menu when clicking on a link
-        navbarNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navbarNav.classList.remove('active');
-            });
-        });
-    }
-}
-
-// Setup scroll to top button
-function setupScrollToTop() {
-    if (!scrollToTopBtn) return;
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            scrollToTopBtn.classList.add('visible');
-        } else {
-            scrollToTopBtn.classList.remove('visible');
-        }
-    });
-    
-    scrollToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
 }

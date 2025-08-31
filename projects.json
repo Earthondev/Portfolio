@@ -41,6 +41,7 @@
     },
     "tags": ["Web App", "Admin Panel", "Geolocation", "UI/UX", "QA"],
     "cta": "View project",
-    "status": "Active"
+    "status": "Active",
+    "caseStudy": true
   }
 ]

@@ -1,0 +1,16 @@
+# Resume PDF Placeholder
+
+This is a placeholder for the resume PDF file. In a real implementation, this would be an actual PDF document containing:
+
+- Personal Information
+- Professional Summary
+- Work Experience
+- Education
+- Skills
+- Projects
+- Certifications
+- Contact Information
+
+The file should be named `resume.pdf` and placed in the root directory of the portfolio.
+
+For now, this serves as a placeholder to prevent 404 errors when users click the resume download button.
