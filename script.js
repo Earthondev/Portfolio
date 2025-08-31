@@ -332,19 +332,62 @@ function renderServices() {
     `).join('');
 }
 
-// Render skills
+// Render skills with donut charts and grouping
 function renderSkills(skills) {
-    if (!skillsContainer) return;
+    if (!skillsContainer || !skills.length) return;
     
-    skillsContainer.innerHTML = skills.map(skill => `
-        <div class="skill-card" data-level="${skill.level}">
-            <i class="${skill.icon} skill-icon"></i>
-            <span>${skill.name}</span>
-            <div class="skill-level">
-                <div class="skill-bar ${skill.level}"></div>
+    // Group skills by type
+    const skillGroups = {
+        'Data Tools': skills.filter(skill => 
+            ['SQL', 'Power BI', 'Excel', 'Python', 'R'].includes(skill.name)
+        ),
+        'Dev Tools': skills.filter(skill => 
+            ['React', 'JavaScript', 'TypeScript', 'Firebase', 'VBA', 'AppSheet'].includes(skill.name)
+        )
+    };
+    
+    let skillsHTML = '';
+    
+    Object.entries(skillGroups).forEach(([groupName, groupSkills]) => {
+        if (groupSkills.length === 0) return;
+        
+        skillsHTML += `
+            <div class="skills-group">
+                <h3>${groupName}</h3>
+                <div class="skills-grid">
+                    ${groupSkills.map(skill => {
+                        const percentage = skill.level === 'high' ? 85 : skill.level === 'medium' ? 50 : 25;
+                        return `
+                            <div class="skill-card">
+                                <i class="${skill.icon} skill-icon"></i>
+                                <span>${skill.name}</span>
+                                <div class="skill-progress">
+                                    <svg>
+                                        <circle class="bg" cx="50" cy="50" r="45"></circle>
+                                        <circle class="progress ${skill.level}" cx="50" cy="50" r="45"></circle>
+                                    </svg>
+                                    <div class="skill-percentage">
+                                        <div class="percentage">${percentage}%</div>
+                                        <div class="label">${skill.level}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
             </div>
-        </div>
-    `).join('');
+        `;
+    });
+    
+    skillsContainer.innerHTML = skillsHTML;
+    
+    // Animate donut charts
+    setTimeout(() => {
+        const progressCircles = document.querySelectorAll('.skill-progress .progress');
+        progressCircles.forEach(circle => {
+            circle.style.strokeDashoffset = circle.style.strokeDashoffset || '314';
+        });
+    }, 100);
 }
 
 // Render certifications
