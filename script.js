@@ -24,25 +24,64 @@ document.addEventListener('DOMContentLoaded', function() {
     setupScrollToTop();
 });
 
-// Load data from JSON files
+// Enhanced JSON loading with error handling
+async function loadJSON(url) {
+    try {
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
+        return await res.json();
+    } catch (e) {
+        console.error(`Error loading ${url}:`, e);
+        return []; // Return empty array as fallback
+    }
+}
+
+// Load data from JSON files with error handling
 async function loadData() {
     try {
-        const [projectsResponse, servicesResponse] = await Promise.all([
-            fetch('/projects.json', { cache: 'no-store' }),
-            fetch('services.json')
+        const [projectsData, servicesData] = await Promise.all([
+            loadJSON('/projects.json'),
+            loadJSON('services.json')
         ]);
         
-        projects = await projectsResponse.json();
-        const servicesData = await servicesResponse.json();
-        services = servicesData.services;
+        projects = projectsData;
+        services = servicesData.services || [];
         
         renderProjects();
         renderServices();
-        renderSkills(servicesData.skills);
-        renderCertifications(servicesData.certifications);
+        renderSkills(servicesData.skills || []);
+        renderCertifications(servicesData.certifications || []);
+        
+        // Show fallback message if no data loaded
+        if (projects.length === 0) {
+            showFallbackMessage('projects');
+        }
+        if (services.length === 0) {
+            showFallbackMessage('services');
+        }
     } catch (error) {
         console.error('Error loading data:', error);
+        showFallbackMessage('general');
     }
+}
+
+// Show fallback message when data fails to load
+function showFallbackMessage(type) {
+    const container = type === 'projects' ? projectsContainer : 
+                     type === 'services' ? servicesContainer : null;
+    
+    if (!container) return;
+    
+    container.innerHTML = `
+        <div class="fallback-message">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3>Unable to load ${type}</h3>
+            <p>Please check your connection and refresh the page.</p>
+            <button onclick="location.reload()" class="btn-primary">
+                <i class="fas fa-redo"></i> Refresh
+            </button>
+        </div>
+    `;
 }
 
 // Setup event listeners
@@ -339,19 +378,122 @@ function openProjectModal(project) {
     document.body.style.overflow = 'hidden';
 }
 
-// Open gallery modal
+// Enhanced Gallery Modal
 function openGalleryModal(project) {
     const modal = document.getElementById('gallery-modal');
-    const galleryWrap = modal.querySelector('.gallery-wrap');
+    const mainImg = document.getElementById('gallery-main-img');
+    const thumbnails = document.getElementById('gallery-thumbnails');
     
-    galleryWrap.innerHTML = project.gallery.map(img => `
-        <figure class="gallery-item">
-            <img src="${img.src}" alt="${img.alt}" loading="lazy">
-            <figcaption>${img.alt}</figcaption>
-        </figure>
-    `).join('');
+    if (!modal || !project.gallery || project.gallery.length === 0) return;
     
-    modal.style.display = 'flex';
+    let currentIndex = 0;
+    
+    // Set main image
+    function updateMainImage(index) {
+        const image = project.gallery[index];
+        mainImg.src = image.src;
+        mainImg.alt = image.alt;
+        
+        // Update active thumbnail
+        thumbnails.querySelectorAll('.gallery-item').forEach((item, i) => {
+            item.classList.toggle('active', i === index);
+        });
+        
+        // Update active dot
+        const dots = modal.querySelectorAll('.gallery-dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+    
+    // Create gallery HTML with navigation
+    const galleryHTML = `
+        <div class="gallery-main">
+            <img id="gallery-main-img" src="${project.gallery[0].src}" alt="${project.gallery[0].alt}">
+            ${project.gallery.length > 1 ? `
+                <button class="gallery-nav prev" id="gallery-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="gallery-nav next" id="gallery-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            ` : ''}
+        </div>
+        ${project.gallery.length > 1 ? `
+            <div class="gallery-dots" id="gallery-dots">
+                ${project.gallery.map((_, index) => `
+                    <div class="gallery-dot ${index === 0 ? 'active' : ''}" data-index="${index}"></div>
+                `).join('')}
+            </div>
+        ` : ''}
+        <div class="gallery-thumbnails" id="gallery-thumbnails">
+            ${project.gallery.map((image, index) => `
+                <figure class="gallery-item ${index === 0 ? 'active' : ''}" data-index="${index}">
+                    <img src="${image.src}" alt="${image.alt}" loading="lazy">
+                    <figcaption>${image.alt}</figcaption>
+                </figure>
+            `).join('')}
+        </div>
+    `;
+    
+    modal.querySelector('.gallery-wrap').innerHTML = galleryHTML;
+    
+    // Navigation functions
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % project.gallery.length;
+        updateMainImage(currentIndex);
+    }
+    
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + project.gallery.length) % project.gallery.length;
+        updateMainImage(currentIndex);
+    }
+    
+    // Add event listeners
+    const prevBtn = modal.querySelector('#gallery-prev');
+    const nextBtn = modal.querySelector('#gallery-next');
+    const dots = modal.querySelectorAll('.gallery-dot');
+    
+    if (prevBtn) prevBtn.addEventListener('click', prevImage);
+    if (nextBtn) nextBtn.addEventListener('click', nextImage);
+    
+    // Dot navigation
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            currentIndex = parseInt(dot.dataset.index);
+            updateMainImage(currentIndex);
+        });
+    });
+    
+    // Thumbnail navigation
+    thumbnails.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', () => {
+            currentIndex = parseInt(item.dataset.index);
+            updateMainImage(currentIndex);
+        });
+    });
+    
+    // Keyboard navigation
+    const handleKeydown = (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevImage();
+        } else if (e.key === 'ArrowRight') {
+            nextImage();
+        } else if (e.key === 'Escape') {
+            closeModal(modal);
+        }
+    };
+    
+    document.addEventListener('keydown', handleKeydown);
+    
+    // Store cleanup function
+    modal.dataset.cleanup = 'true';
+    modal.addEventListener('close', () => {
+        document.removeEventListener('keydown', handleKeydown);
+    });
+    
+    // Show modal
+    modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 

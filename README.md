@@ -1,230 +1,310 @@
-# 🚀 Dynamic Portfolio Website
+# 🎨 Nattapart Worakun Portfolio
 
-Portfolio website ที่รองรับการอัพเดตผลงานแบบง่ายๆ โดยไม่ต้องแก้ไข HTML โดยตรง
+A modern, dynamic portfolio website built with HTML, CSS, and JavaScript. Features dynamic content loading from JSON files, responsive design, and interactive project showcases.
 
 ## ✨ Features
 
-- **Dynamic Content Loading** - โหลดข้อมูลจาก JSON files
-- **Search & Filter** - ค้นหาและกรองโปรเจกต์
-- **Project Modal** - แสดงรายละเอียดโปรเจกต์แบบ popup
-- **Gallery Modal** - แสดงรูปภาพโปรเจกต์แบบ gallery
-- **Responsive Design** - รองรับทุกขนาดหน้าจอ
-- **Smooth Animations** - เอฟเฟกต์การเคลื่อนไหวที่นุ่มนวล
-- **Easy Updates** - อัพเดตผลงานง่ายๆ แค่แก้ JSON
+- **Dynamic Content Loading** - Projects, skills, and services loaded from JSON files
+- **Responsive Design** - Works perfectly on desktop, tablet, and mobile
+- **Interactive Modals** - Project details and image galleries with navigation
+- **Search & Filter** - Find projects by title, tech stack, or tags
+- **Modern UI/UX** - Glass effect navbar, smooth animations, and hover effects
+- **SEO Optimized** - Meta tags, Open Graph, and Twitter Cards
+- **Performance Optimized** - Lazy loading, caching headers, and optimized images
 
-## 📁 File Structure
+## 🚀 Quick Start
+
+### Local Development
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Earthondev/Portfolio.git
+   cd Portfolio
+   ```
+
+2. **Start local server**
+   ```bash
+   python3 -m http.server 8000
+   # or
+   npx serve .
+   ```
+
+3. **Open in browser**
+   ```
+   http://localhost:8000
+   ```
+
+## 📁 Project Structure
 
 ```
 Portfolio/
-├── index.html                 # หน้าหลัก
-├── portfolio.html             # หน้า Portfolio
-├── style.css                  # CSS หลัก
-├── script.js                  # JavaScript สำหรับ dynamic loading
-├── projects.json              # ข้อมูลโปรเจกต์
-├── services.json              # ข้อมูล services และ skills
+├── index.html              # Home page
+├── portfolio.html          # Projects page
+├── about.html             # About page
+├── contact.html           # Contact page
+├── style.css              # Main stylesheet
+├── script.js              # Main JavaScript
+├── projects.json          # Project data
+├── services.json          # Services & skills data
 ├── assets/
 │   └── projects/
-│       ├── hanaihang/
-│       │   ├── cover.webp     # รูปปกโปรเจกต์
-│       │   ├── gallery-01.webp # รูปภาพ gallery
-│       │   ├── gallery-02.webp
-│       │   └── ...
-│       ├── amino-acid-profile/
-│       └── inventory-chemical/
-├── case-studies/
-│   └── hanaihang.md           # Case study แบบ Markdown
-├── about.html                 # หน้า About
-├── contact.html               # หน้า Contact
-└── README.md
+│       └── hanaihang/     # Project images
+├── case-studies/          # Markdown case studies
+└── netlify.toml           # Deployment config
 ```
 
-## 🔧 วิธีการใช้งาน
+## 🔧 Adding New Projects
 
-### 1. เพิ่มโปรเจกต์ใหม่
+### 1. Prepare Images
 
-#### Step 1: สร้างโฟลเดอร์รูปภาพ
+Create a folder for your project:
 ```bash
-mkdir -p assets/projects/new-project-id
+mkdir assets/projects/my-project
 ```
 
-#### Step 2: เพิ่มรูปภาพ
-- `cover.webp` - รูปปกการ์ด (720-960px)
-- `gallery-01.webp` - รูปภาพ gallery (1280-1600px)
-- `gallery-02.webp` - รูปภาพ gallery
-- ...
+Add images with these specifications:
+- **Cover Image**: `cover.webp` (900-1200px wide, aspect ratio 16:9)
+- **Gallery Images**: `gallery-01.webp`, `gallery-02.webp`, etc. (1280-1600px wide)
+- **Format**: WebP with 80% quality for optimal size/quality balance
+- **Alt Text**: Descriptive text for accessibility
 
-#### Step 3: แก้ไข `projects.json`
+### 2. Add Project Data
+
+Edit `projects.json` and add a new project object:
+
 ```json
 {
-  "id": "new-project-id",
-  "title": "ชื่อโปรเจกต์",
-  "slug": "new-project-id",
+  "id": "my-project",
+  "title": "My Amazing Project",
+  "slug": "my-project",
   "year": 2025,
-  "summary": "คำอธิบายโปรเจกต์",
-  "role": ["Role 1", "Role 2"],
-  "stack": ["Tech 1", "Tech 2"],
+  "summary": "A brief description of what this project does and its impact.",
+  "role": ["Frontend Developer", "UI/UX Designer"],
+  "stack": ["React", "TypeScript", "Tailwind CSS"],
   "highlights": [
-    "Feature 1",
-    "Feature 2"
+    "Key feature or achievement 1",
+    "Key feature or achievement 2",
+    "Key feature or achievement 3"
   ],
   "coverImage": {
-    "src": "/assets/projects/new-project-id/cover.webp",
-    "alt": "Alt text สำหรับรูปปก"
+    "src": "/assets/projects/my-project/cover.webp",
+    "alt": "Screenshot of the main interface"
   },
   "gallery": [
     {
-      "src": "/assets/projects/new-project-id/gallery-01.webp",
-      "alt": "Alt text สำหรับรูป gallery"
+      "src": "/assets/projects/my-project/gallery-01.webp",
+      "alt": "Homepage with search functionality"
+    },
+    {
+      "src": "/assets/projects/my-project/gallery-02.webp",
+      "alt": "Admin dashboard showing analytics"
     }
   ],
   "links": {
-    "live": "https://demo-link.com",
-    "repo": "https://github.com/username/project"
+    "live": "https://my-project-demo.com",
+    "repo": "https://github.com/username/my-project"
   },
-  "tags": ["Tag 1", "Tag 2"],
-  "cta": "View project",
+  "tags": ["Web App", "UI/UX", "React"],
   "status": "Active"
 }
 ```
 
-### 2. อัพเดต Services/Skills
+### 3. Commit and Deploy
 
-แก้ไขไฟล์ `services.json`:
-
-```json
-{
-  "services": [
-    {
-      "id": 4,
-      "title": "Service ใหม่",
-      "description": "คำอธิบาย service",
-      "image": "https://example.com/image.jpg",
-      "icon": "fas fa-rocket"
-    }
-  ],
-  "skills": [
-    {
-      "name": "Skill ใหม่",
-      "level": "high",
-      "icon": "fas fa-star"
-    }
-  ]
-}
+```bash
+git add .
+git commit -m "feat: Add new project - My Amazing Project"
+git push origin main
 ```
 
-### 3. สร้าง Case Study (ทางเลือก)
+## 🎯 Key Features Explained
 
-สร้างไฟล์ Markdown ใน `case-studies/`:
+### Dynamic Content Loading
 
-```markdown
----
-id: project-id
-title: ชื่อโปรเจกต์
-date: 2025-08-31
-cover: /assets/projects/project-id/cover.webp
-tags: [Tag1, Tag2]
----
+The website loads content from JSON files, making it easy to update without editing HTML:
 
-## Overview
-คำอธิบายโปรเจกต์...
+- `projects.json` - Project data with images, descriptions, and links
+- `services.json` - Services, skills, and certifications
 
-## Key Features
-- Feature 1
-- Feature 2
+### Interactive Modals
 
-## Tech Stack
-- Tech 1
-- Tech 2
+- **Project Modal**: Shows detailed project information with tech stack and highlights
+- **Gallery Modal**: Image carousel with navigation arrows, dots, and keyboard controls
 
-## Links
-- Live: https://demo.com
-- Code: https://github.com/username/project
-```
+### Search & Filter
 
-## 🎨 Customization
+- **Search**: Find projects by title, description, tech stack, or tags
+- **Filter**: Filter by project categories (Web App, Admin Panel, UI/UX, etc.)
 
-### สี Theme
+### Responsive Design
 
-แก้ไขใน `style-new.css`:
+- **Desktop**: Multi-column grid layouts
+- **Tablet**: Adjusted spacing and font sizes
+- **Mobile**: Single column layout with touch-friendly buttons
+
+## 🚀 Deployment
+
+### GitHub Pages
+
+1. Go to repository Settings → Pages
+2. Set Source to "Deploy from a branch"
+3. Select "main" branch and "/ (root)" folder
+4. Save and wait for deployment
+
+### Netlify (Recommended)
+
+1. Connect your GitHub repository to Netlify
+2. Build settings:
+   - Build command: (leave empty)
+   - Publish directory: `.`
+3. Deploy automatically on push to main branch
+
+### Vercel
+
+1. Import your GitHub repository
+2. Framework preset: Other
+3. Deploy automatically
+
+## 🔧 Customization
+
+### Colors & Theme
+
+Edit CSS variables in `style.css`:
 
 ```css
 :root {
-    --gradient-start: #b22222;  /* สีเริ่มต้น */
-    --gradient-end: #ff4d4d;    /* สีสิ้นสุด */
-    --accent-color: #fecaca;    /* สีเน้น */
+    --gradient-start: #b22222;
+    --gradient-end: #ff4d4d;
+    --bg-secondary: #2E2E2E;
+    --bg-light: #F9F9F9;
+    --bg-cream: #FEF7F0;
+    /* ... more variables */
 }
 ```
 
-### Filter Categories
+### Adding New Sections
 
-เพิ่ม categories ใหม่ใน `portfolio-new.html`:
+1. Add HTML structure in the appropriate page
+2. Add CSS styles in `style.css`
+3. Add JavaScript functionality in `script.js` if needed
 
-```html
-<button class="filter-btn" data-filter="new-category">New Category</button>
-```
+### Skills & Services
 
-## 🚀 การ Deploy
+Edit `services.json` to update:
 
-### Local Development
+- **Services**: What you offer to clients
+- **Skills**: Your technical skills with proficiency levels
+- **Certifications**: Your professional certifications
 
-```bash
-# รัน local server
-python3 -m http.server 8000
+## 🐛 Troubleshooting
 
-# เปิดเบราว์เซอร์
-http://localhost:8000/index.html
-```
+### Images Not Loading
 
-### Production
+1. Check file paths in JSON files
+2. Ensure images are in the correct folder structure
+3. Verify image file names match exactly
+4. Check browser console for 404 errors
 
-อัปโหลดไฟล์ทั้งหมดไปยัง web server หรือ hosting service
+### JSON Loading Issues
 
-## 📱 Responsive Design
+1. Check browser console for fetch errors
+2. Verify JSON syntax is valid
+3. Ensure files are accessible via HTTP server
+4. Try clearing browser cache
 
-เว็บไซต์รองรับ:
-- Desktop (1200px+)
-- Tablet (768px - 1199px)
-- Mobile (< 768px)
+### Modal Not Working
 
-## 🔍 Search & Filter
+1. Check if JavaScript is loaded properly
+2. Verify modal HTML structure
+3. Check for JavaScript errors in console
+4. Ensure event listeners are attached
 
-### Search
-- ค้นหาจากชื่อโปรเจกต์
-- ค้นหาจากคำอธิบาย
-- ค้นหาจาก tags
-- ค้นหาจาก tech stack
+### Mobile Issues
 
-### Filter
-- All Projects
-- Web App
-- Automation
-- Admin Panel
-- UI/UX
+1. Test on actual mobile devices
+2. Check viewport meta tag
+3. Verify touch targets are large enough
+4. Test mobile menu functionality
 
-## 🎯 Features ใหม่
+## 📱 Mobile Testing
 
-### Project Modal
-- แสดงรายละเอียดโปรเจกต์ครบถ้วน
-- Role และ Tech Stack
-- Key Features
-- Links ไปยัง Live Demo และ Code
+### Manual Testing Checklist
 
-### Gallery Modal
-- แสดงรูปภาพโปรเจกต์แบบ gallery
-- Alt text สำหรับ accessibility
-- Responsive design
+- [ ] Navigation menu opens/closes properly
+- [ ] Project cards display in single column
+- [ ] Touch targets are large enough (44px minimum)
+- [ ] Modals open and close with touch
+- [ ] Gallery navigation works with touch
+- [ ] Scroll-to-top button appears and works
+- [ ] Search and filter work on mobile
 
-### Enhanced Cards
-- แสดงปีที่ทำโปรเจกต์
-- Role และ Tech Stack
-- ปุ่ม Live, Code, และ Screens
+### Device Testing
+
+Test on:
+- iPhone (Safari)
+- Android (Chrome)
+- iPad (Safari)
+- Various screen sizes
+
+## 🔍 Performance Optimization
+
+### Image Optimization
+
+- Use WebP format for better compression
+- Optimize images to appropriate sizes
+- Use `loading="lazy"` for images below the fold
+- Provide descriptive alt text
+
+### Caching
+
+- Static assets (CSS, JS, images) cached for 1 year
+- JSON files cached for 1 hour
+- HTML files cached for 1 hour
+
+### Loading Performance
+
+- Preconnect to external domains
+- Use CDN for fonts and icons
+- Minimize render-blocking resources
+- Implement lazy loading
+
+## 📊 Analytics & SEO
+
+### SEO Features
+
+- Meta descriptions for all pages
+- Open Graph tags for social sharing
+- Twitter Card support
+- Semantic HTML structure
+- Alt text for all images
+
+### Performance Monitoring
+
+- Core Web Vitals optimization
+- Mobile-first responsive design
+- Accessibility compliance
+- Fast loading times
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
 
 ## 📞 Support
 
-หากมีปัญหาหรือต้องการความช่วยเหลือ สามารถติดต่อได้ที่:
-- Email: earthlikemwbb@gmail.com
-- LinkedIn: [Nattapart Worakun](https://www.linkedin.com/in/nattapart-worakun-74a5a821b/)
+If you have questions or need help:
+
+- Create an issue on GitHub
+- Check the troubleshooting section
+- Review the documentation
 
 ---
 
-**Made with ❤️ by Nattapart Worakun**
+**Built with ❤️ by Nattapart Worakun**
