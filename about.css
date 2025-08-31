@@ -101,3 +101,143 @@ p {
     background: var(--neutral-200);
     box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
+
+/* Skills section styles */
+.skills-section {
+    margin: 2rem 0;
+}
+
+.skill {
+    margin-bottom: 1rem;
+}
+
+.skill span {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.progress.high {
+    width: 90%;
+    background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.progress.medium {
+    width: 70%;
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.progress.low {
+    width: 50%;
+    background: linear-gradient(90deg, #ef4444, #f87171);
+}
+
+/* Tools section */
+.tools {
+    margin: 2rem 0;
+}
+
+.tools h2 {
+    margin-bottom: 1rem;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.tool {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: var(--neutral-100);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.tool:hover {
+    transform: translateY(-5px);
+    background: var(--neutral-200);
+}
+
+.tool img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.5rem;
+}
+
+.tool p {
+    font-size: 0.8rem;
+    text-align: center;
+    margin: 0;
+}
+
+/* Fire counter styles */
+.fire-counter-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 1000;
+}
+
+.fire-button {
+    font-size: 2em;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    user-select: none;
+}
+
+.fire-button:hover {
+    transform: scale(1.1);
+}
+
+.fire-grow {
+    animation: grow 0.3s ease;
+}
+
+.pulse {
+    animation: pulse 0.3s ease;
+}
+
+.fire-count {
+    background: var(--neutral-100);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes grow {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}

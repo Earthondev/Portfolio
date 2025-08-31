@@ -1,0 +1,46 @@
+[
+  {
+    "id": "hanaihang",
+    "title": "HaaNaiHang – Mall & Store Finder + Admin",
+    "slug": "hanaihang",
+    "year": 2025,
+    "summary": "เว็บช่วยค้นหาห้าง/ร้านค้าใกล้ตัว พร้อมแผงผู้ดูแลในการเพิ่ม/แก้ไขข้อมูลศูนย์การค้าและร้านค้าแบบเป็นระบบ",
+    "role": ["Product Designer", "Frontend (React)", "Tester"],
+    "stack": ["React", "TypeScript", "Vite", "Tailwind", "Firebase (Auth/DB/Storage)*", "Netlify"],
+    "highlights": [
+      "ค้นหาห้าง/ร้านจากระยะทาง (Geolocation) + ค้นหาด้วยข้อความ",
+      "หน้า Admin แยกแท็บ: ศูนย์การค้า / ร้านค้า พร้อมฟอร์มละเอียด",
+      "แสดงเวลาทำการ, หมวดหมู่, ชั้น (floor), หมายเลขยูนิต และเบอร์โทร",
+      "การ์ด UI อ่านง่าย, responsive, มีระยะทางแสดง (เช่น 7.0 กม.)"
+    ],
+    "coverImage": {
+      "src": "/assets/projects/hanaihang/cover.webp",
+      "alt": "หน้าค้นหาห้างใกล้คุณของ HaaNaiHang"
+    },
+    "gallery": [
+      {
+        "src": "/assets/projects/hanaihang/gallery-01.webp",
+        "alt": "หน้าแรก: ปุ่มระบุตำแหน่ง + ช่องค้นหา + การ์ดห้าง"
+      },
+      {
+        "src": "/assets/projects/hanaihang/gallery-02.webp",
+        "alt": "Admin: ตารางรายการศูนย์การค้าและสรุปข้อมูลสำคัญ"
+      },
+      {
+        "src": "/assets/projects/hanaihang/gallery-03.webp",
+        "alt": "Admin: ฟอร์มเพิ่มร้านค้า—เลือกห้าง, ชั้น, หมวดหมู่, เวลาเปิดปิด"
+      },
+      {
+        "src": "/assets/projects/hanaihang/gallery-04.webp",
+        "alt": "หน้าค้นหา—ผลลัพธ์ห้างหลายรายการพร้อมระยะทาง"
+      }
+    ],
+    "links": {
+      "live": "https://hanaihang.netlify.app/",
+      "repo": "https://github.com/Earthondev/Hanaihang"
+    },
+    "tags": ["Web App", "Admin Panel", "Geolocation", "UI/UX", "QA"],
+    "cta": "View project",
+    "status": "Active"
+  }
+]

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-lg">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between items-center py-4">
@@ -25,78 +26,43 @@
             </div>
         </div>
     </nav>
+
+    <!-- Main Container -->
     <div class="container pt-20">
+        <!-- Profile Section -->
         <div class="profile reveal">
             <img src="https://i.imgur.com/AXhP8DP.jpg" alt="Nattapart Worakun" class="profile-image">
             <h1>Nattapart Worakun</h1>
             <p>Aspiring Data Analyst & BI Developer | Chemist turned Data Enthusiast | Building dashboards, automations, and insightful reports.</p>
         </div>
 
-        <div class="section reveal">
-            <h2>Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <img class="service-image" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop" alt="Dashboards & BI">
-                    <h3 class="service-title">Dashboard & BI</h3>
-                    <p class="service-desc">Power BI dashboards, KPI tracking, and automated reporting to drive data-informed decisions.</p>
-                </div>
-                <div class="service-card">
-                    <img class="service-image" src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop" alt="Data Automation">
-                    <h3 class="service-title">Data Automation</h3>
-                    <p class="service-desc">Google Sheets + Apps Script + AppSheet workflows, alerts, and integrations to reduce manual work.</p>
-                </div>
-                <div class="service-card">
-                    <img class="service-image" src="https://images.unsplash.com/photo-1534759846116-57968a6b17de?q=80&w=1200&auto=format&fit=crop" alt="SQL Analytics">
-                    <h3 class="service-title">SQL Analytics</h3>
-                    <p class="service-desc">Exploratory analysis, data cleaning, and actionable insights delivered clearly and quickly.</p>
-                </div>
-            </div>
-        </div>
 
+
+        <!-- Skills Section -->
         <div class="section reveal">
             <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">SQL</div>
-                <div class="skill-card">Power BI</div>
-                <div class="skill-card">Excel</div>
-                <div class="skill-card">VBA</div>
-                <div class="skill-card">React</div>
-                <div class="skill-card">Firebase</div>
-                <div class="skill-card">AppSheet</div>
+            <div id="skills-container" class="skills-grid">
+                <!-- Skills will be loaded dynamically -->
             </div>
         </div>
 
+        <!-- Certifications Section -->
         <div class="section reveal">
             <h2>Certifications</h2>
-            <div class="certifications-grid">
-                <div class="cert-card">Data Science Bootcamp 2025 (DataRockie)</div>
-                <div class="cert-card">ChatGPT for Developers</div>
-                <div class="cert-card">Essential SQL for Everyone</div>
+            <div id="certifications-container" class="certifications-grid">
+                <!-- Certifications will be loaded dynamically -->
             </div>
         </div>
 
+        <!-- Projects Section -->
         <div class="section reveal">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Internal Dashboard for Amino Acid Tests</h3>
-                    <p>React + Firebase dashboard for laboratory data management</p>
-                </div>
-                <div class="project-card">
-                    <h3>Tonfern Journal Web App</h3>
-                    <p>Interactive book-style content platform</p>
-                </div>
-                <div class="project-card">
-                    <h3>Inventory Tracker for SGS</h3>
-                    <p>AppSheet + Google Sheets automation</p>
-                </div>
-                <div class="project-card">
-                    <h3>SQL Data Analysis Projects</h3>
-                    <p>Data exploration & insights</p>
-                </div>
+            <h2>Featured Projects</h2>
+            <div id="projects-container" class="projects-grid">
+                <!-- Projects will be loaded dynamically -->
             </div>
         </div>
 
+        <!-- Connect Section -->
         <div class="section reveal">
             <h2>Connect with Me</h2>
             <div class="social-links">
@@ -123,39 +89,13 @@
             </div>
         </div>
     </div>
-    <section class="intro reveal">
-        <div class="intro-text">
-            <h2>Hello, I'm Nattapart Worakun</h2>
-            <p>Data Analyst | Chemist | Developer</p>
-        </div>
-        <div class="intro-buttons">
-            <a href="about.html" class="button">About Me</a>
-            <a href="portfolio.html" class="button">Portfolio</a>
-            <a href="contact.html" class="button">Contact</a>
-        </div>
-    </section>
-    
+
+    <!-- Footer -->
     <footer>
         <p>© 2025 Nattapart Worakun. All Rights Reserved.</p>
     </footer>
 
-    <script>
-    (function() {
-        const revealElements = document.querySelectorAll('.reveal');
-        if (!('IntersectionObserver' in window)) {
-            revealElements.forEach(el => el.classList.add('show'));
-            return;
-        }
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.12 });
-        revealElements.forEach(el => observer.observe(el));
-    })();
-    </script>
+    <!-- Scripts -->
+    <script src="script.js"></script>
 </body>
 </html>

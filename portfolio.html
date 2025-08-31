@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-lg">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between items-center py-4">
@@ -27,67 +27,49 @@
         </div>
     </nav>
 
-    <!-- Search Bar with Autocomplete -->
-    <section class="search-section" style="max-width: 960px; margin: 6rem auto 2rem; padding: 0 1rem;">
-        <input type="text" id="searchInput" placeholder="Search projects..." style="width:100%; padding:0.9rem 1rem; border-radius:0.75rem; background: rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); color:#fff;">
-        <ul id="autocomplete-list" style="margin-top:0.5rem; background: rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.12); border-radius:0.5rem; list-style:none; padding:0.25rem 0;"></ul>
+    <!-- Portfolio Header -->
+    <section class="portfolio-header">
+        <div class="container pt-20">
+            <h1 class="portfolio-title">My Projects</h1>
+            <p class="portfolio-subtitle">Explore my latest work in data analysis, automation, and web development</p>
+        </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section class="portfolio" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
-        <h1 style="margin-bottom:1rem;">My Projects</h1>
+    <!-- Search and Filter Section -->
+    <section class="search-filter-section">
+        <div class="container">
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search projects..." class="search-input">
+                <i class="fas fa-search search-icon"></i>
+            </div>
 
-        <div class="portfolio-grid">
-            <article class="portfolio-item reveal">
-                <img class="portfolio-image" src="https://imgur.com/WdhBbTt.png" alt="Amino Acid Profile">
-                <div class="portfolio-content">
-                    <h2 class="portfolio-title">Amino Acid Profile</h2>
-                    <p class="portfolio-description">Amino Acid Profile analysis pipeline with LINE alerts and job tracking.</p>
-                    <div class="portfolio-tags">
-                        <span class="portfolio-tag">Google Sheets</span>
-                        <span class="portfolio-tag">Apps Script</span>
-                        <span class="portfolio-tag">SQL</span>
-                        <span class="portfolio-tag">LINE Notify</span>
-                    </div>
-                    <div class="portfolio-links">
-                        <a class="portfolio-link" href="https://github.com/Earthondev/Amino-Acid-Profile" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</a>
-                    </div>
-                </div>
-            </article>
+            <!-- Filter Buttons -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web-app">Web App</button>
+                <button class="filter-btn" data-filter="automation">Automation</button>
+                <button class="filter-btn" data-filter="admin">Admin Panel</button>
+                <button class="filter-btn" data-filter="ui-ux">UI/UX</button>
+            </div>
+        </div>
+    </section>
 
-            <article class="portfolio-item reveal">
-                <img class="portfolio-image" src="https://imgur.com/qufXFl0.png" alt="Inventory Chemical">
-                <div class="portfolio-content">
-                    <h2 class="portfolio-title">Inventory Chemical</h2>
-                    <p class="portfolio-description">Inventory management with restock alerts and dashboard reporting.</p>
-                    <div class="portfolio-tags">
-                        <span class="portfolio-tag">Google Sheets</span>
-                        <span class="portfolio-tag">AppSheet</span>
-                        <span class="portfolio-tag">Automation</span>
-                    </div>
-                    <div class="portfolio-links">
-                        <a class="portfolio-link" href="https://github.com/Earthondev/Inventory-Chemical" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Project</a>
-                    </div>
-                </div>
-            </article>
+    <!-- Portfolio Grid -->
+    <section class="portfolio-section">
+        <div class="container">
+            <div id="projects-container" class="portfolio-grid">
+                <!-- Projects will be loaded dynamically -->
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>© 2025 Nattapart Worakun</p>
+        <p>© 2025 Nattapart Worakun. All Rights Reserved.</p>
     </footer>
 
-    <script>
-    (function() {
-        const els = document.querySelectorAll('.reveal');
-        if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('show')); return; }
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('show'); io.unobserve(en.target); } });
-        }, { threshold: 0.12 });
-        els.forEach(e => io.observe(e));
-    })();
-    </script>
-    <script src="portfolio.js"></script>
+    <!-- Scripts -->
+    <script src="script.js"></script>
 </body>
 </html>
