@@ -342,7 +342,7 @@ function renderSkills(skills) {
             ['SQL', 'Power BI', 'Excel', 'Python', 'R'].includes(skill.name)
         ),
         'Dev Tools': skills.filter(skill => 
-            ['React', 'JavaScript', 'TypeScript', 'Firebase', 'VBA', 'AppSheet'].includes(skill.name)
+            ['React', 'JavaScript', 'TypeScript', 'Firebase', 'VBA', 'AppSheet', 'Postman'].includes(skill.name)
         )
     };
     

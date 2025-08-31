@@ -57,6 +57,11 @@
       "name": "AppSheet",
       "level": "high",
       "icon": "fas fa-mobile-alt"
+    },
+    {
+      "name": "Postman",
+      "level": "medium",
+      "icon": "fas fa-paper-plane"
     }
   ],
   "certifications": [

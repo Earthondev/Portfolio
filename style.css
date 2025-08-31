@@ -139,7 +139,7 @@ body {
 
 .profile-actions .btn-primary {
     background: var(--gradient-start);
-    color: white;
+    color: var(--text-primary);
     box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
@@ -1015,7 +1015,7 @@ footer {
 /* Resume Button */
 .resume-btn {
     background: var(--gradient-start);
-    color: white;
+    color: var(--text-primary);
     padding: 0.5rem 1rem;
     border-radius: 2rem;
     font-weight: 600;
@@ -1219,7 +1219,7 @@ footer {
     bottom: 2rem;
     right: 2rem;
     background: var(--gradient-start);
-    color: white;
+    color: var(--text-primary);
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -1477,7 +1477,7 @@ footer {
     top: 50%;
     transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.7);
-    color: white;
+    color: var(--text-primary);
     border: none;
     width: 50px;
     height: 50px;
@@ -1768,7 +1768,7 @@ footer {
 
 .btn-primary {
     background: var(--gradient-start);
-    color: white;
+    color: var(--text-primary);
     box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
@@ -1791,16 +1791,16 @@ footer {
 }
 
 .btn-case-study {
-    background: var(--accent-color);
-    color: var(--gradient-start);
+    background: var(--gradient-start);
+    color: var(--text-primary);
     font-weight: 700;
 }
 
 .btn-case-study:hover {
-    background: var(--gradient-start);
-    color: white;
+    background: var(--gradient-end);
+    color: var(--text-primary);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px var(--shadow-medium);
+    box-shadow: 0 6px 16px var(--shadow-medium);
 }
 
 /* Accessibility Improvements */
