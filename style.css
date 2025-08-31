@@ -32,11 +32,18 @@
     --bg-cream: #fef3c7;
     --text-dark: #1f2937;
     --text-gray: #6b7280;
+    --text-primary: #1f2937;
+    --text-secondary: #4b5563;
     --border-light: rgba(0, 0, 0, 0.1);
     --border-dark: rgba(0, 0, 0, 0.1);
     --shadow-light: rgba(0, 0, 0, 0.05);
     --shadow-medium: rgba(0, 0, 0, 0.1);
     --shadow-heavy: rgba(0, 0, 0, 0.15);
+    --accent-color: #fecaca;
+    --neutral-100: rgba(0, 0, 0, 0.05);
+    --neutral-200: rgba(0, 0, 0, 0.1);
+    --neutral-800: rgba(0, 0, 0, 0.8);
+    --ring-color: rgba(220, 38, 38, 0.35);
 }
 
 * {
@@ -422,10 +429,11 @@ body {
 
 .portfolio-title {
     font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--text-primary);
+    font-weight: 700;
+    color: var(--text-dark);
     margin: 0;
     flex: 1;
+    line-height: 1.3;
 }
 
 .portfolio-year {
@@ -439,10 +447,10 @@ body {
 }
 
 .portfolio-summary {
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    line-height: 1.5;
+    color: var(--text-gray);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .portfolio-meta {
@@ -457,10 +465,11 @@ body {
 }
 
 .meta-label {
-    font-weight: 600;
-    color: var(--accent-color);
+    font-weight: 700;
+    color: var(--text-dark);
     margin-right: 0.5rem;
-    min-width: 50px;
+    min-width: 60px;
+    font-size: 0.9rem;
 }
 
 .portfolio-tags {
