@@ -1849,7 +1849,7 @@ footer {
 .skills-group h3 {
     font-size: 1.2rem;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--gradient-start);
     margin-bottom: 1rem;
     text-align: center;
     background: var(--bg-secondary);
@@ -1858,6 +1858,15 @@ footer {
     display: inline-block;
     margin-left: 50%;
     transform: translateX(-50%);
+    border: 1px solid var(--gradient-start);
+    transition: all 0.3s ease;
+}
+
+.skills-group h3:hover {
+    background: var(--gradient-start);
+    color: var(--text-primary);
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
 .skills-grid {
