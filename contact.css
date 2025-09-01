@@ -51,7 +51,7 @@
 }
 
 .nav-link {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.9) !important;
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
@@ -60,7 +60,7 @@
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--accent-color);
+    color: var(--accent-color) !important;
 }
 
 .nav-link.active::after {
