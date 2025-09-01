@@ -254,13 +254,16 @@
     outline-offset: 3px;
 }
 
-/* Form Status Messages */
+/* Form Status Messages with Smooth Animations */
 .form-status {
     margin-top: 0.75rem;
     padding: 0.75rem;
     border-radius: 0.5rem;
     font-weight: 500;
     text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
 }
 
 .form-status.success {
@@ -273,6 +276,16 @@
     background: rgba(239, 68, 68, 0.1);
     color: #ef4444;
     border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.form-status.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.form-status.fade-out {
+    opacity: 0;
+    transform: translateY(-10px);
 }
 
 /* Quick Contact Section */
@@ -334,6 +347,23 @@
 
 .contact-method a:hover {
     color: var(--accent-color);
+}
+
+/* Recruiter-Friendly Footer */
+.recruiter-footer {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.recruiter-footer p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin: 0;
+    font-style: italic;
 }
 
 /* Accessibility Improvements */

@@ -38,19 +38,19 @@
         <form id="contact-form" class="contact-form reveal">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Your name">
+                <input type="text" id="name" name="name" placeholder="Your name" aria-label="Your Name" required>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="you@example.com">
+                <input type="email" id="email" name="email" placeholder="you@example.com" aria-label="Your Email Address" required>
             </div>
             <div class="form-group">
                 <label for="message">Message</label>
-                <textarea id="message" rows="4" placeholder="How can I help?"></textarea>
+                <textarea id="message" name="message" rows="4" placeholder="How can I help?" aria-label="Your Message" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary submit-btn" data-track="contact_form_submit" data-source="contact">
+            <button type="submit" class="btn btn-primary submit-btn" data-track="contact_form_submit" data-source="contact" aria-label="Send Message">
                 <i class="fas fa-paper-plane"></i>
-                Send Message
+                🚀 Let's Connect
             </button>
             <div id="form-status" class="form-status"></div>
         </form>
@@ -70,6 +70,10 @@
                     <a href="https://github.com/Earthondev" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
                 </div>
             </div>
+        </div>
+        
+        <div class="recruiter-footer reveal">
+            <p>💡 I usually reply within 24 hours — feel free to connect on LinkedIn too!</p>
         </div>
     </section>
 
@@ -98,9 +102,9 @@
             return;
         }
         
-        // Simulate form submission
+        // Simulate form submission with smooth animation
         status.innerHTML = '✅ Thank you! Your message has been sent';
-        status.className = 'form-status success';
+        status.className = 'form-status success fade-in';
         
         // Reset form
         this.reset();
@@ -109,10 +113,13 @@
         const track = (name, data = {}) => window.gtag?.('event', name, data);
         track('contact_form_submit', {source: 'contact'});
         
-        // Hide success message after 5 seconds
+        // Hide success message after 5 seconds with fade out
         setTimeout(() => {
-            status.innerHTML = '';
-            status.className = 'form-status';
+            status.className = 'form-status success fade-out';
+            setTimeout(() => {
+                status.innerHTML = '';
+                status.className = 'form-status';
+            }, 300);
         }, 5000);
     });
     
