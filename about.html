@@ -11,6 +11,23 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="about.css">
+    
+    <!-- JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Nattapart Worakun",
+      "jobTitle": "Data Analyst & BI Developer",
+      "description": "Data + QA-minded professional: Turning data into insights and testing for quality.",
+      "url": "https://earthondev.github.io/Portfolio/about.html",
+      "image": "https://earthondev.github.io/Portfolio/assets/profile.jpg",
+      "sameAs": [
+        "https://www.linkedin.com/in/nattapart-worakun-74a5a821b/",
+        "https://github.com/Earthondev"
+      ]
+    }
+    </script>
 </head>
 <body>
     <nav class="navbar">
@@ -29,7 +46,7 @@
     <div class="hero-container">
       <div class="hero-left reveal">
         <div class="profile-container">
-          <img src="https://i.imgur.com/QuzxPug.png" alt="Profile" class="profile-pic"/>
+          <img src="https://i.imgur.com/QuzxPug.png" alt="Profile" class="profile-pic" width="170" height="170" decoding="async" loading="eager"/>
           <div class="role-badge">
             <span class="role-text">🧪 → 📊 → 🧪🔍</span>
             <span class="role-subtitle">Chemist → Data Analyst / Tester</span>
@@ -42,6 +59,9 @@
         <p class="hero-description">
           ผมคือ Nattapart Worakun ที่เริ่มต้นเส้นทางจาก Chemist ในห้องแล็บ → ก้าวเข้าสู่สาย Data & Tech ด้วยความหลงใหลใน Automation, Data Analysis, และ Software Testing
         </p>
+        <p class="hero-impact">
+          <strong>Now:</strong> building BI dashboards, automations, and API tests that reduce manual work by 60–80%.
+        </p>
       </div>
     </div>
   </div>
@@ -50,59 +70,44 @@
   <div class="story-blocks">
     <div class="story-container">
       <!-- My Journey Block -->
-      <div class="story-block reveal">
-        <div class="block-header">
-          <span class="block-icon">🧪</span>
-          <h2>My Journey</h2>
-        </div>
-        <div class="journey-flow">
-          <div class="journey-step">
-            <span class="step-icon">🧪</span>
-            <span class="step-text">Lab Research</span>
-          </div>
-          <span class="arrow">→</span>
-          <div class="journey-step">
-            <span class="step-icon">⚙️</span>
-            <span class="step-text">Automation</span>
-          </div>
-          <span class="arrow">→</span>
-          <div class="journey-step">
-            <span class="step-icon">📊</span>
-            <span class="step-text">Data & BI</span>
-          </div>
-          <span class="arrow">→</span>
-          <div class="journey-step">
-            <span class="step-icon">🧪🔍</span>
-            <span class="step-text">QA Testing</span>
-          </div>
-        </div>
+      <div class="story-block about-card reveal">
+        <p class="eyebrow">My Journey</p>
+        <h3>Lab → Automation → Data & QA</h3>
+        <ul class="journey">
+          <li>🧪 Lab Research <span class="badge">2019–2022</span></li>
+          <li>⚙️ VBA & Apps Script Automation <span class="badge">–60% manual</span></li>
+          <li>📊 BI Dashboards & SQL <span class="badge">Active</span></li>
+          <li>🔍 API Testing (Postman) <span class="badge">Exploring</span></li>
+        </ul>
         <p class="block-description">
           จากงานวิจัยในแล็บ → สร้างระบบ Automation → พัฒนา Dashboard → ขยายสู่ Software Testing
         </p>
       </div>
 
       <!-- What I Do Now Block -->
-      <div class="story-block reveal">
-        <div class="block-header">
-          <span class="block-icon">📊</span>
-          <h2>What I Do Now</h2>
-        </div>
+      <div class="story-block about-card reveal">
+        <p class="eyebrow">What I Do Now</p>
+        <h3>Data Tools & Automation</h3>
         <div class="skills-grid">
-          <div class="skill-item">
-            <span class="skill-icon">📊</span>
-            <span class="skill-name">Power BI</span>
-          </div>
           <div class="skill-item">
             <span class="skill-icon">🗄️</span>
             <span class="skill-name">SQL</span>
+            <span class="skill-impact">Query tuning: cut runtime from 45s → 8s</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-icon">📊</span>
+            <span class="skill-name">Power BI</span>
+            <span class="skill-impact">Executive-ready KPI dashboards</span>
           </div>
           <div class="skill-item">
             <span class="skill-icon">📱</span>
             <span class="skill-name">AppSheet</span>
+            <span class="skill-impact">Mobile-first automation workflows</span>
           </div>
           <div class="skill-item">
             <span class="skill-icon">📮</span>
             <span class="skill-name">Postman</span>
+            <span class="skill-impact">Collections + environments for 3 services (Newman CI ready)</span>
           </div>
         </div>
         <p class="block-description">
@@ -111,23 +116,25 @@
       </div>
 
       <!-- What's Next Block -->
-      <div class="story-block reveal">
-        <div class="block-header">
-          <span class="block-icon">🚀</span>
-          <h2>What's Next</h2>
-        </div>
+      <div class="story-block about-card reveal">
+        <p class="eyebrow">What's Next</p>
+        <h3>Scaling Data & QA Excellence</h3>
         <div class="next-goals">
           <div class="goal-item">
             <span class="goal-icon">🎯</span>
-            <span class="goal-text">Improve API Testing Skills (Postman / Newman)</span>
+            <span class="goal-text">API Testing at Scale — Postman → Newman in CI, env/secrets best-practice</span>
           </div>
           <div class="goal-item">
-            <span class="goal-icon">🔎</span>
-            <span class="goal-text">Learn Automated Testing (Selenium / Playwright)</span>
+            <span class="goal-icon">🤖</span>
+            <span class="goal-text">UI Test Automation — Playwright + testing library for critical flows</span>
           </div>
           <div class="goal-item">
             <span class="goal-icon">📈</span>
-            <span class="goal-text">Advance BI Storytelling (Power BI, DAX)</span>
+            <span class="goal-text">BI Storytelling — Executive-ready KPI dashboards with DAX measures</span>
+          </div>
+          <div class="goal-item">
+            <span class="goal-icon">🔐</span>
+            <span class="goal-text">Data Quality — Query checks & anomaly alerts before analytics</span>
           </div>
         </div>
         <p class="block-description">
@@ -143,11 +150,11 @@
       <h2>🚀 Looking for a Data Analyst / BI Developer with QA mindset?</h2>
       <p class="cta-description">Let's connect and create impact together!</p>
       <div class="cta-buttons">
-        <a href="resume.pdf" class="btn-primary" download>
+        <a href="resume.pdf" class="btn btn-primary" data-track="resume_download" data-source="about" download>
           <i class="fas fa-download"></i>
           Download Resume
         </a>
-        <a href="contact.html" class="btn-secondary">
+        <a href="contact.html" class="btn btn-outline" data-track="contact_click" data-source="about">
           <i class="fas fa-envelope"></i>
           Contact Me
         </a>
@@ -164,6 +171,12 @@
       }, { threshold: 0.12 });
       els.forEach(e => io.observe(e));
     })();
+    
+    // CTA Tracking
+    const track = (name, data = {}) => window.gtag?.('event', name, data);
+    document.querySelectorAll('[data-track]').forEach(el => {
+      el.addEventListener('click', () => track(el.dataset.track, {source: el.dataset.source || 'about'}));
+    });
   </script>
   <footer>
     <p>© 2025 Nattapart Worakun. All Rights Reserved.</p>

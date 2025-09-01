@@ -702,6 +702,107 @@ p {
     color: #6c757d;
 }
 
+/* Enhanced Micro-copy & Impact */
+.hero-impact {
+    color: var(--accent-color);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    border-left: 3px solid var(--accent-color);
+}
+
+/* Eyebrow Headers & Badges */
+.eyebrow {
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ffddd6;
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+.badge {
+    background: #2b2b2b;
+    border: 1px solid #3a3a3a;
+    color: #eee;
+    font-size: 0.7rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 999px;
+    margin-left: 0.4rem;
+    font-weight: 500;
+}
+
+/* Journey List Styling */
+.journey {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.journey li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed #333;
+    font-size: 0.9rem;
+}
+
+.journey li:last-child {
+    border-bottom: 0;
+}
+
+/* Enhanced Skills with Impact */
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    padding: 0.75rem;
+    background: var(--bg-secondary);
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.skill-impact {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    margin-top: 0.25rem;
+}
+
+/* Performance Optimization */
+.about-card {
+    content-visibility: auto;
+    contain-intrinsic-size: 700px;
+}
+
+/* Accessibility Improvements */
+:where(a, button).btn:focus-visible {
+    outline: 3px solid #ffb3a1;
+    outline-offset: 3px;
+    border-radius: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto;
+    }
+}
+
+/* Enhanced Mobile Grid */
+.story-container {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(260px, 40vw, 360px), 1fr));
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu {
@@ -721,22 +822,31 @@ p {
         height: 140px;
     }
     
-    .journey-item {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .journey-icon {
-        align-self: center;
-    }
-    
-    .exploring-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .vision-text,
-    .cta-text {
-        padding: 1rem;
+    .hero-impact {
         font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .journey li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .badge {
+        margin-left: 0;
+        margin-top: 0.25rem;
+    }
+    
+    .skill-item {
+        padding: 0.5rem;
+    }
+    
+    .skill-impact {
+        font-size: 0.7rem;
+    }
+    
+    .story-container {
+        grid-template-columns: 1fr;
     }
 }
