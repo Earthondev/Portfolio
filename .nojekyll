@@ -1,2 +1,2 @@
-# This file tells GitHub Pages not to use Jekyll
-# This helps with file serving and caching issues
+# This file prevents GitHub Pages from processing the site with Jekyll
+# It ensures that all files are served as-is without any Jekyll processing
