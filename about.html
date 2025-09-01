@@ -13,16 +13,14 @@
     <link rel="stylesheet" href="about.css">
 </head>
 <body>
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-lg">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <a href="index.html" class="text-white font-semibold text-xl">Nattapart</a>
-                <div class="flex space-x-6">
-                    <a href="index.html" class="text-white hover:text-red-300 transition-colors">Home</a>
-                    <a href="about.html" class="text-white hover:text-red-300 transition-colors">About</a>
-                    <a href="portfolio.html" class="text-white hover:text-red-300 transition-colors">Portfolio</a>
-                    <a href="contact.html" class="text-white hover:text-red-300 transition-colors">Contact</a>
-                </div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Nattapart</a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+                <a href="contact.html" class="nav-link">Contact</a>
             </div>
         </div>
     </nav>
@@ -33,13 +31,14 @@
         <div class="profile-container">
           <img src="https://i.imgur.com/QuzxPug.png" alt="Profile" class="profile-pic"/>
           <div class="role-badge">
-            <span class="role-text">Chemist → Data Analyst / Tester</span>
+            <span class="role-text">🧪 → 📊 → 🧪🔍</span>
+            <span class="role-subtitle">Chemist → Data Analyst / Tester</span>
           </div>
         </div>
       </div>
       <div class="hero-right reveal">
         <h1>Hi, I'm Nattapart Worakun</h1>
-        <p class="hero-subtitle">Data Enthusiast | BI Developer | Exploring Software Testing</p>
+        <p class="hero-subtitle">Turning Data into Insights | Testing for Quality</p>
         <p class="hero-description">
           ผมคือ Nattapart Worakun ที่เริ่มต้นเส้นทางจาก Chemist ในห้องแล็บ → ก้าวเข้าสู่สาย Data & Tech ด้วยความหลงใหลใน Automation, Data Analysis, และ Software Testing
         </p>
@@ -120,15 +119,15 @@
         <div class="next-goals">
           <div class="goal-item">
             <span class="goal-icon">🎯</span>
-            <span class="goal-text">BI Developer</span>
+            <span class="goal-text">Improve API Testing Skills (Postman / Newman)</span>
           </div>
           <div class="goal-item">
-            <span class="goal-icon">🔍</span>
-            <span class="goal-text">QA Tester</span>
+            <span class="goal-icon">🔎</span>
+            <span class="goal-text">Learn Automated Testing (Selenium / Playwright)</span>
           </div>
           <div class="goal-item">
-            <span class="goal-icon">🔄</span>
-            <span class="goal-text">Hybrid Role</span>
+            <span class="goal-icon">📈</span>
+            <span class="goal-text">Advance BI Storytelling (Power BI, DAX)</span>
           </div>
         </div>
         <p class="block-description">
@@ -155,96 +154,7 @@
       </div>
     </div>
   </div>
-      <div class="skills-section reveal">
-        <h2>Skills</h2>
-        <div class="skill">
-          <span>Excel + VBA Automation</span>
-          <div class="bar">
-            <div class="progress high"></div>
-          </div>
-        </div>
-        <div class="skill">
-          <span>Google Sheets + AppSheet</span>
-          <div class="bar">
-            <div class="progress high"></div>
-          </div>
-        </div>
-        <div class="skill">
-          <span>Power BI</span>
-          <div class="bar">
-            <div class="progress low"></div>
-          </div>
-        </div>
-        <div class="skill">
-          <span>SQL</span>
-          <div class="bar">
-            <div class="progress medium"></div>
-          </div>
-        </div>
-        <div class="skill">
-          <span>HTML + React (basic)</span>
-          <div class="bar">
-            <div class="progress medium"></div>
-          </div>
-        </div>
-      </div>
 
-      <div class="section reveal" style="margin-top: 1.5rem;">
-        <h2>Highlights</h2>
-        <div class="services-grid">
-          <div class="service-card">
-            <h3 class="service-title">Process Automation</h3>
-            <p class="service-desc">ลดเวลางานซ้ำๆ ด้วย Google Sheets + Apps Script + AppSheet และแจ้งเตือนผ่าน LINE</p>
-          </div>
-          <div class="service-card">
-            <h3 class="service-title">Insightful Dashboards</h3>
-            <p class="service-desc">ออกแบบ Power BI Dashboard ที่สื่อสาร KPI ชัดเจน ใช้งานง่าย</p>
-          </div>
-          <div class="service-card">
-            <h3 class="service-title">Data Quality</h3>
-            <p class="service-desc">วางขั้นตอนทำความสะอาดข้อมูล (SQL/Spreadsheet) เพื่อความน่าเชื่อถือก่อนวิเคราะห์</p>
-          </div>
-        </div>
-      </div>
-      <section class="tools">
-        <h2>Tools I Use</h2>
-        <div class="tools-grid">
-          <a href="https://code.visualstudio.com/" target="_blank" class="tool" title="VS Code">
-            <img src="https://img.icons8.com/color/64/visual-studio-code-2019.png" alt="VS Code" />
-            <p>VS Code</p>
-          </a>
-          <a href="https://git-scm.com/" target="_blank" class="tool" title="Git">
-            <img src="https://img.icons8.com/color/64/git.png" alt="Git" />
-            <p>Git</p>
-          </a>
-          <a href="https://www.google.com/sheets/about/" target="_blank" class="tool" title="Google Sheets">
-            <img src="https://img.icons8.com/color/64/google-sheets.png" alt="Google Sheets" />
-            <p>Google Sheets</p>
-          </a>
-          <a href="https://developers.google.com/apps-script" target="_blank" class="tool" title="Apps Script">
-            <img src="https://imgur.com/rPqDHfk.png" alt="Apps Script" />
-            <p>Apps Script</p>
-          </a>
-          <a href="https://appsheet.com/" target="_blank" class="tool" title="AppSheet">
-            <img src="https://imgur.com/29NXvNq.png" alt="AppSheet" />
-            <p>AppSheet</p>
-          </a>
-          <a href="https://www.microsoft.com/en-us/microsoft-365/excel" target="_blank" class="tool" title="Excel">
-            <img src="https://img.icons8.com/color/64/microsoft-excel-2019--v1.png" alt="Excel" />
-            <p>Excel</p>
-          </a>
-          <a href="https://powerbi.microsoft.com/" target="_blank" class="tool" title="Power BI">
-            <img src="https://img.icons8.com/color/64/power-bi.png" alt="Power BI" />
-            <p>Power BI</p>
-          </a>
-        </div>
-      </section>
-    </div>
-    <div class="fire-counter-container">
-      <div class="fire-button" id="fireButton">🔥</div>
-      <span class="fire-count" id="fireCount">0</span>
-    </div>
-  </div>
   <script>
     (function() {
       const els = document.querySelectorAll('.reveal');

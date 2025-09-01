@@ -554,8 +554,173 @@ p {
     }
 }
 
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-logo:hover {
+    color: var(--accent-color);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent-color);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent-color);
+    border-radius: 1px;
+}
+
+/* Enhanced Hero Section */
+.hero-section {
+    padding: 6rem 2rem 4rem;
+    margin-bottom: 0;
+}
+
+.profile-pic {
+    width: 170px;
+    height: 170px;
+}
+
+.role-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    text-align: center;
+}
+
+.role-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.role-subtitle {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.hero-description {
+    max-width: 500px;
+    line-height: 1.7;
+}
+
+/* Enhanced Storytelling Blocks */
+.story-blocks {
+    background: #1a1a1a;
+    padding: 4rem 2rem;
+    margin-bottom: 0;
+}
+
+.story-block {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.block-header h2 {
+    color: white;
+}
+
+.step-text {
+    color: white;
+}
+
+.skill-name {
+    color: white;
+}
+
+.goal-text {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.block-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+/* Enhanced CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 4rem 2rem;
+}
+
+.cta-section h2 {
+    color: #2c3e50;
+}
+
+.cta-description {
+    color: #6c757d;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+    .nav-menu {
+        gap: 1rem;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+    }
+    
+    .hero-section {
+        padding: 5rem 1rem 3rem;
+    }
+    
+    .profile-pic {
+        width: 140px;
+        height: 140px;
+    }
+    
     .journey-item {
         flex-direction: column;
         gap: 0.5rem;
