@@ -28,26 +28,38 @@
     <section class="contact contact-container">
         <h1 class="contact-header">Contact Me</h1>
         <div class="contact-profile reveal">
-            <img src="https://imgur.com/NbLwK3F.jpg" alt="Nattapart Profile" width="140" height="140" decoding="async" loading="eager">
+            <img src="./assets/images/profile.jpg" alt="Nattapart Profile" width="140" height="140" decoding="async" loading="eager">
         </div>
-        <form id="contact-form" class="contact-form reveal">
+        <form id="contact-form" class="contact-form reveal" method="POST" action="https://formspree.io/f/your-form-id-here">
+            <!-- honeypot -->
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;">
+            
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" aria-label="Your Name" required>
+                <input id="name" name="name" type="text" placeholder="Your name"
+                       aria-label="Your Name" autocomplete="name" required>
             </div>
+
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="you@example.com" aria-label="Your Email Address" required>
+                <input id="email" name="email" type="email" placeholder="you@example.com"
+                       aria-label="Your Email Address" autocomplete="email" inputmode="email" required>
             </div>
+
             <div class="form-group">
                 <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" placeholder="How can I help?" aria-label="Your Message" required></textarea>
+                <textarea id="message" name="message" rows="4" placeholder="How can I help?"
+                          aria-label="Your Message" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary submit-btn" data-track="contact_form_submit" data-source="contact" aria-label="Send Message">
-                <i class="fas fa-paper-plane"></i>
-                🚀 Let's Connect
+
+            <button id="sendBtn" type="submit" class="btn btn-primary submit-btn"
+                    data-track="contact_form_submit" data-source="contact" aria-label="Send Message">
+                <span class="btn-icon" aria-hidden="true">✉️</span>
+                <span class="btn-text">Send Message</span>
+                <span class="btn-spinner" hidden></span>
             </button>
-            <div id="form-status" class="form-status"></div>
+
+            <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
         </form>
         <div class="quick-contact reveal">
             <h3>Quick Contact</h3>
@@ -81,52 +93,10 @@
         }, { threshold: 0.12 });
         els.forEach(e => io.observe(e));
     })();
-    
-    // Form handling with success/error states
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
-        const status = document.getElementById('form-status');
-        
-        if (!name || !email || !message) {
-            status.innerHTML = '⚠️ Please fill in all fields';
-            status.className = 'form-status error';
-            return;
-        }
-        
-        // Simulate form submission with smooth animation
-        status.innerHTML = '✅ Thank you! Your message has been sent';
-        status.className = 'form-status success fade-in';
-        
-        // Reset form
-        this.reset();
-        
-        // Track form submission
-        const track = (name, data = {}) => window.gtag?.('event', name, data);
-        track('contact_form_submit', {source: 'contact'});
-        
-        // Hide success message after 5 seconds with fade out
-        setTimeout(() => {
-            status.className = 'form-status success fade-out';
-            setTimeout(() => {
-                status.innerHTML = '';
-                status.className = 'form-status';
-            }, 300);
-        }, 5000);
-    });
-    
-    // CTA Tracking
-    const track = (name, data = {}) => window.gtag?.('event', name, data);
-    document.querySelectorAll('[data-track]').forEach(el => {
-        el.addEventListener('click', () => track(el.dataset.track, {source: el.dataset.source || 'contact'}));
-    });
     </script>
     <footer>
         <p>© 2025 Nattapart Worakun. All Rights Reserved.</p>
     </footer>
-    <script src="Contact.js"></script>
+    <script src="contact.js"></script>
 </body>
 </html>
