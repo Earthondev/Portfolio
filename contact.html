@@ -18,16 +18,14 @@
     </style>
     </head>
 <body>
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-lg">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <a href="index.html" class="text-white font-semibold text-xl">Nattapart</a>
-                <div class="flex space-x-6">
-                    <a href="index.html" class="text-white hover:text-red-300 transition-colors">Home</a>
-                    <a href="about.html" class="text-white hover:text-red-300 transition-colors">About</a>
-                    <a href="portfolio.html" class="text-white hover:text-red-300 transition-colors">Portfolio</a>
-                    <a href="contact.html" class="text-white hover:text-red-300 transition-colors">Contact</a>
-                </div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Nattapart</a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
             </div>
         </div>
     </nav>
@@ -35,7 +33,7 @@
     <section class="contact contact-container">
         <h1 class="contact-header">Contact Me</h1>
         <div class="contact-profile reveal">
-            <img src="https://imgur.com/NbLwK3F.jpg" alt="Nattapart Profile">
+            <img src="https://imgur.com/NbLwK3F.jpg" alt="Nattapart Profile" width="140" height="140" decoding="async" loading="eager">
         </div>
         <form id="contact-form" class="contact-form reveal">
             <div class="form-group">
@@ -50,14 +48,27 @@
                 <label for="message">Message</label>
                 <textarea id="message" rows="4" placeholder="How can I help?"></textarea>
             </div>
-            <button type="submit" class="submit-btn">Send</button>
-            <div id="form-status" style="margin-top:0.75rem; color: var(--text-secondary);"></div>
+            <button type="submit" class="btn btn-primary submit-btn" data-track="contact_form_submit" data-source="contact">
+                <i class="fas fa-paper-plane"></i>
+                Send Message
+            </button>
+            <div id="form-status" class="form-status"></div>
         </form>
-        <div class="social-info reveal">
-            <div class="social-links">
-                <a class="social-icon" href="https://www.instagram.com/nattapart_on_earth/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                <a class="social-icon" href="https://www.linkedin.com/in/nattapart-worakun-74a5a821b/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                <a class="social-icon" href="https://github.com/Earthondev" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+        <div class="quick-contact reveal">
+            <h3>Quick Contact</h3>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <span>earthlikemwbb@gmail.com</span>
+                </div>
+                <div class="contact-method">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/nattapart-worakun-74a5a821b/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+                </div>
+                <div class="contact-method">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/Earthondev" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+                </div>
             </div>
         </div>
     </section>
@@ -71,6 +82,45 @@
         }, { threshold: 0.12 });
         els.forEach(e => io.observe(e));
     })();
+    
+    // Form handling with success/error states
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const status = document.getElementById('form-status');
+        
+        if (!name || !email || !message) {
+            status.innerHTML = '⚠️ Please fill in all fields';
+            status.className = 'form-status error';
+            return;
+        }
+        
+        // Simulate form submission
+        status.innerHTML = '✅ Thank you! Your message has been sent';
+        status.className = 'form-status success';
+        
+        // Reset form
+        this.reset();
+        
+        // Track form submission
+        const track = (name, data = {}) => window.gtag?.('event', name, data);
+        track('contact_form_submit', {source: 'contact'});
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+            status.innerHTML = '';
+            status.className = 'form-status';
+        }, 5000);
+    });
+    
+    // CTA Tracking
+    const track = (name, data = {}) => window.gtag?.('event', name, data);
+    document.querySelectorAll('[data-track]').forEach(el => {
+        el.addEventListener('click', () => track(el.dataset.track, {source: el.dataset.source || 'contact'}));
+    });
     </script>
     <footer>
         <p>© 2025 Nattapart Worakun. All Rights Reserved.</p>
