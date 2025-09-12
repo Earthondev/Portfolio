@@ -19,6 +19,9 @@ const themeToggle = document.getElementById('theme-toggle');
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
+    // Preload JSON files for faster loading
+    preloadJSONFiles();
+    
     loadData();
     setupEventListeners();
     setupModal();
@@ -27,6 +30,19 @@ document.addEventListener('DOMContentLoaded', function() {
     setupThemeToggle();
     applyTheme();
 });
+
+// Preload JSON files for better performance
+function preloadJSONFiles() {
+    const jsonFiles = ['./projects.json', './services.json'];
+    jsonFiles.forEach(file => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'fetch';
+        link.href = file + '?v=' + Date.now();
+        link.crossOrigin = 'anonymous';
+        document.head.appendChild(link);
+    });
+}
 
 // Analytics tracking function
 function trackEvent(eventName, eventLabel) {

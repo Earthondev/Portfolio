@@ -14,15 +14,8 @@ links.forEach(link => {
 window.addEventListener('load', () => {
     console.log('Page loaded, checking for cached data...');
     
-    // Force reload JSON files with cache busting
-    const jsonFiles = ['projects.json', 'services.json'];
-    jsonFiles.forEach(file => {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'fetch';
-        link.href = './' + file + '?v=' + timestamp;
-        document.head.appendChild(link);
-    });
+    // Note: JSON files are loaded via fetch() in script.js with cache busting
+    // No need for preload links as they cause warnings
 });
 
 // Override fetch to add cache busting for JSON files
