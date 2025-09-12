@@ -27,6 +27,10 @@ yarn-error.log*
 ehthumbs.db
 Thumbs.db
 
+# Temporary files
+style-new.css
+Datafile/
+
 # Logs
 logs
 *.log
