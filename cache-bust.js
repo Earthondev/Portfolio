@@ -14,8 +14,8 @@ links.forEach(link => {
 window.addEventListener('load', () => {
     console.log('Page loaded, checking for cached data...');
     
-    // Note: JSON files are loaded via fetch() in script.js with cache busting
-    // No need for preload links as they cause warnings
+    // Note: JSON files are preloaded and loaded via fetch() in script.js with cache busting
+    // Preload links are created in script.js with proper timing
 });
 
 // Override fetch to add cache busting for JSON files

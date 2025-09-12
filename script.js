@@ -22,7 +22,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Preload JSON files for faster loading
     preloadJSONFiles();
     
-    loadData();
+    // Small delay to allow preload to complete
+    setTimeout(() => {
+        loadData();
+    }, 100);
+    
     setupEventListeners();
     setupModal();
     setupNavbar();
@@ -40,6 +44,8 @@ function preloadJSONFiles() {
         link.as = 'fetch';
         link.href = file + '?v=' + Date.now();
         link.crossOrigin = 'anonymous';
+        link.onload = () => console.log(`Preloaded: ${file}`);
+        link.onerror = () => console.warn(`Failed to preload: ${file}`);
         document.head.appendChild(link);
     });
 }
@@ -83,6 +89,12 @@ function applyTheme() {
 // Enhanced JSON loading with error handling
 async function loadJSON(url) {
     try {
+        // Try to use preloaded resource first
+        const preloadLink = document.querySelector(`link[rel="preload"][href*="${url}"]`);
+        if (preloadLink) {
+            console.log(`Using preloaded resource for: ${url}`);
+        }
+        
         const res = await fetch(url, { cache: 'no-store' });
         if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
         return await res.json();
@@ -96,6 +108,8 @@ async function loadJSON(url) {
 async function loadData() {
     try {
         console.log('Loading data from JSON files...');
+        
+        // Use preloaded resources if available, otherwise fetch normally
         const [projectsData, servicesData] = await Promise.all([
             loadJSON('./projects.json'),
             loadJSON('./services.json')
