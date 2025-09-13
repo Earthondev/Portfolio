@@ -60,9 +60,7 @@ jobs:
       
     - name: Validate CSS files
       run: |
-        css-validator style.css
-        css-validator contact.css
-        css-validator case-studies/case-study.css
+        node css-validate-filtered.js
         
     - name: Check CSS syntax
       run: |
