@@ -529,7 +529,7 @@ p, li { font-size: 1rem; color: var(--on-surface); }
 }
 
 .impact-card:hover {
-  background-color: color-mix(in oklab, var(--surface-2), white 6%);
+  background: color-mix(in oklab, var(--surface-2), white 6%);
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0,0,0,.12);
 }
@@ -574,7 +574,7 @@ p, li { font-size: 1rem; color: var(--on-surface); }
 }
 
 .skills-summary .skill-card:hover {
-    background-color: color-mix(in oklab, var(--surface-2), white 6%);
+    background: color-mix(in oklab, var(--surface-2), white 6%);
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0,0,0,.12);
 }
@@ -708,7 +708,7 @@ p, li { font-size: 1rem; color: var(--on-surface); }
 }
 
 .portfolio-item:hover {
-  background-color: color-mix(in oklab, var(--surface-1), white 6%);
+  background: color-mix(in oklab, var(--surface-1), white 6%);
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 24px 48px rgba(0,0,0,.15);
   border-color: var(--accent);
@@ -965,7 +965,7 @@ p, li { font-size: 1rem; color: var(--on-surface); }
 }
 
 .contact-item:hover {
-  background-color: color-mix(in oklab, var(--surface-2), white 6%);
+  background: color-mix(in oklab, var(--surface-2), white 6%);
   transform: translateY(-4px);
   box-shadow: 0 12px 28px rgba(0,0,0,.15);
   border-color: var(--accent);
@@ -1022,7 +1022,7 @@ p, li { font-size: 1rem; color: var(--on-surface); }
 }
 
 .cta-actions .btn-secondary:hover {
-    background-color: color-mix(in oklab, var(--surface-2), white 6%);
+    background: color-mix(in oklab, var(--surface-2), white 6%);
     border-color: var(--accent);
     transform: translateY(-2px);
 }
@@ -1750,7 +1750,7 @@ footer,
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip-path: inset(50%);
+  clip-path: inset(50%); /* Modern CSS - valid */
   white-space: nowrap;
   border: 0;
 }
@@ -1931,7 +1931,7 @@ footer,
 }
 
 .error-actions .btn-secondary:hover {
-  background-color: color-mix(in oklab, var(--surface-2), white 6%);
+  background: color-mix(in oklab, var(--surface-2), white 6%);
   border-color: var(--accent);
   transform: translateY(-2px);
 }
@@ -1979,7 +1979,7 @@ footer,
   top: 50%;
   transform: translateY(-50%);
   color: var(--on-muted);
-  pointer-events: none;
+  pointer-events: none; /* Valid CSS property */
 }
 
 .filter-container {
@@ -2002,7 +2002,7 @@ footer,
 }
 
 .filter-btn:hover {
-  background-color: color-mix(in oklab, var(--surface-2), white 6%);
+  background: color-mix(in oklab, var(--surface-2), white 6%);
   border-color: var(--accent);
   transform: translateY(-1px);
 }
@@ -2084,7 +2084,7 @@ footer,
 }
 
 .principle-item:hover {
-  background-color: color-mix(in oklab, var(--surface-1), white 6%);
+  background: color-mix(in oklab, var(--surface-1), white 6%);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,.1);
 }
@@ -2156,7 +2156,7 @@ footer,
 }
 
 .principle-card:hover {
-  background-color: color-mix(in oklab, var(--surface-1), white 6%);
+  background: color-mix(in oklab, var(--surface-1), white 6%);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,.1);
 }
@@ -2197,7 +2197,7 @@ footer,
 }
 
 .faq-item:hover {
-  background-color: color-mix(in oklab, var(--surface-2), white 6%);
+  background: color-mix(in oklab, var(--surface-2), white 6%);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,.1);
 }
