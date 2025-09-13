@@ -1,10 +1,10 @@
-// Global variables
+// ---------- State ----------
 let projects = [];
 let services = [];
 let currentFilter = 'all';
 let currentTheme = localStorage.getItem('theme') || 'dark';
 
-// DOM Elements
+// ---------- Elements ----------
 const projectsContainer = document.getElementById('projects-container');
 const servicesContainer = document.getElementById('services-container');
 const skillsContainer = document.getElementById('skills-container');
@@ -17,716 +17,964 @@ const navbarNav = document.getElementById('navbar-nav');
 const scrollToTopBtn = document.getElementById('scroll-to-top');
 const themeToggle = document.getElementById('theme-toggle');
 
-// Initialize the application
-document.addEventListener('DOMContentLoaded', function() {
-    // Preload JSON files for faster loading
-    preloadJSONFiles();
-    
-    // Small delay to allow preload to complete
-    setTimeout(() => {
-        loadData();
-    }, 100);
-    
-    setupEventListeners();
-    setupModal();
-    setupNavbar();
-    setupScrollToTop();
-    setupThemeToggle();
-    applyTheme();
+// ---------- Init ----------
+document.addEventListener('DOMContentLoaded', () => {
+  preloadJSONFiles();
+  setTimeout(loadData, 100);
+
+  setupEventListeners();
+  setupModalShells();
+  setupNavbar();
+  setupScrollToTop();
+  setupThemeToggle();
+  setupKeyboardNavigation();
+  setupAnalytics();
+  trackPageEvents();
+  applyTheme();
 });
 
-// Preload JSON files for better performance
-function preloadJSONFiles() {
-    const timestamp = Date.now();
-    const jsonFiles = ['./projects.json', './services.json'];
-    jsonFiles.forEach(file => {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'fetch';
-        link.href = file + '?v=' + timestamp;
-        link.crossOrigin = 'anonymous';
-        link.onload = () => console.log(`Preloaded: ${file}`);
-        link.onerror = () => console.warn(`Failed to preload: ${file}`);
-        document.head.appendChild(link);
-    });
-    
-    // Store timestamp for later use
-    window.preloadTimestamp = timestamp;
+function setupAnalytics() {
+  // Track page view
+  trackPageView();
+  
+  // Setup scroll tracking
+  setupScrollTracking();
+  
+  // Setup time tracking
+  setupTimeTracking();
+  
+  // Track form interactions
+  setupFormTracking();
+  
+  // Track external link clicks
+  setupExternalLinkTracking();
 }
 
-// Analytics tracking function
-function trackEvent(eventName, eventLabel) {
-    if (typeof gtag !== 'undefined') {
-        gtag('event', eventName, {
-            event_category: 'portfolio_interaction',
-            event_label: eventLabel
-        });
+function setupFormTracking() {
+  // Track contact form interactions
+  const contactForm = document.querySelector('#contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', () => {
+      trackEvent('form_submit', 'contact_form');
+    });
+    
+    // Track form field focus
+    contactForm.querySelectorAll('input, textarea').forEach(field => {
+      field.addEventListener('focus', () => {
+        trackEvent('form_field_focus', field.name || field.type);
+      });
+    });
+  }
+}
+
+function setupExternalLinkTracking() {
+  // Track external link clicks
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (link && link.hostname !== window.location.hostname) {
+      trackEvent('external_link_click', link.href);
     }
-    console.log(`Event tracked: ${eventName} - ${eventLabel}`);
+  });
 }
 
-// Theme toggle functionality
-function setupThemeToggle() {
-    if (!themeToggle) return;
-    
-    themeToggle.addEventListener('click', () => {
-        currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        localStorage.setItem('theme', currentTheme);
-        applyTheme();
-        trackEvent('theme_toggle', currentTheme);
+// ---------- Preload JSON ----------
+function preloadJSONFiles() {
+  const ts = Date.now();
+  ['projects.json', 'services.json'].forEach((name) => {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'fetch';
+    link.href = `./${name}?v=${ts}`;
+    link.crossOrigin = 'anonymous';
+    document.head.appendChild(link);
+  });
+  window.preloadTimestamp = ts;
+}
+
+// ---------- Analytics ----------
+function trackEvent(eventName, eventLabel) {
+  if (typeof gtag === 'function') {
+    gtag('event', eventName, {
+      event_category: 'portfolio_interaction',
+      event_label: eventLabel
     });
+  }
+  
+  // Custom analytics tracking
+  const analyticsData = {
+    action: eventName,
+    category: 'portfolio_interaction',
+    label: eventLabel,
+    timestamp: Date.now(),
+    url: window.location.href,
+    userAgent: navigator.userAgent,
+    viewport: {
+      width: window.innerWidth,
+      height: window.innerHeight
+    }
+  };
+  
+  // Store in localStorage for offline analytics
+  const analytics = JSON.parse(localStorage.getItem('analytics') || '[]');
+  analytics.push(analyticsData);
+  
+  // Keep only last 100 events
+  if (analytics.length > 100) {
+    analytics.splice(0, analytics.length - 100);
+  }
+  
+  localStorage.setItem('analytics', JSON.stringify(analytics));
+  
+  // Send to custom endpoint if available
+  if (navigator.onLine) {
+    sendAnalytics(analyticsData);
+  }
+  
+  // dev log
+  console.log(`Event: ${eventName} - ${eventLabel}`);
+}
+
+// Track page-specific events
+function trackPageEvents() {
+  // Track print button clicks
+  const printButtons = document.querySelectorAll('button[onclick*="print"]');
+  printButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      trackEvent('print_pdf', 'print_button_click');
+    });
+  });
+  
+  // Track FAQ interactions
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+      trackEvent('faq_interaction', `faq_item_${index}`);
+    });
+  });
+  
+  // Track impact highlights
+  const impactCards = document.querySelectorAll('.impact-card');
+  impactCards.forEach((card, index) => {
+    card.addEventListener('click', () => {
+      trackEvent('impact_card_click', `impact_${index}`);
+    });
+  });
+  
+  // Track principle cards
+  const principleCards = document.querySelectorAll('.principle-card');
+  principleCards.forEach((card, index) => {
+    card.addEventListener('click', () => {
+      trackEvent('principle_card_click', `principle_${index}`);
+    });
+  });
+}
+
+async function sendAnalytics(data) {
+  try {
+    // Replace with your analytics endpoint
+    await fetch('/api/analytics', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    });
+  } catch (error) {
+    console.log('Analytics send failed:', error);
+  }
+}
+
+// Track page views
+function trackPageView() {
+  trackEvent('page_view', window.location.pathname);
+}
+
+// Track scroll depth
+function setupScrollTracking() {
+  let maxScroll = 0;
+  const milestones = [25, 50, 75, 100];
+  const trackedMilestones = new Set();
+  
+  window.addEventListener('scroll', () => {
+    const scrollPercent = Math.round(
+      (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+    );
+    
+    if (scrollPercent > maxScroll) {
+      maxScroll = scrollPercent;
+      
+      milestones.forEach(milestone => {
+        if (scrollPercent >= milestone && !trackedMilestones.has(milestone)) {
+          trackedMilestones.add(milestone);
+          trackEvent('scroll_depth', `${milestone}%`);
+        }
+      });
+    }
+  });
+}
+
+// Track time on page
+function setupTimeTracking() {
+  const startTime = Date.now();
+  
+  window.addEventListener('beforeunload', () => {
+    const timeOnPage = Math.round((Date.now() - startTime) / 1000);
+    trackEvent('time_on_page', 'seconds', timeOnPage);
+  });
+}
+
+// ---------- Theme ----------
+function setupThemeToggle() {
+  if (!themeToggle) return;
+  themeToggle.addEventListener('click', () => {
+    const next = getTheme() === 'light' ? 'dark' : 'light';
+    setTheme(next);
+    trackEvent('theme_toggle', next);
+  });
+  // sync icon on load
+  setTheme(getTheme());
+}
+
+function setTheme(next){
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  currentTheme = next;
+  const icon = themeToggle?.querySelector('i');
+  if (icon) icon.className = next === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+}
+
+function getTheme(){
+  return document.documentElement.getAttribute('data-theme') || 'dark';
 }
 
 function applyTheme() {
-    const root = document.documentElement;
-    const themeIcon = themeToggle?.querySelector('i');
-    
-    if (currentTheme === 'light') {
-        root.classList.add('light-theme');
-        if (themeIcon) themeIcon.className = 'fas fa-sun';
-    } else {
-        root.classList.remove('light-theme');
-        if (themeIcon) themeIcon.className = 'fas fa-moon';
-    }
+  const root = document.documentElement;
+  const icon = themeToggle?.querySelector('i');
+  root.setAttribute('data-theme', currentTheme);
+  if (icon) icon.className = currentTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
 }
 
-// Enhanced JSON loading with error handling
+// ---------- Data ----------
 async function loadJSON(url) {
-    try {
-        // Use the same timestamp as preload
-        const timestamp = window.preloadTimestamp || Date.now();
-        const urlWithCache = url + '?v=' + timestamp;
-        
-        // Try to use preloaded resource first
-        const preloadLink = document.querySelector(`link[rel="preload"][href*="${url}"]`);
-        if (preloadLink) {
-            console.log(`Using preloaded resource for: ${url}`);
-        }
-        
-        const res = await fetch(urlWithCache, { cache: 'no-store' });
-        if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
-        return await res.json();
-    } catch (e) {
-        console.error(`Error loading ${url}:`, e);
-        return []; // Return empty array as fallback
-    }
+  try {
+    const ts = window.preloadTimestamp || Date.now();
+    const res = await fetch(`${url}?v=${ts}`, { 
+      cache: 'no-store',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    console.error(`loadJSON error for ${url}:`, err);
+    // Return fallback data based on URL
+    if (url.includes('projects')) return getFallbackProjects();
+    if (url.includes('services')) return getFallbackServices();
+    return [];
+  }
 }
 
-// Load data from JSON files with error handling
+// Fallback data for when JSON files fail to load
+function getFallbackProjects() {
+  return [{
+    id: 'fallback',
+    title: 'Sample Project',
+    year: 2025,
+    summary: 'This is a fallback project shown when the main data fails to load.',
+    role: 'Developer',
+    stack: ['HTML', 'CSS', 'JavaScript'],
+    highlights: ['Responsive design', 'Modern UI'],
+    coverImage: {
+      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop',
+      alt: 'Fallback project image'
+    },
+    gallery: [],
+    links: { live: '#', repo: '#' },
+    tags: ['web', 'fallback'],
+    status: 'Active',
+    caseStudy: false
+  }];
+}
+
+function getFallbackServices() {
+  return {
+    services: [{
+      title: 'Web Development',
+      description: 'Building modern web applications',
+      icon: 'fas fa-code'
+    }],
+    skills: [{
+      name: 'HTML',
+      level: 'high',
+      icon: 'fab fa-html5'
+    }, {
+      name: 'CSS',
+      level: 'high',
+      icon: 'fab fa-css3-alt'
+    }, {
+      name: 'JavaScript',
+      level: 'medium',
+      icon: 'fab fa-js'
+    }],
+    certifications: ['Sample Certification']
+  };
+}
+
 async function loadData() {
-    try {
-        console.log('Loading data from JSON files...');
-        
-        // Use preloaded resources if available, otherwise fetch normally
-        const [projectsData, servicesData] = await Promise.all([
-            loadJSON('./projects.json'),
-            loadJSON('./services.json')
-        ]);
-        
-        console.log('Projects data:', projectsData);
-        console.log('Services data:', servicesData);
-        
-        projects = projectsData;
-        services = servicesData.services || [];
-        
-        renderProjects();
-        renderServices();
-        renderSkills(servicesData.skills || []);
-        renderCertifications(servicesData.certifications || []);
-        
-        // Show fallback message if no data loaded
-        if (!projects || projects.length === 0) {
-            console.warn('No projects data loaded');
-            showFallbackMessage('projects');
-        }
-        if (!services || services.length === 0) {
-            console.warn('No services data loaded');
-            showFallbackMessage('services');
-        }
-    } catch (error) {
-        console.error('Error loading data:', error);
-        showFallbackMessage('general');
-    }
+  // Show loading states
+  showLoadingStates();
+  
+  try {
+    const [projectsData, servicesData] = await Promise.all([
+      loadJSON('./projects.json'),
+      loadJSON('./services.json')
+    ]);
+
+    projects = Array.isArray(projectsData) ? projectsData : [];
+    services = Array.isArray(servicesData?.services) ? servicesData.services : [];
+
+    // Hide loading states
+    hideLoadingStates();
+
+    renderProjects();
+    renderServices();
+    renderSkills(Array.isArray(servicesData?.skills) ? servicesData.skills : []);
+    renderCertifications(Array.isArray(servicesData?.certifications) ? servicesData.certifications : []);
+
+    if (projects.length === 0) showFallbackMessage('projects');
+    if (services.length === 0) showFallbackMessage('services');
+  } catch (e) {
+    console.error('loadData error:', e);
+    hideLoadingStates();
+    showFallbackMessage('projects');
+    showFallbackMessage('services');
+  }
 }
 
-// Show fallback message when data fails to load
+function showLoadingStates() {
+  if (projectsContainer) {
+    projectsContainer.innerHTML = `
+      <div class="skeleton-card">
+        <div class="skeleton skeleton-image"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton skeleton-image"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton skeleton-image"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+      </div>
+    `;
+  }
+  
+  if (skillsContainer) {
+    skillsContainer.innerHTML = `
+      <div class="skeleton-card">
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+      </div>
+    `;
+  }
+}
+
+function hideLoadingStates() {
+  // Loading states will be replaced by actual content
+  // No need to explicitly hide them
+}
+
+// ---------- Fallback ----------
 function showFallbackMessage(type) {
-    const container = type === 'projects' ? projectsContainer : 
-                     type === 'services' ? servicesContainer : null;
-    
-    if (!container) return;
-    
-    container.innerHTML = `
-        <div class="fallback-message">
-            <i class="fas fa-exclamation-triangle"></i>
-            <h3>Unable to load ${type}</h3>
-            <p>Please check your connection and refresh the page.</p>
-            <button onclick="location.reload()" class="btn-primary">
-                <i class="fas fa-redo"></i> Refresh
-            </button>
-        </div>
-    `;
+  const map = { projects: projectsContainer, services: servicesContainer };
+  const container = map[type];
+  if (!container) return;
+  container.innerHTML = `
+    <div class="fallback-message">
+      <i class="fas fa-exclamation-triangle"></i>
+      <h3>Unable to load ${type}</h3>
+      <p>Please check your connection and refresh the page.</p>
+      <button class="btn-primary" type="button">
+        <i class="fas fa-redo"></i> Refresh
+      </button>
+    </div>`;
+  container.querySelector('button')?.addEventListener('click', () => location.reload());
 }
 
-// Setup navbar scroll effect
+// ---------- Navbar / Mobile menu ----------
 function setupNavbar() {
-    if (!navbar) return;
-    
+  if (navbar) {
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  }
+
+  if (mobileMenuBtn && navbarNav) {
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = navbarNav.classList.toggle('open'); // <-- ใช้ .open ให้ตรง CSS
+      mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+      trackEvent('mobile_menu_toggle', isOpen ? 'open' : 'close');
+    });
+
+    // Close on link click
+    navbarNav.querySelectorAll('a').forEach((a) =>
+      a.addEventListener('click', () => {
+        if (navbarNav.classList.contains('open')) {
+          navbarNav.classList.remove('open');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
         }
-    });
-    
-    // Mobile menu toggle
-    if (mobileMenuBtn && navbarNav) {
-        mobileMenuBtn.addEventListener('click', () => {
-            navbarNav.classList.toggle('active');
-        });
-        
-        // Close menu when clicking on a link
-        navbarNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navbarNav.classList.remove('active');
-            });
-        });
-    }
-}
-
-// Setup scroll to top button
-function setupScrollToTop() {
-    if (!scrollToTopBtn) return;
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            scrollToTopBtn.classList.add('visible');
-        } else {
-            scrollToTopBtn.classList.remove('visible');
-        }
-    });
-    
-    scrollToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-        trackEvent('scroll_to_top', 'button_click');
-    });
-}
-
-// Setup event listeners
-function setupEventListeners() {
-    // Search functionality
-    if (searchInput) {
-        searchInput.addEventListener('input', debounce(handleSearch, 300));
-    }
-    
-    // Filter buttons
-    filterButtons.forEach(button => {
-        button.addEventListener('click', handleFilter);
-    });
-}
-
-// Handle search
-function handleSearch(e) {
-    const searchTerm = e.target.value.toLowerCase();
-    const filteredProjects = projects.filter(project => 
-        project.title.toLowerCase().includes(searchTerm) ||
-        project.summary.toLowerCase().includes(searchTerm) ||
-        project.tags.some(tag => tag.toLowerCase().includes(searchTerm)) ||
-        project.stack.some(tech => tech.toLowerCase().includes(searchTerm))
+      })
     );
-    renderProjects(filteredProjects);
-    trackEvent('project_search', searchTerm);
+  }
 }
 
-// Handle filter
+// ---------- Scroll to top ----------
+function setupScrollToTop() {
+  if (!scrollToTopBtn) return;
+  window.addEventListener('scroll', () => {
+    scrollToTopBtn.classList.toggle('visible', window.scrollY > 300);
+  });
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    trackEvent('scroll_to_top', 'button_click');
+  });
+}
+
+// ---------- Keyboard Navigation ----------
+function setupKeyboardNavigation() {
+  // Escape key to close modals
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeAllModals();
+    }
+  });
+
+  // Tab navigation for modals
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab' && document.querySelector('.modal.active')) {
+      handleModalTabNavigation(e);
+    }
+  });
+
+  // Arrow keys for gallery navigation
+  document.addEventListener('keydown', (e) => {
+    const galleryModal = document.querySelector('.gallery-modal.active');
+    if (!galleryModal) return;
+
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      const prevBtn = galleryModal.querySelector('.gallery-nav.prev');
+      if (prevBtn) prevBtn.click();
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      const nextBtn = galleryModal.querySelector('.gallery-nav.next');
+      if (nextBtn) nextBtn.click();
+    }
+  });
+}
+
+function closeAllModals() {
+  document.querySelectorAll('.modal.active').forEach(modal => {
+    modal.classList.remove('active');
+  });
+  document.body.style.overflow = '';
+}
+
+function handleModalTabNavigation(e) {
+  const modal = document.querySelector('.modal.active');
+  if (!modal) return;
+
+  const focusableElements = modal.querySelectorAll(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  );
+  const firstElement = focusableElements[0];
+  const lastElement = focusableElements[focusableElements.length - 1];
+
+  if (e.shiftKey) {
+    if (document.activeElement === firstElement) {
+      e.preventDefault();
+      lastElement.focus();
+    }
+  } else {
+    if (document.activeElement === lastElement) {
+      e.preventDefault();
+      firstElement.focus();
+    }
+  }
+}
+
+// ---------- UI events ----------
+function setupEventListeners() {
+  if (searchInput) {
+    searchInput.addEventListener('input', debounce(handleSearch, 300));
+  }
+  filterButtons.forEach((btn) => btn.addEventListener('click', handleFilter));
+}
+
+function handleSearch(e) {
+  const q = (e.target.value || '').toLowerCase();
+  const filtered = projects.filter((p) =>
+    [p.title, p.summary]
+      .filter(Boolean)
+      .some((t) => String(t).toLowerCase().includes(q)) ||
+    (Array.isArray(p.tags) && p.tags.some((t) => String(t).toLowerCase().includes(q))) ||
+    (Array.isArray(p.stack) && p.stack.some((t) => String(t).toLowerCase().includes(q)))
+  );
+  renderProjects(filtered);
+  trackEvent('project_search', q);
+}
+
 function handleFilter(e) {
-    const filter = e.target.dataset.filter;
-    currentFilter = filter;
-    
-    // Update active button
-    filterButtons.forEach(btn => btn.classList.remove('active'));
-    e.target.classList.add('active');
-    
-    // Filter projects
-    const filteredProjects = filter === 'all' 
-        ? projects 
-        : projects.filter(project => project.tags.some(tag => 
-            tag.toLowerCase().includes(filter.toLowerCase())
-        ));
-    
-    renderProjects(filteredProjects);
-    trackEvent('project_filter', filter);
+  const filter = e.currentTarget?.dataset?.filter || 'all';
+  currentFilter = filter;
+
+  filterButtons.forEach((b) => b.classList.remove('active'));
+  e.currentTarget.classList.add('active');
+
+  const filtered =
+    filter === 'all'
+      ? projects
+      : projects.filter((p) => Array.isArray(p.tags) && p.tags.some((t) => String(t).toLowerCase().includes(filter.toLowerCase())));
+  renderProjects(filtered);
+  trackEvent('project_filter', filter);
 }
 
-// Render projects with enhanced features
-function renderProjects(projectsToRender = projects) {
-    if (!projectsContainer) return;
-    
-    projectsContainer.innerHTML = projectsToRender.map(project => toCardHTML(project)).join('');
-    
-    // Re-initialize reveal animations
-    initializeRevealAnimations();
-    
-    // Attach card events
-    attachCardEvents(projectsToRender);
+// ---------- Render: Projects ----------
+function renderProjects(list = projects) {
+  if (!projectsContainer) return;
+  
+  // For home page, show only featured projects (max 3)
+  const isHomePage = window.location.pathname.includes('index.html') || window.location.pathname === '/';
+  const displayList = isHomePage ? list.slice(0, 3) : list;
+  
+  projectsContainer.innerHTML = displayList.map(toCardHTML).join('');
+  initializeRevealAnimations();
+  attachCardEvents(displayList);
 }
 
-// Enhanced project card HTML with case study button
-function toCardHTML(project) {
-    const hasCaseStudy = project.caseStudy || false;
-    
-    return `
-        <div class="portfolio-item" data-project-id="${project.id}">
-            <div class="portfolio-image-container">
-                <img src="${project.coverImage.src}" alt="${project.coverImage.alt}" class="portfolio-image" loading="lazy">
-                <div class="portfolio-overlay">
-                    <button class="view-details-btn" aria-label="View project details">
-                        <i class="fas fa-eye"></i>
-                        View Details
-                    </button>
-                </div>
-            </div>
-            <div class="portfolio-content">
-                <div class="portfolio-header">
-                    <h3 class="portfolio-title">${project.title}</h3>
-                    <span class="portfolio-year">${project.year}</span>
-                </div>
-                <p class="portfolio-summary">${project.summary}</p>
-                <div class="portfolio-meta">
-                    <div class="portfolio-role">
-                        <span class="meta-label">Role:</span>
-                        ${project.role.map(role => `<span>${role}</span>`).join('')}
-                    </div>
-                    <div class="portfolio-stack">
-                        <span class="meta-label">Tech:</span>
-                        ${project.stack.map(tech => `<span>${tech}</span>`).join('')}
-                    </div>
-                </div>
-                <div class="portfolio-actions">
-                    <a href="${project.links.live}" target="_blank" class="btn-primary" aria-label="View live demo" onclick="trackEvent('project_live_click', '${project.id}')">
-                        <i class="fas fa-external-link-alt"></i>
-                        Live Demo
-                    </a>
-                    <a href="${project.links.repo}" target="_blank" class="btn-secondary" aria-label="View source code" onclick="trackEvent('project_repo_click', '${project.id}')">
-                        <i class="fab fa-github"></i>
-                        Code
-                    </a>
-                    ${hasCaseStudy ? `
-                        <a href="/case-studies/${project.slug}.html" class="btn-case-study" aria-label="Read case study" onclick="trackEvent('case_study_click', '${project.id}')">
-                            <i class="fas fa-book-open"></i>
-                            Case Study
-                        </a>
-                    ` : ''}
-                </div>
-                ${project.gallery && project.gallery.length > 0 ? `
-                    <a href="#" class="btn-gallery" data-project-id="${project.id}" aria-label="View project screenshots">
-                        <i class="fas fa-images"></i>
-                        Screenshots (${project.gallery.length})
-                    </a>
-                ` : ''}
-            </div>
+function toCardHTML(p) {
+  const hasCaseStudy = !!p.caseStudy;
+  const cover = p.coverImage || {};
+  const live = p.links?.live || '#';
+  const repo = p.links?.repo || '#';
+
+  return `
+    <div class="portfolio-item reveal" data-project-id="${p.id}">
+      <div class="portfolio-image-container">
+        <img src="${cover.src || ''}" alt="${cover.alt || p.title || 'Project'}" class="portfolio-image" loading="lazy">
+        <div class="portfolio-overlay">
+          <button class="view-details-btn" type="button" aria-label="View project details">
+            <i class="fas fa-eye"></i>
+            View Details
+          </button>
         </div>
-    `;
+      </div>
+      <div class="portfolio-content">
+        <div class="portfolio-header">
+          <h3 class="portfolio-title">${p.title || ''}</h3>
+          <span class="portfolio-year">${p.year || ''}</span>
+        </div>
+        <p class="portfolio-summary">${p.summary || ''}</p>
+        <div class="portfolio-meta">
+          <div class="portfolio-role">
+            <span class="meta-label">Role:</span>
+            ${(p.role || []).map((r) => `<span>${r}</span>`).join('')}
+          </div>
+          <div class="portfolio-stack">
+            <span class="meta-label">Tech:</span>
+            ${(p.stack || []).map((s) => `<span>${s}</span>`).join('')}
+          </div>
+        </div>
+        <div class="portfolio-actions">
+          <a href="${live}" target="_blank" rel="noopener" class="btn-primary" aria-label="View live demo" onclick="trackEvent('project_live_click','${p.id}')">
+            <i class="fas fa-external-link-alt"></i>
+            Live Demo
+          </a>
+          <a href="${repo}" target="_blank" rel="noopener" class="btn-secondary" aria-label="View source code" onclick="trackEvent('project_repo_click','${p.id}')">
+            <i class="fab fa-github"></i>
+            Code
+          </a>
+          ${hasCaseStudy ? `
+          <a href="/case-studies/${p.slug}.html" class="btn-case-study" aria-label="Read case study" onclick="trackEvent('case_study_click','${p.id}')">
+            <i class="fas fa-book-open"></i>
+            Case Study
+          </a>` : ''}
+        </div>
+        ${Array.isArray(p.gallery) && p.gallery.length ? `
+          <button class="btn-gallery" type="button" data-project-id="${p.id}" aria-label="View project screenshots">
+            <i class="fas fa-images"></i> Screenshots (${p.gallery.length})
+          </button>` : ''}
+      </div>
+    </div>`;
 }
 
-// Attach card events with analytics
-function attachCardEvents(projectsToRender) {
-    projectsToRender.forEach(project => {
-        const card = document.querySelector(`[data-project-id="${project.id}"]`);
-        if (!card) return;
-        
-        // View details button
-        const viewBtn = card.querySelector('.view-details-btn');
-        if (viewBtn) {
-            viewBtn.addEventListener('click', () => {
-                openProjectModal(project);
-                trackEvent('project_view', project.id);
-            });
-        }
-        
-        // Gallery button
-        const galleryBtn = card.querySelector('.btn-gallery');
-        if (galleryBtn) {
-            galleryBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                openGalleryModal(project);
-                trackEvent('project_gallery_view', project.id);
-            });
-        }
+function attachCardEvents(list) {
+  list.forEach((p) => {
+    const card = document.querySelector(`[data-project-id="${CSS.escape(String(p.id))}"]`);
+    if (!card) return;
+
+    const viewBtn = card.querySelector('.view-details-btn');
+    viewBtn?.addEventListener('click', () => {
+      openProjectModal(p);
+      trackEvent('project_view', p.id);
     });
+
+    const galleryBtn = card.querySelector('.btn-gallery');
+    galleryBtn?.addEventListener('click', () => {
+      openGalleryModal(p);
+      trackEvent('project_gallery_view', p.id);
+    });
+  });
 }
 
-// Render services
+// ---------- Render: Services / Skills / Certs ----------
 function renderServices() {
-    if (!servicesContainer) return;
-    
-    servicesContainer.innerHTML = services.map(service => `
-        <div class="service-card">
-            <img class="service-image" src="${service.image}" alt="${service.title}">
-            <div class="service-icon">
-                <i class="${service.icon}"></i>
-            </div>
-            <h3 class="service-title">${service.title}</h3>
-            <p class="service-desc">${service.description}</p>
-        </div>
-    `).join('');
+  if (!servicesContainer) return;
+  servicesContainer.innerHTML = services
+    .map(
+      (s) => `
+      <div class="service-card reveal">
+        <img class="service-image" src="${s.image || ''}" alt="${s.title || 'Service'}" loading="lazy">
+        <div class="service-icon"><i class="${s.icon || 'fas fa-asterisk'}"></i></div>
+        <h3 class="service-title">${s.title || ''}</h3>
+        <p class="service-desc">${s.description || ''}</p>
+        ${s.result ? `<div class="service-result"><strong>ผลลัพธ์:</strong> ${s.result}</div>` : ''}
+      </div>`
+    )
+    .join('');
 }
 
-// Render skills with donut charts and grouping
 function renderSkills(skills) {
-    if (!skillsContainer || !skills.length) return;
-    
-    // Group skills by type
-    const skillGroups = {
-        'Data Tools': skills.filter(skill => 
-            ['SQL', 'Power BI', 'Excel', 'Python', 'R'].includes(skill.name)
-        ),
-        'Dev Tools': skills.filter(skill => 
-            ['React', 'JavaScript', 'TypeScript', 'Firebase', 'VBA', 'AppSheet', 'Postman'].includes(skill.name)
-        )
-    };
-    
-    let skillsHTML = '';
-    
-    Object.entries(skillGroups).forEach(([groupName, groupSkills]) => {
-        if (groupSkills.length === 0) return;
-        
-        skillsHTML += `
-            <div class="skills-group">
-                <h3>${groupName}</h3>
-                <div class="skills-grid">
-                    ${groupSkills.map(skill => {
-                        const percentage = skill.level === 'high' ? 85 : skill.level === 'medium' ? 50 : 25;
-                        return `
-                            <div class="skill-card">
-                                <i class="${skill.icon} skill-icon"></i>
-                                <span>${skill.name}</span>
-                                <div class="skill-progress">
-                                    <svg>
-                                        <circle class="bg" cx="50" cy="50" r="45"></circle>
-                                        <circle class="progress ${skill.level}" cx="50" cy="50" r="45"></circle>
-                                    </svg>
-                                    <div class="skill-percentage">
-                                        <div class="percentage">${percentage}%</div>
-                                        <div class="label">${skill.level}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                    }).join('')}
-                </div>
+  if (!skillsContainer || !skills.length) return;
+
+  // Check if we're on home page (skills summary) or about page (full skills)
+  const isHomePage = window.location.pathname.includes('index.html') || window.location.pathname === '/';
+  const isAboutPage = window.location.pathname.includes('about.html');
+  
+  if (isHomePage) {
+    // Home page: Show top skills only (max 6)
+    const topSkills = skills.slice(0, 6);
+    skillsContainer.innerHTML = topSkills
+      .map((sk) => {
+        return `
+          <div class="skill-card">
+            <i class="${sk.icon || 'fas fa-check'} skill-icon"></i>
+            <span>${sk.name}</span>
+            <div class="skill-level">
+              <div class="skill-bar ${sk.level}"></div>
             </div>
+          </div>
         `;
-    });
-    
-    skillsContainer.innerHTML = skillsHTML;
-    
-    // Animate donut charts
-    setTimeout(() => {
-        const progressCircles = document.querySelectorAll('.skill-progress .progress');
-        progressCircles.forEach(circle => {
-            circle.style.strokeDashoffset = circle.style.strokeDashoffset || '314';
-        });
-    }, 100);
-}
+      })
+      .join('');
+  } else if (isAboutPage) {
+    // About page: Show full skills with groups
+    const groups = groupSkillsByCategory(skills);
 
-// Render certifications
-function renderCertifications(certifications) {
-    if (!certificationsContainer) return;
-    
-    certificationsContainer.innerHTML = certifications.map(cert => `
-        <div class="cert-card">
-            <i class="fas fa-certificate cert-icon"></i>
-            <span>${cert}</span>
-        </div>
-    `).join('');
-}
-
-// Modal functionality
-function setupModal() {
-    // Create project modal HTML
-    const projectModalHTML = `
-        <div id="project-modal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <div class="modal-body">
-                    <div class="modal-image-container">
-                        <img id="modal-image" src="" alt="">
+    let html = '';
+    for (const [group, items] of Object.entries(groups)) {
+      if (!items.length) continue;
+      html += `
+        <div class="skills-group reveal">
+          <h3>${group}</h3>
+          <div class="skills-grid">
+            ${items
+              .map((sk) => {
+                const pct = sk.level === 'high' ? 85 : sk.level === 'medium' ? 50 : 25;
+                return `
+                  <div class="skill-card">
+                    <i class="${sk.icon || 'fas fa-check'} skill-icon"></i>
+                    <span>${sk.name}</span>
+                    <div class="skill-progress">
+                      <svg viewBox="0 0 100 100" aria-hidden="true">
+                        <circle class="bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="progress ${sk.level}" cx="50" cy="50" r="45" style="stroke-dashoffset:314"></circle>
+                      </svg>
+                      <div class="skill-percentage">
+                        <div class="percentage">${pct}%</div>
+                        <div class="label">${sk.level}</div>
+                      </div>
                     </div>
-                    <div class="modal-info">
-                        <h2 id="modal-title"></h2>
-                        <div class="modal-meta">
-                            <span id="modal-year"></span>
-                            <span id="modal-status"></span>
-                        </div>
-                        <p id="modal-summary"></p>
-                        <div class="modal-details">
-                            <div class="modal-role">
-                                <h4>Role</h4>
-                                <p id="modal-role"></p>
-                            </div>
-                            <div class="modal-stack">
-                                <h4>Tech Stack</h4>
-                                <p id="modal-stack"></p>
-                            </div>
-                        </div>
-                        <div class="modal-highlights">
-                            <h4>Key Features</h4>
-                            <ul id="modal-highlights"></ul>
-                        </div>
-                        <div id="modal-tags" class="modal-tags"></div>
-                        <div class="modal-links">
-                            <a id="modal-live" href="" target="_blank" class="modal-link">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                            <a id="modal-repo" href="" target="_blank" class="modal-link">
-                                <i class="fab fa-github"></i> View Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-    
-    // Create gallery modal HTML
-    const galleryModalHTML = `
-        <div id="gallery-modal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <div class="modal-body">
-                    <div class="gallery-wrap"></div>
-                </div>
-            </div>
-        </div>
-    `;
-    
-    document.body.insertAdjacentHTML('beforeend', projectModalHTML);
-    document.body.insertAdjacentHTML('beforeend', galleryModalHTML);
-    
-    // Setup modal event listeners
-    setupModalEventListeners();
-}
-
-// Setup modal event listeners
-function setupModalEventListeners() {
-    const modals = document.querySelectorAll('.modal');
-    
-    modals.forEach(modal => {
-        const closeBtn = modal.querySelector('.close');
-        
-        closeBtn.onclick = () => closeModal(modal);
-        modal.onclick = function(e) {
-            if (e.target === modal) closeModal(modal);
-        }
-    });
-    
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const openModal = document.querySelector('.modal[style*="display: flex"]');
-            if (openModal) closeModal(openModal);
-        }
-    });
-}
-
-// Open project modal
-function openProjectModal(project) {
-    const modal = document.getElementById('project-modal');
-    const modalImage = document.getElementById('modal-image');
-    const modalTitle = document.getElementById('modal-title');
-    const modalYear = document.getElementById('modal-year');
-    const modalStatus = document.getElementById('modal-status');
-    const modalSummary = document.getElementById('modal-summary');
-    const modalRole = document.getElementById('modal-role');
-    const modalStack = document.getElementById('modal-stack');
-    const modalHighlights = document.getElementById('modal-highlights');
-    const modalTags = document.getElementById('modal-tags');
-    const modalLive = document.getElementById('modal-live');
-    const modalRepo = document.getElementById('modal-repo');
-    
-    modalImage.src = project.coverImage.src;
-    modalImage.alt = project.coverImage.alt;
-    modalTitle.textContent = project.title;
-    modalYear.textContent = project.year;
-    modalStatus.textContent = project.status;
-    modalSummary.textContent = project.summary;
-    modalRole.textContent = project.role.join(', ');
-    modalStack.textContent = project.stack.join(', ');
-    
-    modalHighlights.innerHTML = project.highlights.map(highlight => 
-        `<li>${highlight}</li>`
-    ).join('');
-    
-    modalTags.innerHTML = project.tags.map(tag => 
-        `<span class="modal-tag">${tag}</span>`
-    ).join('');
-    
-    modalLive.href = project.links.live;
-    modalRepo.href = project.links.repo;
-    
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
-
-// Enhanced Gallery Modal
-function openGalleryModal(project) {
-    const modal = document.getElementById('gallery-modal');
-    const mainImg = document.getElementById('gallery-main-img');
-    const thumbnails = document.getElementById('gallery-thumbnails');
-    
-    if (!modal || !project.gallery || project.gallery.length === 0) return;
-    
-    let currentIndex = 0;
-    
-    // Set main image
-    function updateMainImage(index) {
-        const image = project.gallery[index];
-        mainImg.src = image.src;
-        mainImg.alt = image.alt;
-        
-        // Update active thumbnail
-        thumbnails.querySelectorAll('.gallery-item').forEach((item, i) => {
-            item.classList.toggle('active', i === index);
-        });
-        
-        // Update active dot
-        const dots = modal.querySelectorAll('.gallery-dot');
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-        });
+                  </div>`;
+              })
+              .join('')}
+          </div>
+        </div>`;
     }
+    skillsContainer.innerHTML = html;
     
-    // Create gallery HTML with navigation
-    const galleryHTML = `
-        <div class="gallery-main">
-            <img id="gallery-main-img" src="${project.gallery[0].src}" alt="${project.gallery[0].alt}">
-            ${project.gallery.length > 1 ? `
-                <button class="gallery-nav prev" id="gallery-prev">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="gallery-nav next" id="gallery-next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            ` : ''}
-        </div>
-        ${project.gallery.length > 1 ? `
-            <div class="gallery-dots" id="gallery-dots">
-                ${project.gallery.map((_, index) => `
-                    <div class="gallery-dot ${index === 0 ? 'active' : ''}" data-index="${index}"></div>
-                `).join('')}
-            </div>
-        ` : ''}
-        <div class="gallery-thumbnails" id="gallery-thumbnails">
-            ${project.gallery.map((image, index) => `
-                <figure class="gallery-item ${index === 0 ? 'active' : ''}" data-index="${index}">
-                    <img src="${image.src}" alt="${image.alt}" loading="lazy">
-                    <figcaption>${image.alt}</figcaption>
-                </figure>
-            `).join('')}
-        </div>
-    `;
-    
-    modal.querySelector('.gallery-wrap').innerHTML = galleryHTML;
-    
-    // Navigation functions
-    function nextImage() {
-        currentIndex = (currentIndex + 1) % project.gallery.length;
-        updateMainImage(currentIndex);
-    }
-    
-    function prevImage() {
-        currentIndex = (currentIndex - 1 + project.gallery.length) % project.gallery.length;
-        updateMainImage(currentIndex);
-    }
-    
-    // Add event listeners
-    const prevBtn = modal.querySelector('#gallery-prev');
-    const nextBtn = modal.querySelector('#gallery-next');
-    const dots = modal.querySelectorAll('.gallery-dot');
-    
-    if (prevBtn) prevBtn.addEventListener('click', prevImage);
-    if (nextBtn) nextBtn.addEventListener('click', nextImage);
-    
-    // Dot navigation
-    dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            currentIndex = parseInt(dot.dataset.index);
-            updateMainImage(currentIndex);
-        });
+    // Animate donuts after mount
+    requestAnimationFrame(() => {
+      document.querySelectorAll('.skill-progress .progress').forEach((c) => {
+        // map by class (same as your CSS)
+        const offset =
+          c.classList.contains('high') ? 47.1 :
+          c.classList.contains('medium') ? 157 :
+          235.5; // low
+        c.style.transition = 'stroke-dashoffset 0.8s ease';
+        c.style.strokeDashoffset = String(offset);
+      });
     });
-    
-    // Thumbnail navigation
-    thumbnails.querySelectorAll('.gallery-item').forEach(item => {
-        item.addEventListener('click', () => {
-            currentIndex = parseInt(item.dataset.index);
-            updateMainImage(currentIndex);
-        });
-    });
-    
-    // Keyboard navigation
-    const handleKeydown = (e) => {
-        if (e.key === 'ArrowLeft') {
-            prevImage();
-        } else if (e.key === 'ArrowRight') {
-            nextImage();
-        } else if (e.key === 'Escape') {
-            closeModal(modal);
-        }
-    };
-    
-    document.addEventListener('keydown', handleKeydown);
-    
-    // Store cleanup function
-    modal.dataset.cleanup = 'true';
-    modal.addEventListener('close', () => {
-        document.removeEventListener('keydown', handleKeydown);
-    });
-    
-    // Show modal
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+  }
 }
 
-// Close modal
+// Group skills by category
+function groupSkillsByCategory(skills) {
+  const groups = {};
+  skills.forEach(skill => {
+    const group = skill.group || 'Other';
+    if (!groups[group]) {
+      groups[group] = [];
+    }
+    groups[group].push(skill);
+  });
+  return groups;
+}
+
+function renderCertifications(certs) {
+  if (!certificationsContainer) return;
+  
+  // Only show certifications on About page, not on Home page
+  const isHomePage = window.location.pathname.includes('index.html') || window.location.pathname === '/';
+  const isAboutPage = window.location.pathname.includes('about.html');
+  
+  if (isHomePage) {
+    certificationsContainer.innerHTML = '';
+    return;
+  }
+  
+  if (!isAboutPage) {
+    certificationsContainer.innerHTML = '';
+    return;
+  }
+  
+  certificationsContainer.innerHTML = (certs || [])
+    .map(
+      (t) => `
+      <div class="cert-card reveal">
+        <i class="fas fa-certificate cert-icon" aria-hidden="true"></i>
+        <span>${t}</span>
+      </div>`
+    )
+    .join('');
+}
+
+// ---------- Modals ----------
+function setupModalShells() {
+  // Project modal
+  document.body.insertAdjacentHTML(
+    'beforeend',
+    `
+    <div id="project-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-content">
+        <button class="modal-close" type="button" aria-label="Close modal"><i class="fas fa-times"></i></button>
+        <div class="modal-body">
+          <div class="modal-image-container"><img id="modal-image" alt=""></div>
+          <div class="modal-info">
+            <h2 id="modal-title"></h2>
+            <div class="modal-meta"><span id="modal-year"></span><span id="modal-status" style="margin-left:.75rem"></span></div>
+            <p id="modal-summary"></p>
+            <div class="modal-details">
+              <div class="modal-role"><h4>Role</h4><p id="modal-role"></p></div>
+              <div class="modal-stack"><h4>Tech Stack</h4><p id="modal-stack"></p></div>
+            </div>
+            <div class="modal-highlights"><h4>Key Features</h4><ul id="modal-highlights"></ul></div>
+            <div id="modal-tags" class="modal-tags"></div>
+            <div class="modal-links">
+              <a id="modal-live" href="#" target="_blank" rel="noopener" class="modal-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a id="modal-repo" href="#" target="_blank" rel="noopener" class="modal-link"><i class="fab fa-github"></i> View Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`
+  );
+
+  // Gallery modal
+  document.body.insertAdjacentHTML(
+    'beforeend',
+    `
+    <div id="gallery-modal" class="modal" role="dialog" aria-modal="true" aria-label="Project gallery">
+      <div class="modal-content">
+        <button class="modal-close" type="button" aria-label="Close gallery"><i class="fas fa-times"></i></button>
+        <div class="modal-body">
+          <div class="gallery-wrap"></div>
+        </div>
+      </div>
+    </div>`
+  );
+
+  // generic close handlers (delegation)
+  document.body.addEventListener('click', (e) => {
+    const closeBtn = e.target.closest('.modal-close');
+    if (closeBtn) {
+      const modal = closeBtn.closest('.modal');
+      if (modal) closeModal(modal);
+    }
+  });
+
+  // click outside content to close
+  document.addEventListener('click', (e) => {
+    const modal = e.target.closest('.modal');
+    if (modal && e.target === modal) closeModal(modal);
+  });
+
+  // esc to close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal.active').forEach((m) => closeModal(m));
+    }
+  });
+}
+
+function openProjectModal(p) {
+  const modal = document.getElementById('project-modal');
+  if (!modal) return;
+
+  const img = modal.querySelector('#modal-image');
+  const title = modal.querySelector('#modal-title');
+  const year = modal.querySelector('#modal-year');
+  const status = modal.querySelector('#modal-status');
+  const summary = modal.querySelector('#modal-summary');
+  const role = modal.querySelector('#modal-role');
+  const stack = modal.querySelector('#modal-stack');
+  const highlights = modal.querySelector('#modal-highlights');
+  const tags = modal.querySelector('#modal-tags');
+  const live = modal.querySelector('#modal-live');
+  const repo = modal.querySelector('#modal-repo');
+
+  const cover = p.coverImage || {};
+  img.src = cover.src || '';
+  img.alt = cover.alt || p.title || 'Project image';
+  title.textContent = p.title || '';
+  year.textContent = p.year || '';
+  status.textContent = p.status || '';
+  summary.textContent = p.summary || '';
+  role.textContent = (p.role || []).join(', ');
+  stack.textContent = (p.stack || []).join(', ');
+  highlights.innerHTML = (p.highlights || []).map((h) => `<li>${h}</li>`).join('');
+  tags.innerHTML = (p.tags || []).map((t) => `<span class="modal-tag">${t}</span>`).join('');
+  live.href = p.links?.live || '#';
+  repo.href = p.links?.repo || '#';
+
+  openModal(modal);
+}
+
+function openGalleryModal(p) {
+  const modal = document.getElementById('gallery-modal');
+  if (!modal || !Array.isArray(p.gallery) || p.gallery.length === 0) return;
+
+  const wrap = modal.querySelector('.gallery-wrap');
+  wrap.innerHTML = `
+    <div class="gallery-main">
+      <img id="gallery-main-img" src="${p.gallery[0].src}" alt="${p.gallery[0].alt}">
+      ${p.gallery.length > 1 ? `
+        <button class="gallery-nav prev" id="gallery-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="gallery-nav next" id="gallery-next"><i class="fas fa-chevron-right"></i></button>` : ''}
+    </div>
+    ${p.gallery.length > 1 ? `
+      <div class="gallery-dots" id="gallery-dots">
+        ${p.gallery.map((_, i) => `<div class="gallery-dot ${i === 0 ? 'active' : ''}" data-index="${i}"></div>`).join('')}
+      </div>` : ''}
+    <div class="gallery-thumbnails" id="gallery-thumbnails">
+      ${p.gallery
+        .map(
+          (g, i) => `
+        <figure class="gallery-item ${i === 0 ? 'active' : ''}" data-index="${i}">
+          <img src="${g.src}" alt="${g.alt}" loading="lazy">
+          <figcaption>${g.alt}</figcaption>
+        </figure>`
+        )
+        .join('')}
+    </div>`;
+
+  let current = 0;
+  const mainImg = modal.querySelector('#gallery-main-img');
+  const thumbs = modal.querySelector('#gallery-thumbnails');
+  const dots = modal.querySelectorAll('.gallery-dot');
+  const prev = modal.querySelector('#gallery-prev');
+  const next = modal.querySelector('#gallery-next');
+
+  function update(index) {
+    current = (index + p.gallery.length) % p.gallery.length;
+    const img = p.gallery[current];
+    mainImg.src = img.src;
+    mainImg.alt = img.alt;
+
+    thumbs?.querySelectorAll('.gallery-item').forEach((el, i) => el.classList.toggle('active', i === current));
+    dots?.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  prev?.addEventListener('click', () => update(current - 1));
+  next?.addEventListener('click', () => update(current + 1));
+  thumbs?.querySelectorAll('.gallery-item').forEach((el) =>
+    el.addEventListener('click', () => update(parseInt(el.dataset.index, 10)))
+  );
+  dots?.forEach((d) =>
+    d.addEventListener('click', () => update(parseInt(d.dataset.index, 10)))
+  );
+
+  openModal(modal);
+}
+
+function openModal(modal) {
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
 function closeModal(modal) {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
 }
 
-// Initialize reveal animations
+// ---------- Reveal on scroll ----------
 function initializeRevealAnimations() {
-    const revealElements = document.querySelectorAll('.reveal');
-    if (!('IntersectionObserver' in window)) {
-        revealElements.forEach(el => el.classList.add('show'));
-        return;
-    }
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.12 });
-    
-    revealElements.forEach(el => observer.observe(el));
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach((el) => el.classList.add('show'));
+    return;
+  }
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          en.target.classList.add('show');
+          io.unobserve(en.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+  els.forEach((el) => io.observe(el));
 }
 
-// Utility function to debounce search
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
+// ---------- Utils ----------
+function debounce(fn, wait) {
+  let t;
+  return (...args) => {
+    clearTimeout(t);
+    t = setTimeout(() => fn(...args), wait);
+  };
 }

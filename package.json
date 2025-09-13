@@ -1,0 +1,57 @@
+{
+  "name": "nattapart-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio website for Nattapart Worakun - Data Analyst & BI Developer",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000",
+    "build": "echo 'Static site - no build needed'",
+    "validate": "html-validate *.html case-studies/*.html",
+    "lighthouse": "lighthouse http://localhost:8000 --output=html --output-path=./lighthouse-report.html",
+    "test": "echo 'No tests configured'",
+    "deploy": "echo 'Deploy via GitHub Actions or Netlify'"
+  },
+  "keywords": [
+    "portfolio",
+    "data-analyst",
+    "bi-developer",
+    "dashboard",
+    "automation",
+    "thailand",
+    "react",
+    "typescript",
+    "power-bi",
+    "sql",
+    "python"
+  ],
+  "author": {
+    "name": "Nattapart Worakun",
+    "email": "earthlikemwbb@gmail.com",
+    "url": "https://earthondev.github.io/Portfolio/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Earthondev/Portfolio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Earthondev/Portfolio/issues"
+  },
+  "homepage": "https://earthondev.github.io/Portfolio/",
+  "devDependencies": {
+    "html-validate": "^8.7.4",
+    "css-validator": "^0.10.0",
+    "lighthouse-ci": "^0.12.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}

@@ -11,17 +11,45 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="contact.css">
+    
+    <!-- Theme Toggle Script (prevent FOUC) -->
+    <script>
+    (function(){
+      const LS_KEY = 'theme';
+      const saved = localStorage.getItem(LS_KEY);
+      const system = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      const theme = (saved === 'light' || saved === 'dark') ? saved : system;
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+    </script>
     </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">Nattapart</a>
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="portfolio.html" class="nav-link">Portfolio</a>
-                <a href="contact.html" class="nav-link active">Contact</a>
-            </div>
+    <!-- Enhanced Navigation with Glass Effect -->
+    <nav class="navbar" id="navbar" aria-label="Primary">
+        <div class="container">
+            <a href="index.html" class="navbar-brand" aria-label="Go to Home">Nattapart</a>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="navbar-nav">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+
+            <ul class="navbar-nav" id="navbar-nav" role="menubar">
+                <li role="none"><a role="menuitem" href="index.html">Home</a></li>
+                <li role="none"><a role="menuitem" href="about.html">About</a></li>
+                <li role="none"><a role="menuitem" href="portfolio.html">Portfolio</a></li>
+                <li role="none"><a role="menuitem" href="contact.html" class="active" aria-current="page">Contact</a></li>
+                <li role="none">
+                    <a role="menuitem" href="resume.pdf" class="resume-btn" aria-label="Download Resume PDF">
+                        <i class="fas fa-download" aria-hidden="true"></i>
+                        Resume
+                    </a>
+                </li>
+                <li role="none">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                        <i class="fas fa-moon" aria-hidden="true"></i>
+                    </button>
+                </li>
+            </ul>
         </div>
     </nav>
 
@@ -84,19 +112,12 @@
         </div>
     </section>
 
-    <script>
-    (function() {
-        const els = document.querySelectorAll('.reveal');
-        if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('show')); return; }
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('show'); io.unobserve(en.target); } });
-        }, { threshold: 0.12 });
-        els.forEach(e => io.observe(e));
-    })();
-    </script>
-    <footer>
+    <!-- Scripts -->
+    <script defer src="script.js"></script>
+    <script defer src="contact.js"></script>
+    
+    <footer class="footer">
         <p>© 2025 Nattapart Worakun. All Rights Reserved.</p>
     </footer>
-    <script src="contact.js"></script>
 </body>
 </html>

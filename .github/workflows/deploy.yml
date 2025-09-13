@@ -1,38 +1,86 @@
-name: Deploy to GitHub Pages
+name: Deploy Portfolio
 
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  test:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
-    - name: Checkout
+    - name: Checkout code
       uses: actions/checkout@v4
       
-    - name: Setup Pages
-      uses: actions/configure-pages@v4
-      
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
       with:
-        path: '.'
+        node-version: '18'
+        cache: 'npm'
         
+    - name: Install dependencies
+      run: |
+        npm install -g html-validate
+        npm install -g css-validator
+        npm install -g lighthouse-ci
+        
+    - name: Validate HTML
+      run: |
+        html-validate index.html about.html contact.html portfolio.html 404.html 500.html case-studies/hanaihang.html
+        
+    - name: Validate CSS
+      run: |
+        css-validator style.css contact.css case-studies/case-study.css
+        
+    - name: Validate JSON
+      run: |
+        python3 -m json.tool projects.json > /dev/null
+        python3 -m json.tool services.json > /dev/null
+        
+    - name: Check file sizes
+      run: |
+        echo "Checking file sizes..."
+        find . -name "*.html" -exec wc -c {} \; | awk '$1 > 100000 {print "Large HTML file:", $2, "bytes"; exit 1}'
+        find . -name "*.css" -exec wc -c {} \; | awk '$1 > 50000 {print "Large CSS file:", $2, "bytes"; exit 1}'
+        find . -name "*.js" -exec wc -c {} \; | awk '$1 > 50000 {print "Large JS file:", $2, "bytes"; exit 1}'
+        
+    # --- Lighthouse CI ---
+    - name: Lighthouse CI
+      run: |
+        echo "Running Lighthouse CI"
+        lhci autorun --collect.url=https://earthondev.github.io/Portfolio/ \
+                      --upload.target=temporary-public-storage
+      continue-on-error: true
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
     - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: .
+        cname: earthondev.github.io
+        
+    # Netlify deployment commented out due to secrets configuration
+    # - name: Deploy to Netlify
+    #   uses: nwtgck/actions-netlify@v2.0
+    #   with:
+    #     publish-dir: '.'
+    #     production-branch: main
+    #     github-token: ${{ secrets.GITHUB_TOKEN }}
+    #     deploy-message: "Deploy from GitHub Actions"
+    #     enable-pull-request-comment: false
+    #     enable-commit-comment: true
+    #     overwrites-pull-request-comment: true
+    #   env:
+    #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+    #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

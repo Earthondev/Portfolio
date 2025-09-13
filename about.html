@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="print.css" media="print">
     <link rel="stylesheet" href="about.css">
     
     <!-- JSON-LD Structured Data for SEO -->
@@ -30,15 +31,43 @@
     </script>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">Nattapart</a>
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="about.html" class="nav-link active">About</a>
-                <a href="portfolio.html" class="nav-link">Portfolio</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-            </div>
+    <!-- Theme Toggle Script (prevent FOUC) -->
+    <script>
+    (function(){
+      const LS_KEY = 'theme';
+      const saved = localStorage.getItem(LS_KEY);
+      const system = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      const theme = (saved === 'light' || saved === 'dark') ? saved : system;
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+    </script>
+
+    <!-- Enhanced Navigation with Glass Effect -->
+    <nav class="navbar" id="navbar" aria-label="Primary">
+        <div class="container">
+            <a href="index.html" class="navbar-brand" aria-label="Go to Home">Nattapart</a>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="navbar-nav">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+
+            <ul class="navbar-nav" id="navbar-nav" role="menubar">
+                <li role="none"><a role="menuitem" href="index.html">Home</a></li>
+                <li role="none"><a role="menuitem" href="about.html" class="active" aria-current="page">About</a></li>
+                <li role="none"><a role="menuitem" href="portfolio.html">Portfolio</a></li>
+                <li role="none"><a role="menuitem" href="contact.html">Contact</a></li>
+                <li role="none">
+                    <a role="menuitem" href="resume.pdf" class="resume-btn" aria-label="Download Resume PDF">
+                        <i class="fas fa-download" aria-hidden="true"></i>
+                        Resume
+                    </a>
+                </li>
+                <li role="none">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                        <i class="fas fa-moon" aria-hidden="true"></i>
+                    </button>
+                </li>
+            </ul>
         </div>
     </nav>
   <!-- Hero Section -->
@@ -140,9 +169,79 @@
         <p class="block-description">
           ผสมผสานทักษะ Data + QA เพื่อสร้างคุณค่าแบบ end-to-end ให้กับองค์กร
         </p>
+        
+        <!-- Bio -->
+        <div class="bio-section">
+          <h3>About Me</h3>
+          <p class="bio-text">ผมคือ Nattapart Worakun จากสาย Chemist → Data & Tech ด้วยความสนใจด้าน Automation, Data Analysis, BI และ Software Testing ตอนนี้โฟกัสการทำ แดชบอร์ด KPI, ออโตเมชันที่ลดงานซ้ำซ้อน, และ การวัดผลด้วย GA4 ให้ทีมตัดสินใจได้เร็วขึ้นอย่างมั่นใจ</p>
+          <div class="profile-actions">
+            <button onclick="window.print()" class="btn-secondary" aria-label="Print or save as PDF">
+              <i class="fas fa-print" aria-hidden="true"></i>
+              Print PDF
+            </button>
+          </div>
+        </div>
+        
+        <!-- Working Principles -->
+        <div class="principles-section">
+          <h3>Working Principles</h3>
+          <div class="principles-grid">
+            <div class="principle-card">
+              <div class="principle-icon">📊</div>
+              <h4>วัดผลได้เสมอ</h4>
+              <p>ตั้งเป้า ก่อน–หลัง (เช่น เวลาโหลด/อัตราคลิก/ชั่วโมงงานมือที่ลดลง)</p>
+            </div>
+            <div class="principle-card">
+              <div class="principle-icon">🧪</div>
+              <h4>คุณภาพก่อนปล่อย</h4>
+              <p>มี test สำคัญ (UI flows, links, JSON schema) ผ่าน CI</p>
+            </div>
+            <div class="principle-card">
+              <div class="principle-icon">👥</div>
+              <h4>ผู้ใช้มาก่อน</h4>
+              <p>คอนทราสต์ดี อ่านง่าย พิสูจน์ด้วย Pa11y/Lighthouse</p>
+            </div>
+            <div class="principle-card">
+              <div class="principle-icon">🔧</div>
+              <h4>รักษาง่าย</h4>
+              <p>โครงสร้างไฟล์ชัด, docs ครบ, deploy อัตโนมัติ</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- FAQ Section -->
+  <section class="section reveal" aria-labelledby="faq-heading">
+    <h2 id="faq-heading">Frequently Asked Questions</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>ทำงานยังไง?</h3>
+        <p>Brief ปัญหา/เป้า → ออกแบบ → สร้าง → ทดสอบ → วัดผล (GA4/Lighthouse) → ส่งมอบเอกสาร</p>
+      </div>
+      <div class="faq-item">
+        <h3>ต้องใช้ข้อมูลอะไรบ้าง?</h3>
+        <p>KPI ที่อยากเห็น, แหล่งข้อมูล, ตัวอย่างรายงานเดิม, ผู้ใช้เป้าหมาย</p>
+      </div>
+      <div class="faq-item">
+        <h3>ระยะเวลาโครงการ?</h3>
+        <p>Dashboard 2-3 สัปดาห์, Automation 1-2 สัปดาห์, QA & Analytics 1 สัปดาห์</p>
+      </div>
+      <div class="faq-item">
+        <h3>รับแก้/ดูแลต่อไหม?</h3>
+        <p>ได้ มี maintenance แบบรายเดือน (ปรับ KPI, เพิ่มอีเวนต์, ตรวจสุขภาพเว็บ)</p>
+      </div>
+      <div class="faq-item">
+        <h3>เทคโนโลยีหลัก?</h3>
+        <p>Power BI, SQL, Apps Script/AppSheet/Excel VBA, React + Vite + Tailwind, Firebase, Netlify, GA4, Playwright, Postman</p>
+      </div>
+      <div class="faq-item">
+        <h3>วัดผลสำเร็จอย่างไร?</h3>
+        <p>เทียบตัวเลขก่อน–หลัง (เวลา/manual hours, คะแนน Core Web Vitals, funnel)</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Certificates Section -->
   <div class="certificates-section">
@@ -151,26 +250,98 @@
       <div class="certificates-grid">
         <div class="certificate-card reveal">
           <div class="certificate-image">
-            <img src="https://i.imgur.com/QuzxPug.png" alt="Certificate of Achievement" class="cert-img">
+            <img src="https://i.imgur.com/QuzxPug.png" alt="Data Science Bootcamp Certificate" class="cert-img">
           </div>
           <div class="certificate-content">
-            <h3 class="cert-title">Certificate of Achievement</h3>
-            <p class="cert-issuer">Data Analysis & Business Intelligence</p>
-            <p class="cert-date">2024</p>
+            <h3 class="cert-title">Data Science Bootcamp 2025</h3>
+            <p class="cert-issuer">DataRockie</p>
+            <p class="cert-date">2025</p>
             <p class="cert-description">
-              Successfully completed comprehensive training program covering data analysis fundamentals, SQL query optimization, Power BI dashboard development, and business intelligence best practices.
+              Comprehensive data science program covering Python, SQL, machine learning, and data visualization techniques.
             </p>
             <div class="cert-skills">
-              <span class="skill-tag">Data Analysis</span>
+              <span class="skill-tag">Python</span>
               <span class="skill-tag">SQL</span>
-              <span class="skill-tag">Power BI</span>
-              <span class="skill-tag">Business Intelligence</span>
+              <span class="skill-tag">Machine Learning</span>
               <span class="skill-tag">Data Visualization</span>
-              <span class="skill-tag">Dashboard Design</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="certificate-card reveal">
+          <div class="certificate-image">
+            <img src="https://i.imgur.com/QuzxPug.png" alt="ChatGPT for Developers Certificate" class="cert-img">
+          </div>
+          <div class="certificate-content">
+            <h3 class="cert-title">ChatGPT for Developers</h3>
+            <p class="cert-issuer">OpenAI</p>
+            <p class="cert-date">2024</p>
+            <p class="cert-description">
+              Advanced training on integrating ChatGPT and AI tools into development workflows and automation processes.
+            </p>
+            <div class="cert-skills">
+              <span class="skill-tag">AI Integration</span>
+              <span class="skill-tag">Automation</span>
+              <span class="skill-tag">Prompt Engineering</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="certificate-card reveal">
+          <div class="certificate-image">
+            <img src="https://i.imgur.com/QuzxPug.png" alt="Essential SQL Certificate" class="cert-img">
+          </div>
+          <div class="certificate-content">
+            <h3 class="cert-title">Essential SQL for Everyone</h3>
+            <p class="cert-issuer">SQLBolt</p>
+            <p class="cert-date">2024</p>
+            <p class="cert-description">
+              Master SQL fundamentals including queries, joins, aggregations, and database optimization techniques.
+            </p>
+            <div class="cert-skills">
+              <span class="skill-tag">SQL Queries</span>
+              <span class="skill-tag">Database Design</span>
+              <span class="skill-tag">Performance Tuning</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="certificate-card reveal">
+          <div class="certificate-image">
+            <img src="https://i.imgur.com/QuzxPug.png" alt="Gemini Certified Educator" class="cert-img">
+          </div>
+          <div class="certificate-content">
+            <h3 class="cert-title">Gemini Certified Educator</h3>
+            <p class="cert-issuer">Google</p>
+            <p class="cert-date">2024</p>
+            <p class="cert-description">
+              Certified educator for Google's Gemini AI platform, specializing in AI-assisted learning and development.
+            </p>
+            <div class="cert-skills">
+              <span class="skill-tag">AI Education</span>
+              <span class="skill-tag">Gemini Platform</span>
+              <span class="skill-tag">Teaching</span>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Skills & Certifications Section -->
+  <div class="skills-certifications-section">
+    <div class="container">
+      <!-- Skills Section -->
+      <section class="section reveal" aria-labelledby="skills-heading">
+        <h2 id="skills-heading">Technical Skills</h2>
+        <div id="skills-container" class="skills-grid" aria-live="polite"></div>
+      </section>
+
+      <!-- Certifications Section -->
+      <section class="section reveal" aria-labelledby="certs-heading">
+        <h2 id="certs-heading">Certifications</h2>
+        <div id="certifications-container" class="certifications-grid" aria-live="polite"></div>
+      </section>
     </div>
   </div>
 
@@ -192,22 +363,8 @@
     </div>
   </div>
 
-  <script>
-    (function() {
-      const els = document.querySelectorAll('.reveal');
-      if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('show')); return; }
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('show'); io.unobserve(en.target); } });
-      }, { threshold: 0.12 });
-      els.forEach(e => io.observe(e));
-    })();
-    
-    // CTA Tracking
-    const track = (name, data = {}) => window.gtag?.('event', name, data);
-    document.querySelectorAll('[data-track]').forEach(el => {
-      el.addEventListener('click', () => track(el.dataset.track, {source: el.dataset.source || 'about'}));
-    });
-  </script>
+  <!-- Scripts -->
+  <script defer src="script.js"></script>
   <footer>
     <p>© 2025 Nattapart Worakun. All Rights Reserved.</p>
   </footer>

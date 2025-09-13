@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found - Nattapart Worakun</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Return to the portfolio homepage." />
+  
+  <!-- Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- Theme FOUC Prevention -->
+  <script>
+    (function() {
+      const saved = localStorage.getItem('theme');
+      const system = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      const theme = (saved === 'light' || saved === 'dark') ? saved : system;
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="error-page">
+      <div class="error-content">
+        <div class="error-icon">
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <h1 class="error-title">404</h1>
+        <h2 class="error-subtitle">Page Not Found</h2>
+        <p class="error-description">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
+        <div class="error-actions">
+          <a href="/" class="btn-primary">
+            <i class="fas fa-home"></i>
+            Go Home
+          </a>
+          <a href="/portfolio.html" class="btn-secondary">
+            <i class="fas fa-briefcase"></i>
+            View Portfolio
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script defer src="script.js"></script>
+</body>
+</html>

@@ -1,402 +1,466 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HaaNaiHang Case Study - Nattapart Worakun</title>
-    <meta name="description" content="Case study of HaaNaiHang - Mall & Store Finder with Admin Panel. Built with React, TypeScript, and Firebase.">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="HaaNaiHang Case Study - Nattapart Worakun">
-    <meta property="og:description" content="Case study of HaaNaiHang - Mall & Store Finder with Admin Panel. Built with React, TypeScript, and Firebase.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://earthondev.github.io/Portfolio/case-studies/hanaihang.html">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="HaaNaiHang Case Study - Nattapart Worakun">
-    <meta name="twitter:description" content="Case study of HaaNaiHang - Mall & Store Finder with Admin Panel.">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="case-study.css">
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>HaaNaiHang Case Study — Nattapart Worakun</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://earthondev.github.io/Portfolio/case-studies/hanaihang.html" />
+
+  <!-- SEO -->
+  <meta name="description" content="Case study of HaaNaiHang - Mall & Store Finder with Admin Panel. Built with React, TypeScript, Firebase, and Tailwind CSS." />
+  <meta name="keywords" content="React, TypeScript, Firebase, Tailwind, Geolocation, Admin Panel, Case Study" />
+  <meta name="author" content="Nattapart Worakun" />
+
+  <!-- Theme color -->
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Nattapart Worakun Portfolio" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="HaaNaiHang Case Study — Mall & Store Finder" />
+  <meta property="og:description" content="Case study of HaaNaiHang - Mall & Store Finder with Admin Panel. Built with React, TypeScript, Firebase, and Tailwind CSS." />
+  <meta property="og:url" content="https://earthondev.github.io/Portfolio/case-studies/hanaihang.html" />
+  <meta property="og:image" content="https://earthondev.github.io/Portfolio/assets/projects/hanaihang/cover.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="HaaNaiHang Case Study — Mall & Store Finder" />
+  <meta name="twitter:description" content="Case study of HaaNaiHang - Mall & Store Finder with Admin Panel. Built with React, TypeScript, Firebase, and Tailwind CSS." />
+  <meta name="twitter:image" content="https://earthondev.github.io/Portfolio/assets/projects/hanaihang/cover.webp" />
+
+  <!-- Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="preload"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  </noscript>
+
+  <!-- Font Awesome -->
+  <link
+    rel="preload"
+    as="style"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    onload="this.onload=null;this.rel='stylesheet'"
+    integrity="sha512-dQJQY7Y6dK7lQ6jM6vN2m7Q8lqQn9+q3+zWnY0iJ2yqvAqk+q0r+0iD8z5k1J1l3V+7/3Ckz9Jwz0v8Xy4yN2w=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-dQJQY7Y6dK7lQ6jM6vN2m7Q8lqQn9+q3+zWnY0iJ2yqvAqk+q0r+0iD8z5k1J1l3V+7/3Ckz9Jwz0v8Xy4yN2w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </noscript>
+
+  <!-- Styles -->
+  <link rel="preload" href="../style.css" as="style" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="case-study.css" />
+
+  <!-- JSON-LD: TechArticle -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "HaaNaiHang Case Study — Mall & Store Finder",
+    "description": "Case study of HaaNaiHang - Mall & Store Finder with Admin Panel. Built with React, TypeScript, Firebase, and Tailwind CSS.",
+    "author": {
+      "@type": "Person",
+      "name": "Nattapart Worakun",
+      "url": "https://earthondev.github.io/Portfolio/"
+    },
+    "datePublished": "2025-01-01",
+    "dateModified": "2025-01-01",
+    "image": "https://earthondev.github.io/Portfolio/assets/projects/hanaihang/cover.webp",
+    "url": "https://earthondev.github.io/Portfolio/case-studies/hanaihang.html",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://earthondev.github.io/Portfolio/case-studies/hanaihang.html"
+    }
+  }
+  </script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="../index.html" class="nav-logo">Nattapart</a>
-            <div class="nav-menu">
-                <a href="../index.html" class="nav-link">Home</a>
-                <a href="../about.html" class="nav-link">About</a>
-                <a href="../portfolio.html" class="nav-link">Portfolio</a>
-                <a href="../contact.html" class="nav-link">Contact</a>
-            </div>
-        </div>
-    </nav>
+  <!-- Skip link for a11y -->
+  <a href="#main" class="skip-link">Skip to main content</a>
 
+  <!-- Nav -->
+  <nav class="navbar" id="navbar" aria-label="Primary">
+    <div class="container">
+      <a href="../index.html" class="navbar-brand" aria-label="Go to Home">Nattapart</a>
+
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="navbar-nav">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <ul class="navbar-nav" id="navbar-nav" role="menubar">
+        <li role="none"><a role="menuitem" href="../index.html">Home</a></li>
+        <li role="none"><a role="menuitem" href="../about.html">About</a></li>
+        <li role="none"><a role="menuitem" href="../portfolio.html">Portfolio</a></li>
+        <li role="none"><a role="menuitem" href="../contact.html">Contact</a></li>
+        <li role="none">
+          <a role="menuitem" href="../resume.pdf" class="resume-btn" aria-label="Download Resume PDF">
+            <i class="fas fa-download" aria-hidden="true"></i>
+            Resume
+          </a>
+        </li>
+        <li role="none">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main id="main" class="container">
     <!-- Case Study Header -->
-    <header class="case-study-header">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="../portfolio.html">← Back to Portfolio</a>
+    <header class="case-study-header reveal">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a> / 
+        <a href="../portfolio.html">Portfolio</a> / 
+        <span aria-current="page">HaaNaiHang Case Study</span>
+      </nav>
+
+      <div class="project-hero">
+        <div class="project-info">
+          <h1>HaaNaiHang – Mall & Store Finder + Admin</h1>
+          <p class="project-tagline">เว็บช่วยค้นหาห้าง/ร้านค้าใกล้ตัว พร้อมแผงผู้ดูแลในการเพิ่ม/แก้ไขข้อมูลศูนย์การค้าและร้านค้าแบบเป็นระบบ</p>
+          
+          <div class="project-meta">
+            <div class="meta-item">
+              <i class="fas fa-calendar" aria-hidden="true"></i>
+              <span>2025</span>
             </div>
-            
-            <div class="project-hero">
-                <div class="project-info">
-                    <h1>HaaNaiHang</h1>
-                    <p class="project-tagline">Mall & Store Finder + Admin Panel</p>
-                    <div class="project-meta">
-                        <span class="meta-item">
-                            <i class="fas fa-calendar"></i>
-                            2025
-                        </span>
-                        <span class="meta-item">
-                            <i class="fas fa-user"></i>
-                            Product Designer, Frontend Developer, Tester
-                        </span>
-                        <span class="meta-item">
-                            <i class="fas fa-link"></i>
-                            <a href="https://hanaihang.netlify.app/" target="_blank" rel="noopener noreferrer">Live Demo</a>
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="project-image">
-                    <img src="../assets/projects/hanaihang/cover.webp" alt="HaaNaiHang Cover" width="400" height="300">
-                </div>
+            <div class="meta-item">
+              <i class="fas fa-tag" aria-hidden="true"></i>
+              <span>Web App</span>
             </div>
+            <div class="meta-item">
+              <i class="fas fa-user" aria-hidden="true"></i>
+              <span>Product Designer, Frontend Developer</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-circle" aria-hidden="true"></i>
+              <span>Active</span>
+            </div>
+          </div>
+
+          <div class="project-stats">
+            <div class="stat-item">
+              <h3>Tech Stack</h3>
+              <div class="tech-tags">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Vite</span>
+                <span class="tech-tag">Tailwind</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Netlify</span>
+              </div>
+            </div>
+            <div class="stat-item">
+              <h3>Key Features</h3>
+              <ul class="feature-list">
+                <li>Geolocation-based search</li>
+                <li>Admin panel for data management</li>
+                <li>Real-time data synchronization</li>
+                <li>Mobile-responsive design</li>
+              </ul>
+            </div>
+          </div>
         </div>
+
+        <div class="project-image">
+          <img src="../assets/projects/hanaihang/cover.webp" alt="HaaNaiHang project overview showing search interface and admin panel" loading="eager" fetchpriority="high">
+        </div>
+      </div>
     </header>
 
     <!-- Case Study Content -->
-    <main class="case-study-content">
-        <div class="container">
-            <!-- Project Overview -->
-            <section class="content-section">
-                <h2>Project Overview</h2>
-                <p>HaaNaiHang เป็นเว็บแอปพลิเคชันที่ช่วยให้ผู้ใช้ค้นหาห้างสรรพสินค้าและร้านค้าใกล้ตัวได้อย่างง่ายดาย พร้อมระบบจัดการข้อมูลสำหรับผู้ดูแลระบบที่ครบครัน</p>
-                
-                <div class="project-stats">
-                    <div class="stat-item">
-                        <h3>Tech Stack</h3>
-                        <div class="tech-tags">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">Vite</span>
-                            <span class="tech-tag">Tailwind CSS</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">Netlify</span>
-                        </div>
-                    </div>
-                    
-                    <div class="stat-item">
-                        <h3>Key Features</h3>
-                        <ul class="feature-list">
-                            <li>ค้นหาด้วย Geolocation</li>
-                            <li>Admin Panel แยกแท็บ</li>
-                            <li>ระบบจัดการข้อมูลครบครัน</li>
-                            <li>UI/UX ที่ใช้งานง่าย</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Problem & Solution -->
-            <section class="content-section">
-                <h2>Problem & Solution</h2>
-                
-                <div class="problem-solution">
-                    <div class="problem">
-                        <h3>🎯 Problem</h3>
-                        <p>ผู้ใช้ต้องการค้นหาห้างสรรพสินค้าและร้านค้าใกล้ตัว แต่ข้อมูลที่มีอยู่ไม่ครบถ้วน และไม่มีระบบจัดการข้อมูลที่เป็นระบบ</p>
-                    </div>
-                    
-                    <div class="solution">
-                        <h3>💡 Solution</h3>
-                        <p>สร้างเว็บแอปพลิเคชันที่รวมการค้นหาด้วย Geolocation และระบบจัดการข้อมูลสำหรับผู้ดูแลระบบในที่เดียว</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Development Process -->
-            <section class="content-section">
-                <h2>Development Process</h2>
-                
-                <div class="process-timeline">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Research & Planning</h3>
-                            <p>ศึกษาความต้องการของผู้ใช้และวางแผนการพัฒนา</p>
-                        </div>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>UI/UX Design</h3>
-                            <p>ออกแบบ User Interface และ User Experience</p>
-                        </div>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Frontend Development</h3>
-                            <p>พัฒนา Frontend ด้วย React และ TypeScript</p>
-                        </div>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                            <h3>Backend Integration</h3>
-                            <p>เชื่อมต่อ Firebase สำหรับ Authentication และ Database</p>
-                        </div>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">5</div>
-                        <div class="step-content">
-                            <h3>Testing & Deployment</h3>
-                            <p>ทดสอบระบบและ Deploy บน Netlify</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Technical Implementation -->
-            <section class="content-section">
-                <h2>Technical Implementation</h2>
-                
-                <div class="tech-details">
-                    <div class="tech-section">
-                        <h3>Frontend Architecture</h3>
-                        <p>ใช้ React 18 พร้อม TypeScript เพื่อความปลอดภัยของข้อมูล และ Vite สำหรับการ build ที่รวดเร็ว</p>
-                    </div>
-                    
-                    <div class="tech-section">
-                        <h3>State Management</h3>
-                        <p>ใช้ React Context และ Custom Hooks สำหรับการจัดการ state ของแอปพลิเคชัน</p>
-                    </div>
-                    
-                    <div class="tech-section">
-                        <h3>Backend Services</h3>
-                        <p>Firebase Authentication สำหรับการเข้าสู่ระบบ และ Firestore Database สำหรับการจัดเก็บข้อมูล</p>
-                    </div>
-                    
-                    <div class="tech-section">
-                        <h3>Styling</h3>
-                        <p>ใช้ Tailwind CSS สำหรับการออกแบบที่ responsive และสวยงาม</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Key Features Deep Dive -->
-            <section class="content-section">
-                <h2>Key Features Deep Dive</h2>
-                
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <h3>Geolocation Search</h3>
-                        <p>ค้นหาห้างสรรพสินค้าและร้านค้าใกล้ตัวด้วย GPS พร้อมแสดงระยะทาง</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <h3>Text Search</h3>
-                        <p>ค้นหาด้วยชื่อห้างสรรพสินค้าหรือร้านค้า พร้อมระบบ Auto-complete</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-cog"></i>
-                        </div>
-                        <h3>Admin Panel</h3>
-                        <p>ระบบจัดการข้อมูลแยกแท็บสำหรับศูนย์การค้าและร้านค้า</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <h3>Data Management</h3>
-                        <p>เพิ่ม แก้ไข ลบข้อมูลห้างสรรพสินค้าและร้านค้าได้อย่างเป็นระบบ</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Challenges & Solutions -->
-            <section class="content-section">
-                <h2>Challenges & Solutions</h2>
-                
-                <div class="challenges">
-                    <div class="challenge-item">
-                        <h3>🚧 Challenge: Geolocation Accuracy</h3>
-                        <p>การคำนวณระยะทางระหว่างตำแหน่งผู้ใช้กับห้างสรรพสินค้า</p>
-                        <div class="solution-detail">
-                            <strong>Solution:</strong> ใช้ Haversine formula สำหรับการคำนวณระยะทางที่แม่นยำ
-                        </div>
-                    </div>
-                    
-                    <div class="challenge-item">
-                        <h3>🚧 Challenge: Real-time Data Sync</h3>
-                        <p>การซิงค์ข้อมูลระหว่าง Admin Panel และ User Interface</p>
-                        <div class="solution-detail">
-                            <strong>Solution:</strong> ใช้ Firebase Real-time Database และ Firestore listeners
-                        </div>
-                    </div>
-                    
-                    <div class="challenge-item">
-                        <h3>🚧 Challenge: Mobile Responsiveness</h3>
-                        <p>การแสดงผลบนอุปกรณ์มือถือที่หลากหลาย</p>
-                        <div class="solution-detail">
-                            <strong>Solution:</strong> ใช้ Tailwind CSS responsive classes และ Mobile-first approach
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Results & Impact -->
-            <section class="content-section">
-                <h2>Results & Impact</h2>
-                
-                <div class="results-grid">
-                    <div class="result-item">
-                        <div class="result-number">100%</div>
-                        <h3>Mobile Responsive</h3>
-                        <p>รองรับการใช้งานบนอุปกรณ์ทุกขนาด</p>
-                    </div>
-                    
-                    <div class="result-item">
-                        <div class="result-number">< 2s</div>
-                        <h3>Load Time</h3>
-                        <p>เวลาโหลดหน้าเว็บที่รวดเร็วด้วย Vite</p>
-                    </div>
-                    
-                    <div class="result-item">
-                        <div class="result-number">99.9%</div>
-                        <h3>Uptime</h3>
-                        <p>ความเสถียรของระบบบน Netlify</p>
-                    </div>
-                    
-                    <div class="result-item">
-                        <div class="result-number">Easy</div>
-                        <h3>Admin Management</h3>
-                        <p>ระบบจัดการข้อมูลที่ใช้งานง่าย</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Lessons Learned -->
-            <section class="content-section">
-                <h2>Lessons Learned</h2>
-                
-                <div class="lessons">
-                    <div class="lesson-item">
-                        <h3>🎓 TypeScript Benefits</h3>
-                        <p>การใช้ TypeScript ช่วยลด bugs และทำให้โค้ดอ่านง่ายขึ้นอย่างมาก</p>
-                    </div>
-                    
-                    <div class="lesson-item">
-                        <h3>🎓 Firebase Integration</h3>
-                        <p>Firebase ให้บริการ Backend ที่ครบครันและใช้งานง่ายสำหรับโปรเจกต์ขนาดเล็ก</p>
-                    </div>
-                    
-                    <div class="lesson-item">
-                        <h3>🎓 User Experience</h3>
-                        <p>การออกแบบ UI/UX ที่ดีสำคัญมากสำหรับการใช้งานจริง</p>
-                    </div>
-                    
-                    <div class="lesson-item">
-                        <h3>🎓 Performance Optimization</h3>
-                        <p>การใช้ Vite และ Tailwind CSS ช่วยให้แอปพลิเคชันเร็วขึ้น</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Future Enhancements -->
-            <section class="content-section">
-                <h2>Future Enhancements</h2>
-                
-                <div class="enhancements">
-                    <div class="enhancement-item">
-                        <h3>🚀 Mobile App</h3>
-                        <p>พัฒนาเป็น Mobile App ด้วย React Native</p>
-                    </div>
-                    
-                    <div class="enhancement-item">
-                        <h3>🚀 Advanced Analytics</h3>
-                        <p>เพิ่มระบบวิเคราะห์ข้อมูลการใช้งาน</p>
-                    </div>
-                    
-                    <div class="enhancement-item">
-                        <h3>🚀 Multi-language Support</h3>
-                        <p>รองรับหลายภาษา (ไทย, อังกฤษ, จีน)</p>
-                    </div>
-                    
-                    <div class="enhancement-item">
-                        <h3>🚀 Push Notifications</h3>
-                        <p>แจ้งเตือนโปรโมชั่นและกิจกรรมพิเศษ</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Project Links -->
-            <section class="content-section">
-                <h2>Project Links</h2>
-                
-                <div class="project-links">
-                    <a href="https://hanaihang.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link live">
-                        <i class="fas fa-external-link-alt"></i>
-                        Live Demo
-                    </a>
-                    
-                    <a href="https://github.com/Earthondev/Hanaihang" target="_blank" rel="noopener noreferrer" class="project-link github">
-                        <i class="fab fa-github"></i>
-                        Source Code
-                    </a>
-                    
-                    <a href="../portfolio.html" class="project-link back">
-                        <i class="fas fa-arrow-left"></i>
-                        Back to Portfolio
-                    </a>
-                </div>
-            </section>
+    <div class="case-study-content">
+      <!-- Problem & Solution -->
+      <section class="content-section reveal">
+        <h2>Problem & Solution</h2>
+        <div class="problem-solution">
+          <div class="problem">
+            <h3>🚧 Problem</h3>
+            <p>ผู้ใช้ต้องการค้นหาห้างสรรพสินค้าและร้านค้าใกล้ตัว แต่ไม่มีแพลตฟอร์มที่รวมข้อมูลและให้บริการค้นหาแบบครบวงจร</p>
+          </div>
+          <div class="solution">
+            <h3>✅ Solution</h3>
+            <p>สร้างเว็บแอปพลิเคชันที่รวมการค้นหาด้วยตำแหน่งและข้อความ พร้อมระบบจัดการข้อมูลสำหรับผู้ดูแล</p>
+          </div>
         </div>
-    </main>
+      </section>
 
-    <!-- Footer -->
-    <footer class="case-study-footer">
-        <div class="container">
-            <p>© 2025 Nattapart Worakun. All Rights Reserved.</p>
+      <!-- Development Process -->
+      <section class="content-section reveal">
+        <h2>Development Process</h2>
+        <div class="process-timeline">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Research & Planning</h3>
+              <p>เก็บ requirement และออกแบบข้อมูล</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>UI/UX Design</h3>
+              <p>ออกแบบ flow + wireframe + hi-fi</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Frontend Development</h3>
+              <p>React + TypeScript + Vite</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Backend Integration</h3>
+              <p>Firebase Auth/Firestore/Storage</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h3>Testing & Deployment</h3>
+              <p>Manual test + Netlify deploy</p>
+            </div>
+          </div>
         </div>
-    </footer>
+      </section>
 
-    <!-- Scripts -->
-    <script src="../script.js"></script>
+      <!-- Technical Implementation -->
+      <section class="content-section reveal">
+        <h2>Technical Implementation</h2>
+        <div class="tech-details">
+          <div class="tech-section">
+            <h3>Frontend Architecture</h3>
+            <p>React 18 + TS, แยกหน้าหลัก/แอดมิน, lazy routes</p>
+          </div>
+          <div class="tech-section">
+            <h3>State Management</h3>
+            <p>React Context + Custom Hooks, local caching</p>
+          </div>
+          <div class="tech-section">
+            <h3>Backend Services</h3>
+            <p>Firebase Authentication, Firestore, Storage สำหรับรูป</p>
+          </div>
+          <div class="tech-section">
+            <h3>Styling</h3>
+            <p>Tailwind CSS, responsive และ componentized UI</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testing & Analytics -->
+      <section class="content-section reveal">
+        <h2>Testing & Analytics</h2>
+        <div class="tech-details">
+          <div class="tech-section">
+            <h3>Instrumentation (GA4)</h3>
+            <p>ออกแบบอีเวนต์หลัก: <code>theme_toggle</code>, <code>project_view</code>, <code>search_query</code>, <code>gallery_nav</code> พร้อมพารามิเตอร์ (origin, query, projectId, index) เพื่อทำ funnel "Search → View → Gallery".</p>
+          </div>
+          <div class="tech-section">
+            <h3>UI & Flow Tests</h3>
+            <ul class="feature-list">
+              <li>Playwright: เปิดหน้า → ค้นหา → เปิดการ์ด → เปิดแกลเลอรี (happy-path)</li>
+              <li>Link checker: ลิงก์ภายใน/ภายนอกต้อง 200 OK</li>
+              <li>Schema test: โครง <code>projects.json</code> และ <code>services.json</code> ถูกต้อง</li>
+            </ul>
+          </div>
+          <div class="tech-section">
+            <h3>Performance & A11y</h3>
+            <p>รูป WebP + <code>loading="lazy"</code> + preconnect; Lighthouse ≥95; Pa11y ผ่านระดับ AA (คอนทราสต์/คีย์บอร์ด).</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Deep Dive -->
+      <section class="content-section reveal">
+        <h2>Key Features Deep Dive</h2>
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Geolocation Search</h3>
+            <p>ระบุตำแหน่งและคำนวณระยะทางแบบเรียลไทม์</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3>Text Search</h3>
+            <p>ค้นหาชื่อห้าง/ร้าน + auto-complete</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-cog"></i>
+            </div>
+            <h3>Admin Panel</h3>
+            <p>แท็บศูนย์การค้า/ร้านค้า + ฟอร์มละเอียด</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <h3>Data Management</h3>
+            <p>CRUD ครบ ซิงก์กับ UI ทันที</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Challenges -->
+      <section class="content-section reveal">
+        <h2>Challenges & Solutions</h2>
+        <div class="challenges">
+          <div class="challenge-item">
+            <h3>🚧 Geolocation Accuracy</h3>
+            <p>คำนวณระยะทางผู้ใช้ ↔ สถานที่</p>
+            <div class="solution-detail">
+              <strong>Solution:</strong> Haversine formula
+            </div>
+          </div>
+          <div class="challenge-item">
+            <h3>🚧 Real-time Data Sync</h3>
+            <p>ซิงก์ข้อมูลระหว่าง Admin ↔ UI</p>
+            <div class="solution-detail">
+              <strong>Solution:</strong> Firestore listeners
+            </div>
+          </div>
+          <div class="challenge-item">
+            <h3>🚧 Mobile Responsiveness</h3>
+            <p>รองรับอุปกรณ์หลายขนาด</p>
+            <div class="solution-detail">
+              <strong>Solution:</strong> Tailwind responsive utilities
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results -->
+      <section class="content-section reveal">
+        <h2>Results & Impact</h2>
+        <div class="results-grid">
+          <div class="result-item">
+            <div class="result-number">100%</div>
+            <h3>Mobile Responsive</h3>
+            <p>ใช้งานได้ทุกหน้าจอ</p>
+          </div>
+          <div class="result-item">
+            <div class="result-number">&lt; 2s</div>
+            <h3>Load Time</h3>
+            <p>บิลด์ด้วย Vite</p>
+          </div>
+          <div class="result-item">
+            <div class="result-number">99.9%</div>
+            <h3>Uptime</h3>
+            <p>โฮสต์บน Netlify</p>
+          </div>
+          <div class="result-item">
+            <div class="result-number">Easy</div>
+            <h3>Admin Management</h3>
+            <p>จัดการง่ายและเร็ว</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lessons Learned -->
+      <section class="content-section reveal">
+        <h2>Lessons Learned</h2>
+        <div class="lessons">
+          <div class="lesson-item">
+            <h3>🎓 TypeScript Benefits</h3>
+            <p>ลด bug, ช่วย refactor</p>
+          </div>
+          <div class="lesson-item">
+            <h3>🎓 Firebase Integration</h3>
+            <p>ครบถ้วนสำหรับโปรเจกต์เล็ก-กลาง</p>
+          </div>
+          <div class="lesson-item">
+            <h3>🎓 User Experience</h3>
+            <p>UI/UX ดี = ใช้จริงราบรื่น</p>
+          </div>
+          <div class="lesson-item">
+            <h3>🎓 Performance Optimization</h3>
+            <p>Vite + Tailwind ทำงานไว</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Future Enhancements -->
+      <section class="content-section reveal">
+        <h2>Future Enhancements</h2>
+        <div class="enhancements">
+          <div class="enhancement-item">
+            <h3>🚀 Mobile App</h3>
+            <p>React Native</p>
+          </div>
+          <div class="enhancement-item">
+            <h3>🚀 Advanced Analytics</h3>
+            <p>วิเคราะห์พฤติกรรมการใช้งาน</p>
+          </div>
+          <div class="enhancement-item">
+            <h3>🚀 Multi-language</h3>
+            <p>ไทย/อังกฤษ/จีน</p>
+          </div>
+          <div class="enhancement-item">
+            <h3>🚀 Push Notifications</h3>
+            <p>แจ้งโปรโมชัน/กิจกรรม</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project Links -->
+      <section class="content-section reveal">
+        <h2>Project Links</h2>
+        <div class="project-links">
+          <a href="https://hanaihang.netlify.app/" target="_blank" rel="noopener" class="project-link live" onclick="trackEvent('live_demo','links')">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+          <a href="https://github.com/Earthondev/Hanaihang" target="_blank" rel="noopener" class="project-link github" onclick="trackEvent('github_repo','links')">
+            <i class="fab fa-github"></i> Source Code
+          </a>
+          <a href="../portfolio.html" class="project-link back">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Nattapart Worakun. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script defer src="../script.js"></script>
 </body>
 </html>

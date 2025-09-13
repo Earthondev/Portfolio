@@ -5,16 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Nattapart Worakun</title>
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <!-- Theme Toggle Script (prevent FOUC) -->
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID', {
-            page_title: 'Portfolio Projects',
-            page_location: window.location.href
-        });
+    (function(){
+      const LS_KEY = 'theme';
+      const saved = localStorage.getItem(LS_KEY);
+      const system = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      const theme = (saved === 'light' || saved === 'dark') ? saved : system;
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
     </script>
     
     <!-- SEO Meta Tags -->
@@ -63,7 +62,7 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="portfolio.html" class="active">Portfolio</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="/resume.pdf" class="resume-btn" aria-label="Download Resume PDF">
+                <li><a href="resume.pdf" class="resume-btn" aria-label="Download Resume PDF">
                     <i class="fas fa-download"></i>
                     Resume
                 </a></li>

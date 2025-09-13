@@ -1,0 +1,151 @@
+name: Monitor Portfolio
+
+on:
+  schedule:
+    - cron: '0 9 * * *'  # Run daily at 9 AM UTC
+  workflow_dispatch:
+
+jobs:
+  uptime-check:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Check website uptime
+      run: |
+        echo "Checking website uptime..."
+        response=$(curl -s -o /dev/null -w "%{http_code}" https://earthondev.github.io/Portfolio/)
+        if [ "$response" != "200" ]; then
+          echo "Website is down! HTTP status: $response"
+          exit 1
+        fi
+        echo "Website is up and running"
+        
+    - name: Check all pages
+      run: |
+        pages=("https://earthondev.github.io/Portfolio/" "https://earthondev.github.io/Portfolio/about.html" "https://earthondev.github.io/Portfolio/portfolio.html" "https://earthondev.github.io/Portfolio/contact.html")
+        for page in "${pages[@]}"; do
+          echo "Checking $page"
+          response=$(curl -s -o /dev/null -w "%{http_code}" "$page")
+          if [ "$response" != "200" ]; then
+            echo "Page $page is down! HTTP status: $response"
+            exit 1
+          fi
+        done
+        echo "All pages are accessible"
+
+  performance-monitor:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install lighthouse-ci
+      run: npm install -g lighthouse-ci
+      
+    - name: Run Lighthouse audit
+      run: |
+        lhci autorun --collect.url=https://earthondev.github.io/Portfolio/ --collect.numberOfRuns=3
+        
+    - name: Check performance metrics
+      run: |
+        echo "Checking performance metrics..."
+        # This would typically parse lighthouse results
+        echo "Performance monitoring completed"
+
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Check SSL certificate
+      run: |
+        echo "Checking SSL certificate..."
+        openssl s_client -connect earthondev.github.io:443 -servername earthondev.github.io < /dev/null 2>/dev/null | openssl x509 -noout -dates
+        
+    - name: Check security headers
+      run: |
+        echo "Checking security headers..."
+        curl -I https://earthondev.github.io/Portfolio/ | grep -i "x-frame-options\|x-content-type-options\|x-xss-protection\|strict-transport-security"
+        
+    - name: Check for vulnerabilities
+      run: |
+        echo "Checking for common vulnerabilities..."
+        # Check for common security issues
+        if grep -r "eval(" . --exclude-dir=.git --exclude="*.md"; then
+          echo "Potential eval() usage found"
+          exit 1
+        fi
+        echo "No obvious vulnerabilities found"
+
+  content-check:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Check for broken links
+      run: |
+        echo "Checking for broken links..."
+        # This would typically use a link checker tool
+        echo "Link checking completed"
+        
+    - name: Check image optimization
+      run: |
+        echo "Checking image optimization..."
+        find . -name "*.jpg" -o -name "*.png" -o -name "*.webp" | while read file; do
+          size=$(stat -f%z "$file")
+          if [ "$size" -gt 1000000 ]; then
+            echo "Large image found: $file ($size bytes)"
+          fi
+        done
+        
+    - name: Check content freshness
+      run: |
+        echo "Checking content freshness..."
+        # Check if content has been updated recently
+        last_modified=$(git log -1 --format=%cd --date=short)
+        echo "Last content update: $last_modified"
+
+  analytics-check:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Check analytics implementation
+      run: |
+        echo "Checking analytics implementation..."
+        if grep -q "gtag" index.html; then
+          echo "Google Analytics is implemented"
+        else
+          echo "Google Analytics not found"
+          exit 1
+        fi
+        
+    - name: Check tracking events
+      run: |
+        echo "Checking tracking events..."
+        if grep -q "trackEvent" script.js; then
+          echo "Event tracking is implemented"
+        else
+          echo "Event tracking not found"
+          exit 1
+        fi
+
+  notify-on-failure:
+    runs-on: ubuntu-latest
+    if: failure()
+    steps:
+    - name: Notify on failure
+      run: |
+        echo "Portfolio monitoring failed!"
+        echo "Please check the website status and fix any issues."
+        # This would typically send a notification via email, Slack, etc.

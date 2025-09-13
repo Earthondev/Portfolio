@@ -1,7 +1,27 @@
 [build]
   publish = "."
-  command = ""
+  command = "echo 'Static site - no build needed'"
 
+[build.environment]
+  NODE_VERSION = "18"
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Security headers for HTML files
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io;"
+
+# Cache static assets
 [[headers]]
   for = "/assets/*"
   [headers.values]
@@ -15,40 +35,46 @@
 [[headers]]
   for = "*.js"
   [headers.values]
-    Cache-Control = "no-cache, no-store, must-revalidate"
-    Pragma = "no-cache"
-    Expires = "0"
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "*.json"
   [headers.values]
-    Cache-Control = "no-cache, no-store, must-revalidate"
-    Pragma = "no-cache"
-    Expires = "0"
+    Cache-Control = "public, max-age=300"
 
-[[headers]]
-  for = "*.html"
-  [headers.values]
-    Cache-Control = "public, max-age=3600"
-
-# Redirects for clean URLs
+# Redirects
 [[redirects]]
-  from = "/about"
-  to = "/about.html"
-  status = 200
+  from = "/resume"
+  to = "/resume.pdf"
+  status = 301
 
 [[redirects]]
-  from = "/portfolio"
-  to = "/portfolio.html"
-  status = 200
+  from = "/cv"
+  to = "/resume.pdf"
+  status = 301
 
-[[redirects]]
-  from = "/contact"
-  to = "/contact.html"
-  status = 200
-
-# Handle 404s
+# SPA fallback
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 404
+  status = 200
+  conditions = {Role = ["admin"], Country = ["US"]}
+
+# Form handling
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+# Functions (if needed)
+[functions]
+  directory = "netlify/functions"

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One-Pager - Nattapart Worakun</title>
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://earthondev.github.io/Portfolio/one-pager.html" />
+  
+  <!-- SEO -->
+  <meta name="description" content="One-page summary of Nattapart Worakun - Data Analyst & BI Developer. Download as PDF for easy sharing." />
+  <meta name="robots" content="index,follow" />
+  
+  <!-- Theme color -->
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="print.css" media="print">
+  
+  <style>
+    /* One-pager specific styles */
+    .one-pager {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: white;
+      color: #333;
+    }
+    
+    .one-pager-header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #007bff;
+      padding-bottom: 20px;
+    }
+    
+    .one-pager-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #007bff;
+    }
+    
+    .one-pager-header .subtitle {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    
+    .one-pager-header .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    
+    .one-pager-header .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+    
+    .one-pager-section {
+      margin-bottom: 25px;
+    }
+    
+    .one-pager-section h2 {
+      font-size: 1.4rem;
+      color: #007bff;
+      margin-bottom: 15px;
+      border-left: 4px solid #007bff;
+      padding-left: 10px;
+    }
+    
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .highlight-item {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    
+    .highlight-item .icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    
+    .highlight-item h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    
+    .highlight-item p {
+      font-size: 0.85rem;
+      color: #666;
+      margin: 0;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .service-item {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #28a745;
+    }
+    
+    .service-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    
+    .service-item .duration {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    
+    .service-item .result {
+      font-size: 0.9rem;
+      color: #28a745;
+      font-weight: 500;
+    }
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .skill-item {
+      background: #e9ecef;
+      padding: 10px;
+      border-radius: 6px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    
+    .project-showcase {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .project-showcase h3 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    
+    .project-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    
+    .project-highlight {
+      background: white;
+      padding: 15px;
+      border-radius: 6px;
+      border-left: 3px solid #007bff;
+    }
+    
+    .project-highlight h4 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    
+    .project-highlight p {
+      font-size: 0.85rem;
+      color: #666;
+      margin: 0;
+    }
+    
+    .contact-section {
+      text-align: center;
+      background: #007bff;
+      color: white;
+      padding: 25px;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+    
+    .contact-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: white;
+      border: none;
+    }
+    
+    .contact-section .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .contact-section .btn {
+      background: white;
+      color: #007bff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .contact-section .btn:hover {
+      background: #f8f9fa;
+    }
+    
+    /* Print styles */
+    @media print {
+      .one-pager {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .one-pager-header {
+        page-break-after: avoid;
+      }
+      
+      .one-pager-section {
+        page-break-inside: avoid;
+      }
+      
+      .contact-section {
+        page-break-before: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Theme Toggle Script (prevent FOUC) -->
+  <script>
+  (function(){
+    const LS_KEY = 'theme';
+    const saved = localStorage.getItem(LS_KEY);
+    const system = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    const theme = (saved === 'light' || saved === 'dark') ? saved : system;
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+  </script>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar" aria-label="Primary">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" aria-label="Go to Home">Nattapart</a>
+
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="navbar-nav">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <ul class="navbar-nav" id="navbar-nav" role="menubar">
+        <li role="none"><a role="menuitem" href="index.html">Home</a></li>
+        <li role="none"><a role="menuitem" href="about.html">About</a></li>
+        <li role="none"><a role="menuitem" href="portfolio.html">Portfolio</a></li>
+        <li role="none"><a role="menuitem" href="contact.html">Contact</a></li>
+        <li role="none">
+          <a role="menuitem" href="resume.pdf" class="resume-btn" aria-label="Download Resume PDF">
+            <i class="fas fa-download" aria-hidden="true"></i>
+            Resume
+          </a>
+        </li>
+        <li role="none">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="one-pager">
+      <!-- Header -->
+      <header class="one-pager-header">
+        <h1>Nattapart Worakun</h1>
+        <p class="subtitle">Data Analyst & BI Developer</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>earthlikemwbb@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-globe"></i>
+            <span>earthondev.github.io/Portfolio</span>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-linkedin"></i>
+            <span>linkedin.com/in/nattapart-worakun-74a5a821b</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Impact Highlights -->
+      <section class="one-pager-section">
+        <h2>Impact Highlights</h2>
+        <div class="highlights-grid">
+          <div class="highlight-item">
+            <div class="icon">🤖</div>
+            <h3>Automation Excellence</h3>
+            <p>ลดงานมือ 60-80% ด้วย Apps Script / AppSheet / Excel VBA</p>
+          </div>
+          <div class="highlight-item">
+            <div class="icon">⚡</div>
+            <h3>Performance First</h3>
+            <p>Lighthouse ≥95 | A11y ≥95 | โหลดไว &lt;2s</p>
+          </div>
+          <div class="highlight-item">
+            <div class="icon">🚀</div>
+            <h3>Reliable Deployment</h3>
+            <p>99.9% Uptime + CI/CD (GitHub Actions → Netlify)</p>
+          </div>
+          <div class="highlight-item">
+            <div class="icon">📊</div>
+            <h3>Data-Driven Insights</h3>
+            <p>Analytics พร้อมใช้งาน: GA4 event design, funnels</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section class="one-pager-section">
+        <h2>Services</h2>
+        <div class="services-grid">
+          <div class="service-item">
+            <h3>Dashboard & BI</h3>
+            <p class="duration">2-3 สัปดาห์</p>
+            <p class="result">ผู้นำเห็นภาพรวมรายสัปดาห์, เวลาเตรียมรายงานลดลง 60-80%</p>
+          </div>
+          <div class="service-item">
+            <h3>Data Automation</h3>
+            <p class="duration">1-2 สัปดาห์</p>
+            <p class="result">งานซ้ำ ๆ กลายเป็นอัตโนมัติ, ลด human error</p>
+          </div>
+          <div class="service-item">
+            <h3>QA & Analytics Enablement</h3>
+            <p class="duration">1 สัปดาห์</p>
+            <p class="result">เก็บข้อมูลถูกต้อง, UI เสถียร, คะแนน Core Web Vitals สูงขึ้น</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="one-pager-section">
+        <h2>Core Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-item">SQL</div>
+          <div class="skill-item">Power BI</div>
+          <div class="skill-item">Excel</div>
+          <div class="skill-item">VBA</div>
+          <div class="skill-item">React</div>
+          <div class="skill-item">Firebase</div>
+          <div class="skill-item">AppSheet</div>
+          <div class="skill-item">Postman</div>
+          <div class="skill-item">GA4</div>
+          <div class="skill-item">Lighthouse</div>
+          <div class="skill-item">Playwright</div>
+          <div class="skill-item">Accessibility</div>
+        </div>
+      </section>
+
+      <!-- Featured Project -->
+      <section class="one-pager-section">
+        <h2>Featured Project</h2>
+        <div class="project-showcase">
+          <h3>HaaNaiHang – Mall & Store Finder + Admin</h3>
+          <p>เว็บช่วยค้นหาห้าง/ร้านค้าใกล้ตัว พร้อมแผงผู้ดูแลในการเพิ่ม/แก้ไขข้อมูลศูนย์การค้าและร้านค้าแบบเป็นระบบ</p>
+          
+          <div class="project-highlights">
+            <div class="project-highlight">
+              <h4>Performance</h4>
+              <p>โหลดไว &lt;2s (4G), Lighthouse ≥95 / A11y ≥95</p>
+            </div>
+            <div class="project-highlight">
+              <h4>Analytics</h4>
+              <p>ออกแบบ GA4 events (search, view, gallery) + funnel รายงาน</p>
+            </div>
+            <div class="project-highlight">
+              <h4>Efficiency</h4>
+              <p>Admin ลดเวลาบันทึกข้อมูล ~30-40% ด้วยฟอร์มที่เป็นระบบ</p>
+            </div>
+            <div class="project-highlight">
+              <h4>Tech Stack</h4>
+              <p>React, TypeScript, Vite, Tailwind, Firebase, Netlify</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="contact-section">
+        <h2>Ready to work together?</h2>
+        <p>Let's discuss your data analysis and BI development needs</p>
+        <div class="contact-buttons">
+          <a href="mailto:earthlikemwbb@gmail.com" class="btn">
+            <i class="fas fa-envelope"></i>
+            Get in Touch
+          </a>
+          <a href="resume.pdf" class="btn">
+            <i class="fas fa-download"></i>
+            Download Resume
+          </a>
+          <button onclick="window.print()" class="btn">
+            <i class="fas fa-print"></i>
+            Print PDF
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Nattapart Worakun. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="accessibility.html">Accessibility</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script defer src="script.js"></script>
+</body>
+</html>

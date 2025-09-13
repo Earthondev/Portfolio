@@ -1,0 +1,7 @@
+Contact: mailto:earthlikemwbb@gmail.com
+Preferred-Languages: en, th
+Canonical: https://earthondev.github.io/Portfolio/.well-known/security.txt
+Policy: https://earthondev.github.io/Portfolio/security-policy.html
+Expires: 2026-01-01T00:00:00.000Z
+Encryption: https://earthondev.github.io/Portfolio/pgp-key.txt
+Acknowledgments: https://earthondev.github.io/Portfolio/security-acknowledgments.html
