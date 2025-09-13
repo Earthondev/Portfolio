@@ -1,5 +1,9 @@
 /* Contact Page Styles - uses global CSS variables from style.css */
 
+:root {
+  /* CSS variables are defined in style.css */
+}
+
 /* Contact Container */
 .contact-container {
     max-width: 800px;
