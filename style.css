@@ -284,7 +284,7 @@ p, li { font-size: 1rem; color: var(--on-surface); }
   align-items: center;
   gap: 0.5rem;
   border: 2px solid var(--accent-color);
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .resume-btn:hover {
@@ -292,7 +292,7 @@ p, li { font-size: 1rem; color: var(--on-surface); }
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px var(--shadow-medium);
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 /* Theme Toggle */
