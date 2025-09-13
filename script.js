@@ -64,188 +64,23 @@ document.addEventListener('DOMContentLoaded', () => {
   setupScrollToTop();
   setupThemeToggle();
   setupKeyboardNavigation();
-  setupAnalytics();
   trackPageEvents();
   applyTheme();
 });
 
-function setupAnalytics() {
-  // Track page view
-  trackPageView();
-  
-  // Setup scroll tracking
-  setupScrollTracking();
-  
-  // Setup time tracking
-  setupTimeTracking();
-  
-  // Track form interactions
-  setupFormTracking();
-  
-  // Track external link clicks
-  setupExternalLinkTracking();
-}
 
-function setupFormTracking() {
-  // Track contact form interactions
-  const contactForm = document.querySelector('#contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', () => {
-      trackEvent('form_submit', 'contact_form');
-    });
-    
-    // Track form field focus
-    contactForm.querySelectorAll('input, textarea').forEach(field => {
-      field.addEventListener('focus', () => {
-        trackEvent('form_field_focus', field.name || field.type);
-      });
-    });
-  }
-}
 
-function setupExternalLinkTracking() {
-  // Track external link clicks
-  document.addEventListener('click', (e) => {
-    const link = e.target.closest('a');
-    if (link && link.hostname !== window.location.hostname) {
-      trackEvent('external_link_click', link.href);
-    }
-  });
-}
 
 // ---------- Removed preload for better performance ----------
 
-// ---------- Analytics ----------
-function trackEvent(eventName, eventLabel) {
-  if (typeof gtag === 'function') {
-    gtag('event', eventName, {
-      event_category: 'portfolio_interaction',
-      event_label: eventLabel
-    });
-  }
-  
-  // Custom analytics tracking
-  const analyticsData = {
-    action: eventName,
-    category: 'portfolio_interaction',
-    label: eventLabel,
-    timestamp: Date.now(),
-    url: window.location.href,
-    userAgent: navigator.userAgent,
-    viewport: {
-      width: window.innerWidth,
-      height: window.innerHeight
-    }
-  };
-  
-  // Store in localStorage for offline analytics
-  const analytics = JSON.parse(localStorage.getItem('analytics') || '[]');
-  analytics.push(analyticsData);
-  
-  // Keep only last 100 events
-  if (analytics.length > 100) {
-    analytics.splice(0, analytics.length - 100);
-  }
-  
-  localStorage.setItem('analytics', JSON.stringify(analytics));
-  
-  // Send to custom endpoint if available
-  if (navigator.onLine) {
-    sendAnalytics(analyticsData);
-  }
-  
-  // dev log
-  console.log(`Event: ${eventName} - ${eventLabel}`);
-}
+// ---------- Analytics Removed ----------
 
 // Track page-specific events
 function trackPageEvents() {
-  // Track print button clicks
-  const printButtons = document.querySelectorAll('button[onclick*="print"]');
-  printButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      trackEvent('print_pdf', 'print_button_click');
-    });
-  });
-  
-  // Track FAQ interactions
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach((item, index) => {
-    item.addEventListener('click', () => {
-      trackEvent('faq_interaction', `faq_item_${index}`);
-    });
-  });
-  
-  // Track impact highlights
-  const impactCards = document.querySelectorAll('.impact-card');
-  impactCards.forEach((card, index) => {
-    card.addEventListener('click', () => {
-      trackEvent('impact_card_click', `impact_${index}`);
-    });
-  });
-  
-  // Track principle cards
-  const principleCards = document.querySelectorAll('.principle-card');
-  principleCards.forEach((card, index) => {
-    card.addEventListener('click', () => {
-      trackEvent('principle_card_click', `principle_${index}`);
-    });
-  });
+  // All analytics tracking removed
 }
 
-async function sendAnalytics(data) {
-  try {
-    // Replace with your analytics endpoint
-    await fetch('/api/analytics', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data)
-    });
-  } catch (error) {
-    console.log('Analytics send failed:', error);
-  }
-}
 
-// Track page views
-function trackPageView() {
-  trackEvent('page_view', window.location.pathname);
-}
-
-// Track scroll depth
-function setupScrollTracking() {
-  let maxScroll = 0;
-  const milestones = [25, 50, 75, 100];
-  const trackedMilestones = new Set();
-  
-  window.addEventListener('scroll', () => {
-    const scrollPercent = Math.round(
-      (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
-    );
-    
-    if (scrollPercent > maxScroll) {
-      maxScroll = scrollPercent;
-      
-      milestones.forEach(milestone => {
-        if (scrollPercent >= milestone && !trackedMilestones.has(milestone)) {
-          trackedMilestones.add(milestone);
-          trackEvent('scroll_depth', `${milestone}%`);
-        }
-      });
-    }
-  });
-}
-
-// Track time on page
-function setupTimeTracking() {
-  const startTime = Date.now();
-  
-  window.addEventListener('beforeunload', () => {
-    const timeOnPage = Math.round((Date.now() - startTime) / 1000);
-    trackEvent('time_on_page', 'seconds', timeOnPage);
-  });
-}
 
 // ---------- Theme ----------
 function setupThemeToggle() {
@@ -284,7 +119,6 @@ function setupThemeToggle() {
       const next = order[(order.indexOf(cur)+1)%order.length];
       localStorage.setItem(KEY, next);
       apply(next);
-      if(typeof trackEvent==='function') trackEvent('theme_toggle', next);
     });
   })();
 }
@@ -536,7 +370,6 @@ function setupNavbar() {
       const isOpen = navbarNav.classList.toggle('open'); // <-- ใช้ .open ให้ตรง CSS
       mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
       document.body.style.overflow = isOpen ? 'hidden' : '';
-      trackEvent('mobile_menu_toggle', isOpen ? 'open' : 'close');
     });
 
     // Close on link click
@@ -560,7 +393,6 @@ function setupScrollToTop() {
   });
   scrollToTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    trackEvent('scroll_to_top', 'button_click');
   });
 }
 
@@ -646,7 +478,6 @@ function handleSearch(e) {
     (Array.isArray(p.stack) && p.stack.some((t) => String(t).toLowerCase().includes(q)))
   );
   renderProjects(filtered);
-  trackEvent('project_search', q);
 }
 
 function handleFilter(e) {
@@ -661,7 +492,6 @@ function handleFilter(e) {
       ? projects
       : projects.filter((p) => Array.isArray(p.tags) && p.tags.some((t) => String(t).toLowerCase().includes(filter.toLowerCase())));
   renderProjects(filtered);
-  trackEvent('project_filter', filter);
 }
 
 // ---------- Render: Projects ----------
@@ -728,16 +558,16 @@ function toCardHTML(p) {
           </div>
         </div>
         <div class="portfolio-actions">
-          <a href="${live}" target="_blank" rel="noopener" class="btn-primary" aria-label="View live demo" onclick="trackEvent('project_live_click','${p.id}')">
+          <a href="${live}" target="_blank" rel="noopener" class="btn-primary" aria-label="View live demo">
             <i class="fas fa-external-link-alt"></i>
             Live Demo
           </a>
-          <a href="${repo}" target="_blank" rel="noopener" class="btn-secondary" aria-label="View source code" onclick="trackEvent('project_repo_click','${p.id}')">
+          <a href="${repo}" target="_blank" rel="noopener" class="btn-secondary" aria-label="View source code">
             <i class="fab fa-github"></i>
             Code
           </a>
           ${hasCaseStudy ? `
-          <a href="/case-studies/${p.slug}.html" class="btn-case-study" aria-label="Read case study" onclick="trackEvent('case_study_click','${p.id}')">
+          <a href="/case-studies/${p.slug}.html" class="btn-case-study" aria-label="Read case study">
             <i class="fas fa-book-open"></i>
             Case Study
           </a>` : ''}
@@ -765,7 +595,6 @@ function attachCardEvents(list) {
     if (viewBtn) {
       viewBtn.addEventListener('click', () => {
         openProjectModal(p);
-        trackEvent('project_view', p.id);
       });
     }
 
@@ -773,7 +602,6 @@ function attachCardEvents(list) {
     if (galleryBtn) {
       galleryBtn.addEventListener('click', () => {
         openGalleryModal(p);
-        trackEvent('project_gallery_view', p.id);
       });
     }
   });
