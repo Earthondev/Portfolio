@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Case Study: HaaNaiHang - Mall & Store Finder with Admin Panel built with React, TypeScript, and Firebase"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Case Study: HaaNaiHang - Mall & Store Finder with Admin Panel built with React, TypeScript, and Firebase">
   <meta name="theme-color" content="#111111">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
@@ -12,20 +12,16 @@
   <meta name="force-reload" content="true">
   <meta name="script-version" content="v3-absolute-paths">
   <title>HaaNaiHang Case Study - Nattapart Worakun</title>
-  
   <!-- Preconnect to external domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
   <!-- Styles -->
   <link rel="stylesheet" href="../style.css?v=2025-09-13">
   <link rel="stylesheet" href="case-study.css?v=2025-09-13">
-  
   <!-- Inline CSS for testing -->
   <style>
     .case-study-page {
@@ -62,7 +58,6 @@
       object-fit: contain !important;
     }
   </style>
-  
   <!-- Debug CSS Loading -->
   <script>
     console.log('🔍 Checking CSS files...');
@@ -72,7 +67,7 @@
       link.onload = () => console.log('✅ CSS loaded:', link.href);
       link.onerror = () => console.error('❌ CSS failed to load:', link.href);
     });
-    
+
     // Check CSS rules after page load
     window.addEventListener('load', () => {
       console.log('🔍 Checking CSS rules...');
@@ -81,7 +76,7 @@
       console.log('📄 Body class:', body.className);
       console.log('📄 Body color:', computedStyle.color);
       console.log('📄 Body background:', computedStyle.backgroundColor);
-      
+
       // Check if case-study.css rules are applied
       const testElement = document.querySelector('.case-article');
       if (testElement) {
@@ -91,7 +86,6 @@
       }
     });
   </script>
-  
   <!-- Theme setup script -->
   <script>
     (function () {
@@ -99,22 +93,22 @@
       const saved = localStorage.getItem(STORAGE_KEY);
       const mql = window.matchMedia('(prefers-color-scheme: dark)');
       const root = document.documentElement;
-      
+
       function apply(theme) {
         root.classList.remove('light-theme');
         if (theme === 'light') root.classList.add('light-theme');
-        
+
         const meta = document.querySelector('meta[name="theme-color"]') || (function(){
           const m = document.createElement('meta');
           m.name='theme-color';
           document.head.appendChild(m);
           return m;
         })();
-        
+
         const isLight = theme === 'light' || (theme === 'auto' && mql.matches === false);
         meta.setAttribute('content', isLight ? '#ffffff' : '#111111');
       }
-      
+
       if (saved) {
         apply(saved);
       } else {
@@ -128,7 +122,7 @@
   <nav class="navbar" id="navbar" aria-label="Primary">
     <div class="container">
       <a href="../index.html" class="navbar-brand">Nattapart</a>
-      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+      <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu">
         <span></span>
         <span></span>
         <span></span>
@@ -140,7 +134,7 @@
         <li><a href="../contact.html">Contact</a></li>
         <li><a href="../resume.pdf" target="_blank">Resume</a></li>
         <li>
-          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
             <i class="fas fa-moon"></i>
           </button>
         </li>
@@ -150,9 +144,9 @@
 
   <!-- Reading Progress Bar -->
   <div id="read-progress"></div>
-  
+
   <!-- Breadcrumb -->
-  <nav class="case-breadcrumb">
+  <nav class="case-breadcrumb" aria-label="Breadcrumb">
     <a href="../portfolio.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
   </nav>
 
@@ -163,7 +157,7 @@
       <header class="project-hero">
         <div class="project-info">
           <h1>HaaNaiHang</h1>
-          <p class="project-tagline">Mall & Store Finder + Admin Panel</p>
+          <p class="project-tagline">Mall &amp; Store Finder + Admin Panel</p>
           <div class="project-meta">
             <span class="meta-item">
               <i class="fas fa-calendar"></i>
@@ -188,7 +182,7 @@
           </div>
         </div>
         <div class="project-image">
-          <img src="../assets/projects/hanaihang/cover.webp" alt="HaaNaiHang Mall & Store Finder" width="1200" height="675" loading="lazy" decoding="async" />
+          <img src="../assets/projects/hanaihang/cover.webp" alt="HaaNaiHang Mall & Store Finder" width="1200" height="675" loading="lazy" decoding="async">
         </div>
       </header>
 
@@ -196,7 +190,7 @@
       <section class="content-section reveal">
         <h2>Project Overview</h2>
         <p class="lead">เว็บช่วยค้นหาห้าง/ร้านค้าใกล้ตัว พร้อมแผงผู้ดูแลในการเพิ่ม/แก้ไขข้อมูลศูนย์การค้าและร้านค้าแบบเป็นระบบ</p>
-        
+
         <div class="project-details">
           <div class="detail-item">
             <h3>Problem</h3>
@@ -215,7 +209,7 @@
         <ul class="feature-list">
           <li><strong>ค้นหาห้าง/ร้านได้ใน 1-2 คลิก</strong> - รองรับมือถือเต็มรูปแบบ</li>
           <li><strong>Admin ลดเวลาบันทึกข้อมูล ~35-45%</strong> - ผ่านฟอร์มที่มี validation + autosave</li>
-          <li><strong>A11y ≥ 95 | Lighthouse ≥ 95</strong> - โหลด < 2s (WebP + lazy + preconnect)</li>
+          <li><strong>A11y ≥ 95 | Lighthouse ≥ 95</strong> - โหลด &lt; 2s (WebP + lazy + preconnect)</li>
           <li><strong>QA Gates</strong> - required-fields, range check, duplicate guard (Firestore rules)</li>
           <li><strong>Analytics</strong> - GA4 events (theme_toggle, project_view, search_query, gallery_nav)</li>
           <li><strong>Google Analytics 4</strong> - ติดตามการใช้งานจริง → เห็น Top search keywords/ตำแหน่งยอดนิยม</li>
@@ -228,22 +222,22 @@
         <h2>Key Screens</h2>
         <div class="screenshots-grid">
           <div class="screenshot-item">
-            <img src="../assets/projects/hanaihang/cover.webp" alt="หน้าแรก: ปุ่มระบุตำแหน่ง + ช่องค้นหา + การ์ดห้าง" width="1200" height="675" loading="lazy" decoding="async" />
+            <img src="../assets/projects/hanaihang/cover.webp" alt="หน้าแรก: ปุ่มระบุตำแหน่ง + ช่องค้นหา + การ์ดห้าง" width="1200" height="675" loading="lazy" decoding="async">
             <h3>Home Page</h3>
             <p>หน้าแรก: ปุ่มระบุตำแหน่ง + ช่องค้นหา + การ์ดห้าง</p>
           </div>
           <div class="screenshot-item">
-            <img src="../assets/projects/hanaihang/gallery-02.webp" alt="Admin: ตารางรายการศูนย์การค้าและสรุปข้อมูลสำคัญ" width="1200" height="675" loading="lazy" decoding="async" />
+            <img src="../assets/projects/hanaihang/gallery-02.webp" alt="Admin: ตารางรายการศูนย์การค้าและสรุปข้อมูลสำคัญ" width="1200" height="675" loading="lazy" decoding="async">
             <h3>Admin Dashboard</h3>
             <p>Admin: ตารางรายการศูนย์การค้าและสรุปข้อมูลสำคัญ</p>
           </div>
           <div class="screenshot-item">
-            <img src="../assets/projects/hanaihang/gallery-03.webp" alt="Admin: ฟอร์มเพิ่มร้านค้า—เลือกห้าง, ชั้น, หมวดหมู่, เวลาเปิดปิด" width="1200" height="675" loading="lazy" decoding="async" />
+            <img src="../assets/projects/hanaihang/gallery-03.webp" alt="Admin: ฟอร์มเพิ่มร้านค้า—เลือกห้าง, ชั้น, หมวดหมู่, เวลาเปิดปิด" width="1200" height="675" loading="lazy" decoding="async">
             <h3>Store Management</h3>
             <p>Admin: ฟอร์มเพิ่มร้านค้า—เลือกห้าง, ชั้น, หมวดหมู่, เวลาเปิดปิด</p>
           </div>
           <div class="screenshot-item">
-            <img src="../assets/projects/hanaihang/gallery-04.webp" alt="หน้าค้นหา—ผลลัพธ์ห้างหลายรายการพร้อมระยะทาง" width="1200" height="675" loading="lazy" decoding="async" />
+            <img src="../assets/projects/hanaihang/gallery-04.webp" alt="หน้าค้นหา—ผลลัพธ์ห้างหลายรายการพร้อมระยะทาง" width="1200" height="675" loading="lazy" decoding="async">
             <h3>Search Results</h3>
             <p>หน้าค้นหา—ผลลัพธ์ห้างหลายรายการพร้อมระยะทาง</p>
           </div>
@@ -253,7 +247,7 @@
       <!-- Technical Implementation -->
       <section class="content-section reveal">
         <h2>Technical Implementation</h2>
-        
+
         <div class="tech-section">
           <h3>Tech Stack</h3>
           <div class="code-block">
@@ -261,16 +255,16 @@
   React 18 + TypeScript
   Vite (Build Tool)
   Tailwind CSS (Styling)
-  
+
 Backend:
   Firebase Authentication
   Firestore Database
   Firebase Storage (Images)
-  
+
 Deployment:
   Netlify (Hosting)
   Netlify Forms (Contact)
-  
+
 Analytics:
   Google Analytics 4
   Firebase Analytics</code></pre>
@@ -293,8 +287,8 @@ Analytics:
 
       <!-- Results & Impact -->
       <section class="content-section reveal">
-        <h2>Results & Impact</h2>
-        
+        <h2>Results &amp; Impact</h2>
+
         <div class="results-grid">
           <div class="result-item">
             <div class="result-number">35-45%</div>
@@ -350,7 +344,7 @@ Analytics:
   <!-- Scripts -->
   <script src="../cache-bust.js"></script>
   <script src="../script.js"></script>
-  
+
   <!-- Reading Progress Bar -->
   <script>
     // Reading Progress Bar
@@ -370,12 +364,12 @@ Analytics:
     document.addEventListener('click', (e)=>{
       const img = e.target.closest('img');
       if(!img || img.closest('.lb')) return;
-      
+
       const overlay = document.createElement('div');
       overlay.className='lb';
       overlay.innerHTML = `<img src="${img.src}" alt="${img.alt || ''}"><button aria-label="close">×</button>`;
       document.body.appendChild(overlay);
-      
+
       overlay.addEventListener('click', (e)=>{
         if(e.target === overlay || e.target.tagName === 'BUTTON') {
           overlay.remove();
