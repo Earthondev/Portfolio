@@ -163,10 +163,7 @@ jobs:
         
     - name: Run accessibility tests
       run: |
-        pa11y http://localhost:8000
-        pa11y http://localhost:8000/about.html
-        pa11y http://localhost:8000/portfolio.html
-        pa11y http://localhost:8000/contact.html
+        node pa11y-fixed.js
         
     - name: Check accessibility features
       run: |
