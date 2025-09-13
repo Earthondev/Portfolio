@@ -1,5 +1,9 @@
 /* Case Study Page Styles — uses global CSS variables from ../style.css */
 
+:root {
+  /* CSS variables are defined in ../style.css */
+}
+
 /* Skip link */
 .skip-link {
   position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden;
