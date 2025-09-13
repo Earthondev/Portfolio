@@ -296,6 +296,17 @@
     }
   </script>
 
+  <!-- Clean tracking parameters -->
+  <script>
+    (function () {
+      const strip = ['fbclid','utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
+      const url = new URL(window.location);
+      let changed = false;
+      strip.forEach(k => { if (url.searchParams.has(k)) { url.searchParams.delete(k); changed = true; }});
+      if (changed) window.history.replaceState({}, '', url.toString());
+    })();
+  </script>
+
   <!-- Scripts: defer for perf -->
   <script defer src="script.js"></script>
   <script defer src="cache-bust.js"></script>

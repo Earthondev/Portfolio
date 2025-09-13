@@ -42,7 +42,7 @@
   "devDependencies": {
     "html-validate": "^8.7.4",
     "css-validator": "^0.10.0",
-    "lighthouse-ci": "^0.12.0"
+    "@lhci/cli": "^0.12.0"
   },
   "engines": {
     "node": ">=18.0.0",
