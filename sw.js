@@ -1,5 +1,5 @@
-// Service Worker for Portfolio
-const CACHE_NAME = 'portfolio-v1';
+// Service Worker for Portfolio - Updated
+const CACHE_NAME = 'portfolio-v2';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -21,7 +21,7 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        console.log('Opened cache');
+        console.log('Opened cache v2');
         return cache.addAll(urlsToCache);
       })
   );

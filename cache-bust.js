@@ -1,7 +1,7 @@
 // Simple Cache Busting Script
 console.log('Cache busting script loaded at:', new Date().toISOString());
 
-// หน้า case study: ไม่ต้องทำ cache bust สำหรับ JSON
+// Check if this is a case study page
 const isCaseStudy = location.pathname.includes('/case-studies/');
 
 if (isCaseStudy) {
