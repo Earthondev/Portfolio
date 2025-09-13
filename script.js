@@ -910,7 +910,7 @@ function groupSkillsByCategory(skills) {
 function renderCertifications(certs) {
   console.log('renderCertifications called with:', certs);
   if (!certificationsContainer) {
-    console.log('certificationsContainer not found');
+    console.debug('certificationsContainer not found - skipping certifications render');
     return;
   }
   

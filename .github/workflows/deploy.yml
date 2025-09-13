@@ -72,6 +72,11 @@ jobs:
         publish_dir: .
         cname: earthondev.github.io
         
+    # Deploy to Netlify (requires NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID secrets)
+    # To set up Netlify deployment:
+    # 1. Go to Netlify dashboard > Site settings > Build & deploy > Build hooks
+    # 2. Create a Personal Access Token in Netlify
+    # 3. Add NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID as repository secrets
     - name: Deploy to Netlify
       uses: nwtgck/actions-netlify@v2.0
       with:
@@ -85,3 +90,4 @@ jobs:
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      continue-on-error: true
