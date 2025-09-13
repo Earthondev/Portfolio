@@ -37,17 +37,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Preload JSON files for better performance
 function preloadJSONFiles() {
+    const timestamp = Date.now();
     const jsonFiles = ['./projects.json', './services.json'];
     jsonFiles.forEach(file => {
         const link = document.createElement('link');
         link.rel = 'preload';
         link.as = 'fetch';
-        link.href = file + '?v=' + Date.now();
+        link.href = file + '?v=' + timestamp;
         link.crossOrigin = 'anonymous';
         link.onload = () => console.log(`Preloaded: ${file}`);
         link.onerror = () => console.warn(`Failed to preload: ${file}`);
         document.head.appendChild(link);
     });
+    
+    // Store timestamp for later use
+    window.preloadTimestamp = timestamp;
 }
 
 // Analytics tracking function
@@ -89,13 +93,17 @@ function applyTheme() {
 // Enhanced JSON loading with error handling
 async function loadJSON(url) {
     try {
+        // Use the same timestamp as preload
+        const timestamp = window.preloadTimestamp || Date.now();
+        const urlWithCache = url + '?v=' + timestamp;
+        
         // Try to use preloaded resource first
         const preloadLink = document.querySelector(`link[rel="preload"][href*="${url}"]`);
         if (preloadLink) {
             console.log(`Using preloaded resource for: ${url}`);
         }
         
-        const res = await fetch(url, { cache: 'no-store' });
+        const res = await fetch(urlWithCache, { cache: 'no-store' });
         if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
         return await res.json();
     } catch (e) {
