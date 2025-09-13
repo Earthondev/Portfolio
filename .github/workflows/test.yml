@@ -124,8 +124,8 @@ jobs:
       with:
         node-version: '18'
         
-    - name: Install lighthouse-ci
-      run: npm install -g lighthouse-ci
+    - name: Install @lhci/cli
+      run: npm install -g @lhci/cli
       
     - name: Start local server
       run: |
@@ -134,7 +134,7 @@ jobs:
         
     - name: Run Lighthouse CI
       run: |
-        lhci autorun --collect.url=http://localhost:8000 --collect.numberOfRuns=3
+        npx @lhci/cli autorun --collect.url=http://localhost:8000 --collect.numberOfRuns=3
         
     - name: Check file sizes
       run: |
