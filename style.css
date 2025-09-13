@@ -464,6 +464,11 @@ body {
     font-size: 0.85rem;
 }
 
+.portfolio-role span, .portfolio-stack span {
+    color: var(--text-dark);
+    margin-right: 0.5rem;
+}
+
 .meta-label {
     font-weight: 700;
     color: var(--text-dark);
