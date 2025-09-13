@@ -1,5 +1,5 @@
 // Service Worker for Portfolio Website
-const CACHE_NAME = 'portfolio-v1.0.0';
+const CACHE_NAME = 'portfolio-v1.0.1';
 const STATIC_CACHE = [
   '/',
   '/index.html',
