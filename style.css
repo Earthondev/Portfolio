@@ -274,8 +274,8 @@ p, li { font-size: 1rem; color: var(--on-surface); }
 
 /* Resume Button */
 .resume-btn {
-  background: var(--gradient-start);
-  color: var(--text-primary);
+  background: transparent;
+  color: var(--accent-color);
   padding: 0.5rem 1rem;
   border-radius: 2rem;
   font-weight: 600;
@@ -283,10 +283,12 @@ p, li { font-size: 1rem; color: var(--on-surface); }
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  border: 2px solid var(--accent-color);
 }
 
 .resume-btn:hover {
-  background: var(--gradient-end);
+  background: var(--accent-color);
+  color: var(--bg-primary);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px var(--shadow-medium);
 }
