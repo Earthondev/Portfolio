@@ -1,56 +1,27 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const fireButton = document.getElementById('fireButton');
-    const fireCountSpan = document.getElementById('fireCount');
-    let fireCount = parseInt(localStorage.getItem('fireCount')) || 0;
-    let growCount = parseInt(localStorage.getItem('growCount')) || 0;
+// about.js
+document.addEventListener('DOMContentLoaded', () => {
+  // Guard: ทำงานเฉพาะหน้า about
+  if (!location.pathname.includes('about.html')) {
+    console.debug('Not on about page, skipping about.js initialization');
+    return;
+  }
 
-    fireCountSpan.innerText = fireCount;
+  // ให้แอนิเมชันทำงานเฉพาะถ้า init สำเร็จ
+  document.documentElement.classList.add('js-ready');
 
-    fireButton.addEventListener('click', function() {
-        fireCount++;
-        fireCountSpan.innerText = fireCount;
-        localStorage.setItem('fireCount', fireCount);
+  // ทุกการอ้างอิง DOM ต้องเช็คก่อนเสมอ
+  const nameEl = document.querySelector('[data-about-name]');
+  if (nameEl) nameEl.textContent = 'Nattapart Worakun';
 
-        if (growCount < 5) {
-            growCount++;
-            localStorage.setItem('growCount', growCount);
-            fireButton.classList.add('fire-grow');
-            setTimeout(() => {
-                fireButton.classList.remove('fire-grow');
-            }, 300);
-            // Optionally increase font size for grow effect
-            fireButton.style.fontSize = `${2 + (growCount * 0.2)}em`;
-        } else {
-            // After 5 grows, just do a small shake
-            fireButton.classList.add('pulse');
-            setTimeout(() => {
-                fireButton.classList.remove('pulse');
-            }, 300);
-        }
-    });
+  const taglineEl = document.querySelector('[data-about-tagline]');
+  if (taglineEl) taglineEl.textContent = 'Chemistry → Automation → Data & QA';
 
-    // Night Mode Toggle (Automatic based on system preference)
-    function updateNightMode() {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.body.classList.add('night-mode');
-            const elementsWithNightMode = document.querySelectorAll('.skills-section, .skills-section h2, .skill span, .bar, .tools-grid, .tools h2, .tool p, header, nav a, .fire-count');
-            elementsWithNightMode.forEach(element => {
-                element.classList.add('night-mode');
-            });
-        } else {
-            document.body.classList.remove('night-mode');
-            const elementsWithNightMode = document.querySelectorAll('.skills-section, .skills-section h2, .skill span, .bar, .tools-grid, .tools h2, .tool p, header, nav a, .fire-count');
-            elementsWithNightMode.forEach(element => {
-                element.classList.remove('night-mode');
-            });
-        }
-    }
+  // IntersectionObserver เพื่อโชว์ .reveal
+  const io = ('IntersectionObserver' in window)
+    ? new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('is-visible')), { threshold: 0.1 })
+    : null;
 
-    // Listen for changes in system color scheme
-    if (window.matchMedia) {
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateNightMode);
-    }
-
-    // Initial check for night mode
-    updateNightMode();
+  document.querySelectorAll('.reveal').forEach(el => {
+    if (io) io.observe(el); else el.classList.add('is-visible'); // fallback ถ้าไม่มี IO
+  });
 });

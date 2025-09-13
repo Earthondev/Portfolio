@@ -1,257 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-  <meta charset="UTF-8" >
-  <meta name="viewport" content="width=device-width, initial-scale=1" >
-
-  <title>HaaNaiHang Case Study — Nattapart Worakun</title>
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://earthondev.github.io/Portfolio/case-studies/hanaihang.html" >
-
-  <!-- SEO -->
-  <meta name="description" content="Case study of HaaNaiHang - Mall &amp; Store Finder with Admin Panel. Built with React, TypeScript, Firebase, and Tailwind CSS." >
-  <meta name="keywords" content="React, TypeScript, Firebase, Tailwind, Geolocation, Admin Panel, Case Study" >
-  <meta name="author" content="Nattapart Worakun" >
-
-  <!-- Theme color -->
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
-  <meta name="color-scheme" content="light dark" >
-
-  <!-- Open Graph -->
-  <meta property="og:site_name" content="Nattapart Worakun Portfolio" >
-  <meta property="og:type" content="article" >
-  <meta property="og:title" content="HaaNaiHang Case Study — Mall &amp; Store Finder" >
-  <meta property="og:description" content="Case study of HaaNaiHang - Mall &amp; Store Finder with Admin Panel. Built with React, TypeScript, Firebase, and Tailwind CSS." >
-  <meta property="og:url" content="https://earthondev.github.io/Portfolio/case-studies/hanaihang.html" >
-  <meta property="og:image" content="https://earthondev.github.io/Portfolio/assets/projects/hanaihang/cover.webp" >
-  <meta property="og:image:width" content="1200" >
-  <meta property="og:image:height" content="630" >
-  <meta property="og:locale" content="en_US" >
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" >
-  <meta name="twitter:title" content="HaaNaiHang Case Study — Mall &amp; Store Finder" >
-  <meta name="twitter:description" content="Case study of HaaNaiHang - Mall &amp; Store Finder with Admin Panel. Built with React, TypeScript, Firebase, and Tailwind CSS." >
-  <meta name="twitter:image" content="https://earthondev.github.io/Portfolio/assets/projects/hanaihang/cover.webp" >
-
-  <!-- Performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" >
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" >
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Case Study: HaaNaiHang - Mall & Store Finder with Admin Panel built with React, TypeScript, and Firebase"/>
+  <meta name="theme-color" content="#111111">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="cache-bust" content="v3-2025-09-13">
+  <meta name="force-reload" content="true">
+  <meta name="script-version" content="v3-absolute-paths">
+  <title>HaaNaiHang Case Study - Nattapart Worakun</title>
+  
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  
   <!-- Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap"
-    rel="preload"
-    as="style"
-    onload="this.onload=null;this.rel='stylesheet'"
-  >
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" >
-  </noscript>
-
-  <!-- Font Awesome -->
-  <link
-    rel="preload"
-    as="style"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    onload="this.onload=null;this.rel='stylesheet'"
-    integrity="sha512-dQJQY7Y6dK7lQ6jM6vN2m7Q8lqQn9+q3+zWnY0iJ2yqvAqk+q0r+0iD8z5k1J1l3V+7/3Ckz9Jwz0v8Xy4yN2w=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  >
-  <noscript>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-dQJQY7Y6dK7lQ6jM6vN2m7Q8lqQn9+q3+zWnY0iJ2yqvAqk+q0r+0iD8z5k1J1l3V+7/3Ckz9Jwz0v8Xy4yN2w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    >
-  </noscript>
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <!-- Styles -->
-  <link rel="preload" href="../style.css" as="style" >
-  <link rel="stylesheet" href="../style.css" >
-  <link rel="stylesheet" href="case-study.css" >
-
-  <!-- JSON-LD: TechArticle -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": "HaaNaiHang Case Study — Mall &amp; Store Finder",
-    "description": "Case study of HaaNaiHang - Mall &amp; Store Finder with Admin Panel. Built with React, TypeScript, Firebase, and Tailwind CSS.",
-    "author": {
-      "@type": "Person",
-      "name": "Nattapart Worakun",
-      "url": "https://earthondev.github.io/Portfolio/"
-    },
-    "datePublished": "2025-01-01",
-    "dateModified": "2025-01-01",
-    "image": "https://earthondev.github.io/Portfolio/assets/projects/hanaihang/cover.webp",
-    "url": "https://earthondev.github.io/Portfolio/case-studies/hanaihang.html",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://earthondev.github.io/Portfolio/case-studies/hanaihang.html"
+  <link rel="stylesheet" href="../style.css?v=2025-09-13">
+  <link rel="stylesheet" href="case-study.css?v=2025-09-13">
+  
+  <!-- Inline CSS for testing -->
+  <style>
+    .case-study-page {
+      background: #111 !important;
+      color: #fff !important;
     }
-  }
+    .case-study-page .case-article {
+      background: #222 !important;
+      color: #fff !important;
+      padding: 2rem !important;
+      border-radius: 12px !important;
+      margin: 1rem !important;
+    }
+    .case-study-page .screenshots-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+      gap: 1.5rem !important;
+      margin-top: 1rem !important;
+    }
+    .case-study-page .screenshot-item {
+      background: #333 !important;
+      border: 1px solid #555 !important;
+      border-radius: 12px !important;
+      padding: 1rem !important;
+      overflow: hidden !important;
+    }
+    .case-study-page .screenshot-item img {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      border-radius: 8px !important;
+      display: block !important;
+      margin-bottom: 0.75rem !important;
+      object-fit: contain !important;
+    }
+  </style>
+  
+  <!-- Debug CSS Loading -->
+  <script>
+    console.log('🔍 Checking CSS files...');
+    const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+    stylesheets.forEach((link, index) => {
+      console.log(`📄 Stylesheet ${index + 1}:`, link.href);
+      link.onload = () => console.log('✅ CSS loaded:', link.href);
+      link.onerror = () => console.error('❌ CSS failed to load:', link.href);
+    });
+    
+    // Check CSS rules after page load
+    window.addEventListener('load', () => {
+      console.log('🔍 Checking CSS rules...');
+      const body = document.body;
+      const computedStyle = window.getComputedStyle(body);
+      console.log('📄 Body class:', body.className);
+      console.log('📄 Body color:', computedStyle.color);
+      console.log('📄 Body background:', computedStyle.backgroundColor);
+      
+      // Check if case-study.css rules are applied
+      const testElement = document.querySelector('.case-article');
+      if (testElement) {
+        const testStyle = window.getComputedStyle(testElement);
+        console.log('📄 Case article color:', testStyle.color);
+        console.log('📄 Case article background:', testStyle.backgroundColor);
+      }
+    });
+  </script>
+  
+  <!-- Theme setup script -->
+  <script>
+    (function () {
+      const STORAGE_KEY = 'theme';
+      const saved = localStorage.getItem(STORAGE_KEY);
+      const mql = window.matchMedia('(prefers-color-scheme: dark)');
+      const root = document.documentElement;
+      
+      function apply(theme) {
+        root.classList.remove('light-theme');
+        if (theme === 'light') root.classList.add('light-theme');
+        
+        const meta = document.querySelector('meta[name="theme-color"]') || (function(){
+          const m = document.createElement('meta');
+          m.name='theme-color';
+          document.head.appendChild(m);
+          return m;
+        })();
+        
+        const isLight = theme === 'light' || (theme === 'auto' && mql.matches === false);
+        meta.setAttribute('content', isLight ? '#ffffff' : '#111111');
+      }
+      
+      if (saved) {
+        apply(saved);
+      } else {
+        apply('auto');
+      }
+    })();
   </script>
 </head>
-<body>
-  <!-- Skip link for a11y -->
-  <a href="#main" class="skip-link">Skip to main content</a>
-
-  <!-- Nav -->
+<body class="case-study-page">
+  <!-- Navigation -->
   <nav class="navbar" id="navbar" aria-label="Primary">
     <div class="container">
-      <a href="../index.html" class="navbar-brand" aria-label="Go to Home">Nattapart</a>
-
-      <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="navbar-nav">
-        <i class="fas fa-bars" aria-hidden="true"></i>
+      <a href="../index.html" class="navbar-brand">Nattapart</a>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
-
-      <ul class="navbar-nav" id="navbar-nav" role="menubar">
-        <li role="none"><a role="menuitem" href="../index.html">Home</a></li>
-        <li role="none"><a role="menuitem" href="../about.html">About</a></li>
-        <li role="none"><a role="menuitem" href="../portfolio.html">Portfolio</a></li>
-        <li role="none"><a role="menuitem" href="../contact.html">Contact</a></li>
-        <li role="none">
-          <a role="menuitem" href="mailto:earthlikemwbb@gmail.com?subject=Resume Request - Portfolio Website&amp;body=Hi Nattapart,%0D%0A%0D%0AI'm interested in your resume. Please send me a copy.%0D%0A%0D%0AThank you!" class="resume-btn" aria-label="Request Resume via Email">
-            <i class="fas fa-envelope" aria-hidden="true"></i>
-            Resume
-          </a>
-        </li>
-        <li role="none">
-          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
-            <i class="fas fa-moon" aria-hidden="true"></i>
+      <ul class="navbar-nav" id="navbar-nav">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../portfolio.html">Portfolio</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../resume.pdf" target="_blank">Resume</a></li>
+        <li>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
           </button>
         </li>
       </ul>
     </div>
   </nav>
 
-  <!-- Main -->
-  <main id="main" class="container">
-    <!-- Case Study Header -->
-    <header class="case-study-header reveal">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="../index.html">Home</a> /
-        <a href="../portfolio.html">Portfolio</a> /
-        <span aria-current="page">HaaNaiHang Case Study</span>
-      </nav>
+  <!-- Reading Progress Bar -->
+  <div id="read-progress"></div>
+  
+  <!-- Breadcrumb -->
+  <nav class="case-breadcrumb">
+    <a href="../portfolio.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+  </nav>
 
-      <div class="project-hero">
+  <!-- Main Content -->
+  <main class="case-study-content">
+    <article class="case-article">
+      <!-- Project Header -->
+      <header class="project-hero">
         <div class="project-info">
-          <h1>HaaNaiHang – Mall &amp; Store Finder + Admin</h1>
-          <p class="project-tagline">เว็บช่วยค้นหาห้าง/ร้านค้าใกล้ตัว พร้อมแผงผู้ดูแลในการเพิ่ม/แก้ไขข้อมูลศูนย์การค้าและร้านค้าแบบเป็นระบบ</p>
-
+          <h1>HaaNaiHang</h1>
+          <p class="project-tagline">Mall & Store Finder + Admin Panel</p>
           <div class="project-meta">
-            <div class="meta-item">
-              <i class="fas fa-calendar" aria-hidden="true"></i>
-              <span>2025</span>
-            </div>
-            <div class="meta-item">
-              <i class="fas fa-tag" aria-hidden="true"></i>
-              <span>Web App</span>
-            </div>
-            <div class="meta-item">
-              <i class="fas fa-user" aria-hidden="true"></i>
-              <span>Product Designer, Frontend Developer</span>
-            </div>
-            <div class="meta-item">
-              <i class="fas fa-circle" aria-hidden="true"></i>
-              <span>Active</span>
-            </div>
+            <span class="meta-item">
+              <i class="fas fa-calendar"></i>
+              2025
+            </span>
+            <span class="meta-item">
+              <i class="fas fa-code"></i>
+              Web App
+            </span>
+            <span class="meta-item">
+              <i class="fas fa-users"></i>
+              Product Designer, Frontend, Tester
+            </span>
           </div>
-
-          <div class="project-stats">
-            <div class="stat-item">
-              <h3>Tech Stack</h3>
-              <div class="tech-tags">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">TypeScript</span>
-                <span class="tech-tag">Vite</span>
-                <span class="tech-tag">Tailwind</span>
-                <span class="tech-tag">Firebase</span>
-                <span class="tech-tag">Netlify</span>
-              </div>
-            </div>
-            <div class="stat-item">
-              <h3>Key Features</h3>
-              <ul class="feature-list">
-                <li>Geolocation-based search</li>
-                <li>Admin panel for data management</li>
-                <li>Real-time data synchronization</li>
-                <li>Mobile-responsive design</li>
-              </ul>
-            </div>
+          <div class="tech-tags">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Vite</span>
+            <span class="tech-tag">Tailwind</span>
+            <span class="tech-tag">Firebase</span>
+            <span class="tech-tag">Netlify</span>
           </div>
         </div>
-
         <div class="project-image">
-          <img src="../assets/projects/hanaihang/cover.webp" alt="HaaNaiHang project overview showing search interface and admin panel" loading="eager" fetchpriority="high">
+          <img src="../assets/projects/hanaihang/cover.webp" alt="HaaNaiHang Mall & Store Finder" width="1200" height="675" loading="lazy" decoding="async" />
         </div>
-      </div>
-    </header>
+      </header>
 
-    <!-- Case Study Content -->
-    <div class="case-study-content">
-      <!-- Problem &amp; Solution -->
+      <!-- Project Overview -->
       <section class="content-section reveal">
-        <h2>Problem &amp; Solution</h2>
-        <div class="problem-solution">
-          <div class="problem">
-            <h3>🚧 Problem</h3>
-            <p>ผู้ใช้ต้องการค้นหาห้างสรรพสินค้าและร้านค้าใกล้ตัว แต่ไม่มีแพลตฟอร์มที่รวมข้อมูลและให้บริการค้นหาแบบครบวงจร</p>
+        <h2>Project Overview</h2>
+        <p class="lead">เว็บช่วยค้นหาห้าง/ร้านค้าใกล้ตัว พร้อมแผงผู้ดูแลในการเพิ่ม/แก้ไขข้อมูลศูนย์การค้าและร้านค้าแบบเป็นระบบ</p>
+        
+        <div class="project-details">
+          <div class="detail-item">
+            <h3>Problem</h3>
+            <p>ผู้ใช้ต้องการค้นหาห้างสรรพสินค้าและร้านค้าใกล้ตัว แต่ข้อมูลไม่เป็นระบบและไม่มีการจัดการที่เหมาะสม</p>
           </div>
-          <div class="solution">
-            <h3>✅ Solution</h3>
-            <p>สร้างเว็บแอปพลิเคชันที่รวมการค้นหาด้วยตำแหน่งและข้อความ พร้อมระบบจัดการข้อมูลสำหรับผู้ดูแล</p>
+          <div class="detail-item">
+            <h3>Solution</h3>
+            <p>สร้างเว็บแอปพลิเคชันที่ช่วยค้นหาห้าง/ร้านค้าได้อย่างรวดเร็ว พร้อมระบบ Admin Panel สำหรับจัดการข้อมูล</p>
           </div>
         </div>
       </section>
 
-      <!-- Development Process -->
+      <!-- Key Features -->
       <section class="content-section reveal">
-        <h2>Development Process</h2>
-        <div class="process-timeline">
-          <div class="process-step">
-            <div class="step-number">1</div>
-            <div class="step-content">
-              <h3>Research &amp; Planning</h3>
-              <p>เก็บ requirement และออกแบบข้อมูล</p>
-            </div>
+        <h2>Key Features</h2>
+        <ul class="feature-list">
+          <li><strong>ค้นหาห้าง/ร้านได้ใน 1-2 คลิก</strong> - รองรับมือถือเต็มรูปแบบ</li>
+          <li><strong>Admin ลดเวลาบันทึกข้อมูล ~35-45%</strong> - ผ่านฟอร์มที่มี validation + autosave</li>
+          <li><strong>A11y ≥ 95 | Lighthouse ≥ 95</strong> - โหลด < 2s (WebP + lazy + preconnect)</li>
+          <li><strong>QA Gates</strong> - required-fields, range check, duplicate guard (Firestore rules)</li>
+          <li><strong>Analytics</strong> - GA4 events (theme_toggle, project_view, search_query, gallery_nav)</li>
+          <li><strong>Google Analytics 4</strong> - ติดตามการใช้งานจริง → เห็น Top search keywords/ตำแหน่งยอดนิยม</li>
+          <li><strong>Firebase Security Rules</strong> - Input validation ป้องกันข้อมูลผิดพลาด</li>
+        </ul>
+      </section>
+
+      <!-- Screenshots -->
+      <section class="content-section reveal">
+        <h2>Key Screens</h2>
+        <div class="screenshots-grid">
+          <div class="screenshot-item">
+            <img src="../assets/projects/hanaihang/cover.webp" alt="หน้าแรก: ปุ่มระบุตำแหน่ง + ช่องค้นหา + การ์ดห้าง" width="1200" height="675" loading="lazy" decoding="async" />
+            <h3>Home Page</h3>
+            <p>หน้าแรก: ปุ่มระบุตำแหน่ง + ช่องค้นหา + การ์ดห้าง</p>
           </div>
-          <div class="process-step">
-            <div class="step-number">2</div>
-            <div class="step-content">
-              <h3>UI/UX Design</h3>
-              <p>ออกแบบ flow + wireframe + hi-fi</p>
-            </div>
+          <div class="screenshot-item">
+            <img src="../assets/projects/hanaihang/gallery-02.webp" alt="Admin: ตารางรายการศูนย์การค้าและสรุปข้อมูลสำคัญ" width="1200" height="675" loading="lazy" decoding="async" />
+            <h3>Admin Dashboard</h3>
+            <p>Admin: ตารางรายการศูนย์การค้าและสรุปข้อมูลสำคัญ</p>
           </div>
-          <div class="process-step">
-            <div class="step-number">3</div>
-            <div class="step-content">
-              <h3>Frontend Development</h3>
-              <p>React + TypeScript + Vite</p>
-            </div>
+          <div class="screenshot-item">
+            <img src="../assets/projects/hanaihang/gallery-03.webp" alt="Admin: ฟอร์มเพิ่มร้านค้า—เลือกห้าง, ชั้น, หมวดหมู่, เวลาเปิดปิด" width="1200" height="675" loading="lazy" decoding="async" />
+            <h3>Store Management</h3>
+            <p>Admin: ฟอร์มเพิ่มร้านค้า—เลือกห้าง, ชั้น, หมวดหมู่, เวลาเปิดปิด</p>
           </div>
-          <div class="process-step">
-            <div class="step-number">4</div>
-            <div class="step-content">
-              <h3>Backend Integration</h3>
-              <p>Firebase Auth/Firestore/Storage</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="step-number">5</div>
-            <div class="step-content">
-              <h3>Testing &amp; Deployment</h3>
-              <p>Manual test + Netlify deploy</p>
-            </div>
+          <div class="screenshot-item">
+            <img src="../assets/projects/hanaihang/gallery-04.webp" alt="หน้าค้นหา—ผลลัพธ์ห้างหลายรายการพร้อมระยะทาง" width="1200" height="675" loading="lazy" decoding="async" />
+            <h3>Search Results</h3>
+            <p>หน้าค้นหา—ผลลัพธ์ห้างหลายรายการพร้อมระยะทาง</p>
           </div>
         </div>
       </section>
@@ -259,181 +253,75 @@
       <!-- Technical Implementation -->
       <section class="content-section reveal">
         <h2>Technical Implementation</h2>
-        <div class="tech-details">
-          <div class="tech-section">
-            <h3>Frontend Architecture</h3>
-            <p>React 18 + TS, แยกหน้าหลัก/แอดมิน, lazy routes</p>
+        
+        <div class="tech-section">
+          <h3>Tech Stack</h3>
+          <div class="code-block">
+            <pre><code>Frontend:
+  React 18 + TypeScript
+  Vite (Build Tool)
+  Tailwind CSS (Styling)
+  
+Backend:
+  Firebase Authentication
+  Firestore Database
+  Firebase Storage (Images)
+  
+Deployment:
+  Netlify (Hosting)
+  Netlify Forms (Contact)
+  
+Analytics:
+  Google Analytics 4
+  Firebase Analytics</code></pre>
           </div>
-          <div class="tech-section">
-            <h3>State Management</h3>
-            <p>React Context + Custom Hooks, local caching</p>
-          </div>
-          <div class="tech-section">
-            <h3>Backend Services</h3>
-            <p>Firebase Authentication, Firestore, Storage สำหรับรูป</p>
-          </div>
-          <div class="tech-section">
-            <h3>Styling</h3>
-            <p>Tailwind CSS, responsive และ componentized UI</p>
-          </div>
+        </div>
+
+        <div class="tech-section">
+          <h3>Key Features Implementation</h3>
+          <ul class="feature-list">
+            <li><strong>Geolocation API:</strong> ระบุตำแหน่งปัจจุบันของผู้ใช้</li>
+            <li><strong>Firestore Queries:</strong> ค้นหาห้าง/ร้านตามตำแหน่งและระยะทาง</li>
+            <li><strong>React Context:</strong> จัดการ state ของ theme และ user preferences</li>
+            <li><strong>Custom Hooks:</strong> useGeolocation, useFirestore, useAnalytics</li>
+            <li><strong>Form Validation:</strong> Yup schema validation สำหรับ Admin forms</li>
+            <li><strong>Image Optimization:</strong> WebP format + lazy loading</li>
+            <li><strong>PWA Features:</strong> Service Worker + Offline support</li>
+          </ul>
         </div>
       </section>
 
-      <!-- Testing &amp; Analytics -->
+      <!-- Results & Impact -->
       <section class="content-section reveal">
-        <h2>Testing &amp; Analytics</h2>
-        <div class="tech-details">
-          <div class="tech-section">
-            <h3>Instrumentation (GA4)</h3>
-            <p>ออกแบบอีเวนต์หลัก: <code>theme_toggle</code>, <code>project_view</code>, <code>search_query</code>, <code>gallery_nav</code> พร้อมพารามิเตอร์ (origin, query, projectId, index) เพื่อทำ funnel "Search → View → Gallery".</p>
-          </div>
-          <div class="tech-section">
-            <h3>UI &amp; Flow Tests</h3>
-            <ul class="feature-list">
-              <li>Playwright: เปิดหน้า → ค้นหา → เปิดการ์ด → เปิดแกลเลอรี (happy-path)</li>
-              <li>Link checker: ลิงก์ภายใน/ภายนอกต้อง 200 OK</li>
-              <li>Schema test: โครง <code>projects.json</code> และ <code>services.json</code> ถูกต้อง</li>
-            </ul>
-          </div>
-          <div class="tech-section">
-            <h3>Performance &amp; A11y</h3>
-            <p>รูป WebP + <code>loading="lazy"</code> + preconnect; Lighthouse ≥95; Pa11y ผ่านระดับ AA (คอนทราสต์/คีย์บอร์ด).</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Features Deep Dive -->
-      <section class="content-section reveal">
-        <h2>Key Features Deep Dive</h2>
-        <div class="features-grid">
-          <article class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <h3>Geolocation Search</h3>
-            <p>ระบุตำแหน่งและคำนวณระยะทางแบบเรียลไทม์</p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-search"></i>
-            </div>
-            <h3>Text Search</h3>
-            <p>ค้นหาชื่อห้าง/ร้าน + auto-complete</p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-cog"></i>
-            </div>
-            <h3>Admin Panel</h3>
-            <p>แท็บศูนย์การค้า/ร้านค้า + ฟอร์มละเอียด</p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-database"></i>
-            </div>
-            <h3>Data Management</h3>
-            <p>CRUD ครบ ซิงก์กับ UI ทันที</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- Challenges -->
-      <section class="content-section reveal">
-        <h2>Challenges &amp; Solutions</h2>
-        <div class="challenges">
-          <div class="challenge-item">
-            <h3>🚧 Geolocation Accuracy</h3>
-            <p>คำนวณระยะทางผู้ใช้ ↔ สถานที่</p>
-            <div class="solution-detail">
-              <strong>Solution:</strong> Haversine formula
-            </div>
-          </div>
-          <div class="challenge-item">
-            <h3>🚧 Real-time Data Sync</h3>
-            <p>ซิงก์ข้อมูลระหว่าง Admin ↔ UI</p>
-            <div class="solution-detail">
-              <strong>Solution:</strong> Firestore listeners
-            </div>
-          </div>
-          <div class="challenge-item">
-            <h3>🚧 Mobile Responsiveness</h3>
-            <p>รองรับอุปกรณ์หลายขนาด</p>
-            <div class="solution-detail">
-              <strong>Solution:</strong> Tailwind responsive utilities
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Results -->
-      <section class="content-section reveal">
-        <h2>Results &amp; Impact</h2>
+        <h2>Results & Impact</h2>
+        
         <div class="results-grid">
           <div class="result-item">
-            <div class="result-number">100%</div>
-            <h3>Mobile Responsive</h3>
-            <p>ใช้งานได้ทุกหน้าจอ</p>
+            <div class="result-number">35-45%</div>
+            <div class="result-label">ลดเวลาบันทึกข้อมูล</div>
           </div>
           <div class="result-item">
-            <div class="result-number">&lt; 2s</div>
-            <h3>Load Time</h3>
-            <p>บิลด์ด้วย Vite</p>
+            <div class="result-number">95+</div>
+            <div class="result-label">Lighthouse Score</div>
           </div>
           <div class="result-item">
-            <div class="result-number">99.9%</div>
-            <h3>Uptime</h3>
-            <p>โฮสต์บน Netlify</p>
+            <div class="result-number">95+</div>
+            <div class="result-label">Accessibility Score</div>
           </div>
           <div class="result-item">
-            <div class="result-number">Easy</div>
-            <h3>Admin Management</h3>
-            <p>จัดการง่ายและเร็ว</p>
+            <div class="result-number">&lt;2s</div>
+            <div class="result-label">Page Load Time</div>
           </div>
         </div>
-      </section>
 
-      <!-- Lessons Learned -->
-      <section class="content-section reveal">
-        <h2>Lessons Learned</h2>
-        <div class="lessons">
-          <div class="lesson-item">
-            <h3>🎓 TypeScript Benefits</h3>
-            <p>ลด bug, ช่วย refactor</p>
+        <div class="project-details">
+          <div class="detail-item">
+            <h3>User Experience</h3>
+            <p>ผู้ใช้สามารถค้นหาห้าง/ร้านค้าใกล้ตัวได้อย่างรวดเร็วใน 1-2 คลิก พร้อมข้อมูลที่ถูกต้องและเป็นปัจจุบัน</p>
           </div>
-          <div class="lesson-item">
-            <h3>🎓 Firebase Integration</h3>
-            <p>ครบถ้วนสำหรับโปรเจกต์เล็ก-กลาง</p>
-          </div>
-          <div class="lesson-item">
-            <h3>🎓 User Experience</h3>
-            <p>UI/UX ดี = ใช้จริงราบรื่น</p>
-          </div>
-          <div class="lesson-item">
-            <h3>🎓 Performance Optimization</h3>
-            <p>Vite + Tailwind ทำงานไว</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Future Enhancements -->
-      <section class="content-section reveal">
-        <h2>Future Enhancements</h2>
-        <div class="enhancements">
-          <div class="enhancement-item">
-            <h3>🚀 Mobile App</h3>
-            <p>React Native</p>
-          </div>
-          <div class="enhancement-item">
-            <h3>🚀 Advanced Analytics</h3>
-            <p>วิเคราะห์พฤติกรรมการใช้งาน</p>
-          </div>
-          <div class="enhancement-item">
-            <h3>🚀 Multi-language</h3>
-            <p>ไทย/อังกฤษ/จีน</p>
-          </div>
-          <div class="enhancement-item">
-            <h3>🚀 Push Notifications</h3>
-            <p>แจ้งโปรโมชัน/กิจกรรม</p>
+          <div class="detail-item">
+            <h3>Admin Efficiency</h3>
+            <p>ระบบ Admin Panel ช่วยลดเวลาการบันทึกข้อมูลลง 35-45% ผ่านฟอร์มที่มี validation และ autosave</p>
           </div>
         </div>
       </section>
@@ -442,25 +330,58 @@
       <section class="content-section reveal">
         <h2>Project Links</h2>
         <div class="project-links">
-          <a href="https://hanaihang.netlify.app/" target="_blank" rel="noopener" class="project-link live" onclick="trackEvent('live_demo','links')">
-            <i class="fas fa-external-link-alt"></i> Live Demo
+          <a href="https://hanaihang.netlify.app/" target="_blank" rel="noopener" class="project-link live">
+            <i class="fas fa-external-link-alt"></i>
+            Live Demo
           </a>
-          <a href="https://github.com/Earthondev/Hanaihang" target="_blank" rel="noopener" class="project-link github" onclick="trackEvent('github_repo','links')">
-            <i class="fab fa-github"></i> Source Code
+          <a href="https://github.com/Earthondev/Hanaihang" target="_blank" rel="noopener" class="project-link github">
+            <i class="fab fa-github"></i>
+            Source Code
           </a>
           <a href="../portfolio.html" class="project-link back">
-            <i class="fas fa-arrow-left"></i> Back to Portfolio
+            <i class="fas fa-arrow-left"></i>
+            Back to Portfolio
           </a>
         </div>
       </section>
-    </div>
+    </article>
   </main>
 
-  <footer class="footer">
-    <p>© 2025 Nattapart Worakun. All rights reserved.</p>
-  </footer>
-
   <!-- Scripts -->
-  <script defer src="../script.js"></script>
+  <script src="../cache-bust.js"></script>
+  <script src="../script.js"></script>
+  
+  <!-- Reading Progress Bar -->
+  <script>
+    // Reading Progress Bar
+    (function(){
+      const bar = document.getElementById('read-progress');
+      if(!bar) return;
+      const onScroll = () => {
+        const h = document.documentElement;
+        const pct = (h.scrollTop)/(h.scrollHeight - h.clientHeight)*100;
+        bar.style.width = pct + '%';
+      };
+      window.addEventListener('scroll', onScroll, {passive:true});
+      onScroll();
+    })();
+
+    // Lightbox for images
+    document.addEventListener('click', (e)=>{
+      const img = e.target.closest('img');
+      if(!img || img.closest('.lb')) return;
+      
+      const overlay = document.createElement('div');
+      overlay.className='lb';
+      overlay.innerHTML = `<img src="${img.src}" alt="${img.alt || ''}"><button aria-label="close">×</button>`;
+      document.body.appendChild(overlay);
+      
+      overlay.addEventListener('click', (e)=>{
+        if(e.target === overlay || e.target.tagName === 'BUTTON') {
+          overlay.remove();
+        }
+      });
+    });
+  </script>
 </body>
 </html>

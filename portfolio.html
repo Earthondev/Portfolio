@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="cache-bust" content="v5-2025-01-13-emergency">
+    <meta name="force-reload" content="true">
     <title>Portfolio - Nattapart Worakun</title>
 
     <!-- Theme Toggle Script (prevent FOUC) -->
@@ -45,9 +50,48 @@
 
     <!-- Fonts and Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Theme color -->
+    <meta name="theme-color" content="#111111">
+    <meta name="color-scheme" content="light dark" >
+    
+    <!-- Theme system - prevent FOUC -->
+    <script>
+      (function () {
+        const STORAGE_KEY = 'theme';
+        const saved = localStorage.getItem(STORAGE_KEY); // 'light' | 'dark' | 'auto'
+        const mql = window.matchMedia('(prefers-color-scheme: dark)');
+        const root = document.documentElement;
+
+        function apply(theme) {
+          root.classList.remove('light-theme'); // default = dark
+          if (theme === 'light') root.classList.add('light-theme');
+          // อัปเดต theme-color ให้แถบ status บนมือถืออ่านง่าย
+          const meta = document.querySelector('meta[name="theme-color"]') || (function(){
+            const m = document.createElement('meta');
+            m.name='theme-color'; document.head.appendChild(m); return m;
+          })();
+          const isLight = theme === 'light' || (theme === 'auto' && mql.matches === false);
+          meta.setAttribute('content', isLight ? '#ffffff' : '#111111');
+          // เก็บโหมดเพื่อใช้ตอนเปิดหน้าอื่น
+          if (theme) localStorage.setItem(STORAGE_KEY, theme);
+          // เก็บไว้ให้ปุ่มรู้สถานะ
+          root.dataset.theme = theme || 'auto';
+        }
+
+        // โหมดเริ่มต้น: ถ้าไม่เคยเลือก → auto (ตามระบบ)
+        if (!saved || saved === 'auto') {
+          // กรณี auto ให้ฟัง event เปลี่ยนธีมของระบบด้วย
+          mql.addEventListener?.('change', () => apply('auto'));
+          apply('auto');
+        } else {
+          apply(saved);
+        }
+      })();
+    </script>
 </head>
 <body>
     <!-- Enhanced Navigation with Glass Effect -->
@@ -66,8 +110,8 @@
                     <i class="fas fa-envelope"></i>
                     Resume
                 </a></li>
-                <li><button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
-                    <i class="fas fa-moon"></i>
+                <li><button id="theme-toggle" class="theme-toggle" aria-label="Theme: Auto" title="Theme: Auto">
+                    <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
                 </button></li>
             </ul>
         </div>
@@ -115,7 +159,55 @@
         <p>© 2025 Nattapart Worakun. All Rights Reserved.</p>
     </footer>
 
+    <!-- Modals -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <h2 id="modal-title"></h2>
+                <p id="modal-description"></p>
+                <div class="modal-links">
+                    <a id="modal-live" href="#" target="_blank" rel="noopener">Live Demo</a>
+                    <a id="modal-repo" href="#" target="_blank" rel="noopener">Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="gallery-wrap">
+                <!-- Gallery content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
-    <script src="script.js"></script>
+    <script src="script.js?v=2025-01-13-emergency-fix"></script>
+    
+    <!-- Force reload script.js if cached -->
+    <script>
+    (function() {
+      console.log('🚨 FORCE RELOAD: Checking script.js version...');
+      const currentScript = document.querySelector('script[src*="script.js"]');
+      if (currentScript) {
+        console.log('🚨 FORCE RELOAD: Current script src:', currentScript.src);
+        
+        // Remove the old script immediately to prevent syntax errors
+        if (currentScript.src.includes('2025-01-13-nuclear')) {
+          console.log('🗑️ Removing problematic old script...');
+          currentScript.remove();
+        }
+        
+        // Force reload with new timestamp
+        const newScript = document.createElement('script');
+        newScript.src = 'script.js?v=' + Date.now() + '&force=' + Math.random();
+        newScript.defer = true;
+        document.head.appendChild(newScript);
+        console.log('🚨 FORCE RELOAD: New script added:', newScript.src);
+      }
+    })();
+    </script>
 </body>
 </html>

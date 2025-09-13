@@ -9,11 +9,11 @@
     "stack": ["React", "TypeScript", "Vite", "Tailwind", "Firebase (Auth/DB/Storage)", "Netlify"],
     "highlights": [
       "ค้นหาห้าง/ร้านได้ใน 1-2 คลิก, รองรับมือถือเต็มรูปแบบ",
-      "โครงสร้างข้อมูลใน Admin ลดงานซ้ำซ้อน, เพิ่มความเร็วการกรอก ~30-40%",
+      "Admin ลดเวลาบันทึกข้อมูล ~35-45% ผ่านฟอร์มที่มี validation + autosave",
+      "A11y ≥ 95 | Lighthouse ≥ 95 | โหลด < 2s (WebP + lazy + preconnect)",
+      "QA Gates: required-fields, range check, duplicate guard (Firestore rules)",
+      "Analytics: GA4 events (theme_toggle, project_view, search_query, gallery_nav)",
       "Google Analytics 4 ติดตามการใช้งานจริง → เห็น Top search keywords/ตำแหน่งยอดนิยม",
-      "โหลดไว <2s (4G), Lighthouse ≥95 / A11y ≥95",
-      "ออกแบบ GA4 events (search, view, gallery) + funnel รายงาน",
-      "Admin ลดเวลาบันทึกข้อมูล ~30-40% ด้วยฟอร์มที่เป็นระบบ",
       "Firebase Security Rules + Input validation ป้องกันข้อมูลผิดพลาด"
     ],
     "coverImage": {
@@ -44,6 +44,50 @@
     },
     "tags": ["Web App", "Admin Panel", "Geolocation", "UI/UX", "QA"],
     "cta": "View project",
+    "status": "Active",
+    "caseStudy": true
+  },
+  {
+    "id": "inventory-amino",
+    "title": "Inventory Amino – Lab Stock Management",
+    "slug": "inventory-amino",
+    "year": 2025,
+    "summary": "ระบบจัดการสต็อกสารเคมี/วัสดุในแล็บ Mobile-first พร้อมแกลเลอรีรูป, รายงานคงเหลือ และแจ้งเตือนของใกล้หมด",
+    "role": ["Product Designer", "No-Code Developer", "Data Modeler"],
+    "stack": ["AppSheet", "Google Sheets", "Google Drive", "Google Apps Script"],
+    "highlights": [
+      "Mobile-first inventory for lab teams",
+      "Order → Receive → Use with audit trail",
+      "Low-stock alerts & image gallery",
+      "Cut picking time 30–50% | Error −40%",
+      "Real-time stock updates from transactions",
+      "Onboarding new users < 30 minutes",
+      "No-code solution with enterprise-grade validation"
+    ],
+    "coverImage": {
+      "src": "./assets/projects/Inventory amino/Screenshot 2568-09-13 at 12.17.06.png",
+      "alt": "รายการคงเหลือสต็อกสารเคมีในแล็บ พร้อมการค้นหาและสถานะคงเหลือ"
+    },
+    "gallery": [
+      {
+        "src": "./assets/projects/Inventory amino/Screenshot 2568-09-13 at 12.17.06.png",
+        "alt": "รายการคงเหลือ: แสดงภาพย่อ, ชื่อสินค้า, จำนวนคงเหลือ และสถานะเตือน"
+      },
+      {
+        "src": "./assets/projects/Inventory amino/Screenshot 2568-09-13 at 12.17.34.png",
+        "alt": "แกลเลอรีรูป: แสดงภาพฉลาก/ภาชนะจริงเพื่อช่วยหยิบของถูกต้อง"
+      },
+      {
+        "src": "./assets/projects/Inventory amino/Screenshot 2568-09-13 at 12.53.51.png",
+        "alt": "ฟอร์มทำรายการ: บันทึกธุรกรรม Order/Receive/Use พร้อม validation"
+      }
+    ],
+    "links": {
+      "demo": "#",
+      "caseStudy": "./case-studies/inventory-amino.html"
+    },
+    "tags": ["Mobile App", "Inventory Management", "No-Code", "Lab Management", "Automation"],
+    "cta": "View case study",
     "status": "Active",
     "caseStudy": true
   }

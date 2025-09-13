@@ -1,7 +1,325 @@
 /* Case Study Page Styles — uses global CSS variables from ../style.css */
 
-:root {
-  /* CSS variables are defined in ../style.css */
+/* CSS variables are defined in ../style.css */
+
+/* Prevent horizontal overflow - คุมในกรอบหลักแทนที่จะล็อกทั้ง body */
+.container, .case-article, .content-section {
+  overflow-x: clip; /* modern กว่า hidden, กัน scrollbar ghost */
+  max-width: min(100%, 980px);
+  margin-inline: auto;
+}
+
+/* รูป/การ์ดไม่ให้เกินกรอบ */
+img, .screenshot-item, .project-image img {
+  max-width: 100%;
+  overflow: clip;
+}
+
+/* Reading Progress Bar */
+#read-progress {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 3px;
+  width: 0;
+  background: #19c37d;
+  z-index: 1000;
+  transition: width 0.1s ease;
+}
+
+/* Breadcrumb */
+.case-breadcrumb {
+  max-width: 980px;
+  margin: 0 auto 1rem auto;
+  padding: 0.5rem 1rem;
+}
+
+.back-link {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-weight: 600;
+  color: var(--text-primary, #ffffff);
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.back-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* Case Study Article */
+.case-article {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  line-height: 1.75;
+  font-size: 1.02rem;
+  color: var(--text-primary, #ffffff);
+  overflow-x: hidden;
+}
+
+.case-article h1,
+.case-article h2,
+.case-article h3,
+.case-article h4,
+.case-article h5,
+.case-article h6 {
+  color: var(--text-primary, #ffffff);
+  margin-top: 2rem;
+}
+
+.case-article p {
+  color: var(--text-secondary, #cccccc);
+}
+
+.case-article a,
+.content-section a {
+  color: #22c17f;                /* เขียวสว่างขึ้นนิด */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  text-decoration-thickness: .08em;
+  text-underline-offset: .14em;
+}
+
+.case-article a:hover,
+.content-section a:hover {
+  color: var(--accent-hover, #16a085);
+  text-decoration: underline;
+}
+
+.case-article a:focus-visible,
+.content-section a:focus-visible {
+  outline: 2px dashed currentColor;
+  outline-offset: 2px;
+}
+
+.case-article img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  object-fit: contain;
+}
+
+.case-article img:hover {
+  transform: scale(1.02);
+}
+
+/* Lightbox */
+.lb {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.lb img {
+  max-width: 90vw;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+.lb button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 28px;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.lb button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* General Case Study Content */
+.content-section {
+  color: var(--text-primary, #ffffff);
+}
+
+.content-section h2 {
+  color: var(--text-primary, #ffffff);
+}
+
+.content-section p {
+  color: var(--text-secondary, #cccccc);
+}
+
+.content-section .lead {
+  color: var(--text-primary, #ffffff);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.project-details {
+  color: var(--text-secondary, #cccccc);
+}
+
+.detail-item h3 {
+  color: var(--text-primary, #ffffff);
+}
+
+.detail-item p {
+  color: var(--text-secondary, #cccccc);
+}
+
+/* Ensure all text is visible */
+body {
+  color: var(--text-primary, #ffffff) !important;
+}
+
+main {
+  color: var(--text-primary, #ffffff) !important;
+}
+
+section {
+  color: var(--text-primary, #ffffff) !important;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Responsive Images */
+@media (max-width: 768px) {
+  .case-article img {
+    border-radius: 8px;
+  }
+  
+  .lb img {
+    max-width: 95vw;
+    max-height: 80vh;
+  }
+  
+  .screenshots-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  .screenshot-item {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .case-article img {
+    border-radius: 6px;
+  }
+  
+  .lb img {
+    max-width: 98vw;
+    max-height: 75vh;
+  }
+  
+  .screenshots-grid {
+    grid-template-columns: 1fr;
+    gap: .75rem;
+  }
+  
+  .screenshot-item {
+    padding: 0.75rem;
+  }
+  
+  .screenshot-item img {
+    border-radius: 6px;
+  }
+  
+  .content-section { 
+    padding: 1.25rem; 
+  }
+  
+  .result-number { 
+    font-size: 1.5rem; 
+  }
+}
+
+/* Scoped color overrides - ไม่ใช้ !important */
+.case-study-page,
+.case-study-page main,
+.case-study-page section {
+  color: var(--text-primary, #fff);
+}
+
+/* Light theme overrides */
+.light-theme .case-study-page,
+.light-theme .case-study-page main,
+.light-theme .case-study-page section {
+  color: var(--text-primary, #000);
+}
+
+.light-theme .content-section {
+  color: var(--text-primary, #000000);
+}
+
+.light-theme .content-section h2 {
+  color: var(--text-primary, #000000);
+}
+
+.light-theme .content-section p {
+  color: var(--text-secondary, #333333);
+}
+
+.light-theme .content-section .lead {
+  color: var(--text-primary, #000000);
+}
+
+.light-theme .project-details {
+  color: var(--text-secondary, #333333);
+}
+
+.light-theme .detail-item h3 {
+  color: var(--text-primary, #000000);
+}
+
+.light-theme .detail-item p {
+  color: var(--text-secondary, #333333);
+}
+
+.light-theme .back-link {
+  color: var(--text-primary, #000000);
+}
+
+.light-theme .case-article {
+  color: var(--text-primary, #000000);
+}
+
+.light-theme .case-article h1,
+.light-theme .case-article h2,
+.light-theme .case-article h3,
+.light-theme .case-article h4,
+.light-theme .case-article h5,
+.light-theme .case-article h6 {
+  color: var(--text-primary, #000000);
+}
+
+.light-theme .case-article p {
+  color: var(--text-secondary, #333333);
 }
 
 /* Skip link */
@@ -32,8 +350,15 @@
 .project-meta { display: flex; flex-wrap: wrap; gap: .75rem; }
 .meta-item {
   display: inline-flex; align-items: center; gap: .5rem;
-  background: color-mix(in oklab, var(--surface-1), white 6%); border: 1px solid var(--border);
+  background: var(--surface-1); border: 1px solid var(--border); /* Fallback */
   padding: .5rem .75rem; border-radius: 999px; font-size: .9rem; color: var(--on-surface);
+}
+
+/* Modern color mixing effect */
+@supports (background: color-mix(in srgb, white, black)) {
+  .meta-item {
+    background: color-mix(in srgb, var(--surface-1), white 6%);
+  }
 }
 .project-image img {
   width: 100%; height: auto; border-radius: .75rem; border: 1px solid var(--border);
@@ -52,8 +377,15 @@
 }
 .tech-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
 .tech-tag {
-  background: color-mix(in oklab, var(--surface-1), white 6%); border: 1px solid var(--border); color: var(--on-surface);
+  background: var(--surface-1); border: 1px solid var(--border); color: var(--on-surface); /* Fallback */
   padding: .35rem .75rem; border-radius: 999px; font-size: .85rem; font-weight: 600;
+}
+
+/* Modern color mixing effect */
+@supports (background: color-mix(in srgb, white, black)) {
+  .tech-tag {
+    background: color-mix(in srgb, var(--surface-1), white 6%);
+  }
 }
 .feature-list { padding-left: 1.25rem; color: var(--on-surface); }
 .feature-list li { margin-bottom: .35rem; }
@@ -85,6 +417,61 @@
 }
 .tech-section {
   background: var(--neutral-100); border: 1px solid var(--border-light); border-radius: .75rem; padding: 1rem;
+}
+
+/* Quality details */
+.quality-details {
+  display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 1rem;
+}
+.quality-section {
+  background: var(--neutral-100); border: 1px solid var(--border-light); border-radius: .75rem; padding: 1rem;
+}
+
+/* Screenshots Grid */
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.screenshot-item {
+  background: var(--surface-1);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 1rem;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.screenshot-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--shadow-medium);
+}
+
+.screenshot-item img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 0.75rem;
+  object-fit: contain;
+  aspect-ratio: 16 / 9;    /* คาดเดาอัตราส่วนให้คงที่ ลด layout shift ตอนรูปโหลด */
+}
+
+.screenshot-item h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.screenshot-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
 }
 
 /* Feature cards */

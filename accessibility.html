@@ -26,7 +26,46 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Theme color -->
+    <meta name="theme-color" content="#111111">
+    <meta name="color-scheme" content="light dark" >
+    
+    <!-- Theme system - prevent FOUC -->
+    <script>
+      (function () {
+        const STORAGE_KEY = 'theme';
+        const saved = localStorage.getItem(STORAGE_KEY); // 'light' | 'dark' | 'auto'
+        const mql = window.matchMedia('(prefers-color-scheme: dark)');
+        const root = document.documentElement;
+
+        function apply(theme) {
+          root.classList.remove('light-theme'); // default = dark
+          if (theme === 'light') root.classList.add('light-theme');
+          // อัปเดต theme-color ให้แถบ status บนมือถืออ่านง่าย
+          const meta = document.querySelector('meta[name="theme-color"]') || (function(){
+            const m = document.createElement('meta');
+            m.name='theme-color'; document.head.appendChild(m); return m;
+          })();
+          const isLight = theme === 'light' || (theme === 'auto' && mql.matches === false);
+          meta.setAttribute('content', isLight ? '#ffffff' : '#111111');
+          // เก็บโหมดเพื่อใช้ตอนเปิดหน้าอื่น
+          if (theme) localStorage.setItem(STORAGE_KEY, theme);
+          // เก็บไว้ให้ปุ่มรู้สถานะ
+          root.dataset.theme = theme || 'auto';
+        }
+
+        // โหมดเริ่มต้น: ถ้าไม่เคยเลือก → auto (ตามระบบ)
+        if (!saved || saved === 'auto') {
+          // กรณี auto ให้ฟัง event เปลี่ยนธีมของระบบด้วย
+          mql.addEventListener?.('change', () => apply('auto'));
+          apply('auto');
+        } else {
+          apply(saved);
+        }
+      })();
+    </script>
   <link rel="stylesheet" href="print.css" media="print">
 </head>
 <body>

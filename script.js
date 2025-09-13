@@ -4,6 +4,16 @@ let services = [];
 let currentFilter = 'all';
 let currentTheme = localStorage.getItem('theme') || 'dark';
 
+// ---------- Helpers ----------
+const $  = (sel, root = document) => (root && root.querySelector) ? root.querySelector(sel) : null;
+const $$ = (sel, root = document) => (root && root.querySelectorAll) ? Array.from(root.querySelectorAll(sel)) : [];
+
+// บอกว่าอยู่หน้าไหน (ระบุให้ชัดขึ้น กัน false-positive)
+const onPortfolio = 
+  location.pathname.endsWith('/portfolio.html') ||
+  location.pathname.endsWith('/index.html') ||
+  location.pathname === '/';
+
 // ---------- Elements ----------
 const projectsContainer = document.getElementById('projects-container');
 const servicesContainer = document.getElementById('services-container');
@@ -18,12 +28,38 @@ const scrollToTopBtn = document.getElementById('scroll-to-top');
 const themeToggle = document.getElementById('theme-toggle');
 
 // ---------- Init ----------
-document.addEventListener('DOMContentLoaded', () => {
-  preloadJSONFiles();
-  setTimeout(loadData, 100);
+const isCaseStudy = location.pathname.includes('/case-studies/');
 
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('🚀 DOMContentLoaded fired - Script version:', Date.now());
+  console.log('📍 Current page:', location.pathname);
+  console.log('🔧 Script loaded from:', document.currentScript?.src || 'unknown');
+  console.log('🆔 Script ID:', Math.random().toString(36).substr(2, 9));
+  console.log('🔍 Script URL params:', new URLSearchParams(document.currentScript?.src?.split('?')[1] || ''));
+  console.log('📁 Is Case Study:', isCaseStudy);
+  console.log('📦 projectsContainer:', projectsContainer);
+
+  // หน้า case study: ไม่ต้อง loadData (ไม่ใช้ projects/services)
+  if (isCaseStudy) {
+    console.log('📄 Case Study page - skipping JSON loading');
+    setupEventListeners();
+    setupNavbar();
+    setupScrollToTop();
+    setupThemeToggle();
+    setupKeyboardNavigation();
+    applyTheme();
+    return; // <- ตัดจบ ไม่เรียก loadData()
+  }
+
+  // หน้าอื่นค่อยโหลด JSON
+  console.log('🎯 Setting up page...');
+  setupModalShells();      // เรียกก่อน
+  showLoadingStates();
+  setTimeout(() => {
+    console.log('🎯 Calling loadData...');
+    loadData();
+  }, 100);
   setupEventListeners();
-  setupModalShells();
   setupNavbar();
   setupScrollToTop();
   setupThemeToggle();
@@ -77,19 +113,7 @@ function setupExternalLinkTracking() {
   });
 }
 
-// ---------- Preload JSON ----------
-function preloadJSONFiles() {
-  const ts = Date.now();
-  ['projects.json', 'services.json'].forEach((name) => {
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.as = 'fetch';
-    link.href = `./${name}?v=${ts}`;
-    link.crossOrigin = 'anonymous';
-    document.head.appendChild(link);
-  });
-  window.preloadTimestamp = ts;
-}
+// ---------- Removed preload for better performance ----------
 
 // ---------- Analytics ----------
 function trackEvent(eventName, eventLabel) {
@@ -225,14 +249,44 @@ function setupTimeTracking() {
 
 // ---------- Theme ----------
 function setupThemeToggle() {
-  if (!themeToggle) return;
-  themeToggle.addEventListener('click', () => {
-    const next = getTheme() === 'light' ? 'dark' : 'light';
-    setTheme(next);
-    trackEvent('theme_toggle', next);
-  });
-  // sync icon on load
-  setTheme(getTheme());
+  (function(){
+    const KEY='theme';
+    const btn=document.getElementById('theme-toggle');
+    const icon=btn?.querySelector('i');
+    const mql=window.matchMedia('(prefers-color-scheme: dark)');
+    const order=['auto','light','dark'];
+
+    function setMeta(isLight){
+      let meta=document.querySelector('meta[name="theme-color"]');
+      if(!meta){ meta=document.createElement('meta'); meta.name='theme-color'; document.head.appendChild(meta); }
+      meta.setAttribute('content', isLight ? '#ffffff' : '#111111');
+    }
+    function apply(theme){
+      const root=document.documentElement;
+      root.classList.toggle('light-theme', theme==='light' || (theme==='auto' && !mql.matches));
+      root.dataset.theme=theme;
+      const isLight = theme==='light' || (theme==='auto' && !mql.matches);
+      setMeta(isLight);
+      // อัปเดตไอคอน/ป้าย
+      if(icon){
+        icon.className = isLight ? 'fa-solid fa-sun' : (theme==='dark' ? 'fa-solid fa-moon' : 'fa-solid fa-circle-half-stroke');
+      }
+      btn?.setAttribute('aria-label', `Theme: ${theme[0].toUpperCase()+theme.slice(1)}`);
+      btn?.setAttribute('title', `Theme: ${theme[0].toUpperCase()+theme.slice(1)}`);
+    }
+
+    const saved = localStorage.getItem(KEY) || 'auto';
+    apply(saved);
+    mql.addEventListener?.('change', ()=> { if((localStorage.getItem(KEY)||'auto')==='auto') apply('auto'); });
+
+    btn?.addEventListener('click', ()=>{
+      const cur = localStorage.getItem(KEY) || 'auto';
+      const next = order[(order.indexOf(cur)+1)%order.length];
+      localStorage.setItem(KEY, next);
+      apply(next);
+      if(typeof trackEvent==='function') trackEvent('theme_toggle', next);
+    });
+  })();
 }
 
 function setTheme(next){
@@ -255,24 +309,31 @@ function applyTheme() {
 }
 
 // ---------- Data ----------
-async function loadJSON(url) {
+// --- helper: สร้าง URL แบบ absolute จากรากเว็บเสมอ ---
+const jsonURL = (name) => {
+  const file = name.endsWith('.json') ? name : `${name}.json`;
+  return new URL(`/${file}`, location.origin).toString(); // <<<<< สำคัญ
+};
+
+async function loadJSON(name) {
   try {
-    const ts = window.preloadTimestamp || Date.now();
-    const res = await fetch(`${url}?v=${ts}`, { 
-      cache: 'no-store',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const url = `${jsonURL(name)}?v=${Date.now()}`;
+    console.log('📥 Loading JSON:', url);
+    console.log('🌐 Base URL:', location.origin);
+    console.log('📁 File name:', name);
+    console.log('🆔 Script ID:', Math.random().toString(36).substr(2, 9));
+    console.log('🔍 Script URL params:', new URLSearchParams(document.currentScript?.src?.split('?')[1] || ''));
+    
+    const res = await fetch(url, { cache: 'no-store' });
+    console.log('📥 Fetch response:', res.status, res.ok);
+    if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
     const data = await res.json();
+    console.log('📥 JSON data loaded:', data);
     return data;
-  } catch (err) {
-    console.error(`loadJSON error for ${url}:`, err);
-    // Return fallback data based on URL
-    if (url.includes('projects')) return getFallbackProjects();
-    if (url.includes('services')) return getFallbackServices();
+  } catch (e) {
+    console.error(`Error loading ${name}:`, e);
+    if (String(name).includes('projects')) return getFallbackProjects();
+    if (String(name).includes('services')) return getFallbackServices();
     return [];
   }
 }
@@ -324,38 +385,77 @@ function getFallbackServices() {
 }
 
 async function loadData() {
-  // Show loading states
-  showLoadingStates();
-  
   try {
+    console.log('📊 Loading data from JSON files...');
+    console.log('🔍 Current URL:', location.href);
+    console.log('📄 Page:', location.pathname);
+    console.log('🆔 Script ID:', Math.random().toString(36).substr(2, 9));
+    console.log('🔍 Script URL params:', new URLSearchParams(document.currentScript?.src?.split('?')[1] || ''));
+    const page = location.pathname.split('/').pop() || 'index.html';
+
+    const isCaseStudy = location.pathname.includes('/case-studies/');
+    console.log('📁 Is Case Study:', isCaseStudy);
+    console.log('📄 Current page:', page);
+
+    if (page === 'about.html') {
+      // หน้า ABOUT: เอาเฉพาะ services.json เพื่อ skills/certifications
+      const servicesData = await loadJSON('services.json');
+      console.log('Services data:', servicesData);
+
+      services = servicesData.services || [];
+      renderServices(); // ถ้ามี section services ในหน้า about (ถ้าไม่มีจะไม่ทำอะไร)
+      renderSkills(servicesData.skills || []);
+      renderCertifications(servicesData.certifications || []);
+
+      if (!services?.length) showFallbackMessage('services');
+      return; // จบแค่ไฟล์เดียว
+    }
+
+    // ถ้าเป็นหน้า case study คุณอาจไม่ต้องโหลด projects เลย
+    if (isCaseStudy) {
+      try {
+        const servicesData = await loadJSON('services.json'); // สำหรับ skills/cta ถ้าหน้านั้นใช้
+        renderSkills(servicesData.skills || []);
+        renderCertifications(servicesData.certifications || []);
+      } catch (e) {
+        console.warn('Case study: skip related data gracefully');
+      }
+      return;
+    }
+
+    // หน้าอื่น: โหลดคู่
     const [projectsData, servicesData] = await Promise.all([
-      loadJSON('./projects.json'),
-      loadJSON('./services.json')
+      loadJSON('projects.json'),
+      loadJSON('services.json')
     ]);
 
-    projects = Array.isArray(projectsData) ? projectsData : [];
-    services = Array.isArray(servicesData?.services) ? servicesData.services : [];
+    console.log('📊 Projects data:', projectsData);
+    console.log('📊 Services data:', servicesData);
+    console.log('📊 Projects length:', projectsData?.length);
 
-    // Hide loading states
-    hideLoadingStates();
+    projects = projectsData;
+    services = servicesData.services || [];
 
+    console.log('🎯 About to render projects...');
     renderProjects();
     renderServices();
-    renderSkills(Array.isArray(servicesData?.skills) ? servicesData.skills : []);
-    renderCertifications(Array.isArray(servicesData?.certifications) ? servicesData.certifications : []);
+    renderSkills(servicesData.skills || []);
+    renderCertifications(servicesData.certifications || []);
 
-    if (projects.length === 0) showFallbackMessage('projects');
-    if (services.length === 0) showFallbackMessage('services');
-  } catch (e) {
-    console.error('loadData error:', e);
-    hideLoadingStates();
-    showFallbackMessage('projects');
-    showFallbackMessage('services');
+    if (!projects?.length) showFallbackMessage('projects');
+    if (!services?.length) showFallbackMessage('services');
+
+  } catch (err) {
+    console.error('Error loading data:', err);
+    showFallbackMessage('general');
   }
 }
 
 function showLoadingStates() {
+  console.log('🔄 showLoadingStates called');
+  console.log('📦 projectsContainer:', projectsContainer);
   if (projectsContainer) {
+    console.log('✅ Showing skeleton loading states');
     projectsContainer.innerHTML = `
       <div class="skeleton-card">
         <div class="skeleton skeleton-image"></div>
@@ -376,6 +476,8 @@ function showLoadingStates() {
         <div class="skeleton skeleton-text"></div>
       </div>
     `;
+  } else {
+    console.error('❌ projectsContainer not found for skeleton loading');
   }
   
   if (skillsContainer) {
@@ -506,6 +608,7 @@ function handleModalTabNavigation(e) {
   const modal = document.querySelector('.modal.active');
   if (!modal) return;
 
+  // Safe querySelectorAll with null check
   const focusableElements = modal.querySelectorAll(
     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
   );
@@ -563,18 +666,35 @@ function handleFilter(e) {
 
 // ---------- Render: Projects ----------
 function renderProjects(list = projects) {
-  if (!projectsContainer) return;
+  console.log('🎨 renderProjects called with:', list);
+  console.log('📦 projectsContainer:', projectsContainer);
+  
+  if (!projectsContainer) {
+    console.error('❌ projectsContainer not found!');
+    return;
+  }
   
   // For home page, show only featured projects (max 3)
   const isHomePage = window.location.pathname.includes('index.html') || window.location.pathname === '/';
   const displayList = isHomePage ? list.slice(0, 3) : list;
   
-  projectsContainer.innerHTML = displayList.map(toCardHTML).join('');
+  console.log('📄 Is Home Page:', isHomePage);
+  console.log('📋 Display List:', displayList);
+  
+  // Clear skeleton loading states
+  const skeletons = projectsContainer.querySelectorAll('.skel');
+  skeletons.forEach(skel => skel.remove());
+  
+  const html = displayList.map(toCardHTML).join('');
+  console.log('🎨 Generated HTML length:', html.length);
+  
+  projectsContainer.innerHTML = html;
   initializeRevealAnimations();
   attachCardEvents(displayList);
 }
 
 function toCardHTML(p) {
+  console.log('🎨 toCardHTML called for:', p.title);
   const hasCaseStudy = !!p.caseStudy;
   const cover = p.coverImage || {};
   const live = p.links?.live || '#';
@@ -631,27 +751,42 @@ function toCardHTML(p) {
 }
 
 function attachCardEvents(list) {
+  // Guard: ผูกอีเวนต์เฉพาะหน้า portfolio ที่มี projects container
+  if (!onPortfolio || !projectsContainer) {
+    console.debug('Not on portfolio page or no projects container, skipping card events');
+    return;
+  }
+
   list.forEach((p) => {
-    const card = document.querySelector(`[data-project-id="${CSS.escape(String(p.id))}"]`);
+    const card = $(`[data-project-id="${CSS.escape(String(p.id))}"]`);
     if (!card) return;
 
-    const viewBtn = card.querySelector('.view-details-btn');
-    viewBtn?.addEventListener('click', () => {
-      openProjectModal(p);
-      trackEvent('project_view', p.id);
-    });
+    const viewBtn = $('.view-details-btn', card);
+    if (viewBtn) {
+      viewBtn.addEventListener('click', () => {
+        openProjectModal(p);
+        trackEvent('project_view', p.id);
+      });
+    }
 
-    const galleryBtn = card.querySelector('.btn-gallery');
-    galleryBtn?.addEventListener('click', () => {
-      openGalleryModal(p);
-      trackEvent('project_gallery_view', p.id);
-    });
+    const galleryBtn = $('.btn-gallery', card);
+    if (galleryBtn) {
+      galleryBtn.addEventListener('click', () => {
+        openGalleryModal(p);
+        trackEvent('project_gallery_view', p.id);
+      });
+    }
   });
 }
 
 // ---------- Render: Services / Skills / Certs ----------
 function renderServices() {
   if (!servicesContainer) return;
+  
+  // Clear skeleton loading states
+  const skeletons = servicesContainer.querySelectorAll('.skel');
+  skeletons.forEach(skel => skel.remove());
+  
   servicesContainer.innerHTML = services
     .map(
       (s) => `
@@ -667,7 +802,26 @@ function renderServices() {
 }
 
 function renderSkills(skills) {
-  if (!skillsContainer || !skills.length) return;
+  console.log('renderSkills called with:', skills);
+  if (!skillsContainer) {
+    console.log('skillsContainer not found');
+    return;
+  }
+
+  // Clear skeleton loading states and fallback text
+  const skeletons = skillsContainer.querySelectorAll('.skel');
+  skeletons.forEach(skel => skel.remove());
+  
+  // Remove fallback text
+  const fallback = skillsContainer.querySelector('[data-fallback]');
+  if (fallback) {
+    fallback.remove();
+  }
+
+  if (!skills.length) {
+    console.log('No skills to render');
+    return;
+  }
 
   // Check if we're on home page (skills summary) or about page (full skills)
   const isHomePage = window.location.pathname.includes('index.html') || window.location.pathname === '/';
@@ -754,11 +908,23 @@ function groupSkillsByCategory(skills) {
 }
 
 function renderCertifications(certs) {
-  if (!certificationsContainer) return;
+  console.log('renderCertifications called with:', certs);
+  if (!certificationsContainer) {
+    console.log('certificationsContainer not found');
+    return;
+  }
+  
+  // Remove fallback text
+  const fallback = certificationsContainer.querySelector('[data-fallback]');
+  if (fallback) {
+    fallback.remove();
+  }
   
   // Only show certifications on About page, not on Home page
   const isHomePage = window.location.pathname.includes('index.html') || window.location.pathname === '/';
   const isAboutPage = window.location.pathname.includes('about.html');
+  
+  console.log('isHomePage:', isHomePage, 'isAboutPage:', isAboutPage);
   
   if (isHomePage) {
     certificationsContainer.innerHTML = '';
@@ -783,6 +949,12 @@ function renderCertifications(certs) {
 
 // ---------- Modals ----------
 function setupModalShells() {
+  // กันสร้าง modal ซ้ำ (ป้องกัน querySelectorAll บน null/โครงสร้างเพี้ยน)
+  if (document.getElementById('project-modal') || document.getElementById('gallery-modal')) {
+    console.debug('Modals already exist, skipping creation');
+    return;
+  }
+
   // Project modal
   document.body.insertAdjacentHTML(
     'beforeend',
@@ -883,10 +1055,40 @@ function openProjectModal(p) {
 }
 
 function openGalleryModal(p) {
-  const modal = document.getElementById('gallery-modal');
-  if (!modal || !Array.isArray(p.gallery) || p.gallery.length === 0) return;
+  console.log('🖼️ openGalleryModal called for:', p.title);
+  
+  // Guard: ตรวจสอบว่าอยู่หน้า portfolio และมี modal
+  if (!onPortfolio) {
+    console.debug('Not on portfolio page, skipping gallery modal');
+    return;
+  }
 
-  const wrap = modal.querySelector('.gallery-wrap');
+  // ต้องมี data ก่อน
+  if (!p || !Array.isArray(p.gallery) || p.gallery.length === 0) {
+    console.warn('Gallery data missing. Skipping.');
+    return;
+  }
+
+  // ถ้ายังไม่มี shell ให้สร้างก่อน
+  let modal = document.getElementById('gallery-modal');
+  if (!modal) {
+    console.log('🖼️ Modal not found, creating shell...');
+    setupModalShells();
+    modal = document.getElementById('gallery-modal');
+    if (!modal) {
+      console.warn('Failed to create gallery modal shell. Skipping.');
+      return;
+    }
+  }
+
+  const wrap = $('.gallery-wrap', modal);
+  console.log('🖼️ Gallery wrap found:', wrap);
+  
+  if (!wrap) {
+    console.warn('Gallery wrap container not found. Skipping.');
+    return;
+  }
+  
   wrap.innerHTML = `
     <div class="gallery-main">
       <img id="gallery-main-img" src="${p.gallery[0].src}" alt="${p.gallery[0].alt}">
@@ -917,24 +1119,60 @@ function openGalleryModal(p) {
   const prev = modal.querySelector('#gallery-prev');
   const next = modal.querySelector('#gallery-next');
 
+  console.log('🖼️ Gallery elements:', { mainImg, thumbs, dots: dots.length, prev, next });
+
   function update(index) {
     current = (index + p.gallery.length) % p.gallery.length;
     const img = p.gallery[current];
-    mainImg.src = img.src;
-    mainImg.alt = img.alt;
+    console.log('🖼️ Updating to image:', current, img.src);
+    
+    if (mainImg) {
+      mainImg.src = img.src;
+      mainImg.alt = img.alt;
+    }
 
-    thumbs?.querySelectorAll('.gallery-item').forEach((el, i) => el.classList.toggle('active', i === current));
-    dots?.forEach((d, i) => d.classList.toggle('active', i === current));
+    // Safe updates with helper functions
+    if (thumbs) {
+      const thumbItems = thumbs.querySelectorAll('.gallery-item');
+      thumbItems.forEach((el, i) => el.classList.toggle('active', i === current));
+    }
+    if (dots.length > 0) {
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
   }
 
-  prev?.addEventListener('click', () => update(current - 1));
-  next?.addEventListener('click', () => update(current + 1));
-  thumbs?.querySelectorAll('.gallery-item').forEach((el) =>
-    el.addEventListener('click', () => update(parseInt(el.dataset.index, 10)))
-  );
-  dots?.forEach((d) =>
-    d.addEventListener('click', () => update(parseInt(d.dataset.index, 10)))
-  );
+  // Safe event listeners with helper functions
+  if (prev) {
+    prev.addEventListener('click', () => {
+      console.log('🖼️ Previous clicked');
+      update(current - 1);
+    });
+  }
+  if (next) {
+    next.addEventListener('click', () => {
+      console.log('🖼️ Next clicked');
+      update(current + 1);
+    });
+  }
+  
+  if (thumbs) {
+    const thumbItems = thumbs.querySelectorAll('.gallery-item');
+    thumbItems.forEach((el) =>
+      el.addEventListener('click', () => {
+        console.log('🖼️ Thumbnail clicked:', el.dataset.index);
+        update(parseInt(el.dataset.index, 10));
+      })
+    );
+  }
+  
+  if (dots.length > 0) {
+    dots.forEach((d) =>
+      d.addEventListener('click', () => {
+        console.log('🖼️ Dot clicked:', d.dataset.index);
+        update(parseInt(d.dataset.index, 10));
+      })
+    );
+  }
 
   openModal(modal);
 }
@@ -978,3 +1216,6 @@ function debounce(fn, wait) {
     t = setTimeout(() => fn(...args), wait);
   };
 }
+
+// ---------- Script Load Verification ----------
+console.log('✅ script.js loaded successfully - syntax error fixed at', new Date().toISOString());

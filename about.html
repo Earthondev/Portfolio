@@ -1,373 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Nattapart Worakun</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me - Nattapart Worakun</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="print.css" media="print">
-    <link rel="stylesheet" href="about.css">
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- JSON-LD Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Nattapart Worakun",
-      "jobTitle": "Data Analyst &amp; BI Developer",
-      "description": "Data + QA-minded professional: Turning data into insights and testing for quality.",
-      "url": "https://earthondev.github.io/Portfolio/about.html",
-      "image": "https://earthondev.github.io/Portfolio/assets/profile.jpg",
-      "sameAs": [
-        "https://www.linkedin.com/in/nattapart-worakun-74a5a821b/",
-        "https://github.com/Earthondev"
-      ]
-    }
-    </script>
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="about.css">
+  <link rel="stylesheet" href="print.css" media="print">
+
+  <!-- Theme color & color-scheme -->
+  <meta name="theme-color" content="#111111">
+  <meta name="color-scheme" content="light dark">
+
+  <!-- THEME: single IIFE (ป้องกัน FOUC) -->
+  <script>
+    (function () {
+      const KEY = 'theme'; // 'light' | 'dark' | 'auto'
+      const mql = matchMedia('(prefers-color-scheme: dark)');
+      const root = document.documentElement;
+
+      function setTheme(theme) {
+        root.classList.toggle('light-theme', theme === 'light' || (theme === 'auto' && !mql.matches));
+        root.dataset.theme = theme;
+        // update theme-color for mobile UI
+        const meta = document.querySelector('meta[name="theme-color"]') || (() => {
+          const m = document.createElement('meta'); m.name='theme-color'; document.head.appendChild(m); return m;
+        })();
+        const isLight = root.classList.contains('light-theme');
+        meta.setAttribute('content', isLight ? '#ffffff' : '#111111');
+      }
+
+      const saved = localStorage.getItem(KEY) || 'auto';
+      setTheme(saved);
+      mql.addEventListener?.('change', () => (root.dataset.theme === 'auto') && setTheme('auto'));
+
+      // expose a tiny api for the toggle button
+      window.__toggleTheme = () => {
+        const current = root.dataset.theme || 'auto';
+        const next = current === 'dark' ? 'light' : current === 'light' ? 'auto' : 'dark';
+        localStorage.setItem(KEY, next);
+        setTheme(next);
+        const btn = document.getElementById('theme-toggle');
+        if (btn) {
+          btn.title = `Theme: ${next[0].toUpperCase()}${next.slice(1)}`;
+          btn.setAttribute('aria-label', btn.title);
+        }
+      };
+    })();
+  </script>
+
+  <!-- Person Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Nattapart Worakun",
+    "jobTitle":"Data Analyst & BI Developer",
+    "description":"Data + QA-minded professional: Turning data into insights and testing for quality.",
+    "url":"https://earthondev.github.io/Portfolio/about.html",
+    "image":"https://earthondev.github.io/Portfolio/assets/profile.jpg",
+    "sameAs":[
+      "https://www.linkedin.com/in/nattapart-worakun-74a5a821b/",
+      "https://github.com/Earthondev"
+    ]
+  }
+  </script>
 </head>
 <body>
-    <!-- Theme Toggle Script (prevent FOUC) -->
-    <script>
-    (function(){
-      const LS_KEY = 'theme';
-      const saved = localStorage.getItem(LS_KEY);
-      const system = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-      const theme = (saved === 'light' || saved === 'dark') ? saved : system;
-      document.documentElement.setAttribute('data-theme', theme);
-    })();
-    </script>
-
-    <!-- Enhanced Navigation with Glass Effect -->
-    <nav class="navbar" id="navbar" aria-label="Primary">
-        <div class="container">
-            <a href="index.html" class="navbar-brand" aria-label="Go to Home">Nattapart</a>
-
-            <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="navbar-nav">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-            </button>
-
-            <ul class="navbar-nav" id="navbar-nav" role="menubar">
-                <li role="none"><a role="menuitem" href="index.html">Home</a></li>
-                <li role="none"><a role="menuitem" href="about.html" class="active" aria-current="page">About</a></li>
-                <li role="none"><a role="menuitem" href="portfolio.html">Portfolio</a></li>
-                <li role="none"><a role="menuitem" href="contact.html">Contact</a></li>
-                <li role="none">
-                    <a role="menuitem" href="mailto:earthlikemwbb@gmail.com?subject=Resume Request - Portfolio Website&amp;body=Hi Nattapart,%0D%0A%0D%0AI'm interested in your resume. Please send me a copy.%0D%0A%0D%0AThank you!" class="resume-btn" aria-label="Request Resume via Email">
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
-                        Resume
-                    </a>
-                </li>
-                <li role="none">
-                    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
-                        <i class="fas fa-moon" aria-hidden="true"></i>
-                    </button>
-                </li>
-            </ul>
-        </div>
-    </nav>
-  <!-- Hero Section -->
-  <div class="hero-section">
-    <div class="hero-container">
-      <div class="hero-left reveal">
-        <div class="profile-container">
-          <img src="https://i.imgur.com/QuzxPug.png" alt="Profile" class="profile-pic" width="170" height="170" decoding="async" loading="eager">
-          <div class="role-badge">
-            <span class="role-text">🧪 → 📊 → 🧪🔍</span>
-            <span class="role-subtitle">Chemist → Data Analyst / Tester</span>
-          </div>
-        </div>
-      </div>
-      <div class="hero-right reveal">
-        <h1>Hi, I'm Nattapart Worakun</h1>
-        <p class="hero-subtitle">Turning Data into Insights | Testing for Quality</p>
-        <p class="hero-description">
-          ผมคือ Nattapart Worakun ที่เริ่มต้นเส้นทางจาก Chemist ในห้องแล็บ → ก้าวเข้าสู่สาย Data &amp; Tech ด้วยความหลงใหลใน Automation, Data Analysis, และ Software Testing
-        </p>
-        <p class="hero-impact">
-          <strong>Now:</strong> building BI dashboards, automations, and API tests that reduce manual work by 60–80%.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Storytelling Blocks -->
-  <div class="story-blocks">
-    <div class="story-container">
-      <!-- My Journey Block -->
-      <div class="story-block about-card reveal">
-        <p class="eyebrow">My Journey</p>
-        <h3>Lab → Automation → Data &amp; QA</h3>
-        <ul class="journey">
-          <li>🧪 Lab Research <span class="badge">2019–2022</span></li>
-          <li>⚙️ VBA &amp; Apps Script Automation <span class="badge">–60% manual</span></li>
-          <li>📊 BI Dashboards &amp; SQL <span class="badge">Active</span></li>
-          <li>🔍 API Testing (Postman) <span class="badge">Exploring</span></li>
-        </ul>
-        <p class="block-description">
-          จากงานวิจัยในแล็บ → สร้างระบบ Automation → พัฒนา Dashboard → ขยายสู่ Software Testing
-        </p>
-      </div>
-
-      <!-- What I Do Now Block -->
-      <div class="story-block about-card reveal">
-        <p class="eyebrow">What I Do Now</p>
-        <h3>Data Tools &amp; Automation</h3>
-        <div class="skills-grid">
-          <div class="skill-item">
-            <span class="skill-icon">🗄️</span>
-            <span class="skill-name">SQL</span>
-            <span class="skill-impact">Query tuning: cut runtime from 45s → 8s</span>
-          </div>
-          <div class="skill-item">
-            <span class="skill-icon">📊</span>
-            <span class="skill-name">Power BI</span>
-            <span class="skill-impact">Executive-ready KPI dashboards</span>
-          </div>
-          <div class="skill-item">
-            <span class="skill-icon">📱</span>
-            <span class="skill-name">AppSheet</span>
-            <span class="skill-impact">Mobile-first automation workflows</span>
-          </div>
-          <div class="skill-item">
-            <span class="skill-icon">📮</span>
-            <span class="skill-name">Postman</span>
-            <span class="skill-impact">Collections + environments for 3 services (Newman CI ready)</span>
-          </div>
-        </div>
-        <p class="block-description">
-          พัฒนา Dashboard, สร้าง Automation, ทดสอบ API และออกแบบระบบ end-to-end
-        </p>
-      </div>
-
-      <!-- What's Next Block -->
-      <div class="story-block about-card reveal">
-        <p class="eyebrow">What's Next</p>
-        <h3>Scaling Data &amp; QA Excellence</h3>
-        <div class="next-goals">
-          <div class="goal-item">
-            <span class="goal-icon">🎯</span>
-            <span class="goal-text">API Testing at Scale — Postman → Newman in CI, env/secrets best-practice</span>
-          </div>
-          <div class="goal-item">
-            <span class="goal-icon">🤖</span>
-            <span class="goal-text">UI Test Automation — Playwright + testing library for critical flows</span>
-          </div>
-          <div class="goal-item">
-            <span class="goal-icon">📈</span>
-            <span class="goal-text">BI Storytelling — Executive-ready KPI dashboards with DAX measures</span>
-          </div>
-          <div class="goal-item">
-            <span class="goal-icon">🔐</span>
-            <span class="goal-text">Data Quality — Query checks &amp; anomaly alerts before analytics</span>
-          </div>
-        </div>
-        <p class="block-description">
-          ผสมผสานทักษะ Data + QA เพื่อสร้างคุณค่าแบบ end-to-end ให้กับองค์กร
-        </p>
-
-        <!-- Bio -->
-        <div class="bio-section">
-          <h3>About Me</h3>
-          <p class="bio-text">ผมคือ Nattapart Worakun จากสาย Chemist → Data &amp; Tech ด้วยความสนใจด้าน Automation, Data Analysis, BI และ Software Testing ตอนนี้โฟกัสการทำ แดชบอร์ด KPI, ออโตเมชันที่ลดงานซ้ำซ้อน, และ การวัดผลด้วย GA4 ให้ทีมตัดสินใจได้เร็วขึ้นอย่างมั่นใจ</p>
-          <div class="profile-actions">
-            <button type="button" onclick="window.print()" class="btn-secondary" aria-label="Print or save as PDF">
-              <i class="fas fa-print" aria-hidden="true"></i>
-              Print PDF
-            </button>
-          </div>
-        </div>
-
-        <!-- Working Principles -->
-        <div class="principles-section">
-          <h3>Working Principles</h3>
-          <div class="principles-grid">
-            <div class="principle-card">
-              <div class="principle-icon">📊</div>
-              <h4>วัดผลได้เสมอ</h4>
-              <p>ตั้งเป้า ก่อน–หลัง (เช่น เวลาโหลด/อัตราคลิก/ชั่วโมงงานมือที่ลดลง)</p>
-            </div>
-            <div class="principle-card">
-              <div class="principle-icon">🧪</div>
-              <h4>คุณภาพก่อนปล่อย</h4>
-              <p>มี test สำคัญ (UI flows, links, JSON schema) ผ่าน CI</p>
-            </div>
-            <div class="principle-card">
-              <div class="principle-icon">👥</div>
-              <h4>ผู้ใช้มาก่อน</h4>
-              <p>คอนทราสต์ดี อ่านง่าย พิสูจน์ด้วย Pa11y/Lighthouse</p>
-            </div>
-            <div class="principle-card">
-              <div class="principle-icon">🔧</div>
-              <h4>รักษาง่าย</h4>
-              <p>โครงสร้างไฟล์ชัด, docs ครบ, deploy อัตโนมัติ</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FAQ Section -->
-  <section class="section reveal" aria-labelledby="faq-heading">
-    <h2 id="faq-heading">Frequently Asked Questions</h2>
-    <div class="faq-grid">
-      <div class="faq-item">
-        <h3>ทำงานยังไง?</h3>
-        <p>Brief ปัญหา/เป้า → ออกแบบ → สร้าง → ทดสอบ → วัดผล (GA4/Lighthouse) → ส่งมอบเอกสาร</p>
-      </div>
-      <div class="faq-item">
-        <h3>ต้องใช้ข้อมูลอะไรบ้าง?</h3>
-        <p>KPI ที่อยากเห็น, แหล่งข้อมูล, ตัวอย่างรายงานเดิม, ผู้ใช้เป้าหมาย</p>
-      </div>
-      <div class="faq-item">
-        <h3>ระยะเวลาโครงการ?</h3>
-        <p>Dashboard 2-3 สัปดาห์, Automation 1-2 สัปดาห์, QA &amp; Analytics 1 สัปดาห์</p>
-      </div>
-      <div class="faq-item">
-        <h3>รับแก้/ดูแลต่อไหม?</h3>
-        <p>ได้ มี maintenance แบบรายเดือน (ปรับ KPI, เพิ่มอีเวนต์, ตรวจสุขภาพเว็บ)</p>
-      </div>
-      <div class="faq-item">
-        <h3>เทคโนโลยีหลัก?</h3>
-        <p>Power BI, SQL, Apps Script/AppSheet/Excel VBA, React + Vite + Tailwind, Firebase, Netlify, GA4, Playwright, Postman</p>
-      </div>
-      <div class="faq-item">
-        <h3>วัดผลสำเร็จอย่างไร?</h3>
-        <p>เทียบตัวเลขก่อน–หลัง (เวลา/manual hours, คะแนน Core Web Vitals, funnel)</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Certificates Section -->
-  <div class="certificates-section">
-    <div class="certificates-container">
-      <h2 class="section-title">🏆 Certifications &amp; Achievements</h2>
-      <div class="certificates-grid">
-        <div class="certificate-card reveal">
-          <div class="certificate-image">
-            <img src="https://i.imgur.com/QuzxPug.png" alt="Data Science Bootcamp Certificate" class="cert-img">
-          </div>
-          <div class="certificate-content">
-            <h3 class="cert-title">Data Science Bootcamp 2025</h3>
-            <p class="cert-issuer">DataRockie</p>
-            <p class="cert-date">2025</p>
-            <p class="cert-description">
-              Comprehensive data science program covering Python, SQL, machine learning, and data visualization techniques.
-            </p>
-            <div class="cert-skills">
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">SQL</span>
-              <span class="skill-tag">Machine Learning</span>
-              <span class="skill-tag">Data Visualization</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="certificate-card reveal">
-          <div class="certificate-image">
-            <img src="https://i.imgur.com/QuzxPug.png" alt="ChatGPT for Developers Certificate" class="cert-img">
-          </div>
-          <div class="certificate-content">
-            <h3 class="cert-title">ChatGPT for Developers</h3>
-            <p class="cert-issuer">OpenAI</p>
-            <p class="cert-date">2024</p>
-            <p class="cert-description">
-              Advanced training on integrating ChatGPT and AI tools into development workflows and automation processes.
-            </p>
-            <div class="cert-skills">
-              <span class="skill-tag">AI Integration</span>
-              <span class="skill-tag">Automation</span>
-              <span class="skill-tag">Prompt Engineering</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="certificate-card reveal">
-          <div class="certificate-image">
-            <img src="https://i.imgur.com/QuzxPug.png" alt="Essential SQL Certificate" class="cert-img">
-          </div>
-          <div class="certificate-content">
-            <h3 class="cert-title">Essential SQL for Everyone</h3>
-            <p class="cert-issuer">SQLBolt</p>
-            <p class="cert-date">2024</p>
-            <p class="cert-description">
-              Master SQL fundamentals including queries, joins, aggregations, and database optimization techniques.
-            </p>
-            <div class="cert-skills">
-              <span class="skill-tag">SQL Queries</span>
-              <span class="skill-tag">Database Design</span>
-              <span class="skill-tag">Performance Tuning</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="certificate-card reveal">
-          <div class="certificate-image">
-            <img src="https://i.imgur.com/QuzxPug.png" alt="Gemini Certified Educator" class="cert-img">
-          </div>
-          <div class="certificate-content">
-            <h3 class="cert-title">Gemini Certified Educator</h3>
-            <p class="cert-issuer">Google</p>
-            <p class="cert-date">2024</p>
-            <p class="cert-description">
-              Certified educator for Google's Gemini AI platform, specializing in AI-assisted learning and development.
-            </p>
-            <div class="cert-skills">
-              <span class="skill-tag">AI Education</span>
-              <span class="skill-tag">Gemini Platform</span>
-              <span class="skill-tag">Teaching</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Skills &amp; Certifications Section -->
-  <div class="skills-certifications-section">
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar" aria-label="Primary">
     <div class="container">
-      <!-- Skills Section -->
-      <section class="section reveal" aria-labelledby="skills-heading">
-        <h2 id="skills-heading">Technical Skills</h2>
-        <div id="skills-container" class="skills-grid" aria-live="polite"></div>
-      </section>
+      <a href="index.html" class="navbar-brand">Nattapart</a>
 
-      <!-- Certifications Section -->
-      <section class="section reveal" aria-labelledby="certs-heading">
-        <h2 id="certs-heading">Certifications</h2>
-        <div id="certifications-container" class="certifications-grid" aria-live="polite"></div>
-      </section>
+      <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="navbar-nav">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <ul class="navbar-nav" id="navbar-nav" role="menubar">
+        <li role="none"><a role="menuitem" href="index.html">Home</a></li>
+        <li role="none"><a role="menuitem" class="active" aria-current="page" href="about.html">About</a></li>
+        <li role="none"><a role="menuitem" href="portfolio.html">Portfolio</a></li>
+        <li role="none"><a role="menuitem" href="contact.html">Contact</a></li>
+        <li role="none">
+          <a role="menuitem" class="resume-btn"
+             href="mailto:earthlikemwbb@gmail.com?subject=Resume Request - Portfolio Website&body=Hi Nattapart,%0D%0A%0D%0AI'm interested in your resume. Please send me a copy.%0D%0A%0D%0AThank you!">
+            <i class="fas fa-envelope" aria-hidden="true"></i> Resume
+          </a>
+        </li>
+        <li role="none">
+          <button id="theme-toggle" class="theme-toggle" aria-label="Theme: Auto" title="Theme: Auto" onclick="__toggleTheme()">
+            <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+          </button>
+        </li>
+      </ul>
     </div>
-  </div>
+  </nav>
 
-  <!-- Call-to-Action Section -->
-  <div class="cta-section">
-    <div class="cta-container">
-      <h2>🚀 Looking for a Data Analyst / BI Developer with QA mindset?</h2>
-      <p class="cta-description">Let's connect and create impact together!</p>
-      <div class="cta-buttons">
-        <a href="mailto:earthlikemwbb@gmail.com?subject=Resume Request - Portfolio Website&amp;body=Hi Nattapart,%0D%0A%0D%0AI'm interested in your resume. Please send me a copy.%0D%0A%0D%0AThank you!" class="btn btn-primary" data-track="resume_request" data-source="about">
-          <i class="fas fa-envelope"></i>
-          Request Resume
-        </a>
-        <a href="contact.html" class="btn btn-outline" data-track="contact_click" data-source="about">
-          <i class="fas fa-envelope"></i>
-          Contact Me
-        </a>
+  <!-- HERO (หนึ่งชุดพอ) -->
+  <header class="about-hero container reveal" id="about-hero">
+    <div class="about-hero-inner">
+      <img class="about-avatar" src="https://i.imgur.com/QuzxPug.png" alt="Nattapart profile" width="120" height="120"/>
+      <h1 class="about-title">Hi, I'm Nattapart Worakun</h1>
+      <p class="about-tagline">Chemistry → Automation → Data & QA</p>
+      <p class="about-sub">I bring lab-grade rigor to dashboards, automations, and web apps.</p>
+      <div class="about-cta">
+        <a href="./one-pager.html" class="btn-primary">Request Resume</a>
+        <a href="./contact.html" class="btn-secondary">Get in Touch</a>
       </div>
     </div>
-  </div>
+  </header>
+
+  <main class="container">
+    <!-- Story blocks -->
+    <section class="content-section reveal">
+      <h2>My Journey</h2>
+      <p class="muted">Lab → Automation → Data & QA</p>
+      <ul class="journey">
+        <li>🧪 Lab Research <span class="badge">2019–2022</span></li>
+        <li>⚙️ VBA & Apps Script Automation <span class="badge">–60% manual</span></li>
+        <li>📊 BI Dashboards & SQL <span class="badge">Active</span></li>
+        <li>🔍 API Testing (Postman) <span class="badge">Exploring</span></li>
+      </ul>
+    </section>
+
+    <section class="content-section reveal">
+      <h2>Transferable Strengths (Chemistry → Data/BI)</h2>
+      <div class="principles-grid">
+        <div class="principle-card"><div class="principle-icon">🧪</div><h4>QC/QA discipline → Testable analytics</h4><p>Postman/Playwright test plans, accessibility checks, regression criteria.</p></div>
+        <div class="principle-card"><div class="principle-icon">📋</div><h4>SOP & traceability → Reproducible dashboards</h4><p>Clean SQL models, versioned changes, runbooks, CI.</p></div>
+        <div class="principle-card"><div class="principle-icon">📏</div><h4>Measurement & calibration → Reliable KPIs</h4><p>Metric definitions, validation rules, monitoring.</p></div>
+        <div class="principle-card"><div class="principle-icon">🔒</div><h4>Safety & compliance → Secure delivery</h4><p>Security headers, privacy, uptime/alerting.</p></div>
+      </div>
+    </section>
+
+    <section class="content-section reveal">
+      <h2>Selected Wins</h2>
+      <div class="impact-grid">
+        <div class="impact-card"><div class="impact-icon">🤖</div><h3>Cut ~60–80% repetitive work</h3><p>Apps Script, AppSheet, Excel VBA.</p></div>
+        <div class="impact-card"><div class="impact-icon">📊</div><h3>Executive-ready Power BI dashboards</h3><p>Clear visuals + KPI definitions.</p></div>
+        <div class="impact-card"><div class="impact-icon">⚡</div><h3>HaaNaiHang: load &lt;2s, Lighthouse ≥95</h3><p>Faster admin by ~30–40%.</p></div>
+      </div>
+    </section>
+
+    <!-- Skills (มีแค่ชุดเดียว) -->
+    <section class="content-section reveal">
+      <h2>Core Skills</h2>
+      <div id="skills-container" class="skills-grid" data-fallback>
+        <p class="muted">Loading skills…</p>
+      </div>
+    </section>
+
+    <!-- Certifications (มีแค่ชุดเดียว) -->
+    <section class="content-section reveal">
+      <h2>Certifications</h2>
+      <div id="certifications-container" class="certs-grid" data-fallback>
+        <p class="muted">Loading certifications…</p>
+      </div>
+    </section>
+
+    <!-- FAQ (หนึ่งครั้ง) -->
+    <section class="content-section reveal" id="about-faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-grid">
+        <div class="faq-item"><h3>ทำงานยังไง?</h3><p>Brief → Design → Build → Test → Measure (GA4/Lighthouse) → Docs.</p></div>
+        <div class="faq-item"><h3>ต้องใช้ข้อมูลอะไรบ้าง?</h3><p>KPI, แหล่งข้อมูล, รายงานเดิม, กลุ่มผู้ใช้.</p></div>
+        <div class="faq-item"><h3>ระยะเวลาโครงการ?</h3><p>Dashboard 2–3 สัปดาห์, Automation 1–2 สัปดาห์, QA & Analytics 1 สัปดาห์.</p></div>
+        <div class="faq-item"><h3>รับดูแลต่อไหม?</h3><p>มี maintenance รายเดือน (KPI, events, health-check).</p></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="content-section reveal">
+      <div class="cta-box">
+        <h2>🚀 Looking for a Data Analyst / BI Developer with QA mindset?</h2>
+        <p class="cta-description">Let's connect and create impact together!</p>
+        <div class="cta-buttons">
+          <a class="btn-primary" href="mailto:earthlikemwbb@gmail.com?subject=Resume Request - Portfolio Website&body=Hi Nattapart,%0D%0A%0D%0AI'm interested in your resume. Please send me a copy.%0D%0A%0D%0AThank you!"><i class="fas fa-envelope"></i> Request Resume</a>
+          <a class="btn-secondary" href="contact.html"><i class="fas fa-paper-plane"></i> Contact Me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>© 2025 Nattapart Worakun. All Rights Reserved.</p></footer>
 
   <!-- Scripts -->
+  <script src="cache-bust.js"></script>
   <script defer src="script.js"></script>
-  <footer>
-    <p>© 2025 Nattapart Worakun. All Rights Reserved.</p>
-  </footer>
-  <script src="about.js"></script>
+  <script defer src="about.js"></script>
 </body>
 </html>

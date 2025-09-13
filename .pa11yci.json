@@ -1,0 +1,16 @@
+{
+  "defaults": {
+    "timeout": 60000,
+    "standard": "WCAG2AA",
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox", "--disable-setuid-sandbox"]
+    }
+  },
+  "urls": [
+    "http://localhost:8000/",
+    "http://localhost:8000/portfolio.html",
+    "http://localhost:8000/about.html",
+    "http://localhost:8000/contact.html",
+    "http://localhost:8000/case-studies/hanaihang.html"
+  ]
+}

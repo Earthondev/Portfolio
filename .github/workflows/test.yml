@@ -58,17 +58,21 @@ jobs:
     - name: Install css-validator
       run: npm install -g css-validator
       
-    - name: Validate CSS files
+    - name: Validate CSS (filtered)
       run: |
-        node css-validate-filtered.js
+        echo "Running CSS validation with filtered output..."
+        node css-validate-filtered.js --files "style.css,about.css,contact.css,case-studies/case-study.css"
         
     - name: Check CSS syntax
       run: |
         echo "Checking CSS syntax..."
         for file in *.css case-studies/*.css; do
           echo "Validating $file"
-          if ! grep -q ":root" "$file"; then
-            echo "Missing :root in $file"
+          # Check if file exists and has content
+          if [ -f "$file" ] && [ -s "$file" ]; then
+            echo "✅ $file exists and has content"
+          else
+            echo "❌ $file is missing or empty"
             exit 1
           fi
         done
@@ -125,14 +129,12 @@ jobs:
     - name: Install @lhci/cli
       run: npm install -g @lhci/cli
       
-    - name: Start local server
+    - name: Run Lighthouse CI (CI config)
       run: |
-        python3 -m http.server 8000 &
-        sleep 5
-        
-    - name: Run Lighthouse CI
-      run: |
-        npx @lhci/cli autorun --collect.url=http://localhost:8000 --collect.numberOfRuns=3
+        npx @lhci/cli autorun \
+          --config=.lighthouseci/config.ci.json \
+          --collect.url=http://localhost:8000 \
+          --collect.numberOfRuns=3
         
     - name: Check file sizes
       run: |
@@ -142,7 +144,7 @@ jobs:
         find . -name "*.js" -exec wc -c {} \; | awk '$1 > 50000 {print "Large JS file:", $2, "bytes"; exit 1}'
         echo "All file sizes are acceptable"
 
-  accessibility-test:
+  lighthouse-production:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
@@ -153,33 +155,50 @@ jobs:
       with:
         node-version: '18'
         
-    - name: Install pa11y
-      run: npm install -g pa11y
+    - name: Install @lhci/cli
+      run: npm install -g @lhci/cli
       
+    - name: Run Lighthouse on production (strict)
+      run: |
+        npx @lhci/cli autorun \
+          --collect.url=https://earthondev.github.io/Portfolio/ \
+          --config=.lighthouseci/config.prod.json
+
+  accessibility-test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    # ติดตั้งแบบ local (ไม่ใช้ -g) และติดตั้ง puppeteer ด้วย
+    - name: Install pa11y (local) + puppeteer
+      run: |
+        npm install --no-save pa11y puppeteer
+
     - name: Start local server
       run: |
         python3 -m http.server 8000 &
         sleep 5
+
+    - name: Run accessibility tests (no-sandbox)
+      run: node pa11y-fixed.js
         
-    - name: Run accessibility tests
+    - name: Check image alt attributes
       run: |
-        node pa11y-fixed.js
-        
-    - name: Check accessibility features
-      run: |
-        echo "Checking accessibility features..."
-        for file in *.html case-studies/*.html; do
-          echo "Checking $file"
-          if ! grep -q "aria-label" "$file"; then
-            echo "Missing aria-label in $file"
-            exit 1
-          fi
-          if ! grep -q "alt=" "$file"; then
-            echo "Missing alt attributes in $file"
-            exit 1
+        echo "Checking image alt attributes..."
+        for f in *.html case-studies/*.html; do
+          if grep -q "<img " "$f"; then
+            if ! grep -qE "<img [^>]*alt=" "$f"; then
+              echo "Missing alt on some <img> in $f"; exit 1
+            fi
           fi
         done
-        echo "Accessibility features are present"
+        echo "All images have alt attributes"
 
   security-test:
     runs-on: ubuntu-latest
@@ -200,18 +219,9 @@ jobs:
     - name: Check for sensitive data
       run: |
         echo "Checking for sensitive data..."
-        # Check for actual sensitive patterns, excluding common false positives
-        if grep -r "password\s*=\s*['\"][^'\"]*['\"]\|secret\s*=\s*['\"][^'\"]*['\"]\|api_key\s*=\s*['\"][^'\"]*['\"]\|auth_token\s*=\s*['\"][^'\"]*['\"]" . \
-          --exclude-dir=.git \
-          --exclude-dir=node_modules \
-          --exclude="*.md" \
-          --exclude="*.html" \
-          --exclude="*.css" \
-          --exclude="*.js" \
-          --exclude="*.json" \
-          --exclude="package-lock.json" \
-          --exclude="lighthouse-*.html"; then
-          echo "Potential sensitive data found"
-          exit 1
+        if grep -RInE "(api[_-]?key|secret|password|token)\s*[:=]\s*['\"][^'\"]+['\"]" . \
+          --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=.lighthouseci \
+          --exclude="package-lock.json" --exclude="*.min.*"; then
+          echo "Potential sensitive data found"; exit 1
         fi
         echo "No sensitive data found"

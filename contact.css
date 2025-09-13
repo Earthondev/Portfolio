@@ -1,8 +1,6 @@
 /* Contact Page Styles - uses global CSS variables from style.css */
 
-:root {
-  /* CSS variables are defined in style.css */
-}
+/* CSS variables are defined in style.css */
 
 /* Contact Container */
 .contact-container {
@@ -190,9 +188,16 @@
 }
 
 .contact-method:hover {
-    background: color-mix(in oklab, var(--surface-2), white 6%);
+    background: var(--surface-2); /* Fallback */
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
+
+/* Modern color mixing effect */
+@supports (background: color-mix(in oklab, white, black)) {
+  .contact-method:hover {
+    background: color-mix(in oklab, var(--surface-2), white 6%);
+  }
 }
 
 .contact-method i {

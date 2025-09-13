@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Case Study: Inventory Amino - Mobile-first lab stock management system built with AppSheet and Google Sheets"/>
+  <meta name="theme-color" content="#111111">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="cache-bust" content="v3-2025-09-13">
+  <meta name="force-reload" content="true">
+  <meta name="script-version" content="v3-absolute-paths">
+  <title>Inventory Amino Case Study - Nattapart Worakun</title>
+  
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../style.css?v=2025-09-13">
+  <link rel="stylesheet" href="case-study.css?v=2025-09-13">
+  
+  <!-- Inline CSS for testing -->
+  <style>
+    .case-study-page {
+      background: #111 !important;
+      color: #fff !important;
+    }
+    .case-study-page .case-article {
+      background: #222 !important;
+      color: #fff !important;
+      padding: 2rem !important;
+      border-radius: 12px !important;
+      margin: 1rem !important;
+    }
+    .case-study-page .screenshots-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+      gap: 1.5rem !important;
+      margin-top: 1rem !important;
+    }
+    .case-study-page .screenshot-item {
+      background: #333 !important;
+      border: 1px solid #555 !important;
+      border-radius: 12px !important;
+      padding: 1rem !important;
+      overflow: hidden !important;
+    }
+    .case-study-page .screenshot-item img {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      border-radius: 8px !important;
+      display: block !important;
+      margin-bottom: 0.75rem !important;
+      object-fit: contain !important;
+    }
+  </style>
+  
+  <!-- Debug CSS Loading -->
+  <script>
+    console.log('🔍 Checking CSS files...');
+    const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+    stylesheets.forEach((link, index) => {
+      console.log(`📄 Stylesheet ${index + 1}:`, link.href);
+      link.onload = () => console.log('✅ CSS loaded:', link.href);
+      link.onerror = () => console.error('❌ CSS failed to load:', link.href);
+    });
+    
+    // Check CSS rules after page load
+    window.addEventListener('load', () => {
+      console.log('🔍 Checking CSS rules...');
+      const body = document.body;
+      const computedStyle = window.getComputedStyle(body);
+      console.log('📄 Body class:', body.className);
+      console.log('📄 Body color:', computedStyle.color);
+      console.log('📄 Body background:', computedStyle.backgroundColor);
+      
+      // Check if case-study.css rules are applied
+      const testElement = document.querySelector('.case-article');
+      if (testElement) {
+        const testStyle = window.getComputedStyle(testElement);
+        console.log('📄 Case article color:', testStyle.color);
+        console.log('📄 Case article background:', testStyle.backgroundColor);
+      }
+    });
+  </script>
+  
+  <!-- Theme setup script -->
+  <script>
+    (function () {
+      const STORAGE_KEY = 'theme';
+      const saved = localStorage.getItem(STORAGE_KEY);
+      const mql = window.matchMedia('(prefers-color-scheme: dark)');
+      const root = document.documentElement;
+      
+      function apply(theme) {
+        root.classList.remove('light-theme');
+        if (theme === 'light') root.classList.add('light-theme');
+        
+        const meta = document.querySelector('meta[name="theme-color"]') || (function(){
+          const m = document.createElement('meta');
+          m.name='theme-color';
+          document.head.appendChild(m);
+          return m;
+        })();
+        
+        const isLight = theme === 'light' || (theme === 'auto' && mql.matches === false);
+        meta.setAttribute('content', isLight ? '#ffffff' : '#111111');
+        
+        if (theme) localStorage.setItem(STORAGE_KEY, theme);
+        root.dataset.theme = theme || 'auto';
+      }
+      
+      if (!saved || saved === 'auto') {
+        mql.addEventListener?.('change', () => apply('auto'));
+        apply('auto');
+      } else {
+        apply(saved);
+      }
+    })();
+  </script>
+</head>
+<body class="case-study-page">
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar" aria-label="Primary">
+    <div class="container">
+      <a href="../index.html" class="navbar-brand">Nattapart</a>
+
+      <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="navbar-nav">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <ul class="navbar-nav" id="navbar-nav" role="menubar">
+        <li role="none"><a role="menuitem" href="../index.html">Home</a></li>
+        <li role="none"><a role="menuitem" href="../about.html">About</a></li>
+        <li role="none"><a role="menuitem" href="../portfolio.html">Portfolio</a></li>
+        <li role="none"><a role="menuitem" href="../contact.html">Contact</a></li>
+        <li role="none">
+          <a role="menuitem" class="resume-btn"
+             href="mailto:earthlikemwbb@gmail.com?subject=Resume Request - Portfolio Website&body=Hi Nattapart,%0D%0A%0D%0AI'm interested in your resume. Please send me a copy.%0D%0A%0D%0AThank you!">
+            <i class="fas fa-envelope" aria-hidden="true"></i> Resume
+          </a>
+        </li>
+        <li role="none">
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="case-study-hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">Case Study</div>
+        <h1 class="hero-title">Inventory Amino</h1>
+        <p class="hero-subtitle">Mobile-first lab stock management system</p>
+        <div class="hero-meta">
+          <span class="meta-item"><i class="fas fa-calendar"></i> 2025</span>
+          <span class="meta-item"><i class="fas fa-tag"></i> No-Code</span>
+          <span class="meta-item"><i class="fas fa-mobile-alt"></i> Mobile App</span>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="../assets/projects/Inventory amino/Screenshot 2568-09-13 at 12.17.06.png" alt="Inventory Amino mobile interface showing stock list" />
+      </div>
+    </div>
+  </header>
+
+  <!-- Reading Progress Bar -->
+  <div id="read-progress"></div>
+  
+  <!-- Breadcrumb -->
+  <nav class="case-breadcrumb">
+    <a href="../portfolio.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+  </nav>
+
+  <main class="container">
+    <!-- Overview -->
+    <section class="content-section reveal">
+      <h2>Project Overview</h2>
+      <p class="lead">ระบบจัดการสต็อกสารเคมี/วัสดุในแล็บ Mobile-first พร้อมแกลเลอรีรูป, รายงานคงเหลือ และแจ้งเตือนของใกล้หมด</p>
+      
+      <div class="project-details">
+        <div class="detail-item">
+          <h3>Role</h3>
+          <p>Product Designer, No-Code Developer, Data Modeler</p>
+        </div>
+        <div class="detail-item">
+          <h3>Tech Stack</h3>
+          <p>AppSheet, Google Sheets, Google Drive, Google Apps Script</p>
+        </div>
+        <div class="detail-item">
+          <h3>Timeline</h3>
+          <p>2 weeks design + 1 week implementation</p>
+        </div>
+        <div class="detail-item">
+          <h3>Team Size</h3>
+          <p>Solo project</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="content-section reveal">
+      <h2>The Problem</h2>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="problem-icon">📝</div>
+          <h3>Paper-based Records</h3>
+          <p>สต็อกสารเคมีบันทึกกระดาษ/สเปรดชีต กระจัดกระจาย หา/หยิบช้าผิดบ่อย</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">🔍</div>
+          <h3>Time-consuming Search</h3>
+          <p>ใช้เวลานานในการค้นหาและหยิบของที่ถูกต้อง</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">⚠️</div>
+          <h3>Stock Shortages</h3>
+          <p>ไม่มีการแจ้งเตือนของใกล้หมด ทำให้ขาดสต็อกบ่อย</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">📊</div>
+          <h3>No Audit Trail</h3>
+          <p>ไม่มีประวัติการเคลื่อนไหวของสต็อก ทำให้ตรวจสอบยาก</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="content-section reveal">
+      <h2>The Solution</h2>
+      <p>สร้าง AppSheet แอปเดียวรวมรายการคงเหลือ, แกลเลอรีรูป, ประวัติธุรกรรม และแจ้งเตือนของใกล้หมด</p>
+      
+      <div class="solution-features">
+        <div class="feature-item">
+          <h3>📱 Mobile-First Design</h3>
+          <p>ออกแบบให้ใช้งานผ่านโทรศัพท์/แท็บเล็ตเป็นหลัก เพื่อความสะดวกในแล็บ</p>
+        </div>
+        <div class="feature-item">
+          <h3>🔄 Order → Receive → Use Flow</h3>
+          <p>ระบบธุรกรรมที่ครอบคลุมตั้งแต่สั่งซื้อ รับของ ไปจนถึงการใช้งาน</p>
+        </div>
+        <div class="feature-item">
+          <h3>📸 Image Gallery</h3>
+          <p>แกลเลอรีรูปภาพฉลาก/ภาชนะจริงเพื่อช่วยหยิบของถูกต้อง</p>
+        </div>
+        <div class="feature-item">
+          <h3>🚨 Low Stock Alerts</h3>
+          <p>แจ้งเตือนอัตโนมัติเมื่อสต็อกใกล้หมดหรือหมด</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="content-section reveal">
+      <h2>Key Screens</h2>
+      <div class="screenshots-grid">
+        <div class="screenshot-item">
+          <img src="../assets/projects/Inventory%20amino/Screenshot%202568-09-13%20at%2012.17.06.png" alt="Stock list view" width="1200" height="675" loading="lazy" decoding="async" />
+          <h3>Stock List</h3>
+          <p>รายการคงเหลือพร้อมการค้นหาและสถานะเตือน</p>
+        </div>
+        <div class="screenshot-item">
+          <img src="../assets/projects/Inventory%20amino/Screenshot%202568-09-13%20at%2012.17.34.png" alt="Image gallery view" width="1200" height="675" loading="lazy" decoding="async" />
+          <h3>Image Gallery</h3>
+          <p>แกลเลอรีรูปภาพเพื่อช่วยหยิบของถูกต้อง</p>
+        </div>
+        <div class="screenshot-item">
+          <img src="../assets/projects/Inventory%20amino/Screenshot%202568-09-13%20at%2012.53.51.png" alt="Transaction form" width="1200" height="675" loading="lazy" decoding="async" />
+          <h3>Transaction Form</h3>
+          <p>ฟอร์มบันทึกธุรกรรม Order/Receive/Use</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Implementation -->
+    <section class="content-section reveal">
+      <h2>Technical Implementation</h2>
+      
+      <div class="tech-section">
+        <h3>Data Model</h3>
+        <div class="code-block">
+          <pre><code>Tables:
+  Items(id, name, category, unit, min_stock, image_url, hazard_class, supplier, created_at)
+  Transactions(id, date, item_id, type{ORDER|RECEIVE|USE}, qty, note, user, created_at)
+
+Views:
+  StockView(item_id, name, current_stock, status)
+
+Bots:
+  NotifyLowStock -> when current_stock <= min_stock -> Email/Line</code></pre>
+        </div>
+      </div>
+
+      <div class="tech-section">
+        <h3>Key Features</h3>
+        <ul class="feature-list">
+          <li><strong>Computed Fields:</strong> current_stock, status ("ปกติ/ใกล้หมด/หมด")</li>
+          <li><strong>Validations:</strong> qty > 0, use_qty ≤ current_stock</li>
+          <li><strong>Derived Views:</strong> รายงานคงเหลือ, ประวัติรายการตามช่วงเวลา</li>
+          <li><strong>Conditional Formatting:</strong> แถบสี/ไอคอนเตือนใน list เมื่อใกล้หมด</li>
+          <li><strong>Row-Level Security:</strong> จำกัดข้อมูลตามทีม/ห้องแล็บ</li>
+        </ul>
+      </div>
+
+      <div class="tech-section">
+        <h3>Automation & Workflow</h3>
+        <ul class="feature-list">
+          <li><strong>Low Stock Alert:</strong> แจ้งเตือนอีเมล/ไลน์เมื่อ current_stock ≤ min_stock</li>
+          <li><strong>Image Handling:</strong> อัปโหลดภาพไปยัง Drive แล้ว bind URL กลับเข้ารายการ</li>
+          <li><strong>Audit Trail:</strong> เก็บประวัติการแก้ไข stock</li>
+          <li><strong>Data Backup:</strong> สำรองข้อมูลตามรอบ (export CSV/Sheets snapshot)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="content-section reveal">
+      <h2>Results & Impact</h2>
+      
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="result-number">30-50%</div>
+          <h3>ลดเวลาค้นหา/หยิบของ</h3>
+          <p>Gallery + Search ช่วยให้หยิบของถูกต้องเร็วขึ้น</p>
+        </div>
+        <div class="result-card">
+          <div class="result-number">≥40%</div>
+          <h3>ลดข้อผิดพลาดการเบิกจ่าย</h3>
+          <p>ฟอร์ม + validation ป้องกันการเบิกเกินสต็อก</p>
+        </div>
+        <div class="result-card">
+          <div class="result-number">Real-time</div>
+          <h3>อัปเดตรายงานคงเหลือ</h3>
+          <p>จากธุรกรรมทันที ไม่ต้องรอสรุปรายวัน</p>
+        </div>
+        <div class="result-card">
+          <div class="result-number">&lt;30 min</div>
+          <h3>Onboarding ผู้ใช้ใหม่</h3>
+          <p>เรียนรู้ใช้งานได้เร็ว ไม่ซับซ้อน</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lessons Learned -->
+    <section class="content-section reveal">
+      <h2>Lessons Learned</h2>
+      
+      <div class="lessons-grid">
+        <div class="lesson-item">
+          <h3>No-Code Power</h3>
+          <p>AppSheet สามารถสร้างระบบที่ซับซ้อนได้โดยไม่ต้องเขียนโค้ด แต่ต้องออกแบบ data model ให้ดี</p>
+        </div>
+        <div class="lesson-item">
+          <h3>Mobile-First Critical</h3>
+          <p>ในสภาพแวดล้อมแล็บ การใช้งานผ่านมือถือสำคัญกว่าการใช้ผ่านคอมพิวเตอร์</p>
+        </div>
+        <div class="lesson-item">
+          <h3>Visual Recognition</h3>
+          <p>รูปภาพช่วยให้ผู้ใช้จำและหยิบของถูกต้องได้มากกว่าการอ่านชื่อเพียงอย่างเดียว</p>
+        </div>
+        <div class="lesson-item">
+          <h3>Validation is Key</h3>
+          <p>การตรวจสอบข้อมูลที่เข้มงวดช่วยป้องกันข้อผิดพลาดที่อาจเกิดจากความเร่งรีบในแล็บ</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="content-section reveal">
+      <div class="cta-box">
+        <h2>🚀 Interested in similar solutions?</h2>
+        <p class="cta-description">Let's discuss how we can streamline your lab operations with mobile-first inventory management.</p>
+        <div class="cta-buttons">
+          <a class="btn-primary" href="../contact.html"><i class="fas fa-paper-plane"></i> Get in Touch</a>
+          <a class="btn-secondary" href="../portfolio.html"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>© 2025 Nattapart Worakun. All Rights Reserved.</p></footer>
+
+  <!-- Scripts -->
+  <script src="../cache-bust.js"></script>
+  <script defer src="../script.js"></script>
+  
+  <!-- Case Study Specific Scripts -->
+  <script>
+    // Reading Progress Bar
+    (function(){
+      const bar = document.getElementById('read-progress');
+      if(!bar) return;
+      const onScroll = () => {
+        const h = document.documentElement;
+        const pct = (h.scrollTop)/(h.scrollHeight - h.clientHeight)*100;
+        bar.style.width = pct + '%';
+      };
+      window.addEventListener('scroll', onScroll, {passive:true});
+      onScroll();
+    })();
+
+    // Lightbox for images
+    document.addEventListener('click', (e)=>{
+      const img = e.target.closest('img');
+      if(!img || img.closest('.lb')) return;
+      
+      const overlay = document.createElement('div');
+      overlay.className='lb';
+      overlay.innerHTML = `<img src="${img.src}" alt="${img.alt || ''}"><button aria-label="close">×</button>`;
+      document.body.appendChild(overlay);
+      
+      overlay.addEventListener('click', (e)=>{
+        if(e.target === overlay || e.target.tagName === 'BUTTON') {
+          overlay.remove();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

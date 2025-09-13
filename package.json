@@ -10,6 +10,8 @@
     "validate": "html-validate *.html case-studies/*.html",
     "lighthouse": "lighthouse http://localhost:8000 --output=html --output-path=./lighthouse-report.html",
     "test": "echo 'No tests configured'",
+    "test:accessibility": "npx pa11y-ci",
+    "test:css": "node css-validate-filtered.js --files \"style.css,about.css,contact.css,case-studies/case-study.css\"",
     "deploy": "echo 'Deploy via GitHub Actions or Netlify'"
   },
   "keywords": [
@@ -40,9 +42,11 @@
   },
   "homepage": "https://earthondev.github.io/Portfolio/",
   "devDependencies": {
-    "html-validate": "^8.7.4",
+    "@lhci/cli": "^0.12.0",
     "css-validator": "^0.10.0",
-    "@lhci/cli": "^0.12.0"
+    "html-validate": "^8.7.4",
+    "http-server": "^14.1.1",
+    "pa11y-ci": "^3.0.1"
   },
   "engines": {
     "node": ">=18.0.0",
@@ -53,5 +57,8 @@
     "last 2 versions",
     "not dead",
     "not ie 11"
-  ]
+  ],
+  "dependencies": {
+    "pa11y": "^9.0.0"
+  }
 }

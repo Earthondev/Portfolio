@@ -18,9 +18,25 @@
   <meta name="author" content="Nattapart Worakun">
 
   <!-- Theme color (supports dark mode) -->
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#111111">
   <meta name="color-scheme" content="light dark" >
+  
+  <!-- Asset version for consistent caching -->
+  <script>
+    // ใช้ค่าเดียวกันทั้ง preload, fetch, และ service worker
+    window.ASSET_VERSION = (window.ASSET_VERSION || Date.now()).toString();
+  </script>
+
+  <!-- Theme system - prevent FOUC -->
+  <script>
+    (() => {
+      const saved = localStorage.getItem('theme') || 'auto';
+      const mql = matchMedia('(prefers-color-scheme: dark)');
+      const isLight = saved === 'light' || (saved === 'auto' && !mql.matches);
+      document.documentElement.classList.toggle('light-theme', isLight);
+      document.documentElement.dataset.theme = saved;
+    })();
+  </script>
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="Nattapart Worakun Portfolio" >
@@ -66,23 +82,14 @@
   </noscript>
 
   <!-- Font Awesome -->
-  <link
-    rel="preload"
-    as="style"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    onload="this.onload=null;this.rel='stylesheet'"
-    integrity="sha512-dQJQY7Y6dK7lQ6jM6vN2m7Q8lqQn9+q3+zWnY0iJ2yqvAqk+q0r+0iD8z5k1J1l3V+7/3Ckz9Jwz0v8Xy4yN2w=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  >
+  <link rel="preload"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        as="style" crossorigin="anonymous" referrerpolicy="no-referrer"
+        onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-dQJQY7Y6dK7lQ6jM6vN2m7Q8lqQn9+q3+zWnY0iJ2yqvAqk+q0r+0iD8z5k1J1l3V+7/3Ckz9Jwz0v8Xy4yN2w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    >
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          crossorigin="anonymous" referrerpolicy="no-referrer">
   </noscript>
 
   <!-- App CSS -->
@@ -149,8 +156,8 @@
           </a>
         </li>
         <li role="none">
-          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
-            <i class="fas fa-moon" aria-hidden="true"></i>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Theme: Auto" title="Theme: Auto">
+            <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
           </button>
         </li>
       </ul>
@@ -170,20 +177,21 @@
         fetchpriority="high"
         decoding="async"
       >
-      <h1>Nattapart Worakun</h1>
-      <p>Aspiring Data Analyst &amp; BI Developer | Chemist turned Data Enthusiast | Building dashboards, automations, and insightful reports.</p>
+      <h1>Nattapart Worakun — Chemist × Data &amp; BI Developer</h1>
+      <p>I started in the lab—experiments, quality control, and precise documentation.<br>
+      Now I bring that "lab-grade" rigor to dashboards, automation, and QA you can trust.</p>
       <div class="profile-actions">
-        <a href="mailto:earthlikemwbb@gmail.com?subject=Resume Request - Portfolio Website&amp;body=Hi Nattapart,%0D%0A%0D%0AI'm interested in your resume. Please send me a copy.%0D%0A%0D%0AThank you!" class="btn-primary" aria-label="Request Resume via Email">
-          <i class="fas fa-envelope" aria-hidden="true"></i>
-          Request Resume
+        <a href="case-studies/hanaihang.html" class="btn-primary" aria-label="View Case Study">
+          <i class="fas fa-folder-open" aria-hidden="true"></i>
+          View Case Study
         </a>
-        <a href="mailto:earthlikemwbb@gmail.com" class="btn-secondary" aria-label="Send email">
+        <a href="mailto:earthlikemwbb@gmail.com" class="btn-secondary" aria-label="Get in Touch">
           <i class="fas fa-envelope" aria-hidden="true"></i>
           Get in Touch
         </a>
-        <button type="button" onclick="window.print()" class="btn-secondary" aria-label="Print or save as PDF">
-          <i class="fas fa-print" aria-hidden="true"></i>
-          Print PDF
+        <button type="button" onclick="window.print()" class="btn-secondary" aria-label="One-Pager PDF">
+          <i class="fas fa-file-pdf" aria-hidden="true"></i>
+          One-Pager (PDF)
         </button>
       </div>
     </section>
@@ -193,24 +201,24 @@
       <h2 id="impact-heading">Impact Highlights</h2>
       <div class="impact-grid">
         <div class="impact-card">
-          <div class="impact-icon">🤖</div>
-          <h3>Automation Excellence</h3>
-          <p>ลดงานมือ 60-80% ด้วย Apps Script / AppSheet / Excel VBA</p>
-        </div>
-        <div class="impact-card">
           <div class="impact-icon">⚡</div>
-          <h3>Performance First</h3>
-          <p>Lighthouse ≥95 | A11y ≥95 | โหลดไว &lt;2s (Vite + WebP + lazy)</p>
+          <h3>Load &lt; 2s · Lighthouse ≥95</h3>
+          <p>Performance-first web apps with optimized assets and lazy loading</p>
         </div>
         <div class="impact-card">
-          <div class="impact-icon">🚀</div>
-          <h3>Reliable Deployment</h3>
-          <p>99.9% Uptime + CI/CD (GitHub Actions → Netlify/GitHub Pages)</p>
+          <div class="impact-icon">🤖</div>
+          <h3>Automation –60–80% manual work</h3>
+          <p>Apps Script, AppSheet, and Excel VBA solutions that eliminate repetitive tasks</p>
         </div>
         <div class="impact-card">
           <div class="impact-icon">📊</div>
-          <h3>Data-Driven Insights</h3>
-          <p>Analytics พร้อมใช้งาน: GA4 event design, funnels, Content grouping</p>
+          <h3>Executive-ready KPIs (Power BI)</h3>
+          <p>Clear dashboards with documented metrics and drill-through capabilities</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-icon">✅</div>
+          <h3>QA/Testing: Postman · Playwright · A11y</h3>
+          <p>Lab-grade quality assurance with comprehensive testing and accessibility checks</p>
         </div>
       </div>
     </section>
@@ -218,7 +226,12 @@
     <!-- Skills Summary -->
     <section class="section reveal" aria-labelledby="skills-heading">
       <h2 id="skills-heading">Core Skills</h2>
-      <div id="skills-container" class="skills-summary animate-stagger" aria-live="polite"></div>
+      <div id="skills-container" class="skills-summary animate-stagger" aria-live="polite">
+        <div class="skel skel-service"></div>
+        <div class="skel skel-service"></div>
+        <div class="skel skel-service"></div>
+        <div class="skel skel-service"></div>
+      </div>
       <div class="skills-cta">
         <a href="about.html" class="btn-secondary">
           <i class="fas fa-user" aria-hidden="true"></i>
@@ -230,7 +243,11 @@
     <!-- Featured Projects -->
     <section class="section reveal" aria-labelledby="projects-heading">
       <h2 id="projects-heading">Featured Projects</h2>
-      <div id="projects-container" class="projects-grid animate-stagger" aria-live="polite"></div>
+      <div id="projects-container" class="projects-grid animate-stagger" aria-live="polite">
+        <div class="skel skel-project"></div>
+        <div class="skel skel-project"></div>
+        <div class="skel skel-project"></div>
+      </div>
       <div class="projects-cta">
         <a href="portfolio.html" class="btn-primary">
           <i class="fas fa-folder-open" aria-hidden="true"></i>
