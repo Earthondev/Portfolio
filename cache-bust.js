@@ -3,6 +3,7 @@ console.log('Enhanced cache busting script loaded at:', new Date().toISOString()
 
 // หน้า case study: ไม่ต้องทำ cache bust สำหรับ JSON
 const isCaseStudy = location.pathname.includes('/case-studies/');
+
 if (isCaseStudy) {
   console.log('📄 Case Study page - skipping cache busting');
   // Skip cache busting for case study pages
