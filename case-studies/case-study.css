@@ -130,7 +130,7 @@ img, .screenshot-item, .project-image img {
   width: auto;
   height: auto;
   border-radius: 12px;
-  pointer-events: none;
+  /* pointer-events: none; */
   object-fit: contain;
 }
 
@@ -355,9 +355,9 @@ section {
 }
 
 /* Modern color mixing effect */
-@supports (background: color-mix(in srgb, white, black)) {
+@supports (background-color: color-mix(in srgb, white, black)) {
   .meta-item {
-    background: color-mix(in srgb, var(--surface-1), white 6%);
+    background-color: color-mix(in srgb, var(--surface-1), white 6%);
   }
 }
 .project-image img {
@@ -382,9 +382,9 @@ section {
 }
 
 /* Modern color mixing effect */
-@supports (background: color-mix(in srgb, white, black)) {
+@supports (background-color: color-mix(in srgb, white, black)) {
   .tech-tag {
-    background: color-mix(in srgb, var(--surface-1), white 6%);
+    background-color: color-mix(in srgb, var(--surface-1), white 6%);
   }
 }
 .feature-list { padding-left: 1.25rem; color: var(--on-surface); }
