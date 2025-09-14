@@ -179,7 +179,7 @@ function getFallbackProjects() {
     title: 'Sample Project',
     year: 2025,
     summary: 'This is a fallback project shown when the main data fails to load.',
-    role: 'Developer',
+    role: ['Developer'],
     stack: ['HTML', 'CSS', 'JavaScript'],
     highlights: ['Responsive design', 'Modern UI'],
     coverImage: {
