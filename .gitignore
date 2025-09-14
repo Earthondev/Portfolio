@@ -56,5 +56,4 @@ build/
 *.local
 
 # Lighthouse CI reports
-.lighthouseci/
 lighthouse-*.html
