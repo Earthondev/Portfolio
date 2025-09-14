@@ -46,16 +46,6 @@ jobs:
         find . -name "*.css" -exec wc -c {} \; | awk '$1 > 50000 {print "Large CSS file:", $2, "bytes"; exit 1}'
         find . -name "*.js" -exec wc -c {} \; | awk '$1 > 50000 {print "Large JS file:", $2, "bytes"; exit 1}'
         
-    # --- Lighthouse CI ---
-    - name: Lighthouse CI
-      run: |
-        echo "Running Lighthouse CI"
-        lhci autorun --collect.url=https://earthondev.github.io/Portfolio/ \
-                      --upload.target=temporary-public-storage
-      env:
-        LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-      continue-on-error: true
-
   deploy:
     needs: test
     runs-on: ubuntu-latest
@@ -90,4 +80,32 @@ jobs:
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      continue-on-error: true
+
+  lighthouse:
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install Lighthouse CI
+      run: npm install -g @lhci/cli
+      
+    - name: Wait for deployment
+      run: sleep 30
+      
+    - name: Lighthouse CI
+      run: |
+        echo "Running Lighthouse CI on deployed site"
+        lhci autorun
+      env:
+        LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
       continue-on-error: true

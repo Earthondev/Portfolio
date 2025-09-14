@@ -1,7 +1,7 @@
 module.exports = {
   ci: {
     collect: {
-      url: ['http://localhost:8000'],
+      url: ['https://earthondev.github.io/Portfolio/'],
       numberOfRuns: 3,
     },
     assert: {
