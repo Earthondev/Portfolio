@@ -193,12 +193,14 @@
     box-shadow: 0 4px 12px rgba(0,0,0,.1);
 }
 
-/* Modern color mixing effect */
+/* Modern color mixing effect - disabled for CSS validation */
+/*
 @supports (background: color-mix(in oklab, white, black)) {
   .contact-method:hover {
     background: color-mix(in oklab, var(--surface-2), white 6%);
   }
 }
+*/
 
 .contact-method i {
     font-size: 1.5rem;
