@@ -57,3 +57,8 @@ build/
 
 # Lighthouse CI reports
 lighthouse-*.html
+.lighthouseci/assertion-results.json
+.lighthouseci/flags-*.json
+.lighthouseci/lhr-*.html
+.lighthouseci/lhr-*.json
+.lighthouseci/links.json
