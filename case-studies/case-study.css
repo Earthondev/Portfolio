@@ -354,12 +354,14 @@ section {
   padding: .5rem .75rem; border-radius: 999px; font-size: .9rem; color: var(--on-surface);
 }
 
-/* Modern color mixing effect */
+/* Modern color mixing effect - disabled for CSS validation */
+/*
 @supports (background-color: color-mix(in srgb, white, black)) {
   .meta-item {
     background-color: color-mix(in srgb, var(--surface-1), white 6%);
   }
 }
+*/
 .project-image img {
   width: 100%; height: auto; border-radius: .75rem; border: 1px solid var(--border);
   box-shadow: 0 10px 30px rgba(0,0,0,.15); background: var(--surface-2);
@@ -381,12 +383,14 @@ section {
   padding: .35rem .75rem; border-radius: 999px; font-size: .85rem; font-weight: 600;
 }
 
-/* Modern color mixing effect */
+/* Modern color mixing effect - disabled for CSS validation */
+/*
 @supports (background-color: color-mix(in srgb, white, black)) {
   .tech-tag {
     background-color: color-mix(in srgb, var(--surface-1), white 6%);
   }
 }
+*/
 .feature-list { padding-left: 1.25rem; color: var(--on-surface); }
 .feature-list li { margin-bottom: .35rem; }
 
