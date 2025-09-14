@@ -3,6 +3,9 @@ module.exports = {
     collect: {
       url: ['https://earthondev.github.io/Portfolio/'],
       numberOfRuns: 3,
+      settings: {
+        chromeFlags: '--no-sandbox --disable-dev-shm-usage'
+      }
     },
     assert: {
       // Performance thresholds
