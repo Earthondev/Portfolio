@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -184,30 +187,9 @@
     </div>
 
     <!-- Scripts -->
-    <script src="script.js?v=20250914-2"></script>
+    <script src="script.js?v=20250914-3"></script>
 
-    <!-- Force reload script.js if cached -->
-    <script>
-    (function() {
-      console.log('🚨 FORCE RELOAD: Checking script.js version...');
-      const currentScript = document.querySelector('script[src*="script.js"]');
-      if (currentScript) {
-        console.log('🚨 FORCE RELOAD: Current script src:', currentScript.src);
-
-        // Remove the old script immediately to prevent syntax errors
-        if (currentScript.src.includes('2025-01-13-nuclear')) {
-          console.log('🗑️ Removing problematic old script...');
-          currentScript.remove();
-        }
-
-        // Force reload with new timestamp
-        const newScript = document.createElement('script');
-        newScript.src = 'script.js?v=' + Date.now() + '&force=' + Math.random();
-        newScript.defer = true;
-        document.head.appendChild(newScript);
-        console.log('🚨 FORCE RELOAD: New script added:', newScript.src);
-      }
-    })();
-    </script>
+    <!-- Cache busting script -->
+    <script src="cache-bust.js?v=20250914-3"></script>
 </body>
 </html>

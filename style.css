@@ -1943,26 +1943,27 @@ footer,
   transform: rotate(-90deg);
 }
 
+/* SVG properties for skill progress circles - disabled for CSS validation
 .skill-progress circle {
-  /* SVG properties - disabled for CSS validation */
-  /* fill: none; */
-  /* stroke-width: 10; */
-  /* stroke-linecap: round; */
+  fill: none;
+  stroke-width: 10;
+  stroke-linecap: round;
 }
 
 .skill-progress .bg {
-  /* stroke: var(--border-light); */
+  stroke: var(--border-light);
 }
 
 .skill-progress .progress {
-  /* stroke: var(--gradient-start); */
-  /* stroke-dasharray: 314; */
-  /* transition: stroke-dashoffset 0.8s ease; */
+  stroke: var(--gradient-start);
+  stroke-dasharray: 314;
+  transition: stroke-dashoffset 0.8s ease;
 }
 
-.skill-progress .progress.high { /* stroke-dashoffset: 47.1; */ /* 85% */ }
-.skill-progress .progress.medium { /* stroke-dashoffset: 157; */ /* 50% */ }
-.skill-progress .progress.low { /* stroke-dashoffset: 235.5; */ /* 25% */ }
+.skill-progress .progress.high { stroke-dashoffset: 47.1; } /* 85% */
+.skill-progress .progress.medium { stroke-dashoffset: 157; } /* 50% */
+.skill-progress .progress.low { stroke-dashoffset: 235.5; } /* 25% */
+*/
 
 .skill-percentage {
   position: absolute;

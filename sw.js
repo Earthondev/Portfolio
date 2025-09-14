@@ -1,5 +1,5 @@
 // Service Worker for Portfolio - Updated
-const CACHE_NAME = 'portfolio-v2';
+const CACHE_NAME = 'portfolio-v3';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -7,8 +7,6 @@ const urlsToCache = [
   '/contact.html',
   '/portfolio.html',
   '/style.css',
-  '/script.js',
-  '/cache-bust.js',
   '/about.css',
   '/contact.css',
   '/case-studies/case-study.css',
@@ -29,6 +27,12 @@ self.addEventListener('install', event => {
 
 // Fetch event
 self.addEventListener('fetch', event => {
+  // Skip caching for script.js to prevent conflicts
+  if (event.request.url.includes('script.js')) {
+    event.respondWith(fetch(event.request));
+    return;
+  }
+  
   event.respondWith(
     caches.match(event.request)
       .then(response => {

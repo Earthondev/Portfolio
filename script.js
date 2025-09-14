@@ -51,6 +51,23 @@ document.addEventListener('DOMContentLoaded', () => {
     return; // <- ตัดจบ ไม่เรียก loadData()
   }
 
+  // หน้า about: โหลดเฉพาะ services data
+  if (location.pathname.includes('about.html')) {
+    console.log('📄 About page - loading services data');
+    setupEventListeners();
+    setupNavbar();
+    setupScrollToTop();
+    setupThemeToggle();
+    setupKeyboardNavigation();
+    applyTheme();
+    // Load data for about page
+    setTimeout(() => {
+      console.log('🎯 Loading about page data...');
+      loadAboutPageData();
+    }, 100);
+    return;
+  }
+
   // หน้าอื่นค่อยโหลด JSON
   console.log('🎯 Setting up page...');
   setupModalShells();      // เรียกก่อน
@@ -631,8 +648,9 @@ function renderServices() {
 
 function renderSkills(skills) {
   console.log('renderSkills called with:', skills);
+  const skillsContainer = document.getElementById('skills-container');
   if (!skillsContainer) {
-    console.log('skillsContainer not found');
+    console.log('ℹ️  No skills container found - this is normal for portfolio page');
     return;
   }
 
@@ -673,7 +691,9 @@ function renderSkills(skills) {
       .join('');
   } else if (isAboutPage) {
     // About page: Show full skills with groups
+    console.log("🎯 About page: Rendering skills with groups");
     const groups = groupSkillsByCategory(skills);
+    console.log("📊 Skills groups:", groups);
 
     let html = '';
     for (const [group, items] of Object.entries(groups)) {
@@ -705,6 +725,7 @@ function renderSkills(skills) {
           </div>
         </div>`;
     }
+    console.log("🎨 Setting skills container HTML:", html.length, "characters");
     skillsContainer.innerHTML = html;
     
     // Animate donuts after mount
@@ -737,8 +758,9 @@ function groupSkillsByCategory(skills) {
 
 function renderCertifications(certs) {
   console.log('renderCertifications called with:', certs);
+  const certificationsContainer = document.getElementById('certifications-container');
   if (!certificationsContainer) {
-    console.debug('certificationsContainer not found - skipping certifications render');
+    console.debug('ℹ️  No certifications container found - this is normal for portfolio page');
     return;
   }
   
@@ -1047,3 +1069,25 @@ function debounce(fn, wait) {
 
 // ---------- Script Load Verification ----------
 console.log('✅ script.js loaded successfully - syntax error fixed at', new Date().toISOString());
+// Load data specifically for about page
+async function loadAboutPageData() {
+  try {
+    console.log('📊 Loading services data for about page...');
+    const servicesData = await loadJSON('services.json');
+    console.log('Services data loaded:', servicesData);
+
+    if (servicesData && servicesData.skills) {
+      console.log('🎨 Rendering skills:', servicesData.skills.length);
+      renderSkills(servicesData.skills);
+    }
+
+    if (servicesData && servicesData.certifications) {
+      console.log('🏆 Rendering certifications:', servicesData.certifications.length);
+      renderCertifications(servicesData.certifications);
+    }
+
+    console.log('✅ About page data loaded successfully');
+  } catch (err) {
+    console.error('❌ Error loading about page data:', err);
+  }
+}

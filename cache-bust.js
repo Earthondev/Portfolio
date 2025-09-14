@@ -18,14 +18,8 @@ if (isCaseStudyPage) {
       }
   });
 
-  // Force reload of main script
-  const scripts = document.querySelectorAll('script[src]');
-  scripts.forEach(script => {
-      if (script.src.includes('script.js')) {
-          const baseUrl = script.src.split('?')[0];
-          script.src = baseUrl + '?v=' + timestamp;
-      }
-  });
+  // Skip script reloading to prevent syntax errors
+  console.log('ℹ️  Script reloading skipped to prevent conflicts');
 
   console.log('✅ Cache busting applied');
 }
