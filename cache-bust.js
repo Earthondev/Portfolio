@@ -2,9 +2,9 @@
 console.log('Cache busting script loaded at:', new Date().toISOString());
 
 // Check if this is a case study page
-const isCaseStudy = location.pathname.includes('/case-studies/');
+const isCaseStudyPage = location.pathname.includes('/case-studies/');
 
-if (isCaseStudy) {
+if (isCaseStudyPage) {
   console.log('📄 Case Study page - skipping cache busting');
 } else {
   // Simple cache busting for critical assets
