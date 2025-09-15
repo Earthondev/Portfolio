@@ -46,12 +46,12 @@ jobs:
       with:
         node-version: '18'
         
-    - name: Install lighthouse-ci
-      run: npm install -g lighthouse-ci
+    - name: Install dependencies
+      run: npm install
       
     - name: Run Lighthouse audit
       run: |
-        lhci autorun --collect.url=https://earthondev.github.io/Portfolio/ --collect.numberOfRuns=3
+        npx @lhci/cli autorun --collect.url=https://earthondev.github.io/Portfolio/ --collect.numberOfRuns=3
         
     - name: Check performance metrics
       run: |
