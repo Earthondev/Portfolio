@@ -175,7 +175,13 @@ async function loadJSON(name) {
     console.log('🆔 Script ID:', Math.random().toString(36).substr(2, 9));
     console.log('🔍 Script URL params:', new URLSearchParams(document.currentScript?.src?.split('?')[1] || ''));
     
-    const res = await fetch(url, { cache: 'no-store' });
+    const res = await fetch(url, { 
+      cache: 'no-store',
+      headers: {
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache'
+      }
+    });
     console.log('📥 Fetch response:', res.status, res.ok);
     if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
     const data = await res.json();
