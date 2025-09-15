@@ -98,6 +98,9 @@ function addCSSVariableFallbacks(css) {
 function filterCSSContent(raw) {
   let out = raw;
 
+  // 0) แก้ฟอนต์โค้ตงู ๆ ปลา ๆ (ถ้ามีเครื่องหมาย quote โค้ง)
+  out = out.replace(/[""]/g, '"').replace(/['']/g, "'");
+
   // 1) แทนที่ color-mix() บน background-color ด้วย fallback
   out = replaceColorMixBackgrounds(out);
 
@@ -112,9 +115,14 @@ function filterCSSContent(raw) {
   // 4) เคลียร์ ; ; ซ้ำซ้อนที่อาจเกิด (สวยงามเฉย ๆ)
   out = out.replace(/;;+/g, ';');
 
-  // 5) เคลียร์ % ที่ตอนท้ายไฟล์
+  // 4.1) ลบบรรทัดที่เป็น '%' เดี่ยว ๆ (หรือมีแต่ช่องว่าง + %)
+  out = out.replace(/^\s*%\s*$/gm, '');
+
+  // 5) เคลียร์ % ที่ตอนท้ายไฟล์ (หลายรูปแบบ)
   out = out.replace(/}%$/gm, '}');
   out = out.replace(/}%$/g, '}');
+  out = out.replace(/}%\s*$/gm, '}');
+  out = out.replace(/}%\s*$/g, '}');
   
   // 6) เคลียร์ whitespace และ % ที่ตอนท้ายไฟล์
   out = out.trim();
@@ -130,23 +138,9 @@ function filterCSSContent(raw) {
   // 8) แก้ไขปัญหา parse error โดยการลบ whitespace ที่ไม่จำเป็น
   out = out.replace(/\s+$/gm, '');
   
-  // 9) แก้ไขปัญหา parse error โดยการลบ % ที่ตอนท้ายไฟล์
-  out = out.replace(/}%$/g, '}');
-  
-  // 10) แก้ไขปัญหา parse error โดยการลบ % ที่ตอนท้ายไฟล์ (อีกครั้ง)
-  out = out.replace(/}%$/gm, '}');
-  
-  // 11) แก้ไขปัญหา parse error โดยการลบ % ที่ตอนท้ายไฟล์ (อีกครั้ง)
-  out = out.replace(/}%$/g, '}');
-  
-  // 12) แก้ไขปัญหา parse error โดยการลบ % ที่ตอนท้ายไฟล์ (อีกครั้ง)
-  out = out.replace(/}%$/gm, '}');
-  
-  // 13) แก้ไขปัญหา parse error โดยการลบ % ที่ตอนท้ายไฟล์ (อีกครั้ง)
-  out = out.replace(/}%$/g, '}');
-  
-  // 14) แก้ไขปัญหา parse error โดยการลบ % ที่ตอนท้ายไฟล์ (อีกครั้ง)
-  out = out.replace(/}%$/gm, '}');
+  // 9) ลบ % ที่เหลืออยู่ทั้งหมด (ขั้นสุดท้าย)
+  out = out.replace(/}%\s*$/gm, '}');
+  out = out.replace(/}%\s*$/g, '}');
 
   return out;
 }
