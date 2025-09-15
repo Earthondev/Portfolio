@@ -1,5 +1,5 @@
 // Service Worker for Portfolio - Updated
-const CACHE_NAME = 'portfolio-v3';
+const CACHE_NAME = 'portfolio-v4';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -11,7 +11,9 @@ const urlsToCache = [
   '/contact.css',
   '/case-studies/case-study.css',
   '/projects.json',
-  '/services.json'
+  '/services.json',
+  '/script.js',
+  '/favicon.ico'
 ];
 
 // Install event
