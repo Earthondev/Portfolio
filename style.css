@@ -227,7 +227,7 @@ p, li, small { color: var(--text-2); }
 html, body { margin: 0; padding: 0; }
 
 body {
-  font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: 'Poppins', 'Segoe UI', Roboto, Arial, sans-serif;
   background: linear-gradient(135deg, var(--grad-start, #f87171), var(--grad-end, #dc2626));
   color: var(--on-bg, #f0f6fc);
   min-height: 100vh;

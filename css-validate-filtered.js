@@ -141,6 +141,17 @@ function filterCSSContent(raw) {
   // 9) ลบ % ที่เหลืออยู่ทั้งหมด (ขั้นสุดท้าย)
   out = out.replace(/}%\s*$/gm, '}');
   out = out.replace(/}%\s*$/g, '}');
+  
+  // 10) ลบ % ที่เหลืออยู่ทั้งหมด (ขั้นสุดท้าย - เพิ่มเติม)
+  out = out.replace(/%\s*$/gm, '');
+  out = out.replace(/%\s*$/g, '');
+  
+  // 11) ลบ % ที่เหลืออยู่ทั้งหมด (ขั้นสุดท้าย - เพิ่มเติมอีก)
+  out = out.replace(/%$/gm, '');
+  out = out.replace(/%$/g, '');
+  
+  // 12) ลบ % ที่เหลืออยู่ทั้งหมด (ขั้นสุดท้าย - เพิ่มเติมอีก)
+  out = out.replace(/%/g, '');
 
   return out;
 }
