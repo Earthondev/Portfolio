@@ -24,7 +24,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-    color: var(--text-primary);
+    color: var(--text-primary, #ffffff);
     min-height: 100vh;
     line-height: 1.6;
     padding: 2rem 1rem;
@@ -84,12 +84,12 @@ body {
 }
 
 h1, h2, h3 {
-    color: var(--text-primary);
+    color: var(--text-primary, #ffffff);
     margin-bottom: 1rem;
 }
 
 p {
-    color: var(--text-secondary);
+    color: var(--text-secondary, #cccccc);
     margin-bottom: 1.5rem;
 }
 
@@ -126,7 +126,7 @@ p {
 .skill span {
     display: block;
     margin-bottom: 0.5rem;
-    color: var(--text-primary);
+    color: var(--text-primary, #ffffff);
     font-weight: 500;
 }
 
@@ -183,7 +183,7 @@ p {
     background: var(--neutral-100);
     border-radius: 0.5rem;
     text-decoration: none;
-    color: var(--text-primary);
+    color: var(--text-primary, #ffffff);
     transition: transform 0.25s ease, background 0.25s ease;
 }
 
@@ -475,7 +475,7 @@ p {
 }
 
 .block-description {
-    color: var(--text-secondary);
+    color: var(--text-secondary, #cccccc);
     font-size: 0.9rem;
     line-height: 1.5;
     margin: 0;
@@ -950,7 +950,7 @@ p {
 }
 
 .cert-description {
-    color: var(--text-secondary);
+    color: var(--text-secondary, #cccccc);
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
@@ -1050,7 +1050,7 @@ p {
 }
 
 .lab-production-card p {
-    color: var(--text-secondary);
+    color: var(--text-secondary, #cccccc);
     line-height: 1.6;
 }
 
@@ -1093,6 +1093,6 @@ p {
 }
 
 .use-case-text {
-    color: var(--text-secondary);
+    color: var(--text-secondary, #cccccc);
     line-height: 1.5;
 }

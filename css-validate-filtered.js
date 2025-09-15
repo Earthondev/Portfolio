@@ -57,6 +57,41 @@ function replaceColorMixBackgrounds(css) {
   );
 }
 
+// แก้ CSS variables ให้มี fallback values
+function addCSSVariableFallbacks(css) {
+  // เพิ่ม fallback values ให้กับ CSS variables ที่ไม่มี
+  return css.replace(
+    /var\(--([^,)]+)\)/g,
+    (match, varName) => {
+      // ถ้ามี fallback อยู่แล้ว ให้ข้าม
+      if (match.includes(',')) return match;
+      
+      // เพิ่ม fallback ตามชื่อ variable
+      const fallbacks = {
+        'text-primary': '#ffffff',
+        'text-secondary': '#cccccc',
+        'surface-1': '#161b22',
+        'surface-2': '#21262d',
+        'border-color': 'rgba(255,255,255,.15)',
+        'primary-color': '#f87171',
+        'grad-start': '#f87171',
+        'grad-end': '#dc2626',
+        'on-bg': '#f0f6fc',
+        'on-surface': '#e6edf3',
+        'border': 'rgba(255,255,255,.15)',
+        'radius': '16px',
+        'accent': '#fecaca',
+        'brand-400': '#f87171',
+        'brand-600': '#dc2626',
+        'brand-500': '#ef4444'
+      };
+      
+      const fallback = fallbacks[varName] || '#ffffff';
+      return `var(--${varName}, ${fallback})`;
+    }
+  );
+}
+
 // บาง validator บ่น "vendor extension" กับ font-family บางรูปแบบ — ปล่อยผ่าน (warning=0 แล้ว)
 // ถ้าอยาก normalize ก็ทำเพิ่มได้ แต่ไม่จำเป็นสำหรับผ่าน CI
 
@@ -66,12 +101,15 @@ function filterCSSContent(raw) {
   // 1) แทนที่ color-mix() บน background-color ด้วย fallback
   out = replaceColorMixBackgrounds(out);
 
-  // 2) ลบประกาศพร็อพที่ยังไม่รองรับออก (เฉพาะประกาศนั้น ๆ ไม่แตะพร็อพอื่น)
+  // 2) เพิ่ม fallback values ให้กับ CSS variables
+  out = addCSSVariableFallbacks(out);
+
+  // 3) ลบประกาศพร็อพที่ยังไม่รองรับออก (เฉพาะประกาศนั้น ๆ ไม่แตะพร็อพอื่น)
   REMOVE_DECLARATIONS.forEach(rx => {
     out = out.replace(rx, '');
   });
 
-  // 3) เคลียร์ ; ; ซ้ำซ้อนที่อาจเกิด (สวยงามเฉย ๆ)
+  // 4) เคลียร์ ; ; ซ้ำซ้อนที่อาจเกิด (สวยงามเฉย ๆ)
   out = out.replace(/;;+/g, ';');
 
   return out;

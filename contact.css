@@ -35,7 +35,7 @@
 
 /* Contact Form */
 .contact-form {
-    background: var(--surface-1);
+    background: var(--surface-1, #161b22);
     color: var(--on-surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -155,7 +155,7 @@
 
 /* Quick Contact */
 .quick-contact {
-    background: var(--surface-1);
+    background: var(--surface-1, #161b22);
     color: var(--on-surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -224,7 +224,7 @@
 .recruiter-footer {
     text-align: center;
     padding: 2rem;
-    background: var(--surface-1);
+    background: var(--surface-1, #161b22);
     color: var(--on-surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
