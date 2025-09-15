@@ -160,10 +160,12 @@ function applyTheme() {
 }
 
 // ---------- Data ----------
-// --- helper: สร้าง URL แบบ absolute จากรากเว็บเสมอ ---
+// --- helper: สร้าง URL แบบ absolute จาก current path ---
 const jsonURL = (name) => {
   const file = name.endsWith('.json') ? name : `${name}.json`;
-  return new URL(`/${file}`, location.origin).toString(); // <<<<< สำคัญ
+  // ใช้ current path แทน root path
+  const basePath = location.pathname.endsWith('/') ? location.pathname : location.pathname + '/';
+  return new URL(file, location.origin + basePath).toString();
 };
 
 async function loadJSON(name) {
