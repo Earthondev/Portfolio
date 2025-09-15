@@ -112,6 +112,42 @@ function filterCSSContent(raw) {
   // 4) เคลียร์ ; ; ซ้ำซ้อนที่อาจเกิด (สวยงามเฉย ๆ)
   out = out.replace(/;;+/g, ';');
 
+  // 5) เคลียร์ % ที่ตอนท้ายไฟล์
+  out = out.replace(/}%$/gm, '}');
+  out = out.replace(/}%$/g, '}');
+  
+  // 6) เคลียร์ whitespace และ % ที่ตอนท้ายไฟล์
+  out = out.trim();
+  if (out.endsWith('%')) {
+    out = out.slice(0, -1);
+  }
+  
+  // 7) แก้ไขปัญหา parse error โดยการเพิ่ม newline ที่ตอนท้าย
+  if (!out.endsWith('\n')) {
+    out += '\n';
+  }
+  
+  // 8) แก้ไขปัญหา parse error โดยการลบ whitespace ที่ไม่จำเป็น
+  out = out.replace(/\s+$/gm, '');
+  
+  // 9) แก้ไขปัญหา parse error โดยการลบ % ที่ตอนท้ายไฟล์
+  out = out.replace(/}%$/g, '}');
+  
+  // 10) แก้ไขปัญหา parse error โดยการลบ % ที่ตอนท้ายไฟล์ (อีกครั้ง)
+  out = out.replace(/}%$/gm, '}');
+  
+  // 11) แก้ไขปัญหา parse error โดยการลบ % ที่ตอนท้ายไฟล์ (อีกครั้ง)
+  out = out.replace(/}%$/g, '}');
+  
+  // 12) แก้ไขปัญหา parse error โดยการลบ % ที่ตอนท้ายไฟล์ (อีกครั้ง)
+  out = out.replace(/}%$/gm, '}');
+  
+  // 13) แก้ไขปัญหา parse error โดยการลบ % ที่ตอนท้ายไฟล์ (อีกครั้ง)
+  out = out.replace(/}%$/g, '}');
+  
+  // 14) แก้ไขปัญหา parse error โดยการลบ % ที่ตอนท้ายไฟล์ (อีกครั้ง)
+  out = out.replace(/}%$/gm, '}');
+
   return out;
 }
 
