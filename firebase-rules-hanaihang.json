@@ -1,10 +1,9 @@
 {
   "rules_version": "2",
   "rules": {
-    // กฎสำหรับข้อมูลห้างสรรพสินค้า
     "malls": {
-      ".read": "true", // ให้อ่านได้ทุกคน
-      ".write": "auth != null", // เขียนได้เฉพาะผู้ใช้ที่ login
+      ".read": "true",
+      ".write": "auth != null",
       ".validate": "newData.hasChildren(['name', 'location', 'stores'])",
       "$mallId": {
         "name": {
@@ -55,10 +54,9 @@
       }
     },
     
-    // กฎสำหรับข้อมูลร้านค้า
     "stores": {
-      ".read": "true", // ให้อ่านได้ทุกคน
-      ".write": "auth != null", // เขียนได้เฉพาะผู้ใช้ที่ login
+      ".read": "true",
+      ".write": "auth != null",
       ".validate": "newData.hasChildren(['name', 'category', 'mallId'])",
       "$storeId": {
         "name": {
@@ -85,10 +83,9 @@
       }
     },
     
-    // กฎสำหรับข้อมูลผู้ใช้ Admin
     "users": {
-      ".read": "auth != null", // อ่านได้เฉพาะผู้ใช้ที่ login
-      ".write": "auth != null", // เขียนได้เฉพาะผู้ใช้ที่ login
+      ".read": "auth != null",
+      ".write": "auth != null",
       "$userId": {
         ".validate": "auth.uid == $userId",
         "email": {
@@ -103,10 +100,9 @@
       }
     },
     
-    // กฎสำหรับข้อมูลการค้นหา (Analytics)
     "searchLogs": {
-      ".read": "auth != null", // อ่านได้เฉพาะผู้ใช้ที่ login
-      ".write": "true", // เขียนได้ทุกคน (สำหรับเก็บ search logs)
+      ".read": "auth != null",
+      ".write": "true",
       ".validate": "newData.hasChildren(['query', 'timestamp', 'location'])",
       "$logId": {
         "query": {
@@ -130,10 +126,9 @@
       }
     },
     
-    // กฎสำหรับข้อมูลการตั้งค่าแอป
     "appSettings": {
-      ".read": "true", // อ่านได้ทุกคน
-      ".write": "auth != null", // เขียนได้เฉพาะผู้ใช้ที่ login
+      ".read": "true",
+      ".write": "auth != null",
       "version": {
         ".validate": "newData.isString()"
       },
