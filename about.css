@@ -1,12 +1,12 @@
 :root {
     --gradient-start: #dc2626;
     --gradient-end: #991b1b;
-    --card-bg: rgba(255, 255, 255, 0.1);
-    --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.9);
-    --accent-color: #fecaca;
-    --neutral-100: rgba(255, 255, 255, 0.08);
-    --neutral-200: rgba(255, 255, 255, 0.16);
+    --card-bg: #ffffff;
+    --text-primary: #111827;
+    --text-secondary: #1f2937;
+    --accent-color: #dc2626;
+    --neutral-100: #f4f6f8;
+    --neutral-200: #eef1f4;
 }
 
 /* Light theme */
@@ -23,13 +23,42 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-    color: var(--text-primary, #ffffff);
+    background: var(--card-bg);
+    color: var(--text-primary);
     min-height: 100vh;
     line-height: 1.6;
     padding: 2rem 1rem;
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+}
+
+h1, h2, h3, p, span, li {
+    color: var(--text-primary);
+}
+
+.btn-primary, .btn-secondary {
+    background: var(--accent-color);
+    color: #fff;
+    border-radius: 2rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(220,38,38,0.15);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    background: #991b1b;
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(220,38,38,0.25);
+}
+
+input, textarea, select {
+    color: var(--text-primary);
+    background: #fff;
+    border-color: #e5e7eb;
+}
+
+.card, .project-card, .service-card {
+    background: #fff;
+    color: var(--text-primary);
+    border-color: #e5e7eb;
 }
 
 @keyframes gradientBG {
@@ -470,8 +499,9 @@ p {
 }
 
 .goal-text {
+    color: white;
+    font-size: 0.9rem;
     font-weight: 600;
-    color: var(--text-dark);
 }
 
 .block-description {
@@ -501,7 +531,7 @@ p {
 }
 
 .cta-description {
-    color: var(--text-gray);
+    color: #6c757d;
     font-size: 1.1rem;
     margin-bottom: 2rem;
 }

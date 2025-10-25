@@ -4,8 +4,16 @@ let services = [];
 let currentFilter = 'all';
 let currentTheme = localStorage.getItem('theme') || 'dark';
 
+// Performance optimization: Cache DOM elements
+const domCache = new Map();
+
 // ---------- Helpers ----------
-const $  = (sel, root = document) => (root && root.querySelector) ? root.querySelector(sel) : null;
+const $  = (sel, root = document) => {
+  if (domCache.has(sel)) return domCache.get(sel);
+  const element = (root && root.querySelector) ? root.querySelector(sel) : null;
+  if (element) domCache.set(sel, element);
+  return element;
+};
 const $$ = (sel, root = document) => (root && root.querySelectorAll) ? Array.from(root.querySelectorAll(sel)) : [];
 
 // บอกว่าอยู่หน้าไหน (ระบุให้ชัดขึ้น กัน false-positive)
@@ -160,22 +168,17 @@ function applyTheme() {
 }
 
 // ---------- Data ----------
-// --- helper: สร้าง URL แบบ absolute จาก current path ---
+// --- helper: สร้าง URL แบบ absolute จาก root path ---
 const jsonURL = (name) => {
   const file = name.endsWith('.json') ? name : `${name}.json`;
-  // ใช้ current path แทน root path
-  const basePath = location.pathname.endsWith('/') ? location.pathname : location.pathname + '/';
-  return new URL(file, location.origin + basePath).toString();
+  // ใช้ root path เสมอ
+  return new URL(file, location.origin + '/').toString();
 };
 
 async function loadJSON(name) {
-  try {
+  return await safeAsync(async () => {
     const url = `${jsonURL(name)}?v=${Date.now()}`;
     console.log('📥 Loading JSON:', url);
-    console.log('🌐 Base URL:', location.origin);
-    console.log('📁 File name:', name);
-    console.log('🆔 Script ID:', Math.random().toString(36).substr(2, 9));
-    console.log('🔍 Script URL params:', new URLSearchParams(document.currentScript?.src?.split('?')[1] || ''));
     
     const res = await fetch(url, { 
       cache: 'no-store',
@@ -184,17 +187,18 @@ async function loadJSON(name) {
         'Pragma': 'no-cache'
       }
     });
-    console.log('📥 Fetch response:', res.status, res.ok);
+    
     if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
+    
     const data = await res.json();
     console.log('📥 JSON data loaded:', data);
     return data;
-  } catch (e) {
-    console.error(`Error loading ${name}:`, e);
+  }, () => {
+    console.warn(`Fallback data for ${name}`);
     if (String(name).includes('projects')) return getFallbackProjects();
     if (String(name).includes('services')) return getFallbackServices();
     return [];
-  }
+  });
 }
 
 // Fallback data for when JSON files fail to load
@@ -487,6 +491,11 @@ function handleModalTabNavigation(e) {
 
 // ---------- UI events ----------
 function setupEventListeners() {
+  // Modern event delegation for better performance
+  delegateEvent('#searchInput', 'input', debounce(handleSearch, 300));
+  delegateEvent('.filter-btn', 'click', handleFilter);
+  
+  // Legacy support for existing elements
   if (searchInput) {
     searchInput.addEventListener('input', debounce(handleSearch, 300));
   }
@@ -1052,17 +1061,19 @@ function initializeRevealAnimations() {
     els.forEach((el) => el.classList.add('show'));
     return;
   }
-  const io = new IntersectionObserver(
+  
+  const io = createIntersectionObserver(
     (entries) => {
-      entries.forEach((en) => {
-        if (en.isIntersecting) {
-          en.target.classList.add('show');
-          io.unobserve(en.target);
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          io.unobserve(entry.target);
         }
       });
     },
     { threshold: 0.12 }
   );
+  
   els.forEach((el) => io.observe(el));
 }
 
@@ -1073,6 +1084,39 @@ function debounce(fn, wait) {
     clearTimeout(t);
     t = setTimeout(() => fn(...args), wait);
   };
+}
+
+// Modern async/await with error handling
+async function safeAsync(fn, fallback = null) {
+  try {
+    return await fn();
+  } catch (error) {
+    console.warn('Safe async error:', error);
+    return fallback;
+  }
+}
+
+// Performance: Intersection Observer for lazy loading
+function createIntersectionObserver(callback, options = {}) {
+  if (!('IntersectionObserver' in window)) {
+    // Fallback for older browsers
+    return { observe: () => {}, unobserve: () => {} };
+  }
+  
+  return new IntersectionObserver(callback, {
+    threshold: 0.1,
+    rootMargin: '50px',
+    ...options
+  });
+}
+
+// Modern event delegation
+function delegateEvent(selector, event, handler) {
+  document.addEventListener(event, (e) => {
+    if (e.target.matches(selector)) {
+      handler(e);
+    }
+  });
 }
 
 // ---------- Script Load Verification ----------
