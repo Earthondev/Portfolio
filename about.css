@@ -1217,10 +1217,29 @@ p {
 }
 
 /* Looking For Section */
-.looking-for-section {
-    background: var(--neutral-100);
-    padding: 2rem;
-    border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 2rem;
+/* Chart Container */
+.chart-container {
+    position: relative;
+    height: 350px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.section-desc-center {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.looking-for-title {
+    margin-top: 0;
+}
+
+.looking-for-list {
+    margin-top: 1rem;
+}
+
+.quality-text {
+    margin-bottom: 1.5rem;
+    color: var(--on-bg);
 }
