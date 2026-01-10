@@ -2734,9 +2734,9 @@ footer,
 }
 
 .principle-card:hover {
-  background-color: var(--surface-1, #161b22);
+  background-color: var(--surface-1);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .principle-card .principle-icon {
@@ -2775,9 +2775,9 @@ footer,
 }
 
 .faq-item:hover {
-  background-color: var(--surface-2, #21262d);
+  background-color: var(--surface-2);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .faq-item h3 {
