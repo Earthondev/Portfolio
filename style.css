@@ -206,7 +206,8 @@ small {
   .reveal.show {
     opacity: 1;
     transform: none;
-    transition: opacity .3s, transform .3s;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
   }
 }
 
@@ -1015,34 +1016,26 @@ li {
 }
 
 .portfolio-item {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--surface-1, #161b22);
+  color: var(--on-bg, #ffffff);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
-  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   animation: fadeInUp 0.6s ease-out;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, .1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 1;
   isolation: isolate;
+  display: flex;
+  flex-direction: column;
 }
 
 .portfolio-item:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, .15);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   border-color: var(--accent);
-  z-index: 10;
-  position: relative;
-}
-
-/* Modern color mixing effect */
-@supports (background: color-mix(in oklab, white, black)) {
-  .portfolio-item:hover {
-    background-color: color-mix(in oklab, rgba(255, 255, 255, 0.1), white 6%);
-  }
+  z-index: 2;
 }
 
 .portfolio-image-container {
@@ -2576,9 +2569,7 @@ footer,
 }
 
 .filter-btn:hover {
-  /* background-color: color-mix(in oklab, var(--surface-2, #21262d), white 6%); */
-  background-color: var(--surface-2, #21262d);
-  /* Fallback */
+  background-color: var(--surface-2);
   border-color: var(--accent);
   transform: translateY(-1px);
 }
@@ -2660,11 +2651,9 @@ footer,
 }
 
 .principle-item:hover {
-  /* background-color: color-mix(in oklab, var(--surface-1, #161b22), white 6%); */
-  background-color: var(--surface-1, #161b22);
-  /* Fallback */
+  background-color: var(--surface-1);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .principle-icon {
@@ -3101,24 +3090,13 @@ footer,
   color: var(--text-primary, #ffffff);
 }
 
-/* Modern CSS Features */
-/* CSS Grid with subgrid support */
-@supports (grid-template-columns: subgrid) {
-  .projects-grid {
-    grid-template-columns: subgrid;
-  }
-}
+/* Modern CSS Features - Cleaned up for stability */
 
-/* CSS Logical Properties */
-.portfolio-item {
-  margin-inline: auto;
-  padding-inline: 1rem;
-}
-
-/* CSS Custom Properties with fallbacks */
+/* CSS Custom Properties */
 :root {
   --gradient-primary: linear-gradient(135deg, var(--grad-start, #f87171), var(--grad-end, #dc2626));
-  --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-elevated: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -3136,20 +3114,13 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Modern backdrop filters */
+/* Backdrop filters */
 .navbar {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
 
-/* CSS Container Queries */
-@container (min-width: 768px) {
-  .projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  }
-}
-
-/* Modern aspect ratio */
+/* Aspect ratio */
 .portfolio-image-container {
   aspect-ratio: 16 / 9;
 }
@@ -3164,20 +3135,12 @@ html {
   scroll-snap-align: start;
 }
 
-/* Modern CSS Functions */
+/* Clamp Padding */
 .section {
   padding: clamp(1rem, 4vw, 2.5rem);
 }
 
-/* CSS Grid with named lines */
-.projects-grid {
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  grid-template-areas:
-    "project-1 project-2"
-    "project-3 project-4";
-}
-
-/* Modern CSS Selectors */
+/* Portfolio item selector */
 .portfolio-item:has(.btn-gallery) {
   border: 2px solid var(--accent-color);
 }

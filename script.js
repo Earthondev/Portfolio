@@ -726,15 +726,8 @@ function renderSkills(skills) {
                   <div class="skill-card">
                     <i class="${sk.icon || 'fas fa-check'} skill-icon"></i>
                     <span>${sk.name}</span>
-                    <div class="skill-progress">
-                      <svg viewBox="0 0 100 100" aria-hidden="true">
-                        <circle class="bg" cx="50" cy="50" r="45"></circle>
-                        <circle class="progress ${sk.level}" cx="50" cy="50" r="45" style="stroke-dashoffset:314"></circle>
-                      </svg>
-                      <div class="skill-percentage">
-                        <div class="percentage">${pct}%</div>
-                        <div class="label">${sk.level}</div>
-                      </div>
+                    <div class="skill-level">
+                      <div class="skill-bar ${sk.level}" title="${pct}% Proficiency"></div>
                     </div>
                   </div>`;
           })
@@ -1064,45 +1057,14 @@ function initializeRevealAnimations() {
     return;
   }
 
-  const queue = [];
-  let processing = false;
-
-  const processQueue = () => {
-    if (!queue.length) {
-      processing = false;
-      return;
-    }
-
-    // Config: Delay between items in the same batch
-    const STAGGER_DELAY = 100;
-
-    const el = queue.shift();
-    el.classList.add('show');
-
-    requestAnimationFrame(() => {
-      setTimeout(processQueue, STAGGER_DELAY);
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        io.unobserve(entry.target);
+      }
     });
-  };
-
-  const io = createIntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // If it's already visible or in queue, skip
-          if (entry.target.classList.contains('show')) return;
-
-          queue.push(entry.target);
-          io.unobserve(entry.target);
-
-          if (!processing) {
-            processing = true;
-            processQueue();
-          }
-        }
-      });
-    },
-    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-  );
+  }, { threshold: 0.1 });
 
   els.forEach((el) => io.observe(el));
 }
@@ -1173,3 +1135,24 @@ async function loadAboutPageData() {
     console.error('❌ Error loading about page data:', err);
   }
 }
+
+// Main Initialization
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM fully loaded and parsed');
+
+  // Initialize Animations (Fix for white screen)
+  initializeRevealAnimations();
+
+  // Page specific logic
+  const path = window.location.pathname;
+
+  // Reset scroll on unload to prevent weird positioning
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
+
+  // Re-run animations periodically to catch content loaded via JS
+  setInterval(() => {
+    initializeRevealAnimations();
+  }, 1000);
+});
