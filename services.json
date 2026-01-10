@@ -227,6 +227,12 @@
       "level": "medium",
       "icon": "fas fa-location-crosshairs",
       "group": "Geo"
+    },
+    {
+      "name": "AI Pair Programming (Gemini/ChatGPT)",
+      "level": "high",
+      "icon": "fas fa-brain",
+      "group": "Automation"
     }
   ],
   "certifications": [

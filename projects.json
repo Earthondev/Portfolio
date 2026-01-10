@@ -5,8 +5,19 @@
     "slug": "hanaihang",
     "year": 2025,
     "summary": "เว็บช่วยค้นหาห้าง/ร้านค้าใกล้ตัว พร้อมแผงผู้ดูแลในการเพิ่ม/แก้ไขข้อมูลศูนย์การค้าและร้านค้าแบบเป็นระบบ",
-    "role": ["Product Designer", "Frontend (React)", "Tester"],
-    "stack": ["React", "TypeScript", "Vite", "Tailwind", "Firebase (Auth/DB/Storage)", "Netlify"],
+    "role": [
+      "Product Designer",
+      "Frontend (React)",
+      "Tester"
+    ],
+    "stack": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind",
+      "Firebase (Auth/DB/Storage)",
+      "Netlify"
+    ],
     "highlights": [
       "ค้นหาห้าง/ร้านได้ใน 1-2 คลิก, รองรับมือถือเต็มรูปแบบ",
       "Admin ลดเวลาบันทึกข้อมูล ~35-45% ผ่านฟอร์มที่มี validation + autosave",
@@ -42,7 +53,13 @@
       "live": "https://hanaihang.netlify.app/",
       "repo": "https://github.com/Earthondev/Hanaihang"
     },
-    "tags": ["Web App", "Admin Panel", "Geolocation", "UI/UX", "QA"],
+    "tags": [
+      "Web App",
+      "Admin Panel",
+      "Geolocation",
+      "UI/UX",
+      "QA"
+    ],
     "cta": "View project",
     "status": "Active",
     "caseStudy": true
@@ -53,8 +70,17 @@
     "slug": "inventory-amino",
     "year": 2025,
     "summary": "ระบบจัดการสต็อกสารเคมี/วัสดุในแล็บ Mobile-first พร้อมแกลเลอรีรูป, รายงานคงเหลือ และแจ้งเตือนของใกล้หมด",
-    "role": ["Product Designer", "No-Code Developer", "Data Modeler"],
-    "stack": ["AppSheet", "Google Sheets", "Google Drive", "Google Apps Script"],
+    "role": [
+      "Product Designer",
+      "No-Code Developer",
+      "Data Modeler"
+    ],
+    "stack": [
+      "AppSheet",
+      "Google Sheets",
+      "Google Drive",
+      "Google Apps Script"
+    ],
     "highlights": [
       "Mobile-first inventory for lab teams",
       "Order → Receive → Use with audit trail",
@@ -86,9 +112,60 @@
       "demo": "#",
       "caseStudy": "./case-studies/inventory-amino.html"
     },
-    "tags": ["Mobile App", "Inventory Management", "No-Code", "Lab Management", "Automation"],
+    "tags": [
+      "Mobile App",
+      "Inventory Management",
+      "No-Code",
+      "Lab Management",
+      "Automation"
+    ],
     "cta": "View case study",
     "status": "Active",
     "caseStudy": true
+  },
+  {
+    "id": "care-for-mom",
+    "title": "Care for Mom – AI-Assisted Health App",
+    "slug": "care-for-mom",
+    "year": 2026,
+    "summary": "แอปพลิเคชันดูแลสุขภาพผู้สูงอายุ พัฒนาด้วยพลัง AI (Gemini/ChatGPT) ช่วยสร้างฟีเจอร์แจ้งเตือนสุขภาพและวิเคราะห์ข้อมูลเบื้องต้น",
+    "role": [
+      "AI Co-Developer",
+      "Flutter Developer",
+      "UX Engineer"
+    ],
+    "stack": [
+      "Flutter",
+      "Dart",
+      "SQLite",
+      "Firebase",
+      "Gemini API",
+      "AI-Pair Programming"
+    ],
+    "highlights": [
+      "AI-Powered Dev: ใช้ AI ช่วยเขียนโค้ด > 80% ตั้งแต่ UI จนถึง Logic ซับซ้อน",
+      "Features: ระบบแจ้งเตือนยา, บันทึกสุขภาพรายวัน, และ AI Health Analysis",
+      "Multi-language support (Thai/English) with local storage sync",
+      "Offline-first architecture using SQLite for data persistence",
+      "Notification System: แจ้งเตือนกินยาและนัดหมายแพทย์อัตโนมัติ"
+    ],
+    "coverImage": {
+      "src": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200&auto=format&fit=crop",
+      "alt": "Care for Mom App Interface showing health dashboard"
+    },
+    "gallery": [],
+    "links": {
+      "repo": "https://github.com/Earthondev/CareForMom"
+    },
+    "tags": [
+      "Mobile App",
+      "AI-Assisted",
+      "Health Tech",
+      "Flutter",
+      "Cross-Platform"
+    ],
+    "cta": "View Code",
+    "status": "In Development",
+    "caseStudy": false
   }
 ]

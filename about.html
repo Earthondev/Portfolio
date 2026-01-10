@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,37 +27,35 @@
   <!-- THEME: single IIFE (ป้องกัน FOUC) -->
   <script>
     (function () {
-      const KEY = 'theme'; // 'light' | 'dark' | 'auto'
-      const mql = matchMedia('(prefers-color-scheme: dark)');
+      const STORAGE_KEY = 'theme';
+      const saved = localStorage.getItem(STORAGE_KEY); // 'light' | 'dark' | 'auto'
+      const mql = window.matchMedia('(prefers-color-scheme: dark)');
       const root = document.documentElement;
 
-      function setTheme(theme) {
-        root.classList.toggle('light-theme', theme === 'light' || (theme === 'auto' && !mql.matches));
-        root.dataset.theme = theme;
-        // update theme-color for mobile UI
-        const meta = document.querySelector('meta[name="theme-color"]') || (() => {
-          const m = document.createElement('meta'); m.name='theme-color'; document.head.appendChild(m); return m;
+      function apply(theme) {
+        root.classList.remove('light-theme'); // default = dark
+        if (theme === 'light') root.classList.add('light-theme');
+        // อัปเดต theme-color ให้แถบ status บนมือถืออ่านง่าย
+        const meta = document.querySelector('meta[name="theme-color"]') || (function () {
+          const m = document.createElement('meta');
+          m.name = 'theme-color'; document.head.appendChild(m); return m;
         })();
-        const isLight = root.classList.contains('light-theme');
+        const isLight = theme === 'light' || (theme === 'auto' && mql.matches === false);
         meta.setAttribute('content', isLight ? '#ffffff' : '#111111');
+        // เก็บโหมดเพื่อใช้ตอนเปิดหน้าอื่น
+        if (theme) localStorage.setItem(STORAGE_KEY, theme);
+        // เก็บไว้ให้ปุ่มรู้สถานะ
+        root.dataset.theme = theme || 'auto';
       }
 
-      const saved = localStorage.getItem(KEY) || 'auto';
-      setTheme(saved);
-      mql.addEventListener?.('change', () => (root.dataset.theme === 'auto') && setTheme('auto'));
-
-      // expose a tiny api for the toggle button
-      window.__toggleTheme = () => {
-        const current = root.dataset.theme || 'auto';
-        const next = current === 'dark' ? 'light' : current === 'light' ? 'auto' : 'dark';
-        localStorage.setItem(KEY, next);
-        setTheme(next);
-        const btn = document.getElementById('theme-toggle');
-        if (btn) {
-          btn.title = `Theme: ${next[0].toUpperCase()}${next.slice(1)}`;
-          btn.setAttribute('aria-label', btn.title);
-        }
-      };
+      // โหมดเริ่มต้น: ถ้าไม่เคยเลือก → auto (ตามระบบ)
+      if (!saved || saved === 'auto') {
+        // กรณี auto ให้ฟัง event เปลี่ยนธีมของระบบด้วย
+        mql.addEventListener?.('change', () => apply('auto'));
+        apply('auto');
+      } else {
+        apply(saved);
+      }
     })();
   </script>
 
@@ -77,13 +76,15 @@
   }
   </script>
 </head>
+
 <body>
   <!-- Navigation -->
   <nav class="navbar" id="navbar" aria-label="Primary">
     <div class="container">
       <a href="index.html" class="navbar-brand">Nattapart</a>
 
-      <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="navbar-nav">
+      <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu"
+        aria-expanded="false" aria-controls="navbar-nav">
         <i class="fas fa-bars" aria-hidden="true"></i>
       </button>
 
@@ -94,12 +95,12 @@
         <li role="none"><a role="menuitem" href="contact.html">Contact</a></li>
         <li role="none">
           <a role="menuitem" class="resume-btn"
-             href="mailto:earthlikemwbb@gmail.com?subject=Resume Request - Portfolio Website&body=Hi Nattapart,%0D%0A%0D%0AI'm interested in your resume. Please send me a copy.%0D%0A%0D%0AThank you!">
+            href="mailto:earthlikemwbb@gmail.com?subject=Resume Request - Portfolio Website&body=Hi Nattapart,%0D%0A%0D%0AI'm interested in your resume. Please send me a copy.%0D%0A%0D%0AThank you!">
             <i class="fas fa-envelope" aria-hidden="true"></i> Resume
           </a>
         </li>
         <li role="none">
-          <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Theme: Auto" title="Theme: Auto" onclick="__toggleTheme()">
+          <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Theme: Auto" title="Theme: Auto">
             <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
           </button>
         </li>
@@ -107,50 +108,145 @@
     </div>
   </nav>
 
-  <!-- HERO (หนึ่งชุดพอ) -->
+  <!-- HERO -->
   <header class="about-hero container reveal" id="about-hero">
     <div class="about-hero-inner">
-      <img class="about-avatar" src="assets/Profile/IMG_9205.png" alt="Nattapart profile" width="120" height="120" loading="lazy" decoding="async">
-      <h1 class="about-title">Hi, I'm Nattapart Worakun</h1>
-      <p class="about-tagline">Chemistry → Automation → Data &amp; QA</p>
-      <p class="about-sub">I bring lab-grade rigor to dashboards, automations, and web apps.</p>
+      <img class="about-avatar" src="assets/Profile/IMG_9205.png" alt="Nattapart profile" width="120" height="120"
+        loading="lazy" decoding="async">
+      <h1 class="about-title" data-about-name>ณัฐภาส วรคันธ์ (Nattaphat Worakhan)</h1>
+      <p class="about-tagline" data-about-tagline>Chemistry → AI, Data & Automation</p>
+      <p class="about-sub">นักเคมีที่พัฒนาตัวเองสู่สาย AI, Data และ Automation ด้วยประสบการณ์จริงจากห้องแล็บ</p>
       <div class="about-cta">
-        <a href="./one-pager.html" class="btn-primary">Request Resume</a>
+        <a href="mailto:earthlikemwbb@gmail.com?subject=Resume Request" class="btn-primary"><i
+            class="fas fa-file-pdf"></i> Request Resume</a>
         <a href="./contact.html" class="btn-secondary">Get in Touch</a>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <!-- Story blocks -->
+    <!-- About / Intro -->
     <section class="content-section reveal">
-      <h2>My Journey</h2>
-      <p class="muted">Lab → Automation → Data &amp; QA</p>
-      <ul class="journey">
-        <li>🧪 Lab Research <span class="badge">2019–2022</span></li>
-        <li>⚙️ VBA &amp; Apps Script Automation <span class="badge">–60% manual</span></li>
-        <li>📊 BI Dashboards &amp; SQL <span class="badge">Active</span></li>
-        <li>🔍 API Testing (Postman) <span class="badge">Exploring</span></li>
+      <h2>About Me</h2>
+      <div class="bio-section">
+        <p class="bio-text">
+          ผมเริ่มต้นอาชีพในสาย <strong>Laboratory & Quality Testing</strong> ทำงานด้านการทดสอบทางเคมี เช่น Amino Acid
+          Profile, Protein, Moisture, TKN และ Ash พร้อมทั้งมีบทบาทในการพัฒนาระบบงานภายในเพื่อลดภาระงานซ้ำซ้อน
+          เพิ่มความแม่นยำ และทำให้ข้อมูลสามารถนำไปใช้ต่อได้จริง
+        </p>
+      </div>
+    </section>
+
+    <!-- Interactive Skills Chart -->
+    <section class="section reveal">
+      <div class="container">
+        <h2>Technical Balance</h2>
+        <p class="section-desc" style="text-align:center; margin-bottom:1rem;">ภาพรวมความเชี่ยวชาญที่ผสมผสานระหว่าง
+          Data, Automation และ Science</p>
+        <div class="chart-container"
+          style="position: relative; height:350px; width:100%; max-width:500px; margin:0 auto;">
+          <canvas id="skillRadarChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- From Chemistry to AI & Data -->
+    <section class="content-section reveal">
+      <h2>From Chemistry to AI & Data</h2>
+      <p class="muted">จุดเปลี่ยนสำคัญคือการนำ <strong>การเขียนโปรแกรมและการคิดเชิงระบบ</strong> มาใช้แก้ปัญหาจริง</p>
+      <ul class="journey-list">
+        <li>
+          <span class="journey-icon">📊</span>
+          <div class="journey-content"><strong>Excel & VBA:</strong> จัดการ Workload, Jobs List
+            และรายงานผลการทดสอบอัตโนมัติ</div>
+        </li>
+        <li>
+          <span class="journey-icon">📱</span>
+          <div class="journey-content"><strong>AppSheet:</strong> สร้างระบบจัดการข้อมูลและสต็อกสารเคมี (Stock
+            Management)</div>
+        </li>
+        <li>
+          <span class="journey-icon">📈</span>
+          <div class="journey-content"><strong>Dashboard:</strong> เปลี่ยนข้อมูลดิบ (Dirty Data) ให้เป็น Visual
+            ที่ใช้ตัดสินใจได้จริง</div>
+        </li>
+        <li>
+          <span class="journey-icon">💻</span>
+          <div class="journey-content"><strong>Modern Tech:</strong> ต่อยอดสู่ SQL, Power BI และ Web-based Dashboard
+          </div>
+        </li>
       </ul>
     </section>
 
+    <!-- AI & Automation Focus -->
     <section class="content-section reveal">
-      <h2>Transferable Strengths (Chemistry → Data/BI)</h2>
-      <div class="principles-grid">
-        <div class="principle-card"><div class="principle-icon">🧪</div><h4>QC/QA discipline → Testable analytics</h4><p>Postman/Playwright test plans, accessibility checks, regression criteria.</p></div>
-        <div class="principle-card"><div class="principle-icon">📋</div><h4>SOP &amp; traceability → Reproducible dashboards</h4><p>Clean SQL models, versioned changes, runbooks, CI.</p></div>
-        <div class="principle-card"><div class="principle-icon">📏</div><h4>Measurement &amp; calibration → Reliable KPIs</h4><p>Metric definitions, validation rules, monitoring.</p></div>
-        <div class="principle-card"><div class="principle-icon">🔒</div><h4>Safety &amp; compliance → Secure delivery</h4><p>Security headers, privacy, uptime/alerting.</p></div>
+      <h2>AI & Automation Focus</h2>
+      <div class="quality-mindset">
+        <p style="margin-bottom:1.5rem; color:var(--on-bg);">
+          ปัจจุบันผมเน้นใช้ AI เป็นเครื่องมือเพิ่มประสิทธิภาพ (AI-Augmented Workflow) เชื่อว่า AI ไม่ได้มาแทนคน
+          แต่ช่วยให้คนที่เข้าใจงานจริง <em>“ทำงานได้เก่งขึ้นอย่างก้าวกระโดด”</em>
+        </p>
+        <div class="principles-grid">
+          <div class="principle-card">
+            <div class="principle-icon">🤖</div>
+            <h4>AI Analysis</h4>
+            <p>ใช้ AI ช่วยวิเคราะห์ข้อมูล หา Pattern และสรุปผลการทดลอง</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-icon">⚡</div>
+            <h4>Rapid Dev</h4>
+            <p>ใช้ AI ออกแบบโครงสร้าง, เขียนโค้ด React/Firebase และตรวจสอบ Logic</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-icon">🔧</div>
+            <h4>Automation</h4>
+            <p>เปลี่ยนงานซ้ำซ้อนให้เป็นระบบอัตโนมัติ (Automated Workflows)</p>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- Strengths -->
     <section class="content-section reveal">
-      <h2>Selected Wins</h2>
+      <h2>Strengths</h2>
       <div class="impact-grid">
-        <div class="impact-card"><div class="impact-icon">🤖</div><h3>Cut ~60–80% repetitive work</h3><p>Apps Script, AppSheet, Excel VBA.</p></div>
-        <div class="impact-card"><div class="impact-icon">📊</div><h3>Executive-ready Power BI dashboards</h3><p>Clear visuals + KPI definitions.</p></div>
-        <div class="impact-card"><div class="impact-icon">⚡</div><h3>HaaNaiHang: load &lt;2s, Lighthouse ≥95</h3><p>Faster admin by ~30–40%.</p></div>
+        <div class="impact-card">
+          <div class="impact-icon">🧠</div>
+          <h3>Strong Problem Solver</h3>
+          <p>วิเคราะห์ปัญหาจากหน้างานจริง ไม่ใช่แค่จากทฤษฎี</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-icon">🔁</div>
+          <h3>Automation Mindset</h3>
+          <p>มองหาสิ่งที่ทำซ้ำแล้วแปลงเป็นระบบ</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-icon">🔬</div>
+          <h3>Domain Knowledge</h3>
+          <p>เข้าใจข้อมูลเชิงวิทยาศาสตร์และระบบแล็บลึกซึ้ง</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-icon">💻</div>
+          <h3>Hybrid Tech Stack</h3>
+          <p>Chemistry + Data + Web + AI</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-icon">📈</div>
+          <h3>Continuous Learner</h3>
+          <p>เรียนรู้เทคโนโลยีใหม่ตลอดเวลา</p>
+        </div>
       </div>
+    </section>
+
+    <!-- What I'm Looking For -->
+    <section class="content-section reveal"
+      style="background: var(--surface-2); padding: 2rem; border-radius: 1rem; border: 1px solid var(--border);">
+      <h2 style="margin-top:0;">What I’m Looking For</h2>
+      <ul class="journey" style="margin-top:1rem;">
+        <li>🎯 งานหรือโปรเจกต์ที่ได้ใช้ <strong>Data, AI หรือ Automation</strong> แก้ปัญหาจริง</li>
+        <li>🌱 พื้นที่ให้ทดลอง พัฒนา และเติบโต</li>
+        <li>🏆 องค์กรที่ให้ความสำคัญกับ <strong>“ผลลัพธ์”</strong> มากกว่ากรอบเดิมๆ</li>
+      </ul>
     </section>
 
     <!-- Skills (มีแค่ชุดเดียว) -->
@@ -173,10 +269,22 @@
     <section class="content-section reveal" id="about-faq">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-grid">
-        <div class="faq-item"><h3>ทำงานยังไง?</h3><p>Brief → Design → Build → Test → Measure (GA4/Lighthouse) → Docs.</p></div>
-        <div class="faq-item"><h3>ต้องใช้ข้อมูลอะไรบ้าง?</h3><p>KPI, แหล่งข้อมูล, รายงานเดิม, กลุ่มผู้ใช้.</p></div>
-        <div class="faq-item"><h3>ระยะเวลาโครงการ?</h3><p>Dashboard 2–3 สัปดาห์, Automation 1–2 สัปดาห์, QA &amp; Analytics 1 สัปดาห์.</p></div>
-        <div class="faq-item"><h3>รับดูแลต่อไหม?</h3><p>มี maintenance รายเดือน (KPI, events, health-check).</p></div>
+        <div class="faq-item">
+          <h3>ทำงานยังไง?</h3>
+          <p>Brief → Design → Build → Test → Measure (GA4/Lighthouse) → Docs.</p>
+        </div>
+        <div class="faq-item">
+          <h3>ต้องใช้ข้อมูลอะไรบ้าง?</h3>
+          <p>KPI, แหล่งข้อมูล, รายงานเดิม, กลุ่มผู้ใช้.</p>
+        </div>
+        <div class="faq-item">
+          <h3>ระยะเวลาโครงการ?</h3>
+          <p>Dashboard 2–3 สัปดาห์, Automation 1–2 สัปดาห์, QA &amp; Analytics 1 สัปดาห์.</p>
+        </div>
+        <div class="faq-item">
+          <h3>รับดูแลต่อไหม?</h3>
+          <p>มี maintenance รายเดือน (KPI, events, health-check).</p>
+        </div>
       </div>
     </section>
 
@@ -186,18 +294,23 @@
         <h2>🚀 Looking for a Data Analyst / BI Developer with QA mindset?</h2>
         <p class="cta-description">Let's connect and create impact together!</p>
         <div class="cta-buttons">
-          <a class="btn-primary" href="mailto:earthlikemwbb@gmail.com?subject=Resume Request - Portfolio Website&body=Hi Nattapart,%0D%0A%0D%0AI'm interested in your resume. Please send me a copy.%0D%0A%0D%0AThank you!"><i class="fas fa-envelope"></i> Request Resume</a>
+          <a class="btn-primary"
+            href="mailto:earthlikemwbb@gmail.com?subject=Resume Request - Portfolio Website&body=Hi Nattapart,%0D%0A%0D%0AI'm interested in your resume. Please send me a copy.%0D%0A%0D%0AThank you!"><i
+              class="fas fa-envelope"></i> Request Resume</a>
           <a class="btn-secondary" href="contact.html"><i class="fas fa-paper-plane"></i> Contact Me</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer><p>© 2025 Nattapart Worakun. All Rights Reserved.</p></footer>
+  <footer>
+    <p>© 2025 Nattapart Worakun. All Rights Reserved.</p>
+  </footer>
 
   <!-- Scripts -->
   <script src="cache-bust.js?v=20250914-2"></script>
   <script defer src="script.js?v=20250914-2"></script>
   <script defer src="about.js?v=20250914-2"></script>
 </body>
+
 </html>

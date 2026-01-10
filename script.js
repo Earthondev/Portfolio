@@ -8,7 +8,7 @@ let currentTheme = localStorage.getItem('theme') || 'dark';
 const domCache = new Map();
 
 // ---------- Helpers ----------
-const $  = (sel, root = document) => {
+const $ = (sel, root = document) => {
   if (domCache.has(sel)) return domCache.get(sel);
   const element = (root && root.querySelector) ? root.querySelector(sel) : null;
   if (element) domCache.set(sel, element);
@@ -17,7 +17,7 @@ const $  = (sel, root = document) => {
 const $$ = (sel, root = document) => (root && root.querySelectorAll) ? Array.from(root.querySelectorAll(sel)) : [];
 
 // บอกว่าอยู่หน้าไหน (ระบุให้ชัดขึ้น กัน false-positive)
-const onPortfolio = 
+const onPortfolio =
   location.pathname.endsWith('/portfolio.html') ||
   location.pathname.endsWith('/index.html') ||
   location.pathname === '/';
@@ -109,46 +109,46 @@ function trackPageEvents() {
 
 // ---------- Theme ----------
 function setupThemeToggle() {
-  (function(){
-    const KEY='theme';
-    const btn=document.getElementById('theme-toggle');
-    const icon=btn?.querySelector('i');
-    const mql=window.matchMedia('(prefers-color-scheme: dark)');
-    const order=['auto','light','dark'];
+  (function () {
+    const KEY = 'theme';
+    const btn = document.getElementById('theme-toggle');
+    const icon = btn?.querySelector('i');
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+    const order = ['auto', 'light', 'dark'];
 
-    function setMeta(isLight){
-      let meta=document.querySelector('meta[name="theme-color"]');
-      if(!meta){ meta=document.createElement('meta'); meta.name='theme-color'; document.head.appendChild(meta); }
+    function setMeta(isLight) {
+      let meta = document.querySelector('meta[name="theme-color"]');
+      if (!meta) { meta = document.createElement('meta'); meta.name = 'theme-color'; document.head.appendChild(meta); }
       meta.setAttribute('content', isLight ? '#ffffff' : '#111111');
     }
-    function apply(theme){
-      const root=document.documentElement;
-      root.classList.toggle('light-theme', theme==='light' || (theme==='auto' && !mql.matches));
-      root.dataset.theme=theme;
-      const isLight = theme==='light' || (theme==='auto' && !mql.matches);
+    function apply(theme) {
+      const root = document.documentElement;
+      root.classList.toggle('light-theme', theme === 'light' || (theme === 'auto' && !mql.matches));
+      root.dataset.theme = theme;
+      const isLight = theme === 'light' || (theme === 'auto' && !mql.matches);
       setMeta(isLight);
       // อัปเดตไอคอน/ป้าย
-      if(icon){
-        icon.className = isLight ? 'fa-solid fa-sun' : (theme==='dark' ? 'fa-solid fa-moon' : 'fa-solid fa-circle-half-stroke');
+      if (icon) {
+        icon.className = isLight ? 'fa-solid fa-sun' : (theme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-circle-half-stroke');
       }
-      btn?.setAttribute('aria-label', `Theme: ${theme[0].toUpperCase()+theme.slice(1)}`);
-      btn?.setAttribute('title', `Theme: ${theme[0].toUpperCase()+theme.slice(1)}`);
+      btn?.setAttribute('aria-label', `Theme: ${theme[0].toUpperCase() + theme.slice(1)}`);
+      btn?.setAttribute('title', `Theme: ${theme[0].toUpperCase() + theme.slice(1)}`);
     }
 
     const saved = localStorage.getItem(KEY) || 'auto';
     apply(saved);
-    mql.addEventListener?.('change', ()=> { if((localStorage.getItem(KEY)||'auto')==='auto') apply('auto'); });
+    mql.addEventListener?.('change', () => { if ((localStorage.getItem(KEY) || 'auto') === 'auto') apply('auto'); });
 
-    btn?.addEventListener('click', ()=>{
+    btn?.addEventListener('click', () => {
       const cur = localStorage.getItem(KEY) || 'auto';
-      const next = order[(order.indexOf(cur)+1)%order.length];
+      const next = order[(order.indexOf(cur) + 1) % order.length];
       localStorage.setItem(KEY, next);
       apply(next);
     });
   })();
 }
 
-function setTheme(next){
+function setTheme(next) {
   document.documentElement.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
   currentTheme = next;
@@ -156,7 +156,7 @@ function setTheme(next){
   if (icon) icon.className = next === 'light' ? 'fas fa-sun' : 'fas fa-moon';
 }
 
-function getTheme(){
+function getTheme() {
   return document.documentElement.getAttribute('data-theme') || 'dark';
 }
 
@@ -179,17 +179,17 @@ async function loadJSON(name) {
   return await safeAsync(async () => {
     const url = `${jsonURL(name)}?v=${Date.now()}`;
     console.log('📥 Loading JSON:', url);
-    
-    const res = await fetch(url, { 
+
+    const res = await fetch(url, {
       cache: 'no-store',
       headers: {
         'Cache-Control': 'no-cache',
         'Pragma': 'no-cache'
       }
     });
-    
+
     if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
-    
+
     const data = await res.json();
     console.log('📥 JSON data loaded:', data);
     return data;
@@ -342,7 +342,7 @@ function showLoadingStates() {
   } else {
     console.error('❌ projectsContainer not found for skeleton loading');
   }
-  
+
   if (skillsContainer) {
     skillsContainer.innerHTML = `
       <div class="skeleton-card">
@@ -494,7 +494,7 @@ function setupEventListeners() {
   // Modern event delegation for better performance
   delegateEvent('#searchInput', 'input', debounce(handleSearch, 300));
   delegateEvent('.filter-btn', 'click', handleFilter);
-  
+
   // Legacy support for existing elements
   if (searchInput) {
     searchInput.addEventListener('input', debounce(handleSearch, 300));
@@ -532,26 +532,26 @@ function handleFilter(e) {
 function renderProjects(list = projects) {
   console.log('🎨 renderProjects called with:', list);
   console.log('📦 projectsContainer:', projectsContainer);
-  
+
   if (!projectsContainer) {
     console.error('❌ projectsContainer not found!');
     return;
   }
-  
+
   // For home page, show only featured projects (max 3)
   const isHomePage = window.location.pathname.includes('index.html') || window.location.pathname === '/';
   const displayList = isHomePage ? list.slice(0, 3) : list;
-  
+
   console.log('📄 Is Home Page:', isHomePage);
   console.log('📋 Display List:', displayList);
-  
+
   // Clear skeleton loading states
   const skeletons = projectsContainer.querySelectorAll('.skel');
   skeletons.forEach(skel => skel.remove());
-  
+
   const html = displayList.map(toCardHTML).join('');
   console.log('🎨 Generated HTML length:', html.length);
-  
+
   projectsContainer.innerHTML = html;
   initializeRevealAnimations();
   attachCardEvents(displayList);
@@ -565,7 +565,7 @@ function toCardHTML(p) {
   const repo = p.links?.repo || '#';
 
   return `
-    <div class="portfolio-item reveal" data-project-id="${p.id}">
+    <div class="portfolio-item reveal-scale" data-project-id="${p.id}">
       <div class="portfolio-image-container">
         <img src="${cover.src || ''}" alt="${cover.alt || p.title || 'Project'}" class="portfolio-image" loading="lazy">
         <div class="portfolio-overlay">
@@ -644,11 +644,11 @@ function attachCardEvents(list) {
 // ---------- Render: Services / Skills / Certs ----------
 function renderServices() {
   if (!servicesContainer) return;
-  
+
   // Clear skeleton loading states
   const skeletons = servicesContainer.querySelectorAll('.skel');
   skeletons.forEach(skel => skel.remove());
-  
+
   servicesContainer.innerHTML = services
     .map(
       (s) => `
@@ -674,7 +674,7 @@ function renderSkills(skills) {
   // Clear skeleton loading states and fallback text
   const skeletons = skillsContainer.querySelectorAll('.skel');
   skeletons.forEach(skel => skel.remove());
-  
+
   // Remove fallback text
   const fallback = skillsContainer.querySelector('[data-fallback]');
   if (fallback) {
@@ -689,7 +689,7 @@ function renderSkills(skills) {
   // Check if we're on home page (skills summary) or about page (full skills)
   const isHomePage = window.location.pathname.includes('index.html') || window.location.pathname === '/';
   const isAboutPage = window.location.pathname.includes('about.html');
-  
+
   if (isHomePage) {
     // Home page: Show top skills only (max 6)
     const topSkills = skills.slice(0, 6);
@@ -720,9 +720,9 @@ function renderSkills(skills) {
           <h3>${group}</h3>
           <div class="skills-grid">
             ${items
-              .map((sk) => {
-                const pct = sk.level === 'high' ? 85 : sk.level === 'medium' ? 50 : 25;
-                return `
+          .map((sk) => {
+            const pct = sk.level === 'high' ? 85 : sk.level === 'medium' ? 50 : 25;
+            return `
                   <div class="skill-card">
                     <i class="${sk.icon || 'fas fa-check'} skill-icon"></i>
                     <span>${sk.name}</span>
@@ -737,22 +737,22 @@ function renderSkills(skills) {
                       </div>
                     </div>
                   </div>`;
-              })
-              .join('')}
+          })
+          .join('')}
           </div>
         </div>`;
     }
     console.log("🎨 Setting skills container HTML:", html.length, "characters");
     skillsContainer.innerHTML = html;
-    
+
     // Animate donuts after mount
     requestAnimationFrame(() => {
       document.querySelectorAll('.skill-progress .progress').forEach((c) => {
         // map by class (same as your CSS)
         const offset =
           c.classList.contains('high') ? 47.1 :
-          c.classList.contains('medium') ? 157 :
-          235.5; // low
+            c.classList.contains('medium') ? 157 :
+              235.5; // low
         c.style.transition = 'stroke-dashoffset 0.8s ease';
         c.style.strokeDashoffset = String(offset);
       });
@@ -780,29 +780,29 @@ function renderCertifications(certs) {
     console.debug('ℹ️  No certifications container found - this is normal for portfolio page');
     return;
   }
-  
+
   // Remove fallback text
   const fallback = certificationsContainer.querySelector('[data-fallback]');
   if (fallback) {
     fallback.remove();
   }
-  
+
   // Only show certifications on About page, not on Home page
   const isHomePage = window.location.pathname.includes('index.html') || window.location.pathname === '/';
   const isAboutPage = window.location.pathname.includes('about.html');
-  
+
   console.log('isHomePage:', isHomePage, 'isAboutPage:', isAboutPage);
-  
+
   if (isHomePage) {
     certificationsContainer.innerHTML = '';
     return;
   }
-  
+
   if (!isAboutPage) {
     certificationsContainer.innerHTML = '';
     return;
   }
-  
+
   certificationsContainer.innerHTML = (certs || [])
     .map(
       (t) => `
@@ -923,7 +923,7 @@ function openProjectModal(p) {
 
 function openGalleryModal(p) {
   console.log('🖼️ openGalleryModal called for:', p.title);
-  
+
   // Guard: ตรวจสอบว่าอยู่หน้า portfolio และมี modal
   if (!onPortfolio) {
     console.debug('Not on portfolio page, skipping gallery modal');
@@ -950,12 +950,12 @@ function openGalleryModal(p) {
 
   const wrap = $('.gallery-wrap', modal);
   console.log('🖼️ Gallery wrap found:', wrap);
-  
+
   if (!wrap) {
     console.warn('Gallery wrap container not found. Skipping.');
     return;
   }
-  
+
   wrap.innerHTML = `
     <div class="gallery-main">
       <img id="gallery-main-img" src="${p.gallery[0].src}" alt="${p.gallery[0].alt}">
@@ -969,14 +969,14 @@ function openGalleryModal(p) {
       </div>` : ''}
     <div class="gallery-thumbnails" id="gallery-thumbnails">
       ${p.gallery
-        .map(
-          (g, i) => `
+      .map(
+        (g, i) => `
         <figure class="gallery-item ${i === 0 ? 'active' : ''}" data-index="${i}">
           <img src="${g.src}" alt="${g.alt}" loading="lazy">
           <figcaption>${g.alt}</figcaption>
         </figure>`
-        )
-        .join('')}
+      )
+      .join('')}
     </div>`;
 
   let current = 0;
@@ -992,7 +992,7 @@ function openGalleryModal(p) {
     current = (index + p.gallery.length) % p.gallery.length;
     const img = p.gallery[current];
     console.log('🖼️ Updating to image:', current, img.src);
-    
+
     if (mainImg) {
       mainImg.src = img.src;
       mainImg.alt = img.alt;
@@ -1021,7 +1021,7 @@ function openGalleryModal(p) {
       update(current + 1);
     });
   }
-  
+
   if (thumbs) {
     const thumbItems = thumbs.querySelectorAll('.gallery-item');
     thumbItems.forEach((el) =>
@@ -1031,7 +1031,7 @@ function openGalleryModal(p) {
       })
     );
   }
-  
+
   if (dots.length > 0) {
     dots.forEach((d) =>
       d.addEventListener('click', () => {
@@ -1056,24 +1056,54 @@ function closeModal(modal) {
 
 // ---------- Reveal on scroll ----------
 function initializeRevealAnimations() {
-  const els = document.querySelectorAll('.reveal');
+  const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+
+  // Fallback for no IntersectionObserver
   if (!('IntersectionObserver' in window)) {
     els.forEach((el) => el.classList.add('show'));
     return;
   }
-  
+
+  const queue = [];
+  let processing = false;
+
+  const processQueue = () => {
+    if (!queue.length) {
+      processing = false;
+      return;
+    }
+
+    // Config: Delay between items in the same batch
+    const STAGGER_DELAY = 100;
+
+    const el = queue.shift();
+    el.classList.add('show');
+
+    requestAnimationFrame(() => {
+      setTimeout(processQueue, STAGGER_DELAY);
+    });
+  };
+
   const io = createIntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('show');
+          // If it's already visible or in queue, skip
+          if (entry.target.classList.contains('show')) return;
+
+          queue.push(entry.target);
           io.unobserve(entry.target);
+
+          if (!processing) {
+            processing = true;
+            processQueue();
+          }
         }
       });
     },
-    { threshold: 0.12 }
+    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
   );
-  
+
   els.forEach((el) => io.observe(el));
 }
 
@@ -1100,9 +1130,9 @@ async function safeAsync(fn, fallback = null) {
 function createIntersectionObserver(callback, options = {}) {
   if (!('IntersectionObserver' in window)) {
     // Fallback for older browsers
-    return { observe: () => {}, unobserve: () => {} };
+    return { observe: () => { }, unobserve: () => { } };
   }
-  
+
   return new IntersectionObserver(callback, {
     threshold: 0.1,
     rootMargin: '50px',

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project Manager - Hidden</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Admin specific overrides */
+        body {
+            padding-top: 100px;
+        }
+
+        .admin-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            color: #fff;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .output-area {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #111;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            color: #0f0;
+            display: none;
+        }
+
+        .btn-copy {
+            margin-top: 1rem;
+            display: none;
+        }
+
+        #auth-screen {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #app-screen {
+            display: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- AUTH SCREEN -->
+    <div id="auth-screen">
+        <h2>Restricted Area</h2>
+        <div style="margin-top: 1rem; display: flex; gap: 0.5rem;">
+            <input type="password" id="pin-input" placeholder="Enter PIN" style="padding: 0.5rem; border-radius: 4px;">
+            <button onclick="checkPin()" class="btn-primary">Enter</button>
+        </div>
+        <p id="error-msg" style="color: red; margin-top: 1rem; display: none;">Access Denied</p>
+    </div>
+
+    <!-- APP SCREEN -->
+    <div id="app-screen">
+        <div class="admin-container">
+            <h1>Add New Project</h1>
+            <p class="muted">Fill this form to generate JSON for <code>projects.json</code></p>
+
+            <form id="project-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>ID (Unique)</label>
+                        <input type="text" name="id" required placeholder="e.g. hanaihang">
+                    </div>
+                    <div class="form-group">
+                        <label>Year</label>
+                        <input type="number" name="year" value="2025">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" name="title" required placeholder="Project Name">
+                </div>
+
+                <div class="form-group">
+                    <label>Slug (URL friendly)</label>
+                    <input type="text" name="slug" required placeholder="project-name">
+                </div>
+
+                <div class="form-group">
+                    <label>Summary</label>
+                    <textarea name="summary" required placeholder="Short description..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Roles (comma separated)</label>
+                    <input type="text" name="role" placeholder="Product Designer, Developer, Tester">
+                </div>
+
+                <div class="form-group">
+                    <label>Tech Stack (comma separated)</label>
+                    <input type="text" name="stack" placeholder="React, APIs, Firebase">
+                </div>
+
+                <div class="form-group">
+                    <label>Highlights (one per line)</label>
+                    <textarea name="highlights" placeholder="- Feature 1&#10;- Feature 2"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Cover Image Path</label>
+                        <input type="text" name="coverImage" value="./assets/projects/"
+                            placeholder="./assets/projects/folder/cover.webp">
+                    </div>
+                    <div class="form-group">
+                        <label>Cover Alt Text</label>
+                        <input type="text" name="coverAlt" placeholder="Description of cover image">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Gallery Images (Path | Alt Description) - one per line</label>
+                    <textarea name="gallery"
+                        placeholder="./assets/p1.png | Home page&#10;./assets/p2.png | Admin dashboard"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Live URL</label>
+                        <input type="url" name="linkLive" placeholder="https://...">
+                    </div>
+                    <div class="form-group">
+                        <label>Repo URL</label>
+                        <input type="url" name="linkRepo" placeholder="https://github.com/...">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Tags (comma separated)</label>
+                    <input type="text" name="tags" placeholder="Web App, Admin Panel, UI/UX">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Detailed Case Study?</label>
+                        <select name="caseStudy">
+                            <option value="false">No</option>
+                            <option value="true">Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select name="status">
+                            <option value="Active">Active</option>
+                            <option value="Archived">Archived</option>
+                            <option value="In Progress">In Progress</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%;">Generate JSON</button>
+            </form>
+
+            <div class="output-area" id="output"></div>
+            <button id="copy-btn" class="btn-secondary btn-copy" onclick="copyToClipboard()">Copy to Clipboard</button>
+        </div>
+    </div>
+
+    <script>
+        const PIN = "1234"; // Simple protection
+
+        function checkPin() {
+            const input = document.getElementById('pin-input').value;
+            if (input === PIN) {
+                document.getElementById('auth-screen').style.display = 'none';
+                document.getElementById('app-screen').style.display = 'block';
+            } else {
+                document.getElementById('error-msg').style.display = 'block';
+            }
+        }
+
+        // Allow enter key for pin
+        document.getElementById('pin-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') checkPin();
+        });
+
+        document.getElementById('project-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+
+            // Process Lists
+            const role = formData.get('role').split(',').map(s => s.trim()).filter(Boolean);
+            const stack = formData.get('stack').split(',').map(s => s.trim()).filter(Boolean);
+            const tags = formData.get('tags').split(',').map(s => s.trim()).filter(Boolean);
+            const highlights = formData.get('highlights').split('\n').map(s => s.trim()).filter(Boolean);
+
+            // Process Gallery
+            const galleryLines = formData.get('gallery').split('\n').filter(Boolean);
+            const gallery = galleryLines.map(line => {
+                const [src, alt] = line.split('|').map(s => s.trim());
+                return { src: src, alt: alt || 'Project screenshot' };
+            });
+
+            const project = {
+                id: formData.get('id'),
+                title: formData.get('title'),
+                slug: formData.get('slug'),
+                year: parseInt(formData.get('year')),
+                summary: formData.get('summary'),
+                role: role,
+                stack: stack,
+                highlights: highlights,
+                coverImage: {
+                    src: formData.get('coverImage'),
+                    alt: formData.get('coverAlt')
+                },
+                gallery: gallery,
+                links: {
+                    live: formData.get('linkLive') || "#",
+                    repo: formData.get('linkRepo') || "#"
+                },
+                tags: tags,
+                cta: formData.get('caseStudy') === 'true' ? "View case study" : "View project",
+                status: formData.get('status'),
+                caseStudy: formData.get('caseStudy') === 'true'
+            };
+
+            const jsonStr = JSON.stringify(project, null, 2);
+            const output = document.getElementById('output');
+            output.innerText = ",\n" + jsonStr; // Add comma for easy pasting
+            output.style.display = 'block';
+            document.getElementById('copy-btn').style.display = 'inline-flex';
+        });
+
+        function copyToClipboard() {
+            const text = document.getElementById('output').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied! Now paste it into projects.json');
+            });
+        }
+    </script>
+</body>
+
+</html>

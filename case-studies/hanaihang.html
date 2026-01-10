@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-  <meta name="description" content="Case Study: HaaNaiHang - Mall & Store Finder with Admin Panel built with React, TypeScript, and Firebase">
+  <meta name="description"
+    content="Case Study: HaaNaiHang - Mall & Store Finder with Admin Panel built with React, TypeScript, and Firebase">
   <meta name="theme-color" content="#111111">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
@@ -26,69 +28,7 @@
   <link rel="stylesheet" href="../style.css?v=2025-09-13">
   <link rel="stylesheet" href="case-study.css?v=2025-09-13">
   <!-- Inline CSS for testing -->
-  <style>
-    .case-study-page {
-      background: #111 !important;
-      color: #fff !important;
-    }
-    .case-study-page .case-article {
-      background: #222 !important;
-      color: #fff !important;
-      padding: 2rem !important;
-      border-radius: 12px !important;
-      margin: 1rem !important;
-    }
-    .case-study-page .screenshots-grid {
-      display: grid !important;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-      gap: 1.5rem !important;
-      margin-top: 1rem !important;
-    }
-    .case-study-page .screenshot-item {
-      background: #333 !important;
-      border: 1px solid #555 !important;
-      border-radius: 12px !important;
-      padding: 1rem !important;
-      overflow: hidden !important;
-    }
-    .case-study-page .screenshot-item img {
-      width: 100% !important;
-      max-width: 100% !important;
-      height: auto !important;
-      border-radius: 8px !important;
-      display: block !important;
-      margin-bottom: 0.75rem !important;
-      object-fit: contain !important;
-    }
-  </style>
-  <!-- Debug CSS Loading -->
-  <script>
-    console.log('🔍 Checking CSS files...');
-    const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
-    stylesheets.forEach((link, index) => {
-      console.log(`📄 Stylesheet ${index + 1}:`, link.href);
-      link.onload = () => console.log('✅ CSS loaded:', link.href);
-      link.onerror = () => console.error('❌ CSS failed to load:', link.href);
-    });
 
-    // Check CSS rules after page load
-    window.addEventListener('load', () => {
-      console.log('🔍 Checking CSS rules...');
-      const body = document.body;
-      const computedStyle = window.getComputedStyle(body);
-      console.log('📄 Body class:', body.className);
-      console.log('📄 Body color:', computedStyle.color);
-      console.log('📄 Body background:', computedStyle.backgroundColor);
-
-      // Check if case-study.css rules are applied
-      const testElement = document.querySelector('.case-article');
-      if (testElement) {
-        const testStyle = window.getComputedStyle(testElement);
-        console.log('📄 Case article color:', testStyle.color);
-        console.log('📄 Case article background:', testStyle.backgroundColor);
-      }
-    });
-  </script>
   <!-- Theme setup script -->
   <script>
     (function () {
@@ -101,9 +41,9 @@
         root.classList.remove('light-theme');
         if (theme === 'light') root.classList.add('light-theme');
 
-        const meta = document.querySelector('meta[name="theme-color"]') || (function(){
+        const meta = document.querySelector('meta[name="theme-color"]') || (function () {
           const m = document.createElement('meta');
-          m.name='theme-color';
+          m.name = 'theme-color';
           document.head.appendChild(m);
           return m;
         })();
@@ -120,6 +60,7 @@
     })();
   </script>
 </head>
+
 <body class="case-study-page">
   <!-- Navigation -->
   <nav class="navbar" id="navbar" aria-label="Primary">
@@ -185,14 +126,16 @@
           </div>
         </div>
         <div class="project-image">
-          <img src="../assets/projects/hanaihang/cover.webp" alt="HaaNaiHang Mall & Store Finder" width="1200" height="675" loading="lazy" decoding="async">
+          <img src="../assets/projects/hanaihang/cover.webp" alt="HaaNaiHang Mall & Store Finder" width="1200"
+            height="675" loading="lazy" decoding="async">
         </div>
       </header>
 
       <!-- Project Overview -->
       <section class="content-section reveal">
         <h2>Project Overview</h2>
-        <p class="lead">เว็บช่วยค้นหาห้าง/ร้านค้าใกล้ตัว พร้อมแผงผู้ดูแลในการเพิ่ม/แก้ไขข้อมูลศูนย์การค้าและร้านค้าแบบเป็นระบบ</p>
+        <p class="lead">เว็บช่วยค้นหาห้าง/ร้านค้าใกล้ตัว
+          พร้อมแผงผู้ดูแลในการเพิ่ม/แก้ไขข้อมูลศูนย์การค้าและร้านค้าแบบเป็นระบบ</p>
 
         <div class="project-details">
           <div class="detail-item">
@@ -225,22 +168,28 @@
         <h2>Key Screens</h2>
         <div class="screenshots-grid">
           <div class="screenshot-item">
-            <img src="../assets/projects/hanaihang/cover.webp" alt="หน้าแรก: ปุ่มระบุตำแหน่ง + ช่องค้นหา + การ์ดห้าง" width="1200" height="675" loading="lazy" decoding="async">
+            <img src="../assets/projects/hanaihang/cover.webp" alt="หน้าแรก: ปุ่มระบุตำแหน่ง + ช่องค้นหา + การ์ดห้าง"
+              width="1200" height="675" loading="lazy" decoding="async">
             <h3>Home Page</h3>
             <p>หน้าแรก: ปุ่มระบุตำแหน่ง + ช่องค้นหา + การ์ดห้าง</p>
           </div>
           <div class="screenshot-item">
-            <img src="../assets/projects/hanaihang/gallery-02.webp" alt="Admin: ตารางรายการศูนย์การค้าและสรุปข้อมูลสำคัญ" width="1200" height="675" loading="lazy" decoding="async">
+            <img src="../assets/projects/hanaihang/gallery-02.webp"
+              alt="Admin: ตารางรายการศูนย์การค้าและสรุปข้อมูลสำคัญ" width="1200" height="675" loading="lazy"
+              decoding="async">
             <h3>Admin Dashboard</h3>
             <p>Admin: ตารางรายการศูนย์การค้าและสรุปข้อมูลสำคัญ</p>
           </div>
           <div class="screenshot-item">
-            <img src="../assets/projects/hanaihang/gallery-03.webp" alt="Admin: ฟอร์มเพิ่มร้านค้า—เลือกห้าง, ชั้น, หมวดหมู่, เวลาเปิดปิด" width="1200" height="675" loading="lazy" decoding="async">
+            <img src="../assets/projects/hanaihang/gallery-03.webp"
+              alt="Admin: ฟอร์มเพิ่มร้านค้า—เลือกห้าง, ชั้น, หมวดหมู่, เวลาเปิดปิด" width="1200" height="675"
+              loading="lazy" decoding="async">
             <h3>Store Management</h3>
             <p>Admin: ฟอร์มเพิ่มร้านค้า—เลือกห้าง, ชั้น, หมวดหมู่, เวลาเปิดปิด</p>
           </div>
           <div class="screenshot-item">
-            <img src="../assets/projects/hanaihang/gallery-04.webp" alt="หน้าค้นหา—ผลลัพธ์ห้างหลายรายการพร้อมระยะทาง" width="1200" height="675" loading="lazy" decoding="async">
+            <img src="../assets/projects/hanaihang/gallery-04.webp" alt="หน้าค้นหา—ผลลัพธ์ห้างหลายรายการพร้อมระยะทาง"
+              width="1200" height="675" loading="lazy" decoding="async">
             <h3>Search Results</h3>
             <p>หน้าค้นหา—ผลลัพธ์ห้างหลายรายการพร้อมระยะทาง</p>
           </div>
@@ -351,34 +300,35 @@ Analytics:
   <!-- Reading Progress Bar -->
   <script>
     // Reading Progress Bar
-    (function(){
+    (function () {
       const bar = document.getElementById('read-progress');
-      if(!bar) return;
+      if (!bar) return;
       const onScroll = () => {
         const h = document.documentElement;
-        const pct = (h.scrollTop)/(h.scrollHeight - h.clientHeight)*100;
+        const pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
         bar.style.width = pct + '%';
       };
-      window.addEventListener('scroll', onScroll, {passive:true});
+      window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
     })();
 
     // Lightbox for images
-    document.addEventListener('click', (e)=>{
+    document.addEventListener('click', (e) => {
       const img = e.target.closest('img');
-      if(!img || img.closest('.lb')) return;
+      if (!img || img.closest('.lb')) return;
 
       const overlay = document.createElement('div');
-      overlay.className='lb';
+      overlay.className = 'lb';
       overlay.innerHTML = `<img src="${img.src}" alt="${img.alt || ''}"><button aria-label="close">×</button>`;
       document.body.appendChild(overlay);
 
-      overlay.addEventListener('click', (e)=>{
-        if(e.target === overlay || e.target.tagName === 'BUTTON') {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay || e.target.tagName === 'BUTTON') {
           overlay.remove();
         }
       });
     });
   </script>
 </body>
+
 </html>
