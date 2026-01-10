@@ -1216,8 +1216,11 @@ p {
     line-height: 1.6;
 }
 
-.journey-content strong {
-    color: var(--accent-color);
-    display: block;
-    margin-bottom: 0.25rem;
+/* Looking For Section */
+.looking-for-section {
+    background: var(--neutral-100);
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 2rem;
 }
