@@ -1192,7 +1192,7 @@ p {
     align-items: flex-start;
     gap: 1rem;
     padding: 1rem;
-    background: var(--bg-secondary);
+    background-color: var(--bg-secondary);
     border-radius: 0.75rem;
     margin-bottom: 1rem;
     transition: transform 0.2s;
@@ -1356,6 +1356,7 @@ p {
         background: rgba(255, 255, 255, 0.02);
     }
 }
+
 /* Timeline Journey Styling */
 .timeline {
     position: relative;
@@ -1367,7 +1368,8 @@ p {
 .timeline::before {
     content: '';
     position: absolute;
-    left: 7px; /* Center with marker */
+    left: 7px;
+    /* Center with marker */
     top: 10px;
     bottom: 0;
     width: 2px;
@@ -1397,7 +1399,8 @@ p {
     background: var(--surface-1);
     border: 3px solid var(--accent);
     z-index: 2;
-    box-shadow: 0 0 0 4px var(--surface-1); /* Space around marker */
+    box-shadow: 0 0 0 4px var(--surface-1);
+    /* Space around marker */
 }
 
 .timeline-content {
@@ -1439,7 +1442,8 @@ p {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(220, 38, 38, 0.08); /* Accent tint */
+    background: rgba(220, 38, 38, 0.08);
+    /* Accent tint */
     color: var(--accent);
     font-size: 0.8rem;
     font-weight: 700;
@@ -1468,8 +1472,11 @@ p {
     .timeline-content {
         background: rgba(255, 255, 255, 0.02);
     }
+
     .timeline-content::before {
-        background: var(--surface-1); /* Match card bg in dark mode might require specific hex if transparent */
-        background: #161b22; /* Fallback hardcoded */
+        background: var(--surface-1);
+        /* Match card bg in dark mode might require specific hex if transparent */
+        background: #161b22;
+        /* Fallback hardcoded */
     }
 }
