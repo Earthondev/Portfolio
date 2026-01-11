@@ -27,17 +27,92 @@
   --grad-end: #991b1b;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap');
+
+/* === Design Tokens v4 - Modern Glass Red === */
+:root {
+  /* Brand */
+  --brand-600: #dc2626;
+  --brand-500: #ef4444;
+  --brand-400: #f87171;
+
+  /* Backgrounds */
+  --bg: #0a0a0f;
+  --surface-glass: rgba(255, 255, 255, 0.03);
+  --border-glass: rgba(255, 255, 255, 0.08);
+
+  /* Fonts */
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Sarabun', sans-serif;
+}
+
 body {
-  font-family: 'Poppins', 'Segoe UI', Roboto, Arial, sans-serif;
+  font-family: var(--font-body);
   background-color: var(--bg);
-  /* Subtle dark gradient instead of overwhelming red */
-  background: radial-gradient(circle at top right, #300a0a, var(--bg));
-  color: var(--on-bg);
+  color: #ffffff;
   min-height: 100vh;
   line-height: 1.6;
   padding: 4.5rem 1rem 2rem;
-  background-size: 100% 100%;
+  /* Grid Pattern Background */
+  background-image:
+    linear-gradient(rgba(220, 38, 38, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(220, 38, 38, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-attachment: fixed;
+  overflow-x: hidden;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+/* Glassmorphism Utilities */
+.glass-card {
+  background: var(--surface-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glass);
+  border-radius: 1rem;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #f87171 0%, #ef4444 50%, #dc2626 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+/* Glow Border Effect */
+.glow-border {
+  position: relative;
+  z-index: 1;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, #f87171, #ef4444, #991b1b);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-border:hover::before {
+  opacity: 1;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
 
 /* Remove old animation for performance and readability */
 @keyframes gradientBG {
