@@ -1,103 +1,5 @@
 [
   {
-    "id": "hanaihang",
-    "title": "HaaNaiHang – Mall & Store Finder + Admin",
-    "slug": "hanaihang",
-    "year": 2025,
-    "summary": "เว็บช่วยค้นหาห้าง/ร้านค้าใกล้ตัว พร้อมแผงผู้ดูแลในการเพิ่ม/แก้ไขข้อมูลศูนย์การค้าและร้านค้าแบบเป็นระบบ",
-    "role": [
-      "Product Designer",
-      "Frontend (React)",
-      "Tester"
-    ],
-    "stack": [
-      "React",
-      "TypeScript",
-      "Vite",
-      "Tailwind",
-      "Firebase",
-      "Netlify"
-    ],
-    "highlights": [
-      "ค้นหาห้าง/ร้านได้ใน 1-2 คลิก, รองรับมือถือเต็มรูปแบบ",
-      "Admin ลดเวลาบันทึกข้อมูล ~35-45% ผ่านฟอร์มที่มี validation + autosave",
-      "A11y ≥ 95 | Lighthouse ≥ 95 | โหลด < 2s (WebP + lazy + preconnect)",
-      "Analytics: GA4 events ติดตามการค้นหายอดนิยม"
-    ],
-    "coverImage": {
-      "src": "./assets/projects/hanaihang/cover.png",
-      "alt": "หน้าค้นหาห้างใกล้คุณของ HaaNaiHang พร้อมปุ่มระบุตำแหน่งและช่องค้นหา"
-    },
-    "gallery": [
-      {
-        "src": "./assets/projects/hanaihang/cover.webp",
-        "alt": "หน้าแรก: ปุ่มระบุตำแหน่ง + ช่องค้นหา + การ์ดห้าง"
-      },
-      {
-        "src": "./assets/projects/hanaihang/gallery-02.webp",
-        "alt": "Admin: ตารางรายการศูนย์การค้าและสรุปข้อมูลสำคัญ"
-      }
-    ],
-    "links": {
-      "live": "https://hanaihang.netlify.app/",
-      "repo": "https://github.com/Earthondev/Hanaihang"
-    },
-    "tags": [
-      "Web App",
-      "Admin Panel",
-      "Geolocation",
-      "UI/UX"
-    ],
-    "cta": "View project",
-    "status": "Active",
-    "caseStudy": true
-  },
-  {
-    "id": "inventory-amino",
-    "title": "Inventory Amino – Lab Stock Management",
-    "slug": "inventory-amino",
-    "year": 2025,
-    "summary": "ระบบจัดการสต็อกสารเคมี/วัสดุในแล็บ Mobile-first พร้อมแกลเลอรีรูป, รายงานคงเหลือ และแจ้งเตือนของใกล้หมด",
-    "role": [
-      "Product Designer",
-      "No-Code Developer",
-      "Data Modeler"
-    ],
-    "stack": [
-      "AppSheet",
-      "Google Spreadsheet",
-      "Automation"
-    ],
-    "highlights": [
-      "Mobile-first inventory for lab teams",
-      "Cut picking time 30–50% | Error −40%",
-      "Real-time stock updates & Low-stock alerts",
-      "No-code solution with enterprise-grade validation"
-    ],
-    "coverImage": {
-      "src": "./assets/projects/Inventory amino/Screenshot 2568-09-13 at 12.17.06.png",
-      "alt": "รายการคงเหลือสต็อกสารเคมีในแล็บ พร้อมการค้นหาและสถานะคงเหลือ"
-    },
-    "gallery": [
-      {
-        "src": "./assets/projects/Inventory amino/Screenshot 2568-09-13 at 12.17.06.png",
-        "alt": "รายการคงเหลือ: แสดงภาพย่อ, ชื่อสินค้า, จำนวนคงเหลือ และสถานะเตือน"
-      }
-    ],
-    "links": {
-      "caseStudy": "./case-studies/inventory-amino.html"
-    },
-    "tags": [
-      "Mobile App",
-      "Inventory",
-      "No-Code",
-      "Automation"
-    ],
-    "cta": "View Case Study",
-    "status": "Active",
-    "caseStudy": true
-  },
-  {
     "id": "care-for-mom",
     "title": "Care for Mom – AI Health Companion",
     "slug": "care-for-mom",
@@ -209,6 +111,104 @@
     "cta": "View Code",
     "status": "Completed",
     "caseStudy": false
+  },
+  {
+    "id": "hanaihang",
+    "title": "HaaNaiHang – Mall & Store Finder + Admin",
+    "slug": "hanaihang",
+    "year": 2025,
+    "summary": "เว็บช่วยค้นหาห้าง/ร้านค้าใกล้ตัว พร้อมแผงผู้ดูแลในการเพิ่ม/แก้ไขข้อมูลศูนย์การค้าและร้านค้าแบบเป็นระบบ",
+    "role": [
+      "Product Designer",
+      "Frontend (React)",
+      "Tester"
+    ],
+    "stack": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind",
+      "Firebase",
+      "Netlify"
+    ],
+    "highlights": [
+      "ค้นหาห้าง/ร้านได้ใน 1-2 คลิก, รองรับมือถือเต็มรูปแบบ",
+      "Admin ลดเวลาบันทึกข้อมูล ~35-45% ผ่านฟอร์มที่มี validation + autosave",
+      "A11y ≥ 95 | Lighthouse ≥ 95 | โหลด < 2s (WebP + lazy + preconnect)",
+      "Analytics: GA4 events ติดตามการค้นหายอดนิยม"
+    ],
+    "coverImage": {
+      "src": "./assets/projects/hanaihang/cover.png",
+      "alt": "หน้าค้นหาห้างใกล้คุณของ HaaNaiHang พร้อมปุ่มระบุตำแหน่งและช่องค้นหา"
+    },
+    "gallery": [
+      {
+        "src": "./assets/projects/hanaihang/cover.webp",
+        "alt": "หน้าแรก: ปุ่มระบุตำแหน่ง + ช่องค้นหา + การ์ดห้าง"
+      },
+      {
+        "src": "./assets/projects/hanaihang/gallery-02.webp",
+        "alt": "Admin: ตารางรายการศูนย์การค้าและสรุปข้อมูลสำคัญ"
+      }
+    ],
+    "links": {
+      "live": "https://hanaihang.netlify.app/",
+      "repo": "https://github.com/Earthondev/Hanaihang"
+    },
+    "tags": [
+      "Web App",
+      "Admin Panel",
+      "Geolocation",
+      "UI/UX"
+    ],
+    "cta": "View project",
+    "status": "Active",
+    "caseStudy": true
+  },
+  {
+    "id": "inventory-amino",
+    "title": "Inventory Amino – Lab Stock Management",
+    "slug": "inventory-amino",
+    "year": 2025,
+    "summary": "ระบบจัดการสต็อกสารเคมี/วัสดุในแล็บ Mobile-first พร้อมแกลเลอรีรูป, รายงานคงเหลือ และแจ้งเตือนของใกล้หมด",
+    "role": [
+      "Product Designer",
+      "No-Code Developer",
+      "Data Modeler"
+    ],
+    "stack": [
+      "AppSheet",
+      "Google Spreadsheet",
+      "Automation"
+    ],
+    "highlights": [
+      "Mobile-first inventory for lab teams",
+      "Cut picking time 30–50% | Error −40%",
+      "Real-time stock updates & Low-stock alerts",
+      "No-code solution with enterprise-grade validation"
+    ],
+    "coverImage": {
+      "src": "./assets/projects/Inventory amino/Screenshot 2568-09-13 at 12.17.06.png",
+      "alt": "รายการคงเหลือสต็อกสารเคมีในแล็บ พร้อมการค้นหาและสถานะคงเหลือ"
+    },
+    "gallery": [
+      {
+        "src": "./assets/projects/Inventory amino/Screenshot 2568-09-13 at 12.17.06.png",
+        "alt": "รายการคงเหลือ: แสดงภาพย่อ, ชื่อสินค้า, จำนวนคงเหลือ และสถานะเตือน"
+      }
+    ],
+    "links": {
+      "caseStudy": "./case-studies/inventory-amino.html"
+    },
+    "tags": [
+      "Mobile App",
+      "Inventory",
+      "No-Code",
+      "Automation"
+    ],
+    "cta": "View Case Study",
+    "status": "Active",
+    "caseStudy": true
   },
   {
     "id": "pdf-toolkit",
