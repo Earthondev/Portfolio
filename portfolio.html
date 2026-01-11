@@ -1,312 +1,738 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <meta name="cache-bust" content="v5-2025-01-13-emergency">
-    <meta name="force-reload" content="true">
-    <title>Portfolio - Nattapart Worakun</title>
+    <title>Portfolio Showcase | Nattapart Worakun</title>
 
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Sarabun', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
 
-    <!-- SEO Meta Tags -->
-    <meta name="description"
-        content="Explore Nattapart Worakun's portfolio of data analysis, BI development, and automation projects. View case studies and technical implementations.">
-    <meta name="keywords" content="portfolio, projects, data analyst, BI developer, case studies, Thailand">
-    <meta name="author" content="Nattapart Worakun">
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Portfolio - Nattapart Worakun">
-    <meta property="og:description"
-        content="Explore featured projects in data analysis, BI development, and automation.">
-    <meta property="og:image" content="https://earthondev.github.io/Portfolio/assets/og-cover.webp">
-    <meta property="og:url" content="https://earthondev.github.io/Portfolio/portfolio.html">
-    <meta property="og:type" content="website">
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Portfolio - Nattapart Worakun">
-    <meta name="twitter:description"
-        content="Explore featured projects in data analysis, BI development, and automation.">
-    <meta name="twitter:image" content="https://earthondev.github.io/Portfolio/assets/og-cover.webp">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-    <!-- Preconnect for Performance -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
-    <!-- Fonts and Styles -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
 
-    <!-- Theme color -->
-    <meta name="theme-color" content="#111111">
-    <meta name="color-scheme" content="light dark">
+        * {
+            font-family: 'Sarabun', 'Space Grotesk', sans-serif;
+        }
 
-    <!-- JSON-LD: WebSite + CollectionPage -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Nattapart Worakun Portfolio",
-      "url": "https://earthondev.github.io/Portfolio/portfolio.html",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://earthondev.github.io/Portfolio/portfolio.html?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": "Portfolio Projects",
-      "description": "Featured projects in data analysis, BI development, and automation",
-      "url": "https://earthondev.github.io/Portfolio/portfolio.html",
-      "mainEntity": {
-        "@type": "ItemList",
-        "name": "Project Portfolio"
-      }
-    }
-    </script>
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
 
-    <!-- Theme system - prevent FOUC -->
-    <script>
-        (function () {
-            const STORAGE_KEY = 'theme';
-            const saved = localStorage.getItem(STORAGE_KEY); // 'light' | 'dark' | 'auto'
-            const mql = window.matchMedia('(prefers-color-scheme: dark)');
-            const root = document.documentElement;
+        /* Neon/Cyan Theme Gradient */
+        .gradient-text {
+            background: linear-gradient(135deg, #00D9FF 0%, #00FF94 50%, #FFE600 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-            function apply(theme) {
-                root.classList.remove('light-theme'); // default = dark
-                if (theme === 'light') root.classList.add('light-theme');
-                // อัปเดต theme-color ให้แถบ status บนมือถืออ่านง่าย
-                const meta = document.querySelector('meta[name="theme-color"]') || (function () {
-                    const m = document.createElement('meta');
-                    m.name = 'theme-color'; document.head.appendChild(m); return m;
-                })();
-                const isLight = theme === 'light' || (theme === 'auto' && mql.matches === false);
-                meta.setAttribute('content', isLight ? '#ffffff' : '#111111');
-                // เก็บโหมดเพื่อใช้ตอนเปิดหน้าอื่น
-                if (theme) localStorage.setItem(STORAGE_KEY, theme);
-                // เก็บไว้ให้ปุ่มรู้สถานะ
-                root.dataset.theme = theme || 'auto';
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            /* Reduced opacity for cleaner look */
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            /* Neon/Cyan Hover Gradient */
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(0, 255, 148, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 217, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 217, 255, 0.15);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .filter-btn {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+        }
+
+        .filter-btn:hover {
+            border-color: rgba(0, 217, 255, 0.5);
+            background: rgba(0, 217, 255, 0.1);
+            color: white;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #00D9FF, #00FF94);
+            border-color: transparent;
+            color: #0a0a0f;
+            /* Dark text on bright background */
+            font-weight: 600;
+        }
+
+        .tech-tag {
+            transition: all 0.2s ease;
+        }
+
+        .tech-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 217, 255, 0.2);
+        }
+
+        .modal-overlay {
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+        }
+
+        .modal-content {
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .metric-card {
+            background: rgba(0, 217, 255, 0.05);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shimmer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            to {
+                left: 100%;
+            }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
             }
 
-            // โหมดเริ่มต้น: ถ้าไม่เคยเลือก → auto (ตามระบบ)
-            if (!saved || saved === 'auto') {
-                // กรณี auto ให้ฟัง event เปลี่ยนธีมของระบบด้วย
-                mql.addEventListener?.('change', () => apply('auto'));
-                apply('auto');
-            } else {
-                apply(saved);
+            50% {
+                transform: translateY(-20px);
             }
-        })();
-    </script>
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00D9FF, #00FF94);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
 </head>
 
-<body>
-    <!-- Enhanced Navigation with Glass Effect -->
-    <nav class="navbar" id="navbar" aria-label="Primary">
-        <div class="container">
-            <a href="index.html" class="navbar-brand" aria-label="Go to Home">Nattapart</a>
+<body class="h-full bg-[#0a0a0f] text-white overflow-x-hidden">
 
-            <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu"
-                aria-expanded="false" aria-controls="navbar-nav">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-            </button>
+    <!-- Animated Background -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div
+            class="absolute top-20 -left-20 w-96 h-96 bg-[#00D9FF] rounded-full mix-blend-multiply filter blur-[100px] opacity-10 floating">
+        </div>
+        <div class="absolute top-1/3 -right-20 w-[500px] h-[500px] bg-[#00FF94] rounded-full mix-blend-multiply filter blur-[100px] opacity-10 floating"
+            style="animation-delay: -2s;"></div>
+        <div class="absolute bottom-20 left-1/2 w-96 h-96 bg-[#FFE600] rounded-full mix-blend-multiply filter blur-[100px] opacity-10 floating"
+            style="animation-delay: -4s;"></div>
+        <!-- Mesh Grid -->
+        <div class="absolute inset-0 opacity-20" style="background-image: 
+        linear-gradient(rgba(0, 217, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
+        background-size: 60px 60px;"></div>
+    </div>
 
-            <ul class="navbar-nav" id="navbar-nav" role="menubar">
-                <li role="none"><a role="menuitem" href="index.html">Home</a></li>
-                <li role="none"><a role="menuitem" href="about.html">About</a></li>
-                <li role="none"><a role="menuitem" href="portfolio.html" class="active"
-                        aria-current="page">Portfolio</a></li>
-                <li role="none"><a role="menuitem" href="contact.html">Contact</a></li>
-                <li role="none">
-                    <a role="menuitem"
-                        href="mailto:earthlikemwbb@gmail.com?subject=Resume Request - Portfolio Website&amp;body=Hi Nattapart,%0D%0A%0D%0AI'm interested in your resume. Please send me a copy.%0D%0A%0D%0AThank you!"
-                        class="resume-btn" aria-label="Request Resume via Email">
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
+    <!-- Navigation -->
+    <nav
+        class="fixed top-0 left-0 right-0 z-50 glass-card border-b-0 rounded-none sm:rounded-b-2xl sm:mx-4 sm:top-4 mt-0 sm:border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-2">
+                    <a href="index.html"
+                        class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center font-bold text-[#0a0a0f] text-xl">
+                        NW
+                    </a>
+                    <a href="index.html"
+                        class="font-semibold text-lg hidden sm:block font-heading text-white no-underline">Nattapart</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html"
+                        class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Home</a>
+                    <a href="about.html"
+                        class="nav-link text-sm text-gray-300 hover:text-white transition-colors">About</a>
+                    <a href="portfolio.html" class="nav-link text-sm text-white font-medium">Portfolio</a>
+                    <a href="contact.html"
+                        class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Contact</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <a href="mailto:earthlikemwbb@gmail.com"
+                        class="hidden sm:block px-4 py-2 rounded-lg bg-gradient-to-r from-[#00D9FF] to-[#00FF94] text-[#0a0a0f] font-semibold text-sm hover:opacity-90 transition-opacity">
                         Resume
                     </a>
-                </li>
-                <li role="none">
-                    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Theme: Auto"
-                        title="Theme: Auto">
-                        <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white">
+                        <i class="fas fa-bars text-xl"></i>
                     </button>
-                </li>
-            </ul>
+                </div>
+            </div>
+            <!-- Mobile Menu (Hidden by default) -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-4 pt-4">
+                    <a href="index.html" class="text-gray-300 hover:text-white">Home</a>
+                    <a href="about.html" class="text-gray-300 hover:text-white">About</a>
+                    <a href="portfolio.html" class="text-white font-medium">Portfolio</a>
+                    <a href="contact.html" class="text-gray-300 hover:text-white">Contact</a>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <!-- Skip link for a11y -->
-    <a href="#main" class="skip-link">Skip to main content</a>
-
-    <!-- Scroll to Top Button -->
-    <button type="button" class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p>© 2025 Nattapart Worakun. All rights reserved.</p>
-        <div class="footer-links">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="accessibility.html">Accessibility</a>
-        </div>
-    </footer>
-
-    <!-- Main -->
-    <main id="main" class="container">
-        <!-- Portfolio Header -->
-        <div class="portfolio-header reveal">
-            <h1>Portfolio</h1>
-            <p>Explore my featured projects in data analysis, BI development, and automation. Each project showcases
-                different skills and technologies.</p>
-        </div>
-
-        <!-- Search and Filter Section -->
-        <div class="search-filter-section reveal">
-            <div class="search-container">
-                <input type="text" id="searchInput" class="search-input" placeholder="Search projects..."
-                    aria-label="Search projects">
-                <i class="fas fa-search search-icon"></i>
+    <!-- Header -->
+    <header class="relative py-24 px-4 text-center pt-32">
+        <div class="max-w-5xl mx-auto fade-in">
+            <div
+                class="inline-block mb-4 px-4 py-2 rounded-full bg-gradient-to-r from-[#00D9FF]/20 to-[#00FF94]/20 border border-[#00D9FF]/30">
+                <span class="text-sm font-semibold mono gradient-text">💼 SHOWCASE</span>
             </div>
-            <div class="filter-container">
-                <button type="button" class="filter-btn active" data-filter="all" aria-label="Show all projects">All
+            <h1 class="text-5xl sm:text-7xl font-bold mb-6"><span class="gradient-text">Portfolio</span></h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">Real-world projects that solve actual
+                problems with Data, Automation, and AI</p>
+        </div>
+    </header>
+
+    <!-- Filter Section -->
+    <section class="relative px-4 mb-12 fade-in" style="animation-delay: 0.2s;">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-wrap justify-center gap-3">
+                <button class="filter-btn active px-6 py-2.5 rounded-full text-sm font-medium" data-filter="all">All
                     Projects</button>
-                <button type="button" class="filter-btn" data-filter="web-app" aria-label="Filter web applications">Web
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium" data-filter="automation">🤖
+                    Automation</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium" data-filter="dashboard">📊
+                    Dashboard</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium" data-filter="webapp">💻 Web
                     App</button>
-                <button type="button" class="filter-btn" data-filter="admin-panel"
-                    aria-label="Filter admin panels">Admin Panel</button>
-                <button type="button" class="filter-btn" data-filter="ui-ux"
-                    aria-label="Filter UI/UX projects">UI/UX</button>
-                <button type="button" class="filter-btn" data-filter="automation"
-                    aria-label="Filter automation projects">Automation</button>
-                <button type="button" class="filter-btn" data-filter="data-analysis"
-                    aria-label="Filter data analysis projects">Data Analysis</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium" data-filter="qa">🔍 QA &
+                    Testing</button>
             </div>
         </div>
+    </section>
 
-        <!-- Projects Section -->
-        <div class="portfolio-section">
-            <div id="projects-container" class="projects-grid" aria-live="polite">
-                <!-- Skeleton 1 -->
-                <div class="portfolio-item skeleton-item">
-                    <div class="portfolio-image-container skeleton-pulsate"></div>
-                    <div class="portfolio-content">
-                        <div class="skeleton-text title skeleton-pulsate"></div>
-                        <div class="skeleton-text subtitle skeleton-pulsate"></div>
-                        <div class="skeleton-text desc skeleton-pulsate"></div>
-                        <div class="skeleton-tags">
-                            <div class="skeleton-tag skeleton-pulsate"></div>
-                            <div class="skeleton-tag skeleton-pulsate"></div>
+    <!-- Projects Grid -->
+    <section class="relative px-4 pb-24">
+        <div class="max-w-7xl mx-auto">
+            <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Project 1: Lab Workload System -->
+                <div class="project-card rounded-2xl p-6 fade-in" data-category="automation"
+                    style="animation-delay: 0.3s;">
+                    <div class="relative z-10">
+                        <div class="flex items-start justify-between mb-4">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-2xl shimmer text-[#0a0a0f]">
+                                📋
+                            </div>
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="1">
+                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Lab Workload Management System</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">ระบบจัดการ Job Queue อัตโนมัติด้วย Excel
+                            VBA ลดเวลาวางแผน 80% และลด Error จากการจัด Priority ด้วยมือ</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Excel
+                                VBA</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Automation</span>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-gray-500 mono">2022-2023</span>
+                            <span class="text-[#00FF94] font-semibold">-80% Planning Time</span>
                         </div>
                     </div>
                 </div>
-                <!-- Skeleton 2 -->
-                <div class="portfolio-item skeleton-item">
-                    <div class="portfolio-image-container skeleton-pulsate"></div>
-                    <div class="portfolio-content">
-                        <div class="skeleton-text title skeleton-pulsate w-60"></div>
-                        <div class="skeleton-text subtitle skeleton-pulsate"></div>
-                        <div class="skeleton-text desc skeleton-pulsate w-85"></div>
-                        <div class="skeleton-tags">
-                            <div class="skeleton-tag skeleton-pulsate"></div>
+
+                <!-- Project 2: Chemical Stock Management -->
+                <div class="project-card rounded-2xl p-6 fade-in" data-category="webapp" style="animation-delay: 0.4s;">
+                    <div class="relative z-10">
+                        <div class="flex items-start justify-between mb-4">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#00FF94] to-[#FFE600] flex items-center justify-center text-2xl shimmer text-[#0a0a0f]">
+                                🧪
+                            </div>
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="2">
+                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Chemical Stock Management</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">Mobile App ด้วย AppSheet
+                            จัดการสต็อกสารเคมี Real-time พร้อม Barcode Scan และ Auto Alert เมื่อใกล้หมด</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">AppSheet</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">Google
+                                Sheets</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Mobile</span>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-gray-500 mono">2023</span>
+                            <span class="text-[#FFE600] font-semibold">100% Real-time</span>
                         </div>
                     </div>
                 </div>
-                <!-- Skeleton 3 -->
-                <div class="portfolio-item skeleton-item">
-                    <div class="portfolio-image-container skeleton-pulsate"></div>
-                    <div class="portfolio-content">
-                        <div class="skeleton-text title skeleton-pulsate w-80"></div>
-                        <div class="skeleton-text subtitle skeleton-pulsate"></div>
-                        <div class="skeleton-text desc skeleton-pulsate w-90"></div>
-                        <div class="skeleton-tags">
-                            <div class="skeleton-tag skeleton-pulsate"></div>
-                            <div class="skeleton-tag skeleton-pulsate"></div>
+
+                <!-- Project 3: QC Dashboard -->
+                <div class="project-card rounded-2xl p-6 fade-in" data-category="dashboard"
+                    style="animation-delay: 0.5s;">
+                    <div class="relative z-10">
+                        <div class="flex items-start justify-between mb-4">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#FFE600] to-[#00D9FF] flex items-center justify-center text-2xl shimmer text-[#0a0a0f]">
+                                📈
+                            </div>
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="3">
+                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">QC Performance Dashboard</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">Interactive Dashboard แปลง Dirty Data
+                            จากแล็บให้เป็น Visual สำหรับ Management ตัดสินใจ</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">Power
+                                BI</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">SQL</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">DAX</span>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-gray-500 mono">2023-2024</span>
+                            <span class="text-[#00D9FF] font-semibold">Real-time KPIs</span>
                         </div>
                     </div>
                 </div>
-                <!-- Skeleton 4 -->
-                <div class="portfolio-item skeleton-item hidden-mobile">
-                    <!-- Hidden on mobile, shown on large screens if grid allows -->
-                    <div class="portfolio-image-container skeleton-pulsate"></div>
-                    <div class="portfolio-content">
-                        <div class="skeleton-text title skeleton-pulsate"></div>
-                        <div class="skeleton-text subtitle skeleton-pulsate"></div>
-                        <div class="skeleton-text desc skeleton-pulsate"></div>
-                        <div class="skeleton-tags">
-                            <div class="skeleton-tag skeleton-pulsate"></div>
+
+                <!-- Project 4: Test Automation -->
+                <div class="project-card rounded-2xl p-6 fade-in" data-category="qa" style="animation-delay: 0.6s;">
+                    <div class="relative z-10">
+                        <div class="flex items-start justify-between mb-4">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-2xl shimmer text-[#0a0a0f]">
+                                🤖
+                            </div>
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="4">
+                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">API Test Automation Suite</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">Automated Testing Framework ด้วย
+                            Postman/Newman พร้อม CI/CD Pipeline ทดสอบ 100+ Endpoints อัตโนมัติ</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Postman</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Newman</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">CI/CD</span>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-gray-500 mono">2024</span>
+                            <span class="text-[#00FF94] font-semibold">100+ Tests</span>
                         </div>
                     </div>
                 </div>
+
+                <!-- Project 5: Web Analytics -->
+                <div class="project-card rounded-2xl p-6 fade-in" data-category="dashboard"
+                    style="animation-delay: 0.7s;">
+                    <div class="relative z-10">
+                        <div class="flex items-start justify-between mb-4">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#00FF94] to-[#FFE600] flex items-center justify-center text-2xl shimmer text-[#0a0a0f]">
+                                📱
+                            </div>
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="5">
+                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Web Analytics & Event Design</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">ออกแบบ GA4 Event Tracking และ Custom
+                            Dashboard วิเคราะห์พฤติกรรมผู้ใช้แบบ Real-time</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">GA4</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">GTM</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Looker
+                                Studio</span>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-gray-500 mono">2024</span>
+                            <span class="text-[#FFE600] font-semibold">30+ Events</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: React Firebase App -->
+                <div class="project-card rounded-2xl p-6 fade-in" data-category="webapp" style="animation-delay: 0.8s;">
+                    <div class="relative z-10">
+                        <div class="flex items-start justify-between mb-4">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#FFE600] to-[#00D9FF] flex items-center justify-center text-2xl shimmer text-[#0a0a0f]">
+                                💻
+                            </div>
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="6">
+                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Full-Stack React App</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">Web Application ด้วย React + Firebase ใช้
+                            AI Pair Programming พัฒนาเร็ว Deploy Auto ผ่าน Netlify</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">React</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Firebase</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Netlify</span>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-gray-500 mono">2024</span>
+                            <span class="text-[#00D9FF] font-semibold">Production Ready</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="hidden text-center py-20">
+                <div class="text-6xl mb-4">🔍</div>
+                <h3 class="text-2xl font-bold mb-2 text-gray-400">ไม่พบโปรเจกต์</h3>
+                <p class="text-gray-500">ลองเลือกหมวดหมู่อื่นดูนะครับ</p>
             </div>
         </div>
-    </main>
+    </section>
 
-    <!-- Scripts -->
-    <script defer src="performance.js?v=20260111-2"></script>
-    <script defer src="script.js?v=20260111-2"></script>
-    <script defer src="cache-bust.js?v=20260111-1"></script>
+    <!-- Modal -->
+    <div id="project-modal" class="modal-overlay fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div
+            class="modal-content max-w-4xl w-full bg-[#0f0f14] rounded-3xl border border-white/10 max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-[#0f0f14] border-b border-white/10 p-6 flex items-center justify-between z-10">
+                <h2 id="modal-title" class="text-2xl font-bold font-heading">Project Details</h2>
+                <button id="close-modal" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="p-8">
+                <!-- Modal content populated by JavaScript -->
+                <div id="modal-body"></div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Minimal in-page helpers for a11y & UI state -->
     <script>
-        // Mobile nav a11y toggle
-        const mobBtn = document.getElementById('mobile-menu-btn');
-        const nav = document.getElementById('navbar-nav');
-        mobBtn?.addEventListener('click', () => {
-            const expanded = mobBtn.getAttribute('aria-expanded') === 'true';
-            mobBtn.setAttribute('aria-expanded', String(!expanded));
-            nav.classList.toggle('open');
+        // Project Data
+        const projectDetails = {
+            '1': {
+                title: 'Lab Workload Management System',
+                description: 'ระบบจัดการ Job Queue และ Priority อัตโนมัติ ช่วยลดเวลาวางแผนงานและลด Human Error',
+                challenge: 'ปัญหา: การวางแผนงานและจัดลำดับความสำคัญของ Sample ใช้เวลานาน เสี่ยงผิดพลาด และไม่สามารถติดตามสถานะได้แบบ Real-time',
+                solution: 'สร้างระบบ Auto-scheduling ด้วย VBA คำนวณ Priority Score จาก Due Date, Sample Type และ Workload แล้วสร้าง Dashboard แสดงสถานะแบบ Real-time',
+                impact: [
+                    { label: 'ลดเวลาวางแผน', value: '80%' },
+                    { label: 'เพิ่ม Accuracy', value: '95%' },
+                    { label: 'On-time Delivery', value: '+25%' }
+                ],
+                tech: ['Excel VBA', 'Automation', 'Dashboard'],
+                features: ['Auto Priority Calculation', 'Real-time Status Tracking', 'Workload Distribution', 'Due Date Alerts']
+            },
+            '2': {
+                title: 'Chemical Stock Management',
+                description: 'Mobile App จัดการสต็อกสารเคมี พร้อม Barcode Scanning และ Auto Reorder Alert',
+                challenge: 'ปัญหา: Stock ไม่ตรง ระหว่าง Physical กับ Records, ไม่ทันสั่งซื้อสารเคมีใหม่, ไม่รู้ว่าใครเบิกไปเมื่อไร',
+                solution: 'พัฒนา Mobile App ด้วย AppSheet เชื่อมกับ Google Sheets ให้ Scan Barcode เพื่อ Check-in/Check-out พร้อม Alert เมื่อสารใกล้หมด',
+                impact: [
+                    { label: 'Stock Accuracy', value: '100%' },
+                    { label: 'Reorder Time', value: '-70%' },
+                    { label: 'Mobile Access', value: '24/7' }
+                ],
+                tech: ['AppSheet', 'Google Sheets', 'Barcode Scanner', 'Mobile App'],
+                features: ['Barcode Scanning', 'Real-time Stock Update', 'Auto Reorder Alerts', 'Usage History']
+            },
+            '3': {
+                title: 'QC Performance Dashboard',
+                description: 'Interactive Dashboard แสดง KPI และ Trends จากข้อมูล Lab แบบ Real-time',
+                challenge: 'ปัญหา: Data กระจัดกระจาย อยู่หลาย Excel Files, Management ไม่เห็น Big Picture, ตัดสินใจช้าเพราะต้องรอรายงาน',
+                solution: 'รวบรวมข้อมูลจาก Multiple Sources มา Clean และสร้าง Data Model ใน Power BI สร้าง Interactive Dashboard พร้อม Drill-down Capability',
+                impact: [
+                    { label: 'Decision Time', value: '-60%' },
+                    { label: 'Data Accuracy', value: '98%' },
+                    { label: 'Auto Refresh', value: 'Hourly' }
+                ],
+                tech: ['Power BI', 'SQL', 'DAX', 'Power Query'],
+                features: ['Real-time KPI Monitoring', 'Trend Analysis', 'Drill-down Capability', 'Automated Refresh']
+            },
+            '4': {
+                title: 'API Test Automation Suite',
+                description: 'Automated Testing Framework สำหรับทดสอบ API Endpoints อัตโนมัติใน CI/CD Pipeline',
+                challenge: 'ปัญหา: Manual Testing ใช้เวลามาก, มี Regression Bug ซ้ำๆ, ไม่มี Test Coverage ที่ครบถ้วน',
+                solution: 'สร้าง Test Suite ด้วย Postman พร้อม Newman CLI ใน CI/CD Pipeline ทดสอบ 100+ Endpoints อัตโนมัติทุก Commit',
+                impact: [
+                    { label: 'Test Coverage', value: '95%' },
+                    { label: 'Testing Time', value: '-85%' },
+                    { label: 'Bug Detection', value: 'Early Stage' }
+                ],
+                tech: ['Postman', 'Newman', 'CI/CD', 'JavaScript'],
+                features: ['Automated API Testing', 'Test Data Generation', 'HTML Reports', 'Slack Notifications']
+            },
+            '5': {
+                title: 'Web Analytics & Event Design',
+                description: 'ออกแบบและติดตั้ง GA4 Event Tracking พร้อม Custom Dashboard วิเคราะห์พฤติกรรมผู้ใช้',
+                challenge: 'ปัญหา: ไม่รู้ว่า User ใช้ Feature ไหน, Conversion Rate ต่ำ, ไม่มีข้อมูลสำหรับ UX Improvement',
+                solution: 'ออกแบบ Event Tracking Strategy ติดตั้ง GA4 ผ่าน GTM สร้าง Custom Dashboard ใน Looker Studio วิเคราะห์ User Journey',
+                impact: [
+                    { label: 'Event Tracking', value: '30+ Events' },
+                    { label: 'Data Quality', value: '100%' },
+                    { label: 'Insight Speed', value: 'Real-time' }
+                ],
+                tech: ['GA4', 'GTM', 'Looker Studio', 'JavaScript'],
+                features: ['Custom Event Tracking', 'User Journey Analysis', 'Conversion Funnel', 'Real-time Dashboard']
+            },
+            '6': {
+                title: 'Full-Stack React Application',
+                description: 'Modern Web Application สร้างด้วย React และ Firebase พร้อม CI/CD Auto Deployment',
+                challenge: 'ปัญหา: ต้องการ Web App ที่ Responsive, มี Authentication, Real-time Database แต่ไม่มี Backend Team',
+                solution: 'ใช้ AI Pair Programming พัฒนา React App + Firebase (Auth, Firestore, Hosting) Deploy อัตโนมัติผ่าน Netlify',
+                impact: [
+                    { label: 'Development Time', value: '-70%' },
+                    { label: 'Deployment', value: 'Auto' },
+                    { label: 'Uptime', value: '99.9%' }
+                ],
+                tech: ['React', 'Firebase', 'Netlify', 'Tailwind CSS'],
+                features: ['User Authentication', 'Real-time Database', 'Responsive Design', 'Auto Deployment']
+            }
+        };
+
+        // Filter Logic
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        const emptyState = document.getElementById('empty-state');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                let visibleCount = 0;
+                projectCards.forEach(card => {
+                    const categories = card.dataset.category.split(' ');
+                    if (filter === 'all' || categories.includes(filter)) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+            });
         });
 
-        // Theme toggle with persistence
-        (function () {
-            const key = 'theme';
-            const btn = document.getElementById('theme-toggle');
-            const root = document.documentElement;
-            const saved = localStorage.getItem(key);
-            if (saved) root.dataset.theme = saved;
+        // Modal Logic
+        const modal = document.getElementById('project-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+        const closeModalBtn = document.getElementById('close-modal');
+        const viewDetailsBtns = document.querySelectorAll('.view-details-btn');
 
-            btn?.addEventListener('click', () => {
-                const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-                root.dataset.theme = next;
-                localStorage.setItem(key, next);
-            });
-        })();
-    </script>
+        viewDetailsBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const projectId = btn.dataset.project;
+                const project = projectDetails[projectId];
 
-    <!-- Service Worker Registration -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then((registration) => {
-                        console.log('SW registered: ', registration);
-                    })
-                    .catch((registrationError) => {
-                        console.log('SW registration failed: ', registrationError);
-                    });
+                if (project) {
+                    modalTitle.textContent = project.title;
+
+                    modalBody.innerHTML = `
+            <div class="space-y-8">
+              <div>
+                <p class="text-lg text-gray-300 leading-relaxed">${project.description}</p>
+              </div>
+              
+              <div class="grid sm:grid-cols-3 gap-4">
+                ${project.impact.map(metric => `
+                  <div class="metric-card rounded-xl p-4 text-center">
+                    <div class="text-3xl font-bold gradient-text mb-1 text-white">${metric.value}</div>
+                    <div class="text-sm text-gray-400">${metric.label}</div>
+                  </div>
+                `).join('')}
+              </div>
+              
+              <div class="glass-card rounded-xl p-6">
+                <h3 class="text-lg font-semibold mb-3 text-white flex items-center gap-2">
+                  <span class="text-[#00D9FF]">🎯</span> Challenge
+                </h3>
+                <p class="text-gray-300 leading-relaxed">${project.challenge}</p>
+              </div>
+              
+              <div class="glass-card rounded-xl p-6">
+                <h3 class="text-lg font-semibold mb-3 text-white flex items-center gap-2">
+                  <span class="text-[#00FF94]">💡</span> Solution
+                </h3>
+                <p class="text-gray-300 leading-relaxed">${project.solution}</p>
+              </div>
+              
+              <div>
+                <h3 class="text-lg font-semibold mb-4 text-white">Tech Stack</h3>
+                <div class="flex flex-wrap gap-2">
+                  ${project.tech.map(tech => `
+                    <span class="px-4 py-2 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] border border-[#00D9FF]/20 text-sm font-medium">${tech}</span>
+                  `).join('')}
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-lg font-semibold mb-4 text-white">Key Features</h3>
+                <div class="grid sm:grid-cols-2 gap-3">
+                  ${project.features.map(feature => `
+                    <div class="flex items-center gap-3 glass-card rounded-lg p-3">
+                      <span class="text-[#00FF94]">✓</span>
+                      <span class="text-gray-300">${feature}</span>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          `;
+
+                    modal.classList.remove('hidden');
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
             });
-        }
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModalBtn.click();
+            }
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
     </script>
 </body>
 
