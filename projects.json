@@ -15,20 +15,17 @@
       "TypeScript",
       "Vite",
       "Tailwind",
-      "Firebase (Auth/DB/Storage)",
+      "Firebase",
       "Netlify"
     ],
     "highlights": [
       "ค้นหาห้าง/ร้านได้ใน 1-2 คลิก, รองรับมือถือเต็มรูปแบบ",
       "Admin ลดเวลาบันทึกข้อมูล ~35-45% ผ่านฟอร์มที่มี validation + autosave",
       "A11y ≥ 95 | Lighthouse ≥ 95 | โหลด < 2s (WebP + lazy + preconnect)",
-      "QA Gates: required-fields, range check, duplicate guard (Firestore rules)",
-      "Analytics: GA4 events (theme_toggle, project_view, search_query, gallery_nav)",
-      "Google Analytics 4 ติดตามการใช้งานจริง → เห็น Top search keywords/ตำแหน่งยอดนิยม",
-      "Firebase Security Rules + Input validation ป้องกันข้อมูลผิดพลาด"
+      "Analytics: GA4 events ติดตามการค้นหายอดนิยม"
     ],
     "coverImage": {
-      "src": "./assets/projects/hanaihang/cover.webp",
+      "src": "./assets/projects/hanaihang/cover.png",
       "alt": "หน้าค้นหาห้างใกล้คุณของ HaaNaiHang พร้อมปุ่มระบุตำแหน่งและช่องค้นหา"
     },
     "gallery": [
@@ -39,14 +36,6 @@
       {
         "src": "./assets/projects/hanaihang/gallery-02.webp",
         "alt": "Admin: ตารางรายการศูนย์การค้าและสรุปข้อมูลสำคัญ"
-      },
-      {
-        "src": "./assets/projects/hanaihang/gallery-03.webp",
-        "alt": "Admin: ฟอร์มเพิ่มร้านค้า—เลือกห้าง, ชั้น, หมวดหมู่, เวลาเปิดปิด"
-      },
-      {
-        "src": "./assets/projects/hanaihang/gallery-04.webp",
-        "alt": "หน้าค้นหา—ผลลัพธ์ห้างหลายรายการพร้อมระยะทาง"
       }
     ],
     "links": {
@@ -57,8 +46,7 @@
       "Web App",
       "Admin Panel",
       "Geolocation",
-      "UI/UX",
-      "QA"
+      "UI/UX"
     ],
     "cta": "View project",
     "status": "Active",
@@ -77,17 +65,13 @@
     ],
     "stack": [
       "AppSheet",
-      "Google Sheets",
-      "Google Drive",
-      "Google Apps Script"
+      "Google Spreadsheet",
+      "Automation"
     ],
     "highlights": [
       "Mobile-first inventory for lab teams",
-      "Order → Receive → Use with audit trail",
-      "Low-stock alerts & image gallery",
       "Cut picking time 30–50% | Error −40%",
-      "Real-time stock updates from transactions",
-      "Onboarding new users < 30 minutes",
+      "Real-time stock updates & Low-stock alerts",
       "No-code solution with enterprise-grade validation"
     ],
     "coverImage": {
@@ -98,74 +82,168 @@
       {
         "src": "./assets/projects/Inventory amino/Screenshot 2568-09-13 at 12.17.06.png",
         "alt": "รายการคงเหลือ: แสดงภาพย่อ, ชื่อสินค้า, จำนวนคงเหลือ และสถานะเตือน"
-      },
-      {
-        "src": "./assets/projects/Inventory amino/Screenshot 2568-09-13 at 12.17.34.png",
-        "alt": "แกลเลอรีรูป: แสดงภาพฉลาก/ภาชนะจริงเพื่อช่วยหยิบของถูกต้อง"
-      },
-      {
-        "src": "./assets/projects/Inventory amino/Screenshot 2568-09-13 at 12.53.51.png",
-        "alt": "ฟอร์มทำรายการ: บันทึกธุรกรรม Order/Receive/Use พร้อม validation"
       }
     ],
     "links": {
-      "demo": "#",
       "caseStudy": "./case-studies/inventory-amino.html"
     },
     "tags": [
       "Mobile App",
-      "Inventory Management",
+      "Inventory",
       "No-Code",
-      "Lab Management",
       "Automation"
     ],
-    "cta": "View case study",
+    "cta": "View Case Study",
     "status": "Active",
     "caseStudy": true
   },
   {
     "id": "care-for-mom",
-    "title": "Care for Mom – AI-Assisted Health App",
+    "title": "Care for Mom – AI Health Companion",
     "slug": "care-for-mom",
     "year": 2026,
-    "summary": "แอปพลิเคชันดูแลสุขภาพผู้สูงอายุ พัฒนาด้วยพลัง AI (Gemini/ChatGPT) ช่วยสร้างฟีเจอร์แจ้งเตือนสุขภาพและวิเคราะห์ข้อมูลเบื้องต้น",
+    "summary": "แอปพลิเคชันดูแลสุขภาพผู้สูงอายุ พัฒนาด้วยพลัง AI (Gemini) ช่วยแจ้งเตือนยาและวิเคราะห์สุขภาพเบื้องต้น",
     "role": [
-      "AI Co-Developer",
       "Flutter Developer",
-      "UX Engineer"
+      "AI Engineer",
+      "UX Designer"
     ],
     "stack": [
       "Flutter",
       "Dart",
       "SQLite",
-      "Firebase",
-      "Gemini API",
-      "AI-Pair Programming"
+      "Gemini API"
     ],
     "highlights": [
-      "AI-Powered Dev: ใช้ AI ช่วยเขียนโค้ด > 80% ตั้งแต่ UI จนถึง Logic ซับซ้อน",
-      "Features: ระบบแจ้งเตือนยา, บันทึกสุขภาพรายวัน, และ AI Health Analysis",
-      "Multi-language support (Thai/English) with local storage sync",
-      "Offline-first architecture using SQLite for data persistence",
-      "Notification System: แจ้งเตือนกินยาและนัดหมายแพทย์อัตโนมัติ"
+      "AI-Powered: ใช้ Gemini วิเคราะห์ข้อมูลสุขภาพและให้คำแนะนำ",
+      "Smart Reminders: แจ้งเตือนกินยาและนัดหมออัตโนมัติ",
+      "Multi-language (TH/EN) & Offline-first architecture"
     ],
     "coverImage": {
-      "src": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200&auto=format&fit=crop",
-      "alt": "Care for Mom App Interface showing health dashboard"
+      "src": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=60",
+      "alt": "Care for Mom App Interface"
     },
-    "gallery": [],
     "links": {
       "repo": "https://github.com/Earthondev/CareForMom"
     },
     "tags": [
       "Mobile App",
-      "AI-Assisted",
       "Health Tech",
-      "Flutter",
-      "Cross-Platform"
+      "AI",
+      "Fluuter"
     ],
     "cta": "View Code",
     "status": "In Development",
+    "caseStudy": false
+  },
+  {
+    "id": "slack-drive-bot",
+    "title": "Slack Drive Bot – Workflow Automation",
+    "slug": "slack-drive-bot",
+    "year": 2026,
+    "summary": "บอทอัตโนมัติที่เชื่อมต่อ Slack กับ Google Drive ช่วยจัดการไฟล์แนบ เปลี่ยนชื่อ และจัดเก็บลงโฟลเดอร์ตามเงื่อนไข",
+    "role": [
+      "Backend Developer",
+      "Automation Engineer"
+    ],
+    "stack": [
+      "Python",
+      "Slack API",
+      "Google Drive API",
+      "Docker"
+    ],
+    "highlights": [
+      "Automated Filing: ลดเวลา Admin 90% โดยการอัปโหลดไฟล์อัตโนมัติ",
+      "Smart Renaming: เปลี่ยนชื่อไฟล์ตาม Pattern ที่กำหนดผ่านแชท",
+      "Dynamic Routing: จัดเก็บลงโฟลเดอร์ตาม Channel/User ต้นทาง"
+    ],
+    "coverImage": {
+      "src": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop&q=60",
+      "alt": "Slack Automation Workflow"
+    },
+    "links": {
+      "repo": "https://github.com/Earthondev/slack-drive-bot"
+    },
+    "tags": [
+      "Automation",
+      "Python",
+      "Bot",
+      "Productivity"
+    ],
+    "cta": "View Code",
+    "status": "Completed",
+    "caseStudy": false
+  },
+  {
+    "id": "expense-tracker",
+    "title": "Flutter Expense Tracker",
+    "slug": "expense-tracker",
+    "year": 2026,
+    "summary": "แอปบันทึกรายรับรายจ่ายส่วนตัว เน้นความรวดเร็วและใช้งานแบบ Offline พร้อมฟีเจอร์แนบรูปสลิป",
+    "role": [
+      "Mobile Developer"
+    ],
+    "stack": [
+      "Flutter",
+      "SQLite",
+      "Local Storage"
+    ],
+    "highlights": [
+      "Offline-First: ข้อมูลเก็บในเครื่อง (SQLite) ปลอดภัยและรวดเร็ว",
+      "Receipt Attachment: แนบรูปสลิป/ใบเสร็จได้ทันที",
+      "Monthly Reports: สรุปยอดใช้จ่ายแยกตามหมวดหมู่"
+    ],
+    "coverImage": {
+      "src": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&auto=format&fit=crop&q=60",
+      "alt": "Expense Tracker Dashboard"
+    },
+    "links": {
+      "repo": "https://github.com/Earthondev/flutter-expense-tracker"
+    },
+    "tags": [
+      "Mobile App",
+      "Finance",
+      "Flutter",
+      "SQLite"
+    ],
+    "cta": "View Code",
+    "status": "Completed",
+    "caseStudy": false
+  },
+  {
+    "id": "pdf-toolkit",
+    "title": "Browser PDF Toolkit",
+    "slug": "pdf-toolkit",
+    "year": 2025,
+    "summary": "เครื่องมือจัดการ PDF บนเว็บ (Split, Merge) ทำงานบน Browser 100% เพื่อความปลอดภัยของข้อมูล (Serverless)",
+    "role": [
+      "Frontend Developer"
+    ],
+    "stack": [
+      "HTML5",
+      "JavaScript",
+      "PDF.js"
+    ],
+    "highlights": [
+      "Client-Side Processing: ไฟล์ไม่ออกจากเครื่องผู้ใช้ (Privacy First)",
+      "Zero-Dependency: ทำงานได้ทันทีโดยไม่ต้องติดตั้งโปรแกรม",
+      "Features: Split PDF, Merge PDF, Image to PDF"
+    ],
+    "coverImage": {
+      "src": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=800&auto=format&fit=crop&q=60",
+      "alt": "PDF Tools Interface"
+    },
+    "links": {
+      "repo": "https://github.com/Earthondev/pdf-toolkit"
+    },
+    "tags": [
+      "Web Tool",
+      "Utility",
+      "JavaScript",
+      "Serverless"
+    ],
+    "cta": "View Code",
+    "status": "Completed",
     "caseStudy": false
   }
 ]
