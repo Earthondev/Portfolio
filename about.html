@@ -1,296 +1,607 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-  <title>About Me - Nattapart Worakun</title>
+  <title>About Me | Nattapart Worakun</title>
 
-  <!-- Fonts & Icons -->
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Space Grotesk', 'sans-serif'],
+            body: ['Sarabun', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="about.css">
-  <link rel="stylesheet" href="print.css" media="print">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
 
-  <!-- Theme color & color-scheme -->
-  <meta name="theme-color" content="#111111">
-  <meta name="color-scheme" content="light dark">
+    * {
+      font-family: 'Sarabun', 'Space Grotesk', sans-serif;
+    }
 
-  <!-- THEME: single IIFE (ป้องกัน FOUC) -->
-  <script>
-    (function () {
-      const STORAGE_KEY = 'theme';
-      const saved = localStorage.getItem(STORAGE_KEY); // 'light' | 'dark' | 'auto'
-      const mql = window.matchMedia('(prefers-color-scheme: dark)');
-      const root = document.documentElement;
+    .gradient-text {
+      background: linear-gradient(135deg, #00D9FF 0%, #00FF94 50%, #FFE600 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-      function apply(theme) {
-        root.classList.remove('light-theme'); // default = dark
-        if (theme === 'light') root.classList.add('light-theme');
-        // อัปเดต theme-color ให้แถบ status บนมือถืออ่านง่าย
-        const meta = document.querySelector('meta[name="theme-color"]') || (function () {
-          const m = document.createElement('meta');
-          m.name = 'theme-color'; document.head.appendChild(m); return m;
-        })();
-        const isLight = theme === 'light' || (theme === 'auto' && mql.matches === false);
-        meta.setAttribute('content', isLight ? '#ffffff' : '#111111');
-        // เก็บโหมดเพื่อใช้ตอนเปิดหน้าอื่น
-        if (theme) localStorage.setItem(STORAGE_KEY, theme);
-        // เก็บไว้ให้ปุ่มรู้สถานะ
-        root.dataset.theme = theme || 'auto';
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glow-border {
+      position: relative;
+    }
+
+    .glow-border::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(135deg, #00D9FF, #00FF94, #FFE600);
+      border-radius: inherit;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .glow-border:hover::before {
+      opacity: 0.5;
+    }
+
+    .skill-tag {
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0, 217, 255, 0.3);
+    }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
       }
 
-      // โหมดเริ่มต้น: ถ้าไม่เคยเลือก → auto (ตามระบบ)
-      if (!saved || saved === 'auto') {
-        // กรณี auto ให้ฟัง event เปลี่ยนธีมของระบบด้วย
-        mql.addEventListener?.('change', () => apply('auto'));
-        apply('auto');
-      } else {
-        apply(saved);
+      50% {
+        transform: translateY(-20px);
       }
-    })();
-  </script>
+    }
 
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    .nav-link {
+      position: relative;
+    }
 
-  <!-- Person Schema -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Nattapart Worakun",
-    "jobTitle":"Data Analyst & BI Developer",
-    "description":"Data + QA-minded professional: Turning data into insights and testing for quality.",
-    "url":"https://earthondev.github.io/Portfolio/about.html",
-    "image":"https://earthondev.github.io/Portfolio/assets/profile.jpg",
-    "sameAs":[
-      "https://www.linkedin.com/in/nattapart-worakun-74a5a821b/",
-      "https://github.com/Earthondev"
-    ]
-  }
-  </script>
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #00D9FF, #00FF94);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .section-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .section-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-line {
+      background: linear-gradient(180deg, #00D9FF 0%, #00FF94 50%, #FFE600 100%);
+    }
+
+    /* Simple FAQ css */
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+  </style>
 </head>
 
-<body>
+<body class="h-full bg-[#0a0a0f] text-white overflow-x-hidden">
+
+  <!-- Animated Background -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none">
+    <div
+      class="absolute top-20 left-10 w-72 h-72 bg-[#00D9FF] rounded-full mix-blend-multiply filter blur-[100px] opacity-10 floating">
+    </div>
+    <div
+      class="absolute top-40 right-20 w-96 h-96 bg-[#00FF94] rounded-full mix-blend-multiply filter blur-[100px] opacity-10 floating"
+      style="animation-delay: -2s;"></div>
+    <div
+      class="absolute bottom-20 left-1/3 w-80 h-80 bg-[#FFE600] rounded-full mix-blend-multiply filter blur-[100px] opacity-10 floating"
+      style="animation-delay: -4s;"></div>
+    <!-- Grid Pattern -->
+    <div class="absolute inset-0"
+      style="background-image: linear-gradient(rgba(0,217,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,217,255,0.03) 1px, transparent 1px); background-size: 50px 50px;">
+    </div>
+  </div>
+
   <!-- Navigation -->
-  <nav class="navbar" id="navbar" aria-label="Primary">
-    <div class="container">
-      <a href="index.html" class="navbar-brand">Nattapart</a>
-
-      <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu"
-        aria-expanded="false" aria-controls="navbar-nav">
-        <i class="fas fa-bars" aria-hidden="true"></i>
-      </button>
-
-      <ul class="navbar-nav" id="navbar-nav" role="menubar">
-        <li role="none"><a role="menuitem" href="index.html">Home</a></li>
-        <li role="none"><a role="menuitem" class="active" aria-current="page" href="about.html">About</a></li>
-        <li role="none"><a role="menuitem" href="portfolio.html">Portfolio</a></li>
-        <li role="none"><a role="menuitem" href="contact.html">Contact</a></li>
-        <li role="none">
-          <a role="menuitem" class="resume-btn"
-            href="mailto:earthlikemwbb@gmail.com?subject=Resume Request - Portfolio Website&body=Hi Nattapart,%0D%0A%0D%0AI'm interested in your resume. Please send me a copy.%0D%0A%0D%0AThank you!">
-            <i class="fas fa-envelope" aria-hidden="true"></i> Resume
+  <nav
+    class="fixed top-0 left-0 right-0 z-50 glass-card border-b-0 rounded-none sm:rounded-b-2xl sm:mx-4 sm:top-4 mt-0 sm:border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-2">
+          <a href="index.html"
+            class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center font-bold text-[#0a0a0f] text-xl">
+            NW
           </a>
-        </li>
-        <li role="none">
-          <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Theme: Auto" title="Theme: Auto">
-            <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+          <a href="index.html"
+            class="font-semibold text-lg hidden sm:block font-heading text-white no-underline">Nattapart</a>
+        </div>
+
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Home</a>
+          <a href="about.html" class="nav-link text-sm text-white font-medium">About</a>
+          <a href="portfolio.html"
+            class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Portfolio</a>
+          <a href="contact.html" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Contact</a>
+        </div>
+
+        <div class="flex items-center space-x-4">
+          <a href="mailto:earthlikemwbb@gmail.com"
+            class="hidden sm:block px-4 py-2 rounded-lg bg-gradient-to-r from-[#00D9FF] to-[#00FF94] text-[#0a0a0f] font-semibold text-sm hover:opacity-90 transition-opacity">
+            Resume
+          </a>
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white">
+            <i class="fas fa-bars text-xl"></i>
           </button>
-        </li>
-      </ul>
+        </div>
+      </div>
+      <!-- Mobile Menu (Hidden by default) -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <div class="flex flex-col space-y-4 pt-4">
+          <a href="index.html" class="text-gray-300 hover:text-white">Home</a>
+          <a href="about.html" class="text-white font-medium">About</a>
+          <a href="portfolio.html" class="text-gray-300 hover:text-white">Portfolio</a>
+          <a href="contact.html" class="text-gray-300 hover:text-white">Contact</a>
+        </div>
+      </div>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <header class="about-hero container reveal" id="about-hero">
-    <div class="about-hero-inner">
-      <img class="about-avatar" src="assets/Profile/IMG_9205.png" alt="Nattapart profile" width="120" height="120"
-        loading="lazy" decoding="async">
-      <h1 class="about-title" data-about-name>ณัฐภาส วรคันธ์ (Nattaphat Worakhan)</h1>
-      <p class="about-tagline" data-about-tagline>Chemistry &rarr; AI, Data &amp; Automation</p>
-      <p class="about-sub">นักเคมีที่พัฒนาตัวเองสู่สาย AI, Data และ Automation ด้วยประสบการณ์จริงจากห้องแล็บ</p>
-      <div class="about-cta">
-        <a href="mailto:earthlikemwbb@gmail.com?subject=Resume Request" class="btn-primary"><i
-            class="fas fa-file-pdf"></i> Request Resume</a>
-        <a href="./contact.html" class="btn-secondary">Get in Touch</a>
+  <!-- About Section -->
+  <section class="py-24 px-4 section-reveal pt-32">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16"><span
+          class="text-[#00D9FF] text-sm font-semibold tracking-wider uppercase">Introduction</span>
+        <h2 id="about-title" class="text-4xl sm:text-5xl font-bold mt-2 gradient-text">About Me</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <p class="text-gray-300 text-lg leading-relaxed">ผมเริ่มต้นอาชีพในสาย Laboratory &amp; Quality Testing
+            ทำงานด้านการทดสอบทางเคมี เช่น Amino Acid Profile, Protein, Moisture, TKN และ Ash</p>
+          <p class="text-gray-300 text-lg leading-relaxed">พร้อมทั้งมีบทบาทในการพัฒนาระบบงานภายในเพื่อลดภาระงานซ้ำซ้อน
+            เพิ่มความแม่นยำ และทำให้ข้อมูลสามารถนำไปใช้ต่อได้จริง</p>
+
+          <!-- Technical Balance Visual -->
+          <div class="glass-card rounded-2xl p-6 mt-8">
+            <h3 class="text-lg font-semibold mb-4 text-white">Technical Balance</h3>
+            <p class="text-sm text-gray-400 mb-4">ภาพรวมความเชี่ยวชาญที่ผสมผสานระหว่าง Data, Automation และ Science</p>
+            <div class="space-y-3">
+              <div>
+                <div class="flex justify-between text-sm mb-1"><span class="text-[#00D9FF]">Data &amp; Analytics</span>
+                  <span class="text-gray-400">85%</span>
+                </div>
+                <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div class="h-full w-[85%] bg-gradient-to-r from-[#00D9FF] to-[#00FF94] rounded-full"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm mb-1"><span class="text-[#00FF94]">Automation</span> <span
+                    class="text-gray-400">80%</span>
+                </div>
+                <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div class="h-full w-[80%] bg-gradient-to-r from-[#00FF94] to-[#FFE600] rounded-full"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm mb-1"><span class="text-[#FFE600]">Science &amp; QA</span>
+                  <span class="text-gray-400">90%</span>
+                </div>
+                <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div class="h-full w-[90%] bg-gradient-to-r from-[#FFE600] to-[#00D9FF] rounded-full"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Journey Timeline -->
+        <div class="relative">
+          <div class="absolute left-8 top-0 bottom-0 w-0.5 timeline-line"></div>
+          <div class="space-y-8">
+            <div class="relative pl-20">
+              <div
+                class="absolute left-5 w-7 h-7 rounded-full bg-[#00D9FF] flex items-center justify-center text-[#0a0a0f] font-bold text-sm">
+                1
+              </div>
+              <div class="glass-card rounded-xl p-5 glow-border">
+                <h4 class="font-semibold text-[#00D9FF] mb-2">📊 Excel &amp; VBA</h4>
+                <p class="text-gray-400 text-sm">จัดการ Workload, Jobs List และรายงานผลการทดสอบอัตโนมัติ</p>
+              </div>
+            </div>
+            <div class="relative pl-20">
+              <div
+                class="absolute left-5 w-7 h-7 rounded-full bg-[#00FF94] flex items-center justify-center text-[#0a0a0f] font-bold text-sm">
+                2
+              </div>
+              <div class="glass-card rounded-xl p-5 glow-border">
+                <h4 class="font-semibold text-[#00FF94] mb-2">📱 AppSheet</h4>
+                <p class="text-gray-400 text-sm">สร้างระบบจัดการข้อมูลและสต็อกสารเคมี (Stock Management)</p>
+              </div>
+            </div>
+            <div class="relative pl-20">
+              <div
+                class="absolute left-5 w-7 h-7 rounded-full bg-[#FFE600] flex items-center justify-center text-[#0a0a0f] font-bold text-sm">
+                3
+              </div>
+              <div class="glass-card rounded-xl p-5 glow-border">
+                <h4 class="font-semibold text-[#FFE600] mb-2">📈 Dashboard</h4>
+                <p class="text-gray-400 text-sm">เปลี่ยนข้อมูลดิบ (Dirty Data) ให้เป็น Visual ที่ใช้ตัดสินใจได้จริง</p>
+              </div>
+            </div>
+            <div class="relative pl-20">
+              <div
+                class="absolute left-5 w-7 h-7 rounded-full bg-gradient-to-r from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-[#0a0a0f] font-bold text-sm">
+                4
+              </div>
+              <div class="glass-card rounded-xl p-5 glow-border">
+                <h4 class="font-semibold gradient-text mb-2">💻 Modern Tech</h4>
+                <p class="text-gray-400 text-sm">ต่อยอดสู่ SQL, Power BI และ Web-based Dashboard</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main class="container">
-    <!-- About / Intro -->
-    <section class="content-section reveal">
-      <h2>About Me</h2>
-      <div class="bio-section">
-        <p class="bio-text">
-          ผมเริ่มต้นอาชีพในสาย <strong>Laboratory &amp; Quality Testing</strong> ทำงานด้านการทดสอบทางเคมี เช่น Amino
-          Acid
-          Profile, Protein, Moisture, TKN และ Ash พร้อมทั้งมีบทบาทในการพัฒนาระบบงานภายในเพื่อลดภาระงานซ้ำซ้อน
-          เพิ่มความแม่นยำ และทำให้ข้อมูลสามารถนำไปใช้ต่อได้จริง
-        </p>
+  <!-- AI & Automation Focus Section -->
+  <section class="py-24 px-4 section-reveal">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16"><span class="text-[#00FF94] text-sm font-semibold tracking-wider uppercase">Current
+          Focus</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mt-2">AI &amp; <span class="gradient-text">Automation</span></h2>
+        <p class="text-gray-400 mt-4 max-w-2xl mx-auto">ปัจจุบันผมเน้นใช้ AI เป็นเครื่องมือเพิ่มประสิทธิภาพ
+          (AI-Augmented Workflow) เชื่อว่า AI ไม่ได้มาแทนคน แต่ช่วยให้คนที่เข้าใจงานจริง
+          "ทำงานได้เก่งขึ้นอย่างก้าวกระโดด"</p>
       </div>
-    </section>
-
-
-
-    <!-- Focus Section (Bento Grid) -->
-    <section class="content-section reveal">
-      <h2>AI &amp; Automation Focus</h2>
-      <div class="bento-grid">
-        <div class="bento-card">
-          <div class="bento-icon"><i class="fas fa-robot"></i></div>
-          <h3 class="bento-title">AI Augmented</h3>
-          <p>เชื่อใน "AI-Augmented Workflow" ใช้ AI วิเคราะห์ข้อมูล หา Pattern และเขียนโค้ด
-            เพื่อขยายขีดความสามารถของมนุษย์ให้ทะลุขีดจำกัดเดิม</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div
+          class="glass-card rounded-2xl p-8 text-center glow-border group hover:scale-105 transition-transform duration-300">
+          <div
+            class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#00D9FF]/20 to-[#00D9FF]/5 flex items-center justify-center text-4xl">
+            🤖
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-[#00D9FF]">AI Analysis</h3>
+          <p class="text-gray-400">ใช้ AI ช่วยวิเคราะห์ข้อมูล หา Pattern และสรุปผลการทดลอง</p>
         </div>
-        <div class="bento-card">
-          <div class="bento-icon"><i class="fas fa-bolt"></i></div>
-          <h3 class="bento-title">Rapid Speed</h3>
-          <p>ลดเวลา Development จากวันเป็นชั่วโมง ด้วยการใช้ AI ช่วยขึ้นโครงสร้างและ Validate Logic ทันที
-            ทำให้ส่งมอบงานได้เร็วกว่าปกติ 3-5 เท่า</p>
+        <div
+          class="glass-card rounded-2xl p-8 text-center glow-border group hover:scale-105 transition-transform duration-300">
+          <div
+            class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#00FF94]/20 to-[#00FF94]/5 flex items-center justify-center text-4xl">
+            ⚡
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-[#00FF94]">Rapid Dev</h3>
+          <p class="text-gray-400">ใช้ AI ออกแบบโครงสร้าง, เขียนโค้ด React/Firebase และตรวจสอบ Logic</p>
         </div>
-        <div class="bento-card">
-          <div class="bento-icon"><i class="fas fa-cogs"></i></div>
-          <h3 class="bento-title">Automation Core</h3>
-          <p>เกลียดงานซ้ำซ้อน เปลี่ยน Manual Process ทุกอย่างให้เป็น Automated System เพื่อลด Human Error
-            และคืนเวลาให้ทีมไปโฟกัสงานสำคัญ</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Strengths Section (Bento Grid) -->
-    <section class="content-section reveal">
-      <h2>My Strengths</h2>
-      <div class="bento-grid">
-        <div class="bento-card">
-          <div class="bento-icon"><i class="fas fa-brain"></i></div>
-          <h3 class="bento-title">Problem Solver</h3>
-          <p>เติบโตจากห้องแล็บ ฝึกให้คิดเป็นระบบ วิเคราะห์ปัญหาที่รากฐาน (Root Cause) แล้วแก้ด้วย Data ไม่ใช่สัญชาตญาณ
-          </p>
-        </div>
-        <div class="bento-card">
-          <div class="bento-icon"><i class="fas fa-layer-group"></i></div>
-          <h3 class="bento-title">Hybrid Stack</h3>
-          <p>ผสมผสานความรู้ Domain Expertise (Science) + Data Skill + Web Development + AI
-            ทำให้เข้าใจโจทย์ธุรกิจและสร้าง Solution ได้ครบวงจร</p>
-        </div>
-        <div class="bento-card">
-          <div class="bento-icon"><i class="fas fa-chart-line"></i></div>
-          <h3 class="bento-title">Impact Driven</h3>
-          <p>โฟกัสที่ผลลัพธ์ ไม่ใช่แค่ลงแรง วัดผลความสำเร็จด้วยตัวเลขที่จับต้องได้ (Effort Reduction, Cost Saving)</p>
+        <div
+          class="glass-card rounded-2xl p-8 text-center glow-border group hover:scale-105 transition-transform duration-300">
+          <div
+            class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#FFE600]/20 to-[#FFE600]/5 flex items-center justify-center text-4xl">
+            🔧
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-[#FFE600]">Automation</h3>
+          <p class="text-gray-400">เปลี่ยนงานซ้ำซ้อนให้เป็นระบบอัตโนมัติ (Automated Workflows)</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- My Journey (Modern Timeline) -->
-    <section class="content-section reveal">
-      <h2>The Journey</h2>
-      <div class="timeline-modern">
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <span class="timeline-tag">The Origin</span>
-            <h3>🧪 Scientific Foundation</h3>
-            <p>เริ่มต้นจากการเป็นนักเคมีในห้องแล็บที่ต้องทำงานแข่งกับเวลาและความแม่นยำ
-              เรียนรู้วินัยการจัดการข้อมูลและการตรวจสอบคุณภาพอย่างเข้มข้น</p>
+  <!-- Skills Section -->
+  <section id="skills" class="py-24 px-4 section-reveal">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16"><span
+          class="text-[#00D9FF] text-sm font-semibold tracking-wider uppercase">Expertise</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mt-2">Core <span class="gradient-text">Skills</span></h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Tech Skills -->
+        <div class="glass-card rounded-2xl p-8 glow-border">
+          <h3 class="text-xl font-semibold mb-6 text-[#00D9FF] flex items-center gap-2"><span>💻</span> Tech Stack</h3>
+          <div class="space-y-6">
+            <div>
+              <h4 class="text-sm font-semibold text-gray-400 mb-3">Data &amp; Analytics</h4>
+              <div class="flex flex-wrap gap-2"><span
+                  class="skill-tag px-3 py-1.5 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-sm border border-[#00D9FF]/20">SQL</span>
+                <span
+                  class="skill-tag px-3 py-1.5 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-sm border border-[#00D9FF]/20">Power
+                  BI</span> <span
+                  class="skill-tag px-3 py-1.5 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-sm border border-[#00D9FF]/20">Excel</span>
+                <span
+                  class="skill-tag px-3 py-1.5 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-sm border border-[#00D9FF]/20">GA4
+                  &amp; Event Design</span>
+              </div>
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-gray-400 mb-3">Automation</h4>
+              <div class="flex flex-wrap gap-2"><span
+                  class="skill-tag px-3 py-1.5 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-sm border border-[#00FF94]/20">VBA</span>
+                <span
+                  class="skill-tag px-3 py-1.5 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-sm border border-[#00FF94]/20">AppSheet</span>
+                <span
+                  class="skill-tag px-3 py-1.5 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-sm border border-[#00FF94]/20">Apps
+                  Script</span> <span
+                  class="skill-tag px-3 py-1.5 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-sm border border-[#00FF94]/20">AI
+                  Pair Programming</span>
+              </div>
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-gray-400 mb-3">Web Development</h4>
+              <div class="flex flex-wrap gap-2"><span
+                  class="skill-tag px-3 py-1.5 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-sm border border-[#FFE600]/20">React</span>
+                <span
+                  class="skill-tag px-3 py-1.5 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-sm border border-[#FFE600]/20">Firebase</span>
+                <span
+                  class="skill-tag px-3 py-1.5 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-sm border border-[#FFE600]/20">Netlify
+                  CI/CD</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <span class="timeline-tag">The Turning Point</span>
-            <h3>⚡ Discovering Inefficiency</h3>
-            <p>พบปัญหาคอขวดของการทำงานแบบ Manual ที่กินเวลาชีวิต จึงเริ่มตั้งคำถามและมองหาวิธีการใหม่ๆ เพื่อ "Hack"
-              เวลากลับคืนมา</p>
+
+        <!-- Science Skills -->
+        <div class="glass-card rounded-2xl p-8 glow-border">
+          <h3 class="text-xl font-semibold mb-6 text-[#00FF94] flex items-center gap-2"><span>🔬</span> Science &amp; QA
+          </h3>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"><span
+                class="text-[#00D9FF]">✓</span> <span class="text-gray-300">Analytical Chemistry (Method
+                Validation)</span>
+            </div>
+            <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"><span
+                class="text-[#00FF94]">✓</span> <span class="text-gray-300">QA/QC &amp; SOPs (GLP/GMP Mindset)</span>
+            </div>
+            <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"><span
+                class="text-[#FFE600]">✓</span> <span class="text-gray-300">Documentation &amp; Traceability
+                (ALCOA+)</span>
+            </div>
+            <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"><span
+                class="text-[#00D9FF]">✓</span> <span class="text-gray-300">Root Cause Analysis (5 Whys,
+                Fishbone)</span>
+            </div>
+            <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"><span
+                class="text-[#00FF94]">✓</span> <span class="text-gray-300">Experimental Design (DoE, Sampling)</span>
+            </div>
+            <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"><span
+                class="text-[#FFE600]">✓</span> <span class="text-gray-300">Instrumentation (UV-Vis, pH, balance)</span>
+            </div>
+            <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"><span
+                class="text-[#00D9FF]">✓</span> <span class="text-gray-300">Safety &amp; Compliance</span>
+            </div>
           </div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <span class="timeline-tag">The Evolution</span>
-            <h3>🤖 Automation & Code</h3>
-            <p>เริ่มเขียน Script เล็กๆ เพื่อ Automate งานเอกสาร พัฒนาสู่การเขียนโปรแกรมเต็มตัว สร้างระบบ Inventory และ
-              Dashboard ใช้เองในองค์กร</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section class="py-24 px-4 section-reveal">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16"><span
+          class="text-[#FFE600] text-sm font-semibold tracking-wider uppercase">Credentials</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mt-2">Certifications</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="glass-card rounded-xl p-5 text-center hover:scale-105 transition-transform">
+          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-[#00D9FF]/20 flex items-center justify-center"><span
+              class="text-2xl">📊</span>
+          </div>
+          <p class="text-sm text-gray-300">Data Science Bootcamp 2025 (DataRockie)</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 text-center hover:scale-105 transition-transform">
+          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-[#00FF94]/20 flex items-center justify-center"><span
+              class="text-2xl">🤖</span>
+          </div>
+          <p class="text-sm text-gray-300">ChatGPT for Developers</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 text-center hover:scale-105 transition-transform">
+          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-[#FFE600]/20 flex items-center justify-center"><span
+              class="text-2xl">💾</span>
+          </div>
+          <p class="text-sm text-gray-300">Essential SQL for Everyone</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 text-center hover:scale-105 transition-transform">
+          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-[#00D9FF]/20 flex items-center justify-center"><span
+              class="text-2xl">✨</span>
+          </div>
+          <p class="text-sm text-gray-300">Gemini Certified Educator</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 text-center hover:scale-105 transition-transform">
+          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-[#00FF94]/20 flex items-center justify-center"><span
+              class="text-2xl">🧪</span>
+          </div>
+          <p class="text-sm text-gray-300">Analytical Chemistry &amp; Method Validation</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 text-center hover:scale-105 transition-transform">
+          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-[#FFE600]/20 flex items-center justify-center"><span
+              class="text-2xl">✅</span>
+          </div>
+          <p class="text-sm text-gray-300">GLP/GMP Quality Systems</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-24 px-4 section-reveal">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16"><span
+          class="text-[#00D9FF] text-sm font-semibold tracking-wider uppercase">FAQ</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mt-2">Frequently Asked <span class="gradient-text">Questions</span>
+        </h2>
+      </div>
+      <div class="space-y-4">
+        <div class="glass-card rounded-xl overflow-hidden"><button
+            class="faq-btn w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition-colors"
+            data-faq="1"> <span class="font-semibold">ทำงานยังไง?</span>
+            <svg class="faq-icon w-5 h-5 text-[#00D9FF] transition-transform" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg></button>
+          <div class="faq-content hidden px-6 pb-6">
+            <p class="text-gray-400">Brief → Design → Build → Test → Measure (GA4/Lighthouse) → Docs.</p>
           </div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <span class="timeline-tag">Current State</span>
-            <h3>🚀 AI & Data Professional</h3>
-            <p>ผันตัวมาเป็น Data & AI Developer เต็มตัว เชี่ยวชาญการสร้าง End-to-End Solution ตั้งแต่เก็บข้อมูล
-              วิเคราะห์ จนถึงสร้าง Web/App เพื่อการใช้งานจริง</p>
+        <div class="glass-card rounded-xl overflow-hidden"><button
+            class="faq-btn w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition-colors"
+            data-faq="2"> <span class="font-semibold">ต้องใช้ข้อมูลอะไรบ้าง?</span>
+            <svg class="faq-icon w-5 h-5 text-[#00D9FF] transition-transform" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg></button>
+          <div class="faq-content hidden px-6 pb-6">
+            <p class="text-gray-400">KPI, แหล่งข้อมูล, รายงานเดิม, กลุ่มผู้ใช้.</p>
+          </div>
+        </div>
+        <div class="glass-card rounded-xl overflow-hidden"><button
+            class="faq-btn w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition-colors"
+            data-faq="3"> <span class="font-semibold">ระยะเวลาโครงการ?</span>
+            <svg class="faq-icon w-5 h-5 text-[#00D9FF] transition-transform" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg></button>
+          <div class="faq-content hidden px-6 pb-6">
+            <p class="text-gray-400">Dashboard 2–3 สัปดาห์, Automation 1–2 สัปดาห์, QA &amp; Analytics 1 สัปดาห์.</p>
+          </div>
+        </div>
+        <div class="glass-card rounded-xl overflow-hidden"><button
+            class="faq-btn w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition-colors"
+            data-faq="4"> <span class="font-semibold">รับดูแลต่อไหม?</span>
+            <svg class="faq-icon w-5 h-5 text-[#00D9FF] transition-transform" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg></button>
+          <div class="faq-content hidden px-6 pb-6">
+            <p class="text-gray-400">มี maintenance รายเดือน (KPI, events, health-check).</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- What I'm Looking For -->
-    <section class="content-section reveal looking-for-section">
-      <h2 class="looking-for-title">What I’m Looking For</h2>
-      <p class="looking-for-desc" style="color:var(--on-muted); margin-bottom:2rem;">มองหาโอกาสที่จะสร้าง Impact
-        ในระดับองค์กร</p>
-      <ul class="looking-for-list">
-        <li><i class="fas fa-bullseye" style="color:var(--neon-accent)"></i> <span>โจทย์ที่ท้าทาย ได้ใช้ AI และ
-            Automation แก้ปัญหา Business จริง</span></li>
-        <li><i class="fas fa-seedling" style="color:#10b981"></i> <span>องค์กรที่เปิดกว้าง พร้อมทดลองเครื่องมือใหม่ๆ
-            ไม่ยึดติดกับวิธีการเดิม</span></li>
-        <li><i class="fas fa-trophy" style="color:#f59e0b"></i> <span>ทีมที่วัดผลงานที่ "Impact" และ "Efficiency"
-            มากกว่าจำนวนชั่วโมงทำงาน</span></li>
-      </ul>
-    </section>
-
-    <!-- Skills (มีแค่ชุดเดียว) -->
-    <section class="content-section reveal">
-      <h2>Core Skills</h2>
-      <div id="skills-container" class="skills-grid" data-fallback>
-        <p class="muted">Loading skills…</p>
-      </div>
-    </section>
-
-    <!-- Certifications (มีแค่ชุดเดียว) -->
-    <section class="content-section reveal">
-      <h2>Certifications</h2>
-      <div id="certifications-container" class="certs-grid" data-fallback>
-        <p class="muted">Loading certifications…</p>
-      </div>
-    </section>
-
-
-
-    <!-- CTA -->
-    <section class="content-section reveal">
-      <div class="cta-box">
-        <h2>🚀 Looking for a Data Analyst / BI Developer with QA mindset?</h2>
-        <p class="cta-description">Let's connect and create impact together!</p>
-        <div class="cta-buttons">
-          <a class="btn-primary"
-            href="mailto:earthlikemwbb@gmail.com?subject=Resume Request - Portfolio Website&body=Hi Nattapart,%0D%0A%0D%0AI'm interested in your resume. Please send me a copy.%0D%0A%0D%0AThank you!"><i
-              class="fas fa-envelope"></i> Request Resume</a>
-          <a class="btn-secondary" href="contact.html"><i class="fas fa-paper-plane"></i> Contact Me</a>
+  <!-- CTA Section -->
+  <section class="py-24 px-4 section-reveal">
+    <div class="max-w-4xl mx-auto">
+      <div class="relative rounded-3xl overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-[#00D9FF] via-[#00FF94] to-[#FFE600] opacity-20"></div>
+        <div class="absolute inset-0 bg-[#0a0a0f]/80"></div>
+        <div class="relative z-10 p-12 text-center"><span class="text-5xl mb-6 block">🚀</span>
+          <h2 id="cta-text" class="text-2xl sm:text-3xl font-bold mb-4">Looking for a Data Analyst / BI Developer with
+            QA mindset?</h2>
+          <p class="text-gray-300 mb-8 text-lg">Let's connect and create impact together!</p><a
+            href="mailto:earthlikemwbb@gmail.com"
+            class="inline-block px-8 py-4 rounded-xl bg-gradient-to-r from-[#00D9FF] to-[#00FF94] text-[#0a0a0f] font-semibold text-lg hover:shadow-lg hover:shadow-[#00D9FF]/30 transition-all pulse-glow">
+            Request Resume </a>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer>
-    <p>© 2025 Nattapart Worakun. All Rights Reserved.</p>
+  <!-- Footer -->
+  <footer class="py-12 px-4 border-t border-white/10">
+    <div class="max-w-6xl mx-auto text-center">
+      <div class="flex items-center justify-center space-x-2 mb-4">
+        <div
+          class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center font-bold text-[#0a0a0f]">
+          NW
+        </div>
+        <span class="font-semibold text-lg">Nattapart Worakun</span>
+      </div>
+      <p class="text-gray-500 text-sm">Chemistry → Automation → Data & QA</p>
+      <p class="text-gray-600 text-xs mt-4">© 2024 All rights reserved.</p>
+    </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="cache-bust.js?v=20260111-1"></script>
-  <script defer src="script.js?v=20260111-1"></script>
-  <script defer src="about.js?v=20260111-1"></script>
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section-reveal').forEach(section => {
+      observer.observe(section);
+    });
+
+    // FAQ Toggle
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector('.faq-icon');
+
+        content.classList.toggle('hidden');
+        if (!content.classList.contains('hidden')) {
+          icon.style.transform = 'rotate(180deg)';
+        } else {
+          icon.style.transform = 'rotate(0deg)';
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
