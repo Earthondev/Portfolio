@@ -139,16 +139,16 @@
     ],
     "coverImage": {
       "src": "./assets/projects/hanaihang/cover.png",
-      "alt": "หน้าค้นหาห้างใกล้คุณของ HaaNaiHang พร้อมปุ่มระบุตำแหน่งและช่องค้นหา"
+      "alt": "HaaNaiHang Landing Page"
     },
     "gallery": [
       {
-        "src": "./assets/projects/hanaihang/cover.webp",
-        "alt": "หน้าแรก: ปุ่มระบุตำแหน่ง + ช่องค้นหา + การ์ดห้าง"
+        "src": "./assets/projects/hanaihang/screenshot-1.png",
+        "alt": "HaaNaiHang Search Interface"
       },
       {
-        "src": "./assets/projects/hanaihang/gallery-02.webp",
-        "alt": "Admin: ตารางรายการศูนย์การค้าและสรุปข้อมูลสำคัญ"
+        "src": "./assets/projects/hanaihang/screenshot-2.png",
+        "alt": "HaaNaiHang Admin Dashboard"
       }
     ],
     "links": {
