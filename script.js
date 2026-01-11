@@ -171,8 +171,20 @@ function applyTheme() {
 // --- helper: สร้าง URL แบบ absolute จาก root path ---
 const jsonURL = (name) => {
   const file = name.endsWith('.json') ? name : `${name}.json`;
-  // ใช้ root path เสมอ
-  return new URL(file, location.origin + '/').toString();
+
+  // Detect if we are in a subdirectory (like /case-studies/)
+  const pathSegments = window.location.pathname.split('/').filter(Boolean);
+  const isCaseStudy = pathSegments.includes('case-studies');
+
+  // GH Pages usually adds repository name as first segment, e.g. /Portfolio/
+  // If we are in case-studies, we need to go up one level relative to the HTML file location
+  if (isCaseStudy) {
+    return '../' + file;
+  }
+
+  // If we are at root (index.html, portfolio.html), just use the file name
+  // This works for both localhost and GH Pages /Portfolio/ root
+  return file;
 };
 
 async function loadJSON(name) {
