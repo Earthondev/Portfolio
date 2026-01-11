@@ -3249,3 +3249,11 @@ html {
     font-size: 1.05rem;
     opacity: 0.9;
 }
+
+/* Utility classes for skeleton widths */
+.w-60 { width: 60%; }
+.w-70 { width: 70%; }
+.w-80 { width: 80%; }
+.w-85 { width: 85%; }
+.w-90 { width: 90%; }
+.w-95 { width: 95%; }
