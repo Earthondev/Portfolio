@@ -253,6 +253,8 @@ body {
 
 body {
   font-family: 'Poppins', 'Segoe UI', Roboto, Arial, sans-serif;
+  background-color: var(--grad-start, #dc2626);
+  /* Accessibility fallback */
   background: linear-gradient(135deg, var(--grad-start, #dc2626), var(--grad-end, #991b1b));
   color: var(--on-bg, #111827);
   min-height: 100vh;
@@ -2742,7 +2744,7 @@ footer,
 }
 
 .principle-card p {
-  color: var(--on-surface);
+  color: #ffffff;
   font-size: 0.85rem;
   line-height: 1.4;
   margin: 0;

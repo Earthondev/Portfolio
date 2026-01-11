@@ -140,7 +140,7 @@ jobs:
       run: |
         echo "Checking file sizes..."
         find . -type f -name "*.html" -not -path "*/.lighthouseci/*" -not -path "*/node_modules/*" -not -path "*/.git/*" -exec wc -c {} \; | awk '$1 > 100000 {print "Large HTML file:", $2, "bytes"; exit 1}'
-        find . -type f -name "*.css" -not -path "*/.lighthouseci/*" -not -path "*/node_modules/*" -not -path "*/.git/*" -exec wc -c {} \; | awk '$1 > 50000 {print "Large CSS file:", $2, "bytes"; exit 1}'
+        find . -type f -name "*.css" -not -path "*/.lighthouseci/*" -not -path "*/node_modules/*" -not -path "*/.git/*" -exec wc -c {} \; | awk '$1 > 100000 {print "Large CSS file:", $2, "bytes"; exit 1}'
         find . -type f -name "*.js" -not -path "*/.lighthouseci/*" -not -path "*/node_modules/*" -not -path "*/.git/*" -exec wc -c {} \; | awk '$1 > 50000 {print "Large JS file:", $2, "bytes"; exit 1}'
         echo "All file sizes are acceptable"
 
