@@ -490,6 +490,82 @@ li {
   gap: 1.5rem;
 }
 
+/* Category/Filter Buttons - Ensure Visibility */
+.filter-btn {
+  background: var(--surface-2, #21262d);
+  color: var(--on-bg, #f0f6fc);
+  /* ชัดเจน */
+  border: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.filter-btn:hover {
+  background: var(--surface-3, #30363d);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+.filter-btn.active {
+  background: var(--brand-600, #dc2626);
+  color: #ffffff;
+  border-color: var(--brand-500);
+}
+
+/* Search Bar Visibility */
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-input {
+  width: 100%;
+  background: var(--surface-1, #161b22);
+  color: #ffffff;
+  /* Text color inside input */
+  border: 1px solid var(--border);
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border-radius: 2rem;
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.search-input::placeholder {
+  color: var(--on-muted, #8b949e);
+}
+
+.search-input:focus {
+  border-color: var(--brand-500, #ef4444);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--on-muted, #8b949e);
+  pointer-events: none;
+}
+
+/* Page Title Visibility */
+.portfolio-header h1 {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-header p {
+  color: var(--on-muted, #8b949e);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
 .service-card {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -2956,6 +3032,23 @@ html {
   border: 0;
 }
 
+/* Portfolio Page Specifics */
+.search-filter-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* Moved specific styles to top for better override management */
 /* Why Me Section Styling */
 .why-me-box {
   background: var(--surface-1);
