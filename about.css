@@ -1200,7 +1200,7 @@ p {
 
 .journey-list li:hover {
     transform: translateX(5px);
-    background: var(--bg-light);
+    background-color: var(--bg-light);
 }
 
 .journey-icon {
