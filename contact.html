@@ -43,9 +43,9 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Red Gradient Text */
+        /* Neon Gradient Text */
         .gradient-text {
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%);
+            background: linear-gradient(135deg, #00D9FF 0%, #00FF94 50%, #FFE600 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -62,8 +62,8 @@
 
         .contact-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(220, 38, 38, 0.4);
-            box-shadow: 0 20px 60px rgba(220, 38, 38, 0.2);
+            border-color: rgba(0, 217, 255, 0.4);
+            box-shadow: 0 20px 60px rgba(0, 217, 255, 0.2);
         }
 
         .input-field {
@@ -74,23 +74,24 @@
 
         .input-field:focus {
             outline: none;
-            border-color: #ef4444;
-            background: rgba(220, 38, 38, 0.05);
-            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+            border-color: #00D9FF;
+            background: rgba(0, 217, 255, 0.05);
+            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
         }
 
         .submit-btn {
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            background: linear-gradient(135deg, #00D9FF 0%, #00FF94 100%);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            color: #0a0a0f;
         }
 
         .submit-btn::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+            background: linear-gradient(135deg, #00FF94 0%, #00D9FF 100%);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -101,7 +102,7 @@
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.4);
         }
 
         .social-link {
@@ -114,11 +115,11 @@
         }
 
         .social-link:hover {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
+            background: linear-gradient(135deg, #00D9FF, #00FF94);
             border-color: transparent;
             transform: translateY(-4px) rotate(5deg);
-            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
-            color: white;
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.4);
+            color: #0a0a0f;
         }
 
         .floating {
@@ -148,7 +149,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, #ef4444, #dc2626);
+            background: linear-gradient(90deg, #00D9FF, #00FF94);
             transition: width 0.3s ease;
         }
 
@@ -166,11 +167,13 @@
             100% {
                 transform: scale(1);
                 opacity: 1;
+                background-color: #00FF94;
             }
 
             50% {
                 transform: scale(1.1);
                 opacity: 0.5;
+                background-color: #00FF94;
             }
         }
 
@@ -195,9 +198,9 @@
         .info-icon {
             width: 48px;
             height: 48px;
-            /* Red Tint */
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.2));
-            border: 1px solid rgba(239, 68, 68, 0.3);
+            /* Neon Tint */
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(0, 255, 148, 0.2));
+            border: 1px solid rgba(0, 217, 255, 0.3);
         }
     </style>
 </head>
@@ -207,14 +210,14 @@
     <!-- Animated Background -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none">
         <div
-            class="absolute top-20 left-10 w-96 h-96 bg-[#ef4444] rounded-full mix-blend-multiply filter blur-[100px] opacity-10 floating">
+            class="absolute top-20 left-10 w-96 h-96 bg-[#00D9FF] rounded-full mix-blend-multiply filter blur-[100px] opacity-10 floating">
         </div>
-        <div class="absolute bottom-20 right-10 w-[500px] h-[500px] bg-[#dc2626] rounded-full mix-blend-multiply filter blur-[100px] opacity-10 floating"
+        <div class="absolute bottom-20 right-10 w-[500px] h-[500px] bg-[#00FF94] rounded-full mix-blend-multiply filter blur-[100px] opacity-10 floating"
             style="animation-delay: -3s;"></div>
         <!-- Mesh Grid -->
         <div class="absolute inset-0 opacity-20" style="background-image: 
-        linear-gradient(rgba(220, 38, 38, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(220, 38, 38, 0.05) 1px, transparent 1px);
+        linear-gradient(rgba(0, 217, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
         background-size: 50px 50px;"></div>
     </div>
 
@@ -227,7 +230,7 @@
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center space-x-2">
                     <a href="index.html"
-                        class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#ef4444] to-[#dc2626] flex items-center justify-center font-bold text-[#0a0a0f] text-xl">
+                        class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center font-bold text-[#0a0a0f] text-xl">
                         NW
                     </a>
                     <a href="index.html"
@@ -246,7 +249,7 @@
 
                 <div class="flex items-center space-x-4">
                     <a href="mailto:earthlikemwbb@gmail.com"
-                        class="hidden sm:block px-4 py-2 rounded-lg bg-gradient-to-r from-[#ef4444] to-[#dc2626] text-white font-semibold text-sm hover:opacity-90 transition-opacity">
+                        class="hidden sm:block px-4 py-2 rounded-lg bg-gradient-to-r from-[#00D9FF] to-[#00FF94] text-[#0a0a0f] font-semibold text-sm hover:opacity-90 transition-opacity">
                         Resume
                     </a>
                     <!-- Mobile Menu Button -->
@@ -272,7 +275,7 @@
         <!-- Header -->
         <header class="text-center mb-16 fade-in-up">
             <div
-                class="inline-block mb-4 px-4 py-2 rounded-full bg-gradient-to-r from-[#ef4444]/20 to-[#dc2626]/20 border border-[#ef4444]/30">
+                class="inline-block mb-4 px-4 py-2 rounded-full bg-gradient-to-r from-[#00D9FF]/20 to-[#00FF94]/20 border border-[#00D9FF]/30">
                 <span class="text-sm font-semibold mono gradient-text">📬 CONTACT</span>
             </div>
             <h1 class="text-5xl sm:text-7xl font-bold mb-6">Get In <span class="gradient-text">Touch</span></h1>
@@ -290,13 +293,13 @@
                     <div class="contact-card rounded-2xl p-6">
                         <div class="flex items-start gap-4">
                             <div class="info-icon rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-envelope text-[#ef4444] text-xl"></i>
+                                <i class="fas fa-envelope text-[#00D9FF] text-xl"></i>
                             </div>
                             <div class="flex-1">
                                 <h3 class="font-semibold text-lg mb-1">Email</h3>
                                 <p class="text-gray-400 text-sm mb-2">nattapart.work@gmail.com</p>
                                 <a href="mailto:nattapart.work@gmail.com"
-                                    class="text-[#ef4444] text-sm font-medium hover:underline">Send Email →</a>
+                                    class="text-[#00D9FF] text-sm font-medium hover:underline">Send Email →</a>
                             </div>
                         </div>
                     </div>
@@ -305,13 +308,13 @@
                     <div class="contact-card rounded-2xl p-6">
                         <div class="flex items-start gap-4">
                             <div class="info-icon rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-phone text-[#ef4444] text-xl"></i>
+                                <i class="fas fa-phone text-[#00D9FF] text-xl"></i>
                             </div>
                             <div class="flex-1">
                                 <h3 class="font-semibold text-lg mb-1">Phone</h3>
                                 <p class="text-gray-400 text-sm mb-2">+66 XX XXX XXXX</p>
                                 <a href="tel:+66XXXXXXXXX"
-                                    class="text-[#ef4444] text-sm font-medium hover:underline">Call Me →</a>
+                                    class="text-[#00D9FF] text-sm font-medium hover:underline">Call Me →</a>
                             </div>
                         </div>
                     </div>
@@ -320,7 +323,7 @@
                     <div class="contact-card rounded-2xl p-6">
                         <div class="flex items-start gap-4">
                             <div class="info-icon rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-map-marker-alt text-[#ef4444] text-xl"></i>
+                                <i class="fas fa-map-marker-alt text-[#00D9FF] text-xl"></i>
                             </div>
                             <div class="flex-1">
                                 <h3 class="font-semibold text-lg mb-1">Location</h3>
@@ -353,8 +356,8 @@
                 <div class="contact-card rounded-2xl p-6">
                     <div class="flex items-center gap-3">
                         <div class="relative">
-                            <div class="w-3 h-3 bg-red-500 rounded-full pulse-ring"></div>
-                            <div class="absolute inset-0 w-3 h-3 bg-red-500 rounded-full animate-ping"></div>
+                            <div class="w-3 h-3 bg-[#00FF94] rounded-full pulse-ring"></div>
+                            <div class="absolute inset-0 w-3 h-3 bg-[#00FF94] rounded-full animate-ping"></div>
                         </div>
                         <div>
                             <p class="font-semibold text-sm">Available for opportunities</p>
@@ -374,7 +377,7 @@
                         <!-- Name Field -->
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-300 mb-2"> Your Name <span
-                                    class="text-red-500">*</span> </label>
+                                    class="text-[#00D9FF]">*</span> </label>
                             <input type="text" id="name" name="name" required
                                 class="input-field w-full px-4 py-3 rounded-xl text-white placeholder-gray-500"
                                 placeholder="John Doe">
@@ -383,7 +386,7 @@
                         <!-- Email Field -->
                         <div>
                             <label for="email" class="block text-sm font-medium text-gray-300 mb-2"> Email Address <span
-                                    class="text-red-500">*</span> </label>
+                                    class="text-[#00D9FF]">*</span> </label>
                             <input type="email" id="email" name="email" required
                                 class="input-field w-full px-4 py-3 rounded-xl text-white placeholder-gray-500"
                                 placeholder="john@example.com">
@@ -392,7 +395,7 @@
                         <!-- Subject Field -->
                         <div>
                             <label for="subject" class="block text-sm font-medium text-gray-300 mb-2"> Subject <span
-                                    class="text-red-500">*</span> </label>
+                                    class="text-[#00D9FF]">*</span> </label>
                             <input type="text" id="subject" name="subject" required
                                 class="input-field w-full px-4 py-3 rounded-xl text-white placeholder-gray-500"
                                 placeholder="Project Inquiry">
@@ -401,7 +404,7 @@
                         <!-- Message Field -->
                         <div>
                             <label for="message" class="block text-sm font-medium text-gray-300 mb-2"> Message <span
-                                    class="text-red-500">*</span> </label>
+                                    class="text-[#00D9FF]">*</span> </label>
                             <textarea id="message" name="message" rows="5" required
                                 class="input-field w-full px-4 py-3 rounded-xl text-white placeholder-gray-500 resize-none"
                                 placeholder="Tell me about your project or question..."></textarea>
@@ -409,7 +412,7 @@
 
                         <!-- Submit Button -->
                         <button type="submit" id="submit-btn"
-                            class="submit-btn w-full py-4 rounded-xl text-white font-semibold text-lg flex items-center justify-center gap-2 group">
+                            class="submit-btn w-full py-4 rounded-xl text-[#0a0a0f] font-semibold text-lg flex items-center justify-center gap-2 group">
                             <span>Send Message</span>
                             <i class="fas fa-paper-plane group-hover:translate-x-1 transition-transform"></i>
                         </button>
