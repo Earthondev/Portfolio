@@ -310,193 +310,229 @@
         <div class="max-w-7xl mx-auto">
             <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                <!-- Project 1: Lab Workload System -->
-                <div class="project-card rounded-2xl p-6 fade-in" data-category="automation"
+                <!-- Project 1: Care for Mom -->
+                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp automation"
                     style="animation-delay: 0.3s;">
-                    <div class="relative z-10">
-                        <div class="flex items-start justify-between mb-4">
-                            <div
-                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-2xl shimmer text-[#0a0a0f]">
-                                📋
-                            </div>
+                    <!-- Image Header -->
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="./assets/projects/care-for-mom/cover.png" alt="Care for Mom"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
+                        <div
+                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
+                            🏥
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-2 relative z-10">
+                        <div class="flex items-start justify-between mb-2">
+                            <div></div>
                             <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
-                                data-project="1">
+                                data-project="care-for-mom">
                                 <i class="fas fa-arrow-up-right-from-square text-lg"></i>
                             </button>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-white">Lab Workload Management System</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">ระบบจัดการ Job Queue อัตโนมัติด้วย Excel
-                            VBA ลดเวลาวางแผน 80% และลด Error จากการจัด Priority ด้วยมือ</p>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">Care
+                            for Mom</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">
+                            แอปพลิเคชันดูแลสุขภาพผู้สูงอายุ พัฒนาด้วยพลัง AI (Gemini) ช่วยแจ้งเตือนยาและวิเคราะห์สุขภาพ
+                        </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Excel
-                                VBA</span>
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Flutter</span>
                             <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Automation</span>
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Gemini
+                                AI</span>
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2022-2023</span>
-                            <span class="text-[#00FF94] font-semibold">-80% Planning Time</span>
+                            <span class="text-gray-500 mono">2026</span>
+                            <span class="text-[#00FF94] font-semibold">In Development</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2: Chemical Stock Management -->
-                <div class="project-card rounded-2xl p-6 fade-in" data-category="webapp" style="animation-delay: 0.4s;">
-                    <div class="relative z-10">
-                        <div class="flex items-start justify-between mb-4">
-                            <div
-                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#00FF94] to-[#FFE600] flex items-center justify-center text-2xl shimmer text-[#0a0a0f]">
-                                🧪
-                            </div>
+                <!-- Project 2: Slack Drive Bot -->
+                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="automation"
+                    style="animation-delay: 0.4s;">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="./assets/projects/slack-drive-bot/cover.png" alt="Slack Drive Bot"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
+                        <div
+                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00FF94] to-[#FFE600] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
+                            🤖
+                        </div>
+                    </div>
+                    <div class="p-6 pt-2 relative z-10">
+                        <div class="flex items-start justify-between mb-2">
+                            <div></div>
                             <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
-                                data-project="2">
+                                data-project="slack-drive-bot">
                                 <i class="fas fa-arrow-up-right-from-square text-lg"></i>
                             </button>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-white">Chemical Stock Management</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">Mobile App ด้วย AppSheet
-                            จัดการสต็อกสารเคมี Real-time พร้อม Barcode Scan และ Auto Alert เมื่อใกล้หมด</p>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00FF94] transition-colors">Slack
+                            Drive Bot</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">บอทอัตโนมัติเชื่อมต่อ Slack
+                            กับ Google Drive จัดการไฟล์และเปลี่ยนชื่ออัตโนมัติ</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">AppSheet</span>
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Python</span>
                             <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">Google
-                                Sheets</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Mobile</span>
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">Automation</span>
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2023</span>
-                            <span class="text-[#FFE600] font-semibold">100% Real-time</span>
+                            <span class="text-gray-500 mono">2026</span>
+                            <span class="text-[#FFE600] font-semibold">Completed</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 3: QC Dashboard -->
-                <div class="project-card rounded-2xl p-6 fade-in" data-category="dashboard"
+                <!-- Project 3: HaaNaiHang -->
+                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp dashboard"
                     style="animation-delay: 0.5s;">
-                    <div class="relative z-10">
-                        <div class="flex items-start justify-between mb-4">
-                            <div
-                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#FFE600] to-[#00D9FF] flex items-center justify-center text-2xl shimmer text-[#0a0a0f]">
-                                📈
-                            </div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
-                                data-project="3">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white">QC Performance Dashboard</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">Interactive Dashboard แปลง Dirty Data
-                            จากแล็บให้เป็น Visual สำหรับ Management ตัดสินใจ</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">Power
-                                BI</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">SQL</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">DAX</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2023-2024</span>
-                            <span class="text-[#00D9FF] font-semibold">Real-time KPIs</span>
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="./assets/projects/hanaihang/cover.png" alt="HaaNaiHang"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
+                        <div
+                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#FFE600] to-[#00D9FF] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
+                            🛍️
                         </div>
                     </div>
-                </div>
-
-                <!-- Project 4: Test Automation -->
-                <div class="project-card rounded-2xl p-6 fade-in" data-category="qa" style="animation-delay: 0.6s;">
-                    <div class="relative z-10">
-                        <div class="flex items-start justify-between mb-4">
-                            <div
-                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-2xl shimmer text-[#0a0a0f]">
-                                🤖
-                            </div>
+                    <div class="p-6 pt-2 relative z-10">
+                        <div class="flex items-start justify-between mb-2">
+                            <div></div>
                             <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
-                                data-project="4">
+                                data-project="hanaihang">
                                 <i class="fas fa-arrow-up-right-from-square text-lg"></i>
                             </button>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-white">API Test Automation Suite</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">Automated Testing Framework ด้วย
-                            Postman/Newman พร้อม CI/CD Pipeline ทดสอบ 100+ Endpoints อัตโนมัติ</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Postman</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Newman</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">CI/CD</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2024</span>
-                            <span class="text-[#00FF94] font-semibold">100+ Tests</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5: Web Analytics -->
-                <div class="project-card rounded-2xl p-6 fade-in" data-category="dashboard"
-                    style="animation-delay: 0.7s;">
-                    <div class="relative z-10">
-                        <div class="flex items-start justify-between mb-4">
-                            <div
-                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#00FF94] to-[#FFE600] flex items-center justify-center text-2xl shimmer text-[#0a0a0f]">
-                                📱
-                            </div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
-                                data-project="5">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white">Web Analytics & Event Design</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">ออกแบบ GA4 Event Tracking และ Custom
-                            Dashboard วิเคราะห์พฤติกรรมผู้ใช้แบบ Real-time</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">GA4</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">GTM</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Looker
-                                Studio</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2024</span>
-                            <span class="text-[#FFE600] font-semibold">30+ Events</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6: React Firebase App -->
-                <div class="project-card rounded-2xl p-6 fade-in" data-category="webapp" style="animation-delay: 0.8s;">
-                    <div class="relative z-10">
-                        <div class="flex items-start justify-between mb-4">
-                            <div
-                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#FFE600] to-[#00D9FF] flex items-center justify-center text-2xl shimmer text-[#0a0a0f]">
-                                💻
-                            </div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
-                                data-project="6">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white">Full-Stack React App</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">Web Application ด้วย React + Firebase ใช้
-                            AI Pair Programming พัฒนาเร็ว Deploy Auto ผ่าน Netlify</p>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#FFE600] transition-colors">
+                            HaaNaiHang</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">
+                            เว็บค้นหาห้าง/ร้านค้าพร้อมระบบ Admin Dashboard จัดการข้อมูล</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span
                                 class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">React</span>
                             <span
                                 class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Firebase</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Netlify</span>
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2024</span>
-                            <span class="text-[#00D9FF] font-semibold">Production Ready</span>
+                            <span class="text-gray-500 mono">2025</span>
+                            <span class="text-[#00D9FF] font-semibold">Production</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Expense Tracker -->
+                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp"
+                    style="animation-delay: 0.6s;">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="./assets/projects/expense-tracker/cover.png" alt="Expense Tracker"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
+                        <div
+                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
+                            💰
+                        </div>
+                    </div>
+                    <div class="p-6 pt-2 relative z-10">
+                        <div class="flex items-start justify-between mb-2">
+                            <div></div>
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="expense-tracker">
+                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">
+                            Flutter Expense Tracker</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">แอปบันทึกรายรับรายจ่ายแบบ
+                            Offline-first พร้อมฟีเจอร์แนบรูปสลิป</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Flutter</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">SQLite</span>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-gray-500 mono">2026</span>
+                            <span class="text-[#00FF94] font-semibold">Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Inventory Amino -->
+                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="automation dashboard"
+                    style="animation-delay: 0.7s;">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="./assets/projects/Inventory%20amino/Screenshot%202568-09-13%20at%2012.17.06.png"
+                            alt="Inventory Amino"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
+                        <div
+                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00FF94] to-[#FFE600] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
+                            🧪
+                        </div>
+                    </div>
+                    <div class="p-6 pt-2 relative z-10">
+                        <div class="flex items-start justify-between mb-2">
+                            <div></div>
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="inventory-amino">
+                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00FF94] transition-colors">
+                            Inventory Amino</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">ระบบจัดการสต็อกสารเคมีในแล็บ
+                            Mobile-first พร้อมแจ้งเตือนของใกล้หมด</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">AppSheet</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">No-Code</span>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-gray-500 mono">2025</span>
+                            <span class="text-[#FFE600] font-semibold">In Use</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: PDF Toolkit -->
+                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp"
+                    style="animation-delay: 0.8s;">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="./assets/projects/pdf-toolkit/cover.png" alt="PDF Toolkit"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
+                        <div
+                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#FFE600] to-[#00D9FF] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
+                            📄
+                        </div>
+                    </div>
+                    <div class="p-6 pt-2 relative z-10">
+                        <div class="flex items-start justify-between mb-2">
+                            <div></div>
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="pdf-toolkit">
+                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#FFE600] transition-colors">
+                            Browser PDF Toolkit</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">เครื่องมือจัดการ PDF บนเว็บ
+                            (Split, Merge) ทำงานบน Browser 100% (Client-side)</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">JS</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">PDF.js</span>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-gray-500 mono">2025</span>
+                            <span class="text-[#00D9FF] font-semibold">Completed</span>
                         </div>
                     </div>
                 </div>
@@ -532,83 +568,95 @@
     <script>
         // Project Data
         const projectDetails = {
-            '1': {
-                title: 'Lab Workload Management System',
-                description: 'ระบบจัดการ Job Queue และ Priority อัตโนมัติ ช่วยลดเวลาวางแผนงานและลด Human Error',
-                challenge: 'ปัญหา: การวางแผนงานและจัดลำดับความสำคัญของ Sample ใช้เวลานาน เสี่ยงผิดพลาด และไม่สามารถติดตามสถานะได้แบบ Real-time',
-                solution: 'สร้างระบบ Auto-scheduling ด้วย VBA คำนวณ Priority Score จาก Due Date, Sample Type และ Workload แล้วสร้าง Dashboard แสดงสถานะแบบ Real-time',
+            'care-for-mom': {
+                title: 'Care for Mom – AI Health Companion',
+                description: 'แอปพลิเคชันดูแลสุขภาพผู้สูงอายุ พัฒนาด้วยพลัง AI (Gemini) ช่วยแจ้งเตือนยาและวิเคราะห์สุขภาพเบื้องต้น',
+                challenge: 'ผู้สูงอายุมักลืมกินยาและไม่ทราบอาการป่วยเบื้องต้น ทำให้การรักษาล่าช้าและขาดการดูแลที่ต่อเนื่อง',
+                solution: 'พัฒนาแอปพลิเคชันที่ใช้ Gemini API วิเคราะห์ข้อมูลสุขภาพ และสร้างระบบแจ้งเตือนยาอัตโนมัติที่ใช้งานง่าย',
                 impact: [
-                    { label: 'ลดเวลาวางแผน', value: '80%' },
-                    { label: 'เพิ่ม Accuracy', value: '95%' },
-                    { label: 'On-time Delivery', value: '+25%' }
+                    { label: 'AI Powered', value: 'Gemini 1.5' },
+                    { label: 'Language', value: 'TH / EN' },
+                    { label: 'Access', value: 'Offline' }
                 ],
-                tech: ['Excel VBA', 'Automation', 'Dashboard'],
-                features: ['Auto Priority Calculation', 'Real-time Status Tracking', 'Workload Distribution', 'Due Date Alerts']
+                tech: ['Flutter', 'Gemini API', 'SQLite', 'Dart'],
+                features: ['AI Health Analysis', 'Smart Medicine Reminders', 'Multi-language Support', 'Offline-first Architecture'],
+                image: './assets/projects/care-for-mom/cover.png',
+                repo: 'https://github.com/Earthondev/CareForMom'
             },
-            '2': {
-                title: 'Chemical Stock Management',
-                description: 'Mobile App จัดการสต็อกสารเคมี พร้อม Barcode Scanning และ Auto Reorder Alert',
-                challenge: 'ปัญหา: Stock ไม่ตรง ระหว่าง Physical กับ Records, ไม่ทันสั่งซื้อสารเคมีใหม่, ไม่รู้ว่าใครเบิกไปเมื่อไร',
-                solution: 'พัฒนา Mobile App ด้วย AppSheet เชื่อมกับ Google Sheets ให้ Scan Barcode เพื่อ Check-in/Check-out พร้อม Alert เมื่อสารใกล้หมด',
+            'slack-drive-bot': {
+                title: 'Slack Drive Bot',
+                description: 'บอทอัตโนมัติที่เชื่อมต่อ Slack กับ Google Drive ช่วยจัดการไฟล์แนบ เปลี่ยนชื่อ และจัดเก็บลงโฟลเดอร์ตามเงื่อนไข',
+                challenge: 'ทีมงานเสียเวลาจัดการไฟล์แนบจากแชท ต้องดาวน์โหลด เปลี่ยนชื่อ และอัปโหลดใหม่เองกว่า 10 ชม./สัปดาห์',
+                solution: 'สร้าง Slack Bot ที่ดักจับไฟล์แนบ อ่าน Caption เพื่อเปลี่ยนชื่อ และอัปโหลดลง Drive folder ที่ถูกต้องทันที',
+                impact: [
+                    { label: 'Time Saved', value: '-90%' },
+                    { label: 'Accuracy', value: '100%' },
+                    { label: 'Avg Speed', value: '< 2s' }
+                ],
+                tech: ['Python', 'Slack API', 'Google Drive API', 'Docker'],
+                features: ['Automated File Upload', 'Smart Renaming via Caption', 'Dynamic Folder Routing', 'Dockerized Deployment'],
+                image: './assets/projects/slack-drive-bot/cover.png',
+                repo: 'https://github.com/Earthondev/slack-drive-bot'
+            },
+            'hanaihang': {
+                title: 'HaaNaiHang – Mall & Store Finder',
+                description: 'เว็บช่วยค้นหาห้าง/ร้านค้าใกล้ตัว พร้อมแผงผู้ดูแลในการเพิ่ม/แก้ไขข้อมูลศูนย์การค้าและร้านค้าแบบเป็นระบบ',
+                challenge: 'ผู้ใช้หาสถานที่ในห้างยาก และข้อมูลร้านค้ามักไม่อัปเดต ทำให้เสียเวลาเดินทาง',
+                solution: 'พัฒนา Web App ที่ค้นหาร้านค้าได้รวดเร็ว พร้อม Admin Dashboard ให้เจ้าของสถานที่จัดการข้อมูลได้เอง',
+                impact: [
+                    { label: 'Performance', value: '98/100' },
+                    { label: 'Search Speed', value: '< 100ms' },
+                    { label: 'Platform', value: 'PWA' }
+                ],
+                tech: ['React', 'Firebase', 'Tailwind', 'Vite'],
+                features: ['Fast Search', 'Admin Dashboard', 'Responsive Design', 'Google Maps Integration'],
+                image: './assets/projects/hanaihang/cover.png',
+                repo: 'https://github.com/Earthondev/Hanaihang'
+            },
+            'expense-tracker': {
+                title: 'Flutter Expense Tracker',
+                description: 'แอปบันทึกรายรับรายจ่ายส่วนตัว เน้นความรวดเร็วและใช้งานแบบ Offline พร้อมฟีเจอร์แนบรูปสลิป',
+                challenge: 'แอปบันทึกรายจ่ายส่วนใหญ่ช้าและต้องใช้อินเทอร์เน็ต ทำให้ไม่สะดวกบันทึกทันทีหลังจ่ายเงิน',
+                solution: 'สร้าง Offline-first App ด้วย Flutter + SQLite ที่เปิดเร็วและบันทึกได้ทันที พร้อมแนบรูปสลิป',
+                impact: [
+                    { label: 'App Size', value: '< 20MB' },
+                    { label: 'Startup', value: '< 0.5s' },
+                    { label: 'Security', value: 'Local DB' }
+                ],
+                tech: ['Flutter', 'SQLite', 'Dart', 'Local Storage'],
+                features: ['Instant Transaction Log', 'Receipt Attachment', 'Monthly Reports', 'Dark Mode'],
+                image: './assets/projects/expense-tracker/cover.png',
+                repo: 'https://github.com/Earthondev/flutter-expense-tracker'
+            },
+            'inventory-amino': {
+                title: 'Inventory Amino – Lab Stock Management',
+                description: 'ระบบจัดการสต็อกสารเคมี/วัสดุในแล็บ Mobile-first พร้อมแกลเลอรีรูป, รายงานคงเหลือ และแจ้งเตือนของใกล้หมด',
+                challenge: 'สต็อกแล็บมักคลาดเคลื่อน ของหมดไม่รู้ตัว และการเช็คสต็อกใช้เวลานาน',
+                solution: 'ใช้ AppSheet สร้างระบบจัดการ Inventory ที่ใช้งานง่ายบนมือถือ พร้อม Automation แจ้งเตือนผ่าน Line/Email',
                 impact: [
                     { label: 'Stock Accuracy', value: '100%' },
-                    { label: 'Reorder Time', value: '-70%' },
-                    { label: 'Mobile Access', value: '24/7' }
+                    { label: 'Audit Time', value: '-60%' },
+                    { label: 'Waste', value: '-30%' }
                 ],
-                tech: ['AppSheet', 'Google Sheets', 'Barcode Scanner', 'Mobile App'],
-                features: ['Barcode Scanning', 'Real-time Stock Update', 'Auto Reorder Alerts', 'Usage History']
+                tech: ['AppSheet', 'Google Sheets', 'Automation', 'No-Code'],
+                features: ['Mobile Barcode Scan', 'Real-time Dashboard', 'Low-stock Alerts', 'Photo Gallery'],
+                image: './assets/projects/Inventory%20amino/Screenshot%202568-09-13%20at%2012.17.06.png',
+                repo: '#'
             },
-            '3': {
-                title: 'QC Performance Dashboard',
-                description: 'Interactive Dashboard แสดง KPI และ Trends จากข้อมูล Lab แบบ Real-time',
-                challenge: 'ปัญหา: Data กระจัดกระจาย อยู่หลาย Excel Files, Management ไม่เห็น Big Picture, ตัดสินใจช้าเพราะต้องรอรายงาน',
-                solution: 'รวบรวมข้อมูลจาก Multiple Sources มา Clean และสร้าง Data Model ใน Power BI สร้าง Interactive Dashboard พร้อม Drill-down Capability',
+            'pdf-toolkit': {
+                title: 'Browser PDF Toolkit',
+                description: 'เครื่องมือจัดการ PDF บนเว็บ (Split, Merge) ทำงานบน Browser 100% เพื่อความปลอดภัยของข้อมูล (Serverless)',
+                challenge: 'บริการจัดการ PDF ส่วนใหญ่อัปโหลดไฟล์ขึ้น Server ทำให้เสี่ยงต่อข้อมูลรั่วไหลในเอกสารสำคัญ',
+                solution: 'พัฒนา Client-side Tool ด้วย PDF.js ประมวลผลทุกอย่างใน Browser ผู้ใช้ ไฟล์ไม่เคยออกจากเครื่อง',
                 impact: [
-                    { label: 'Decision Time', value: '-60%' },
-                    { label: 'Data Accuracy', value: '98%' },
-                    { label: 'Auto Refresh', value: 'Hourly' }
+                    { label: 'Privacy', value: '100%' },
+                    { label: 'Cost', value: '0 THB' },
+                    { label: 'Speed', value: 'Native' }
                 ],
-                tech: ['Power BI', 'SQL', 'DAX', 'Power Query'],
-                features: ['Real-time KPI Monitoring', 'Trend Analysis', 'Drill-down Capability', 'Automated Refresh']
-            },
-            '4': {
-                title: 'API Test Automation Suite',
-                description: 'Automated Testing Framework สำหรับทดสอบ API Endpoints อัตโนมัติใน CI/CD Pipeline',
-                challenge: 'ปัญหา: Manual Testing ใช้เวลามาก, มี Regression Bug ซ้ำๆ, ไม่มี Test Coverage ที่ครบถ้วน',
-                solution: 'สร้าง Test Suite ด้วย Postman พร้อม Newman CLI ใน CI/CD Pipeline ทดสอบ 100+ Endpoints อัตโนมัติทุก Commit',
-                impact: [
-                    { label: 'Test Coverage', value: '95%' },
-                    { label: 'Testing Time', value: '-85%' },
-                    { label: 'Bug Detection', value: 'Early Stage' }
-                ],
-                tech: ['Postman', 'Newman', 'CI/CD', 'JavaScript'],
-                features: ['Automated API Testing', 'Test Data Generation', 'HTML Reports', 'Slack Notifications']
-            },
-            '5': {
-                title: 'Web Analytics & Event Design',
-                description: 'ออกแบบและติดตั้ง GA4 Event Tracking พร้อม Custom Dashboard วิเคราะห์พฤติกรรมผู้ใช้',
-                challenge: 'ปัญหา: ไม่รู้ว่า User ใช้ Feature ไหน, Conversion Rate ต่ำ, ไม่มีข้อมูลสำหรับ UX Improvement',
-                solution: 'ออกแบบ Event Tracking Strategy ติดตั้ง GA4 ผ่าน GTM สร้าง Custom Dashboard ใน Looker Studio วิเคราะห์ User Journey',
-                impact: [
-                    { label: 'Event Tracking', value: '30+ Events' },
-                    { label: 'Data Quality', value: '100%' },
-                    { label: 'Insight Speed', value: 'Real-time' }
-                ],
-                tech: ['GA4', 'GTM', 'Looker Studio', 'JavaScript'],
-                features: ['Custom Event Tracking', 'User Journey Analysis', 'Conversion Funnel', 'Real-time Dashboard']
-            },
-            '6': {
-                title: 'Full-Stack React Application',
-                description: 'Modern Web Application สร้างด้วย React และ Firebase พร้อม CI/CD Auto Deployment',
-                challenge: 'ปัญหา: ต้องการ Web App ที่ Responsive, มี Authentication, Real-time Database แต่ไม่มี Backend Team',
-                solution: 'ใช้ AI Pair Programming พัฒนา React App + Firebase (Auth, Firestore, Hosting) Deploy อัตโนมัติผ่าน Netlify',
-                impact: [
-                    { label: 'Development Time', value: '-70%' },
-                    { label: 'Deployment', value: 'Auto' },
-                    { label: 'Uptime', value: '99.9%' }
-                ],
-                tech: ['React', 'Firebase', 'Netlify', 'Tailwind CSS'],
-                features: ['User Authentication', 'Real-time Database', 'Responsive Design', 'Auto Deployment']
+                tech: ['HTML5', 'JavaScript', 'PDF.js', 'Bootstrap'],
+                features: ['Merge PDFs', 'Split PDF', 'Image to PDF', 'No Server Upload'],
+                image: './assets/projects/pdf-toolkit/cover.png',
+                repo: 'https://github.com/Earthondev/pdf-toolkit'
             }
         };
 
@@ -656,7 +704,16 @@
 
                     modalBody.innerHTML = `
             <div class="space-y-8">
+              <!-- Cover Image -->
+              <div class="rounded-xl overflow-hidden shadow-2xl border border-white/10">
+                 <img src="${project.image}" alt="${project.title}" class="w-full h-auto object-cover max-h-[400px]">
+              </div>
+
               <div>
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-xl font-bold text-white">Overview</h3>
+                    ${project.repo && project.repo !== '#' ? `<a href="${project.repo}" target="_blank" class="text-[#00D9FF] hover:underline flex items-center gap-1 text-sm"><i class="fab fa-github"></i> View Code</a>` : ''}
+                </div>
                 <p class="text-lg text-gray-300 leading-relaxed">${project.description}</p>
               </div>
               
