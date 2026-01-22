@@ -22,7 +22,7 @@
       "Multi-language (TH/EN) & Offline-first architecture"
     ],
     "coverImage": {
-      "src": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=60",
+      "src": "./assets/projects/care-for-mom/cover.png",
       "alt": "Care for Mom App Interface"
     },
     "links": {
@@ -60,7 +60,7 @@
       "Dynamic Routing: จัดเก็บลงโฟลเดอร์ตาม Channel/User ต้นทาง"
     ],
     "coverImage": {
-      "src": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop&q=60",
+      "src": "./assets/projects/slack-drive-bot/slack_bot_cover.png",
       "alt": "Slack Automation Workflow"
     },
     "links": {
@@ -96,7 +96,7 @@
       "Monthly Reports: สรุปยอดใช้จ่ายแยกตามหมวดหมู่"
     ],
     "coverImage": {
-      "src": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&auto=format&fit=crop&q=60",
+      "src": "./assets/projects/expense-tracker/cover.png",
       "alt": "Expense Tracker Dashboard"
     },
     "links": {
@@ -212,7 +212,7 @@
   },
   {
     "id": "pdf-toolkit",
-    "title": "Browser PDF Toolkit",
+    "title": "TonfernPDF - Local PDF Toolkit",
     "slug": "pdf-toolkit",
     "year": 2025,
     "summary": "เครื่องมือจัดการ PDF บนเว็บ (Split, Merge) ทำงานบน Browser 100% เพื่อความปลอดภัยของข้อมูล (Serverless)",
@@ -230,8 +230,8 @@
       "Features: Split PDF, Merge PDF, Image to PDF"
     ],
     "coverImage": {
-      "src": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=800&auto=format&fit=crop&q=60",
-      "alt": "PDF Tools Interface"
+      "src": "./assets/projects/tonfern/cover.png",
+      "alt": "TonfernPDF Interface"
     },
     "links": {
       "repo": "https://github.com/Earthondev/pdf-toolkit"
