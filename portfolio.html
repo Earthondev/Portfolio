@@ -118,6 +118,87 @@
             box-shadow: 0 20px 60px rgba(0, 217, 255, 0.15);
         }
 
+        .gallery-card {
+            background: rgba(10, 10, 15, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 14px;
+        }
+
+        .gallery-main {
+            position: relative;
+        }
+
+        .gallery-main img {
+            width: 100%;
+            max-height: 520px;
+            object-fit: contain;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(10, 10, 15, 0.7);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .gallery-nav:hover {
+            transform: translateY(-50%) scale(1.05);
+            border-color: rgba(0, 217, 255, 0.6);
+        }
+
+        .gallery-nav.prev {
+            left: 10px;
+        }
+
+        .gallery-nav.next {
+            right: 10px;
+        }
+
+        .gallery-thumbs {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 10px 2px 2px;
+        }
+
+        .gallery-thumb {
+            width: 72px;
+            height: 52px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            opacity: 0.6;
+            cursor: pointer;
+            flex: 0 0 auto;
+            transition: opacity 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .gallery-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-thumb.active {
+            opacity: 1;
+            border-color: rgba(0, 217, 255, 0.8);
+            box-shadow: 0 0 0 2px rgba(0, 217, 255, 0.2);
+        }
+
         .project-card:hover::before {
             opacity: 1;
         }
@@ -746,6 +827,11 @@
                 ],
                 tech: ['Flutter', 'Gemini API', 'SQLite', 'Dart'],
                 features: ['AI Health Analysis', 'Smart Medicine Reminders', 'Multi-language Support', 'Offline-first Architecture'],
+                gallery: [
+                    { src: './assets/projects/care-for-mom/Screenshot-1.jpg', alt: 'Care for Mom app screenshot' },
+                    { src: './assets/projects/care-for-mom/Screenshot-2.jpg', alt: 'Care for Mom app screenshot' },
+                    { src: './assets/projects/care-for-mom/Screenshot-3.jpg', alt: 'Care for Mom app screenshot' }
+                ],
                 image: './assets/projects/care-for-mom/Screenshot-1.jpg',
                 imageAlt: 'Care for Mom app screenshot',
                 repo: 'https://github.com/Earthondev/CareForMom'
@@ -762,6 +848,10 @@
                 ],
                 tech: ['Python', 'Slack API', 'Google Drive API', 'Docker'],
                 features: ['Automated File Upload', 'Smart Renaming via Caption', 'Dynamic Folder Routing', 'Dockerized Deployment'],
+                gallery: [
+                    { src: './assets/projects/slack-drive-bot/Screenshot 2569-02-03 at 22.46.19.png', alt: 'Slack Drive Bot screenshot' },
+                    { src: './assets/projects/slack-drive-bot/cover.png', alt: 'Slack Drive Bot cover' }
+                ],
                 image: './assets/projects/slack-drive-bot/cover.png',
                 repo: 'https://github.com/Earthondev/slack-drive-bot'
             },
@@ -777,6 +867,12 @@
                 ],
                 tech: ['React', 'Firebase', 'Tailwind', 'Vite'],
                 features: ['Fast Search', 'Admin Dashboard', 'Responsive Design', 'Google Maps Integration'],
+                gallery: [
+                    { src: './assets/projects/hanaihang/screenshot-1.png', alt: 'HaaNaiHang search interface' },
+                    { src: './assets/projects/hanaihang/screenshot-2.png', alt: 'HaaNaiHang admin dashboard' },
+                    { src: './assets/projects/hanaihang/gallery-02.webp', alt: 'HaaNaiHang UI gallery' },
+                    { src: './assets/projects/hanaihang/gallery-03.webp', alt: 'HaaNaiHang UI gallery' }
+                ],
                 image: './assets/projects/hanaihang/cover.png',
                 repo: 'https://github.com/Earthondev/Hanaihang'
             },
@@ -807,6 +903,11 @@
                 ],
                 tech: ['AppSheet', 'Google Sheets', 'Automation', 'No-Code'],
                 features: ['Mobile Barcode Scan', 'Real-time Dashboard', 'Low-stock Alerts', 'Photo Gallery'],
+                gallery: [
+                    { src: './assets/projects/Inventory%20amino/Screenshot 2568-09-13 at 12.17.06.png', alt: 'Inventory Amino screenshot' },
+                    { src: './assets/projects/Inventory%20amino/Screenshot 2568-09-13 at 12.17.34.png', alt: 'Inventory Amino screenshot' },
+                    { src: './assets/projects/Inventory%20amino/Screenshot 2568-09-13 at 12.53.51.png', alt: 'Inventory Amino screenshot' }
+                ],
                 image: './assets/projects/Inventory%20amino/Cover.png',
                 imageAlt: 'Inventory Amino Dashboard',
                 repo: '#'
@@ -823,6 +924,10 @@
                 ],
                 tech: ['HTML5', 'JavaScript', 'PDF.js', 'Bootstrap'],
                 features: ['Merge PDFs', 'Split PDF', 'Image to PDF', 'No Server Upload'],
+                gallery: [
+                    { src: './assets/projects/pdf-toolkit/Screenshot 2569-02-03 at 22.59.41.png', alt: 'PDF Toolkit screenshot' },
+                    { src: './assets/projects/pdf-toolkit/Screenshot 2569-02-03 at 22.59.16.png', alt: 'PDF Toolkit screenshot' }
+                ],
                 image: './assets/projects/pdf-toolkit/Screenshot 2569-02-03 at 22.59.41.png',
                 imageAlt: 'PDF Toolkit interface screenshot',
                 repo: 'https://github.com/Earthondev/pdf-toolkit'
@@ -839,6 +944,10 @@
                 ],
                 tech: ['HTML5', 'CSS', 'JavaScript'],
                 features: ['Realtime-ready layout', 'Status color system', 'Responsive dashboard'],
+                gallery: [
+                    { src: './assets/projects/Sentaiwatch/Screenshot 2569-01-21 at 21.02.32.png', alt: 'Sentaiwatch dashboard screenshot' },
+                    { src: './assets/projects/Sentaiwatch/Screenshot 2569-01-21 at 21.02.51.png', alt: 'Sentaiwatch dashboard screenshot' }
+                ],
                 image: './assets/projects/Sentaiwatch/Screenshot 2569-01-21 at 21.02.32.png',
                 imageAlt: 'Sentaiwatch dashboard screenshot'
             },
@@ -914,14 +1023,38 @@
                 const project = projectDetails[projectId];
 
                 if (project) {
+                    const gallery = Array.isArray(project.gallery) && project.gallery.length
+                        ? project.gallery
+                        : [{ src: project.image, alt: project.imageAlt || project.title }];
+
+                    const galleryThumbs = gallery.length > 1
+                        ? `<div class="gallery-thumbs">
+                  ${gallery
+                      .map(
+                          (g, i) => `
+                    <button class="gallery-thumb ${i === 0 ? 'active' : ''}" type="button" data-gallery-index="${i}" aria-label="View image ${i + 1}">
+                      <img src="${g.src}" alt="${g.alt || project.title}" loading="lazy" decoding="async">
+                    </button>`
+                      )
+                      .join('')}
+                </div>`
+                        : '';
+
                     modalTitle.textContent = project.title;
 
                     modalBody.innerHTML = `
             <div class="space-y-8">
               <!-- Cover Image -->
-              <div class="rounded-xl shadow-2xl border border-white/10 bg-[#0b0b10] p-4 flex items-center justify-center">
-                 <img src="${project.image}" alt="${project.imageAlt || project.title}" loading="lazy" decoding="async"
-                    class="w-full max-h-[520px] object-contain">
+              <div class="gallery-card shadow-2xl">
+                 <div class="gallery-main">
+                    <img id="modal-main-image" src="${gallery[0].src}" alt="${gallery[0].alt || project.title}" loading="lazy" decoding="async">
+                    ${gallery.length > 1 ? `
+                      <button class="gallery-nav prev" type="button" data-gallery-prev aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                      <button class="gallery-nav next" type="button" data-gallery-next aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+                    ` : ''}
+                 </div>
+                 ${galleryThumbs}
+                 ${gallery.length > 1 ? `<p class="text-xs text-gray-500 mt-2">Tip: click image to advance</p>` : ''}
               </div>
 
               <div>
@@ -981,6 +1114,42 @@
                     modal.classList.remove('hidden');
                     modal.classList.add('active');
                     document.body.style.overflow = 'hidden';
+
+                    const mainImage = modalBody.querySelector('#modal-main-image');
+                    const thumbButtons = modalBody.querySelectorAll('[data-gallery-index]');
+                    const prevBtn = modalBody.querySelector('[data-gallery-prev]');
+                    const nextBtn = modalBody.querySelector('[data-gallery-next]');
+                    let currentIndex = 0;
+
+                    const setIndex = (nextIndex) => {
+                        const total = gallery.length || 1;
+                        currentIndex = (nextIndex + total) % total;
+                        const item = gallery[currentIndex];
+                        if (mainImage) {
+                            mainImage.src = item.src;
+                            mainImage.alt = item.alt || project.title;
+                        }
+                        thumbButtons.forEach(btn => {
+                            const idx = Number(btn.dataset.galleryIndex);
+                            btn.classList.toggle('active', idx === currentIndex);
+                        });
+                    };
+
+                    if (gallery.length > 1) {
+                        prevBtn?.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            setIndex(currentIndex - 1);
+                        });
+                        nextBtn?.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            setIndex(currentIndex + 1);
+                        });
+                        mainImage?.addEventListener('click', () => setIndex(currentIndex + 1));
+                        thumbButtons.forEach(btn => {
+                            btn.addEventListener('click', () => setIndex(Number(btn.dataset.galleryIndex)));
+                        });
+                    }
+                    setIndex(0);
                 }
             });
         });
