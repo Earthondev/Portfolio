@@ -4,6 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="About Nattapart Worakun — background in chemistry, automation, data, and QA with a focus on real-world results.">
+  <meta name="author" content="Nattapart Worakun">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta name="color-scheme" content="dark light">
+  <link rel="canonical" href="https://earthondev.github.io/Portfolio/about.html">
+  <link rel="icon" href="favicon.ico">
+  <meta property="og:site_name" content="Nattapart Worakun | Portfolio">
+  <meta property="og:title" content="About | Nattapart Worakun">
+  <meta property="og:description"
+    content="Background and journey from chemistry to automation, data analytics, and QA.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://earthondev.github.io/Portfolio/about.html">
+  <meta property="og:image" content="https://earthondev.github.io/Portfolio/assets/og/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="Nattapart Worakun portfolio preview">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About | Nattapart Worakun">
+  <meta name="twitter:description"
+    content="Background and journey from chemistry to automation, data analytics, and QA.">
+  <meta name="twitter:image" content="https://earthondev.github.io/Portfolio/assets/og/og-image.png">
+  <meta name="twitter:image:alt" content="Nattapart Worakun portfolio preview">
   <title>About Me | Nattapart Worakun</title>
 
   <!-- Tailwind CSS -->
@@ -28,6 +53,21 @@
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "About | Nattapart Worakun",
+      "url": "https://earthondev.github.io/Portfolio/about.html",
+      "description": "About Nattapart Worakun — background in chemistry, automation, data, and QA with a focus on real-world results.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Nattapart Worakun | Portfolio",
+        "url": "https://earthondev.github.io/Portfolio/"
+      }
+    }
+  </script>
 
   <style>
     body {
@@ -134,6 +174,128 @@
     .faq-icon {
       transition: transform 0.3s ease;
     }
+
+    /* --- About Hero Enhancements --- */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(0, 217, 255, 0.12);
+      border: 1px solid rgba(0, 217, 255, 0.35);
+      color: #c8f6ff;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0, 217, 255, 0.15);
+    }
+
+    .profile-frame {
+      position: relative;
+      border-radius: 28px;
+      padding: 10px;
+      background: linear-gradient(135deg, rgba(0, 217, 255, 0.7), rgba(0, 255, 148, 0.3) 45%, rgba(255, 230, 0, 0.35));
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 45px rgba(0, 217, 255, 0.35);
+    }
+
+    .profile-frame::before {
+      content: '';
+      position: absolute;
+      inset: -12px;
+      border-radius: inherit;
+      background: conic-gradient(from 180deg, rgba(0, 217, 255, 0.35), rgba(0, 255, 148, 0.2), rgba(255, 230, 0, 0.3), rgba(0, 217, 255, 0.35));
+      filter: blur(18px);
+      opacity: 0.7;
+      z-index: -1;
+    }
+
+    .profile-shell {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(10, 10, 15, 0.6);
+    }
+
+    .profile-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(1.04) contrast(1.06);
+    }
+
+    .profile-scanlines {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(to bottom,
+          rgba(255, 255, 255, 0.08) 0px,
+          rgba(255, 255, 255, 0.08) 1px,
+          rgba(255, 255, 255, 0) 3px,
+          rgba(255, 255, 255, 0) 6px);
+      opacity: 0.14;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .profile-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 35%, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.45) 100%);
+      pointer-events: none;
+    }
+
+    .signal-card {
+      position: absolute;
+      right: -18px;
+      bottom: -18px;
+      max-width: 260px;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(13, 17, 23, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      color: #e2e8f0;
+    }
+
+    .focus-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .focus-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+    }
   </style>
 </head>
 
@@ -204,51 +366,102 @@
   <!-- About Section -->
   <section class="py-24 px-4 section-reveal pt-32">
     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16"><span
-          class="text-[#00D9FF] text-sm font-semibold tracking-wider uppercase">Introduction</span>
-        <h2 id="about-title" class="text-4xl sm:text-5xl font-bold mt-2 gradient-text">About Me</h2>
-      </div>
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div class="space-y-6">
-          <p class="text-gray-300 text-lg leading-relaxed">ผมเริ่มต้นอาชีพในสาย Laboratory &amp; Quality Testing
-            ทำงานด้านการทดสอบทางเคมี เช่น Amino Acid Profile, Protein, Moisture, TKN และ Ash</p>
-          <p class="text-gray-300 text-lg leading-relaxed">พร้อมทั้งมีบทบาทในการพัฒนาระบบงานภายในเพื่อลดภาระงานซ้ำซ้อน
-            เพิ่มความแม่นยำ และทำให้ข้อมูลสามารถนำไปใช้ต่อได้จริง</p>
+      <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+        <div class="space-y-8">
+          <span class="hero-badge">About</span>
+          <h1 id="about-title" class="text-4xl sm:text-6xl font-bold leading-tight">
+            Chemistry-trained <span class="gradient-text">Data Analyst</span> building automation and QA-grade
+            dashboards
+          </h1>
+          <p class="text-gray-300 text-lg leading-relaxed">
+            ผมเริ่มต้นอาชีพในสาย Laboratory &amp; Quality Testing ทำงานด้านการทดสอบทางเคมี
+            เช่น Amino Acid Profile, Protein, Moisture, TKN และ Ash
+          </p>
+          <p class="text-gray-300 text-lg leading-relaxed">
+            วันนี้ผมโฟกัสที่การเปลี่ยนงานซ้ำซ้อนให้เป็นระบบอัตโนมัติ และทำข้อมูลที่กระจัดกระจาย
+            ให้กลายเป็น Dashboard ที่ตัดสินใจได้จริง
+          </p>
 
-          <!-- Technical Balance Visual -->
-          <div class="glass-card rounded-2xl p-6 mt-8">
-            <h3 class="text-lg font-semibold mb-4 text-white">Technical Balance</h3>
-            <p class="text-sm text-gray-400 mb-4">ภาพรวมความเชี่ยวชาญที่ผสมผสานระหว่าง Data, Automation และ Science</p>
-            <div class="space-y-3">
-              <div>
-                <div class="flex justify-between text-sm mb-1"><span class="text-[#00D9FF]">Data &amp; Analytics</span>
-                  <span class="text-gray-400">85%</span>
-                </div>
-                <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                  <div class="h-full w-[85%] bg-gradient-to-r from-[#00D9FF] to-[#00FF94] rounded-full"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-sm mb-1"><span class="text-[#00FF94]">Automation</span> <span
-                    class="text-gray-400">80%</span>
-                </div>
-                <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                  <div class="h-full w-[80%] bg-gradient-to-r from-[#00FF94] to-[#FFE600] rounded-full"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-sm mb-1"><span class="text-[#FFE600]">Science &amp; QA</span>
-                  <span class="text-gray-400">90%</span>
-                </div>
-                <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                  <div class="h-full w-[90%] bg-gradient-to-r from-[#FFE600] to-[#00D9FF] rounded-full"></div>
-                </div>
-              </div>
+          <div class="flex flex-wrap gap-4">
+            <a href="portfolio.html"
+              class="px-7 py-3 rounded-xl bg-gradient-to-r from-[#00D9FF] to-[#00FF94] text-[#0a0a0f] font-semibold text-sm sm:text-base hover:opacity-90 transition-opacity">
+              View Projects
+            </a>
+            <a href="mailto:earthlikemwbb@gmail.com"
+              class="px-7 py-3 rounded-xl glass-card border border-white/10 text-white font-semibold text-sm sm:text-base hover:bg-white/5 transition-colors">
+              Contact Me
+            </a>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div class="stat-card">
+              <p class="text-xs uppercase text-gray-500 tracking-wider mb-2">Pillar 01</p>
+              <h3 class="text-lg font-semibold text-white mb-2">Data Clarity</h3>
+              <p class="text-sm text-gray-400">แปลงข้อมูลยุ่งยากให้เป็น insight ที่อ่านง่ายและใช้ตัดสินใจได้</p>
+            </div>
+            <div class="stat-card">
+              <p class="text-xs uppercase text-gray-500 tracking-wider mb-2">Pillar 02</p>
+              <h3 class="text-lg font-semibold text-white mb-2">Automation</h3>
+              <p class="text-sm text-gray-400">ลดงานซ้ำซ้อนด้วยระบบอัตโนมัติและ workflow ที่เชื่อมต่อได้จริง</p>
+            </div>
+            <div class="stat-card">
+              <p class="text-xs uppercase text-gray-500 tracking-wider mb-2">Pillar 03</p>
+              <h3 class="text-lg font-semibold text-white mb-2">QA Mindset</h3>
+              <p class="text-sm text-gray-400">คิดแบบนักวิทยาศาสตร์: ตรวจสอบ, trace ได้, และเชื่อถือได้</p>
             </div>
           </div>
         </div>
 
-        <!-- Journey Timeline -->
+        <div class="relative">
+          <div class="profile-frame">
+            <div class="profile-shell">
+              <img src="assets/Profile/IMG_9526.JPG" alt="Nattapart Worakun" width="1024" height="1536"
+                loading="eager" decoding="async" class="profile-image">
+              <span class="profile-scanlines" aria-hidden="true"></span>
+              <span class="profile-vignette" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <div class="signal-card">
+            <p class="text-xs text-gray-400 tracking-wider uppercase mb-2">Current Focus</p>
+            <p class="text-sm text-gray-200 leading-relaxed">
+              AI-augmented workflows, dashboard storytelling, and systems that keep quality measurable.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="pill">Dashboards</span>
+              <span class="pill">Automation</span>
+              <span class="pill">QA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <div>
+            <p class="text-sm text-gray-400 tracking-wider uppercase">Story in 60 Seconds</p>
+            <h3 class="text-2xl font-semibold text-white mt-2">From lab discipline to product impact</h3>
+          </div>
+          <p class="text-gray-300 leading-relaxed">
+            ผมเชื่อว่าข้อมูลที่ดีต้องตรวจสอบได้ และระบบที่ดีต้องช่วยให้ทีมทำงานได้เร็วขึ้น
+            นั่นทำให้ผมพัฒนาทั้ง Data, Automation และ QA ไปพร้อมกัน
+          </p>
+          <div class="space-y-3 text-sm text-gray-300">
+            <div class="flex items-start gap-3">
+              <span class="text-[#00D9FF]">●</span>
+              <span>ออกแบบ workflow ที่ลดขั้นตอนซ้ำและลด human error</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-[#00FF94]">●</span>
+              <span>ทำให้ข้อมูลเล่าเรื่องได้ ผ่าน dashboard ที่ชัดและสื่อสารง่าย</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-[#FFE600]">●</span>
+              <span>รักษามาตรฐาน QA ให้ทีมเชื่อถือได้ทุกครั้งที่ตัดสินใจ</span>
+            </div>
+          </div>
+        </div>
+
         <div class="relative">
           <div class="absolute left-8 top-0 bottom-0 w-0.5 timeline-line"></div>
           <div class="space-y-8">
@@ -258,8 +471,8 @@
                 1
               </div>
               <div class="glass-card rounded-xl p-5 glow-border">
-                <h4 class="font-semibold text-[#00D9FF] mb-2">📊 Excel &amp; VBA</h4>
-                <p class="text-gray-400 text-sm">จัดการ Workload, Jobs List และรายงานผลการทดสอบอัตโนมัติ</p>
+                <h4 class="font-semibold text-[#00D9FF] mb-2">Lab QA Foundations</h4>
+                <p class="text-gray-400 text-sm">ฝึกความแม่นยำกับการทดสอบและ validation ในแล็บจริง</p>
               </div>
             </div>
             <div class="relative pl-20">
@@ -268,8 +481,8 @@
                 2
               </div>
               <div class="glass-card rounded-xl p-5 glow-border">
-                <h4 class="font-semibold text-[#00FF94] mb-2">📱 AppSheet</h4>
-                <p class="text-gray-400 text-sm">สร้างระบบจัดการข้อมูลและสต็อกสารเคมี (Stock Management)</p>
+                <h4 class="font-semibold text-[#00FF94] mb-2">Automation Systems</h4>
+                <p class="text-gray-400 text-sm">สร้างระบบลดงานซ้ำซ้อนด้วย VBA, AppSheet และ Apps Script</p>
               </div>
             </div>
             <div class="relative pl-20">
@@ -278,8 +491,8 @@
                 3
               </div>
               <div class="glass-card rounded-xl p-5 glow-border">
-                <h4 class="font-semibold text-[#FFE600] mb-2">📈 Dashboard</h4>
-                <p class="text-gray-400 text-sm">เปลี่ยนข้อมูลดิบ (Dirty Data) ให้เป็น Visual ที่ใช้ตัดสินใจได้จริง</p>
+                <h4 class="font-semibold text-[#FFE600] mb-2">Dashboard &amp; BI</h4>
+                <p class="text-gray-400 text-sm">เปลี่ยนข้อมูลดิบให้เป็น visual ที่ช่วยตัดสินใจได้จริง</p>
               </div>
             </div>
             <div class="relative pl-20">
@@ -288,8 +501,8 @@
                 4
               </div>
               <div class="glass-card rounded-xl p-5 glow-border">
-                <h4 class="font-semibold gradient-text mb-2">💻 Modern Tech</h4>
-                <p class="text-gray-400 text-sm">ต่อยอดสู่ SQL, Power BI และ Web-based Dashboard</p>
+                <h4 class="font-semibold gradient-text mb-2">Modern Data Apps</h4>
+                <p class="text-gray-400 text-sm">ต่อยอดสู่ SQL, Power BI และ Web-based dashboard ที่ใช้งานจริง</p>
               </div>
             </div>
           </div>
@@ -301,36 +514,36 @@
   <!-- AI & Automation Focus Section -->
   <section class="py-24 px-4 section-reveal">
     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16"><span class="text-[#00FF94] text-sm font-semibold tracking-wider uppercase">Current
-          Focus</span>
-        <h2 class="text-4xl sm:text-5xl font-bold mt-2">AI &amp; <span class="gradient-text">Automation</span></h2>
-        <p class="text-gray-400 mt-4 max-w-2xl mx-auto">ปัจจุบันผมเน้นใช้ AI เป็นเครื่องมือเพิ่มประสิทธิภาพ
-          (AI-Augmented Workflow) เชื่อว่า AI ไม่ได้มาแทนคน แต่ช่วยให้คนที่เข้าใจงานจริง
-          "ทำงานได้เก่งขึ้นอย่างก้าวกระโดด"</p>
+      <div class="text-center mb-16">
+        <span class="text-[#00FF94] text-sm font-semibold tracking-wider uppercase">Now Building</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mt-2">AI‑Augmented <span class="gradient-text">Workflows</span></h2>
+        <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
+          ใช้ AI เป็นเครื่องมือเพิ่มประสิทธิภาพ ไม่ใช่แทนคน แต่เสริมคนที่เข้าใจงานจริงให้ทำงานได้เร็วและแม่นขึ้น
+        </p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
-        <div
-          class="glass-card rounded-2xl p-8 text-center glow-border group hover:scale-105 transition-transform duration-300">
+        <div class="glass-card focus-card rounded-2xl p-8 text-left group hover:scale-[1.02] transition-transform duration-300">
+          <p class="text-xs uppercase text-gray-500 tracking-wider mb-4">01 / Insight</p>
           <div
-            class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#00D9FF]/20 to-[#00D9FF]/5 flex items-center justify-center text-4xl">
+            class="w-14 h-14 mb-6 rounded-2xl bg-gradient-to-br from-[#00D9FF]/20 to-[#00D9FF]/5 flex items-center justify-center text-3xl">
             🤖
           </div>
           <h3 class="text-xl font-semibold mb-3 text-[#00D9FF]">AI Analysis</h3>
           <p class="text-gray-400">ใช้ AI ช่วยวิเคราะห์ข้อมูล หา Pattern และสรุปผลการทดลอง</p>
         </div>
-        <div
-          class="glass-card rounded-2xl p-8 text-center glow-border group hover:scale-105 transition-transform duration-300">
+        <div class="glass-card focus-card rounded-2xl p-8 text-left group hover:scale-[1.02] transition-transform duration-300">
+          <p class="text-xs uppercase text-gray-500 tracking-wider mb-4">02 / Build</p>
           <div
-            class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#00FF94]/20 to-[#00FF94]/5 flex items-center justify-center text-4xl">
+            class="w-14 h-14 mb-6 rounded-2xl bg-gradient-to-br from-[#00FF94]/20 to-[#00FF94]/5 flex items-center justify-center text-3xl">
             ⚡
           </div>
           <h3 class="text-xl font-semibold mb-3 text-[#00FF94]">Rapid Dev</h3>
           <p class="text-gray-400">ใช้ AI ออกแบบโครงสร้าง, เขียนโค้ด React/Firebase และตรวจสอบ Logic</p>
         </div>
-        <div
-          class="glass-card rounded-2xl p-8 text-center glow-border group hover:scale-105 transition-transform duration-300">
+        <div class="glass-card focus-card rounded-2xl p-8 text-left group hover:scale-[1.02] transition-transform duration-300">
+          <p class="text-xs uppercase text-gray-500 tracking-wider mb-4">03 / Automate</p>
           <div
-            class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#FFE600]/20 to-[#FFE600]/5 flex items-center justify-center text-4xl">
+            class="w-14 h-14 mb-6 rounded-2xl bg-gradient-to-br from-[#FFE600]/20 to-[#FFE600]/5 flex items-center justify-center text-3xl">
             🔧
           </div>
           <h3 class="text-xl font-semibold mb-3 text-[#FFE600]">Automation</h3>

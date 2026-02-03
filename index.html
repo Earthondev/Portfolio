@@ -4,6 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Portfolio of Nattapart Worakun, a Data Analyst & BI Developer specializing in dashboards, automation, and QA.">
+  <meta name="author" content="Nattapart Worakun">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta name="color-scheme" content="dark light">
+  <link rel="canonical" href="https://earthondev.github.io/Portfolio/">
+  <link rel="icon" href="favicon.ico">
+  <meta property="og:site_name" content="Nattapart Worakun | Portfolio">
+  <meta property="og:title" content="Nattapart Worakun | Portfolio">
+  <meta property="og:description"
+    content="Data Analyst & BI Developer focused on dashboards, automation, and QA with real-world impact.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://earthondev.github.io/Portfolio/">
+  <meta property="og:image" content="https://earthondev.github.io/Portfolio/assets/og/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="Nattapart Worakun portfolio preview">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nattapart Worakun | Portfolio">
+  <meta name="twitter:description"
+    content="Data Analyst & BI Developer focused on dashboards, automation, and QA with real-world impact.">
+  <meta name="twitter:image" content="https://earthondev.github.io/Portfolio/assets/og/og-image.png">
+  <meta name="twitter:image:alt" content="Nattapart Worakun portfolio preview">
   <title>Nattapart Worakun | Portfolio</title>
 
   <!-- Tailwind CSS -->
@@ -36,6 +61,30 @@
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="preload" as="image" href="assets/Profile/IMG_9526.JPG">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "Nattapart Worakun | Portfolio",
+          "url": "https://earthondev.github.io/Portfolio/",
+          "inLanguage": "en",
+          "description": "Portfolio of Nattapart Worakun, a Data Analyst & BI Developer specializing in dashboards, automation, and QA."
+        },
+        {
+          "@type": "Person",
+          "name": "Nattapart Worakun",
+          "jobTitle": "Data Analyst & BI Developer",
+          "url": "https://earthondev.github.io/Portfolio/",
+          "image": "https://earthondev.github.io/Portfolio/assets/Profile/IMG_9526.JPG",
+          "description": "Data analyst and BI developer focused on dashboards, automation, and QA."
+        }
+      ]
+    }
+  </script>
 
   <style>
     body {
@@ -147,6 +196,98 @@
       60% {
         transform: translateY(-5px);
       }
+    }
+
+    /* --- Profile Image Upgrade (High-Tech Frame) --- */
+    .profile-frame {
+      position: absolute;
+      inset: 0;
+      border-radius: 2rem;
+      padding: 10px;
+      background: linear-gradient(135deg, rgba(0, 217, 255, 0.6), rgba(0, 255, 148, 0.2) 45%, rgba(255, 230, 0, 0.35));
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45), 0 0 35px rgba(0, 217, 255, 0.35);
+      transition: transform 0.6s ease, box-shadow 0.6s ease;
+    }
+
+    .profile-frame::before {
+      content: '';
+      position: absolute;
+      inset: -10px;
+      border-radius: inherit;
+      background: conic-gradient(from 180deg, rgba(0, 217, 255, 0.25), rgba(0, 255, 148, 0.2), rgba(255, 230, 0, 0.25), rgba(0, 217, 255, 0.25));
+      filter: blur(16px);
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    .profile-frame::after {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 45%);
+      mix-blend-mode: screen;
+      opacity: 0.35;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .profile-frame:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 40px 90px rgba(0, 0, 0, 0.55), 0 0 55px rgba(0, 217, 255, 0.45);
+    }
+
+    .profile-shell {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: calc(2rem - 8px);
+      overflow: hidden;
+      background: rgba(10, 10, 15, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 1;
+    }
+
+    .profile-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 0.8s ease, filter 0.8s ease;
+      filter: saturate(1.05) contrast(1.05);
+    }
+
+    .profile-frame:hover .profile-image {
+      transform: scale(1);
+      filter: saturate(1.08) contrast(1.08);
+    }
+
+    .profile-scanlines {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(to bottom,
+          rgba(255, 255, 255, 0.08) 0px,
+          rgba(255, 255, 255, 0.08) 1px,
+          rgba(255, 255, 255, 0) 3px,
+          rgba(255, 255, 255, 0) 6px);
+      opacity: 0.12;
+      mix-blend-mode: screen;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .profile-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 35%, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.4) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .profile-orb {
+      mix-blend-mode: screen;
+      filter: blur(2px) saturate(1.1);
+      opacity: 0.35;
     }
   </style>
 </head>
@@ -268,19 +409,23 @@
         <div class="relative w-[400px] h-[500px] mx-auto">
           <!-- Back Layer: Decoration Element (Texture) -->
           <img src="assets/decoration/IMG_6062.JPG" alt=""
-            class="absolute -top-10 -right-10 w-48 h-48 rounded-full object-cover opacity-50 mix-blend-overlay floating"
+            width="1152" height="2048" loading="lazy" decoding="async"
+            class="absolute -top-10 -right-10 w-48 h-48 rounded-full object-cover floating profile-orb"
             style="animation-delay: -2s;">
 
           <!-- Main Image -->
-          <div
-            class="absolute inset-0 rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl skew-y-3 hover:skew-y-0 transition-transform duration-500 group">
-            <div class="absolute inset-0 bg-brand-500/10 group-hover:bg-transparent transition-colors z-10"></div>
-            <img src="assets/Profile/IMG_9526.JPG" alt="Nattapart Worakun"
-              class="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-700">
+          <div class="profile-frame group">
+            <div class="profile-shell">
+              <img src="assets/Profile/IMG_9526.JPG" alt="Nattapart Worakun" width="1024" height="1536"
+                loading="eager" decoding="async" fetchpriority="high" class="profile-image">
+              <span class="profile-scanlines" aria-hidden="true"></span>
+              <span class="profile-vignette" aria-hidden="true"></span>
+            </div>
           </div>
 
           <!-- Front Layer: Floating Graphic -->
           <img src="assets/decoration/IMG_9968.PNG" alt=""
+            width="1284" height="856" loading="lazy" decoding="async"
             class="absolute -bottom-20 -left-10 w-64 h-auto drop-shadow-2xl floating z-20 opacity-90">
 
 

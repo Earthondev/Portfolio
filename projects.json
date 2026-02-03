@@ -22,9 +22,15 @@
       "Multi-language (TH/EN) & Offline-first architecture"
     ],
     "coverImage": {
-      "src": "./assets/projects/care-for-mom/cover.png",
+      "src": "./assets/projects/care-for-mom/Cover.jpg",
       "alt": "Care for Mom App Interface"
     },
+    "gallery": [
+      {
+        "src": "./assets/projects/care-for-mom/Screenshot-1.jpg",
+        "alt": "Care for Mom app screenshot"
+      }
+    ],
     "links": {
       "repo": "https://github.com/Earthondev/CareForMom"
     },
@@ -188,8 +194,8 @@
       "No-code solution with enterprise-grade validation"
     ],
     "coverImage": {
-      "src": "./assets/projects/Inventory amino/Screenshot 2568-09-13 at 12.17.06.png",
-      "alt": "รายการคงเหลือสต็อกสารเคมีในแล็บ พร้อมการค้นหาและสถานะคงเหลือ"
+      "src": "./assets/projects/Inventory amino/Cover.png",
+      "alt": "Inventory Amino dashboard cover"
     },
     "gallery": [
       {
@@ -230,9 +236,19 @@
       "Features: Split PDF, Merge PDF, Image to PDF"
     ],
     "coverImage": {
-      "src": "./assets/projects/tonfern/cover.png",
-      "alt": "TonfernPDF Interface"
+      "src": "./assets/projects/pdf-toolkit/cover.png",
+      "alt": "PDF Toolkit cover"
     },
+    "gallery": [
+      {
+        "src": "./assets/projects/pdf-toolkit/Screenshot 2569-02-03 at 22.59.41.png",
+        "alt": "PDF Toolkit interface screenshot"
+      },
+      {
+        "src": "./assets/projects/pdf-toolkit/Screenshot 2569-02-03 at 22.59.16.png",
+        "alt": "PDF Toolkit interface screenshot"
+      }
+    ],
     "links": {
       "repo": "https://github.com/Earthondev/pdf-toolkit"
     },
