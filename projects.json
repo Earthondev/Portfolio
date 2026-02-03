@@ -264,12 +264,13 @@
   },
   {
     "id": "sentaiwatch",
-    "title": "Sentaiwatch – Dashboard Prototype",
+    "title": "Sentaiwatch – Ops Dashboard",
     "slug": "sentaiwatch",
     "year": 2025,
-    "summary": "กำลังอัปเดตรายละเอียดโปรเจกต์ พร้อมสรุปฟีเจอร์และผลลัพธ์",
+    "summary": "แดชบอร์ดติดตามสถานะงาน/ระบบแบบเรียลไทม์ ออกแบบให้สแกนเร็ว เห็นสัญญาณเตือนชัด เหมาะกับทีมปฏิบัติการ",
     "role": [
-      "Frontend Developer"
+      "Frontend Developer",
+      "UI Designer"
     ],
     "stack": [
       "HTML5",
@@ -277,9 +278,9 @@
       "JavaScript"
     ],
     "highlights": [
-      "Responsive UI layout",
-      "Dashboard-focused information design",
-      "Performance-first static build"
+      "Signal-first layout: ตัวเลขสำคัญอยู่เหนือ fold",
+      "Status color system ชัดเจนสำหรับ critical/warn/normal",
+      "Componentized cards ลดเวลาต่อหน้าใหม่"
     ],
     "coverImage": {
       "src": "./assets/projects/Sentaiwatch/cover.png",
@@ -297,8 +298,8 @@
     ],
     "links": {},
     "tags": [
-      "Web App",
       "Dashboard",
+      "Monitoring",
       "UI"
     ],
     "cta": "View Project",
@@ -307,12 +308,13 @@
   },
   {
     "id": "tonfern",
-    "title": "Tonfern – Portfolio Website",
+    "title": "Tonfern – Personal Website",
     "slug": "tonfern",
     "year": 2025,
-    "summary": "กำลังอัปเดตรายละเอียดโปรเจกต์ พร้อมสรุปฟีเจอร์และผลลัพธ์",
+    "summary": "เว็บไซต์แนะนำตัวแบบมินิมอล เน้น readability และโครงสร้างที่ขยายได้ง่ายสำหรับพอร์ตผลงาน",
     "role": [
-      "Frontend Developer"
+      "Frontend Developer",
+      "UI Designer"
     ],
     "stack": [
       "HTML5",
@@ -320,9 +322,9 @@
       "JavaScript"
     ],
     "highlights": [
-      "Clean landing layout",
-      "Fast loading assets",
-      "Mobile-first design"
+      "Typography-first layout อ่านง่ายทั้งมือถือและเดสก์ท็อป",
+      "Reusable sections รองรับเพิ่มผลงานในอนาคต",
+      "Optimized assets เพื่อโหลดไว"
     ],
     "coverImage": {
       "src": "./assets/projects/tonfern/cover.png",
@@ -344,7 +346,7 @@
     "title": "Tonfern PDF – Lightweight PDF Tool",
     "slug": "tonfern-pdf",
     "year": 2025,
-    "summary": "กำลังอัปเดตรายละเอียดโปรเจกต์ พร้อมสรุปฟีเจอร์และผลลัพธ์",
+    "summary": "เครื่องมือ PDF แบบใช้งานเร็ว เน้น workflow พื้นฐานที่ใช้งานบ่อยและทำงานได้ในเบราว์เซอร์",
     "role": [
       "Frontend Developer"
     ],
@@ -353,9 +355,9 @@
       "JavaScript"
     ],
     "highlights": [
-      "Simple PDF workflow",
-      "Client-side processing",
-      "No server required"
+      "Simple flow: อัปโหลด → เลือกฟังก์ชัน → ดาวน์โหลด",
+      "Client-side processing ช่วยลดความเสี่ยงข้อมูลหลุด",
+      "No-install ใช้งานได้ทันที"
     ],
     "coverImage": {
       "src": "./assets/projects/tonfern-pdf/cover.png",
