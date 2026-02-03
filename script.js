@@ -573,8 +573,30 @@ function toCardHTML(p) {
   console.log('🎨 toCardHTML called for:', p.title);
   const hasCaseStudy = !!p.caseStudy;
   const cover = p.coverImage || {};
-  const live = p.links?.live || '#';
-  const repo = p.links?.repo || '#';
+  const live = p.links?.live;
+  const repo = p.links?.repo;
+  const actions = [
+    live
+      ? `<a href="${live}" target="_blank" rel="noopener" class="btn-primary" aria-label="View live demo">
+            <i class="fas fa-external-link-alt"></i>
+            Live Demo
+          </a>`
+      : '',
+    repo
+      ? `<a href="${repo}" target="_blank" rel="noopener" class="btn-secondary" aria-label="View source code">
+            <i class="fab fa-github"></i>
+            Code
+          </a>`
+      : '',
+    hasCaseStudy
+      ? `<a href="/case-studies/${p.slug}.html" class="btn-case-study" aria-label="Read case study">
+            <i class="fas fa-book-open"></i>
+            Case Study
+          </a>`
+      : ''
+  ]
+    .filter(Boolean)
+    .join('');
 
   return `
     <div class="portfolio-item reveal-scale" data-project-id="${p.id}">
@@ -603,21 +625,7 @@ function toCardHTML(p) {
             ${(p.stack || []).map((s) => `<span>${s}</span>`).join('')}
           </div>
         </div>
-        <div class="portfolio-actions">
-          <a href="${live}" target="_blank" rel="noopener" class="btn-primary" aria-label="View live demo">
-            <i class="fas fa-external-link-alt"></i>
-            Live Demo
-          </a>
-          <a href="${repo}" target="_blank" rel="noopener" class="btn-secondary" aria-label="View source code">
-            <i class="fab fa-github"></i>
-            Code
-          </a>
-          ${hasCaseStudy ? `
-          <a href="/case-studies/${p.slug}.html" class="btn-case-study" aria-label="Read case study">
-            <i class="fas fa-book-open"></i>
-            Case Study
-          </a>` : ''}
-        </div>
+        ${actions ? `<div class="portfolio-actions">${actions}</div>` : ''}
         ${Array.isArray(p.gallery) && p.gallery.length ? `
           <button class="btn-gallery" type="button" data-project-id="${p.id}" aria-label="View project screenshots">
             <i class="fas fa-images"></i> Screenshots (${p.gallery.length})
@@ -920,8 +928,29 @@ function openProjectModal(p) {
   stack.textContent = (p.stack || []).join(', ');
   highlights.innerHTML = (p.highlights || []).map((h) => `<li>${h}</li>`).join('');
   tags.innerHTML = (p.tags || []).map((t) => `<span class="modal-tag">${t}</span>`).join('');
-  live.href = p.links?.live || '#';
-  repo.href = p.links?.repo || '#';
+  const linksWrap = modal.querySelector('.modal-links');
+  const liveUrl = p.links?.live;
+  const repoUrl = p.links?.repo;
+
+  if (liveUrl) {
+    live.href = liveUrl;
+    live.style.display = '';
+  } else {
+    live.removeAttribute('href');
+    live.style.display = 'none';
+  }
+
+  if (repoUrl) {
+    repo.href = repoUrl;
+    repo.style.display = '';
+  } else {
+    repo.removeAttribute('href');
+    repo.style.display = 'none';
+  }
+
+  if (linksWrap) {
+    linksWrap.style.display = (liveUrl || repoUrl) ? '' : 'none';
+  }
 
   openModal(modal);
 }

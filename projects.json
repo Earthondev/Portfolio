@@ -330,7 +330,12 @@
       "src": "./assets/projects/tonfern/cover.png",
       "alt": "Tonfern project cover"
     },
-    "gallery": [],
+    "gallery": [
+      {
+        "src": "./assets/projects/tonfern/cover.png",
+        "alt": "Tonfern project cover"
+      }
+    ],
     "links": {},
     "tags": [
       "Website",
@@ -363,7 +368,12 @@
       "src": "./assets/projects/tonfern-pdf/cover.png",
       "alt": "Tonfern PDF project cover"
     },
-    "gallery": [],
+    "gallery": [
+      {
+        "src": "./assets/projects/tonfern-pdf/cover.png",
+        "alt": "Tonfern PDF project cover"
+      }
+    ],
     "links": {},
     "tags": [
       "Web Tool",
