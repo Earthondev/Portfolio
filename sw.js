@@ -1,7 +1,7 @@
-// Modern Service Worker for Portfolio - v5
-const CACHE_NAME = 'portfolio-v5';
-const STATIC_CACHE = 'static-v5';
-const DYNAMIC_CACHE = 'dynamic-v5';
+// Modern Service Worker for Portfolio - v6
+const CACHE_NAME = 'portfolio-v6';
+const STATIC_CACHE = 'static-v6';
+const DYNAMIC_CACHE = 'dynamic-v6';
 
 const urlsToCache = [
   '/',
@@ -32,7 +32,7 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(STATIC_CACHE)
       .then(cache => {
-        console.log('Opened static cache v5');
+        console.log('Opened static cache v6');
         return cache.addAll(urlsToCache);
       })
       .then(() => self.skipWaiting())
@@ -49,6 +49,12 @@ self.addEventListener('fetch', event => {
   
   // Skip external requests
   if (url.origin !== location.origin) return;
+
+  // Prefer fresh HTML for navigations
+  if (request.mode === 'navigate' || request.destination === 'document') {
+    event.respondWith(networkFirstStrategy(request));
+    return;
+  }
   
   // Apply different strategies based on resource type
   if (request.url.includes('.json')) {
@@ -118,6 +124,13 @@ self.addEventListener('activate', event => {
       );
     }).then(() => self.clients.claim())
   );
+});
+
+// Allow page to trigger immediate SW update
+self.addEventListener('message', event => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
 });
 
 // Background sync for offline actions
