@@ -23,7 +23,7 @@ const onPortfolio =
   location.pathname === '/';
 
 // ---------- Elements ----------
-const projectsContainer = document.getElementById('projects-container');
+const projectsContainer = document.getElementById('projects-container') || document.getElementById('projects-grid');
 const servicesContainer = document.getElementById('services-container');
 const skillsContainer = document.getElementById('skills-container');
 const certificationsContainer = document.getElementById('certifications-container');
