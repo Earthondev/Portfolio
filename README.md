@@ -76,3 +76,4 @@ Portfolio/
 
 ---
 © 2026 Nattapart Worakun. All rights reserved.
+<!-- trigger-pages-deploy --> 2026-02-04T00:34:21
