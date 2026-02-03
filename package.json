@@ -5,7 +5,8 @@
   "main": "index.html",
   "scripts": {
     "start": "python3 -m http.server 8000",
-    "dev": "python3 -m http.server 8000"
+    "dev": "python3 -m http.server 8000",
+    "build:css": "tailwindcss -i ./input.css -o ./tailwind.css --minify"
   },
   "keywords": [
     "portfolio",
@@ -28,7 +29,9 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.58.1",
-    "@testsprite/testsprite-mcp": "^0.0.19"
+    "@tailwindcss/cli": "^4.1.18",
+    "@testsprite/testsprite-mcp": "^0.0.19",
+    "tailwindcss": "^4.1.18"
   },
   "dependencies": {
     "accepts": "^2.0.0",
