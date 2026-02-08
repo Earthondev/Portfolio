@@ -350,10 +350,43 @@
         <div class="max-w-7xl mx-auto">
             <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                <!-- Project 1: Care for Mom -->
+                <!-- Project 1: Laundry App -->
                 <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp automation"
-                    style="animation-delay: 0.3s;">
-                    <!-- Image Header -->
+                    style="animation-delay: 0.1s;">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="./assets/projects/LaundryApp_Project/Cover.png" alt="Laundry App" width="1536" height="1024"
+                            loading="lazy" decoding="async"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
+                        <div
+                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
+                            🧺
+                        </div>
+                    </div>
+                    <div class="p-6 pt-2 relative z-10">
+                        <div class="flex items-start justify-between mb-2">
+                            <div></div>
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="laundry-app">
+                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">Laundry App</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">แอปพลิเคชันจัดการร้านซักรีด เน้นความเรียบง่าย เชื่อมต่อ Google Sheets</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Flutter</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Google Sheets</span>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-gray-500 mono">2026</span>
+                            <span class="text-[#00FF94] font-semibold">In Development</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Care for Mom -->
+                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp automation"
+                    style="animation-delay: 0.2s;">
                     <div class="h-48 overflow-hidden relative">
                         <img src="./assets/projects/care-for-mom/Cover.jpg" alt="Care for Mom App Interface"
                             width="1536" height="1024" loading="lazy" decoding="async"
@@ -364,7 +397,6 @@
                             🏥
                         </div>
                     </div>
-
                     <div class="p-6 pt-2 relative z-10">
                         <div class="flex items-start justify-between mb-2">
                             <div></div>
@@ -373,17 +405,11 @@
                                 <i class="fas fa-arrow-up-right-from-square text-lg"></i>
                             </button>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">Care
-                            for Mom</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">
-                            แอปพลิเคชันดูแลสุขภาพผู้สูงอายุ พัฒนาด้วยพลัง AI (Gemini) ช่วยแจ้งเตือนยาและวิเคราะห์สุขภาพ
-                        </p>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">Care for Mom</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">แอปพลิเคชันดูแลสุขภาพผู้สูงอายุ พัฒนาด้วยพลัง AI (Gemini) ช่วยแจ้งเตือนยาและวิเคราะห์สุขภาพ</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Flutter</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Gemini
-                                AI</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Flutter</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Gemini AI</span>
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-gray-500 mono">2026</span>
@@ -392,9 +418,9 @@
                     </div>
                 </div>
 
-                <!-- Project 2: Slack Drive Bot -->
+                <!-- Project 3: Slack Drive Bot -->
                 <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="automation"
-                    style="animation-delay: 0.4s;">
+                    style="animation-delay: 0.3s;">
                     <div class="h-48 overflow-hidden relative">
                         <img src="./assets/projects/slack-drive-bot/cover.png" alt="Slack Drive Bot" width="1024"
                             height="1024" loading="lazy" decoding="async"
@@ -413,15 +439,11 @@
                                 <i class="fas fa-arrow-up-right-from-square text-lg"></i>
                             </button>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00FF94] transition-colors">Slack
-                            Drive Bot</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">บอทอัตโนมัติเชื่อมต่อ Slack
-                            กับ Google Drive จัดการไฟล์และเปลี่ยนชื่ออัตโนมัติ</p>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00FF94] transition-colors">Slack Drive Bot</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">บอทอัตโนมัติเชื่อมต่อ Slack กับ Google Drive จัดการไฟล์และเปลี่ยนชื่ออัตโนมัติ</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Python</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">Automation</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Python</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">Automation</span>
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-gray-500 mono">2026</span>
@@ -430,9 +452,9 @@
                     </div>
                 </div>
 
-                <!-- Project 3: HaaNaiHang -->
+                <!-- Project 4: HaaNaiHang -->
                 <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp dashboard"
-                    style="animation-delay: 0.5s;">
+                    style="animation-delay: 0.4s;">
                     <div class="h-48 overflow-hidden relative">
                         <img src="./assets/projects/hanaihang/cover.png" alt="HaaNaiHang" width="1024" height="552"
                             loading="lazy" decoding="async"
@@ -451,15 +473,11 @@
                                 <i class="fas fa-arrow-up-right-from-square text-lg"></i>
                             </button>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#FFE600] transition-colors">
-                            HaaNaiHang</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">
-                            เว็บค้นหาห้าง/ร้านค้าพร้อมระบบ Admin Dashboard จัดการข้อมูล</p>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#FFE600] transition-colors">HaaNaiHang</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">เว็บช่วยค้นหาห้าง/ร้านค้าพร้อมระบบ Admin Dashboard จัดการข้อมูลที่แม่นยำ</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">React</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Firebase</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">React</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Firebase</span>
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-gray-500 mono">2025</span>
@@ -468,9 +486,9 @@
                     </div>
                 </div>
 
-                <!-- Project 4: Expense Tracker -->
+                <!-- Project 5: Expense Tracker -->
                 <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp"
-                    style="animation-delay: 0.6s;">
+                    style="animation-delay: 0.5s;">
                     <div class="h-48 overflow-hidden relative">
                         <img src="./assets/projects/expense-tracker/cover.png" alt="Expense Tracker" width="1024"
                             height="1024" loading="lazy" decoding="async"
@@ -489,15 +507,11 @@
                                 <i class="fas fa-arrow-up-right-from-square text-lg"></i>
                             </button>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">
-                            Flutter Expense Tracker</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">แอปบันทึกรายรับรายจ่ายแบบ
-                            Offline-first พร้อมฟีเจอร์แนบรูปสลิป</p>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">Expense Tracker</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">แอปบันทึกรายรับรายจ่ายแบบ Offline-first พร้อมฟีเจอร์แนบรูปสลิป</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Flutter</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">SQLite</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Flutter</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">SQLite</span>
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-gray-500 mono">2026</span>
@@ -506,9 +520,9 @@
                     </div>
                 </div>
 
-                <!-- Project 5: Inventory Amino -->
+                <!-- Project 6: Inventory Amino -->
                 <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="automation dashboard"
-                    style="animation-delay: 0.7s;">
+                    style="animation-delay: 0.6s;">
                     <div class="h-48 overflow-hidden relative">
                         <img src="./assets/projects/Inventory%20amino/Cover.png"
                             alt="Inventory Amino Dashboard" width="1536" height="1024" loading="lazy" decoding="async"
@@ -527,15 +541,11 @@
                                 <i class="fas fa-arrow-up-right-from-square text-lg"></i>
                             </button>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00FF94] transition-colors">
-                            Inventory Amino</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">ระบบจัดการสต็อกสารเคมีในแล็บ
-                            Mobile-first พร้อมแจ้งเตือนของใกล้หมด</p>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00FF94] transition-colors">Inventory Amino</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">ระบบจัดการสต็อกสารเคมีในแล็บ Mobile-first พร้อมแจ้งเตือนของใกล้หมด</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">AppSheet</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">No-Code</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">AppSheet</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">No-Code</span>
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-gray-500 mono">2025</span>
@@ -544,9 +554,9 @@
                     </div>
                 </div>
 
-                <!-- Project 6: PDF Toolkit -->
+                <!-- Project 7: PDF Toolkit -->
                 <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp"
-                    style="animation-delay: 0.8s;">
+                    style="animation-delay: 0.7s;">
                     <div class="h-48 overflow-hidden relative">
                         <img src="./assets/projects/pdf-toolkit/cover.png" alt="PDF Toolkit" width="1024" height="1024"
                             loading="lazy" decoding="async"
@@ -565,19 +575,117 @@
                                 <i class="fas fa-arrow-up-right-from-square text-lg"></i>
                             </button>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#FFE600] transition-colors">
-                            Browser PDF Toolkit</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">เครื่องมือจัดการ PDF บนเว็บ
-                            (Split, Merge) ทำงานบน Browser 100% (Client-side)</p>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#FFE600] transition-colors">TonfernPDF</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">เครื่องมือจัดการ PDF บนเว็บแบบประมวลผลฝั่งผู้ใช้เพื่อความปลอดภัยสูงสุด</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">JS</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">PDF.js</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">JavaScript</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">PDF.js</span>
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-gray-500 mono">2025</span>
                             <span class="text-[#00D9FF] font-semibold">Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8: Sentaiwatch -->
+                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="dashboard"
+                    style="animation-delay: 0.8s;">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="./assets/projects/Sentaiwatch/cover.png" alt="Sentaiwatch" width="1024" height="1024"
+                            loading="lazy" decoding="async"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
+                        <div
+                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#FFE600] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
+                            🛰️
+                        </div>
+                    </div>
+                    <div class="p-6 pt-2 relative z-10">
+                        <div class="flex items-start justify-between mb-2">
+                            <div></div>
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="sentaiwatch">
+                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">Sentaiwatch</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">แดชบอร์ดติดตามสถานะงานแบบเรียลไทม์ ออกแบบมาสำหรับทีมปฏิบัติการโดยเฉพาะ</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">HTML/CSS</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">JavaScript</span>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-gray-500 mono">2025</span>
+                            <span class="text-[#FFE600] font-semibold">In Development</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9: Tonfern -->
+                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp"
+                    style="animation-delay: 0.9s;">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="./assets/projects/tonfern/cover.png" alt="Tonfern" width="1024" height="1024"
+                            loading="lazy" decoding="async"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
+                        <div
+                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00FF94] to-[#00D9FF] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
+                            🌿
+                        </div>
+                    </div>
+                    <div class="p-6 pt-2 relative z-10">
+                        <div class="flex items-start justify-between mb-2">
+                            <div></div>
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="tonfern">
+                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00FF94] transition-colors">Tonfern Website</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">เว็บไซต์แนะนำตัวแบบมินิมอล เน้นความเรียบง่ายและประสบการณ์การใช้งานที่ดี</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">HTML/CSS</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">UI Design</span>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-gray-500 mono">2025</span>
+                            <span class="text-[#00D9FF] font-semibold">In Development</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 10: Tonfern PDF -->
+                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp"
+                    style="animation-delay: 1.0s;">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="./assets/projects/tonfern-pdf/cover.png" alt="Tonfern PDF" width="1024" height="1024"
+                            loading="lazy" decoding="async"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
+                        <div
+                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#FFE600] to-[#00FF94] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
+                            ⚡
+                        </div>
+                    </div>
+                    <div class="p-6 pt-2 relative z-10">
+                        <div class="flex items-start justify-between mb-2">
+                            <div></div>
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="tonfern-pdf">
+                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#FFE600] transition-colors">Lightweight PDF Tool</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">เครื่องมือจัดการเอกสาร PDF ขนาดเล็ก เน้นความเร็วและความคล่องตัว</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">JavaScript</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Mobile-First</span>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-gray-500 mono">2025</span>
+                            <span class="text-[#00FF94] font-semibold">In Development</span>
                         </div>
                     </div>
                 </div>
@@ -613,6 +721,21 @@
     <script>
         // Project Data
         const projectDetails = {
+            'laundry-app': {
+                title: 'Laundry App – Smart Management System',
+                description: 'แอปพลิเคชันจัดการร้านซักรีดที่เน้นประสิทธิภาพและความเรียบง่าย (Minimalist) พัฒนาด้วย Flutter เชื่อมต่อ Google Sheets เป็น Backend',
+                challenge: 'เจ้าของร้านซักรีดต้องจดบันทึกออร์เดอร์ลงกระดาษ ทำให้ตรวจสอบยอดค้างและสถิติได้ยาก',
+                solution: 'สร้างแอปที่บันทึกออร์เดอร์ได้รวดเร็ว คำนวณราคาทันที และดูสถิติได้แบบ Real-time ผ่านมือถือ',
+                impact: [
+                    { label: 'Platform', value: 'Mobile' },
+                    { label: 'Database', value: 'Google Sheets' },
+                    { label: 'Status', value: 'In-Development' }
+                ],
+                tech: ['Flutter', 'Dart', 'Google Apps Script', 'Google Sheets'],
+                features: ['Smart Dashboard', 'Efficient Order Management', 'Customer History', 'Dynamic Pricing Settings'],
+                image: './assets/projects/LaundryApp_Project/Cover.png',
+                repo: 'https://github.com/Earthondev/LaundryApp'
+            },
             'care-for-mom': {
                 title: 'Care for Mom – AI Health Companion',
                 description: 'แอปพลิเคชันดูแลสุขภาพผู้สูงอายุ พัฒนาด้วยพลัง AI (Gemini) ช่วยแจ้งเตือนยาและวิเคราะห์สุขภาพเบื้องต้น',
@@ -646,7 +769,7 @@
             },
             'hanaihang': {
                 title: 'HaaNaiHang – Mall & Store Finder',
-                description: 'เว็บช่วยค้นหาห้าง/ร้านค้าใกล้ตัว พร้อมแผงผู้ดูแลในการเพิ่ม/แก้ไขข้อมูลศูนย์การค้าและร้านค้าแบบเป็นระบบ',
+                description: 'แอปพลิเคชันค้นหาห้างสรรพสินค้าและร้านค้าใกล้ตัว พร้อมระบบคำนวณระยะทางที่แม่นยำและการจัดการข้อมูลผ่าน Admin Dashboard',
                 challenge: 'ผู้ใช้หาสถานที่ในห้างยาก และข้อมูลร้านค้ามักไม่อัปเดต ทำให้เสียเวลาเดินทาง',
                 solution: 'พัฒนา Web App ที่ค้นหาร้านค้าได้รวดเร็ว พร้อม Admin Dashboard ให้เจ้าของสถานที่จัดการข้อมูลได้เอง',
                 impact: [
@@ -654,8 +777,8 @@
                     { label: 'Search Speed', value: '< 100ms' },
                     { label: 'Platform', value: 'PWA' }
                 ],
-                tech: ['React', 'Firebase', 'Tailwind', 'Vite'],
-                features: ['Fast Search', 'Admin Dashboard', 'Responsive Design', 'Google Maps Integration'],
+                tech: ['React 18', 'Firebase', 'TypeScript', 'Tailwind CSS'],
+                features: ['Comprehensive Search', 'Real-time Proximity Calculation', 'Internal Store Resolution', 'Admin Dashboard'],
                 image: './assets/projects/hanaihang/cover.png',
                 repo: 'https://github.com/Earthondev/Hanaihang'
             },
@@ -691,7 +814,7 @@
                 repo: '#'
             },
             'pdf-toolkit': {
-                title: 'Browser PDF Toolkit',
+                title: 'TonfernPDF - Local PDF Toolkit',
                 description: 'เครื่องมือจัดการ PDF บนเว็บ (Split, Merge) ทำงานบน Browser 100% เพื่อความปลอดภัยของข้อมูล (Serverless)',
                 challenge: 'บริการจัดการ PDF ส่วนใหญ่อัปโหลดไฟล์ขึ้น Server ทำให้เสี่ยงต่อข้อมูลรั่วไหลในเอกสารสำคัญ',
                 solution: 'พัฒนา Client-side Tool ด้วย PDF.js ประมวลผลทุกอย่างใน Browser ผู้ใช้ ไฟล์ไม่เคยออกจากเครื่อง',
@@ -705,6 +828,51 @@
                 image: './assets/projects/pdf-toolkit/Screenshot 2569-02-03 at 22.59.41.png',
                 imageAlt: 'PDF Toolkit interface screenshot',
                 repo: 'https://github.com/Earthondev/pdf-toolkit'
+            },
+            'sentaiwatch': {
+                title: 'Sentaiwatch – Ops Dashboard',
+                description: 'แดชบอร์ดติดตามสถานะงาน/ระบบแบบเรียลไทม์ ออกแบบให้สแกนเร็ว เห็นสัญญาณเตือนชัด เหมาะกับทีมปฏิบัติการ',
+                challenge: 'ทีมปฏิบัติการต้องการเห็นสถานะระบบที่รวดเร็วและชัดเจนเพื่อตัดสินใจในเสี้ยววินาที',
+                solution: 'ออกแบบ Dashboard ที่เน้น Signal-first layout และใช้ระบบสีที่สื่อความหมายชัดเจน',
+                impact: [
+                    { label: 'Visibility', value: 'High' },
+                    { label: 'Layout', value: 'Signal-based' },
+                    { label: 'Status', value: 'In-Dev' }
+                ],
+                tech: ['HTML5', 'CSS3', 'JavaScript'],
+                features: ['Signal-first layout', 'Status color system', 'Componentized cards', 'Real-time updates'],
+                image: './assets/projects/Sentaiwatch/cover.png',
+                repo: '#'
+            },
+            'tonfern': {
+                title: 'Tonfern – Personal Website',
+                description: 'เว็บไซต์แนะนำตัวแบบมินิมอล เน้น readability และโครงสร้างที่ขยายได้ง่ายสำหรับพอร์ตผลงาน',
+                challenge: 'ต้องการพื้นที่รวบรวมผลงานที่ดูเป็นมืออาชีพและโหลดได้รวดเร็วในทุกอุปกรณ์',
+                solution: 'พัฒนาเว็บไซต์ด้วยโครงสร้าง Typography-first และปรับแต่ง Asset ให้มีประสิทธิภาพสูงสุด',
+                impact: [
+                    { label: 'Speed', value: 'Excellent' },
+                    { label: 'Design', value: 'Minimal' },
+                    { label: 'Mobile', value: '100%' }
+                ],
+                tech: ['HTML5', 'CSS3', 'JavaScript'],
+                features: ['Typography-first layout', 'Reusable sections', 'Optimized assets', 'Responsive design'],
+                image: './assets/projects/tonfern/cover.png',
+                repo: '#'
+            },
+            'tonfern-pdf': {
+                title: 'Tonfern PDF – Lightweight PDF Tool',
+                description: 'เครื่องมือ PDF แบบใช้งานเร็ว เน้น workflow พื้นฐานที่ใช้งานบ่อยและทำงานได้ในเบราว์เซอร์',
+                challenge: 'เครื่องมือ PDF ทั่วไปซับซ้อนเกินความจำเป็นสำหรับการแก้ไขเล็กๆ น้อยๆ',
+                solution: 'สร้างเครื่องมือที่ลดขั้นตอนการทำงานให้เหลือเพียง อัปโหลด เลือกฟังก์ชัน และดาวน์โหลด',
+                impact: [
+                    { label: 'Ease of Use', value: 'High' },
+                    { label: 'Speed', value: 'Fast' },
+                    { label: 'Security', value: 'Client-side' }
+                ],
+                tech: ['HTML5', 'JavaScript', 'Web APIs'],
+                features: ['Simple flow', 'No-install required', 'Client-side processing', 'Basic PDF functions'],
+                image: './assets/projects/tonfern-pdf/cover.png',
+                repo: '#'
             }
         };
 
