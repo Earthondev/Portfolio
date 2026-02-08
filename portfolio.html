@@ -32,7 +32,20 @@
     <title>Portfolio Showcase | Nattapart Worakun</title>
 
     <!-- Tailwind CSS -->
-    <link rel="stylesheet" href="tailwind.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Sarabun', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -103,87 +116,6 @@
             transform: translateY(-8px);
             border-color: rgba(0, 217, 255, 0.3);
             box-shadow: 0 20px 60px rgba(0, 217, 255, 0.15);
-        }
-
-        .gallery-card {
-            background: rgba(10, 10, 15, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 14px;
-        }
-
-        .gallery-main {
-            position: relative;
-        }
-
-        .gallery-main img {
-            width: 100%;
-            max-height: 520px;
-            object-fit: contain;
-            border-radius: 12px;
-            display: block;
-        }
-
-        .gallery-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 36px;
-            height: 36px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(10, 10, 15, 0.7);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .gallery-nav:hover {
-            transform: translateY(-50%) scale(1.05);
-            border-color: rgba(0, 217, 255, 0.6);
-        }
-
-        .gallery-nav.prev {
-            left: 10px;
-        }
-
-        .gallery-nav.next {
-            right: 10px;
-        }
-
-        .gallery-thumbs {
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            padding: 10px 2px 2px;
-        }
-
-        .gallery-thumb {
-            width: 72px;
-            height: 52px;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            opacity: 0.6;
-            cursor: pointer;
-            flex: 0 0 auto;
-            transition: opacity 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .gallery-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .gallery-thumb.active {
-            opacity: 1;
-            border-color: rgba(0, 217, 255, 0.8);
-            box-shadow: 0 0 0 2px rgba(0, 217, 255, 0.2);
         }
 
         .project-card:hover::before {
@@ -418,27 +350,40 @@
         <div class="max-w-7xl mx-auto">
             <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp"
+                <!-- Project 1: Care for Mom -->
+                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp automation"
                     style="animation-delay: 0.3s;">
+                    <!-- Image Header -->
                     <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/care-for-mom/Cover.jpg" alt="Care for Mom cover" width="1024" height="768" loading="lazy" decoding="async"
+                        <img src="./assets/projects/care-for-mom/Cover.jpg" alt="Care for Mom App Interface"
+                            width="1536" height="1024" loading="lazy" decoding="async"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            💻
+                        <div
+                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
+                            🏥
                         </div>
                     </div>
+
                     <div class="p-6 pt-2 relative z-10">
                         <div class="flex items-start justify-between mb-2">
                             <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors" data-project="care-for-mom">
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="care-for-mom">
                                 <i class="fas fa-arrow-up-right-from-square text-lg"></i>
                             </button>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">Care for Mom – AI Health Companion</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">แอปพลิเคชันดูแลสุขภาพผู้สูงอายุ พัฒนาด้วยพลัง AI (Gemini) ช่วยแจ้งเตือนยาและวิเคราะห์สุขภาพเบื้องต้น</p>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">Care
+                            for Mom</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">
+                            แอปพลิเคชันดูแลสุขภาพผู้สูงอายุ พัฒนาด้วยพลัง AI (Gemini) ช่วยแจ้งเตือนยาและวิเคราะห์สุขภาพ
+                        </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Flutter</span><span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Dart</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Flutter</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Gemini
+                                AI</span>
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-gray-500 mono">2026</span>
@@ -446,29 +391,37 @@
                         </div>
                     </div>
                 </div>
-    
 
+                <!-- Project 2: Slack Drive Bot -->
                 <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="automation"
                     style="animation-delay: 0.4s;">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/slack-drive-bot/cover.png" alt="Slack Drive Bot cover" width="1024" height="768" loading="lazy" decoding="async"
+                        <img src="./assets/projects/slack-drive-bot/cover.png" alt="Slack Drive Bot" width="1024"
+                            height="1024" loading="lazy" decoding="async"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00FF94] to-[#FFE600] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
+                        <div
+                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00FF94] to-[#FFE600] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
                             🤖
                         </div>
                     </div>
                     <div class="p-6 pt-2 relative z-10">
                         <div class="flex items-start justify-between mb-2">
                             <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors" data-project="slack-drive-bot">
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="slack-drive-bot">
                                 <i class="fas fa-arrow-up-right-from-square text-lg"></i>
                             </button>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00FF94] transition-colors">Slack Drive Bot – Workflow Automation</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">บอทอัตโนมัติที่เชื่อมต่อ Slack กับ Google Drive ช่วยจัดการไฟล์แนบ เปลี่ยนชื่อ และจัดเก็บลงโฟลเดอร์ตามเงื่อนไข</p>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00FF94] transition-colors">Slack
+                            Drive Bot</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">บอทอัตโนมัติเชื่อมต่อ Slack
+                            กับ Google Drive จัดการไฟล์และเปลี่ยนชื่ออัตโนมัติ</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Python</span><span class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Slack API</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Python</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">Automation</span>
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-gray-500 mono">2026</span>
@@ -476,367 +429,158 @@
                         </div>
                     </div>
                 </div>
-    
 
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="dashboard"
+                <!-- Project 3: HaaNaiHang -->
+                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp dashboard"
                     style="animation-delay: 0.5s;">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/hanaihang/cover.png" alt="HaaNaiHang cover" width="1024" height="768" loading="lazy" decoding="async"
+                        <img src="./assets/projects/hanaihang/cover.png" alt="HaaNaiHang" width="1024" height="552"
+                            loading="lazy" decoding="async"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#FFE600] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            📊
+                        <div
+                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#FFE600] to-[#00D9FF] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
+                            🛍️
                         </div>
                     </div>
                     <div class="p-6 pt-2 relative z-10">
                         <div class="flex items-start justify-between mb-2">
                             <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors" data-project="hanaihang">
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="hanaihang">
                                 <i class="fas fa-arrow-up-right-from-square text-lg"></i>
                             </button>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">HaaNaiHang – Mall & Store Finder</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">เว็บช่วยค้นหาห้าง/ร้านค้าใกล้ตัว พร้อมแผงผู้ดูแลในการเพิ่ม/แก้ไขข้อมูลศูนย์การค้าและร้านค้าแบบเป็นระบบ</p>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#FFE600] transition-colors">
+                            HaaNaiHang</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">
+                            เว็บค้นหาห้าง/ร้านค้าพร้อมระบบ Admin Dashboard จัดการข้อมูล</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">React</span><span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">TypeScript</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">React</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Firebase</span>
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-gray-500 mono">2025</span>
-                            <span class="text-[#FFE600] font-semibold">Active</span>
+                            <span class="text-[#00D9FF] font-semibold">Production</span>
                         </div>
                     </div>
                 </div>
-    
 
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="dashboard"
+                <!-- Project 4: Expense Tracker -->
+                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp"
                     style="animation-delay: 0.6s;">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/sentaiwatch-dx/cover.png" alt="SentaiWatch DX cover" width="1024" height="768" loading="lazy" decoding="async"
+                        <img src="./assets/projects/expense-tracker/cover.png" alt="Expense Tracker" width="1024"
+                            height="1024" loading="lazy" decoding="async"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#FFE600] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            📊
+                        <div
+                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
+                            💰
                         </div>
                     </div>
                     <div class="p-6 pt-2 relative z-10">
                         <div class="flex items-start justify-between mb-2">
                             <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors" data-project="sentaiwatch-dx">
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="expense-tracker">
                                 <i class="fas fa-arrow-up-right-from-square text-lg"></i>
                             </button>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">SentaiWatch DX – Ops Dashboard</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">แดชบอร์ดติดตามสถานะงาน/ระบบแบบเรียลไทม์ ออกแบบให้สแกนเร็วและเห็นสัญญาณเตือนชัด</p>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">
+                            Flutter Expense Tracker</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">แอปบันทึกรายรับรายจ่ายแบบ
+                            Offline-first พร้อมฟีเจอร์แนบรูปสลิป</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">HTML5</span><span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">CSS</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Flutter</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">SQLite</span>
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2025</span>
-                            <span class="text-[#FFE600] font-semibold">In Development</span>
+                            <span class="text-gray-500 mono">2026</span>
+                            <span class="text-[#00FF94] font-semibold">Completed</span>
                         </div>
                     </div>
                 </div>
-    
 
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp"
+                <!-- Project 5: Inventory Amino -->
+                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="automation dashboard"
                     style="animation-delay: 0.7s;">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/tonfern-journal/cover.png" alt="Tonfern Journal cover" width="1024" height="768" loading="lazy" decoding="async"
+                        <img src="./assets/projects/Inventory%20amino/Cover.png"
+                            alt="Inventory Amino Dashboard" width="1536" height="1024" loading="lazy" decoding="async"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            💻
+                        <div
+                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00FF94] to-[#FFE600] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
+                            🧪
                         </div>
                     </div>
                     <div class="p-6 pt-2 relative z-10">
                         <div class="flex items-start justify-between mb-2">
                             <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors" data-project="tonfern-journal">
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="inventory-amino">
                                 <i class="fas fa-arrow-up-right-from-square text-lg"></i>
                             </button>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">Tonfern Journal</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">เว็บไซต์บันทึก/จัดการบทความ เน้น layout ที่อ่านง่ายและขยายได้ในอนาคต</p>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00FF94] transition-colors">
+                            Inventory Amino</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">ระบบจัดการสต็อกสารเคมีในแล็บ
+                            Mobile-first พร้อมแจ้งเตือนของใกล้หมด</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">HTML5</span><span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">CSS</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">AppSheet</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">No-Code</span>
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-gray-500 mono">2025</span>
-                            <span class="text-[#00FF94] font-semibold">In Development</span>
+                            <span class="text-[#FFE600] font-semibold">In Use</span>
                         </div>
                     </div>
                 </div>
-    
 
+                <!-- Project 6: PDF Toolkit -->
                 <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp"
                     style="animation-delay: 0.8s;">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/tonfern-pdf/cover.png" alt="Tonfern PDF cover" width="1024" height="768" loading="lazy" decoding="async"
+                        <img src="./assets/projects/pdf-toolkit/cover.png" alt="PDF Toolkit" width="1024" height="1024"
+                            loading="lazy" decoding="async"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            💻
+                        <div
+                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#FFE600] to-[#00D9FF] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
+                            📄
                         </div>
                     </div>
                     <div class="p-6 pt-2 relative z-10">
                         <div class="flex items-start justify-between mb-2">
                             <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors" data-project="tonfern-pdf">
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="pdf-toolkit">
                                 <i class="fas fa-arrow-up-right-from-square text-lg"></i>
                             </button>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">Tonfern PDF Toolkit</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">เครื่องมือจัดการ PDF บนเว็บ ทำงานแบบ client-side เพื่อความปลอดภัยของข้อมูล</p>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#FFE600] transition-colors">
+                            Browser PDF Toolkit</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">เครื่องมือจัดการ PDF บนเว็บ
+                            (Split, Merge) ทำงานบน Browser 100% (Client-side)</p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">HTML5</span><span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">JavaScript</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">JS</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">PDF.js</span>
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-gray-500 mono">2025</span>
-                            <span class="text-[#00FF94] font-semibold">In Development</span>
+                            <span class="text-[#00D9FF] font-semibold">Completed</span>
                         </div>
                     </div>
                 </div>
-    
-
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="automation"
-                    style="animation-delay: 0.9s;">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/slack-polymer/cover.png" alt="Slack Polymer cover" width="1024" height="768" loading="lazy" decoding="async"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00FF94] to-[#FFE600] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            🤖
-                        </div>
-                    </div>
-                    <div class="p-6 pt-2 relative z-10">
-                        <div class="flex items-start justify-between mb-2">
-                            <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors" data-project="slack-polymer">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00FF94] transition-colors">Slack Polymer</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">กำลังอัปเดตรายละเอียดโปรเจกต์ (รอเพิ่มรูปและคำอธิบาย)</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">JavaScript</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2025</span>
-                            <span class="text-[#FFE600] font-semibold">In Development</span>
-                        </div>
-                    </div>
-                </div>
-    
-
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp"
-                    style="animation-delay: 1.0s;">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/chistmas/cover.png" alt="Chistmas cover" width="1024" height="768" loading="lazy" decoding="async"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            💻
-                        </div>
-                    </div>
-                    <div class="p-6 pt-2 relative z-10">
-                        <div class="flex items-start justify-between mb-2">
-                            <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors" data-project="chistmas">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">Chistmas</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">กำลังอัปเดตรายละเอียดโปรเจกต์ (รอเพิ่มรูปและคำอธิบาย)</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">JavaScript</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2025</span>
-                            <span class="text-[#00FF94] font-semibold">In Development</span>
-                        </div>
-                    </div>
-                </div>
-    
-
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp"
-                    style="animation-delay: 1.1s;">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/namtankagi/cover.png" alt="NamtanKagi cover" width="1024" height="768" loading="lazy" decoding="async"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            💻
-                        </div>
-                    </div>
-                    <div class="p-6 pt-2 relative z-10">
-                        <div class="flex items-start justify-between mb-2">
-                            <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors" data-project="namtankagi">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">NamtanKagi</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">กำลังอัปเดตรายละเอียดโปรเจกต์ (รอเพิ่มรูปและคำอธิบาย)</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">JavaScript</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2025</span>
-                            <span class="text-[#00FF94] font-semibold">In Development</span>
-                        </div>
-                    </div>
-                </div>
-    
-
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="dashboard"
-                    style="animation-delay: 1.2s;">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/ecmonitor/cover.png" alt="ECMonitor cover" width="1024" height="768" loading="lazy" decoding="async"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#FFE600] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            📊
-                        </div>
-                    </div>
-                    <div class="p-6 pt-2 relative z-10">
-                        <div class="flex items-start justify-between mb-2">
-                            <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors" data-project="ecmonitor">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">ECMonitor</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">กำลังอัปเดตรายละเอียดโปรเจกต์ (รอเพิ่มรูปและคำอธิบาย)</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">JavaScript</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2025</span>
-                            <span class="text-[#FFE600] font-semibold">In Development</span>
-                        </div>
-                    </div>
-                </div>
-    
-
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp"
-                    style="animation-delay: 1.3s;">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/masked-rider-tile-game/cover.png" alt="Masked Rider Tile Game cover" width="1024" height="768" loading="lazy" decoding="async"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            💻
-                        </div>
-                    </div>
-                    <div class="p-6 pt-2 relative z-10">
-                        <div class="flex items-start justify-between mb-2">
-                            <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors" data-project="masked-rider-tile-game">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">Masked Rider Tile Game</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">กำลังอัปเดตรายละเอียดโปรเจกต์ (รอเพิ่มรูปและคำอธิบาย)</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">JavaScript</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2025</span>
-                            <span class="text-[#00FF94] font-semibold">In Development</span>
-                        </div>
-                    </div>
-                </div>
-    
-
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp"
-                    style="animation-delay: 1.4s;">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/miniproject/cover.png" alt="Mini Project cover" width="1024" height="768" loading="lazy" decoding="async"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            💻
-                        </div>
-                    </div>
-                    <div class="p-6 pt-2 relative z-10">
-                        <div class="flex items-start justify-between mb-2">
-                            <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors" data-project="miniproject">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">Mini Project</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">กำลังอัปเดตรายละเอียดโปรเจกต์ (รอเพิ่มรูปและคำอธิบาย)</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">JavaScript</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2025</span>
-                            <span class="text-[#00FF94] font-semibold">In Development</span>
-                        </div>
-                    </div>
-                </div>
-    
-
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp"
-                    style="animation-delay: 1.5s;">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/lifesciencestandardregister/cover.png" alt="Life Science Standard Register cover" width="1024" height="768" loading="lazy" decoding="async"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            💻
-                        </div>
-                    </div>
-                    <div class="p-6 pt-2 relative z-10">
-                        <div class="flex items-start justify-between mb-2">
-                            <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors" data-project="lifesciencestandardregister">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">Life Science Standard Register</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">กำลังอัปเดตรายละเอียดโปรเจกต์ (รอเพิ่มรูปและคำอธิบาย)</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">JavaScript</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2025</span>
-                            <span class="text-[#00FF94] font-semibold">In Development</span>
-                        </div>
-                    </div>
-                </div>
-    
-
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp"
-                    style="animation-delay: 1.6s;">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/masked-rider-reveal-quest/cover.png" alt="Masked Rider Reveal Quest cover" width="1024" height="768" loading="lazy" decoding="async"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            💻
-                        </div>
-                    </div>
-                    <div class="p-6 pt-2 relative z-10">
-                        <div class="flex items-start justify-between mb-2">
-                            <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors" data-project="masked-rider-reveal-quest">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">Masked Rider Reveal Quest</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">กำลังอัปเดตรายละเอียดโปรเจกต์ (รอเพิ่มรูปและคำอธิบาย)</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">JavaScript</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2025</span>
-                            <span class="text-[#00FF94] font-semibold">In Development</span>
-                        </div>
-                    </div>
-                </div>
-    
 
             </div>
 
@@ -869,193 +613,98 @@
     <script>
         // Project Data
         const projectDetails = {
-
             'care-for-mom': {
                 title: 'Care for Mom – AI Health Companion',
                 description: 'แอปพลิเคชันดูแลสุขภาพผู้สูงอายุ พัฒนาด้วยพลัง AI (Gemini) ช่วยแจ้งเตือนยาและวิเคราะห์สุขภาพเบื้องต้น',
                 challenge: 'ผู้สูงอายุมักลืมกินยาและไม่ทราบอาการป่วยเบื้องต้น ทำให้การรักษาล่าช้าและขาดการดูแลที่ต่อเนื่อง',
                 solution: 'พัฒนาแอปพลิเคชันที่ใช้ Gemini API วิเคราะห์ข้อมูลสุขภาพ และสร้างระบบแจ้งเตือนยาอัตโนมัติที่ใช้งานง่าย',
-                impact: [{ label: 'AI Powered', value: 'Gemini 1.5' }, { label: 'Language', value: 'TH / EN' }, { label: 'Access', value: 'Offline' }],
-                tech: ['Flutter', 'Dart', 'SQLite', 'Gemini API'],
+                impact: [
+                    { label: 'AI Powered', value: 'Gemini 1.5' },
+                    { label: 'Language', value: 'TH / EN' },
+                    { label: 'Access', value: 'Offline' }
+                ],
+                tech: ['Flutter', 'Gemini API', 'SQLite', 'Dart'],
                 features: ['AI Health Analysis', 'Smart Medicine Reminders', 'Multi-language Support', 'Offline-first Architecture'],
-                gallery: [{ src: './assets/projects/care-for-mom/Screenshot-1.jpg', alt: 'Care for Mom screenshot' }, { src: './assets/projects/care-for-mom/Screenshot-2.jpg', alt: 'Care for Mom screenshot' }, { src: './assets/projects/care-for-mom/Screenshot-3.jpg', alt: 'Care for Mom screenshot' }],
-                image: './assets/projects/care-for-mom/Cover.jpg',
-                imageAlt: 'Care for Mom cover',
-                repo: 'https://github.com/Earthondev/care_for_mom'
+                image: './assets/projects/care-for-mom/Screenshot-1.jpg',
+                imageAlt: 'Care for Mom app screenshot',
+                repo: 'https://github.com/Earthondev/CareForMom'
             },
-
             'slack-drive-bot': {
-                title: 'Slack Drive Bot – Workflow Automation',
+                title: 'Slack Drive Bot',
                 description: 'บอทอัตโนมัติที่เชื่อมต่อ Slack กับ Google Drive ช่วยจัดการไฟล์แนบ เปลี่ยนชื่อ และจัดเก็บลงโฟลเดอร์ตามเงื่อนไข',
                 challenge: 'ทีมงานเสียเวลาจัดการไฟล์แนบจากแชท ต้องดาวน์โหลด เปลี่ยนชื่อ และอัปโหลดใหม่เองกว่า 10 ชม./สัปดาห์',
                 solution: 'สร้าง Slack Bot ที่ดักจับไฟล์แนบ อ่าน Caption เพื่อเปลี่ยนชื่อ และอัปโหลดลง Drive folder ที่ถูกต้องทันที',
-                impact: [{ label: 'Time Saved', value: '-90%' }, { label: 'Accuracy', value: '100%' }, { label: 'Avg Speed', value: '< 2s' }],
+                impact: [
+                    { label: 'Time Saved', value: '-90%' },
+                    { label: 'Accuracy', value: '100%' },
+                    { label: 'Avg Speed', value: '< 2s' }
+                ],
                 tech: ['Python', 'Slack API', 'Google Drive API', 'Docker'],
                 features: ['Automated File Upload', 'Smart Renaming via Caption', 'Dynamic Folder Routing', 'Dockerized Deployment'],
-                gallery: [{ src: './assets/projects/slack-drive-bot/Screenshot 2569-02-03 at 22.46.19.png', alt: 'Slack Drive Bot screenshot' }, { src: './assets/projects/slack-drive-bot/cover.png', alt: 'Slack Drive Bot cover' }],
                 image: './assets/projects/slack-drive-bot/cover.png',
-                imageAlt: 'Slack Drive Bot cover',
                 repo: 'https://github.com/Earthondev/slack-drive-bot'
             },
-
             'hanaihang': {
                 title: 'HaaNaiHang – Mall & Store Finder',
                 description: 'เว็บช่วยค้นหาห้าง/ร้านค้าใกล้ตัว พร้อมแผงผู้ดูแลในการเพิ่ม/แก้ไขข้อมูลศูนย์การค้าและร้านค้าแบบเป็นระบบ',
                 challenge: 'ผู้ใช้หาสถานที่ในห้างยาก และข้อมูลร้านค้ามักไม่อัปเดต ทำให้เสียเวลาเดินทาง',
                 solution: 'พัฒนา Web App ที่ค้นหาร้านค้าได้รวดเร็ว พร้อม Admin Dashboard ให้เจ้าของสถานที่จัดการข้อมูลได้เอง',
-                impact: [{ label: 'Performance', value: '98/100' }, { label: 'Search Speed', value: '< 100ms' }, { label: 'Platform', value: 'PWA' }],
-                tech: ['React', 'TypeScript', 'Vite', 'Tailwind', 'Firebase'],
+                impact: [
+                    { label: 'Performance', value: '98/100' },
+                    { label: 'Search Speed', value: '< 100ms' },
+                    { label: 'Platform', value: 'PWA' }
+                ],
+                tech: ['React', 'Firebase', 'Tailwind', 'Vite'],
                 features: ['Fast Search', 'Admin Dashboard', 'Responsive Design', 'Google Maps Integration'],
-                gallery: [{ src: './assets/projects/hanaihang/screenshot-1.png', alt: 'HaaNaiHang search UI' }, { src: './assets/projects/hanaihang/screenshot-2.png', alt: 'HaaNaiHang admin UI' }, { src: './assets/projects/hanaihang/gallery-02.webp', alt: 'HaaNaiHang gallery' }, { src: './assets/projects/hanaihang/gallery-03.webp', alt: 'HaaNaiHang gallery' }],
                 image: './assets/projects/hanaihang/cover.png',
-                imageAlt: 'HaaNaiHang cover',
                 repo: 'https://github.com/Earthondev/Hanaihang'
             },
-
-            'sentaiwatch-dx': {
-                title: 'SentaiWatch DX – Ops Dashboard',
-                description: 'แดชบอร์ดติดตามสถานะงาน/ระบบแบบเรียลไทม์ ออกแบบให้สแกนเร็วและเห็นสัญญาณเตือนชัด',
-                challenge: 'กำลังอัปเดตรายละเอียดโปรเจกต์',
-                solution: 'จะอัปเดตขั้นตอนการแก้ปัญหาให้เร็ว ๆ นี้',
-                impact: [{ label: 'Status', value: 'Updating' }, { label: 'Docs', value: 'In Progress' }, { label: 'Screens', value: 'Coming Soon' }],
-                tech: ['HTML5', 'CSS', 'JavaScript'],
-                features: ['Details coming soon'],
-                gallery: [{ src: './assets/projects/sentaiwatch-dx/Screenshot 2569-01-21 at 21.02.32.png', alt: 'SentaiWatch DX screenshot' }, { src: './assets/projects/sentaiwatch-dx/Screenshot 2569-01-21 at 21.02.51.png', alt: 'SentaiWatch DX screenshot' }],
-                image: './assets/projects/sentaiwatch-dx/cover.png',
-                imageAlt: 'SentaiWatch DX cover',
-                repo: 'https://github.com/Earthondev/SentaiWatch-DX'
+            'expense-tracker': {
+                title: 'Flutter Expense Tracker',
+                description: 'แอปบันทึกรายรับรายจ่ายส่วนตัว เน้นความรวดเร็วและใช้งานแบบ Offline พร้อมฟีเจอร์แนบรูปสลิป',
+                challenge: 'แอปบันทึกรายจ่ายส่วนใหญ่ช้าและต้องใช้อินเทอร์เน็ต ทำให้ไม่สะดวกบันทึกทันทีหลังจ่ายเงิน',
+                solution: 'สร้าง Offline-first App ด้วย Flutter + SQLite ที่เปิดเร็วและบันทึกได้ทันที พร้อมแนบรูปสลิป',
+                impact: [
+                    { label: 'App Size', value: '< 20MB' },
+                    { label: 'Startup', value: '< 0.5s' },
+                    { label: 'Security', value: 'Local DB' }
+                ],
+                tech: ['Flutter', 'SQLite', 'Dart', 'Local Storage'],
+                features: ['Instant Transaction Log', 'Receipt Attachment', 'Monthly Reports', 'Dark Mode'],
+                image: './assets/projects/expense-tracker/cover.png',
+                repo: 'https://github.com/Earthondev/flutter-expense-tracker'
             },
-
-            'tonfern-journal': {
-                title: 'Tonfern Journal',
-                description: 'เว็บไซต์บันทึก/จัดการบทความ เน้น layout ที่อ่านง่ายและขยายได้ในอนาคต',
-                challenge: 'กำลังอัปเดตรายละเอียดโปรเจกต์',
-                solution: 'จะอัปเดตขั้นตอนการแก้ปัญหาให้เร็ว ๆ นี้',
-                impact: [{ label: 'Status', value: 'Updating' }, { label: 'Docs', value: 'In Progress' }, { label: 'Screens', value: 'Coming Soon' }],
-                tech: ['HTML5', 'CSS', 'JavaScript'],
-                features: ['Details coming soon'],
-                gallery: [{ src: './assets/projects/tonfern-journal/cover.png', alt: 'Tonfern Journal cover' }],
-                image: './assets/projects/tonfern-journal/cover.png',
-                imageAlt: 'Tonfern Journal cover',
-                repo: 'https://github.com/Earthondev/Tonfern-Journal-'
+            'inventory-amino': {
+                title: 'Inventory Amino – Lab Stock Management',
+                description: 'ระบบจัดการสต็อกสารเคมี/วัสดุในแล็บ Mobile-first พร้อมแกลเลอรีรูป, รายงานคงเหลือ และแจ้งเตือนของใกล้หมด',
+                challenge: 'สต็อกแล็บมักคลาดเคลื่อน ของหมดไม่รู้ตัว และการเช็คสต็อกใช้เวลานาน',
+                solution: 'ใช้ AppSheet สร้างระบบจัดการ Inventory ที่ใช้งานง่ายบนมือถือ พร้อม Automation แจ้งเตือนผ่าน Line/Email',
+                impact: [
+                    { label: 'Stock Accuracy', value: '100%' },
+                    { label: 'Audit Time', value: '-60%' },
+                    { label: 'Waste', value: '-30%' }
+                ],
+                tech: ['AppSheet', 'Google Sheets', 'Automation', 'No-Code'],
+                features: ['Mobile Barcode Scan', 'Real-time Dashboard', 'Low-stock Alerts', 'Photo Gallery'],
+                image: './assets/projects/Inventory%20amino/Cover.png',
+                imageAlt: 'Inventory Amino Dashboard',
+                repo: '#'
             },
-
-            'tonfern-pdf': {
-                title: 'Tonfern PDF Toolkit',
+            'pdf-toolkit': {
+                title: 'Browser PDF Toolkit',
                 description: 'เครื่องมือจัดการ PDF บนเว็บ (Split, Merge) ทำงานบน Browser 100% เพื่อความปลอดภัยของข้อมูล (Serverless)',
                 challenge: 'บริการจัดการ PDF ส่วนใหญ่อัปโหลดไฟล์ขึ้น Server ทำให้เสี่ยงต่อข้อมูลรั่วไหลในเอกสารสำคัญ',
                 solution: 'พัฒนา Client-side Tool ด้วย PDF.js ประมวลผลทุกอย่างใน Browser ผู้ใช้ ไฟล์ไม่เคยออกจากเครื่อง',
-                impact: [{ label: 'Privacy', value: '100%' }, { label: 'Cost', value: '0 THB' }, { label: 'Speed', value: 'Native' }],
-                tech: ['HTML5', 'JavaScript', 'PDF.js'],
+                impact: [
+                    { label: 'Privacy', value: '100%' },
+                    { label: 'Cost', value: '0 THB' },
+                    { label: 'Speed', value: 'Native' }
+                ],
+                tech: ['HTML5', 'JavaScript', 'PDF.js', 'Bootstrap'],
                 features: ['Merge PDFs', 'Split PDF', 'Image to PDF', 'No Server Upload'],
-                gallery: [{ src: './assets/projects/tonfern-pdf/Screenshot 2569-02-03 at 22.59.41.png', alt: 'Tonfern PDF screenshot' }, { src: './assets/projects/tonfern-pdf/Screenshot 2569-02-03 at 22.59.16.png', alt: 'Tonfern PDF screenshot' }],
-                image: './assets/projects/tonfern-pdf/cover.png',
-                imageAlt: 'Tonfern PDF cover',
+                image: './assets/projects/pdf-toolkit/Screenshot 2569-02-03 at 22.59.41.png',
+                imageAlt: 'PDF Toolkit interface screenshot',
                 repo: 'https://github.com/Earthondev/pdf-toolkit'
-            },
-
-            'slack-polymer': {
-                title: 'Slack Polymer',
-                description: 'กำลังอัปเดตรายละเอียดโปรเจกต์ (รอเพิ่มรูปและคำอธิบาย)',
-                challenge: 'กำลังอัปเดตรายละเอียดโปรเจกต์',
-                solution: 'จะอัปเดตขั้นตอนการแก้ปัญหาให้เร็ว ๆ นี้',
-                impact: [{ label: 'Status', value: 'Updating' }, { label: 'Docs', value: 'In Progress' }, { label: 'Screens', value: 'Coming Soon' }],
-                tech: ['JavaScript'],
-                features: ['Details coming soon'],
-                image: './assets/projects/slack-polymer/cover.png',
-                imageAlt: 'Slack Polymer cover',
-                repo: 'https://github.com/Earthondev/Slack-polymer'
-            },
-
-            'chistmas': {
-                title: 'Chistmas',
-                description: 'กำลังอัปเดตรายละเอียดโปรเจกต์ (รอเพิ่มรูปและคำอธิบาย)',
-                challenge: 'กำลังอัปเดตรายละเอียดโปรเจกต์',
-                solution: 'จะอัปเดตขั้นตอนการแก้ปัญหาให้เร็ว ๆ นี้',
-                impact: [{ label: 'Status', value: 'Updating' }, { label: 'Docs', value: 'In Progress' }, { label: 'Screens', value: 'Coming Soon' }],
-                tech: ['JavaScript'],
-                features: ['Details coming soon'],
-                image: './assets/projects/chistmas/cover.png',
-                imageAlt: 'Chistmas cover',
-                repo: 'https://github.com/Earthondev/Chistmas'
-            },
-
-            'namtankagi': {
-                title: 'NamtanKagi',
-                description: 'กำลังอัปเดตรายละเอียดโปรเจกต์ (รอเพิ่มรูปและคำอธิบาย)',
-                challenge: 'กำลังอัปเดตรายละเอียดโปรเจกต์',
-                solution: 'จะอัปเดตขั้นตอนการแก้ปัญหาให้เร็ว ๆ นี้',
-                impact: [{ label: 'Status', value: 'Updating' }, { label: 'Docs', value: 'In Progress' }, { label: 'Screens', value: 'Coming Soon' }],
-                tech: ['JavaScript'],
-                features: ['Details coming soon'],
-                image: './assets/projects/namtankagi/cover.png',
-                imageAlt: 'NamtanKagi cover',
-                repo: 'https://github.com/Earthondev/NamtanKagi'
-            },
-
-            'ecmonitor': {
-                title: 'ECMonitor',
-                description: 'กำลังอัปเดตรายละเอียดโปรเจกต์ (รอเพิ่มรูปและคำอธิบาย)',
-                challenge: 'กำลังอัปเดตรายละเอียดโปรเจกต์',
-                solution: 'จะอัปเดตขั้นตอนการแก้ปัญหาให้เร็ว ๆ นี้',
-                impact: [{ label: 'Status', value: 'Updating' }, { label: 'Docs', value: 'In Progress' }, { label: 'Screens', value: 'Coming Soon' }],
-                tech: ['JavaScript'],
-                features: ['Details coming soon'],
-                image: './assets/projects/ecmonitor/cover.png',
-                imageAlt: 'ECMonitor cover',
-                repo: 'https://github.com/Earthondev/ECMonitor'
-            },
-
-            'masked-rider-tile-game': {
-                title: 'Masked Rider Tile Game',
-                description: 'กำลังอัปเดตรายละเอียดโปรเจกต์ (รอเพิ่มรูปและคำอธิบาย)',
-                challenge: 'กำลังอัปเดตรายละเอียดโปรเจกต์',
-                solution: 'จะอัปเดตขั้นตอนการแก้ปัญหาให้เร็ว ๆ นี้',
-                impact: [{ label: 'Status', value: 'Updating' }, { label: 'Docs', value: 'In Progress' }, { label: 'Screens', value: 'Coming Soon' }],
-                tech: ['JavaScript'],
-                features: ['Details coming soon'],
-                image: './assets/projects/masked-rider-tile-game/cover.png',
-                imageAlt: 'Masked Rider Tile Game cover',
-                repo: 'https://github.com/Earthondev/masked-rider-tile-game'
-            },
-
-            'miniproject': {
-                title: 'Mini Project',
-                description: 'กำลังอัปเดตรายละเอียดโปรเจกต์ (รอเพิ่มรูปและคำอธิบาย)',
-                challenge: 'กำลังอัปเดตรายละเอียดโปรเจกต์',
-                solution: 'จะอัปเดตขั้นตอนการแก้ปัญหาให้เร็ว ๆ นี้',
-                impact: [{ label: 'Status', value: 'Updating' }, { label: 'Docs', value: 'In Progress' }, { label: 'Screens', value: 'Coming Soon' }],
-                tech: ['JavaScript'],
-                features: ['Details coming soon'],
-                image: './assets/projects/miniproject/cover.png',
-                imageAlt: 'Mini Project cover',
-                repo: 'https://github.com/Earthondev/miniproject'
-            },
-
-            'lifesciencestandardregister': {
-                title: 'Life Science Standard Register',
-                description: 'กำลังอัปเดตรายละเอียดโปรเจกต์ (รอเพิ่มรูปและคำอธิบาย)',
-                challenge: 'กำลังอัปเดตรายละเอียดโปรเจกต์',
-                solution: 'จะอัปเดตขั้นตอนการแก้ปัญหาให้เร็ว ๆ นี้',
-                impact: [{ label: 'Status', value: 'Updating' }, { label: 'Docs', value: 'In Progress' }, { label: 'Screens', value: 'Coming Soon' }],
-                tech: ['JavaScript'],
-                features: ['Details coming soon'],
-                image: './assets/projects/lifesciencestandardregister/cover.png',
-                imageAlt: 'Life Science Standard Register cover',
-                repo: 'https://github.com/Earthondev/Lifesciencestandardregister'
-            },
-
-            'masked-rider-reveal-quest': {
-                title: 'Masked Rider Reveal Quest',
-                description: 'กำลังอัปเดตรายละเอียดโปรเจกต์ (รอเพิ่มรูปและคำอธิบาย)',
-                challenge: 'กำลังอัปเดตรายละเอียดโปรเจกต์',
-                solution: 'จะอัปเดตขั้นตอนการแก้ปัญหาให้เร็ว ๆ นี้',
-                impact: [{ label: 'Status', value: 'Updating' }, { label: 'Docs', value: 'In Progress' }, { label: 'Screens', value: 'Coming Soon' }],
-                tech: ['JavaScript'],
-                features: ['Details coming soon'],
-                image: './assets/projects/masked-rider-reveal-quest/cover.png',
-                imageAlt: 'Masked Rider Reveal Quest cover',
-                repo: 'https://github.com/Earthondev/masked-rider-reveal-quest'
             }
         };
 
@@ -1099,38 +748,14 @@
                 const project = projectDetails[projectId];
 
                 if (project) {
-                    const gallery = Array.isArray(project.gallery) && project.gallery.length
-                        ? project.gallery
-                        : [{ src: project.image, alt: project.imageAlt || project.title }];
-
-                    const galleryThumbs = gallery.length > 1
-                        ? `<div class="gallery-thumbs">
-                  ${gallery
-                      .map(
-                          (g, i) => `
-                    <button class="gallery-thumb ${i === 0 ? 'active' : ''}" type="button" data-gallery-index="${i}" aria-label="View image ${i + 1}">
-                      <img src="${g.src}" alt="${g.alt || project.title}" loading="lazy" decoding="async">
-                    </button>`
-                      )
-                      .join('')}
-                </div>`
-                        : '';
-
                     modalTitle.textContent = project.title;
 
                     modalBody.innerHTML = `
             <div class="space-y-8">
               <!-- Cover Image -->
-              <div class="gallery-card shadow-2xl">
-                 <div class="gallery-main">
-                    <img id="modal-main-image" src="${gallery[0].src}" alt="${gallery[0].alt || project.title}" loading="lazy" decoding="async">
-                    ${gallery.length > 1 ? `
-                      <button class="gallery-nav prev" type="button" data-gallery-prev aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
-                      <button class="gallery-nav next" type="button" data-gallery-next aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
-                    ` : ''}
-                 </div>
-                 ${galleryThumbs}
-                 ${gallery.length > 1 ? `<p class="text-xs text-gray-500 mt-2">Tip: click image to advance</p>` : ''}
+              <div class="rounded-xl shadow-2xl border border-white/10 bg-[#0b0b10] p-4 flex items-center justify-center">
+                 <img src="${project.image}" alt="${project.imageAlt || project.title}" loading="lazy" decoding="async"
+                    class="w-full max-h-[520px] object-contain">
               </div>
 
               <div>
@@ -1190,42 +815,6 @@
                     modal.classList.remove('hidden');
                     modal.classList.add('active');
                     document.body.style.overflow = 'hidden';
-
-                    const mainImage = modalBody.querySelector('#modal-main-image');
-                    const thumbButtons = modalBody.querySelectorAll('[data-gallery-index]');
-                    const prevBtn = modalBody.querySelector('[data-gallery-prev]');
-                    const nextBtn = modalBody.querySelector('[data-gallery-next]');
-                    let currentIndex = 0;
-
-                    const setIndex = (nextIndex) => {
-                        const total = gallery.length || 1;
-                        currentIndex = (nextIndex + total) % total;
-                        const item = gallery[currentIndex];
-                        if (mainImage) {
-                            mainImage.src = item.src;
-                            mainImage.alt = item.alt || project.title;
-                        }
-                        thumbButtons.forEach(btn => {
-                            const idx = Number(btn.dataset.galleryIndex);
-                            btn.classList.toggle('active', idx === currentIndex);
-                        });
-                    };
-
-                    if (gallery.length > 1) {
-                        prevBtn?.addEventListener('click', (e) => {
-                            e.stopPropagation();
-                            setIndex(currentIndex - 1);
-                        });
-                        nextBtn?.addEventListener('click', (e) => {
-                            e.stopPropagation();
-                            setIndex(currentIndex + 1);
-                        });
-                        mainImage?.addEventListener('click', () => setIndex(currentIndex + 1));
-                        thumbButtons.forEach(btn => {
-                            btn.addEventListener('click', () => setIndex(Number(btn.dataset.galleryIndex)));
-                        });
-                    }
-                    setIndex(0);
                 }
             });
         });

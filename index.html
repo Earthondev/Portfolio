@@ -32,7 +32,27 @@
   <title>Nattapart Worakun | Portfolio</title>
 
   <!-- Tailwind CSS -->
-  <link rel="stylesheet" href="tailwind.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              400: '#FFE600',
+              500: '#00FF94',
+              600: '#00D9FF',
+              700: '#00B8D9',
+            }
+          },
+          fontFamily: {
+            heading: ['Space Grotesk', 'sans-serif'],
+            body: ['Sarabun', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
