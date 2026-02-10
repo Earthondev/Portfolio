@@ -701,6 +701,14 @@
                 tech: ['Flutter', 'Dart', 'Google Apps Script', 'Google Sheets'],
                 features: ['Smart Dashboard', 'Efficient Order Management', 'Customer History', 'Dynamic Pricing Settings'],
                 image: './assets/projects/LaundryApp_Project/Cover.png',
+                gallery: [
+                    './assets/projects/LaundryApp_Project/Screenshot_1770537232.png',
+                    './assets/projects/LaundryApp_Project/Screenshot_1770537242.png',
+                    './assets/projects/LaundryApp_Project/Screenshot_1770537245.png',
+                    './assets/projects/LaundryApp_Project/Screenshot_1770537250.png',
+                    './assets/projects/LaundryApp_Project/Screenshot_1770537253.png',
+                    './assets/projects/LaundryApp_Project/Screenshot_1770537290.png'
+                ],
                 repo: 'https://github.com/Earthondev/LaundryApp'
             },
             'care-for-mom': {
@@ -715,8 +723,8 @@
                 ],
                 tech: ['Flutter', 'Gemini API', 'SQLite', 'Dart'],
                 features: ['AI Health Analysis', 'Smart Medicine Reminders', 'Multi-language Support', 'Offline-first Architecture'],
-                image: './assets/projects/care-for-mom/Screenshot-1.jpg',
-                imageAlt: 'Care for Mom app screenshot',
+                image: './assets/projects/care-for-mom/Cover.jpg',
+                gallery: ['./assets/projects/care-for-mom/Screenshot-1.jpg'],
                 repo: 'https://github.com/Earthondev/CareForMom'
             },
             'slack-drive-bot': {
@@ -731,7 +739,8 @@
                 ],
                 tech: ['Python', 'Slack API', 'Google Drive API', 'Docker'],
                 features: ['Automated File Upload', 'Smart Renaming via Caption', 'Dynamic Folder Routing', 'Dockerized Deployment'],
-                image: './assets/projects/slack-drive-bot/cover.png',
+                image: './assets/projects/slack-drive-bot/slack_bot_cover.png',
+                gallery: ['./assets/projects/slack-drive-bot/slack_bot_cover.png'],
                 repo: 'https://github.com/Earthondev/slack-drive-bot'
             },
             'hanaihang': {
@@ -747,6 +756,10 @@
                 tech: ['React 18', 'Firebase', 'TypeScript', 'Tailwind CSS'],
                 features: ['Comprehensive Search', 'Real-time Proximity Calculation', 'Internal Store Resolution', 'Admin Dashboard'],
                 image: './assets/projects/hanaihang/cover.png',
+                gallery: [
+                    './assets/projects/hanaihang/screenshot-1.png',
+                    './assets/projects/hanaihang/screenshot-2.png'
+                ],
                 repo: 'https://github.com/Earthondev/Hanaihang'
             },
             'expense-tracker': {
@@ -762,6 +775,7 @@
                 tech: ['Flutter', 'SQLite', 'Dart', 'Local Storage'],
                 features: ['Instant Transaction Log', 'Receipt Attachment', 'Monthly Reports', 'Dark Mode'],
                 image: './assets/projects/expense-tracker/cover.png',
+                gallery: ['./assets/projects/expense-tracker/cover.png'],
                 repo: 'https://github.com/Earthondev/flutter-expense-tracker'
             },
             'inventory-amino': {
@@ -777,12 +791,14 @@
                 tech: ['AppSheet', 'Google Sheets', 'Automation', 'No-Code'],
                 features: ['Mobile Barcode Scan', 'Real-time Dashboard', 'Low-stock Alerts', 'Photo Gallery'],
                 image: './assets/projects/Inventory%20amino/Cover.png',
-                imageAlt: 'Inventory Amino Dashboard',
+                gallery: [
+                    './assets/projects/Inventory amino/Screenshot 2568-09-13 at 12.17.06.png'
+                ],
                 repo: '#'
             },
             'tonfernpdf': {
                 title: 'TonfernPDF – Portfolio & Lightweight PDF Tool',
-                description: 'เว็บไซต์แนะนำตัวแบบมินิมอลและเครื่องมือจัดการ PDF แบบใช้งานเร็ว เน้น workflow พื้นฐานที่ใช้งานบ่อยและทำงานได้ในเบราว์เซอร์',
+                description: 'เครื่องมือจัดการ PDF บนเว็บ (Split, Merge) ทำงานบน Browser 100% เพื่อความปลอดภัยของข้อมูล',
                 challenge: 'ต้องการรวมพื้นที่รวบรวมผลงานและเครื่องมืออำนวยความสะดวกไว้ในที่เดียวเพื่อความคล่องตัว',
                 solution: 'พัฒนาเว็บไซต์ด้วยโครงสร้างที่รองรับทั้งการแสดงผลงานและระบบประมวลผล PDF ฝั่ง Client-side',
                 impact: [
@@ -790,10 +806,14 @@
                     { label: 'Security', value: 'Client-side' },
                     { label: 'Design', value: 'Minimal' }
                 ],
-                tech: ['HTML5', 'CSS3', 'JavaScript'],
+                tech: ['HTML5', 'CSS3', 'JavaScript', 'PDF.js'],
                 features: ['Typography-first layout', 'Optimized assets', 'Client-side PDF processing', 'Simple flow'],
                 image: './assets/projects/tonfern-pdf/cover.png',
-                repo: '#'
+                gallery: [
+                    './assets/projects/pdf-toolkit/Screenshot 2569-02-03 at 22.59.41.png',
+                    './assets/projects/pdf-toolkit/Screenshot 2569-02-03 at 22.59.16.png'
+                ],
+                repo: 'https://github.com/Earthondev/pdf-toolkit'
             }
         };
 
@@ -841,11 +861,32 @@
 
                     modalBody.innerHTML = `
             <div class="space-y-8">
-              <!-- Cover Image -->
-              <div class="rounded-xl shadow-2xl border border-white/10 bg-[#0b0b10] p-4 flex items-center justify-center">
-                 <img src="${project.image}" alt="${project.imageAlt || project.title}" loading="lazy" decoding="async"
-                    class="w-full max-h-[520px] object-contain">
+              <!-- Main Showcase Image -->
+              <div class="rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-[#0b0b10] p-2">
+                 <img src="${project.image}" alt="${project.title}" id="modal-main-img" loading="lazy" decoding="async"
+                    class="w-full max-h-[520px] object-contain transition-all duration-300">
               </div>
+
+              <!-- Gallery (if available) -->
+              ${project.gallery && project.gallery.length > 0 ? `
+              <div>
+                <h3 class="text-lg font-semibold mb-4 text-white flex items-center gap-2">
+                  <span class="text-[#00D9FF]">🖼️</span> Project Gallery
+                </h3>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  ${project.gallery.map((img, index) => `
+                    <div class="group relative aspect-video rounded-lg overflow-hidden cursor-pointer border border-white/10 hover:border-[#00D9FF]/50 transition-all"
+                         onclick="document.getElementById('modal-main-img').src = '${img}'">
+                      <img src="${img}" alt="Gallery ${index + 1}" class="w-full h-full object-cover transition-transform group-hover:scale-110">
+                      <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i class="fas fa-search-plus text-white text-lg"></i>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+                <p class="text-xs text-gray-400 mt-2 italic">* Click image to expand in main view</p>
+              </div>
+              ` : ''}
 
               <div>
                 <div class="flex items-center justify-between mb-2">
@@ -858,42 +899,50 @@
               <div class="grid sm:grid-cols-3 gap-4">
                 ${project.impact.map(metric => `
                   <div class="metric-card rounded-xl p-4 text-center">
-                    <div class="text-3xl font-bold gradient-text mb-1 text-white">${metric.value}</div>
-                    <div class="text-sm text-gray-400">${metric.label}</div>
+                    <div class="text-2xl font-bold gradient-text mb-1 text-white">${metric.value}</div>
+                    <div class="text-sm text-gray-400 font-medium">${metric.label}</div>
                   </div>
                 `).join('')}
               </div>
               
-              <div class="glass-card rounded-xl p-6">
-                <h3 class="text-lg font-semibold mb-3 text-white flex items-center gap-2">
-                  <span class="text-[#00D9FF]">🎯</span> Challenge
-                </h3>
-                <p class="text-gray-300 leading-relaxed">${project.challenge}</p>
-              </div>
-              
-              <div class="glass-card rounded-xl p-6">
-                <h3 class="text-lg font-semibold mb-3 text-white flex items-center gap-2">
-                  <span class="text-[#00FF94]">💡</span> Solution
-                </h3>
-                <p class="text-gray-300 leading-relaxed">${project.solution}</p>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass-card rounded-2xl p-6 border border-white/5 bg-white/5">
+                  <h3 class="text-lg font-semibold mb-3 text-white flex items-center gap-2">
+                    <span class="text-[#00D9FF]">🎯</span> Challenge
+                  </h3>
+                  <p class="text-gray-300 leading-relaxed">${project.challenge}</p>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-6 border border-white/5 bg-white/5">
+                  <h3 class="text-lg font-semibold mb-3 text-white flex items-center gap-2">
+                    <span class="text-[#00FF94]">💡</span> Solution
+                  </h3>
+                  <p class="text-gray-300 leading-relaxed">${project.solution}</p>
+                </div>
               </div>
               
               <div>
-                <h3 class="text-lg font-semibold mb-4 text-white">Tech Stack</h3>
+                <h3 class="text-lg font-semibold mb-4 text-white flex items-center gap-2">
+                  <span class="text-[#00D9FF]">⚙️</span> Tech Stack
+                </h3>
                 <div class="flex flex-wrap gap-2">
                   ${project.tech.map(tech => `
-                    <span class="px-4 py-2 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] border border-[#00D9FF]/20 text-sm font-medium">${tech}</span>
+                    <span class="px-3 py-1.5 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] border border-[#00D9FF]/20 text-sm font-medium transition-all hover:bg-[#00D9FF]/20">${tech}</span>
                   `).join('')}
                 </div>
               </div>
               
               <div>
-                <h3 class="text-lg font-semibold mb-4 text-white">Key Features</h3>
+                <h3 class="text-lg font-semibold mb-4 text-white flex items-center gap-2">
+                  <span class="text-[#00FF94]">✨</span> Key Features
+                </h3>
                 <div class="grid sm:grid-cols-2 gap-3">
                   ${project.features.map(feature => `
-                    <div class="flex items-center gap-3 glass-card rounded-lg p-3">
-                      <span class="text-[#00FF94]">✓</span>
-                      <span class="text-gray-300">${feature}</span>
+                    <div class="flex items-center gap-3 glass-card rounded-xl p-4 border border-white/5 bg-white/5 hover:border-[#00FF94]/30 transition-all">
+                      <div class="w-8 h-8 rounded-full bg-[#00FF94]/10 flex items-center justify-center text-[#00FF94]">
+                        <i class="fas fa-check text-xs"></i>
+                      </div>
+                      <span class="text-gray-300 font-medium">${feature}</span>
                     </div>
                   `).join('')}
                 </div>
