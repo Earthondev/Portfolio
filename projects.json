@@ -88,7 +88,7 @@
       "Multi-language (TH/EN) & Offline-first architecture"
     ],
     "coverImage": {
-      "src": "./assets/projects/care-for-mom/Cover.jpg",
+      "src": "./assets/projects/care-for-mom/Cover.png",
       "alt": "Care for Mom App Interface"
     },
     "gallery": [
@@ -285,93 +285,54 @@
     "caseStudy": true
   },
   {
-    "id": "pdf-toolkit",
-    "title": "TonfernPDF - Local PDF Toolkit",
-    "slug": "pdf-toolkit",
+    "id": "sentaiwatch",
+    "title": "SentaiWatch DX – Megaranger Replica",
+    "slug": "sentaiwatch",
     "year": 2025,
-    "summary": "เครื่องมือจัดการ PDF บนเว็บ (Split, Merge) ทำงานบน Browser 100% เพื่อความปลอดภัยของข้อมูล (Serverless)",
+    "summary": "Hyper-realistic simulation of the Denji Sentai Megaranger Digitizer for watchOS, replicating the premium toy experience.",
     "role": [
-      "Frontend Developer"
+      "watchOS Developer",
+      "UI/UX Designer",
+      "Sound Engineer"
     ],
     "stack": [
-      "HTML5",
-      "JavaScript",
-      "PDF.js"
+      "Swift 5",
+      "SwiftUI",
+      "WatchKit",
+      "AVFoundation"
     ],
     "highlights": [
-      "Client-Side Processing: ไฟล์ไม่ออกจากเครื่องผู้ใช้ (Privacy First)",
-      "Zero-Dependency: ทำงานได้ทันทีโดยไม่ต้องติดตั้งโปรแกรม",
-      "Features: Split PDF, Merge PDF, Image to PDF"
+      "Hyper-Realistic UI: สเกลมูฟิกดีไซน์ระดับ Premium Re-creation พร้อม Golden 'M' Envelope Cover",
+      "Advanced Audio Engine: ระบบ Round-robin sampling ป้องกันเสียงซ้ำซ้อน และ Rolling input logic",
+      "Interactive Logic: รองรับรหัสแปลงร่าง 3-3-5 และรหัสลับ 9-9-9 พร้อม BGM แท้จากซีรีส์",
+      "watchOS Optimized: ปรับแต่ง haptics และระบบเสียงให้ทำงานลื่นไหลที่สุดบน Apple Watch"
     ],
     "coverImage": {
-      "src": "./assets/projects/tonfern-pdf/cover.png",
-      "alt": "PDF Toolkit cover"
+      "src": "./assets/projects/sentaiwatch-dx/cover.png",
+      "alt": "SentaiWatch DX Digitizer Cover"
     },
     "gallery": [
       {
-        "src": "./assets/projects/pdf-toolkit/Screenshot 2569-02-03 at 22.59.41.png",
-        "alt": "PDF Toolkit interface screenshot"
+        "src": "./assets/projects/sentaiwatch-dx/Screenshot 2569-01-21 at 21.02.32.png",
+        "alt": "SentaiWatch Input Interface"
       },
       {
-        "src": "./assets/projects/pdf-toolkit/Screenshot 2569-02-03 at 22.59.16.png",
-        "alt": "PDF Toolkit interface screenshot"
+        "src": "./assets/projects/sentaiwatch-dx/Screenshot 2569-01-21 at 21.02.51.png",
+        "alt": "SentaiWatch Transformation Screen"
       }
     ],
     "links": {
-      "repo": "https://github.com/Earthondev/pdf-toolkit"
+      "repo": "https://github.com/Earthondev/SentaiWatch-DX",
+      "live": "https://www.tiktok.com/@nattapart_on_earth/video/7597457269302807815"
     },
     "tags": [
-      "Web Tool",
-      "Utility",
-      "JavaScript",
-      "Serverless"
+      "watchOS",
+      "SwiftUI",
+      "Simulation",
+      "UI/UX"
     ],
     "cta": "View Code",
-    "status": "Completed",
-    "caseStudy": false
-  },
-  {
-    "id": "sentaiwatch",
-    "title": "Sentaiwatch – Ops Dashboard",
-    "slug": "sentaiwatch",
-    "year": 2025,
-    "summary": "แดชบอร์ดติดตามสถานะงาน/ระบบแบบเรียลไทม์ ออกแบบให้สแกนเร็ว เห็นสัญญาณเตือนชัด เหมาะกับทีมปฏิบัติการ",
-    "role": [
-      "Frontend Developer",
-      "UI Designer"
-    ],
-    "stack": [
-      "HTML5",
-      "CSS",
-      "JavaScript"
-    ],
-    "highlights": [
-      "Signal-first layout: ตัวเลขสำคัญอยู่เหนือ fold",
-      "Status color system ชัดเจนสำหรับ critical/warn/normal",
-      "Componentized cards ลดเวลาต่อหน้าใหม่"
-    ],
-    "coverImage": {
-      "src": "./assets/projects/Sentaiwatch/cover.png",
-      "alt": "Sentaiwatch project cover"
-    },
-    "gallery": [
-      {
-        "src": "./assets/projects/Sentaiwatch/Screenshot 2569-01-21 at 21.02.32.png",
-        "alt": "Sentaiwatch UI screenshot"
-      },
-      {
-        "src": "./assets/projects/Sentaiwatch/Screenshot 2569-01-21 at 21.02.51.png",
-        "alt": "Sentaiwatch UI screenshot"
-      }
-    ],
-    "links": {},
-    "tags": [
-      "Dashboard",
-      "Monitoring",
-      "UI"
-    ],
-    "cta": "View Project",
-    "status": "In Development",
+    "status": "Completed (v1.0)",
     "caseStudy": false
   },
   {
@@ -416,40 +377,53 @@
   },
   {
     "id": "tonfern-pdf",
-    "title": "Tonfern PDF – Lightweight PDF Tool",
+    "title": "TonfernPDF v3.0 – Professional PDF Management",
     "slug": "tonfern-pdf",
-    "year": 2025,
-    "summary": "เครื่องมือ PDF แบบใช้งานเร็ว เน้น workflow พื้นฐานที่ใช้งานบ่อยและทำงานได้ในเบราว์เซอร์",
+    "year": 2026,
+    "summary": "เครื่องมือจัดการ PDF ระดับมืออาชีพที่ประมวลผลบนเครื่องผู้ใช้ 100% (Local-First) พร้อมระบบ Persona-based สำหรับ Student, Office, Legal และ Engineer",
     "role": [
-      "Frontend Developer"
+      "Product Designer",
+      "Frontend Developer",
+      "Full-stack Developer"
     ],
     "stack": [
       "HTML5",
-      "JavaScript"
+      "Vanilla CSS3",
+      "JavaScript (ES6+)",
+      "pdf-lib",
+      "SortableJS"
     ],
     "highlights": [
-      "Simple flow: อัปโหลด → เลือกฟังก์ชัน → ดาวน์โหลด",
-      "Client-side processing ช่วยลดความเสี่ยงข้อมูลหลุด",
-      "No-install ใช้งานได้ทันที"
+      "Privacy-First Architecture: ประมวลผลไฟล์ภายในเครื่อง 100% ไม่มีการอัปโหลดขึ้น Server",
+      "Persona-Based UI: ปรับอินเทอร์เฟซตามกลุ่มผู้ใช้งาน (Student, Office, Legal, Engineer)",
+      "Advanced Editing: รองรับการเซ็นเอกสาร (Digital Sign), ใส่ลายน้ำ, และจัดเรียงหน้าแบบ Drag & Drop",
+      "Professional Toolkit: รวมฟีเจอร์ Merge, Split, Compress, Image Extraction และ Password Protection"
     ],
     "coverImage": {
-      "src": "./assets/projects/tonfern-pdf/cover.png",
-      "alt": "Tonfern PDF project cover"
+      "src": "./assets/projects/tonfern-pdf/Cover.png",
+      "alt": "TonfernPDF v3.0 Interface"
     },
     "gallery": [
       {
-        "src": "./assets/projects/tonfern-pdf/cover.png",
-        "alt": "Tonfern PDF project cover"
+        "src": "./assets/projects/tonfern-pdf/Screenshot 2569-02-11 at 00.31.03.png",
+        "alt": "Dashboard and Persona Selection"
+      },
+      {
+        "src": "./assets/projects/tonfern-pdf/Screenshot 2569-02-11 at 00.31.15.png",
+        "alt": "PDF Organizing and Editing Tools"
       }
     ],
-    "links": {},
+    "links": {
+      "repo": "https://github.com/Earthondev/Tonfernpdf-"
+    },
     "tags": [
-      "Web Tool",
-      "PDF",
-      "Utility"
+      "Web App",
+      "PDF Tool",
+      "Privacy",
+      "JavaScript"
     ],
-    "cta": "View Project",
-    "status": "In Development",
+    "cta": "View Code",
+    "status": "Active",
     "caseStudy": false
   }
 ]

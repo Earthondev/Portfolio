@@ -246,6 +246,15 @@
         .nav-link:hover::after {
             width: 100%;
         }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 
@@ -331,15 +340,15 @@
     <section class="relative px-4 mb-12 fade-in" style="animation-delay: 0.2s;">
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-wrap justify-center gap-3">
-                <button class="filter-btn active px-6 py-2.5 rounded-full text-sm font-medium" data-filter="all">All
-                    Projects</button>
-                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium" data-filter="automation">🤖
-                    Automation</button>
-                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium" data-filter="dashboard">📊
-                    Dashboard</button>
-                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium" data-filter="webapp">💻 Web
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium active"
+                    data-filter="all">All</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium" data-filter="webapp">Web
                     App</button>
-                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium" data-filter="qa">🔍 QA &
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium"
+                    data-filter="automation">Automation</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium"
+                    data-filter="dashboard">Dashboard</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium" data-filter="qa">QA &
                     Testing</button>
             </div>
         </div>
@@ -351,17 +360,13 @@
             <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                 <!-- Project 1: Laundry App -->
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp automation"
-                    style="animation-delay: 0.1s;">
+                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
+                    data-category="webapp automation" style="animation-delay: 0.1s;" data-project="laundry-app">
                     <div class="h-48 overflow-hidden relative">
                         <img src="./assets/projects/LaundryApp_Project/Cover.png" alt="Laundry App" width="1536"
                             height="1024" loading="lazy" decoding="async"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div
-                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            🧺
-                        </div>
                     </div>
                     <div class="p-6 pt-2 relative z-10">
                         <div class="flex items-start justify-between mb-2">
@@ -390,17 +395,13 @@
                 </div>
 
                 <!-- Project 2: Care for Mom -->
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp automation"
-                    style="animation-delay: 0.2s;">
+                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
+                    data-category="webapp automation" style="animation-delay: 0.2s;" data-project="care-for-mom">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/care-for-mom/Cover.jpg" alt="Care for Mom App Interface"
+                        <img src="./assets/projects/care-for-mom/Cover.png" alt="Care for Mom App Interface"
                             width="1536" height="1024" loading="lazy" decoding="async"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div
-                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            🏥
-                        </div>
                     </div>
                     <div class="p-6 pt-2 relative z-10">
                         <div class="flex items-start justify-between mb-2">
@@ -430,17 +431,13 @@
                 </div>
 
                 <!-- Project 3: Slack Drive Bot -->
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="automation"
-                    style="animation-delay: 0.3s;">
+                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
+                    data-category="automation" style="animation-delay: 0.3s;" data-project="slack-drive-bot">
                     <div class="h-48 overflow-hidden relative">
                         <img src="./assets/projects/slack-drive-bot/cover.png" alt="Slack Drive Bot" width="1024"
                             height="1024" loading="lazy" decoding="async"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div
-                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00FF94] to-[#FFE600] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            🤖
-                        </div>
                     </div>
                     <div class="p-6 pt-2 relative z-10">
                         <div class="flex items-start justify-between mb-2">
@@ -468,17 +465,13 @@
                 </div>
 
                 <!-- Project 4: HaaNaiHang -->
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp dashboard"
-                    style="animation-delay: 0.4s;">
+                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
+                    data-category="webapp dashboard" style="animation-delay: 0.4s;" data-project="hanaihang">
                     <div class="h-48 overflow-hidden relative">
                         <img src="./assets/projects/hanaihang/cover.png" alt="HaaNaiHang" width="1024" height="552"
                             loading="lazy" decoding="async"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div
-                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#FFE600] to-[#00D9FF] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            🛍️
-                        </div>
                     </div>
                     <div class="p-6 pt-2 relative z-10">
                         <div class="flex items-start justify-between mb-2">
@@ -506,17 +499,13 @@
                 </div>
 
                 <!-- Project 5: Expense Tracker -->
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp"
-                    style="animation-delay: 0.5s;">
+                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
+                    data-category="webapp" style="animation-delay: 0.5s;" data-project="expense-tracker">
                     <div class="h-48 overflow-hidden relative">
                         <img src="./assets/projects/expense-tracker/cover.png" alt="Expense Tracker" width="1024"
                             height="1024" loading="lazy" decoding="async"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div
-                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            💰
-                        </div>
                     </div>
                     <div class="p-6 pt-2 relative z-10">
                         <div class="flex items-start justify-between mb-2">
@@ -544,17 +533,13 @@
                 </div>
 
                 <!-- Project 6: Inventory Amino -->
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="automation dashboard"
-                    style="animation-delay: 0.6s;">
+                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
+                    data-category="automation dashboard" style="animation-delay: 0.6s;" data-project="inventory-amino">
                     <div class="h-48 overflow-hidden relative">
                         <img src="./assets/projects/Inventory%20amino/Cover.png" alt="Inventory Amino Dashboard"
                             width="1536" height="1024" loading="lazy" decoding="async"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div
-                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00FF94] to-[#FFE600] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            🧪
-                        </div>
                     </div>
                     <div class="p-6 pt-2 relative z-10">
                         <div class="flex items-start justify-between mb-2">
@@ -582,17 +567,13 @@
                 </div>
 
                 <!-- Project 7: TonfernPDF -->
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="webapp website"
-                    style="animation-delay: 0.7s;">
+                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
+                    data-category="webapp website" style="animation-delay: 0.7s;" data-project="tonfernpdf">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/tonfern-pdf/cover.png" alt="TonfernPDF" width="1024" height="1024"
-                            loading="lazy" decoding="async"
+                        <img src="./assets/projects/tonfern-pdf/Cover.png" alt="TonfernPDF v3.0" width="1024"
+                            height="1024" loading="lazy" decoding="async"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div
-                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00FF94] to-[#00D9FF] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            🌿
-                        </div>
                     </div>
                     <div class="p-6 pt-2 relative z-10">
                         <div class="flex items-start justify-between mb-2">
@@ -603,34 +584,30 @@
                             </button>
                         </div>
                         <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00FF94] transition-colors">
-                            TonfernPDF</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">เครื่องมือจัดการเอกสาร PDF
-                            และเว็บไซต์รวมผลงานที่เน้นความเรียบง่ายและปลอดภัย</p>
+                            TonfernPDF v3.0</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">เครื่องมือจัดการ PDF
+                            ระดับมืออาชีพ ประมวลผลบนเครื่อง 100% พร้อมระบบ Persona-based</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">HTML/CSS</span>
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">JavaScript</span>
                             <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">JavaScript</span>
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Privacy-First</span>
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2025</span>
-                            <span class="text-[#00D9FF] font-semibold">Completed</span>
+                            <span class="text-gray-500 mono">2026</span>
+                            <span class="text-[#00FF94] font-semibold">Live v3.0</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 8: Sentaiwatch -->
-                <div class="project-card rounded-2xl overflow-hidden fade-in group" data-category="dashboard"
-                    style="animation-delay: 0.8s;">
+                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
+                    data-category="dashboard" style="animation-delay: 0.8s;" data-project="sentaiwatch">
                     <div class="h-48 overflow-hidden relative">
                         <img src="./assets/projects/sentaiwatch-dx/cover.png" alt="Sentaiwatch" width="1024"
                             height="1024" loading="lazy" decoding="async"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                        <div
-                            class="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#FFE600] flex items-center justify-center text-xl text-[#0a0a0f] shadow-lg z-10">
-                            🛰️
-                        </div>
                     </div>
                     <div class="p-6 pt-2 relative z-10">
                         <div class="flex items-start justify-between mb-2">
@@ -643,16 +620,16 @@
                         <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">
                             Sentaiwatch</h3>
                         <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">
-                            แดชบอร์ดติดตามสถานะงานแบบเรียลไทม์ ออกแบบมาสำหรับทีมปฏิบัติการโดยเฉพาะ</p>
+                            Hyper-realistic Digitizer Replica for watchOS พร้อมระบบเสียงและ Logic เต็มรูปแบบ</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">HTML/CSS</span>
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">SwiftUI</span>
                             <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">JavaScript</span>
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">watchOS</span>
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-gray-500 mono">2025</span>
-                            <span class="text-[#FFE600] font-semibold">In Development</span>
+                            <span class="text-[#00FF94] font-semibold">Live v1.0</span>
                         </div>
                     </div>
                 </div>
@@ -723,7 +700,7 @@
                 ],
                 tech: ['Flutter', 'Gemini API', 'SQLite', 'Dart'],
                 features: ['AI Health Analysis', 'Smart Medicine Reminders', 'Multi-language Support', 'Offline-first Architecture'],
-                image: './assets/projects/care-for-mom/Cover.jpg',
+                image: './assets/projects/care-for-mom/Cover.png',
                 gallery: ['./assets/projects/care-for-mom/Screenshot-1.jpg'],
                 repo: 'https://github.com/Earthondev/CareForMom'
             },
@@ -797,23 +774,49 @@
                 repo: '#'
             },
             'tonfernpdf': {
-                title: 'TonfernPDF – Portfolio & Lightweight PDF Tool',
-                description: 'เครื่องมือจัดการ PDF บนเว็บ (Split, Merge) ทำงานบน Browser 100% เพื่อความปลอดภัยของข้อมูล',
-                challenge: 'ต้องการรวมพื้นที่รวบรวมผลงานและเครื่องมืออำนวยความสะดวกไว้ในที่เดียวเพื่อความคล่องตัว',
-                solution: 'พัฒนาเว็บไซต์ด้วยโครงสร้างที่รองรับทั้งการแสดงผลงานและระบบประมวลผล PDF ฝั่ง Client-side',
+                title: 'TonfernPDF v3.0 – Professional PDF Management',
+                description: 'เครื่องมือจัดการ PDF ระดับมืออาชีพที่ประมวลผลบนเครื่องผู้ใช้ 100% (Local-First) พร้อมระบบ Persona-based สำหรับ Student, Office, Legal และ Engineer',
+                challenge: 'เครื่องมือ PDF ออนไลน์ส่วนใหญ่มักมีการเก็บข้อมูลบน Server ซึ่งมีความเสี่ยงด้านความเป็นส่วนตัว และ UI มักไม่ตอบโจทย์การใช้งานที่หลากหลาย',
+                solution: 'พัฒนา Web App ที่ประมวลผลไฟล์ภายในเบราว์เซอร์ 100% พร้อมออกแบบ UI ให้เหมาะสมตามกลุ่มผู้ใช้งาน (Persona-based) เพื่อประสิทธิภาพสูงสุด',
                 impact: [
-                    { label: 'Speed', value: 'Fast' },
-                    { label: 'Security', value: 'Client-side' },
-                    { label: 'Design', value: 'Minimal' }
+                    { label: 'Privacy', value: '100% Local' },
+                    { label: 'Version', value: 'v3.0.0' },
+                    { label: 'UX', value: 'Persona-based' }
                 ],
-                tech: ['HTML5', 'CSS3', 'JavaScript', 'PDF.js'],
-                features: ['Typography-first layout', 'Optimized assets', 'Client-side PDF processing', 'Simple flow'],
-                image: './assets/projects/tonfern-pdf/cover.png',
+                tech: ['HTML5', 'Vanilla CSS3', 'JavaScript (ES6+)', 'pdf-lib', 'SortableJS'],
+                features: [
+                    'Privacy-First Architecture (Client-side)',
+                    'Persona-Based Workflows',
+                    'Digital Sign & Watermark',
+                    'Drag & Drop Page Organizer',
+                    'Password Protection & Unlock'
+                ],
+                image: './assets/projects/tonfern-pdf/Cover.png',
                 gallery: [
-                    './assets/projects/pdf-toolkit/Screenshot 2569-02-03 at 22.59.41.png',
-                    './assets/projects/pdf-toolkit/Screenshot 2569-02-03 at 22.59.16.png'
+                    './assets/projects/tonfern-pdf/Screenshot 2569-02-11 at 00.31.03.png',
+                    './assets/projects/tonfern-pdf/Screenshot 2569-02-11 at 00.31.15.png'
                 ],
-                repo: 'https://github.com/Earthondev/pdf-toolkit'
+                repo: 'https://github.com/Earthondev/Tonfernpdf-'
+            },
+            'sentaiwatch': {
+                title: 'SentaiWatch DX – Megaranger Digitizer Replica',
+                description: 'ชุดจำลองเครื่องแปลงร่าง Digitizer (Keitaizer) จาก Denji Sentai Megaranger (Power Rangers in Space) แบบ Hyper-realistic สำหรับ watchOS ที่เน้นความสมบูรณ์แบบทั้ง Visual และ Audio',
+                challenge: 'ต้องการนำประสบการณ์ของเล่นสะสมเกรด Premium (Super Sentai Artisan) มาไว้บน Apple Watch ให้มีความสมจริงทั้งสัมผัสและเสียง',
+                solution: 'พัฒนาด้วย Swift/SwiftUI ออกแบบ UI แบบ Skeuomorphic เต็มรูปแบบ พร้อมระบบ Audio Engine พิเศษ (Round-robin) เพื่อเลียนแบบการทำงานของของเล่นชิ้นจริง',
+                impact: [
+                    { label: 'Platform', value: 'watchOS' },
+                    { label: 'Accuracy', value: '100%' },
+                    { label: 'Sound', value: 'Round-robin' }
+                ],
+                tech: ['Swift 5', 'SwiftUI', 'WatchKit', 'AVFoundation'],
+                features: ['Authentic Cover Mode', 'Round-robin Audio Sampling', 'Transformation (3-3-5)', 'Super Mode (9-9-9)', 'Custom Sound Manager'],
+                image: './assets/projects/sentaiwatch-dx/cover.png',
+                gallery: [
+                    './assets/projects/sentaiwatch-dx/Screenshot 2569-01-21 at 21.02.32.png',
+                    './assets/projects/sentaiwatch-dx/Screenshot 2569-01-21 at 21.02.51.png'
+                ],
+                repo: 'https://github.com/Earthondev/SentaiWatch-DX',
+                live: 'https://www.tiktok.com/@nattapart_on_earth/video/7597457269302807815'
             }
         };
 
@@ -849,111 +852,143 @@
         const modalTitle = document.getElementById('modal-title');
         const modalBody = document.getElementById('modal-body');
         const closeModalBtn = document.getElementById('close-modal');
-        const viewDetailsBtns = document.querySelectorAll('.view-details-btn');
+        // projectCards already defined above
 
-        viewDetailsBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const projectId = btn.dataset.project;
-                const project = projectDetails[projectId];
+        // Gallery state
+        let currentGallery = [];
+        let currentIndex = 0;
 
-                if (project) {
-                    modalTitle.textContent = project.title;
-
-                    modalBody.innerHTML = `
-            <div class="space-y-8">
-              <!-- Main Showcase Image -->
-              <div class="rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-[#0b0b10] p-2">
-                 <img src="${project.image}" alt="${project.title}" id="modal-main-img" loading="lazy" decoding="async"
-                    class="w-full max-h-[520px] object-contain transition-all duration-300">
-              </div>
-
-              <!-- Gallery (if available) -->
-              ${project.gallery && project.gallery.length > 0 ? `
-              <div>
-                <h3 class="text-lg font-semibold mb-4 text-white flex items-center gap-2">
-                  <span class="text-[#00D9FF]">🖼️</span> Project Gallery
-                </h3>
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  ${project.gallery.map((img, index) => `
-                    <div class="group relative aspect-video rounded-lg overflow-hidden cursor-pointer border border-white/10 hover:border-[#00D9FF]/50 transition-all"
-                         onclick="document.getElementById('modal-main-img').src = '${img}'">
-                      <img src="${img}" alt="Gallery ${index + 1}" class="w-full h-full object-cover transition-transform group-hover:scale-110">
-                      <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <i class="fas fa-search-plus text-white text-lg"></i>
-                      </div>
-                    </div>
-                  `).join('')}
-                </div>
-                <p class="text-xs text-gray-400 mt-2 italic">* Click image to expand in main view</p>
-              </div>
-              ` : ''}
-
-              <div>
-                <div class="flex items-center justify-between mb-2">
-                    <h3 class="text-xl font-bold text-white">Overview</h3>
-                    ${project.repo && project.repo !== '#' ? `<a href="${project.repo}" target="_blank" class="text-[#00D9FF] hover:underline flex items-center gap-1 text-sm"><i class="fab fa-github"></i> View Code</a>` : ''}
-                </div>
-                <p class="text-lg text-gray-300 leading-relaxed">${project.description}</p>
-              </div>
-              
-              <div class="grid sm:grid-cols-3 gap-4">
-                ${project.impact.map(metric => `
-                  <div class="metric-card rounded-xl p-4 text-center">
-                    <div class="text-2xl font-bold gradient-text mb-1 text-white">${metric.value}</div>
-                    <div class="text-sm text-gray-400 font-medium">${metric.label}</div>
-                  </div>
-                `).join('')}
-              </div>
-              
-              <div class="grid md:grid-cols-2 gap-6">
-                <div class="glass-card rounded-2xl p-6 border border-white/5 bg-white/5">
-                  <h3 class="text-lg font-semibold mb-3 text-white flex items-center gap-2">
-                    <span class="text-[#00D9FF]">🎯</span> Challenge
-                  </h3>
-                  <p class="text-gray-300 leading-relaxed">${project.challenge}</p>
-                </div>
-                
-                <div class="glass-card rounded-2xl p-6 border border-white/5 bg-white/5">
-                  <h3 class="text-lg font-semibold mb-3 text-white flex items-center gap-2">
-                    <span class="text-[#00FF94]">💡</span> Solution
-                  </h3>
-                  <p class="text-gray-300 leading-relaxed">${project.solution}</p>
-                </div>
-              </div>
-              
-              <div>
-                <h3 class="text-lg font-semibold mb-4 text-white flex items-center gap-2">
-                  <span class="text-[#00D9FF]">⚙️</span> Tech Stack
-                </h3>
-                <div class="flex flex-wrap gap-2">
-                  ${project.tech.map(tech => `
-                    <span class="px-3 py-1.5 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] border border-[#00D9FF]/20 text-sm font-medium transition-all hover:bg-[#00D9FF]/20">${tech}</span>
-                  `).join('')}
-                </div>
-              </div>
-              
-              <div>
-                <h3 class="text-lg font-semibold mb-4 text-white flex items-center gap-2">
-                  <span class="text-[#00FF94]">✨</span> Key Features
-                </h3>
-                <div class="grid sm:grid-cols-2 gap-3">
-                  ${project.features.map(feature => `
-                    <div class="flex items-center gap-3 glass-card rounded-xl p-4 border border-white/5 bg-white/5 hover:border-[#00FF94]/30 transition-all">
-                      <div class="w-8 h-8 rounded-full bg-[#00FF94]/10 flex items-center justify-center text-[#00FF94]">
-                        <i class="fas fa-check text-xs"></i>
-                      </div>
-                      <span class="text-gray-300 font-medium">${feature}</span>
-                    </div>
-                  `).join('')}
-                </div>
-              </div>
-            </div>
-          `;
-
-                    modal.classList.remove('hidden');
-                    modal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
+        window.updateModalImage = (index) => {
+            currentIndex = index;
+            const mainImg = document.getElementById('modal-main-img');
+            if (mainImg) {
+                mainImg.src = currentGallery[currentIndex];
+            }
+            document.querySelectorAll('.gallery-thumb').forEach((thumb, i) => {
+                if (i === currentIndex) {
+                    thumb.classList.add('border-[#00D9FF]');
+                    thumb.classList.remove('border-white/10');
+                } else {
+                    thumb.classList.remove('border-[#00D9FF]');
+                    thumb.classList.add('border-white/10');
                 }
+            });
+        };
+
+        window.prevImage = (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            updateModalImage(currentIndex);
+        };
+
+        window.nextImage = (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            updateModalImage(currentIndex);
+        };
+
+        const openModal = (projectId) => {
+            const project = projectDetails[projectId];
+            if (project) {
+                modalTitle.textContent = project.title;
+                // Use cover image as first item, followed by gallery images
+                currentGallery = [project.image, ...(project.gallery || [])];
+                currentIndex = 0;
+
+                modalBody.innerHTML = `
+                    <div class="space-y-8">
+                        <!-- Main Showcase Slider -->
+                        <div class="relative group rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-[#0b0b10] p-2">
+                            <img src="${project.image}" alt="${project.title}" id="modal-main-img" 
+                                class="w-full max-h-[520px] object-contain transition-all duration-300">
+                            
+                            ${currentGallery.length > 1 ? `
+                            <button onclick="prevImage(event)" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all border border-white/10 hover:bg-[#00D9FF] hover:text-black">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button onclick="nextImage(event)" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all border border-white/10 hover:bg-[#00D9FF] hover:text-black">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            ` : ''}
+                        </div>
+
+                        <!-- Gallery Thumbnails -->
+                        ${currentGallery.length > 1 ? `
+                        <div>
+                            <h3 class="text-lg font-semibold mb-4 text-white">Project Gallery</h3>
+                            <div class="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+                                ${currentGallery.map((img, index) => `
+                                    <div class="gallery-thumb flex-shrink-0 w-32 aspect-video rounded-lg overflow-hidden cursor-pointer border-2 ${index === 0 ? 'border-[#00D9FF]' : 'border-white/10'} hover:border-[#00D9FF]/50 transition-all"
+                                         onclick="updateModalImage(${index})">
+                                        <img src="${img}" alt="Gallery ${index + 1}" class="w-full h-full object-cover">
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        ` : ''}
+
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="text-xl font-bold text-white">Overview</h3>
+                                ${project.repo && project.repo !== '#' ? `<a href="${project.repo}" target="_blank" class="text-[#00D9FF] hover:underline flex items-center gap-1 text-sm"><i class="fab fa-github"></i> View Code</a>` : ''}
+                            </div>
+                            <p class="text-lg text-gray-300 leading-relaxed">${project.description}</p>
+                        </div>
+                        
+                        <div class="grid sm:grid-cols-3 gap-4">
+                            ${project.impact.map(metric => `
+                                <div class="metric-card rounded-xl p-4 text-center">
+                                    <div class="text-2xl font-bold gradient-text mb-1 text-white">${metric.value}</div>
+                                    <div class="text-sm text-gray-400 font-medium">${metric.label}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="glass-card rounded-2xl p-6 border border-white/5 bg-white/5">
+                                <h3 class="text-lg font-semibold mb-3 text-white">Challenge</h3>
+                                <p class="text-gray-300 leading-relaxed">${project.challenge}</p>
+                            </div>
+                            <div class="glass-card rounded-2xl p-6 border border-white/5 bg-white/5">
+                                <h3 class="text-lg font-semibold mb-3 text-white">Solution</h3>
+                                <p class="text-gray-300 leading-relaxed">${project.solution}</p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold mb-4 text-white">Tech Stack</h3>
+                            <div class="flex flex-wrap gap-2">
+                                ${project.tech.map(tech => `
+                                    <span class="px-3 py-1.5 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] border border-[#00D9FF]/20 text-sm font-medium hover:bg-[#00D9FF]/20">${tech}</span>
+                                `).join('')}
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold mb-4 text-white">Key Features</h3>
+                            <div class="grid sm:grid-cols-2 gap-3">
+                                ${project.features.map(feature => `
+                                    <div class="flex items-center gap-3 glass-card rounded-xl p-4 border border-white/5 bg-white/5 hover:border-[#00FF94]/30 transition-all">
+                                        <div class="w-8 h-8 rounded-full bg-[#00FF94]/10 flex items-center justify-center text-[#00FF94]">
+                                            <i class="fas fa-check text-xs"></i>
+                                        </div>
+                                        <span class="text-gray-300 font-medium">${feature}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                modal.classList.remove('hidden');
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        };
+
+        projectCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const projectId = card.dataset.project;
+                openModal(projectId);
             });
         });
 
