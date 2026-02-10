@@ -30,12 +30,14 @@ All projects are showcased with detailed case studies on the website.
 
 | Project | Category | Tech Stack | Highlights |
 | :--- | :--- | :--- | :--- |
+| **TonfernPDF v3.0** | Web App | HTML5, JS, pdf-lib | Professional PDF toolkit with persona-based UI (100% local). |
+| **SentaiWatch DX** | watchOS App | Swift, SwiftUI | Hyper-realistic Megaranger Digitizer replica with audio engine. |
+| **Laundry App** | Mobile App | Flutter, Google Sheets | Smart laundry shop management with real-time sync. |
 | **Care for Mom** | Mobile App | Flutter, Gemini AI | AI-powered health companion for elderly care. |
-| **Slack Drive Bot** | Automation | Python, Slack API | Automated file organization and renaming bot. |
+| **HaaNaiHang** | Web App | React, Firebase | Mall & Store finder with proximity calculation. |
+| **Slack Drive Bot** | Automation | Python, Slack API | Automated file organization saving 90% admin time. |
+| **Inventory Amino** | Automation | AppSheet, No-Code | Mobile lab stock management with low-stock alerts. |
 | **Expense Tracker** | Mobile App | Flutter, SQLite | Offline-first personal finance tracker. |
-| **HaaNaiHang** | Web App | React, Firebase | Mall & Store finder with Admin Dashboard. |
-| **Inventory Amino** | Automation | AppSheet, No-Code | Mobile lab stock management system. |
-| **PDF Toolkit** | Tool | JS, PDF.js | Client-side PDF manipulation tool (Privacy-first). |
 
 ## 📁 Project Structure
 
@@ -76,4 +78,4 @@ Portfolio/
 
 ---
 © 2026 Nattapart Worakun. All rights reserved.
-<!-- trigger-pages-deploy --> 2026-02-04T00:34:21
+<!-- trigger-pages-deploy --> 2026-02-11T01:21:00
