@@ -400,7 +400,7 @@
       "Professional Toolkit: รวมฟีเจอร์ Merge, Split, Compress, Image Extraction และ Password Protection"
     ],
     "coverImage": {
-      "src": "./assets/projects/tonfern-pdf/Cover.png",
+      "src": "./assets/projects/tonfern-pdf/cover.png",
       "alt": "TonfernPDF v3.0 Interface"
     },
     "gallery": [
