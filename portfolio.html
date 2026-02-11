@@ -359,6 +359,40 @@
         <div class="max-w-7xl mx-auto">
             <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
+                <!-- Project 0: Guessing Game Quest -->
+                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
+                    data-category="webapp" style="animation-delay: 0.05s;" data-project="guessing-game-quest">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="./assets/projects/guessing-game-quest/Cover.png" alt="Guessing Game Quest" width="1024"
+                            height="1024" loading="lazy" decoding="async"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-6 pt-2 relative z-10">
+                        <div class="flex items-start justify-between mb-2">
+                            <div></div>
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="guessing-game-quest">
+                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">
+                            Guessing Game Quest</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">เกมทายภาพปริศนา
+                            พร้อมระบบเก็บคะแนนและเฉลยที่สนุกสนาน</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">JavaScript</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Game</span>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-gray-500 mono">2026</span>
+                            <span class="text-[#00D9FF] font-semibold">Active</span>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Project 1: Laundry App -->
                 <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
                     data-category="mobile" style="animation-delay: 0.1s;" data-project="laundry-app">
@@ -665,6 +699,26 @@
     <script>
         // Project Data
         const projectDetails = {
+            'guessing-game-quest': {
+                title: 'Guessing Game Quest',
+                description: 'เกมทายภาพปริศนาที่ท้าทายความรู้รอบตัว พร้อมระบบเก็บคะแนนและเฉลยที่สนุกสนาน',
+                challenge: 'การสร้างเกมที่ต้องมีการโต้ตอบแบบ Real-time และระบบจัดการคะแนนที่แม่นยำ',
+                solution: 'พัฒนาด้วย JavaScript pure function เพื่อประสิทธิภาพสูงสุด และใช้ Local Storage จัดการคะแนน',
+                impact: [
+                    { label: 'Fun Factor', value: 'High' },
+                    { label: 'Device', value: 'Cross-platform' },
+                    { label: 'Latency', value: '< 50ms' }
+                ],
+                tech: ['HTML5', 'CSS3', 'JavaScript'],
+                features: ['Interactive Gameplay', 'Responsive Design', 'Score Tracking'],
+                image: './assets/projects/guessing-game-quest/Cover.png',
+                gallery: [
+                    './assets/projects/guessing-game-quest/Screenshot 2569-02-12 at 00.20.35.png',
+                    './assets/projects/guessing-game-quest/Screenshot 2569-02-12 at 00.20.47.png',
+                    './assets/projects/guessing-game-quest/Screenshot 2569-02-12 at 00.20.57.png'
+                ],
+                repo: 'https://github.com/Earthondev/guessing-game-earth'
+            },
             'laundry-app': {
                 title: 'Laundry App – Smart Management System',
                 description: 'แอปพลิเคชันจัดการร้านซักรีดที่เน้นประสิทธิภาพและความเรียบง่าย (Minimalist) พัฒนาด้วย Flutter เชื่อมต่อ Google Sheets เป็น Backend',

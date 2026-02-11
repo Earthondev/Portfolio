@@ -1,7 +1,6 @@
-// Modern Service Worker for Portfolio - v6
-const CACHE_NAME = 'portfolio-v6';
-const STATIC_CACHE = 'static-v6';
-const DYNAMIC_CACHE = 'dynamic-v6';
+const CACHE_NAME = 'portfolio-v7';
+const STATIC_CACHE = 'static-v7';
+const DYNAMIC_CACHE = 'dynamic-v7';
 
 const urlsToCache = [
   '/',
