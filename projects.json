@@ -1,5 +1,56 @@
 [
   {
+    "id": "guessing-game-quest",
+    "title": "Guessing Game Quest",
+    "slug": "guessing-game-quest",
+    "year": 2026,
+    "summary": "เกมทายภาพปริศนาที่ท้าทายความรู้รอบตัว พร้อมระบบเก็บคะแนนและเฉลยที่สนุกสนาน",
+    "role": [
+      "Frontend Developer",
+      "Game Designer"
+    ],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript"
+    ],
+    "highlights": [
+      "Interactive Gameplay: เกมทายภาพที่สนุกและเข้าใจง่าย",
+      "Responsive Design: รองรับการเล่นทั้งบนมือถือและเดสก์ท็อป",
+      "Score Tracking: ระบบนับคะแนนแบบ Real-time"
+    ],
+    "coverImage": {
+      "src": "./assets/projects/guessing-game-quest/Cover.png",
+      "alt": "Guessing Game Quest Cover"
+    },
+    "gallery": [
+      {
+        "src": "./assets/projects/guessing-game-quest/Screenshot 2569-02-12 at 00.20.35.png",
+        "alt": "Gameplay Screenshot 1"
+      },
+      {
+        "src": "./assets/projects/guessing-game-quest/Screenshot 2569-02-12 at 00.20.47.png",
+        "alt": "Gameplay Screenshot 2"
+      },
+      {
+        "src": "./assets/projects/guessing-game-quest/Screenshot 2569-02-12 at 00.20.57.png",
+        "alt": "Gameplay Screenshot 3"
+      }
+    ],
+    "links": {
+      "repo": "https://github.com/Earthondev/guessing-game-earth"
+    },
+    "tags": [
+      "Game",
+      "Web App",
+      "Interactive",
+      "JavaScript"
+    ],
+    "cta": "View Code",
+    "status": "Active",
+    "caseStudy": false
+  },
+  {
     "id": "laundry-app",
     "title": "Laundry App – Smart Management System",
     "slug": "laundry-app",
