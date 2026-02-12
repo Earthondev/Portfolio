@@ -38,6 +38,7 @@
       }
     ],
     "links": {
+      "live": "https://guessing-game-earth.vercel.app",
       "repo": "https://github.com/Earthondev/guessing-game-earth"
     },
     "tags": [
