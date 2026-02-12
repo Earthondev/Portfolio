@@ -718,7 +718,8 @@
                     './assets/projects/guessing-game-quest/Screenshot 2569-02-12 at 00.20.47.png',
                     './assets/projects/guessing-game-quest/Screenshot 2569-02-12 at 00.20.57.png'
                 ],
-                repo: 'https://github.com/Earthondev/guessing-game-earth'
+                repo: 'https://github.com/Earthondev/guessing-game-earth',
+                live: 'https://guessing-game-earth.vercel.app'
             },
             'laundry-app': {
                 title: 'Laundry App – Smart Management System',
@@ -792,7 +793,8 @@
                     './assets/projects/hanaihang/screenshot-1.png',
                     './assets/projects/hanaihang/screenshot-2.png'
                 ],
-                repo: 'https://github.com/Earthondev/Hanaihang'
+                repo: 'https://github.com/Earthondev/Hanaihang',
+                live: 'https://hanaihang.netlify.app/'
             },
             'expense-tracker': {
                 title: 'Flutter Expense Tracker',
@@ -849,7 +851,8 @@
                     './assets/projects/tonfern-pdf/Screenshot 2569-02-11 at 00.31.03.png',
                     './assets/projects/tonfern-pdf/Screenshot 2569-02-11 at 00.31.15.png'
                 ],
-                repo: 'https://github.com/Earthondev/Tonfernpdf-'
+                repo: 'https://github.com/Earthondev/Tonfernpdf-',
+                live: 'https://earthondev.github.io/Tonfernpdf-/'
             },
             'sentaiwatch': {
                 title: 'SentaiWatch DX – Megaranger Digitizer Replica',
@@ -983,7 +986,10 @@
                         <div>
                             <div class="flex items-center justify-between mb-2">
                                 <h3 class="text-xl font-bold text-white">Overview</h3>
-                                ${project.repo && project.repo !== '#' ? `<a href="${project.repo}" target="_blank" class="text-[#00D9FF] hover:underline flex items-center gap-1 text-sm"><i class="fab fa-github"></i> View Code</a>` : ''}
+                                <div class="flex items-center gap-3">
+                                    ${project.live ? `<a href="${project.live}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#00D9FF] to-[#00FF94] text-[#0a0a0f] font-semibold text-sm hover:opacity-90 transition-opacity"><i class="fas fa-external-link-alt"></i> Live Demo</a>` : ''}
+                                    ${project.repo && project.repo !== '#' ? `<a href="${project.repo}" target="_blank" class="text-[#00D9FF] hover:underline flex items-center gap-1 text-sm"><i class="fab fa-github"></i> View Code</a>` : ''}
+                                </div>
                             </div>
                             <p class="text-lg text-gray-300 leading-relaxed">${project.description}</p>
                         </div>
