@@ -164,29 +164,42 @@
   },
   {
     "id": "slack-drive-bot",
-    "title": "Slack Drive Bot – Workflow Automation",
+    "title": "Lab Assistant Bot – Slack to Google Drive Automation",
     "slug": "slack-drive-bot",
     "year": 2026,
-    "summary": "บอทอัตโนมัติที่เชื่อมต่อ Slack กับ Google Drive ช่วยจัดการไฟล์แนบ เปลี่ยนชื่อ และจัดเก็บลงโฟลเดอร์ตามเงื่อนไข",
+    "summary": "บอทผู้ช่วยจัดการไฟล์ห้องแล็บอัตโนมัติ รับไฟล์จาก Slack แล้วตั้งชื่อตามมาตรฐาน Lab Code พร้อมอัปโหลดเข้า Google Drive ทันที ควบคุมผ่าน GUI Dashboard สไตล์ Cyberpunk และสั่งงานผ่านแชทได้",
     "role": [
       "Backend Developer",
-      "Automation Engineer"
+      "Automation Engineer",
+      "UI Developer"
     ],
     "stack": [
       "Python",
       "Slack API",
       "Google Drive API",
-      "Docker"
+      "NiceGUI"
     ],
     "highlights": [
-      "Automated Filing: ลดเวลา Admin 90% โดยการอัปโหลดไฟล์อัตโนมัติ",
-      "Smart Renaming: เปลี่ยนชื่อไฟล์ตาม Pattern ที่กำหนดผ่านแชท",
-      "Dynamic Routing: จัดเก็บลงโฟลเดอร์ตาม Channel/User ต้นทาง"
+      "System Control Center: GUI Dashboard สไตล์ Cyberpunk ดาร์กโหมด พร้อม Real-time Status, Log Console และ Manual Sync Panel",
+      "Smart File Naming: ตั้งชื่อไฟล์อัตโนมัติตามรหัสแล็บ (pH, NPK, HPLC, Viscosity ฯลฯ) ลดข้อผิดพลาดจากการตั้งชื่อด้วยมือ",
+      "Easy Chat Commands: สั่ง sync, ดึงไฟล์ย้อนหลัง หรือกด Emoji Reaction (🔄♻️🔁) เพื่อทริกเกอร์ Sync ได้ทันที",
+      "Multi-Lab Channel Routing: รองรับหลายห้องแล็บ เลือก Channel/วันที่/จำนวนไฟล์ได้จาก GUI พร้อมจัดเก็บลงโฟลเดอร์ Drive อัตโนมัติ",
+      "Automated Filing: ลดเวลางาน Admin 90% ด้วยระบบ Download → Rename → Upload แบบ Batch Processing"
     ],
     "coverImage": {
-      "src": "./assets/projects/slack-drive-bot/slack_bot_cover.png",
-      "alt": "Slack Automation Workflow"
+      "src": "./assets/projects/slack-drive-bot/cover.png",
+      "alt": "Lab Assistant Bot System Control Center"
     },
+    "gallery": [
+      {
+        "src": "./assets/projects/slack-drive-bot/Screenshot 2569-02-12 at 11.23.38.png",
+        "alt": "Advanced Control Dashboard พร้อม Real-time Log Console"
+      },
+      {
+        "src": "./assets/projects/slack-drive-bot/Screenshot 2569-02-12 at 11.23.47.png",
+        "alt": "Multi-Lab Channel Selector สำหรับเลือกห้องแล็บ Sync"
+      }
+    ],
     "links": {
       "repo": "https://github.com/Earthondev/slack-drive-bot"
     },
@@ -194,10 +207,10 @@
       "Automation",
       "Python",
       "Bot",
-      "Productivity"
+      "GUI Dashboard"
     ],
     "cta": "View Code",
-    "status": "Completed",
+    "status": "Active",
     "caseStudy": false
   },
   {
