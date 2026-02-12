@@ -22,14 +22,15 @@ This portfolio is built with responsiveness and performance in mind:
 
 -   **Frontend:** HTML5, Tailwind CSS (CDN), Vanilla JavaScript
 -   **Design:** Custom Neon Theme (Cyan/Green/Yellow), Glassmorphism, CSS Animations
--   **Performance:** Lazy loading, Optimized assets, 95+ Lighthouse score
+-   **Performance:** Lazy loading, Service Worker (PWA), Optimized assets, 95+ Lighthouse score
 -   **Hosting:** GitHub Pages
 
-## 📂 Featured Projects
+## 📂 Featured Projects (10 Projects)
 All projects are showcased with detailed case studies on the website.
 
 | Project | Category | Tech Stack | Highlights |
 | :--- | :--- | :--- | :--- |
+| **Guessing Game Quest** | Web App | HTML5, CSS3, JS | Interactive image guessing game with score tracking. |
 | **TonfernPDF v3.0** | Web App | HTML5, JS, pdf-lib | Professional PDF toolkit with persona-based UI (100% local). |
 | **SentaiWatch DX** | watchOS App | Swift, SwiftUI | Hyper-realistic Megaranger Digitizer replica with audio engine. |
 | **Laundry App** | Mobile App | Flutter, Google Sheets | Smart laundry shop management with real-time sync. |
@@ -38,6 +39,7 @@ All projects are showcased with detailed case studies on the website.
 | **Slack Drive Bot** | Automation | Python, Slack API | Automated file organization saving 90% admin time. |
 | **Inventory Amino** | Automation | AppSheet, No-Code | Mobile lab stock management with low-stock alerts. |
 | **Expense Tracker** | Mobile App | Flutter, SQLite | Offline-first personal finance tracker. |
+| **Tonfern** | Website | HTML5, CSS, JS | Minimalist personal website with typography-first layout. |
 
 ## 📁 Project Structure
 
@@ -47,10 +49,22 @@ Portfolio/
 ├── about.html              # About me
 ├── portfolio.html          # Project showcase
 ├── contact.html            # Contact form
-├── assets/                 
-│   └── projects/           # Project screenshots & covers
-├── projects.json           # Data source for projects
-└── README.md               # Documentation
+├── style.css               # Design tokens & global styles
+├── about.css / contact.css # Page-specific styles
+├── script.js               # Main logic (~1,200 lines)
+├── sw.js                   # Service Worker (PWA)
+├── performance.js          # Performance monitoring
+├── projects.json           # Project data (10 projects)
+├── services.json           # Services & skills data
+├── assets/
+│   ├── projects/           # Project screenshots & covers
+│   ├── Profile/            # Profile photos
+│   ├── decoration/         # Decorative images
+│   └── og/                 # Open Graph images
+├── GEMINI.md               # AI context for Antigravity
+├── .agent/
+│   └── skills/             # Agent skills (webapp-testing)
+└── .github/                # GitHub Actions
 ```
 
 ## 🚀 Getting Started
@@ -70,6 +84,18 @@ Portfolio/
 3.  **Open in browser**
     Go to `http://localhost:8000`
 
+## 🎨 Design System
+
+| Token | Value | Usage |
+| :--- | :--- | :--- |
+| **Primary** | `#00D9FF` (Neon Cyan) | Links, buttons, accents |
+| **Secondary** | `#00FF94` (Neon Green) | Highlights, gradients |
+| **Accent** | `#FFE600` (Neon Yellow) | Badges, alerts |
+| **Background** | `#0a0a0f` | Page background |
+| **Surface** | `#111827` | Cards, panels |
+| **Heading Font** | Space Grotesk | Headings |
+| **Body Font** | Sarabun | Body text (Thai support) |
+
 ## 📞 Contact
 
 **Nattapart Worakun**
@@ -78,4 +104,4 @@ Portfolio/
 
 ---
 © 2026 Nattapart Worakun. All rights reserved.
-<!-- trigger-pages-deploy --> 2026-02-11T01:21:00
+<!-- trigger-pages-deploy --> 2026-02-12T11:50:00
