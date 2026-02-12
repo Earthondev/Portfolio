@@ -156,7 +156,7 @@
       "Mobile App",
       "Health Tech",
       "AI",
-      "Fluuter"
+      "Flutter"
     ],
     "cta": "View Code",
     "status": "In Development",
@@ -402,46 +402,6 @@
     ],
     "cta": "View Code",
     "status": "Completed (v1.0)",
-    "caseStudy": false
-  },
-  {
-    "id": "tonfern",
-    "title": "Tonfern – Personal Website",
-    "slug": "tonfern",
-    "year": 2025,
-    "summary": "เว็บไซต์แนะนำตัวแบบมินิมอล เน้น readability และโครงสร้างที่ขยายได้ง่ายสำหรับพอร์ตผลงาน",
-    "role": [
-      "Frontend Developer",
-      "UI Designer"
-    ],
-    "stack": [
-      "HTML5",
-      "CSS",
-      "JavaScript"
-    ],
-    "highlights": [
-      "Typography-first layout อ่านง่ายทั้งมือถือและเดสก์ท็อป",
-      "Reusable sections รองรับเพิ่มผลงานในอนาคต",
-      "Optimized assets เพื่อโหลดไว"
-    ],
-    "coverImage": {
-      "src": "./assets/projects/tonfern/cover.png",
-      "alt": "Tonfern project cover"
-    },
-    "gallery": [
-      {
-        "src": "./assets/projects/tonfern/cover.png",
-        "alt": "Tonfern project cover"
-      }
-    ],
-    "links": {},
-    "tags": [
-      "Website",
-      "Landing Page",
-      "UI"
-    ],
-    "cta": "View Project",
-    "status": "In Development",
     "caseStudy": false
   },
   {

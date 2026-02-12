@@ -25,7 +25,7 @@ This portfolio is built with responsiveness and performance in mind:
 -   **Performance:** Lazy loading, Service Worker (PWA), Optimized assets, 95+ Lighthouse score
 -   **Hosting:** GitHub Pages
 
-## 📂 Featured Projects (10 Projects)
+## 📂 Featured Projects (9 Projects)
 All projects are showcased with detailed case studies on the website.
 
 | Project | Category | Tech Stack | Highlights |
@@ -39,7 +39,7 @@ All projects are showcased with detailed case studies on the website.
 | **Slack Drive Bot** | Automation | Python, Slack API | Automated file organization saving 90% admin time. |
 | **Inventory Amino** | Automation | AppSheet, No-Code | Mobile lab stock management with low-stock alerts. |
 | **Expense Tracker** | Mobile App | Flutter, SQLite | Offline-first personal finance tracker. |
-| **Tonfern** | Website | HTML5, CSS, JS | Minimalist personal website with typography-first layout. |
+
 
 ## 📁 Project Structure
 

@@ -79,9 +79,15 @@
       "group": "Backend"
     },
     {
-      "name": "AppSheet",
+      "name": "Firebase Security Rules",
+      "level": "medium",
+      "icon": "fas fa-user-shield",
+      "group": "Backend"
+    },
+    {
+      "name": "AppScript & AppSheet",
       "level": "high",
-      "icon": "fas fa-mobile-alt",
+      "icon": "fas fa-robot",
       "group": "Automation"
     },
     {
@@ -91,22 +97,22 @@
       "group": "Testing"
     },
     {
+      "name": "Playwright (UI Tests)",
+      "level": "medium",
+      "icon": "fas fa-vial-circle-check",
+      "group": "Testing"
+    },
+    {
       "name": "GA4 & Event Design",
       "level": "medium",
       "icon": "fas fa-chart-line",
       "group": "Analytics"
     },
     {
-      "name": "Lighthouse & CWV",
+      "name": "Lighthouse & Web Vitals",
       "level": "medium",
-      "icon": "fas fa-tachometer-alt",
+      "icon": "fas fa-gauge-high",
       "group": "Performance"
-    },
-    {
-      "name": "Playwright (UI Test)",
-      "level": "medium",
-      "icon": "fas fa-vial",
-      "group": "Testing"
     },
     {
       "name": "Accessibility (WCAG)",
@@ -115,21 +121,21 @@
       "group": "UX"
     },
     {
-      "name": "Netlify CI/CD",
+      "name": "CI/CD (GitHub Actions)",
       "level": "medium",
-      "icon": "fas fa-rocket",
+      "icon": "fas fa-code-branch",
       "group": "DevOps"
     },
     {
-      "name": "Geolocation / Haversine",
+      "name": "Geolocation & Haversine",
       "level": "medium",
-      "icon": "fas fa-map-marker-alt",
+      "icon": "fas fa-location-crosshairs",
       "group": "Geo"
     },
     {
-      "name": "Apps Script Automation",
+      "name": "AI Pair Programming (Gemini/ChatGPT)",
       "level": "high",
-      "icon": "fas fa-robot",
+      "icon": "fas fa-brain",
       "group": "Automation"
     },
     {
@@ -179,60 +185,6 @@
       "level": "medium",
       "icon": "fas fa-balance-scale",
       "group": "Science"
-    },
-    {
-      "name": "Playwright (UI Tests)",
-      "level": "medium",
-      "icon": "fas fa-vial-circle-check",
-      "group": "Testing"
-    },
-    {
-      "name": "GA4 & Event Design",
-      "level": "medium",
-      "icon": "fas fa-chart-line",
-      "group": "Analytics"
-    },
-    {
-      "name": "Lighthouse & Web Vitals",
-      "level": "medium",
-      "icon": "fas fa-gauge-high",
-      "group": "Performance"
-    },
-    {
-      "name": "AppScript & AppSheet",
-      "level": "high",
-      "icon": "fas fa-robot",
-      "group": "Automation"
-    },
-    {
-      "name": "Firebase Security Rules",
-      "level": "medium",
-      "icon": "fas fa-user-shield",
-      "group": "Backend"
-    },
-    {
-      "name": "Accessibility (WCAG)",
-      "level": "medium",
-      "icon": "fas fa-universal-access",
-      "group": "UX"
-    },
-    {
-      "name": "CI/CD (GitHub Actions)",
-      "level": "medium",
-      "icon": "fas fa-code-branch",
-      "group": "DevOps"
-    },
-    {
-      "name": "Geolocation & Haversine",
-      "level": "medium",
-      "icon": "fas fa-location-crosshairs",
-      "group": "Geo"
-    },
-    {
-      "name": "AI Pair Programming (Gemini/ChatGPT)",
-      "level": "high",
-      "icon": "fas fa-brain",
-      "group": "Automation"
     }
   ],
   "certifications": [
