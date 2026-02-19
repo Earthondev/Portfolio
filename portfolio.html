@@ -360,6 +360,43 @@
         <div class="max-w-7xl mx-auto">
             <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
+                <!-- Project 0: Chemical Cabinet Label Maker -->
+                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
+                    data-category="webapp automation" style="animation-delay: 0.05s;"
+                    data-project="chemical-cabinet-label-maker">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="./assets/projects/chemical-cabinet-label-maker/Cover.png"
+                            alt="Chemical Cabinet Label Maker" width="1024" height="1024" loading="lazy"
+                            decoding="async"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-6 pt-2 relative z-10">
+                        <div class="flex items-start justify-between mb-2">
+                            <div></div>
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
+                                data-project="chemical-cabinet-label-maker">
+                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">
+                            Chemical Cabinet Label Maker</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">
+                            เว็บแอปสร้างฉลากตู้สารเคมีแบบมาตรฐาน พร้อมพรีวิวและจัดหน้าสำหรับพิมพ์ใช้งานจริง</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">JavaScript</span>
+                            <span
+                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">Lab
+                                Tool</span>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-gray-500 mono">2026</span>
+                            <span class="text-[#00D9FF] font-semibold">Active</span>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Project 0: Guessing Game Quest -->
                 <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
                     data-category="webapp game" style="animation-delay: 0.05s;" data-project="guessing-game-quest">
@@ -700,6 +737,26 @@
     <script>
         // Project Data
         const projectDetails = {
+            'chemical-cabinet-label-maker': {
+                title: 'Chemical Cabinet Label Maker',
+                description: 'เว็บแอปช่วยสร้างและพิมพ์ฉลากตู้สารเคมีให้เป็นมาตรฐานเดียวกัน ลดงานทำฉลากด้วยมือและลดความผิดพลาดในการติดป้าย',
+                challenge: 'การจัดการฉลากตู้สารเคมีด้วยมือใช้เวลามากและรูปแบบไม่สม่ำเสมอ ทำให้เกิดความเสี่ยงด้านความปลอดภัยในการค้นหาและหยิบใช้สาร',
+                solution: 'พัฒนาเครื่องมือสร้างฉลากแบบเทมเพลตที่กรอกข้อมูลง่าย พรีวิวได้ทันที และจัดหน้าให้พร้อมพิมพ์สำหรับใช้งานจริงในห้องแล็บ',
+                impact: [
+                    { label: 'Workflow', value: 'Standardized' },
+                    { label: 'Output', value: 'Print-ready' },
+                    { label: 'Speed', value: 'Batch' }
+                ],
+                tech: ['HTML5', 'CSS3', 'JavaScript'],
+                features: ['Template-Based Labels', 'Batch Label Generation', 'Live Preview', 'Print-Ready Layout'],
+                image: './assets/projects/chemical-cabinet-label-maker/Cover.png',
+                gallery: [
+                    './assets/projects/chemical-cabinet-label-maker/Screenshot 2569-02-19 at 14.58.26.png',
+                    './assets/projects/chemical-cabinet-label-maker/Screenshot 2569-02-19 at 15.06.46.png',
+                    './assets/projects/chemical-cabinet-label-maker/Screenshot 2569-02-19 at 15.06.56.png'
+                ],
+                repo: 'https://github.com/Earthondev/chemical-cabinet-label-maker'
+            },
             'guessing-game-quest': {
                 title: 'Guessing Game Quest',
                 description: 'เกมทายภาพปริศนาที่ท้าทายความรู้รอบตัว พร้อมระบบเก็บคะแนนและเฉลยที่สนุกสนาน',
@@ -880,6 +937,18 @@
         const filterButtons = document.querySelectorAll('.filter-btn');
         const projectCards = document.querySelectorAll('.project-card');
         const emptyState = document.getElementById('empty-state');
+        const projectsGrid = document.getElementById('projects-grid');
+
+        // Keep project cards alphabetically sorted by title.
+        if (projectsGrid) {
+            [...projectCards]
+                .sort((a, b) => {
+                    const aTitle = a.querySelector('h3')?.textContent?.trim() || '';
+                    const bTitle = b.querySelector('h3')?.textContent?.trim() || '';
+                    return aTitle.localeCompare(bTitle, 'en', { sensitivity: 'base' });
+                })
+                .forEach((card) => projectsGrid.appendChild(card));
+        }
 
         filterButtons.forEach(btn => {
             btn.addEventListener('click', () => {

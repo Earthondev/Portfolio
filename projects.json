@@ -1,5 +1,56 @@
 [
   {
+    "id": "chemical-cabinet-label-maker",
+    "title": "Chemical Cabinet Label Maker",
+    "slug": "chemical-cabinet-label-maker",
+    "year": 2026,
+    "summary": "เว็บแอปช่วยสร้างและพิมพ์ฉลากตู้สารเคมีให้เป็นมาตรฐานเดียวกัน ลดงานทำฉลากด้วยมือและลดความผิดพลาดในการติดป้าย",
+    "role": [
+      "Frontend Developer",
+      "Automation Engineer"
+    ],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript"
+    ],
+    "highlights": [
+      "Template-Based Labels: สร้างฉลากจากเทมเพลตมาตรฐานได้ทันที",
+      "Fast Batch Workflow: รองรับการทำฉลากหลายรายการในรอบเดียว",
+      "Print-Ready Output: จัดรูปแบบพร้อมพิมพ์ใช้งานจริงในห้องแล็บ"
+    ],
+    "coverImage": {
+      "src": "./assets/projects/chemical-cabinet-label-maker/Cover.png",
+      "alt": "Chemical Cabinet Label Maker Cover"
+    },
+    "gallery": [
+      {
+        "src": "./assets/projects/chemical-cabinet-label-maker/Screenshot 2569-02-19 at 14.58.26.png",
+        "alt": "Chemical Cabinet Label Maker - Label setup"
+      },
+      {
+        "src": "./assets/projects/chemical-cabinet-label-maker/Screenshot 2569-02-19 at 15.06.46.png",
+        "alt": "Chemical Cabinet Label Maker - Preview"
+      },
+      {
+        "src": "./assets/projects/chemical-cabinet-label-maker/Screenshot 2569-02-19 at 15.06.56.png",
+        "alt": "Chemical Cabinet Label Maker - Print layout"
+      }
+    ],
+    "links": {
+      "repo": "https://github.com/Earthondev/chemical-cabinet-label-maker"
+    },
+    "tags": [
+      "Web App",
+      "Lab Tools",
+      "Automation",
+      "JavaScript"
+    ],
+    "cta": "View Code",
+    "status": "Active",
+    "caseStudy": false
+  },
+  {
     "id": "guessing-game-quest",
     "title": "Guessing Game Quest",
     "slug": "guessing-game-quest",
