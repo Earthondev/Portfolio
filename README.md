@@ -47,19 +47,19 @@ All projects are showcased with detailed case studies on the website.
 Portfolio/
 ├── index.html              # Home page
 ├── about.html              # About me
+├── certificates.html       # Certificates showcase
 ├── portfolio.html          # Project showcase
 ├── contact.html            # Contact form
 ├── style.css               # Design tokens & global styles
-├── about.css / contact.css # Page-specific styles
-├── script.js               # Main logic (~1,200 lines)
+├── cache-bust.js           # Cache busting helper
 ├── sw.js                   # Service Worker (PWA)
-├── performance.js          # Performance monitoring
+├── certificates.json       # Certificates data
 ├── projects.json           # Project data (10 projects)
 ├── services.json           # Services & skills data
 ├── assets/
 │   ├── projects/           # Project screenshots & covers
 │   ├── Profile/            # Profile photos
-│   ├── decoration/         # Decorative images
+│   ├── certificates/       # Certificate images
 │   └── og/                 # Open Graph images
 ├── GEMINI.md               # AI context for Antigravity
 ├── .agent/

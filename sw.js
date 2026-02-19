@@ -1,21 +1,19 @@
-const CACHE_NAME = 'portfolio-v8';
-const STATIC_CACHE = 'static-v8';
-const DYNAMIC_CACHE = 'dynamic-v8';
+const CACHE_NAME = 'portfolio-v9';
+const STATIC_CACHE = 'static-v9';
+const DYNAMIC_CACHE = 'dynamic-v9';
 
 const urlsToCache = [
   '/',
   '/index.html',
   '/about.html',
+  '/certificates.html',
   '/contact.html',
   '/portfolio.html',
   '/style.css',
-  '/about.css',
-  '/contact.css',
-  '/case-studies/case-study.css',
+  '/cache-bust.js',
   '/projects.json',
+  '/certificates.json',
   '/services.json',
-  '/script.js',
-  '/performance.js',
   '/favicon.ico'
 ];
 
@@ -31,7 +29,7 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(STATIC_CACHE)
       .then(cache => {
-        console.log('Opened static cache v8');
+        console.log('Opened static cache v9');
         return cache.addAll(urlsToCache);
       })
       .then(() => self.skipWaiting())

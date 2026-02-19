@@ -93,10 +93,9 @@
 
         .project-card {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            /* Reduced opacity for cleaner look */
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
@@ -106,16 +105,15 @@
             content: '';
             position: absolute;
             inset: 0;
-            /* Neon/Cyan Hover Gradient */
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(0, 255, 148, 0.1));
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.08), rgba(0, 255, 148, 0.08));
             opacity: 0;
             transition: opacity 0.4s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             border-color: rgba(0, 217, 255, 0.3);
-            box-shadow: 0 20px 60px rgba(0, 217, 255, 0.15);
+            box-shadow: 0 14px 36px rgba(0, 217, 255, 0.12);
         }
 
         .project-card:hover::before {
@@ -138,8 +136,19 @@
             background: linear-gradient(135deg, #00D9FF, #00FF94);
             border-color: transparent;
             color: #0a0a0f;
-            /* Dark text on bright background */
             font-weight: 600;
+        }
+
+        .control-input {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #e5e7eb;
+        }
+
+        .control-input:focus {
+            outline: none;
+            border-color: rgba(0, 217, 255, 0.6);
+            box-shadow: 0 0 0 2px rgba(0, 217, 255, 0.15);
         }
 
         .tech-tag {
@@ -270,7 +279,7 @@
         <div class="absolute bottom-20 left-1/2 w-96 h-96 bg-[#FFE600] rounded-full mix-blend-multiply filter blur-[100px] opacity-10 floating"
             style="animation-delay: -4s;"></div>
         <!-- Mesh Grid -->
-        <div class="absolute inset-0 opacity-20" style="background-image: 
+        <div class="absolute inset-0 opacity-10" style="background-image: 
         linear-gradient(rgba(0, 217, 255, 0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
         background-size: 60px 60px;"></div>
@@ -327,7 +336,7 @@
     </nav>
 
     <!-- Header -->
-    <header class="relative py-24 px-4 text-center pt-32">
+    <header class="relative py-20 px-4 text-center pt-32">
         <div class="max-w-5xl mx-auto fade-in">
             <div
                 class="inline-block mb-4 px-4 py-2 rounded-full bg-gradient-to-r from-[#00D9FF]/20 to-[#00FF94]/20 border border-[#00D9FF]/30">
@@ -336,19 +345,27 @@
             <h1 class="text-4xl sm:text-6xl font-bold font-heading mb-6"><span class="gradient-text">Portfolio</span></h1>
             <p class="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">Real-world projects that solve actual
                 problems with Data, Automation, and AI</p>
-            <div class="mt-8">
-                <a href="certificates.html"
-                    class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 bg-white/5 text-sm font-semibold text-white hover:border-[#FFE600]/60 hover:text-[#FFE600] transition-colors">
-                    View Certificates
-                    <i class="fas fa-certificate"></i>
-                </a>
+            <div class="mt-8 text-sm text-gray-400">
+                Need more evidence? <a href="certificates.html" class="text-[#FFE600] hover:underline">Browse
+                    certificates</a>
             </div>
         </div>
     </header>
 
     <!-- Filter Section -->
-    <section class="relative px-4 mb-12 fade-in" style="animation-delay: 0.2s;">
+    <section class="relative px-4 mb-10 fade-in" style="animation-delay: 0.2s;">
         <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col lg:flex-row gap-4 lg:items-center lg:justify-between mb-6">
+                <p id="result-count" class="text-sm text-gray-400">Showing 0 projects</p>
+                <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
+                    <input id="project-search" type="search" placeholder="Search project or tech..."
+                        class="control-input w-full sm:w-72 px-4 py-2.5 rounded-xl text-sm">
+                    <select id="sort-select" class="control-input px-4 py-2.5 rounded-xl text-sm">
+                        <option value="newest">Sort: Newest</option>
+                        <option value="title">Sort: A-Z</option>
+                    </select>
+                </div>
+            </div>
             <div class="flex flex-wrap justify-center gap-3">
                 <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium active"
                     data-filter="all">All</button>
@@ -366,7 +383,7 @@
     </section>
 
     <!-- Projects Grid -->
-    <section class="relative px-4 pb-24">
+    <section class="relative px-4 pb-20">
         <div class="max-w-7xl mx-auto">
             <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
@@ -867,8 +884,11 @@
                 ],
                 tech: ['Python', 'Slack API', 'Google Drive API', 'Docker'],
                 features: ['Automated File Upload', 'Smart Renaming via Caption', 'Dynamic Folder Routing', 'Dockerized Deployment'],
-                image: './assets/projects/slack-drive-bot/slack_bot_cover.png',
-                gallery: ['./assets/projects/slack-drive-bot/slack_bot_cover.png'],
+                image: './assets/projects/slack-drive-bot/cover.png',
+                gallery: [
+                    './assets/projects/slack-drive-bot/Screenshot 2569-02-12 at 11.23.38.png',
+                    './assets/projects/slack-drive-bot/Screenshot 2569-02-12 at 11.23.47.png'
+                ],
                 repo: 'https://github.com/Earthondev/slack-drive-bot'
             },
             'hanaihang': {
@@ -971,44 +991,82 @@
             }
         };
 
-        // Filter Logic
+        // Filter + Search + Sort Logic
         const filterButtons = document.querySelectorAll('.filter-btn');
         const projectCards = document.querySelectorAll('.project-card');
+        const allCards = [...projectCards];
         const emptyState = document.getElementById('empty-state');
         const projectsGrid = document.getElementById('projects-grid');
+        const projectSearch = document.getElementById('project-search');
+        const sortSelect = document.getElementById('sort-select');
+        const resultCount = document.getElementById('result-count');
 
-        // Keep project cards alphabetically sorted by title.
-        if (projectsGrid) {
-            [...projectCards]
-                .sort((a, b) => {
-                    const aTitle = a.querySelector('h3')?.textContent?.trim() || '';
-                    const bTitle = b.querySelector('h3')?.textContent?.trim() || '';
-                    return aTitle.localeCompare(bTitle, 'en', { sensitivity: 'base' });
-                })
-                .forEach((card) => projectsGrid.appendChild(card));
+        let activeFilter = 'all';
+        let searchQuery = '';
+        let sortMode = 'newest';
+
+        const cardTitle = (card) => (card.querySelector('h3')?.textContent || '').trim();
+        const cardYear = (card) => Number((card.querySelector('.mono')?.textContent || '').trim()) || 0;
+        const cardContent = (card) => card.textContent.toLowerCase();
+
+        function sortCards(cards) {
+            const sorted = [...cards];
+            if (sortMode === 'title') {
+                sorted.sort((a, b) => cardTitle(a).localeCompare(cardTitle(b), 'en', { sensitivity: 'base' }));
+            } else {
+                sorted.sort((a, b) => {
+                    const byYear = cardYear(b) - cardYear(a);
+                    if (byYear !== 0) return byYear;
+                    return cardTitle(a).localeCompare(cardTitle(b), 'en', { sensitivity: 'base' });
+                });
+            }
+            return sorted;
         }
 
-        filterButtons.forEach(btn => {
+        function applyProjectControls() {
+            const visible = allCards.filter((card) => {
+                const categories = (card.dataset.category || '').split(' ');
+                const filterMatch = activeFilter === 'all' || categories.includes(activeFilter);
+                const searchMatch = !searchQuery || cardContent(card).includes(searchQuery);
+                return filterMatch && searchMatch;
+            });
+
+            const hidden = allCards.filter((card) => !visible.includes(card));
+            const sortedVisible = sortCards(visible);
+
+            [...sortedVisible, ...hidden].forEach((card) => projectsGrid.appendChild(card));
+
+            allCards.forEach((card) => {
+                card.style.display = visible.includes(card) ? 'block' : 'none';
+            });
+
+            if (resultCount) {
+                resultCount.textContent = `Showing ${visible.length} project${visible.length === 1 ? '' : 's'}`;
+            }
+
+            emptyState.style.display = visible.length === 0 ? 'block' : 'none';
+        }
+
+        filterButtons.forEach((btn) => {
             btn.addEventListener('click', () => {
-                const filter = btn.dataset.filter;
-
-                filterButtons.forEach(b => b.classList.remove('active'));
+                activeFilter = btn.dataset.filter || 'all';
+                filterButtons.forEach((b) => b.classList.remove('active'));
                 btn.classList.add('active');
-
-                let visibleCount = 0;
-                projectCards.forEach(card => {
-                    const categories = card.dataset.category.split(' ');
-                    if (filter === 'all' || categories.includes(filter)) {
-                        card.style.display = 'block';
-                        visibleCount++;
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-
-                emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+                applyProjectControls();
             });
         });
+
+        projectSearch?.addEventListener('input', (event) => {
+            searchQuery = String(event.target.value || '').toLowerCase().trim();
+            applyProjectControls();
+        });
+
+        sortSelect?.addEventListener('change', (event) => {
+            sortMode = event.target.value || 'newest';
+            applyProjectControls();
+        });
+
+        applyProjectControls();
 
         // Modal Logic
         const modal = document.getElementById('project-modal');
