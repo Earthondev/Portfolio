@@ -1,0 +1,154 @@
+[
+  {
+    "id": "datarockie-data-science-bootcamp-2025",
+    "title": "Data Science Bootcamp 2025",
+    "issuer": "DataRockie",
+    "issued": "2025-10-10",
+    "category": "Data",
+    "credentialId": "DRK-DSB-2025",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/datarockie-data-science-bootcamp-2025.png",
+      "alt": "Data Science Bootcamp 2025 certificate"
+    },
+    "skills": [
+      "Python",
+      "SQL",
+      "Statistics"
+    ],
+    "featured": true
+  },
+  {
+    "id": "chatgpt-for-developers",
+    "title": "ChatGPT for Developers",
+    "issuer": "OpenAI Learning",
+    "issued": "2025-09-21",
+    "category": "Automation",
+    "credentialId": "OA-DEV-LLM-2025",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/chatgpt-for-developers.png",
+      "alt": "ChatGPT for Developers certificate"
+    },
+    "skills": [
+      "Prompt Engineering",
+      "API Workflow",
+      "Automation"
+    ],
+    "featured": true
+  },
+  {
+    "id": "essential-sql-for-everyone",
+    "title": "Essential SQL for Everyone",
+    "issuer": "Skooldio",
+    "issued": "2025-08-01",
+    "category": "Data",
+    "credentialId": "SQL-ESS-2025",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/essential-sql-for-everyone.png",
+      "alt": "Essential SQL for Everyone certificate"
+    },
+    "skills": [
+      "SQL",
+      "Data Modeling",
+      "Query Optimization"
+    ],
+    "featured": true
+  },
+  {
+    "id": "gemini-certified-educator",
+    "title": "Gemini Certified Educator",
+    "issuer": "Google",
+    "issued": "2025-06-17",
+    "category": "Automation",
+    "credentialId": "GEM-EDU-2025",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/gemini-certified-educator.png",
+      "alt": "Gemini Certified Educator certificate"
+    },
+    "skills": [
+      "Generative AI",
+      "Productivity",
+      "Workflow Design"
+    ],
+    "featured": false
+  },
+  {
+    "id": "analytical-chemistry-method-validation",
+    "title": "Analytical Chemistry and Method Validation",
+    "issuer": "Internal Laboratory Program",
+    "issued": "2024-12-15",
+    "category": "QA",
+    "credentialId": "CHEM-MV-2024",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/analytical-chemistry-method-validation.png",
+      "alt": "Analytical Chemistry and Method Validation certificate"
+    },
+    "skills": [
+      "Method Validation",
+      "Traceability",
+      "Quality Control"
+    ],
+    "featured": false
+  },
+  {
+    "id": "glp-gmp-quality-systems",
+    "title": "GLP and GMP Quality Systems",
+    "issuer": "Quality Compliance Institute",
+    "issued": "2024-11-04",
+    "category": "QA",
+    "credentialId": "QCI-GLP-GMP-2024",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/glp-gmp-quality-systems.png",
+      "alt": "GLP and GMP Quality Systems certificate"
+    },
+    "skills": [
+      "Quality Systems",
+      "Compliance",
+      "SOP"
+    ],
+    "featured": false
+  },
+  {
+    "id": "firebase-for-web-apps",
+    "title": "Firebase for Modern Web Apps",
+    "issuer": "Google for Developers",
+    "issued": "2024-09-18",
+    "category": "Web Development",
+    "credentialId": "GFD-FIREBASE-2024",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/firebase-for-web-apps.png",
+      "alt": "Firebase for Modern Web Apps certificate"
+    },
+    "skills": [
+      "Firebase",
+      "Authentication",
+      "Realtime Database"
+    ],
+    "featured": false
+  },
+  {
+    "id": "power-bi-dashboard-design",
+    "title": "Power BI Dashboard Design",
+    "issuer": "Microsoft Learn",
+    "issued": "2024-08-20",
+    "category": "Data",
+    "credentialId": "MSL-PBI-2024",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/power-bi-dashboard-design.png",
+      "alt": "Power BI Dashboard Design certificate"
+    },
+    "skills": [
+      "Power BI",
+      "Data Visualization",
+      "Business Reporting"
+    ],
+    "featured": false
+  }
+]

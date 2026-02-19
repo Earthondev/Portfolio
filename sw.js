@@ -1,6 +1,6 @@
-const CACHE_NAME = 'portfolio-v7';
-const STATIC_CACHE = 'static-v7';
-const DYNAMIC_CACHE = 'dynamic-v7';
+const CACHE_NAME = 'portfolio-v8';
+const STATIC_CACHE = 'static-v8';
+const DYNAMIC_CACHE = 'dynamic-v8';
 
 const urlsToCache = [
   '/',
@@ -31,7 +31,7 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(STATIC_CACHE)
       .then(cache => {
-        console.log('Opened static cache v6');
+        console.log('Opened static cache v8');
         return cache.addAll(urlsToCache);
       })
       .then(() => self.skipWaiting())

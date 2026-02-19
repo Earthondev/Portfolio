@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Professional certificates of Nattapart Worakun in Data, Automation, QA, and Web Development.">
+  <meta name="author" content="Nattapart Worakun">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta name="color-scheme" content="dark light">
+  <link rel="canonical" href="https://earthondev.github.io/Portfolio/certificates.html">
+  <link rel="icon" href="favicon.ico">
+
+  <meta property="og:site_name" content="Nattapart Worakun | Portfolio">
+  <meta property="og:title" content="Certificates | Nattapart Worakun">
+  <meta property="og:description" content="Verified credentials in Data, Automation, QA, and Development.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://earthondev.github.io/Portfolio/certificates.html">
+  <meta property="og:image" content="https://earthondev.github.io/Portfolio/assets/og/og-image.png">
+
+  <title>Certificates | Nattapart Worakun</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Space Grotesk', 'sans-serif'],
+            body: ['Sarabun', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    * {
+      font-family: 'Sarabun', 'Space Grotesk', sans-serif;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #00D9FF 0%, #00FF94 50%, #FFE600 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #00D9FF, #00FF94);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .filter-btn {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.02);
+      color: #d1d5db;
+      transition: all 0.25s ease;
+    }
+
+    .filter-btn:hover {
+      border-color: rgba(0, 217, 255, 0.45);
+      color: #f9fafb;
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, #00D9FF, #00FF94);
+      color: #0a0a0f;
+      border-color: transparent;
+    }
+
+    .cert-card {
+      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0, 217, 255, 0.45);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
+    }
+
+    .cert-image-shell {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.02);
+      padding: 4px 10px;
+      font-size: 11px;
+      color: #d1d5db;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .modal-overlay {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-panel {
+      transform: translateY(16px) scale(0.98);
+      transition: transform 0.25s ease;
+    }
+
+    .modal-overlay.active .modal-panel {
+      transform: translateY(0) scale(1);
+    }
+
+    .floating {
+      animation: float 8s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-18px);
+      }
+    }
+  </style>
+</head>
+
+<body class="h-full bg-[#0a0a0f] text-white overflow-x-hidden">
+  <div class="fixed inset-0 overflow-hidden pointer-events-none">
+    <div
+      class="absolute top-16 left-10 w-[420px] h-[420px] bg-[#00D9FF] rounded-full mix-blend-multiply blur-[110px] opacity-10 floating">
+    </div>
+    <div
+      class="absolute bottom-10 right-10 w-[420px] h-[420px] bg-[#00FF94] rounded-full mix-blend-multiply blur-[110px] opacity-10 floating"
+      style="animation-delay: -2s;"></div>
+    <div class="absolute inset-0 opacity-20" style="background-image:
+      linear-gradient(rgba(0, 217, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
+      background-size: 60px 60px;"></div>
+  </div>
+
+  <nav
+    class="fixed top-0 left-0 right-0 z-50 glass-card border-b-0 rounded-none sm:rounded-b-2xl sm:mx-4 sm:top-4 mt-0 sm:border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-2">
+          <a href="index.html"
+            class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center font-bold text-[#0a0a0f] text-xl">
+            NW
+          </a>
+          <a href="index.html"
+            class="font-semibold text-lg hidden sm:block font-heading text-white no-underline">Nattapart</a>
+        </div>
+
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Home</a>
+          <a href="about.html" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">About</a>
+          <a href="certificates.html" class="nav-link text-sm text-white font-medium">Certificates</a>
+          <a href="portfolio.html"
+            class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Portfolio</a>
+          <a href="contact.html" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Contact</a>
+        </div>
+
+        <div class="flex items-center space-x-4">
+          <a href="portfolio.html"
+            class="hidden sm:block px-4 py-2 rounded-lg bg-gradient-to-r from-[#00D9FF] to-[#00FF94] text-[#0a0a0f] font-semibold text-sm hover:opacity-90 transition-opacity">
+            View Projects
+          </a>
+          <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <div class="flex flex-col space-y-4 pt-4">
+          <a href="index.html" class="text-gray-300 hover:text-white">Home</a>
+          <a href="about.html" class="text-gray-300 hover:text-white">About</a>
+          <a href="certificates.html" class="text-white font-medium">Certificates</a>
+          <a href="portfolio.html" class="text-gray-300 hover:text-white">Portfolio</a>
+          <a href="contact.html" class="text-gray-300 hover:text-white">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="relative z-10 max-w-7xl mx-auto px-4 pt-32 pb-20">
+    <section class="mb-12 fade-up">
+      <div
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FFE600]/30 bg-[#FFE600]/10 text-[#FFE600] text-xs font-semibold tracking-[0.15em] uppercase">
+        <i class="fas fa-certificate"></i>
+        Professional Credentials
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-bold font-heading mt-6 leading-tight">Certificates that support <span
+          class="gradient-text">real project delivery</span></h1>
+      <p class="text-gray-400 text-lg mt-5 max-w-3xl">
+        หน้านี้ออกแบบให้ HR หรือลูกค้าอ่านเร็ว: ค้นหาได้, เรียงได้, และเปิดดูหลักฐานได้ทันที.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-4 mt-8">
+        <article class="glass-card rounded-2xl p-5 fade-up">
+          <p class="text-xs uppercase tracking-[0.14em] text-gray-500 mb-2">Total</p>
+          <p class="text-3xl font-bold text-white" id="cert-total">0</p>
+          <p class="text-sm text-gray-400">Certificates</p>
+        </article>
+        <article class="glass-card rounded-2xl p-5 fade-up">
+          <p class="text-xs uppercase tracking-[0.14em] text-gray-500 mb-2">Categories</p>
+          <p class="text-3xl font-bold text-white" id="cert-categories">0</p>
+          <p class="text-sm text-gray-400">Skill Areas</p>
+        </article>
+        <article class="glass-card rounded-2xl p-5 fade-up">
+          <p class="text-xs uppercase tracking-[0.14em] text-gray-500 mb-2">Latest</p>
+          <p class="text-2xl font-bold text-white" id="cert-latest">-</p>
+          <p class="text-sm text-gray-400">Most Recent Issue Date</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="glass-card rounded-2xl p-4 md:p-5 mb-10 fade-up">
+      <div class="grid lg:grid-cols-[1fr_auto] gap-4">
+        <label class="relative block">
+          <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
+          <input id="search-input" type="search" placeholder="Search by certificate, issuer, skill..."
+            class="w-full bg-[#0f131a] border border-white/10 rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[#00D9FF]/60">
+        </label>
+
+        <div class="flex flex-wrap gap-3">
+          <select id="sort-select"
+            class="bg-[#0f131a] border border-white/10 rounded-xl px-4 py-3 text-sm text-gray-100 focus:outline-none focus:border-[#00D9FF]/60">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+            <option value="title">Title A-Z</option>
+            <option value="issuer">Issuer A-Z</option>
+          </select>
+          <button id="clear-filters" type="button"
+            class="px-4 py-3 rounded-xl border border-white/10 text-sm text-gray-200 hover:border-[#FFE600]/60 hover:text-[#FFE600] transition-colors">
+            Reset
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <div id="filters" class="flex flex-wrap gap-2"></div>
+        <p id="result-count" class="text-xs text-gray-400 uppercase tracking-[0.12em]">0 results</p>
+      </div>
+    </section>
+
+    <section>
+      <div id="certificates-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      <div id="empty-state" class="hidden text-center py-16">
+        <i class="fas fa-search text-4xl text-gray-500 mb-4"></i>
+        <h3 class="text-2xl font-bold text-gray-300 mb-2">No certificates found</h3>
+        <p class="text-gray-500">Try changing filter, keyword, or sort.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="preview-modal" class="modal-overlay fixed inset-0 z-[60] bg-black/80 p-4 flex items-center justify-center">
+    <div class="modal-panel w-full max-w-5xl rounded-2xl border border-white/10 bg-[#0f1118] overflow-hidden">
+      <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
+        <h2 id="modal-title" class="text-lg font-semibold">Certificate Preview</h2>
+        <button id="close-modal"
+          class="w-9 h-9 rounded-full border border-white/15 hover:border-[#00D9FF] hover:text-[#00D9FF] transition-colors">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="p-4 bg-[#0b0d13] max-h-[80vh] overflow-auto">
+        <img id="modal-image" src="" alt="Certificate preview" class="w-full h-auto rounded-xl border border-white/10">
+      </div>
+    </div>
+  </div>
+
+  <footer class="py-12 px-4 border-t border-white/10 mt-10">
+    <div class="max-w-6xl mx-auto text-center">
+      <div class="flex items-center justify-center space-x-2 mb-4">
+        <div
+          class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center font-bold text-[#0a0a0f]">
+          NW
+        </div>
+        <span class="font-semibold text-lg font-heading">Nattapart Worakun</span>
+      </div>
+      <p class="text-gray-500 text-sm">Chemistry → Automation → Data & QA</p>
+      <div class="flex justify-center gap-4 mt-6">
+        <a href="https://github.com/earthondev" target="_blank" rel="noopener noreferrer"
+          class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white transition-all">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:earthlikemwbb@gmail.com"
+          class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white transition-all">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/earthondev/" target="_blank" rel="noopener noreferrer"
+          class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white transition-all">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+      <p class="text-gray-600 text-xs mt-4">© 2026 Nattapart Worakun. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const filtersEl = document.getElementById('filters');
+    const gridEl = document.getElementById('certificates-grid');
+    const emptyEl = document.getElementById('empty-state');
+    const totalEl = document.getElementById('cert-total');
+    const categoriesEl = document.getElementById('cert-categories');
+    const latestEl = document.getElementById('cert-latest');
+    const searchInput = document.getElementById('search-input');
+    const sortSelect = document.getElementById('sort-select');
+    const clearFiltersBtn = document.getElementById('clear-filters');
+    const resultCountEl = document.getElementById('result-count');
+
+    const modal = document.getElementById('preview-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalImage = document.getElementById('modal-image');
+    const closeModalBtn = document.getElementById('close-modal');
+
+    let allCertificates = [];
+    let activeFilter = 'All';
+    let searchQuery = '';
+    let sortMode = 'newest';
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    function escapeHTML(value = '') {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function formatDate(isoDate) {
+      if (!isoDate) return 'Date not specified';
+      const date = new Date(isoDate);
+      if (Number.isNaN(date.getTime())) return isoDate;
+      return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+    }
+
+    function withCacheBust(url, token) {
+      if (!url) return '';
+      const separator = url.includes('?') ? '&' : '?';
+      return `${url}${separator}v=${encodeURIComponent(token || Date.now())}`;
+    }
+
+    function normalize(text = '') {
+      return String(text).toLowerCase().trim();
+    }
+
+    function sortCertificates(list) {
+      const sorted = [...list];
+      if (sortMode === 'oldest') {
+        return sorted.sort((a, b) => new Date(a.issued || 0) - new Date(b.issued || 0));
+      }
+      if (sortMode === 'title') {
+        return sorted.sort((a, b) => String(a.title || '').localeCompare(String(b.title || ''), 'en', { sensitivity: 'base' }));
+      }
+      if (sortMode === 'issuer') {
+        return sorted.sort((a, b) => String(a.issuer || '').localeCompare(String(b.issuer || ''), 'en', { sensitivity: 'base' }));
+      }
+      return sorted.sort((a, b) => new Date(b.issued || 0) - new Date(a.issued || 0));
+    }
+
+    function renderStats() {
+      const categories = new Set(allCertificates.map(item => item.category).filter(Boolean));
+      const latest = sortCertificates(allCertificates)[0];
+
+      totalEl.textContent = String(allCertificates.length);
+      categoriesEl.textContent = String(categories.size);
+      latestEl.textContent = latest ? formatDate(latest.issued) : '-';
+    }
+
+    function renderFilters() {
+      const counts = allCertificates.reduce((acc, item) => {
+        const key = item.category || 'General';
+        acc[key] = (acc[key] || 0) + 1;
+        return acc;
+      }, {});
+      const categories = Object.keys(counts).sort();
+      const filterItems = [{ name: 'All', count: allCertificates.length }, ...categories.map((c) => ({ name: c, count: counts[c] }))];
+
+      filtersEl.innerHTML = filterItems.map((item) => {
+        const isActive = item.name === activeFilter;
+        return `
+          <button class="filter-btn ${isActive ? 'active' : ''} px-4 py-2 rounded-full text-sm font-medium" data-category="${escapeHTML(item.name)}">
+            ${escapeHTML(item.name)}
+            <span class="ml-1 text-xs opacity-80">(${item.count})</span>
+          </button>`;
+      }).join('');
+
+      filtersEl.querySelectorAll('[data-category]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          activeFilter = btn.dataset.category || 'All';
+          renderFilters();
+          renderCertificates();
+        });
+      });
+    }
+
+    function openModal(title, imageSrc, imageAlt) {
+      if (!imageSrc) return;
+      modalTitle.textContent = title || 'Certificate Preview';
+      modalImage.src = imageSrc;
+      modalImage.alt = imageAlt || title || 'Certificate preview';
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function matchQuery(cert, query) {
+      if (!query) return true;
+      const pool = [
+        cert?.title,
+        cert?.issuer,
+        cert?.category,
+        cert?.credentialId,
+        ...(Array.isArray(cert?.skills) ? cert.skills : [])
+      ].filter(Boolean).map(normalize).join(' ');
+      return pool.includes(query);
+    }
+
+    function toCardHTML(cert) {
+      const imageSrc = withCacheBust(
+        cert?.image?.src || '',
+        cert?.image?.version || cert?.issued || cert?.id
+      );
+      const imageAlt = cert?.image?.alt || cert?.title || 'Certificate image';
+      const title = cert?.title || 'Untitled Certificate';
+      const issuer = cert?.issuer || 'Unknown Issuer';
+      const category = cert?.category || 'General';
+      const issued = formatDate(cert?.issued);
+      const credentialId = cert?.credentialId || '-';
+      const credentialUrl = cert?.credentialUrl || '';
+      const skills = Array.isArray(cert?.skills) ? cert.skills : [];
+      const featured = Boolean(cert?.featured);
+
+      return `
+        <article class="cert-card glass-card rounded-2xl overflow-hidden fade-up">
+          <div class="cert-image-shell aspect-[16/10] p-3 relative">
+            ${featured ? '<span class="absolute top-3 left-3 chip"><i class="fas fa-star text-[#FFE600]"></i> Featured</span>' : ''}
+            ${imageSrc
+              ? `<img src="${escapeHTML(imageSrc)}" alt="${escapeHTML(imageAlt)}" loading="lazy" decoding="async" data-cert-image class="w-full h-full object-contain rounded-lg bg-[#0c1016]">`
+              : '<div class="w-full h-full rounded-lg flex items-center justify-center bg-gradient-to-br from-[#00D9FF]/15 to-transparent text-[#00D9FF]"><i class="fas fa-certificate text-5xl"></i></div>'}
+          </div>
+
+          <div class="p-5">
+            <div class="flex items-center justify-between gap-3 mb-3">
+              <span class="chip">${escapeHTML(category)}</span>
+              <span class="text-xs text-gray-400">${escapeHTML(issued)}</span>
+            </div>
+
+            <h3 class="text-xl font-semibold leading-snug text-white">${escapeHTML(title)}</h3>
+            <p class="text-sm text-gray-400 mt-2">Issued by ${escapeHTML(issuer)}</p>
+            <p class="text-xs text-gray-500 mt-3">Credential ID: <span class="text-gray-300">${escapeHTML(credentialId)}</span></p>
+
+            ${skills.length
+              ? `<div class="mt-4 flex flex-wrap gap-2">${skills.map((skill) => `<span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-xs text-gray-300">${escapeHTML(skill)}</span>`).join('')}</div>`
+              : ''}
+
+            <div class="mt-5 flex flex-wrap gap-2">
+              ${credentialUrl
+                ? `<a href="${escapeHTML(credentialUrl)}" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-lg bg-gradient-to-r from-[#00D9FF] to-[#00FF94] text-[#0a0a0f] text-sm font-semibold">Verify</a>`
+                : ''}
+              ${imageSrc
+                ? `<button type="button" data-preview-title="${escapeHTML(title)}" data-preview-image="${escapeHTML(imageSrc)}" data-preview-alt="${escapeHTML(imageAlt)}" class="px-3.5 py-2 rounded-lg border border-white/15 text-sm font-semibold text-gray-100 hover:border-[#FFE600] hover:text-[#FFE600] transition-colors">Preview</button>`
+                : ''}
+            </div>
+          </div>
+        </article>`;
+    }
+
+    function applyRevealAnimations() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.08 });
+
+      document.querySelectorAll('.fade-up').forEach((el, index) => {
+        el.style.transitionDelay = `${Math.min(index * 35, 280)}ms`;
+        observer.observe(el);
+      });
+    }
+
+    function renderCertificates() {
+      let list = activeFilter === 'All'
+        ? [...allCertificates]
+        : allCertificates.filter(item => (item.category || 'General') === activeFilter);
+
+      const query = normalize(searchQuery);
+      list = list.filter((item) => matchQuery(item, query));
+      list = sortCertificates(list);
+
+      resultCountEl.textContent = `${list.length} result${list.length === 1 ? '' : 's'}`;
+
+      if (!list.length) {
+        gridEl.innerHTML = '';
+        emptyEl.classList.remove('hidden');
+        return;
+      }
+
+      emptyEl.classList.add('hidden');
+      gridEl.innerHTML = list.map(toCardHTML).join('');
+
+      gridEl.querySelectorAll('img[data-cert-image]').forEach((img) => {
+        img.addEventListener('error', () => {
+          const parent = img.parentElement;
+          if (!parent) return;
+          parent.innerHTML = '<div class="w-full h-full rounded-lg flex items-center justify-center bg-gradient-to-br from-[#00D9FF]/15 to-transparent text-[#00D9FF]"><i class="fas fa-certificate text-5xl"></i></div>';
+        }, { once: true });
+      });
+
+      gridEl.querySelectorAll('[data-preview-image]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          openModal(btn.dataset.previewTitle, btn.dataset.previewImage, btn.dataset.previewAlt);
+        });
+      });
+
+      applyRevealAnimations();
+    }
+
+    async function loadCertificates() {
+      try {
+        const res = await fetch(`certificates.json?v=${Date.now()}`, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`Failed to load certificates.json (${res.status})`);
+
+        const json = await res.json();
+        allCertificates = Array.isArray(json) ? json : [];
+
+        renderStats();
+        renderFilters();
+        renderCertificates();
+      } catch (error) {
+        console.error('Error loading certificates:', error);
+        filtersEl.innerHTML = '';
+        gridEl.innerHTML = `
+          <article class="glass-card rounded-2xl p-8 text-center border border-red-500/30 bg-red-500/10 lg:col-span-2">
+            <h3 class="text-xl font-semibold text-red-200 mb-2">Unable to load certificates data</h3>
+            <p class="text-sm text-red-100/80">Please check <code>certificates.json</code> format and file paths.</p>
+          </article>`;
+      }
+    }
+
+    searchInput.addEventListener('input', (event) => {
+      searchQuery = event.target.value || '';
+      renderCertificates();
+    });
+
+    sortSelect.addEventListener('change', (event) => {
+      sortMode = event.target.value || 'newest';
+      renderCertificates();
+    });
+
+    clearFiltersBtn.addEventListener('click', () => {
+      activeFilter = 'All';
+      searchQuery = '';
+      sortMode = 'newest';
+      searchInput.value = '';
+      sortSelect.value = 'newest';
+      renderFilters();
+      renderCertificates();
+    });
+
+    closeModalBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeModal();
+    });
+
+    loadCertificates();
+    applyRevealAnimations();
+  </script>
+</body>
+
+</html>
