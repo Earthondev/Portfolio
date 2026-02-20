@@ -34,3 +34,16 @@ Quick duplicate-content check (same hash = same image content):
 cd assets/certificates
 shasum -a 256 *.png | sort
 ```
+
+Current duplicate-content files to replace (same hash group):
+- `analytical-chemistry-method-validation.png`
+- `datarockie-data-science-bootcamp-2025.png`
+- `firebase-for-web-apps.png`
+- `glp-gmp-quality-systems.png`
+- `power-bi-dashboard-design.png`
+
+After replacing image files, verify no duplicates remain:
+```bash
+cd assets/certificates
+shasum -a 256 *.png | sort | awk '{print $1}' | uniq -d
+```

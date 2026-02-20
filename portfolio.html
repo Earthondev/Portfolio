@@ -32,7 +32,7 @@
     <title>Portfolio Showcase | Nattapart Worakun</title>
 
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./assets/vendor/tailwind-play-cdn.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -386,353 +386,9 @@
     <section class="relative px-4 pb-20">
         <div class="max-w-7xl mx-auto">
             <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <!-- Project 0: Chemical Cabinet Label Maker -->
-                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
-                    data-category="webapp automation" style="animation-delay: 0.05s;"
-                    data-project="chemical-cabinet-label-maker">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/chemical-cabinet-label-maker/Cover.png"
-                            alt="Chemical Cabinet Label Maker" width="1024" height="1024" loading="lazy"
-                            decoding="async"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                    </div>
-                    <div class="p-6 pt-2 relative z-10">
-                        <div class="flex items-start justify-between mb-2">
-                            <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
-                                data-project="chemical-cabinet-label-maker">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">
-                            Chemical Cabinet Label Maker</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">
-                            เว็บแอปสร้างฉลากตู้สารเคมีแบบมาตรฐาน พร้อมพรีวิวและจัดหน้าสำหรับพิมพ์ใช้งานจริง</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">JavaScript</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">Lab
-                                Tool</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2026</span>
-                            <span class="text-[#00D9FF] font-semibold">Active</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 0: Guessing Game Quest -->
-                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
-                    data-category="webapp game" style="animation-delay: 0.05s;" data-project="guessing-game-quest">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/guessing-game-quest/Cover.png" alt="Guessing Game Quest"
-                            width="1024" height="1024" loading="lazy" decoding="async"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                    </div>
-                    <div class="p-6 pt-2 relative z-10">
-                        <div class="flex items-start justify-between mb-2">
-                            <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
-                                data-project="guessing-game-quest">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">
-                            Guessing Game Quest</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">เกมทายภาพปริศนา
-                            พร้อมระบบเก็บคะแนนและเฉลยที่สนุกสนาน</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">JavaScript</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Game</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2026</span>
-                            <span class="text-[#00D9FF] font-semibold">Active</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 1: Laundry App -->
-                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
-                    data-category="mobile" style="animation-delay: 0.1s;" data-project="laundry-app">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/LaundryApp_Project/Cover.png" alt="Laundry App" width="1536"
-                            height="1024" loading="lazy" decoding="async"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                    </div>
-                    <div class="p-6 pt-2 relative z-10">
-                        <div class="flex items-start justify-between mb-2">
-                            <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
-                                data-project="laundry-app">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">
-                            Laundry App</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">แอปพลิเคชันจัดการร้านซักรีด
-                            เน้นความเรียบง่าย เชื่อมต่อ Google Sheets</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Flutter</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Google
-                                Sheets</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2026</span>
-                            <span class="text-[#00FF94] font-semibold">In Development</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: Care for Mom -->
-                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
-                    data-category="mobile" style="animation-delay: 0.2s;" data-project="care-for-mom">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/care-for-mom/Cover.png" alt="Care for Mom App Interface"
-                            width="1536" height="1024" loading="lazy" decoding="async"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                    </div>
-                    <div class="p-6 pt-2 relative z-10">
-                        <div class="flex items-start justify-between mb-2">
-                            <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
-                                data-project="care-for-mom">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">Care
-                            for Mom</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">
-                            แอปพลิเคชันดูแลสุขภาพผู้สูงอายุ พัฒนาด้วยพลัง AI (Gemini) ช่วยแจ้งเตือนยาและวิเคราะห์สุขภาพ
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Flutter</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Gemini
-                                AI</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2026</span>
-                            <span class="text-[#00FF94] font-semibold">In Development</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: Slack Drive Bot -->
-                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
-                    data-category="automation" style="animation-delay: 0.3s;" data-project="slack-drive-bot">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/slack-drive-bot/cover.png" alt="Slack Drive Bot" width="1024"
-                            height="1024" loading="lazy" decoding="async"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                    </div>
-                    <div class="p-6 pt-2 relative z-10">
-                        <div class="flex items-start justify-between mb-2">
-                            <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
-                                data-project="slack-drive-bot">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00FF94] transition-colors">Slack
-                            Drive Bot</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">บอทอัตโนมัติเชื่อมต่อ Slack
-                            กับ Google Drive จัดการไฟล์และเปลี่ยนชื่ออัตโนมัติ</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">Python</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">Automation</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2026</span>
-                            <span class="text-[#FFE600] font-semibold">Completed</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4: HaaNaiHang -->
-                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
-                    data-category="webapp dashboard" style="animation-delay: 0.4s;" data-project="hanaihang">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/hanaihang/cover.png" alt="HaaNaiHang" width="1024" height="552"
-                            loading="lazy" decoding="async"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                    </div>
-                    <div class="p-6 pt-2 relative z-10">
-                        <div class="flex items-start justify-between mb-2">
-                            <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
-                                data-project="hanaihang">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#FFE600] transition-colors">
-                            HaaNaiHang</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">
-                            เว็บช่วยค้นหาห้าง/ร้านค้าพร้อมระบบ Admin Dashboard จัดการข้อมูลที่แม่นยำ</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">React</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Firebase</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2025</span>
-                            <span class="text-[#00D9FF] font-semibold">Production</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5: Expense Tracker -->
-                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
-                    data-category="mobile" style="animation-delay: 0.5s;" data-project="expense-tracker">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/expense-tracker/cover.png" alt="Expense Tracker" width="1024"
-                            height="1024" loading="lazy" decoding="async"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                    </div>
-                    <div class="p-6 pt-2 relative z-10">
-                        <div class="flex items-start justify-between mb-2">
-                            <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
-                                data-project="expense-tracker">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">
-                            Expense Tracker</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">แอปบันทึกรายรับรายจ่ายแบบ
-                            Offline-first พร้อมฟีเจอร์แนบรูปสลิป</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Flutter</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">SQLite</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2026</span>
-                            <span class="text-[#00FF94] font-semibold">Completed</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6: Inventory Amino -->
-                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
-                    data-category="automation dashboard" style="animation-delay: 0.6s;" data-project="inventory-amino">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/Inventory Amino/Cover.png" alt="Inventory Amino App Interface"
-                            width="1536" height="1024" loading="lazy" decoding="async"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                    </div>
-                    <div class="p-6 pt-2 relative z-10">
-                        <div class="flex items-start justify-between mb-2">
-                            <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
-                                data-project="inventory-amino">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00FF94] transition-colors">
-                            Inventory Amino</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">ระบบจัดการสต็อกสารเคมีในแล็บ
-                            Mobile-first พร้อมแจ้งเตือนของใกล้หมด</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">AppSheet</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">No-Code</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2025</span>
-                            <span class="text-[#FFE600] font-semibold">In Use</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 7: TonfernPDF -->
-                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
-                    data-category="webapp" style="animation-delay: 0.7s;" data-project="tonfernpdf">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/tonfern-pdf/cover.png" alt="TonfernPDF v3.0" width="1024"
-                            height="1024" loading="lazy" decoding="async"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                    </div>
-                    <div class="p-6 pt-2 relative z-10">
-                        <div class="flex items-start justify-between mb-2">
-                            <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
-                                data-project="tonfernpdf">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00FF94] transition-colors">
-                            TonfernPDF v3.0</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">เครื่องมือจัดการ PDF
-                            ระดับมืออาชีพ ประมวลผลบนเครื่อง 100% พร้อมระบบ Persona-based</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00FF94]/10 text-[#00FF94] text-xs font-medium border border-[#00FF94]/20">JavaScript</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">Privacy-First</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2026</span>
-                            <span class="text-[#00FF94] font-semibold">Live v3.0</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 8: Sentaiwatch -->
-                <div class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
-                    data-category="watchos" style="animation-delay: 0.8s;" data-project="sentaiwatch">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="./assets/projects/sentaiwatch-dx/cover.png" alt="Sentaiwatch" width="1024"
-                            height="1024" loading="lazy" decoding="async"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
-                    </div>
-                    <div class="p-6 pt-2 relative z-10">
-                        <div class="flex items-start justify-between mb-2">
-                            <div></div>
-                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors"
-                                data-project="sentaiwatch">
-                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
-                            </button>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">
-                            Sentaiwatch</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">
-                            Hyper-realistic Digitizer Replica for watchOS พร้อมระบบเสียงและ Logic เต็มรูปแบบ</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">SwiftUI</span>
-                            <span
-                                class="tech-tag px-3 py-1 rounded-lg bg-[#FFE600]/10 text-[#FFE600] text-xs font-medium border border-[#FFE600]/20">watchOS</span>
-                        </div>
-                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                            <span class="text-gray-500 mono">2025</span>
-                            <span class="text-[#00FF94] font-semibold">Live v1.0</span>
-                        </div>
-                    </div>
-                </div>
-
+                <article class="project-card rounded-2xl p-6">
+                    <p class="text-sm text-gray-400">Loading projects...</p>
+                </article>
             </div>
 
             <!-- Empty State -->
@@ -790,267 +446,297 @@
     </footer>
 
     <script>
-        // Project Data
-        const projectDetails = {
-            'chemical-cabinet-label-maker': {
-                title: 'Chemical Cabinet Label Maker',
-                description: 'เว็บแอปช่วยสร้างและพิมพ์ฉลากตู้สารเคมีให้เป็นมาตรฐานเดียวกัน ลดงานทำฉลากด้วยมือและลดความผิดพลาดในการติดป้าย',
-                challenge: 'การจัดการฉลากตู้สารเคมีด้วยมือใช้เวลามากและรูปแบบไม่สม่ำเสมอ ทำให้เกิดความเสี่ยงด้านความปลอดภัยในการค้นหาและหยิบใช้สาร',
-                solution: 'พัฒนาเครื่องมือสร้างฉลากแบบเทมเพลตที่กรอกข้อมูลง่าย พรีวิวได้ทันที และจัดหน้าให้พร้อมพิมพ์สำหรับใช้งานจริงในห้องแล็บ',
-                impact: [
-                    { label: 'Workflow', value: 'Standardized' },
-                    { label: 'Output', value: 'Print-ready' },
-                    { label: 'Speed', value: 'Batch' }
-                ],
-                tech: ['HTML5', 'CSS3', 'JavaScript'],
-                features: ['Template-Based Labels', 'Batch Label Generation', 'Live Preview', 'Print-Ready Layout'],
-                image: './assets/projects/chemical-cabinet-label-maker/Cover.png',
-                gallery: [
-                    './assets/projects/chemical-cabinet-label-maker/Screenshot 2569-02-19 at 14.58.26.png',
-                    './assets/projects/chemical-cabinet-label-maker/Screenshot 2569-02-19 at 15.06.46.png',
-                    './assets/projects/chemical-cabinet-label-maker/Screenshot 2569-02-19 at 15.06.56.png'
-                ],
-                repo: 'https://github.com/Earthondev/chemical-cabinet-label-maker'
-            },
-            'guessing-game-quest': {
-                title: 'Guessing Game Quest',
-                description: 'เกมทายภาพปริศนาที่ท้าทายความรู้รอบตัว พร้อมระบบเก็บคะแนนและเฉลยที่สนุกสนาน',
-                challenge: 'การสร้างเกมที่ต้องมีการโต้ตอบแบบ Real-time และระบบจัดการคะแนนที่แม่นยำ',
-                solution: 'พัฒนาด้วย JavaScript pure function เพื่อประสิทธิภาพสูงสุด และใช้ Local Storage จัดการคะแนน',
-                impact: [
-                    { label: 'Fun Factor', value: 'High' },
-                    { label: 'Device', value: 'Cross-platform' },
-                    { label: 'Latency', value: '< 50ms' }
-                ],
-                tech: ['HTML5', 'CSS3', 'JavaScript'],
-                features: ['Interactive Gameplay', 'Responsive Design', 'Score Tracking'],
-                image: './assets/projects/guessing-game-quest/Cover.png',
-                gallery: [
-                    './assets/projects/guessing-game-quest/Screenshot 2569-02-12 at 00.20.35.png',
-                    './assets/projects/guessing-game-quest/Screenshot 2569-02-12 at 00.20.47.png',
-                    './assets/projects/guessing-game-quest/Screenshot 2569-02-12 at 00.20.57.png'
-                ],
-                repo: 'https://github.com/Earthondev/guessing-game-earth',
-                live: 'https://guessing-game-earth.vercel.app'
-            },
-            'laundry-app': {
-                title: 'Laundry App – Smart Management System',
-                description: 'แอปพลิเคชันจัดการร้านซักรีดที่เน้นประสิทธิภาพและความเรียบง่าย (Minimalist) พัฒนาด้วย Flutter เชื่อมต่อ Google Sheets เป็น Backend',
-                challenge: 'เจ้าของร้านซักรีดต้องจดบันทึกออร์เดอร์ลงกระดาษ ทำให้ตรวจสอบยอดค้างและสถิติได้ยาก',
-                solution: 'สร้างแอปที่บันทึกออร์เดอร์ได้รวดเร็ว คำนวณราคาทันที และดูสถิติได้แบบ Real-time ผ่านมือถือ',
-                impact: [
-                    { label: 'Platform', value: 'Mobile' },
-                    { label: 'Database', value: 'Google Sheets' },
-                    { label: 'Status', value: 'In-Development' }
-                ],
-                tech: ['Flutter', 'Dart', 'Google Apps Script', 'Google Sheets'],
-                features: ['Smart Dashboard', 'Efficient Order Management', 'Customer History', 'Dynamic Pricing Settings'],
-                image: './assets/projects/LaundryApp_Project/Cover.png',
-                gallery: [
-                    './assets/projects/LaundryApp_Project/Screenshot_1770537232.png',
-                    './assets/projects/LaundryApp_Project/Screenshot_1770537242.png',
-                    './assets/projects/LaundryApp_Project/Screenshot_1770537245.png',
-                    './assets/projects/LaundryApp_Project/Screenshot_1770537250.png',
-                    './assets/projects/LaundryApp_Project/Screenshot_1770537253.png',
-                    './assets/projects/LaundryApp_Project/Screenshot_1770537290.png'
-                ],
-                repo: 'https://github.com/Earthondev/LaundryApp'
-            },
-            'care-for-mom': {
-                title: 'Care for Mom – AI Health Companion',
-                description: 'แอปพลิเคชันดูแลสุขภาพผู้สูงอายุ พัฒนาด้วยพลัง AI (Gemini) ช่วยแจ้งเตือนยาและวิเคราะห์สุขภาพเบื้องต้น',
-                challenge: 'ผู้สูงอายุมักลืมกินยาและไม่ทราบอาการป่วยเบื้องต้น ทำให้การรักษาล่าช้าและขาดการดูแลที่ต่อเนื่อง',
-                solution: 'พัฒนาแอปพลิเคชันที่ใช้ Gemini API วิเคราะห์ข้อมูลสุขภาพ และสร้างระบบแจ้งเตือนยาอัตโนมัติที่ใช้งานง่าย',
-                impact: [
-                    { label: 'AI Powered', value: 'Gemini 1.5' },
-                    { label: 'Language', value: 'TH / EN' },
-                    { label: 'Access', value: 'Offline' }
-                ],
-                tech: ['Flutter', 'Gemini API', 'SQLite', 'Dart'],
-                features: ['AI Health Analysis', 'Smart Medicine Reminders', 'Multi-language Support', 'Offline-first Architecture'],
-                image: './assets/projects/care-for-mom/Cover.png',
-                gallery: ['./assets/projects/care-for-mom/Screenshot-1.jpg'],
-                repo: 'https://github.com/Earthondev/CareForMom'
-            },
-            'slack-drive-bot': {
-                title: 'Slack Drive Bot',
-                description: 'บอทอัตโนมัติที่เชื่อมต่อ Slack กับ Google Drive ช่วยจัดการไฟล์แนบ เปลี่ยนชื่อ และจัดเก็บลงโฟลเดอร์ตามเงื่อนไข',
-                challenge: 'ทีมงานเสียเวลาจัดการไฟล์แนบจากแชท ต้องดาวน์โหลด เปลี่ยนชื่อ และอัปโหลดใหม่เองกว่า 10 ชม./สัปดาห์',
-                solution: 'สร้าง Slack Bot ที่ดักจับไฟล์แนบ อ่าน Caption เพื่อเปลี่ยนชื่อ และอัปโหลดลง Drive folder ที่ถูกต้องทันที',
-                impact: [
-                    { label: 'Time Saved', value: '-90%' },
-                    { label: 'Accuracy', value: '100%' },
-                    { label: 'Avg Speed', value: '< 2s' }
-                ],
-                tech: ['Python', 'Slack API', 'Google Drive API', 'Docker'],
-                features: ['Automated File Upload', 'Smart Renaming via Caption', 'Dynamic Folder Routing', 'Dockerized Deployment'],
-                image: './assets/projects/slack-drive-bot/cover.png',
-                gallery: [
-                    './assets/projects/slack-drive-bot/Screenshot 2569-02-12 at 11.23.38.png',
-                    './assets/projects/slack-drive-bot/Screenshot 2569-02-12 at 11.23.47.png'
-                ],
-                repo: 'https://github.com/Earthondev/slack-drive-bot'
-            },
-            'hanaihang': {
-                title: 'HaaNaiHang – Mall & Store Finder',
-                description: 'แอปพลิเคชันค้นหาห้างสรรพสินค้าและร้านค้าใกล้ตัว พร้อมระบบคำนวณระยะทางที่แม่นยำและการจัดการข้อมูลผ่าน Admin Dashboard',
-                challenge: 'ผู้ใช้หาสถานที่ในห้างยาก และข้อมูลร้านค้ามักไม่อัปเดต ทำให้เสียเวลาเดินทาง',
-                solution: 'พัฒนา Web App ที่ค้นหาร้านค้าได้รวดเร็ว พร้อม Admin Dashboard ให้เจ้าของสถานที่จัดการข้อมูลได้เอง',
-                impact: [
-                    { label: 'Performance', value: '98/100' },
-                    { label: 'Search Speed', value: '< 100ms' },
-                    { label: 'Platform', value: 'PWA' }
-                ],
-                tech: ['React 18', 'Firebase', 'TypeScript', 'Tailwind CSS'],
-                features: ['Comprehensive Search', 'Real-time Proximity Calculation', 'Internal Store Resolution', 'Admin Dashboard'],
-                image: './assets/projects/hanaihang/cover.png',
-                gallery: [
-                    './assets/projects/hanaihang/screenshot-1.png',
-                    './assets/projects/hanaihang/screenshot-2.png'
-                ],
-                repo: 'https://github.com/Earthondev/Hanaihang',
-                live: 'https://hanaihang.netlify.app/'
-            },
-            'expense-tracker': {
-                title: 'Flutter Expense Tracker',
-                description: 'แอปบันทึกรายรับรายจ่ายส่วนตัว เน้นความรวดเร็วและใช้งานแบบ Offline พร้อมฟีเจอร์แนบรูปสลิป',
-                challenge: 'แอปบันทึกรายจ่ายส่วนใหญ่ช้าและต้องใช้อินเทอร์เน็ต ทำให้ไม่สะดวกบันทึกทันทีหลังจ่ายเงิน',
-                solution: 'สร้าง Offline-first App ด้วย Flutter + SQLite ที่เปิดเร็วและบันทึกได้ทันที พร้อมแนบรูปสลิป',
-                impact: [
-                    { label: 'App Size', value: '< 20MB' },
-                    { label: 'Startup', value: '< 0.5s' },
-                    { label: 'Security', value: 'Local DB' }
-                ],
-                tech: ['Flutter', 'SQLite', 'Dart', 'Local Storage'],
-                features: ['Instant Transaction Log', 'Receipt Attachment', 'Monthly Reports', 'Dark Mode'],
-                image: './assets/projects/expense-tracker/cover.png',
-                gallery: ['./assets/projects/expense-tracker/cover.png'],
-                repo: 'https://github.com/Earthondev/flutter-expense-tracker'
-            },
-            'inventory-amino': {
-                title: 'Inventory Amino – Lab Stock Management',
-                description: 'ระบบจัดการสต็อกสารเคมี/วัสดุในแล็บ Mobile-first พร้อมแกลเลอรีรูป, รายงานคงเหลือ และแจ้งเตือนของใกล้หมด',
-                challenge: 'สต็อกแล็บมักคลาดเคลื่อน ของหมดไม่รู้ตัว และการเช็คสต็อกใช้เวลานาน',
-                solution: 'ใช้ AppSheet สร้างระบบจัดการ Inventory ที่ใช้งานง่ายบนมือถือ พร้อม Automation แจ้งเตือนผ่าน Line/Email',
-                impact: [
-                    { label: 'Stock Accuracy', value: '100%' },
-                    { label: 'Audit Time', value: '-60%' },
-                    { label: 'Waste', value: '-30%' }
-                ],
-                tech: ['AppSheet', 'Google Sheets', 'Automation', 'No-Code'],
-                features: ['Mobile Barcode Scan', 'Real-time Dashboard', 'Low-stock Alerts', 'Photo Gallery'],
-                image: './assets/projects/Inventory Amino/Confidential.png',
-                gallery: [],
-                repo: '#'
-            },
-            'tonfernpdf': {
-                title: 'TonfernPDF v3.0 – Professional PDF Management',
-                description: 'เครื่องมือจัดการ PDF ระดับมืออาชีพที่ประมวลผลบนเครื่องผู้ใช้ 100% (Local-First) พร้อมระบบ Persona-based สำหรับ Student, Office, Legal และ Engineer',
-                challenge: 'เครื่องมือ PDF ออนไลน์ส่วนใหญ่มักมีการเก็บข้อมูลบน Server ซึ่งมีความเสี่ยงด้านความเป็นส่วนตัว และ UI มักไม่ตอบโจทย์การใช้งานที่หลากหลาย',
-                solution: 'พัฒนา Web App ที่ประมวลผลไฟล์ภายในเบราว์เซอร์ 100% พร้อมออกแบบ UI ให้เหมาะสมตามกลุ่มผู้ใช้งาน (Persona-based) เพื่อประสิทธิภาพสูงสุด',
-                impact: [
-                    { label: 'Privacy', value: '100% Local' },
-                    { label: 'Version', value: 'v3.0.0' },
-                    { label: 'UX', value: 'Persona-based' }
-                ],
-                tech: ['HTML5', 'Vanilla CSS3', 'JavaScript (ES6+)', 'pdf-lib', 'SortableJS'],
-                features: [
-                    'Privacy-First Architecture (Client-side)',
-                    'Persona-Based Workflows',
-                    'Digital Sign & Watermark',
-                    'Drag & Drop Page Organizer',
-                    'Password Protection & Unlock'
-                ],
-                image: './assets/projects/tonfern-pdf/cover.png',
-                gallery: [
-                    './assets/projects/tonfern-pdf/Screenshot 2569-02-11 at 00.31.03.png',
-                    './assets/projects/tonfern-pdf/Screenshot 2569-02-11 at 00.31.15.png'
-                ],
-                repo: 'https://github.com/Earthondev/Tonfernpdf-',
-                live: 'https://earthondev.github.io/Tonfernpdf-/'
-            },
-            'sentaiwatch': {
-                title: 'SentaiWatch DX – Megaranger Digitizer Replica',
-                description: 'ชุดจำลองเครื่องแปลงร่าง Digitizer (Keitaizer) จาก Denji Sentai Megaranger (Power Rangers in Space) แบบ Hyper-realistic สำหรับ watchOS ที่เน้นความสมบูรณ์แบบทั้ง Visual และ Audio',
-                challenge: 'ต้องการนำประสบการณ์ของเล่นสะสมเกรด Premium (Super Sentai Artisan) มาไว้บน Apple Watch ให้มีความสมจริงทั้งสัมผัสและเสียง',
-                solution: 'พัฒนาด้วย Swift/SwiftUI ออกแบบ UI แบบ Skeuomorphic เต็มรูปแบบ พร้อมระบบ Audio Engine พิเศษ (Round-robin) เพื่อเลียนแบบการทำงานของของเล่นชิ้นจริง',
-                impact: [
-                    { label: 'Platform', value: 'watchOS' },
-                    { label: 'Accuracy', value: '100%' },
-                    { label: 'Sound', value: 'Round-robin' }
-                ],
-                tech: ['Swift 5', 'SwiftUI', 'WatchKit', 'AVFoundation'],
-                features: ['Authentic Cover Mode', 'Round-robin Audio Sampling', 'Transformation (3-3-5)', 'Super Mode (9-9-9)', 'Custom Sound Manager'],
-                image: './assets/projects/sentaiwatch-dx/cover.png',
-                gallery: [
-                    './assets/projects/sentaiwatch-dx/Screenshot 2569-01-21 at 21.02.32.png',
-                    './assets/projects/sentaiwatch-dx/Screenshot 2569-01-21 at 21.02.51.png'
-                ],
-                repo: 'https://github.com/Earthondev/SentaiWatch-DX',
-                live: 'https://www.tiktok.com/@nattapart_on_earth/video/7597457269302807815'
-            }
-        };
-
-        // Filter + Search + Sort Logic
         const filterButtons = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-        const allCards = [...projectCards];
         const emptyState = document.getElementById('empty-state');
         const projectsGrid = document.getElementById('projects-grid');
         const projectSearch = document.getElementById('project-search');
         const sortSelect = document.getElementById('sort-select');
         const resultCount = document.getElementById('result-count');
 
+        const modal = document.getElementById('project-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+        const closeModalBtn = document.getElementById('close-modal');
+
+        let projectList = [];
+        let projectMap = new Map();
         let activeFilter = 'all';
         let searchQuery = '';
         let sortMode = 'newest';
+        let currentGallery = [];
+        let currentIndex = 0;
 
-        const cardTitle = (card) => (card.querySelector('h3')?.textContent || '').trim();
-        const cardYear = (card) => Number((card.querySelector('.mono')?.textContent || '').trim()) || 0;
-        const cardContent = (card) => card.textContent.toLowerCase();
+        function escapeHTML(value = '') {
+            return String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
 
-        function sortCards(cards) {
-            const sorted = [...cards];
+        function toCategoryTokens(project) {
+            const haystack = [
+                ...(Array.isArray(project.tags) ? project.tags : []),
+                ...(Array.isArray(project.stack) ? project.stack : []),
+                project.title,
+                project.summary,
+                project.status
+            ].join(' ').toLowerCase();
+
+            const categories = new Set();
+            if (haystack.includes('web app') || haystack.includes('react') || haystack.includes('javascript') || haystack.includes('html')) categories.add('webapp');
+            if (haystack.includes('mobile app') || haystack.includes('flutter') || haystack.includes('android') || haystack.includes('ios')) categories.add('mobile');
+            if (haystack.includes('automation') || haystack.includes('appsheet') || haystack.includes('bot') || haystack.includes('python')) categories.add('automation');
+            if (haystack.includes('watchos') || haystack.includes('swiftui') || haystack.includes('watchkit')) categories.add('watchos');
+            if (haystack.includes('game')) categories.add('game');
+
+            if (!categories.size) categories.add('webapp');
+            return [...categories];
+        }
+
+        function normalizeProject(raw) {
+            const cover = raw?.coverImage?.src || '';
+            const gallery = Array.isArray(raw?.gallery) ? raw.gallery.map((item) => item?.src).filter(Boolean) : [];
+            const links = raw?.links || {};
+            const categories = toCategoryTokens(raw);
+            const stack = Array.isArray(raw?.stack) ? raw.stack : [];
+            const tags = Array.isArray(raw?.tags) ? raw.tags : [];
+            const roles = Array.isArray(raw?.role) ? raw.role : [];
+            const highlights = Array.isArray(raw?.highlights) ? raw.highlights : [];
+
+            const uniqueGallery = [...new Set([cover, ...gallery].filter(Boolean))];
+
+            return {
+                id: raw?.id || '',
+                title: raw?.title || 'Untitled project',
+                summary: raw?.summary || '',
+                year: Number(raw?.year || 0),
+                status: raw?.status || 'Active',
+                stack,
+                tags,
+                roles,
+                highlights,
+                image: cover,
+                imageAlt: raw?.coverImage?.alt || raw?.title || 'Project cover',
+                gallery: uniqueGallery,
+                links: {
+                    live: links.live || '',
+                    repo: links.repo || '',
+                    caseStudy: links.caseStudy || ''
+                },
+                categories
+            };
+        }
+
+        function statusClass(status = '') {
+            const key = status.toLowerCase();
+            if (key.includes('development') || key.includes('draft')) return 'text-[#00FF94]';
+            if (key.includes('complete') || key.includes('production') || key.includes('live') || key.includes('active')) return 'text-[#00D9FF]';
+            if (key.includes('use')) return 'text-[#FFE600]';
+            return 'text-gray-300';
+        }
+
+        function projectCardTemplate(project, index) {
+            const tags = project.stack.slice(0, 2);
+            return `
+                <article class="project-card rounded-2xl overflow-hidden fade-in group cursor-pointer"
+                    data-category="${escapeHTML(project.categories.join(' '))}"
+                    data-project="${escapeHTML(project.id)}"
+                    style="animation-delay: ${Math.min(index * 0.05, 0.45)}s;">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="${escapeHTML(project.image)}" alt="${escapeHTML(project.imageAlt)}" loading="lazy" decoding="async"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-6 pt-2 relative z-10">
+                        <div class="flex items-start justify-between mb-2">
+                            <div></div>
+                            <button class="view-details-btn text-gray-400 hover:text-white transition-colors" data-project="${escapeHTML(project.id)}">
+                                <i class="fas fa-arrow-up-right-from-square text-lg"></i>
+                            </button>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-[#00D9FF] transition-colors">${escapeHTML(project.title)}</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">${escapeHTML(project.summary)}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${tags.map((tag) => `<span class="tech-tag px-3 py-1 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] text-xs font-medium border border-[#00D9FF]/20">${escapeHTML(tag)}</span>`).join('')}
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-gray-500 mono">${project.year || '-'}</span>
+                            <span class="${statusClass(project.status)} font-semibold">${escapeHTML(project.status)}</span>
+                        </div>
+                    </div>
+                </article>`;
+        }
+
+        function sortProjects(projects) {
+            const sorted = [...projects];
             if (sortMode === 'title') {
-                sorted.sort((a, b) => cardTitle(a).localeCompare(cardTitle(b), 'en', { sensitivity: 'base' }));
-            } else {
-                sorted.sort((a, b) => {
-                    const byYear = cardYear(b) - cardYear(a);
-                    if (byYear !== 0) return byYear;
-                    return cardTitle(a).localeCompare(cardTitle(b), 'en', { sensitivity: 'base' });
-                });
+                return sorted.sort((a, b) => a.title.localeCompare(b.title, 'en', { sensitivity: 'base' }));
             }
-            return sorted;
+            return sorted.sort((a, b) => (b.year - a.year) || a.title.localeCompare(b.title, 'en', { sensitivity: 'base' }));
+        }
+
+        function renderProjectCards(projects) {
+            if (!projects.length) {
+                projectsGrid.innerHTML = '';
+                emptyState.style.display = 'block';
+                resultCount.textContent = 'Showing 0 projects';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            projectsGrid.innerHTML = projects.map((project, index) => projectCardTemplate(project, index)).join('');
+            resultCount.textContent = `Showing ${projects.length} project${projects.length === 1 ? '' : 's'}`;
+
+            projectsGrid.querySelectorAll('.project-card').forEach((card) => {
+                card.addEventListener('click', () => openModal(card.dataset.project));
+            });
         }
 
         function applyProjectControls() {
-            const visible = allCards.filter((card) => {
-                const categories = (card.dataset.category || '').split(' ');
-                const filterMatch = activeFilter === 'all' || categories.includes(activeFilter);
-                const searchMatch = !searchQuery || cardContent(card).includes(searchQuery);
+            const filtered = projectList.filter((project) => {
+                const filterMatch = activeFilter === 'all' || project.categories.includes(activeFilter);
+                const searchPool = [project.title, project.summary, ...project.stack, ...project.tags, ...project.roles].join(' ').toLowerCase();
+                const searchMatch = !searchQuery || searchPool.includes(searchQuery);
                 return filterMatch && searchMatch;
             });
 
-            const hidden = allCards.filter((card) => !visible.includes(card));
-            const sortedVisible = sortCards(visible);
+            renderProjectCards(sortProjects(filtered));
+        }
 
-            [...sortedVisible, ...hidden].forEach((card) => projectsGrid.appendChild(card));
-
-            allCards.forEach((card) => {
-                card.style.display = visible.includes(card) ? 'block' : 'none';
-            });
-
-            if (resultCount) {
-                resultCount.textContent = `Showing ${visible.length} project${visible.length === 1 ? '' : 's'}`;
+        function updateModalImage(index) {
+            currentIndex = index;
+            const mainImg = document.getElementById('modal-main-img');
+            if (mainImg) {
+                mainImg.src = currentGallery[currentIndex];
             }
+            document.querySelectorAll('.gallery-thumb').forEach((thumb, i) => {
+                thumb.classList.toggle('border-[#00D9FF]', i === currentIndex);
+                thumb.classList.toggle('border-white/10', i !== currentIndex);
+            });
+        }
 
-            emptyState.style.display = visible.length === 0 ? 'block' : 'none';
+        window.updateModalImage = updateModalImage;
+        window.prevImage = (event) => {
+            event.stopPropagation();
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            updateModalImage(currentIndex);
+        };
+        window.nextImage = (event) => {
+            event.stopPropagation();
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            updateModalImage(currentIndex);
+        };
+
+        function openModal(projectId) {
+            const project = projectMap.get(projectId);
+            if (!project) return;
+
+            modalTitle.textContent = project.title;
+            currentGallery = [...project.gallery];
+            currentIndex = 0;
+
+            modalBody.innerHTML = `
+                <div class="space-y-8">
+                    <div class="relative group rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-[#0b0b10] p-2">
+                        <img src="${escapeHTML(project.image)}" alt="${escapeHTML(project.imageAlt)}" id="modal-main-img"
+                            class="w-full max-h-[520px] object-contain transition-all duration-300">
+
+                        ${currentGallery.length > 1 ? `
+                        <button onclick="prevImage(event)" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all border border-white/10 hover:bg-[#00D9FF] hover:text-black">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button onclick="nextImage(event)" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all border border-white/10 hover:bg-[#00D9FF] hover:text-black">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>` : ''}
+                    </div>
+
+                    ${currentGallery.length > 1 ? `
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-white">Project Gallery</h3>
+                        <div class="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+                            ${currentGallery.map((img, index) => `
+                                <div class="gallery-thumb flex-shrink-0 w-32 aspect-video rounded-lg overflow-hidden cursor-pointer border-2 ${index === 0 ? 'border-[#00D9FF]' : 'border-white/10'} hover:border-[#00D9FF]/50 transition-all"
+                                     onclick="updateModalImage(${index})">
+                                    <img src="${escapeHTML(img)}" alt="Gallery ${index + 1}" loading="lazy" decoding="async" class="w-full h-full object-cover">
+                                </div>`).join('')}
+                        </div>
+                    </div>` : ''}
+
+                    <div>
+                        <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+                            <h3 class="text-xl font-bold text-white">Overview</h3>
+                            <div class="flex items-center gap-3">
+                                ${project.links.live ? `<a href="${escapeHTML(project.links.live)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#00D9FF] to-[#00FF94] text-[#0a0a0f] font-semibold text-sm hover:opacity-90 transition-opacity"><i class="fas fa-external-link-alt"></i> Live</a>` : ''}
+                                ${project.links.repo && project.links.repo !== '#' ? `<a href="${escapeHTML(project.links.repo)}" target="_blank" rel="noopener noreferrer" class="text-[#00D9FF] hover:underline flex items-center gap-1 text-sm"><i class="fab fa-github"></i> Code</a>` : ''}
+                                ${project.links.caseStudy ? `<a href="${escapeHTML(project.links.caseStudy)}" class="text-[#FFE600] hover:underline flex items-center gap-1 text-sm"><i class="fas fa-file-lines"></i> Case Study</a>` : ''}
+                            </div>
+                        </div>
+                        <p class="text-lg text-gray-300 leading-relaxed">${escapeHTML(project.summary)}</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="glass-card rounded-2xl p-6 border border-white/5 bg-white/5">
+                            <h3 class="text-lg font-semibold mb-3 text-white">Role</h3>
+                            <div class="flex flex-wrap gap-2">
+                                ${(project.roles.length ? project.roles : ['Not specified']).map((role) => `<span class="px-3 py-1.5 rounded-lg bg-[#00FF94]/10 text-[#00FF94] border border-[#00FF94]/20 text-sm">${escapeHTML(role)}</span>`).join('')}
+                            </div>
+                        </div>
+                        <div class="glass-card rounded-2xl p-6 border border-white/5 bg-white/5">
+                            <h3 class="text-lg font-semibold mb-3 text-white">Status</h3>
+                            <p class="text-gray-300">${escapeHTML(project.status)}</p>
+                            <p class="text-gray-500 text-sm mt-2">Year: ${project.year || '-'}</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-white">Tech Stack</h3>
+                        <div class="flex flex-wrap gap-2">
+                            ${project.stack.map((tech) => `<span class="px-3 py-1.5 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] border border-[#00D9FF]/20 text-sm font-medium">${escapeHTML(tech)}</span>`).join('')}
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-white">Highlights</h3>
+                        <ul class="space-y-2">
+                            ${(project.highlights.length ? project.highlights : ['Details will be updated soon.']).map((item) => `<li class="flex items-start gap-3 text-gray-300"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#00FF94] flex-shrink-0"></span><span>${escapeHTML(item)}</span></li>`).join('')}
+                        </ul>
+                    </div>
+                </div>`;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        async function loadProjects() {
+            try {
+                const response = await fetch(`projects.json?v=${Date.now()}`, { cache: 'no-store' });
+                if (!response.ok) throw new Error(`Failed to load projects.json (${response.status})`);
+
+                const raw = await response.json();
+                projectList = (Array.isArray(raw) ? raw : [])
+                    .map(normalizeProject)
+                    .filter((project) => project.id && project.title && project.image);
+
+                projectMap = new Map(projectList.map((project) => [project.id, project]));
+                applyProjectControls();
+            } catch (error) {
+                projectsGrid.innerHTML = `<article class="project-card rounded-2xl p-8 text-center lg:col-span-3 border border-red-500/30 bg-red-500/10">
+                    <h3 class="text-xl font-semibold text-red-200 mb-2">Unable to load projects</h3>
+                    <p class="text-sm text-red-100/80">Please check <code>projects.json</code> format.</p>
+                </article>`;
+                resultCount.textContent = 'Showing 0 projects';
+                emptyState.style.display = 'none';
+                console.error(error);
+            }
         }
 
         filterButtons.forEach((btn) => {
             btn.addEventListener('click', () => {
                 activeFilter = btn.dataset.filter || 'all';
-                filterButtons.forEach((b) => b.classList.remove('active'));
+                filterButtons.forEach((item) => item.classList.remove('active'));
                 btn.classList.add('active');
                 applyProjectControls();
             });
@@ -1066,156 +752,6 @@
             applyProjectControls();
         });
 
-        applyProjectControls();
-
-        // Modal Logic
-        const modal = document.getElementById('project-modal');
-        const modalTitle = document.getElementById('modal-title');
-        const modalBody = document.getElementById('modal-body');
-        const closeModalBtn = document.getElementById('close-modal');
-        // projectCards already defined above
-
-        // Gallery state
-        let currentGallery = [];
-        let currentIndex = 0;
-
-        window.updateModalImage = (index) => {
-            currentIndex = index;
-            const mainImg = document.getElementById('modal-main-img');
-            if (mainImg) {
-                mainImg.src = currentGallery[currentIndex];
-            }
-            document.querySelectorAll('.gallery-thumb').forEach((thumb, i) => {
-                if (i === currentIndex) {
-                    thumb.classList.add('border-[#00D9FF]');
-                    thumb.classList.remove('border-white/10');
-                } else {
-                    thumb.classList.remove('border-[#00D9FF]');
-                    thumb.classList.add('border-white/10');
-                }
-            });
-        };
-
-        window.prevImage = (e) => {
-            e.stopPropagation();
-            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-            updateModalImage(currentIndex);
-        };
-
-        window.nextImage = (e) => {
-            e.stopPropagation();
-            currentIndex = (currentIndex + 1) % currentGallery.length;
-            updateModalImage(currentIndex);
-        };
-
-        const openModal = (projectId) => {
-            const project = projectDetails[projectId];
-            if (project) {
-                modalTitle.textContent = project.title;
-                // Use cover image as first item, followed by gallery images
-                currentGallery = [project.image, ...(project.gallery || [])];
-                currentIndex = 0;
-
-                modalBody.innerHTML = `
-                    <div class="space-y-8">
-                        <!-- Main Showcase Slider -->
-                        <div class="relative group rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-[#0b0b10] p-2">
-                            <img src="${project.image}" alt="${project.title}" id="modal-main-img" 
-                                class="w-full max-h-[520px] object-contain transition-all duration-300">
-                            
-                            ${currentGallery.length > 1 ? `
-                            <button onclick="prevImage(event)" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all border border-white/10 hover:bg-[#00D9FF] hover:text-black">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <button onclick="nextImage(event)" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all border border-white/10 hover:bg-[#00D9FF] hover:text-black">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                            ` : ''}
-                        </div>
-
-                        <!-- Gallery Thumbnails -->
-                        ${currentGallery.length > 1 ? `
-                        <div>
-                            <h3 class="text-lg font-semibold mb-4 text-white">Project Gallery</h3>
-                            <div class="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
-                                ${currentGallery.map((img, index) => `
-                                    <div class="gallery-thumb flex-shrink-0 w-32 aspect-video rounded-lg overflow-hidden cursor-pointer border-2 ${index === 0 ? 'border-[#00D9FF]' : 'border-white/10'} hover:border-[#00D9FF]/50 transition-all"
-                                         onclick="updateModalImage(${index})">
-                                        <img src="${img}" alt="Gallery ${index + 1}" class="w-full h-full object-cover">
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                        ` : ''}
-
-                        <div>
-                            <div class="flex items-center justify-between mb-2">
-                                <h3 class="text-xl font-bold text-white">Overview</h3>
-                                <div class="flex items-center gap-3">
-                                    ${project.live ? `<a href="${project.live}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#00D9FF] to-[#00FF94] text-[#0a0a0f] font-semibold text-sm hover:opacity-90 transition-opacity"><i class="fas fa-external-link-alt"></i> Live Demo</a>` : ''}
-                                    ${project.repo && project.repo !== '#' ? `<a href="${project.repo}" target="_blank" rel="noopener noreferrer" class="text-[#00D9FF] hover:underline flex items-center gap-1 text-sm"><i class="fab fa-github"></i> View Code</a>` : ''}
-                                </div>
-                            </div>
-                            <p class="text-lg text-gray-300 leading-relaxed">${project.description}</p>
-                        </div>
-                        
-                        <div class="grid sm:grid-cols-3 gap-4">
-                            ${project.impact.map(metric => `
-                                <div class="metric-card rounded-xl p-4 text-center">
-                                    <div class="text-2xl font-bold gradient-text mb-1 text-white">${metric.value}</div>
-                                    <div class="text-sm text-gray-400 font-medium">${metric.label}</div>
-                                </div>
-                            `).join('')}
-                        </div>
-                        
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="glass-card rounded-2xl p-6 border border-white/5 bg-white/5">
-                                <h3 class="text-lg font-semibold mb-3 text-white">Challenge</h3>
-                                <p class="text-gray-300 leading-relaxed">${project.challenge}</p>
-                            </div>
-                            <div class="glass-card rounded-2xl p-6 border border-white/5 bg-white/5">
-                                <h3 class="text-lg font-semibold mb-3 text-white">Solution</h3>
-                                <p class="text-gray-300 leading-relaxed">${project.solution}</p>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <h3 class="text-lg font-semibold mb-4 text-white">Tech Stack</h3>
-                            <div class="flex flex-wrap gap-2">
-                                ${project.tech.map(tech => `
-                                    <span class="px-3 py-1.5 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] border border-[#00D9FF]/20 text-sm font-medium hover:bg-[#00D9FF]/20">${tech}</span>
-                                `).join('')}
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <h3 class="text-lg font-semibold mb-4 text-white">Key Features</h3>
-                            <div class="grid sm:grid-cols-2 gap-3">
-                                ${project.features.map(feature => `
-                                    <div class="flex items-center gap-3 glass-card rounded-xl p-4 border border-white/5 bg-white/5 hover:border-[#00FF94]/30 transition-all">
-                                        <div class="w-8 h-8 rounded-full bg-[#00FF94]/10 flex items-center justify-center text-[#00FF94]">
-                                            <i class="fas fa-check text-xs"></i>
-                                        </div>
-                                        <span class="text-gray-300 font-medium">${feature}</span>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                    </div>
-                `;
-                modal.classList.remove('hidden');
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        };
-
-        projectCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const projectId = card.dataset.project;
-                openModal(projectId);
-            });
-        });
-
         closeModalBtn.addEventListener('click', () => {
             modal.classList.remove('active');
             setTimeout(() => {
@@ -1224,18 +760,17 @@
             }, 300);
         });
 
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModalBtn.click();
-            }
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) closeModalBtn.click();
         });
 
-        // Mobile Menu
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+
+        loadProjects();
     </script>
 </body>
 

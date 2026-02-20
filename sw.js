@@ -1,6 +1,6 @@
-const CACHE_NAME = 'portfolio-v9';
-const STATIC_CACHE = 'static-v9';
-const DYNAMIC_CACHE = 'dynamic-v9';
+const CACHE_VERSION = 'v10';
+const STATIC_CACHE = `static-${CACHE_VERSION}`;
+const DYNAMIC_CACHE = `dynamic-${CACHE_VERSION}`;
 
 const urlsToCache = [
   '/',
@@ -11,6 +11,7 @@ const urlsToCache = [
   '/portfolio.html',
   '/style.css',
   '/cache-bust.js',
+  '/assets/vendor/tailwind-play-cdn.js',
   '/projects.json',
   '/certificates.json',
   '/services.json',
@@ -28,10 +29,7 @@ const CACHE_STRATEGIES = {
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(STATIC_CACHE)
-      .then(cache => {
-        console.log('Opened static cache v9');
-        return cache.addAll(urlsToCache);
-      })
+      .then(cache => cache.addAll(urlsToCache))
       .then(() => self.skipWaiting())
   );
 });
@@ -76,7 +74,6 @@ async function cacheFirstStrategy(request) {
     cache.put(request, networkResponse.clone());
     return networkResponse;
   } catch (error) {
-    console.warn('Network failed for:', request.url);
     return new Response('Offline', { status: 503 });
   }
 }
@@ -114,7 +111,6 @@ self.addEventListener('activate', event => {
       return Promise.all(
         cacheNames.map(cacheName => {
           if (![STATIC_CACHE, DYNAMIC_CACHE].includes(cacheName)) {
-            console.log('Deleting old cache:', cacheName);
             return caches.delete(cacheName);
           }
         })
@@ -138,6 +134,5 @@ self.addEventListener('sync', event => {
 });
 
 async function syncContactForm() {
-  // Handle offline form submissions
-  console.log('Syncing contact form data...');
+  // Reserved for future offline contact form sync support.
 }

@@ -22,7 +22,7 @@
 
   <title>Certificates | Nattapart Worakun</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./assets/vendor/tailwind-play-cdn.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -291,6 +291,7 @@
         <div id="filters" class="flex flex-wrap gap-2"></div>
         <p id="result-count" class="text-xs text-gray-400 uppercase tracking-[0.12em]">0 results</p>
       </div>
+      <p class="mt-3 text-xs text-gray-500">Tip: Click a category chip to filter certificates.</p>
     </section>
 
     <section>
@@ -400,10 +401,18 @@
       return String(text).toLowerCase().trim();
     }
 
+    function issuedAt(cert) {
+      const value = new Date(cert?.issued || 0).getTime();
+      return Number.isNaN(value) ? 0 : value;
+    }
+
     function sortCertificates(list) {
       const sorted = [...list];
       if (sortMode === 'oldest') {
-        return sorted.sort((a, b) => new Date(a.issued || 0) - new Date(b.issued || 0));
+        return sorted.sort((a, b) =>
+          issuedAt(a) - issuedAt(b) ||
+          String(a.title || '').localeCompare(String(b.title || ''), 'en', { sensitivity: 'base' })
+        );
       }
       if (sortMode === 'title') {
         return sorted.sort((a, b) => String(a.title || '').localeCompare(String(b.title || ''), 'en', { sensitivity: 'base' }));
@@ -411,7 +420,10 @@
       if (sortMode === 'issuer') {
         return sorted.sort((a, b) => String(a.issuer || '').localeCompare(String(b.issuer || ''), 'en', { sensitivity: 'base' }));
       }
-      return sorted.sort((a, b) => new Date(b.issued || 0) - new Date(a.issued || 0));
+      return sorted.sort((a, b) =>
+        issuedAt(b) - issuedAt(a) ||
+        String(a.title || '').localeCompare(String(b.title || ''), 'en', { sensitivity: 'base' })
+      );
     }
 
     function renderStats() {
@@ -429,7 +441,15 @@
         acc[key] = (acc[key] || 0) + 1;
         return acc;
       }, {});
-      const categories = Object.keys(counts).sort();
+      const latestByCategory = allCertificates.reduce((acc, item) => {
+        const key = item.category || 'General';
+        acc[key] = Math.max(acc[key] || 0, issuedAt(item));
+        return acc;
+      }, {});
+      const categories = Object.keys(counts).sort((a, b) =>
+        (latestByCategory[b] || 0) - (latestByCategory[a] || 0) ||
+        a.localeCompare(b, 'en', { sensitivity: 'base' })
+      );
       const filterItems = [{ name: 'All', count: allCertificates.length }, ...categories.map((c) => ({ name: c, count: counts[c] }))];
 
       filtersEl.innerHTML = filterItems.map((item) => {
@@ -584,7 +604,9 @@
         if (!res.ok) throw new Error(`Failed to load certificates.json (${res.status})`);
 
         const json = await res.json();
-        allCertificates = Array.isArray(json) ? json : [];
+        allCertificates = sortCertificates(Array.isArray(json) ? json : []);
+        sortMode = 'newest';
+        sortSelect.value = 'newest';
 
         renderStats();
         renderFilters();
