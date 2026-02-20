@@ -1,5 +1,24 @@
 [
   {
+    "id": "google-certified-educator-level-1",
+    "title": "Google Certified Educator Level 1",
+    "issuer": "Google for Education",
+    "issued": "2026-02-20",
+    "category": "Education",
+    "credentialId": "",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/google-certified-educator-level-1.png",
+      "alt": "Google Certified Educator Level 1 certificate"
+    },
+    "skills": [
+      "Google Workspace",
+      "Digital Learning",
+      "Classroom Technology"
+    ],
+    "featured": true
+  },
+  {
     "id": "datarockie-data-science-bootcamp-2025",
     "title": "Data Science Bootcamp 2025",
     "issuer": "DataRockie",

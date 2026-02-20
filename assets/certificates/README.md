@@ -27,6 +27,7 @@ Current file map (must match `certificates.json`):
 - `glp-gmp-quality-systems.png`
 - `firebase-for-web-apps.png`
 - `power-bi-dashboard-design.png`
+- `google-certified-educator-level-1.png`
 
 Quick duplicate-content check (same hash = same image content):
 ```bash
