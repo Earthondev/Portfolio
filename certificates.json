@@ -169,5 +169,43 @@
       "Business Reporting"
     ],
     "featured": false
+  },
+  {
+    "id": "kmitl-chemical-safety-hazardous-emergency-response-2021",
+    "title": "Chemical Safety and Hazardous Emergency Response",
+    "issuer": "Faculty of Science, King Mongkut's Institute of Technology Ladkrabang (KMITL)",
+    "issued": "2021-02-09",
+    "category": "QA",
+    "credentialId": "SciKMITL2021-201/064",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/kmitl-chemical-safety-hazardous-emergency-response-2021.jpg",
+      "alt": "Chemical Safety and Hazardous Emergency Response certificate"
+    },
+    "skills": [
+      "Chemical Safety",
+      "Hazardous Materials",
+      "Emergency Response"
+    ],
+    "featured": false
+  },
+  {
+    "id": "environmental-youth-network-sustainable-city-2020",
+    "title": "National Youth Environmental Network Program for Sustainable City Management",
+    "issuer": "Department of Environmental Quality Promotion (Thailand)",
+    "issued": "2020-02-06",
+    "category": "Environment",
+    "credentialId": "",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/environmental-youth-network-sustainable-city-2020.jpg",
+      "alt": "National Youth Environmental Network Program certificate"
+    },
+    "skills": [
+      "Environmental Management",
+      "Sustainability",
+      "Program Participation"
+    ],
+    "featured": false
   }
 ]
