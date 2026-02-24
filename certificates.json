@@ -1,5 +1,43 @@
 [
   {
+    "id": "digital-risk-management-data-security-privacy-part-3-coniverse-boston-network",
+    "title": "การบริหารจัดการความเสี่ยงสำหรับการรักษาความมั่นคงปลอดภัยของข้อมูล ตอนที่ 3 (Digital Risk Management for Data Security and Data Privacy - Part 3)",
+    "issuer": "Boston Network and Conicle",
+    "issued": "2026-02-24",
+    "category": "Security",
+    "credentialId": "CO0040710002761C",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/digital-risk-management-data-security-privacy-part-3-coniverse-boston-network.png",
+      "alt": "Digital Risk Management for Data Security and Data Privacy Part 3 certificate"
+    },
+    "skills": [
+      "Digital Risk Management",
+      "Data Security",
+      "Data Privacy"
+    ],
+    "featured": false
+  },
+  {
+    "id": "digital-risk-management-data-security-privacy-part-2-coniverse-boston-network",
+    "title": "การบริหารจัดการความเสี่ยงสำหรับการรักษาความมั่นคงปลอดภัยของข้อมูล ตอนที่ 2 (Digital Risk Management for Data Security and Data Privacy - Part 2)",
+    "issuer": "Boston Network and Conicle",
+    "issued": "2026-02-24",
+    "category": "Security",
+    "credentialId": "CO00407200027609",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/digital-risk-management-data-security-privacy-part-2-coniverse-boston-network.png",
+      "alt": "Digital Risk Management for Data Security and Data Privacy Part 2 certificate"
+    },
+    "skills": [
+      "Digital Risk Management",
+      "Data Security",
+      "Data Privacy"
+    ],
+    "featured": false
+  },
+  {
     "id": "introduction-to-cloud-computing-conicle-boston-network",
     "title": "ระบบประมวลผลแบบคลาวด์เพื่อธุรกิจ (Introduction to Cloud Computing)",
     "issuer": "Boston Network and Conicle",
