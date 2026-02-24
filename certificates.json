@@ -1,5 +1,24 @@
 [
   {
+    "id": "introduction-to-cloud-computing-conicle-boston-network",
+    "title": "ระบบประมวลผลแบบคลาวด์เพื่อธุรกิจ (Introduction to Cloud Computing)",
+    "issuer": "Boston Network and Conicle",
+    "issued": "2026-02-24",
+    "category": "Cloud",
+    "credentialId": "CO0040780002759F",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/introduction-to-cloud-computing-conicle-boston-network.png",
+      "alt": "Introduction to Cloud Computing certificate"
+    },
+    "skills": [
+      "Cloud Computing",
+      "Business Applications",
+      "Digital Transformation"
+    ],
+    "featured": false
+  },
+  {
     "id": "google-certified-educator-level-1",
     "title": "Google Certified Educator Level 1",
     "issuer": "Google for Education",

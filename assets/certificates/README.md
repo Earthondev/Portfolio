@@ -28,6 +28,7 @@ Current file map (must match `certificates.json`):
 - `firebase-for-web-apps.png`
 - `power-bi-dashboard-design.png`
 - `google-certified-educator-level-1.png`
+- `introduction-to-cloud-computing-conicle-boston-network.png`
 - `kmitl-chemical-safety-hazardous-emergency-response-2021.jpg`
 - `environmental-youth-network-sustainable-city-2020.jpg`
 
