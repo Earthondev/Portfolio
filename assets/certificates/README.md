@@ -29,6 +29,7 @@ Current file map (must match `certificates.json`):
 - `power-bi-dashboard-design.png`
 - `google-certified-educator-level-1.png`
 - `introduction-to-cloud-computing-conicle-boston-network.png`
+- `digital-risk-management-data-security-privacy-part-4-coniverse-boston-network.png`
 - `digital-risk-management-data-security-privacy-part-2-coniverse-boston-network.png`
 - `digital-risk-management-data-security-privacy-part-3-coniverse-boston-network.png`
 - `kmitl-chemical-safety-hazardous-emergency-response-2021.jpg`

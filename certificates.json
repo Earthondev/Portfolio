@@ -1,5 +1,24 @@
 [
   {
+    "id": "digital-risk-management-data-security-privacy-part-4-coniverse-boston-network",
+    "title": "การบริหารจัดการความเสี่ยงสำหรับการรักษาความมั่นคงปลอดภัยของข้อมูล ตอนที่ 4 (Digital Risk Management for Data Security and Data Privacy - Part 4)",
+    "issuer": "Boston Network and Conicle",
+    "issued": "2026-02-24",
+    "category": "Security",
+    "credentialId": "CO00407000027651",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/digital-risk-management-data-security-privacy-part-4-coniverse-boston-network.png",
+      "alt": "Digital Risk Management for Data Security and Data Privacy Part 4 certificate"
+    },
+    "skills": [
+      "Digital Risk Management",
+      "Data Security",
+      "Data Privacy"
+    ],
+    "featured": false
+  },
+  {
     "id": "digital-risk-management-data-security-privacy-part-3-coniverse-boston-network",
     "title": "การบริหารจัดการความเสี่ยงสำหรับการรักษาความมั่นคงปลอดภัยของข้อมูล ตอนที่ 3 (Digital Risk Management for Data Security and Data Privacy - Part 3)",
     "issuer": "Boston Network and Conicle",
