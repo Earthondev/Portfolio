@@ -172,20 +172,20 @@
   },
   {
     "id": "analytical-chemistry-method-validation",
-    "title": "Analytical Chemistry and Method Validation",
-    "issuer": "Internal Laboratory Program",
-    "issued": "2024-12-15",
+    "title": "Method Validation for Chemical Testing (EURACHEM Guide, 3rd Edition, 2025)",
+    "issuer": "SGS (Thailand) Limited",
+    "issued": "2025-07-25",
     "category": "QA",
-    "credentialId": "CHEM-MV-2024",
+    "credentialId": "",
     "credentialUrl": "",
     "image": {
-      "src": "./assets/certificates/analytical-chemistry-method-validation.png",
-      "alt": "Analytical Chemistry and Method Validation certificate"
+      "src": "./assets/certificates/sgs-method-validation-chemical-testing-eurachem-2025.jpg",
+      "alt": "SGS Method Validation for Chemical Testing certificate"
     },
     "skills": [
       "Method Validation",
-      "Traceability",
-      "Quality Control"
+      "EURACHEM",
+      "Chemical Testing"
     ],
     "featured": false
   },
