@@ -18,38 +18,17 @@ Accepted formats:
 - `.jpeg`
 - `.webp`
 
-Current file map (must match `certificates.json`):
-- `datarockie-data-science-bootcamp-2025.png`
-- `chatgpt-for-developers.png`
-- `essential-sql-for-everyone.png`
-- `gemini-certified-educator.png`
-- `sgs-method-validation-chemical-testing-eurachem-2025.jpg`
-- `glp-gmp-quality-systems.png`
-- `firebase-for-web-apps.png`
-- `power-bi-dashboard-design.png`
-- `google-certified-educator-level-1.png`
-- `introduction-to-cloud-computing-conicle-boston-network.png`
-- `digital-risk-management-data-security-privacy-part-4-coniverse-boston-network.png`
-- `digital-risk-management-data-security-privacy-part-2-coniverse-boston-network.png`
-- `digital-risk-management-data-security-privacy-part-3-coniverse-boston-network.png`
-- `kmitl-chemical-safety-hazardous-emergency-response-2021.jpg`
-- `environmental-youth-network-sustainable-city-2020.jpg`
+Preview source on website:
+- Certificate cards and preview modal read image path from `certificates.json`.
+- Source field used directly: `image.src`
+- Example: `"image": { "src": "./assets/certificates/your-file.jpg", ... }`
 
-Quick duplicate-content check (same hash = same image content):
+Validation commands:
 ```bash
-cd assets/certificates
-shasum -a 256 *.png | sort
+npm run check:certificates
 ```
 
-Current duplicate-content files to replace (same hash group):
-- `analytical-chemistry-method-validation.png`
-- `datarockie-data-science-bootcamp-2025.png`
-- `firebase-for-web-apps.png`
-- `glp-gmp-quality-systems.png`
-- `power-bi-dashboard-design.png`
-
-After replacing image files, verify no duplicates remain:
+Auto-sort by latest issue date:
 ```bash
-cd assets/certificates
-shasum -a 256 *.png | sort | awk '{print $1}' | uniq -d
+npm run fix:certificates-order
 ```

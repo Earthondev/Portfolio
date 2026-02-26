@@ -823,25 +823,13 @@
     </div>
   </footer>
 
+  <script src="assets/js/common.js"></script>
   <script>
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-
-    // Intersection Observer
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.section-reveal').forEach(section => {
-      observer.observe(section);
+    window.PortfolioCommon?.initMobileMenu();
+    window.PortfolioCommon?.initRevealObserver({
+      selector: '.section-reveal',
+      threshold: 0.1,
+      onEnter: (element) => element.classList.add('visible')
     });
 
     // FAQ Toggle

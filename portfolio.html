@@ -33,6 +33,7 @@
 
     <!-- Tailwind CSS -->
     <script src="./assets/vendor/tailwind-play-cdn.js"></script>
+    <script src="assets/js/common.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -764,11 +765,7 @@
             if (event.target === modal) closeModalBtn.click();
         });
 
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        window.PortfolioCommon?.initMobileMenu();
 
         loadProjects();
     </script>

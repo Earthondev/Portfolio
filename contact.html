@@ -486,13 +486,9 @@
         </div>
     </footer>
 
+    <script src="assets/js/common.js"></script>
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        window.PortfolioCommon?.initMobileMenu();
 
         // Form Submission (Netlify native + optional Formspree endpoint)
         const form = document.getElementById('contact-form');

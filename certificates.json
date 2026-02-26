@@ -1,15 +1,15 @@
 [
   {
-    "id": "digital-risk-management-data-security-privacy-part-4-coniverse-boston-network",
-    "title": "การบริหารจัดการความเสี่ยงสำหรับการรักษาความมั่นคงปลอดภัยของข้อมูล ตอนที่ 4 (Digital Risk Management for Data Security and Data Privacy - Part 4)",
+    "id": "digital-risk-management-data-security-privacy-part-2-coniverse-boston-network",
+    "title": "การบริหารจัดการความเสี่ยงสำหรับการรักษาความมั่นคงปลอดภัยของข้อมูล ตอนที่ 2 (Digital Risk Management for Data Security and Data Privacy - Part 2)",
     "issuer": "Boston Network and Conicle",
     "issued": "2026-02-24",
     "category": "Security",
-    "credentialId": "CO00407000027651",
+    "credentialId": "CO00407200027609",
     "credentialUrl": "",
     "image": {
-      "src": "./assets/certificates/digital-risk-management-data-security-privacy-part-4-coniverse-boston-network.png",
-      "alt": "Digital Risk Management for Data Security and Data Privacy Part 4 certificate"
+      "src": "./assets/certificates/digital-risk-management-data-security-privacy-part-2-coniverse-boston-network.png",
+      "alt": "Digital Risk Management for Data Security and Data Privacy Part 2 certificate"
     },
     "skills": [
       "Digital Risk Management",
@@ -38,16 +38,16 @@
     "featured": false
   },
   {
-    "id": "digital-risk-management-data-security-privacy-part-2-coniverse-boston-network",
-    "title": "การบริหารจัดการความเสี่ยงสำหรับการรักษาความมั่นคงปลอดภัยของข้อมูล ตอนที่ 2 (Digital Risk Management for Data Security and Data Privacy - Part 2)",
+    "id": "digital-risk-management-data-security-privacy-part-4-coniverse-boston-network",
+    "title": "การบริหารจัดการความเสี่ยงสำหรับการรักษาความมั่นคงปลอดภัยของข้อมูล ตอนที่ 4 (Digital Risk Management for Data Security and Data Privacy - Part 4)",
     "issuer": "Boston Network and Conicle",
     "issued": "2026-02-24",
     "category": "Security",
-    "credentialId": "CO00407200027609",
+    "credentialId": "CO00407000027651",
     "credentialUrl": "",
     "image": {
-      "src": "./assets/certificates/digital-risk-management-data-security-privacy-part-2-coniverse-boston-network.png",
-      "alt": "Digital Risk Management for Data Security and Data Privacy Part 2 certificate"
+      "src": "./assets/certificates/digital-risk-management-data-security-privacy-part-4-coniverse-boston-network.png",
+      "alt": "Digital Risk Management for Data Security and Data Privacy Part 4 certificate"
     },
     "skills": [
       "Digital Risk Management",
@@ -152,25 +152,6 @@
     "featured": true
   },
   {
-    "id": "gemini-certified-educator",
-    "title": "Gemini Certified Educator",
-    "issuer": "Google",
-    "issued": "2025-06-17",
-    "category": "Automation",
-    "credentialId": "GEM-EDU-2025",
-    "credentialUrl": "",
-    "image": {
-      "src": "./assets/certificates/gemini-certified-educator.png",
-      "alt": "Gemini Certified Educator certificate"
-    },
-    "skills": [
-      "Generative AI",
-      "Productivity",
-      "Workflow Design"
-    ],
-    "featured": false
-  },
-  {
     "id": "analytical-chemistry-method-validation",
     "title": "Method Validation for Chemical Testing (EURACHEM Guide, 3rd Edition, 2025)",
     "issuer": "SGS (Thailand) Limited",
@@ -186,6 +167,25 @@
       "Method Validation",
       "EURACHEM",
       "Chemical Testing"
+    ],
+    "featured": false
+  },
+  {
+    "id": "gemini-certified-educator",
+    "title": "Gemini Certified Educator",
+    "issuer": "Google",
+    "issued": "2025-06-17",
+    "category": "Automation",
+    "credentialId": "GEM-EDU-2025",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/gemini-certified-educator.png",
+      "alt": "Gemini Certified Educator certificate"
+    },
+    "skills": [
+      "Generative AI",
+      "Productivity",
+      "Workflow Design"
     ],
     "featured": false
   },

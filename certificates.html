@@ -347,9 +347,8 @@
     </div>
   </footer>
 
+  <script src="assets/js/common.js"></script>
   <script>
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
     const filtersEl = document.getElementById('filters');
     const gridEl = document.getElementById('certificates-grid');
     const emptyEl = document.getElementById('empty-state');
@@ -371,9 +370,7 @@
     let searchQuery = '';
     let sortMode = 'newest';
 
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
+    window.PortfolioCommon?.initMobileMenu();
 
     function escapeHTML(value = '') {
       return String(value)

@@ -567,61 +567,29 @@
     </div>
   </footer>
 
+  <script src="assets/js/common.js"></script>
   <script src="cache-bust.js"></script>
   <script>
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    let isMenuOpen = false;
-
-    mobileMenuBtn.addEventListener('click', () => {
-      isMenuOpen = !isMenuOpen;
-      if (isMenuOpen) {
-        mobileMenu.classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
-      } else {
-        mobileMenu.classList.add('hidden');
-        document.body.style.overflow = '';
-      }
+    window.PortfolioCommon?.initMobileMenu({ lockScroll: true, closeOnBackdrop: true });
+    window.PortfolioCommon?.initNavbarScroll({
+      selector: '#navbar',
+      topBackground: 'rgba(10, 10, 15, 0.6)',
+      scrolledBackground: 'rgba(10, 10, 15, 0.85)',
+      topBlur: 'blur(12px)',
+      scrolledBlur: 'blur(20px)',
+      threshold: 20
     });
 
-    // Close menu when clicking outside
-    mobileMenu.addEventListener('click', (e) => {
-      if (e.target === mobileMenu) {
-        mobileMenu.classList.add('hidden');
-        isMenuOpen = false;
-        document.body.style.overflow = '';
-      }
-    });
-
-    // Navbar Scroll Effect
-    window.addEventListener('scroll', () => {
-      const navbar = document.getElementById('navbar');
-      if (window.scrollY > 20) {
-        navbar.classList.add('shadow-lg');
-        navbar.classList.replace('bg-opacity-50', 'bg-opacity-90'); // Adjust as needed if not using these specific classes
-        navbar.style.background = 'rgba(10, 10, 15, 0.85)';
-        navbar.style.backdropFilter = 'blur(20px)';
-      } else {
-        navbar.classList.remove('shadow-lg');
-        navbar.style.background = 'rgba(10, 10, 15, 0.6)';
-        navbar.style.backdropFilter = 'blur(12px)';
-      }
-    });
-
-    // Intersection Observer for Reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('opacity-100', 'translate-y-0');
-          entry.target.classList.remove('opacity-0', 'translate-y-10');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.section-reveal').forEach(section => {
+    document.querySelectorAll('.section-reveal').forEach((section) => {
       section.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
-      observer.observe(section);
+    });
+    window.PortfolioCommon?.initRevealObserver({
+      selector: '.section-reveal',
+      threshold: 0.1,
+      onEnter: (element) => {
+        element.classList.add('opacity-100', 'translate-y-0');
+        element.classList.remove('opacity-0', 'translate-y-10');
+      }
     });
 
     // Featured certificates on homepage
