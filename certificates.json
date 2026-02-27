@@ -1,5 +1,24 @@
 [
   {
+    "id": "prompt-engineering-agentic-ai-by-ais-academy",
+    "title": "Prompt Engineering & Agentic AI by AIS Academy",
+    "issuer": "AIS Academy",
+    "issued": "2026-02-27",
+    "category": "Automation",
+    "credentialId": "00231c1c-d3ce-48cf-816e-61cf63b2b623",
+    "credentialUrl": "https://www.credly.com/badges/00231c1c-d3ce-48cf-816e-61cf63b2b623",
+    "image": {
+      "src": "./assets/certificates/prompt-engineering-agentic-ai-by-ais-academy-certificate-2026.jpg",
+      "alt": "Prompt Engineering and Agentic AI by AIS Academy certificate"
+    },
+    "skills": [
+      "Prompt Engineering",
+      "Agentic AI",
+      "AI Workflow Automation"
+    ],
+    "featured": true
+  },
+  {
     "id": "digital-risk-management-data-security-privacy-part-2-coniverse-boston-network",
     "title": "การบริหารจัดการความเสี่ยงสำหรับการรักษาความมั่นคงปลอดภัยของข้อมูล ตอนที่ 2 (Digital Risk Management for Data Security and Data Privacy - Part 2)",
     "issuer": "Boston Network and Conicle",
