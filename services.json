@@ -185,6 +185,18 @@
       "level": "medium",
       "icon": "fas fa-balance-scale",
       "group": "Science"
+    },
+    {
+      "name": "Google Sheets",
+      "level": "high",
+      "icon": "fas fa-file-excel",
+      "group": "Data"
+    },
+    {
+      "name": "Notion",
+      "level": "high",
+      "icon": "fas fa-book",
+      "group": "Automation"
     }
   ],
   "certifications": [
