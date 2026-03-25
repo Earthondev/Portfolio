@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Inventory Analytics Dashboard case study by Nattapart Worakun covering stock visibility, turnover, dead stock, and reorder risk reporting.">
+  <meta name="theme-color" content="#0a0a0f">
+  <link rel="icon" href="../favicon.ico">
+  <title>Inventory Analytics Dashboard | Case Study</title>
+  <script src="../assets/vendor/tailwind-play-cdn.js"></script>
+  <script src="../assets/js/common.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      background: #0a0a0f;
+      color: #f9fafb;
+      font-family: 'Sarabun', 'Space Grotesk', sans-serif;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #00D9FF 0%, #00FF94 55%, #FFE600 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+
+<body class="min-h-full">
+  <div class="fixed inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute top-12 left-10 h-72 w-72 rounded-full bg-[#00D9FF]/10 blur-[100px]"></div>
+    <div class="absolute bottom-10 right-10 h-72 w-72 rounded-full bg-[#00FF94]/10 blur-[100px]"></div>
+  </div>
+
+  <nav class="sticky top-0 z-20 border-b border-white/5 bg-[#0a0a0f]/85 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+      <a href="../portfolio.html" class="text-sm font-semibold text-[#00D9FF]">Back to Portfolio</a>
+      <div class="flex items-center gap-4">
+        <a href="../inventory-analytics-dashboard.html" class="text-sm font-semibold text-[#00FF94] hover:text-white">Open Live Dashboard</a>
+        <a href="../index.html" class="text-sm text-gray-400 hover:text-white">Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="relative z-10 px-4 py-12">
+    <section class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-[#FFE600]">Case Study</p>
+        <h1 class="mt-4 text-4xl font-bold leading-tight sm:text-6xl">
+          Inventory <span class="gradient-text">Analytics Dashboard</span>
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-gray-300">
+          A portfolio project created to demonstrate how I would support an Inventory Reporting &amp; Analytics role:
+          turning stock data into actionable KPI views, weekly summaries, and exception-based decision making.
+        </p>
+        <div class="mt-8 grid gap-3 sm:grid-cols-3">
+          <div class="glass-card rounded-2xl p-4">
+            <p class="text-2xl font-bold text-[#00D9FF]">1,200+</p>
+            <p class="mt-1 text-sm text-gray-400">Simulated SKUs</p>
+          </div>
+          <div class="glass-card rounded-2xl p-4">
+            <p class="text-2xl font-bold text-[#00FF94]">12 Months</p>
+            <p class="mt-1 text-sm text-gray-400">Usage and demand history</p>
+          </div>
+          <div class="glass-card rounded-2xl p-4">
+            <p class="text-2xl font-bold text-[#FFE600]">6 KPIs</p>
+            <p class="mt-1 text-sm text-gray-400">Built for weekly decisions</p>
+          </div>
+        </div>
+        <div class="mt-6">
+          <a href="../inventory-analytics-dashboard.html"
+            class="inline-flex items-center gap-2 rounded-xl border border-[#00FF94]/20 bg-[#00FF94]/10 px-5 py-3 text-sm font-semibold text-[#D8FFF0] hover:border-[#00FF94]/40 hover:bg-[#00FF94]/15">
+            Open Live Dashboard
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="glass-card rounded-[2rem] p-5">
+        <img src="../assets/projects/inventory-analytics-dashboard/cover.svg"
+          alt="Inventory Analytics Dashboard cover"
+          class="w-full rounded-[1.5rem] border border-white/5">
+      </div>
+    </section>
+
+    <section class="mx-auto mt-14 grid max-w-6xl gap-6 md:grid-cols-3">
+      <article class="glass-card rounded-3xl p-6">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[#00D9FF]">Problem</p>
+        <p class="mt-4 text-gray-300">
+          Inventory teams often have stock data, but not a clear view of dead stock, reorder risk, and which items
+          deserve attention first.
+        </p>
+      </article>
+      <article class="glass-card rounded-3xl p-6">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[#00FF94]">Approach</p>
+        <p class="mt-4 text-gray-300">
+          Build a reporting layer around demand history, stock on hand, lead time, and business rules so exceptions are
+          visible immediately.
+        </p>
+      </article>
+      <article class="glass-card rounded-3xl p-6">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[#FFE600]">Outcome</p>
+        <p class="mt-4 text-gray-300">
+          A dashboard and weekly review flow that helps teams prioritize reorders, slow-moving stock, and at-risk SKUs.
+        </p>
+      </article>
+    </section>
+
+    <section class="mx-auto mt-14 grid max-w-6xl gap-8 lg:grid-cols-[1fr_0.92fr]">
+      <article class="glass-card rounded-[2rem] p-6">
+        <h2 class="text-2xl font-bold text-white">Dataset &amp; KPI Design</h2>
+        <ul class="mt-6 space-y-3 text-gray-300">
+          <li>Simulated SKU master with category, supplier lead time, safety stock, and unit cost.</li>
+          <li>Monthly usage / demand history to compare current stock against expected consumption.</li>
+          <li>KPIs designed for action: stock cover days, turnover rate, dead stock %, reorder risk, ABC mix, and slow-moving value.</li>
+          <li>Output framed for weekly operations review instead of only descriptive charts.</li>
+        </ul>
+        <img src="../assets/projects/inventory-analytics-dashboard/workflow.svg"
+          alt="Inventory analytics workflow"
+          class="mt-6 w-full rounded-[1.5rem] border border-white/5">
+      </article>
+
+      <article class="glass-card rounded-[2rem] p-6">
+        <h2 class="text-2xl font-bold text-white">What the Dashboard Answers</h2>
+        <div class="mt-6 space-y-4 text-gray-300">
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+            Which items have low stock coverage and need reorder attention this week?
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+            Which SKUs are consuming warehouse value without moving fast enough?
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+            Which categories have healthy turnover and which need clean-up or policy review?
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+            What should management see in one slide without reading raw spreadsheets?
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="mx-auto mt-14 max-w-6xl">
+      <article class="glass-card rounded-[2rem] p-6">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+          <div class="max-w-2xl">
+            <h2 class="text-2xl font-bold text-white">Dashboard Preview</h2>
+            <p class="mt-3 text-gray-300">
+              The reporting layer is intentionally business-oriented: a quick KPI row, demand-vs-stock trend, and stock
+              mix review that points the team toward action rather than passive monitoring.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-[#00D9FF]/25 bg-[#00D9FF]/5 px-4 py-3 text-sm text-[#C8F6FF]">
+            Suggested stack: Power BI or Google Sheets dashboard + SQL-style KPI logic
+          </div>
+        </div>
+        <img src="../assets/projects/inventory-analytics-dashboard/dashboard.svg"
+          alt="Inventory analytics dashboard"
+          class="mt-6 w-full rounded-[1.5rem] border border-white/5">
+      </article>
+    </section>
+
+    <section class="mx-auto mt-14 max-w-6xl">
+      <article class="glass-card rounded-[2rem] p-6">
+        <h2 class="text-2xl font-bold text-white">Why This Matters for Inventory Roles</h2>
+        <ul class="mt-6 grid gap-4 text-gray-300 md:grid-cols-2">
+          <li class="rounded-2xl border border-white/10 bg-white/5 p-4">Shows that I can translate raw stock data into management-ready reporting.</li>
+          <li class="rounded-2xl border border-white/10 bg-white/5 p-4">Connects analytics to business decisions like reorder prioritization and slow-moving review.</li>
+          <li class="rounded-2xl border border-white/10 bg-white/5 p-4">Keeps the operational mindset: adoption, accuracy, and clarity matter as much as the visuals.</li>
+          <li class="rounded-2xl border border-white/10 bg-white/5 p-4">Builds on my real background in lab operations, QA discipline, and workflow automation.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+</body>
+
+</html>

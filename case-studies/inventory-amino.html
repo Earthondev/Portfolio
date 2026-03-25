@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Inventory Amino case study by Nattapart Worakun covering lab stock visibility, low-stock alerts, and inventory workflow design.">
+  <meta name="theme-color" content="#0a0a0f">
+  <link rel="icon" href="../favicon.ico">
+  <title>Inventory Amino | Case Study</title>
+  <script src="../assets/vendor/tailwind-play-cdn.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      background: #0a0a0f;
+      color: #f9fafb;
+      font-family: 'Sarabun', 'Space Grotesk', sans-serif;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #00D9FF 0%, #00FF94 55%, #FFE600 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+
+<body class="min-h-full">
+  <main class="px-4 py-12">
+    <section class="mx-auto max-w-5xl">
+      <a href="../portfolio.html" class="text-sm font-semibold text-[#00D9FF]">Back to Portfolio</a>
+      <div class="mt-6 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-[#00FF94]">Real Inventory Project</p>
+          <h1 class="mt-4 text-4xl font-bold leading-tight sm:text-6xl">
+            Inventory <span class="gradient-text">Amino</span>
+          </h1>
+          <p class="mt-6 text-lg leading-relaxed text-gray-300">
+            A mobile-first inventory system for lab stock management, designed to improve stock visibility, reduce
+            picking errors, and make low-stock issues visible before they interrupt work.
+          </p>
+          <div class="mt-8 grid gap-3 sm:grid-cols-3">
+            <div class="glass-card rounded-2xl p-4">
+              <p class="text-2xl font-bold text-[#00D9FF]">30-50%</p>
+              <p class="mt-1 text-sm text-gray-400">Faster item picking</p>
+            </div>
+            <div class="glass-card rounded-2xl p-4">
+              <p class="text-2xl font-bold text-[#00FF94]">40%</p>
+              <p class="mt-1 text-sm text-gray-400">Fewer stock handling errors</p>
+            </div>
+            <div class="glass-card rounded-2xl p-4">
+              <p class="text-2xl font-bold text-[#FFE600]">Real-time</p>
+              <p class="mt-1 text-sm text-gray-400">Stock status and alerts</p>
+            </div>
+          </div>
+        </div>
+        <div class="glass-card rounded-[2rem] p-5">
+          <img src="../assets/projects/Inventory Amino/Cover.png" alt="Inventory Amino cover"
+            class="w-full rounded-[1.5rem] border border-white/5">
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-3">
+      <article class="glass-card rounded-3xl p-6">
+        <h2 class="text-lg font-semibold text-white">Context</h2>
+        <p class="mt-3 text-gray-300">Lab inventory was tracked across spreadsheets and manual checks, making it hard to know what was available right now.</p>
+      </article>
+      <article class="glass-card rounded-3xl p-6">
+        <h2 class="text-lg font-semibold text-white">System Design</h2>
+        <p class="mt-3 text-gray-300">Built with AppSheet and Google Spreadsheet for fast adoption, mobile access, and low operational overhead.</p>
+      </article>
+      <article class="glass-card rounded-3xl p-6">
+        <h2 class="text-lg font-semibold text-white">Business Value</h2>
+        <p class="mt-3 text-gray-300">Improved stock visibility, reduced wasted time searching, and created a foundation for reorder and usage reporting.</p>
+      </article>
+    </section>
+
+    <section class="mx-auto mt-14 grid max-w-5xl gap-8 lg:grid-cols-[1fr_0.94fr]">
+      <article class="glass-card rounded-[2rem] p-6">
+        <h2 class="text-2xl font-bold text-white">What Changed</h2>
+        <ul class="mt-5 space-y-3 text-gray-300">
+          <li>Centralized item records with validation rules and a mobile-friendly lookup flow.</li>
+          <li>Added real-time stock updates and low-stock alerts to reduce surprise shortages.</li>
+          <li>Made item discovery faster with image-based references and standardized records.</li>
+          <li>Created a practical base for reorder review and future inventory analytics.</li>
+        </ul>
+      </article>
+      <article class="glass-card rounded-[2rem] p-6">
+        <h2 class="text-2xl font-bold text-white">Confidentiality Note</h2>
+        <p class="mt-5 text-gray-300">
+          The production interface cannot be shown publicly in full because it contains internal operational data.
+          This page focuses on the workflow design, decision value, and measurable outcomes instead.
+        </p>
+        <img src="../assets/projects/Inventory Amino/Confidential.png" alt="Inventory Amino confidential placeholder"
+          class="mt-6 w-full rounded-[1.5rem] border border-white/5">
+      </article>
+    </section>
+  </main>
+</body>
+
+</html>

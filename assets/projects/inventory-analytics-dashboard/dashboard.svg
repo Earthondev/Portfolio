@@ -1,0 +1,32 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" fill="#0A0F14"/>
+  <rect x="60" y="60" width="1480" height="880" rx="36" fill="#101720" stroke="rgba(255,255,255,0.10)"/>
+  <text x="110" y="150" fill="white" font-family="Arial, sans-serif" font-size="44" font-weight="700">Inventory Analytics Dashboard</text>
+  <text x="110" y="195" fill="#8FA1B6" font-family="Arial, sans-serif" font-size="24">Simulated monthly demand, stock cover, reorder risk, and dead stock review</text>
+  <rect x="110" y="250" width="280" height="150" rx="24" fill="#0B1118" stroke="#00D9FF" stroke-opacity="0.35"/>
+  <text x="145" y="305" fill="#8FA1B6" font-family="Arial, sans-serif" font-size="24">Stock Cover Days</text>
+  <text x="145" y="370" fill="#00D9FF" font-family="Arial, sans-serif" font-size="54" font-weight="700">19</text>
+  <rect x="420" y="250" width="280" height="150" rx="24" fill="#0B1118" stroke="#00FF94" stroke-opacity="0.35"/>
+  <text x="455" y="305" fill="#8FA1B6" font-family="Arial, sans-serif" font-size="24">Turnover Rate</text>
+  <text x="455" y="370" fill="#00FF94" font-family="Arial, sans-serif" font-size="54" font-weight="700">6.4x</text>
+  <rect x="730" y="250" width="280" height="150" rx="24" fill="#0B1118" stroke="#FFE600" stroke-opacity="0.35"/>
+  <text x="765" y="305" fill="#8FA1B6" font-family="Arial, sans-serif" font-size="24">Reorder Risk SKUs</text>
+  <text x="765" y="370" fill="#FFE600" font-family="Arial, sans-serif" font-size="54" font-weight="700">73</text>
+  <rect x="1040" y="250" width="390" height="150" rx="24" fill="#0B1118" stroke="#FF7A59" stroke-opacity="0.35"/>
+  <text x="1075" y="305" fill="#8FA1B6" font-family="Arial, sans-serif" font-size="24">Slow-moving Value</text>
+  <text x="1075" y="370" fill="#FF7A59" font-family="Arial, sans-serif" font-size="54" font-weight="700">THB 184K</text>
+  <rect x="110" y="450" width="720" height="380" rx="28" fill="#0B1118" stroke="rgba(255,255,255,0.08)"/>
+  <text x="150" y="505" fill="#C6D1DD" font-family="Arial, sans-serif" font-size="28">Demand vs Current Stock</text>
+  <line x1="150" y1="760" x2="780" y2="760" stroke="#243140" stroke-width="3"/>
+  <line x1="150" y1="560" x2="150" y2="760" stroke="#243140" stroke-width="3"/>
+  <polyline points="170,720 250,690 330,660 410,610 490,585 570,530 650,510 730,470" fill="none" stroke="#00FF94" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="170,735 250,710 330,705 410,665 490,640 570,620 650,590 730,580" fill="none" stroke="#00D9FF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="870" y="450" width="560" height="380" rx="28" fill="#0B1118" stroke="rgba(255,255,255,0.08)"/>
+  <text x="910" y="505" fill="#C6D1DD" font-family="Arial, sans-serif" font-size="28">ABC / Dead Stock Mix</text>
+  <rect x="930" y="570" width="120" height="180" rx="16" fill="#00D9FF"/>
+  <rect x="1090" y="610" width="120" height="140" rx="16" fill="#00FF94"/>
+  <rect x="1250" y="655" width="120" height="95" rx="16" fill="#FFE600"/>
+  <text x="960" y="785" fill="#AAB4C5" font-family="Arial, sans-serif" font-size="22">A</text>
+  <text x="1120" y="785" fill="#AAB4C5" font-family="Arial, sans-serif" font-size="22">B</text>
+  <text x="1280" y="785" fill="#AAB4C5" font-family="Arial, sans-serif" font-size="22">C</text>
+</svg>

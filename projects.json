@@ -1,5 +1,69 @@
 [
   {
+    "id": "inventory-analytics-dashboard",
+    "title": "Inventory Analytics Dashboard",
+    "slug": "inventory-analytics-dashboard",
+    "year": 2026,
+    "summary": "Portfolio case study สำหรับงาน Inventory Reporting & Analytics: จำลอง dataset สต็อกและ demand เพื่อวิเคราะห์ stock cover, dead stock, turnover rate และ reorder risk ในมุมธุรกิจ",
+    "role": [
+      "Data Analyst",
+      "Dashboard Builder",
+      "Workflow Designer"
+    ],
+    "stack": [
+      "Power BI",
+      "SQL Logic",
+      "Google Sheets",
+      "AppSheet"
+    ],
+    "highlights": [
+      "Built a simulated 1,200+ SKU dataset with stock, demand history, lead time, and safety stock assumptions",
+      "Designed KPI views for stock cover days, dead stock %, turnover rate, ABC mix, and reorder risk",
+      "Framed the output as a weekly management review with exception-based action instead of passive charts"
+    ],
+    "metrics": [
+      {
+        "value": "1,200+",
+        "label": "Simulated SKU records"
+      },
+      {
+        "value": "6 KPIs",
+        "label": "Decision-focused metrics"
+      },
+      {
+        "value": "Weekly",
+        "label": "Action summary design"
+      }
+    ],
+    "coverImage": {
+      "src": "./assets/projects/inventory-analytics-dashboard/cover.svg",
+      "alt": "Inventory Analytics Dashboard cover"
+    },
+    "gallery": [
+      {
+        "src": "./assets/projects/inventory-analytics-dashboard/dashboard.svg",
+        "alt": "Inventory Analytics Dashboard KPI screen"
+      },
+      {
+        "src": "./assets/projects/inventory-analytics-dashboard/workflow.svg",
+        "alt": "Inventory analytics workflow"
+      }
+    ],
+    "links": {
+      "live": "./inventory-analytics-dashboard.html",
+      "caseStudy": "./case-studies/inventory-analytics-dashboard.html"
+    },
+    "tags": [
+      "Dashboard",
+      "Inventory",
+      "Analytics",
+      "Power BI"
+    ],
+    "cta": "View Case Study",
+    "status": "Portfolio Case Study",
+    "caseStudy": true
+  },
+  {
     "id": "chemical-cabinet-label-maker",
     "title": "Chemical Cabinet Label Maker",
     "slug": "chemical-cabinet-label-maker",
@@ -360,7 +424,7 @@
     "title": "Inventory Amino – Lab Stock Management",
     "slug": "inventory-amino",
     "year": 2025,
-    "summary": "ระบบจัดการสต็อกสารเคมี/วัสดุในแล็บ Mobile-first พร้อมแกลเลอรีรูป, รายงานคงเหลือ และแจ้งเตือนของใกล้หมด",
+    "summary": "ระบบ inventory สำหรับสารเคมีและวัสดุในแล็บแบบ mobile-first ที่ช่วยให้เห็น stock status ชัดขึ้น ลดเวลาค้นหา และเป็นฐานข้อมูลสำหรับรายงานคงเหลือและการวางแผน reorder",
     "role": [
       "Product Designer",
       "No-Code Developer",
@@ -372,10 +436,24 @@
       "Automation"
     ],
     "highlights": [
-      "Mobile-first inventory for lab teams",
-      "Cut picking time 30–50% | Error −40%",
-      "Real-time stock updates & Low-stock alerts",
-      "No-code solution with enterprise-grade validation"
+      "Mobile-first inventory workflow for lab teams with photo reference and standardized item records",
+      "Cut picking time 30–50% and reduced stock handling errors by around 40%",
+      "Improved stock visibility with real-time updates, low-stock alerts, and cleaner reporting inputs",
+      "Created a practical foundation for reorder review and future inventory analytics"
+    ],
+    "metrics": [
+      {
+        "value": "30-50%",
+        "label": "Faster item picking"
+      },
+      {
+        "value": "-40%",
+        "label": "Lower handling errors"
+      },
+      {
+        "value": "Real-time",
+        "label": "Stock visibility updates"
+      }
     ],
     "coverImage": {
       "src": "./assets/projects/Inventory Amino/Cover.png",

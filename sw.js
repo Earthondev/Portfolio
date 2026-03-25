@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v10';
+const CACHE_VERSION = 'v11';
 const STATIC_CACHE = `static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE = `dynamic-${CACHE_VERSION}`;
 
@@ -9,8 +9,11 @@ const urlsToCache = [
   '/certificates.html',
   '/contact.html',
   '/portfolio.html',
+  '/inventory-analytics-dashboard.html',
   '/style.css',
   '/cache-bust.js',
+  '/assets/js/common.js',
+  '/assets/js/inventory-analytics-dashboard.js',
   '/assets/vendor/tailwind-play-cdn.js',
   '/projects.json',
   '/certificates.json',
