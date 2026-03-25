@@ -297,7 +297,7 @@
     "highlights": [
       "System Control Center: GUI Dashboard สไตล์ Cyberpunk ดาร์กโหมด พร้อม Real-time Status, Log Console และ Manual Sync Panel",
       "Smart File Naming: ตั้งชื่อไฟล์อัตโนมัติตามรหัสแล็บ (pH, NPK, HPLC, Viscosity ฯลฯ) ลดข้อผิดพลาดจากการตั้งชื่อด้วยมือ",
-      "Easy Chat Commands: สั่ง sync, ดึงไฟล์ย้อนหลัง หรือกด Emoji Reaction (🔄♻️🔁) เพื่อทริกเกอร์ Sync ได้ทันที",
+      "Easy Chat Commands: สั่ง sync, ดึงไฟล์ย้อนหลัง หรือใช้ Slack reactions เพื่อทริกเกอร์ Sync ได้ทันที",
       "Multi-Lab Channel Routing: รองรับหลายห้องแล็บ เลือก Channel/วันที่/จำนวนไฟล์ได้จาก GUI พร้อมจัดเก็บลงโฟลเดอร์ Drive อัตโนมัติ",
       "Automated Filing: ลดเวลางาน Admin 90% ด้วยระบบ Download → Rename → Upload แบบ Batch Processing"
     ],
