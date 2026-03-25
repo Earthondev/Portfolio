@@ -99,6 +99,25 @@
       border-color: transparent;
     }
 
+    .focus-btn {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.03);
+      color: #e5e7eb;
+      transition: all 0.25s ease;
+    }
+
+    .focus-btn:hover {
+      border-color: rgba(255, 230, 0, 0.35);
+      color: #ffffff;
+    }
+
+    .focus-btn.active {
+      border-color: rgba(255, 230, 0, 0.2);
+      background: linear-gradient(135deg, rgba(255, 230, 0, 0.16), rgba(0, 217, 255, 0.12));
+      color: #fff8bf;
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.22);
+    }
+
     .cert-card {
       transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
     }
@@ -123,6 +142,37 @@
       background: rgba(255, 255, 255, 0.02);
       padding: 4px 10px;
       font-size: 11px;
+      color: #d1d5db;
+    }
+
+    .track-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .track-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), transparent 55%, rgba(255, 230, 0, 0.08));
+      pointer-events: none;
+    }
+
+    .track-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      line-height: 1;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
       color: #d1d5db;
     }
 
@@ -260,6 +310,41 @@
       </div>
     </section>
 
+    <section class="mb-10 fade-up">
+      <div class="grid xl:grid-cols-[1.3fr_1fr] gap-5">
+        <article class="glass-card rounded-2xl p-6 track-card">
+          <div class="flex flex-wrap items-center gap-3 mb-4">
+            <span class="chip"><i class="fas fa-bullseye"></i> Role Fit Narrative</span>
+            <span id="focus-summary" class="text-xs text-gray-400 uppercase tracking-[0.12em]">Loading certificates...</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold font-heading text-white leading-tight">
+            These credentials back up
+            <span class="gradient-text">analytics, automation, and control</span>
+            work for inventory-heavy teams.
+          </h2>
+          <p class="mt-4 text-sm sm:text-base text-gray-300 max-w-3xl">
+            Instead of showing certificates as isolated achievements, this page groups them by the business capability they support:
+            reporting, operational decision-making, automation, QA discipline, and data reliability.
+          </p>
+          <div id="focus-buttons" class="mt-5 flex flex-wrap gap-2"></div>
+        </article>
+
+        <article class="glass-card rounded-2xl p-6">
+          <p class="text-xs uppercase tracking-[0.14em] text-gray-500 mb-2">Recruiter Shortcut</p>
+          <h3 class="text-xl font-semibold text-white">Why this page matters for Inventory Analytics</h3>
+          <ul class="mt-4 space-y-3 text-sm text-gray-300">
+            <li class="flex gap-3"><i class="fas fa-chart-line text-[#00D9FF] mt-0.5"></i><span>Data and reporting certificates support dashboard, KPI, and SQL-oriented work.</span></li>
+            <li class="flex gap-3"><i class="fas fa-gears text-[#00FF94] mt-0.5"></i><span>Automation and AI training supports workflow improvement and reporting efficiency.</span></li>
+            <li class="flex gap-3"><i class="fas fa-shield-halved text-[#FFE600] mt-0.5"></i><span>QA, validation, and security topics reinforce control-minded operations and reliable data handling.</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="mb-10 fade-up">
+      <div id="role-tracks" class="grid lg:grid-cols-3 gap-4"></div>
+    </section>
+
     <section class="glass-card rounded-2xl p-4 md:p-5 mb-10 fade-up">
       <div class="grid lg:grid-cols-[1fr_auto] gap-4">
         <label class="relative block">
@@ -355,6 +440,9 @@
     const sortSelect = document.getElementById('sort-select');
     const clearFiltersBtn = document.getElementById('clear-filters');
     const resultCountEl = document.getElementById('result-count');
+    const roleTracksEl = document.getElementById('role-tracks');
+    const focusButtonsEl = document.getElementById('focus-buttons');
+    const focusSummaryEl = document.getElementById('focus-summary');
 
     const modal = document.getElementById('preview-modal');
     const modalTitle = document.getElementById('modal-title');
@@ -365,6 +453,7 @@
     let activeFilter = 'All';
     let searchQuery = '';
     let sortMode = 'newest';
+    let focusMode = 'all';
 
     window.PortfolioCommon?.initMobileMenu();
 
@@ -399,6 +488,89 @@
       return Number.isNaN(value) ? 0 : value;
     }
 
+    function keywordPool(cert) {
+      return [
+        cert?.title,
+        cert?.issuer,
+        cert?.category,
+        cert?.credentialId,
+        ...(Array.isArray(cert?.skills) ? cert.skills : [])
+      ].filter(Boolean).map(normalize).join(' ');
+    }
+
+    function includesAny(source, keywords) {
+      return keywords.some((keyword) => source.includes(keyword));
+    }
+
+    function matchesTrack(cert, track) {
+      const pool = keywordPool(cert);
+      const category = normalize(cert?.category || '');
+
+      if (track === 'inventory') {
+        return category === 'data' ||
+          includesAny(pool, ['sql', 'power bi', 'dashboard', 'report', 'statistics', 'data science', 'data modeling', 'query', 'business reporting', 'data security', 'data privacy', 'validation', 'automation', 'workflow']);
+      }
+
+      if (track === 'automation') {
+        return ['automation', 'cloud', 'web development', 'data'].includes(category) ||
+          includesAny(pool, ['automation', 'prompt', 'agentic', 'ai', 'api', 'firebase', 'workflow', 'cloud']);
+      }
+
+      if (track === 'qa') {
+        return ['qa', 'security', 'environment'].includes(category) ||
+          includesAny(pool, ['quality', 'validation', 'privacy', 'risk', 'safety', 'compliance', 'eurachem', 'gmp', 'glp', 'sop']);
+      }
+
+      return true;
+    }
+
+    function trackScore(cert, track) {
+      const pool = keywordPool(cert);
+      const category = normalize(cert?.category || '');
+      let score = 0;
+
+      if (track === 'inventory') {
+        if (category === 'data') score += 4;
+        if (includesAny(pool, ['sql', 'power bi', 'dashboard', 'report', 'statistics', 'data science', 'data modeling', 'query', 'business reporting'])) score += 3;
+        if (includesAny(pool, ['validation', 'data security', 'data privacy', 'automation', 'workflow'])) score += 1;
+      }
+
+      if (track === 'automation') {
+        if (category === 'automation') score += 4;
+        if (['cloud', 'web development'].includes(category)) score += 2;
+        if (includesAny(pool, ['automation', 'prompt', 'agentic', 'ai', 'api', 'firebase', 'workflow', 'cloud'])) score += 3;
+      }
+
+      if (track === 'qa') {
+        if (['qa', 'security', 'environment'].includes(category)) score += 4;
+        if (includesAny(pool, ['quality', 'validation', 'privacy', 'risk', 'safety', 'compliance', 'eurachem', 'gmp', 'glp', 'sop'])) score += 3;
+      }
+
+      return score;
+    }
+
+    function primaryTrack(cert) {
+      const category = normalize(cert?.category || '');
+      const pool = keywordPool(cert);
+
+      if (['qa', 'security', 'environment'].includes(category) ||
+        includesAny(pool, ['quality', 'validation', 'privacy', 'risk', 'safety', 'compliance', 'eurachem', 'gmp', 'glp', 'sop'])) {
+        return 'QA / Control';
+      }
+
+      if (['automation', 'cloud', 'web development'].includes(category) ||
+        includesAny(pool, ['automation', 'prompt', 'agentic', 'ai', 'api', 'firebase', 'workflow', 'cloud'])) {
+        return 'Automation Workflow';
+      }
+
+      if (['data'].includes(category) ||
+        includesAny(pool, ['sql', 'power bi', 'dashboard', 'report', 'statistics', 'data'])) {
+        return 'Inventory Analytics Fit';
+      }
+
+      return '';
+    }
+
     function sortCertificates(list) {
       const sorted = [...list];
       if (sortMode === 'oldest') {
@@ -426,6 +598,133 @@
       totalEl.textContent = String(allCertificates.length);
       categoriesEl.textContent = String(categories.size);
       latestEl.textContent = latest ? formatDate(latest.issued) : '-';
+    }
+
+    function renderFocusButtons() {
+      const buttons = [
+        {
+          id: 'all',
+          title: 'All Credentials',
+          description: 'Browse the full certificate list'
+        },
+        {
+          id: 'inventory',
+          title: 'Inventory Analytics Fit',
+          description: 'Highlight data, reporting, automation, and control-relevant evidence'
+        },
+        {
+          id: 'automation',
+          title: 'Automation Stack',
+          description: 'Focus on workflow, AI, and modern tooling'
+        },
+        {
+          id: 'qa',
+          title: 'QA and Governance',
+          description: 'Show validation, compliance, and risk-oriented certificates'
+        }
+      ];
+
+      focusButtonsEl.innerHTML = buttons.map((button) => {
+        const active = button.id === focusMode;
+        return `
+          <button
+            type="button"
+            class="focus-btn ${active ? 'active' : ''} rounded-2xl px-4 py-3 text-left"
+            data-focus="${escapeHTML(button.id)}"
+          >
+            <span class="block text-sm font-semibold">${escapeHTML(button.title)}</span>
+            <span class="block mt-1 text-xs opacity-80">${escapeHTML(button.description)}</span>
+          </button>
+        `;
+      }).join('');
+
+      focusButtonsEl.querySelectorAll('[data-focus]').forEach((button) => {
+        button.addEventListener('click', () => {
+          focusMode = button.dataset.focus || 'all';
+          renderFocusButtons();
+          renderFocusSummary();
+          renderCertificates();
+        });
+      });
+    }
+
+    function renderFocusSummary() {
+      if (!focusSummaryEl) return;
+      if (focusMode === 'all') {
+        focusSummaryEl.textContent = 'Showing the complete credential set';
+        return;
+      }
+
+      const matched = allCertificates.filter((cert) => matchesTrack(cert, focusMode)).length;
+      const labelMap = {
+        inventory: 'inventory and reporting fit',
+        automation: 'automation and tooling fit',
+        qa: 'quality and governance fit'
+      };
+      focusSummaryEl.textContent = `${matched} certificates support ${labelMap[focusMode] || 'this focus'}`;
+    }
+
+    function renderRoleTracks() {
+      const tracks = [
+        {
+          id: 'inventory',
+          label: 'Inventory Analytics',
+          accent: 'text-[#00D9FF]',
+          icon: 'fa-chart-column',
+          summary: 'Supports dashboarding, SQL, KPI interpretation, and operational stock decisions.',
+          tags: ['Power BI', 'SQL', 'Statistics', 'Reporting']
+        },
+        {
+          id: 'automation',
+          label: 'Automation and AI',
+          accent: 'text-[#00FF94]',
+          icon: 'fa-robot',
+          summary: 'Supports workflow design, prompt engineering, cloud tools, and process acceleration.',
+          tags: ['Prompting', 'Automation', 'Cloud', 'Workflow']
+        },
+        {
+          id: 'qa',
+          label: 'QA and Governance',
+          accent: 'text-[#FFE600]',
+          icon: 'fa-shield-halved',
+          summary: 'Supports validation discipline, data handling, compliance thinking, and quality control.',
+          tags: ['Validation', 'Compliance', 'Data Security', 'SOP']
+        }
+      ];
+
+      roleTracksEl.innerHTML = tracks.map((track) => {
+        const matched = allCertificates.filter((cert) => matchesTrack(cert, track.id));
+        const topItems = [...matched]
+          .sort((a, b) =>
+            trackScore(b, track.id) - trackScore(a, track.id) ||
+            issuedAt(b) - issuedAt(a) ||
+            String(a.title || '').localeCompare(String(b.title || ''), 'en', { sensitivity: 'base' })
+          )
+          .slice(0, 3)
+          .map((item) => item.title);
+
+        return `
+          <article class="glass-card rounded-2xl p-5 track-card">
+            <div class="flex items-center justify-between gap-3">
+              <div class="inline-flex items-center gap-2 text-sm font-semibold ${track.accent}">
+                <i class="fas ${track.icon}"></i>
+                ${escapeHTML(track.label)}
+              </div>
+              <span class="chip">${matched.length} certificates</span>
+            </div>
+            <p class="mt-4 text-sm text-gray-300">${escapeHTML(track.summary)}</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              ${track.tags.map((tag) => `<span class="tag-pill">${escapeHTML(tag)}</span>`).join('')}
+            </div>
+            <div class="mt-5 border-t border-white/10 pt-4">
+              <p class="text-xs uppercase tracking-[0.12em] text-gray-500 mb-2">Strongest examples</p>
+              <div class="space-y-2 text-sm text-gray-200">
+                ${topItems.map((title) => `<p>${escapeHTML(title)}</p>`).join('')}
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
     }
 
     function renderFilters() {
@@ -479,14 +778,7 @@
 
     function matchQuery(cert, query) {
       if (!query) return true;
-      const pool = [
-        cert?.title,
-        cert?.issuer,
-        cert?.category,
-        cert?.credentialId,
-        ...(Array.isArray(cert?.skills) ? cert.skills : [])
-      ].filter(Boolean).map(normalize).join(' ');
-      return pool.includes(query);
+      return keywordPool(cert).includes(query);
     }
 
     function toCardHTML(cert) {
@@ -503,11 +795,13 @@
       const credentialUrl = cert?.credentialUrl || '';
       const skills = Array.isArray(cert?.skills) ? cert.skills : [];
       const featured = Boolean(cert?.featured);
+      const trackLabel = primaryTrack(cert);
 
       return `
         <article class="cert-card glass-card rounded-2xl overflow-hidden fade-up">
           <div class="cert-image-shell aspect-[16/10] p-3 relative">
             ${featured ? '<span class="absolute top-3 left-3 chip"><i class="fas fa-star text-[#FFE600]"></i> Featured</span>' : ''}
+            ${trackLabel ? `<span class="absolute top-3 right-3 chip">${escapeHTML(trackLabel)}</span>` : ''}
             ${imageSrc
               ? `<img src="${escapeHTML(imageSrc)}" alt="${escapeHTML(imageAlt)}" loading="lazy" decoding="async" data-cert-image class="w-full h-full object-contain rounded-lg bg-[#0c1016]">`
               : '<div class="w-full h-full rounded-lg flex items-center justify-center bg-gradient-to-br from-[#00D9FF]/15 to-transparent text-[#00D9FF]"><i class="fas fa-certificate text-5xl"></i></div>'}
@@ -559,6 +853,10 @@
         ? [...allCertificates]
         : allCertificates.filter(item => (item.category || 'General') === activeFilter);
 
+      if (focusMode !== 'all') {
+        list = list.filter((item) => matchesTrack(item, focusMode));
+      }
+
       const query = normalize(searchQuery);
       list = list.filter((item) => matchQuery(item, query));
       list = sortCertificates(list);
@@ -602,6 +900,9 @@
         sortSelect.value = 'newest';
 
         renderStats();
+        renderFocusButtons();
+        renderFocusSummary();
+        renderRoleTracks();
         renderFilters();
         renderCertificates();
       } catch (error) {
