@@ -54,6 +54,7 @@
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 
     <script type="application/ld+json">
         {
@@ -70,196 +71,12 @@
         }
     </script>
 
-    <style>
-        body {
-            box-sizing: border-box;
-        }
-
-        * {
-            font-family: 'Sarabun', 'Space Grotesk', sans-serif;
-        }
-
-        .mono {
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        /* Neon Gradient Text */
-        .gradient-text {
-            background: linear-gradient(135deg, #00D9FF 0%, #00FF94 50%, #FFE600 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .contact-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            /* Reduced opacity */
-            transition: all 0.4s ease;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(0, 217, 255, 0.4);
-            box-shadow: 0 12px 32px rgba(0, 217, 255, 0.15);
-        }
-
-        .input-field {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .input-field:focus {
-            outline: none;
-            border-color: #00D9FF;
-            background: rgba(0, 217, 255, 0.05);
-            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
-        }
-
-        .submit-btn {
-            background: linear-gradient(135deg, #00D9FF 0%, #00FF94 100%);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            color: #0a0a0f;
-        }
-
-        .submit-btn::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, #00FF94 0%, #00D9FF 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .submit-btn:hover::before {
-            opacity: 1;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 8px 22px rgba(0, 217, 255, 0.25);
-        }
-
-        .social-link {
-            width: 56px;
-            height: 56px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            color: #9ca3af;
-        }
-
-        .social-link:hover {
-            background: linear-gradient(135deg, #00D9FF, #00FF94);
-            border-color: transparent;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 217, 255, 0.25);
-            color: #0a0a0f;
-        }
-
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-12px);
-            }
-        }
-
-        .nav-link {
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #00D9FF, #00FF94);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .pulse-ring {
-            animation: pulseRing 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-
-        @keyframes pulseRing {
-
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 1;
-                background-color: #00FF94;
-            }
-
-            50% {
-                transform: scale(1.1);
-                opacity: 0.5;
-                background-color: #00FF94;
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .success-toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .info-icon {
-            width: 48px;
-            height: 48px;
-            /* Neon Tint */
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(0, 255, 148, 0.2));
-            border: 1px solid rgba(0, 217, 255, 0.3);
-        }
-    </style>
+    <style></style>
 </head>
 
-<body class="h-full bg-[#0a0a0f] text-white overflow-x-hidden">
+<body class="h-full overflow-x-hidden">
 
-    <!-- Animated Background -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div
-            class="absolute top-20 left-10 w-96 h-96 bg-[#00D9FF] rounded-full mix-blend-multiply filter blur-[100px] opacity-10 floating">
-        </div>
-        <div class="absolute bottom-20 right-10 w-[500px] h-[500px] bg-[#00FF94] rounded-full mix-blend-multiply filter blur-[100px] opacity-10 floating"
-            style="animation-delay: -3s;"></div>
-        <!-- Mesh Grid -->
-        <div class="absolute inset-0 opacity-20" style="background-image: 
-        linear-gradient(rgba(0, 217, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
-        background-size: 50px 50px;"></div>
-    </div>
+    <!-- Background removed for clean luxury theme -->
 
     <!-- Note: Success Toast implementation omitted due to complexity without framework, focusing on static structure -->
 

@@ -77,71 +77,12 @@
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Inline overrides for critical rendering */
-    body {
-      background-color: #0a0a0f;
-      color: #f3f4f6;
-    }
-
-    .glass-nav {
-      background: rgba(10, 10, 15, 0.7);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .glass-card-premium {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .text-gradient {
-      background: linear-gradient(135deg, #00D9FF 0%, #00FF94 50%, #FFE600 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-glow {
-      background: radial-gradient(circle at center, rgba(0, 217, 255, 0.15) 0%, transparent 70%);
-    }
-
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #0a0a0f;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #1f2937;
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #374151;
-    }
-  </style>
+  <style></style>
 </head>
 
-<body class="selection:bg-[#00D9FF]/30 selection:text-white overflow-x-hidden antialiased">
+<body class="overflow-x-hidden antialiased">
 
-  <!-- Background Ambience -->
-  <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-    <div class="absolute top-0 left-1/4 w-96 h-96 bg-[#00D9FF]/10 opacity-80 rounded-full blur-[110px] animate-blob"></div>
-    <div
-      class="absolute bottom-0 right-1/4 w-96 h-96 bg-[#00FF94]/10 opacity-80 rounded-full blur-[110px] animate-blob animation-delay-2000">
-    </div>
-    <div
-      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNSkiLz48L3N2Zz4=')] [mask-image:radial-gradient(ellipse_at_center,black_70%,transparent_100%)]">
-    </div>
-  </div>
+  <!-- Background removed for clean luxury theme -->
 
   <!-- Navbar -->
   <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="navbar">
@@ -576,10 +517,10 @@
     window.PortfolioCommon?.initMobileMenu({ lockScroll: true, closeOnBackdrop: true });
     window.PortfolioCommon?.initNavbarScroll({
       selector: '#navbar',
-      topBackground: 'rgba(10, 10, 15, 0.6)',
-      scrolledBackground: 'rgba(10, 10, 15, 0.85)',
+      topBackground: 'rgba(251, 250, 247, 0.72)',
+      scrolledBackground: 'rgba(251, 250, 247, 0.92)',
       topBlur: 'blur(12px)',
-      scrolledBlur: 'blur(20px)',
+      scrolledBlur: 'blur(14px)',
       threshold: 20
     });
 

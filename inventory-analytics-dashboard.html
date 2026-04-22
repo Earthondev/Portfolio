@@ -15,46 +15,42 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <style>
     body {
-      background:
-        radial-gradient(circle at top left, rgba(0, 217, 255, 0.12), transparent 24%),
-        radial-gradient(circle at top right, rgba(0, 255, 148, 0.10), transparent 24%),
-        linear-gradient(180deg, #071018 0%, #09131d 55%, #081018 100%);
-      color: #f8fafc;
-      font-family: 'Sarabun', 'Space Grotesk', sans-serif;
+      background: transparent;
+      color: inherit;
+      font-family: inherit;
     }
 
     .glass-card {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+      background: transparent;
+      border: 0;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      box-shadow: none;
     }
 
     .gradient-text {
-      background: linear-gradient(135deg, #00D9FF 0%, #00FF94 55%, #FFE066 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      background: none;
+      -webkit-text-fill-color: inherit;
     }
 
     .control-input {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #e5e7eb;
+      background: transparent;
+      border: 0;
+      color: inherit;
     }
 
     .control-input:focus {
       outline: none;
-      border-color: rgba(0, 217, 255, 0.55);
-      box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.12);
+      border-color: transparent;
+      box-shadow: none;
     }
 
     .range-input {
       width: 100%;
-      accent-color: #00D9FF;
+      accent-color: #111827;
     }
 
     .table-row-button {
@@ -62,7 +58,7 @@
     }
 
     .table-row-button:hover {
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(17, 24, 39, 0.04);
     }
 
     table {
@@ -75,7 +71,7 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(17, 24, 39, 0.16);
       border-radius: 999px;
     }
   </style>

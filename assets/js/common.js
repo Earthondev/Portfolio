@@ -54,10 +54,10 @@
 
   function initNavbarScroll(options = {}) {
     const selector = options.selector || '#navbar';
-    const topBackground = options.topBackground || 'rgba(10, 10, 15, 0.6)';
-    const scrolledBackground = options.scrolledBackground || 'rgba(10, 10, 15, 0.85)';
+    const topBackground = options.topBackground || 'rgba(251, 250, 247, 0.72)';
+    const scrolledBackground = options.scrolledBackground || 'rgba(251, 250, 247, 0.92)';
     const topBlur = options.topBlur || 'blur(12px)';
-    const scrolledBlur = options.scrolledBlur || 'blur(20px)';
+    const scrolledBlur = options.scrolledBlur || 'blur(14px)';
     const threshold = typeof options.threshold === 'number' ? options.threshold : 20;
 
     const navbar = document.querySelector(selector);

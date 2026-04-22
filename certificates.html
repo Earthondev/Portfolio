@@ -42,81 +42,9 @@
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 
-  <style>
-    * {
-      font-family: 'Sarabun', 'Space Grotesk', sans-serif;
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg, #00D9FF 0%, #00FF94 50%, #FFE600 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .glass-card {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .nav-link {
-      position: relative;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #00D9FF, #00FF94);
-      transition: width 0.3s ease;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    .filter-btn {
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(255, 255, 255, 0.02);
-      color: #d1d5db;
-      transition: all 0.25s ease;
-    }
-
-    .filter-btn:hover {
-      border-color: rgba(0, 217, 255, 0.45);
-      color: #f9fafb;
-    }
-
-    .filter-btn.active {
-      background: linear-gradient(135deg, #00D9FF, #00FF94);
-      color: #0a0a0f;
-      border-color: transparent;
-    }
-
-    .focus-btn {
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(255, 255, 255, 0.03);
-      color: #e5e7eb;
-      transition: all 0.25s ease;
-    }
-
-    .focus-btn:hover {
-      border-color: rgba(255, 230, 0, 0.35);
-      color: #ffffff;
-    }
-
-    .focus-btn.active {
-      border-color: rgba(255, 230, 0, 0.2);
-      background: linear-gradient(135deg, rgba(255, 230, 0, 0.16), rgba(0, 217, 255, 0.12));
-      color: #fff8bf;
-      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.22);
-    }
+  <style></style>
 
     .cert-card {
       transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
