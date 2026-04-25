@@ -8,7 +8,7 @@
     content="Professional certificates of Nattapart Worakun in Data, Automation, QA, and Web Development.">
   <meta name="author" content="Nattapart Worakun">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0a0a0f">
+  <meta name="theme-color" content="#fbfaf7">
   <meta name="color-scheme" content="dark light">
   <link rel="canonical" href="https://earthondev.github.io/Portfolio/certificates.html">
   <link rel="icon" href="favicon.ico">
@@ -23,6 +23,7 @@
   <title>Certificates | Nattapart Worakun</title>
 
   <script src="./assets/vendor/tailwind-play-cdn.js"></script>
+  <script src="assets/js/common.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -43,22 +44,104 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: var(--bg) !important;
+      color: var(--text) !important;
+      visibility: hidden;
+    }
+    body.page-ready {
+      visibility: visible;
+    }
 
-  <style></style>
+    body > .fixed.inset-0.overflow-hidden.pointer-events-none {
+      display: none;
+    }
+
+    .cert-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: 32px;
+      align-items: end;
+    }
+
+    .cert-main {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cert-main > section:nth-of-type(1) {
+      order: 1;
+    }
+
+    .cert-main > section:nth-of-type(2) {
+      order: 2;
+    }
+
+    .cert-main > section:nth-of-type(3) {
+      order: 5;
+    }
+
+    .cert-main > section:nth-of-type(4) {
+      order: 3;
+    }
+
+    .cert-main > section:nth-of-type(5) {
+      order: 4;
+    }
+
+    .cert-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(17, 24, 39, 0.12);
+      background: var(--surface-2);
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .cert-lead {
+      max-width: 760px;
+      color: var(--text-muted);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .cert-stat-grid {
+      display: grid;
+      gap: 12px;
+    }
 
     .cert-card {
-      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+      background: var(--surface) !important;
+      border: 1px solid var(--border) !important;
+      box-shadow: var(--shadow-sm) !important;
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
     }
 
     .cert-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(0, 217, 255, 0.45);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
+      transform: translateY(-3px);
+      border-color: rgba(17, 24, 39, 0.18) !important;
+      box-shadow: var(--shadow-md) !important;
     }
 
     .cert-image-shell {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cert-card h3 {
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    .cert-card img {
+      background: #f8fafc !important;
     }
 
     .chip {
@@ -66,11 +149,13 @@
       align-items: center;
       gap: 6px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background: rgba(255, 255, 255, 0.02);
-      padding: 4px 10px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.86);
+      padding: 5px 10px;
       font-size: 11px;
-      color: #d1d5db;
+      color: var(--text-muted);
+      font-weight: 700;
+      line-height: 1.2;
     }
 
     .track-card {
@@ -82,7 +167,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), transparent 55%, rgba(255, 230, 0, 0.08));
+      background: linear-gradient(135deg, rgba(0, 217, 255, 0.08), transparent 46%, rgba(255, 230, 0, 0.08));
       pointer-events: none;
     }
 
@@ -99,9 +184,10 @@
       border-radius: 999px;
       font-size: 11px;
       line-height: 1;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.03);
-      color: #d1d5db;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text-muted);
+      font-weight: 700;
     }
 
     .fade-up {
@@ -129,6 +215,9 @@
     .modal-panel {
       transform: translateY(16px) scale(0.98);
       transition: transform 0.25s ease;
+      background: var(--surface) !important;
+      border-color: var(--border) !important;
+      box-shadow: var(--shadow-md);
     }
 
     .modal-overlay.active .modal-panel {
@@ -137,6 +226,167 @@
 
     .floating {
       animation: float 8s ease-in-out infinite;
+    }
+
+    #search-input,
+    #sort-select {
+      min-height: 48px;
+      background: var(--surface) !important;
+      border: 1px solid var(--border) !important;
+      color: var(--text) !important;
+      box-shadow: var(--shadow-sm);
+    }
+
+    #search-input::placeholder {
+      color: var(--text-soft);
+    }
+
+    #search-input:focus,
+    #sort-select:focus {
+      border-color: rgba(17, 24, 39, 0.22) !important;
+      box-shadow: var(--ring);
+    }
+
+    #clear-filters {
+      min-height: 48px;
+      background: var(--surface) !important;
+      border-color: var(--border) !important;
+      color: var(--text-muted) !important;
+    }
+
+    #clear-filters:hover {
+      background: var(--surface-2) !important;
+      color: var(--text) !important;
+      border-color: rgba(17, 24, 39, 0.18) !important;
+    }
+
+    .filter-btn,
+    .focus-btn {
+      min-height: 40px;
+      border-radius: 999px;
+    }
+
+    .focus-btn {
+      border-radius: 16px;
+      max-width: 240px;
+    }
+
+    .certificate-modal-body {
+      background: var(--surface-2) !important;
+    }
+
+    @media (max-width: 900px) {
+      .cert-hero {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      main.cert-main {
+        padding-top: 112px;
+      }
+
+      main.cert-main > section:nth-of-type(2) {
+        order: 4;
+      }
+
+      main.cert-main > section:nth-of-type(4) {
+        order: 2;
+      }
+
+      main.cert-main > section:nth-of-type(5) {
+        order: 3;
+      }
+
+      .cert-stat-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .cert-stat-grid article {
+        padding: 14px !important;
+      }
+
+      .cert-stat-grid .text-3xl {
+        font-size: 1.45rem;
+        line-height: 1.15;
+      }
+
+      .cert-stat-grid .text-2xl {
+        font-size: 1rem;
+        line-height: 1.25;
+      }
+
+      .cert-stat-grid p:last-child {
+        font-size: 11px;
+        line-height: 1.35;
+      }
+
+      .cert-lead {
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      #focus-buttons,
+      #role-tracks {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+      }
+
+      #focus-buttons::-webkit-scrollbar,
+      #role-tracks::-webkit-scrollbar {
+        display: none;
+      }
+
+      .focus-btn {
+        flex: 0 0 240px;
+        max-width: none;
+        text-align: left;
+        scroll-snap-align: start;
+      }
+
+      #role-tracks .track-card {
+        flex: 0 0 82vw;
+        scroll-snap-align: start;
+      }
+
+      #role-tracks .track-card .border-t {
+        display: none;
+      }
+
+      #filters {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+      }
+
+      #filters::-webkit-scrollbar {
+        display: none;
+      }
+
+      #filters .filter-btn {
+        flex: 0 0 auto;
+      }
+
+      .cert-card .chip {
+        font-size: 10px;
+        padding: 5px 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up,
+      .cert-card,
+      .modal-overlay,
+      .modal-panel {
+        transition: none !important;
+      }
     }
 
     @keyframes float {
@@ -152,88 +402,79 @@
   </style>
 </head>
 
-<body class="h-full bg-[#0a0a0f] text-white overflow-x-hidden">
-  <div class="fixed inset-0 overflow-hidden pointer-events-none">
-    <div
-      class="absolute top-16 left-10 w-[420px] h-[420px] bg-[#00D9FF] rounded-full mix-blend-multiply blur-[110px] opacity-10 floating">
-    </div>
-    <div
-      class="absolute bottom-10 right-10 w-[420px] h-[420px] bg-[#00FF94] rounded-full mix-blend-multiply blur-[110px] opacity-10 floating"
-      style="animation-delay: -2s;"></div>
-    <div class="absolute inset-0 opacity-20" style="background-image:
-      linear-gradient(rgba(0, 217, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
-      background-size: 60px 60px;"></div>
-  </div>
+<body class="h-full overflow-x-hidden">
 
-  <nav
-    class="fixed top-0 left-0 right-0 z-50 glass-card border-b-0 rounded-none sm:rounded-b-2xl sm:mx-4 sm:top-4 mt-0 sm:border">
+  <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center space-x-2">
-          <a href="index.html"
-            class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center font-bold text-[#0a0a0f] text-xl">
-            NW
-          </a>
-          <a href="index.html"
-            class="font-semibold text-lg hidden sm:block font-heading text-white no-underline">Nattapart</a>
-        </div>
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <span class="font-heading font-semibold text-base tracking-[0.08em] group-hover:opacity-60 transition-opacity">Nattapart</span>
+        </a>
 
+        <!-- Desktop Menu -->
         <div class="hidden md:flex items-center space-x-8">
-          <a href="index.html" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Home</a>
-          <a href="about.html" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">About</a>
-          <a href="certificates.html" class="nav-link text-sm text-white font-medium">Certificates</a>
-          <a href="portfolio.html"
-            class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Portfolio</a>
-          <a href="contact.html" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Contact</a>
+          <a href="index.html" class="text-sm font-medium text-gray-400 hover:text-[var(--text)] hover:border-b-2 hover:border-gray-700 py-1 transition-all">Home</a>
+          <a href="certificates.html" class="text-sm font-medium border-b-2 border-[#00D9FF] py-1">Certificates</a>
+          <a href="portfolio.html" class="text-sm font-medium text-gray-400 hover:text-[var(--text)] hover:border-b-2 hover:border-gray-700 py-1 transition-all">Projects</a>
+          <a href="contact.html" class="text-sm font-medium text-gray-400 hover:text-[var(--text)] hover:border-b-2 hover:border-gray-700 py-1 transition-all">Contact</a>
         </div>
 
-        <div class="flex items-center space-x-4">
-          <a href="portfolio.html"
-            class="hidden sm:block px-4 py-2 rounded-lg bg-gradient-to-r from-[#00D9FF] to-[#00FF94] text-[#0a0a0f] font-semibold text-sm hover:opacity-90 transition-opacity">
-            View Projects
+        <!-- CTA & Mobile Menu -->
+        <div class="flex items-center gap-4">
+          <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
+            class="hidden sm:inline-flex items-center justify-center px-5 py-2 text-sm font-medium transition-all bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-[#00D9FF]/50 hover:shadow-[0_0_15px_rgba(0,217,255,0.3)]">
+            Resume
           </a>
-          <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white">
+          <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-[var(--text)] p-2">
             <i class="fas fa-bars text-xl"></i>
           </button>
         </div>
       </div>
-      <div id="mobile-menu" class="hidden md:hidden pb-4">
-        <div class="flex flex-col space-y-4 pt-4">
-          <a href="index.html" class="text-gray-300 hover:text-white">Home</a>
-          <a href="about.html" class="text-gray-300 hover:text-white">About</a>
-          <a href="certificates.html" class="text-white font-medium">Certificates</a>
-          <a href="portfolio.html" class="text-gray-300 hover:text-white">Portfolio</a>
-          <a href="contact.html" class="text-gray-300 hover:text-white">Contact</a>
-        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+      class="hidden md:hidden fixed top-20 left-0 w-full bg-[#fbfaf7]/95 backdrop-blur-xl border-t border-black/5 shadow-2xl z-40">
+      <div class="px-4 pt-2 pb-6 space-y-2">
+        <a href="index.html"
+          class="block px-3 py-3 rounded-lg text-base font-medium text-gray-500 hover:text-[var(--text)] hover:bg-black/5">Home</a>
+        <a href="certificates.html"
+          class="block px-3 py-3 rounded-lg text-base font-medium border-l-4 border-[#00D9FF] bg-black/5">Certificates</a>
+        <a href="portfolio.html"
+          class="block px-3 py-3 rounded-lg text-base font-medium text-gray-500 hover:text-[var(--text)] hover:bg-black/5">Projects</a>
+        <a href="contact.html"
+          class="block px-3 py-3 rounded-lg text-base font-medium text-gray-500 hover:text-[var(--text)] hover:bg-black/5">Contact</a>
       </div>
     </div>
   </nav>
 
-  <main class="relative z-10 max-w-7xl mx-auto px-4 pt-32 pb-20">
-    <section class="mb-12 fade-up">
-      <div
-        class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FFE600]/30 bg-[#FFE600]/10 text-[#FFE600] text-xs font-semibold tracking-[0.15em] uppercase">
-        <i class="fas fa-certificate"></i>
-        Professional Credentials
+  <main class="cert-main relative z-10 max-w-7xl mx-auto px-4 pt-32 pb-20">
+    <section class="mb-12 fade-up cert-hero">
+      <div>
+        <div class="cert-kicker">
+          <i class="fas fa-certificate"></i>
+          Professional Credentials
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-bold font-heading mt-6 leading-tight" data-reveal-hero data-reveal-delay="0.1">
+          Certificates that support <span class="gradient-text">real project delivery</span>
+        </h1>
+        <p class="cert-lead mt-5">
+          Credentials grouped around the work I want to be hired for: inventory analytics, reporting automation,
+          reliable data handling, and operational quality control.
+        </p>
       </div>
-      <h1 class="text-4xl sm:text-6xl font-bold font-heading mt-6 leading-tight">Certificates that support <span
-          class="gradient-text">real project delivery</span></h1>
-      <div class="grid md:grid-cols-3 gap-4 mt-8">
-        <article class="glass-card rounded-2xl p-5 fade-up">
-          <p class="text-xs uppercase tracking-[0.14em] text-gray-500 mb-2">Total</p>
-          <p class="text-3xl font-bold text-white" id="cert-total">0</p>
-          <p class="text-sm text-gray-400">Certificates</p>
+
+      <div class="grid grid-cols-2 gap-5 max-w-2xl">
+        <article class="glass-card rounded-2xl p-7 fade-up border border-white/5 hover:border-white/10 transition-all">
+          <p class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-3">Total Earned</p>
+          <p class="text-5xl font-bold font-heading text-white leading-none" id="cert-total">0</p>
+          <p class="text-sm text-gray-400 mt-2">Certificates</p>
         </article>
-        <article class="glass-card rounded-2xl p-5 fade-up">
-          <p class="text-xs uppercase tracking-[0.14em] text-gray-500 mb-2">Categories</p>
-          <p class="text-3xl font-bold text-white" id="cert-categories">0</p>
-          <p class="text-sm text-gray-400">Skill Areas</p>
-        </article>
-        <article class="glass-card rounded-2xl p-5 fade-up">
-          <p class="text-xs uppercase tracking-[0.14em] text-gray-500 mb-2">Latest</p>
-          <p class="text-2xl font-bold text-white" id="cert-latest">-</p>
-          <p class="text-sm text-gray-400">Most Recent Issue Date</p>
+        <article class="glass-card rounded-2xl p-7 fade-up border border-white/5 hover:border-white/10 transition-all">
+          <p class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-3">Most Recent</p>
+          <p class="text-2xl font-bold font-heading text-white leading-tight" id="cert-latest">-</p>
+          <p class="text-sm text-gray-400 mt-2">Latest Issue Date</p>
         </article>
       </div>
     </section>
@@ -313,16 +554,16 @@
     </section>
   </main>
 
-  <div id="preview-modal" class="modal-overlay fixed inset-0 z-[60] bg-black/80 p-4 flex items-center justify-center">
-    <div class="modal-panel w-full max-w-5xl rounded-2xl border border-white/10 bg-[#0f1118] overflow-hidden">
+  <div id="preview-modal" class="modal-overlay fixed inset-0 z-[60] bg-black/70 p-4 flex items-center justify-center">
+    <div class="modal-panel w-full max-w-5xl rounded-2xl border border-white/10 overflow-hidden">
       <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
         <h2 id="modal-title" class="text-lg font-semibold">Certificate Preview</h2>
-        <button id="close-modal"
+        <button id="close-modal" type="button" aria-label="Close certificate preview"
           class="w-9 h-9 rounded-full border border-white/15 hover:border-[#00D9FF] hover:text-[#00D9FF] transition-colors">
           <i class="fas fa-times"></i>
         </button>
       </div>
-      <div class="p-4 bg-[#0b0d13] max-h-[80vh] overflow-auto">
+      <div class="certificate-modal-body p-4 max-h-[80vh] overflow-auto">
         <img id="modal-image" src="" alt="Certificate preview" class="w-full h-auto rounded-xl border border-white/10">
       </div>
     </div>
@@ -362,7 +603,6 @@
     const gridEl = document.getElementById('certificates-grid');
     const emptyEl = document.getElementById('empty-state');
     const totalEl = document.getElementById('cert-total');
-    const categoriesEl = document.getElementById('cert-categories');
     const latestEl = document.getElementById('cert-latest');
     const searchInput = document.getElementById('search-input');
     const sortSelect = document.getElementById('sort-select');
@@ -524,7 +764,6 @@
       const latest = sortCertificates(allCertificates)[0];
 
       totalEl.textContent = String(allCertificates.length);
-      categoriesEl.textContent = String(categories.size);
       latestEl.textContent = latest ? formatDate(latest.issued) : '-';
     }
 
@@ -858,8 +1097,11 @@
       activeFilter = 'All';
       searchQuery = '';
       sortMode = 'newest';
+      focusMode = 'all';
       searchInput.value = '';
       sortSelect.value = 'newest';
+      renderFocusButtons();
+      renderFocusSummary();
       renderFilters();
       renderCertificates();
     });
@@ -874,6 +1116,82 @@
 
     loadCertificates();
     applyRevealAnimations();
+    window.PortfolioCommon?.initMobileMenu({ lockScroll: true, closeOnBackdrop: true });
+    window.PortfolioCommon?.initNavbarScroll({ selector: '#navbar', threshold: 20 });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script src="assets/js/animations.js"></script>
+
+  <!-- Page entrance: curtain from left with CERTIFICATES -->
+  <script>
+  (function() {
+    if (typeof gsap === 'undefined') return;
+
+    // Curtain
+    const curtain = document.createElement('div');
+    curtain.style.cssText = 'position:fixed;inset:0;z-index:99999;background:#d4cfc7;display:flex;align-items:center;justify-content:center;will-change:transform;overflow:hidden;';
+
+    // Text
+    const txt = document.createElement('div');
+    txt.style.cssText = 'font-family:"Space Grotesk",sans-serif;font-size:clamp(2.8rem,10vw,9rem);font-weight:800;letter-spacing:-0.03em;text-transform:uppercase;color:#2d2a26;font-kerning:none;white-space:nowrap;line-height:1;opacity:0;';
+    txt.textContent = 'CERTIFICATES';
+    curtain.appendChild(txt);
+    document.body.prepend(curtain);
+
+    // Curtain covers screen → now safe to show body
+    document.body.classList.add('page-ready');
+
+    // Split chars
+    const word = txt.textContent;
+    txt.innerHTML = word.split('').map(c =>
+      `<span style="display:inline-block;transform-origin:center center;">${c}</span>`
+    ).join('');
+    const chars = Array.from(txt.querySelectorAll('span'));
+
+    const tl = gsap.timeline({ delay: 0.1 });
+
+    // 1. Text chars stagger in from left
+    tl.to(txt, { opacity: 1, duration: 0.01 });
+    tl.fromTo(chars, {
+      x: -40,
+      opacity: 0,
+      rotateY: -60,
+    }, {
+      x: 0,
+      opacity: 1,
+      rotateY: 0,
+      duration: 0.6,
+      stagger: 0.035,
+      ease: 'power3.out',
+    }, '-=0.01');
+
+    // 3. Hold
+    tl.to({}, { duration: 0.45 });
+
+    // 4. Chars fly out — each goes to a random direction
+    chars.forEach((ch, i) => {
+      const angle = ((i / chars.length) * Math.PI * 2) + (Math.random() * 0.5);
+      const dist = 150 + Math.random() * 120;
+      tl.to(ch, {
+        x: Math.cos(angle) * dist,
+        y: Math.sin(angle) * dist,
+        rotation: (Math.random() - 0.5) * 50,
+        opacity: 0,
+        scale: 0.5,
+        duration: 0.6,
+        ease: 'power2.in',
+      }, i === 0 ? '+=0' : '-=0.54');
+    });
+
+    // 5. Curtain fades out
+    tl.to(curtain, {
+      opacity: 0,
+      duration: 0.4,
+      ease: 'power2.inOut',
+      onComplete: () => curtain.remove(),
+    }, '-=0.15');
+  })();
   </script>
 </body>
 

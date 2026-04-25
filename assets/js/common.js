@@ -9,7 +9,26 @@
     const menu = document.querySelector(menuSelector);
     if (!button || !menu) return null;
 
+    const icon = button.querySelector('i');
     let isOpen = !menu.classList.contains('hidden');
+
+    if (!button.getAttribute('type')) {
+      button.setAttribute('type', 'button');
+    }
+
+    if (menu.id && !button.hasAttribute('aria-controls')) {
+      button.setAttribute('aria-controls', menu.id);
+    }
+
+    function syncButton(open) {
+      button.setAttribute('aria-expanded', String(open));
+      button.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+
+      if (icon) {
+        icon.classList.toggle('fa-bars', !open);
+        icon.classList.toggle('fa-xmark', open);
+      }
+    }
 
     function setOpen(open) {
       isOpen = open;
@@ -17,9 +36,21 @@
       if (lockScroll) {
         document.body.style.overflow = open ? 'hidden' : '';
       }
+      syncButton(open);
     }
 
     button.addEventListener('click', () => setOpen(!isOpen));
+
+    menu.querySelectorAll('a[href]').forEach((link) => {
+      const linkPath = new URL(link.getAttribute('href'), window.location.href).pathname.split('/').pop() || 'index.html';
+      const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+
+      if (linkPath === currentPath) {
+        link.setAttribute('aria-current', 'page');
+      }
+
+      link.addEventListener('click', () => setOpen(false));
+    });
 
     if (closeOnBackdrop) {
       menu.addEventListener('click', (event) => {
@@ -27,6 +58,20 @@
       });
     }
 
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && isOpen) {
+        setOpen(false);
+        button.focus();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (isOpen && window.matchMedia('(min-width: 768px)').matches) {
+        setOpen(false);
+      }
+    });
+
+    syncButton(isOpen);
     return { setOpen };
   }
 

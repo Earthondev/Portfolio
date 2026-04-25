@@ -5,7 +5,6 @@ const DYNAMIC_CACHE = `dynamic-${CACHE_VERSION}`;
 const urlsToCache = [
   '/',
   '/index.html',
-  '/about.html',
   '/certificates.html',
   '/contact.html',
   '/portfolio.html',
@@ -17,7 +16,6 @@ const urlsToCache = [
   '/assets/vendor/tailwind-play-cdn.js',
   '/projects.json',
   '/certificates.json',
-  '/services.json',
   '/favicon.ico'
 ];
 

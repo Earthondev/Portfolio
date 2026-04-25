@@ -1,5 +1,25 @@
 [
   {
+    "id": "correlation-and-regression-for-the-curious",
+    "title": "Correlation and Regression for The Curious",
+    "issuer": "DataRockie School",
+    "issued": "2026-04-25",
+    "category": "Data",
+    "credentialId": "cert_jflklv95",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/correlation-and-regression-for-the-curious.png",
+      "alt": "Correlation and Regression for The Curious certificate by DataRockie School"
+    },
+    "skills": [
+      "Correlation Analysis",
+      "Linear Regression",
+      "Statistics",
+      "Python"
+    ],
+    "featured": true
+  },
+  {
     "id": "prompt-engineering-agentic-ai-by-ais-academy",
     "title": "Prompt Engineering & Agentic AI by AIS Academy",
     "issuer": "AIS Academy",

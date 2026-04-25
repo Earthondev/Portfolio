@@ -8,7 +8,7 @@
     content="Portfolio of Nattapart Worakun, a data-driven problem solver with chemistry and R&amp;D background building inventory reporting, dashboards, and workflow automation.">
   <meta name="author" content="Nattapart Worakun">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0a0a0f">
+  <meta name="theme-color" content="#fbfaf7">
   <link rel="canonical" href="https://earthondev.github.io/Portfolio/">
   <link rel="icon" href="favicon.ico">
 
@@ -77,12 +77,22 @@
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="style.css">
-  <style></style>
+  <style>
+    body { visibility: hidden; }
+    body.page-ready { visibility: visible; }
+  </style>
 </head>
 
-<body class="overflow-x-hidden antialiased">
+<body class="premium-shell overflow-x-hidden antialiased">
 
-  <!-- Background removed for clean luxury theme -->
+  <!-- Intro overlay strips -->
+  <div id="intro-overlay" aria-hidden="true">
+    <div class="strip"></div>
+    <div class="strip"></div>
+    <div class="strip"></div>
+    <div class="strip"></div>
+    <div class="strip"></div>
+  </div>
 
   <!-- Navbar -->
   <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="navbar">
@@ -90,30 +100,23 @@
       <div class="flex items-center justify-between h-20">
         <!-- Logo -->
         <a href="index.html" class="flex items-center gap-2 group">
-          <div
-            class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-black font-bold text-xl group-hover:scale-105 transition-transform shadow-lg shadow-[#00D9FF]/20">
-            NW
-          </div>
-          <span
-            class="font-heading font-bold text-lg tracking-tight hidden sm:block text-white group-hover:text-[#00D9FF] transition-colors">Nattapart.</span>
+          <span class="font-heading font-semibold text-base tracking-[0.08em] group-hover:opacity-60 transition-opacity">Nattapart</span>
         </a>
 
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center space-x-8">
           <a href="index.html" class="text-sm font-medium text-white border-b-2 border-[#00D9FF] py-1">Home</a>
-          <a href="about.html"
-            class="text-sm font-medium text-gray-400 hover:text-white hover:border-b-2 hover:border-gray-700 py-1 transition-all">About</a>
           <a href="certificates.html"
             class="text-sm font-medium text-gray-400 hover:text-white hover:border-b-2 hover:border-gray-700 py-1 transition-all">Certificates</a>
           <a href="portfolio.html"
-            class="text-sm font-medium text-gray-400 hover:text-white hover:border-b-2 hover:border-gray-700 py-1 transition-all">Portfolio</a>
+            class="text-sm font-medium text-gray-400 hover:text-white hover:border-b-2 hover:border-gray-700 py-1 transition-all">Projects</a>
           <a href="contact.html"
             class="text-sm font-medium text-gray-400 hover:text-white hover:border-b-2 hover:border-gray-700 py-1 transition-all">Contact</a>
         </div>
 
         <!-- CTA & Mobile Menu -->
         <div class="flex items-center gap-4">
-          <a href="mailto:earthlikemwbb@gmail.com"
+          <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
             class="hidden sm:inline-flex items-center justify-center px-5 py-2 text-sm font-medium text-white transition-all bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-[#00D9FF]/50 hover:shadow-[0_0_15px_rgba(0,217,255,0.3)]">
             Resume
           </a>
@@ -130,292 +133,218 @@
       <div class="px-4 pt-2 pb-6 space-y-2">
         <a href="index.html"
           class="block px-3 py-3 rounded-lg text-base font-medium text-white bg-white/5 border-l-4 border-[#00D9FF]">Home</a>
-        <a href="about.html"
-          class="block px-3 py-3 rounded-lg text-base font-medium text-gray-400 hover:text-white hover:bg-white/5">About</a>
         <a href="certificates.html"
           class="block px-3 py-3 rounded-lg text-base font-medium text-gray-400 hover:text-white hover:bg-white/5">Certificates</a>
         <a href="portfolio.html"
-          class="block px-3 py-3 rounded-lg text-base font-medium text-gray-400 hover:text-white hover:bg-white/5">Portfolio</a>
+          class="block px-3 py-3 rounded-lg text-base font-medium text-gray-400 hover:text-white hover:bg-white/5">Projects</a>
         <a href="contact.html"
           class="block px-3 py-3 rounded-lg text-base font-medium text-gray-400 hover:text-white hover:bg-white/5">Contact</a>
       </div>
     </div>
   </nav>
 
+  <!-- Marquee ticker -->
+  <div class="w-full overflow-hidden border-y border-black/5 py-4 mt-20">
+    <div class="marquee-track">
+      <span class="marquee-item">Inventory Analytics <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Power BI Dashboards <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Workflow Automation <span class="marquee-dot"></span></span>
+      <span class="marquee-item">SQL Reporting <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Data-Driven Decisions <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Stock Analytics <span class="marquee-dot"></span></span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee-item">Inventory Analytics <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Power BI Dashboards <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Workflow Automation <span class="marquee-dot"></span></span>
+      <span class="marquee-item">SQL Reporting <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Data-Driven Decisions <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Stock Analytics <span class="marquee-dot"></span></span>
+    </div>
+  </div>
+
   <!-- Hero Section -->
-  <section class="relative min-h-screen flex items-center justify-center pt-24 pb-12 px-4 overflow-hidden">
-    <!-- Glow Effect behind Text -->
-    <div class="hero-glow absolute inset-0 z-0 opacity-50"></div>
-
-    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10 w-full">
-
-      <!-- Text Content -->
-      <div class="text-center md:text-left space-y-8 animate-fade-in-up">
-        <div
-          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00D9FF]/10 border border-[#00D9FF]/20 text-[#00D9FF] text-xs font-semibold uppercase tracking-[0.12em] mb-2 backdrop-blur-sm">
-          <span class="w-2 h-2 rounded-full bg-[#00D9FF] animate-pulse"></span>
-          Inventory, Data &amp; Automation
+  <section class="relative min-h-[90vh] flex items-center pt-8 pb-12 px-4 overflow-hidden">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center relative z-10 w-full">
+      <div class="min-w-0 text-center lg:text-left space-y-7 hero-stagger">
+        <div class="premium-eyebrow mx-auto lg:mx-0">
+          <span class="premium-dot"></span>
+          Inventory/Data Analyst
         </div>
 
-        <h1 class="font-heading text-5xl sm:text-7xl font-bold leading-[1.1] tracking-tight text-white mb-6">
-          From Stock Data to <br />
-          <span class="text-gradient drop-shadow-lg">Decision-Ready Action</span>
-        </h1>
+        <div>
+          <p class="masked-reveal text-sm sm:text-base font-semibold text-gray-500 mb-3">Nattapart Worakun</p>
+          <h1 class="hero-title font-heading text-5xl sm:text-7xl font-bold leading-[1.03] text-white" data-reveal-hero data-reveal-delay="0.1">
+            I turn stock data into <span class="lux-underline">decision-ready reporting</span>.
+          </h1>
+        </div>
 
-        <p class="text-lg text-gray-400 leading-relaxed max-w-xl mx-auto md:mx-0">
-          I turn
-          <span class="text-gray-200 font-medium border-b border-[#00D9FF]/30 pb-0.5">inventory and operational data</span>
-          into
-          <span class="text-gray-200 font-medium border-b border-[#00FF94]/30 pb-0.5">clear reporting, dashboards, and automation</span>.
-          With a chemistry and R&amp;D background, I focus on stock visibility, reliable data, and workflows that help
-          teams make faster business decisions with fewer manual steps.
+        <div class="text-xl sm:text-2xl font-semibold text-gray-400">
+          Focused on
+          <span class="role-rotator font-heading">
+            <span>Inventory Reporting</span>
+            <span>Power BI Dashboards</span>
+            <span>Workflow Automation</span>
+          </span>
+        </div>
+
+        <p class="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          Chemist turned data builder. I help operations teams see stock risk, KPI trends, and weekly actions without
+          chasing scattered spreadsheets.
         </p>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-6">
-          <a href="portfolio.html"
-            class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-[#00D9FF] to-[#00FF94] text-[#0a0a0f] font-semibold flex items-center justify-center gap-2 hover:shadow-[0_0_25px_rgba(0,217,255,0.4)] hover:scale-[1.02] transition-all duration-300">
-            View Projects
-            <i class="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2">
+          <a href="mailto:earthlikemwbb@gmail.com" data-magnetic
+            class="premium-cta w-full sm:w-auto px-7 py-4 rounded-xl bg-[#111827] text-white font-semibold flex items-center justify-center gap-2 hover:shadow-[0_18px_34px_rgba(17,24,39,0.18)] hover:-translate-y-0.5 transition-all duration-300">
+            Email Me
+            <i class="fas fa-arrow-right text-sm"></i>
           </a>
-          <a href="contact.html"
-            class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card-premium text-gray-200 font-semibold flex items-center justify-center gap-2 hover:bg-white/10 hover:text-white hover:border-white/20 transition-all duration-300">
-            Get in Touch
+          <a href="resume.pdf" target="_blank" rel="noopener noreferrer" data-magnetic
+            class="w-full sm:w-auto px-7 py-4 rounded-xl premium-card text-gray-200 font-semibold flex items-center justify-center gap-2">
+            View Resume
+            <i class="fas fa-file-lines text-sm"></i>
           </a>
         </div>
-        <a href="certificates.html"
-          class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-[#FFE600] transition-colors">
-          Explore certificates
-          <i class="fas fa-arrow-right text-xs"></i>
-        </a>
+
+        <div class="grid grid-cols-3 gap-3 pt-4 max-w-xl mx-auto lg:mx-0">
+          <div class="premium-card rounded-2xl p-4 text-left">
+            <p class="text-2xl font-bold font-heading text-white">SQL</p>
+            <p class="text-xs text-gray-500 mt-1">clean queries</p>
+          </div>
+          <div class="premium-card rounded-2xl p-4 text-left">
+            <p class="text-2xl font-bold font-heading text-white">Power BI</p>
+            <p class="text-xs text-gray-500 mt-1">KPI dashboards</p>
+          </div>
+          <div class="premium-card rounded-2xl p-4 text-left">
+            <p class="text-2xl font-bold font-heading text-white">Automation</p>
+            <p class="text-xs text-gray-500 mt-1">less manual work</p>
+          </div>
+        </div>
       </div>
 
-      <!-- Visual Content -->
-      <div class="relative hidden md:flex justify-center items-center h-[600px] perspective-1000">
-        <!-- Orbits -->
-        <div class="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none">
-          <div
-            class="absolute w-[380px] h-[380px] border border-dashed border-[#00D9FF]/30 rounded-full animate-[spin_20s_linear_infinite]">
-          </div>
-          <div
-            class="absolute w-[500px] h-[500px] border border-dashed border-[#00FF94]/20 rounded-full animate-[spin_25s_linear_infinite_reverse]">
-          </div>
-        </div>
-
-        <!-- Main Card -->
-        <div
-          class="relative w-80 h-[450px] glass-card-premium rounded-[2.5rem] p-3 transform rotate-[-6deg] hover:rotate-0 transition-all duration-700 hover:z-30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] group/card">
-          <div class="absolute inset-0 bg-gradient-to-br from-[#00D9FF]/5 to-transparent rounded-[2.5rem]"></div>
-          <div
-            class="w-full h-full rounded-[2rem] overflow-hidden relative bg-gray-900/80 border border-white/5 shadow-inner">
+      <div class="relative hidden lg:block">
+        <div class="project-preview-card premium-card rounded-[2rem] p-4 overflow-hidden">
+          <div class="aspect-[4/5] rounded-[1.5rem] overflow-hidden bg-[#111827] relative">
             <img src="assets/Profile/IMG_9526.JPG" alt="Nattapart Worakun"
-              class="w-full h-full object-cover filter saturate-[0.85] contrast-110 group-hover/card:saturate-100 transition-all duration-700 transform group-hover/card:scale-105">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90"></div>
-
-            <div class="absolute bottom-8 left-8 text-left z-20">
-              <div
-                class="inline-block px-2 py-1 bg-[#00D9FF]/20 rounded text-[#00D9FF] text-[10px] font-bold uppercase tracking-wider mb-2 border border-[#00D9FF]/20">
-                Inventory Analytics</div>
-              <h3 class="text-white font-bold font-heading text-2xl leading-tight">Nattapart Worakun</h3>
-              <p class="text-gray-400 text-sm mt-1">Chemistry | Inventory Reporting | Workflow Automation</p>
+              class="w-full h-full object-cover object-center saturate-[0.92] contrast-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+            <div class="absolute left-6 right-6 bottom-6 text-white">
+              <p class="text-xs uppercase tracking-[0.18em] text-white/70">Ready for inventory analytics roles</p>
+              <h2 class="font-heading text-3xl font-bold mt-2 text-white">Reporting that operations can act on.</h2>
             </div>
           </div>
         </div>
 
-        <!-- Floating Elements -->
-        <div
-          class="absolute top-[20%] right-0 p-4 glass-card-premium rounded-2xl animate-float z-20 backdrop-blur-md border border-white/10 shadow-xl">
-          <div class="flex items-center gap-3">
-            <div
-              class="w-12 h-12 rounded-xl bg-[#00D9FF]/20 flex items-center justify-center text-[#00D9FF] text-xl shadow-lg shadow-[#00D9FF]/10">
-              <i class="fas fa-database"></i>
-            </div>
-            <div>
-              <p class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Skill Set</p>
-              <p class="text-sm font-bold text-white">SQL • Power BI</p>
-            </div>
-          </div>
+        <div class="absolute -left-8 top-16 premium-card rounded-2xl p-4 w-56">
+          <p class="text-xs uppercase tracking-[0.14em] text-gray-500">Proof</p>
+          <p class="font-semibold mt-1">Inventory Analytics Dashboard</p>
         </div>
-
-        <div
-          class="absolute bottom-[20%] -left-4 p-4 glass-card-premium rounded-2xl animate-float z-20 backdrop-blur-md border border-white/10 shadow-xl"
-          style="animation-delay: -3s;">
-          <div class="flex items-center gap-3">
-            <div
-              class="w-12 h-12 rounded-xl bg-[#00FF94]/20 flex items-center justify-center text-[#00FF94] text-xl shadow-lg shadow-[#00FF94]/10">
-              <i class="fas fa-chart-pie"></i>
-            </div>
-            <div>
-              <p class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Specialty</p>
-              <p class="text-sm font-bold text-white">Inventory Reporting</p>
-            </div>
-          </div>
+        <div class="absolute -right-6 bottom-20 premium-card rounded-2xl p-4 w-52">
+          <p class="text-xs uppercase tracking-[0.14em] text-gray-500">Stack</p>
+          <p class="font-semibold mt-1">SQL • Power BI • Sheets</p>
         </div>
       </div>
-    </div>
-
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
-      <a href="#impact" class="text-gray-500 hover:text-[#00D9FF] transition-colors p-2">
-        <i class="fas fa-chevron-down text-xl"></i>
-      </a>
     </div>
   </section>
 
   <!-- Impact Section (Bento Grid) -->
   <section id="impact" class="py-20 px-4 relative z-10 bg-[#0a0a0f]">
     <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-20 section-reveal">
+      <div class="text-center mb-12 premium-reveal">
         <span class="text-[#00D9FF] text-sm font-bold tracking-[0.14em] uppercase mb-4 block">What I Deliver</span>
         <h2 class="text-4xl sm:text-5xl font-bold font-heading text-white mb-6">
-          Core <span class="text-gradient">Competencies</span>
+          The work HR should remember
         </h2>
         <p class="text-gray-400 max-w-2xl mx-auto text-lg">
-          Capabilities focused on inventory visibility, reporting clarity, and operational efficiency.
+          Inventory visibility, reporting clarity, and practical automation.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 px-2">
-        <!-- Automation -->
+      <div class="grid md:grid-cols-3 gap-6 px-2">
         <div
-          class="glass-card-premium p-8 rounded-3xl group hover:bg-white/[0.05] transition-all duration-300 hover:-translate-y-1 border-t border-t-white/5 hover:border-t-[#00D9FF]/50 shadow-lg cursor-default h-full flex flex-col">
+          class="premium-card premium-reveal p-8 rounded-3xl group cursor-default h-full flex flex-col">
           <div
-            class="w-16 h-16 rounded-2xl bg-[#00D9FF]/10 flex items-center justify-center text-3xl mb-6 text-[#00D9FF] group-hover:scale-110 group-hover:bg-[#00D9FF]/20 transition-all duration-300 shadow-[0_0_20px_rgba(0,217,255,0.1)]">
+            class="w-14 h-14 rounded-2xl bg-[#00FF94]/10 flex items-center justify-center text-2xl mb-6 text-[#00FF94]">
+            <i class="fas fa-boxes-stacked"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Inventory Reporting</h3>
+          <p class="text-gray-400 text-sm leading-relaxed flex-grow">
+            Turn stock movement, low-stock risk, and weekly action items into a view managers can scan fast.
+          </p>
+        </div>
+
+        <div
+          class="premium-card premium-reveal p-8 rounded-3xl group cursor-default h-full flex flex-col">
+          <div
+            class="w-14 h-14 rounded-2xl bg-[#00D9FF]/10 flex items-center justify-center text-2xl mb-6 text-[#00D9FF]">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Power BI Dashboards</h3>
+          <p class="text-gray-400 text-sm leading-relaxed flex-grow">
+            Build KPI views around stock cover, turnover, dead stock, and demand vs usage.
+          </p>
+        </div>
+
+        <div
+          class="premium-card premium-reveal p-8 rounded-3xl group cursor-default h-full flex flex-col">
+          <div
+            class="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center text-2xl mb-6 text-amber-700">
             <i class="fas fa-bolt"></i>
           </div>
           <h3 class="text-xl font-bold text-white mb-3">Workflow Automation</h3>
           <p class="text-gray-400 text-sm leading-relaxed flex-grow">
-            Reducing manual report prep and repetitive follow-ups by
-            <span class="text-gray-200 font-semibold">60-80%</span> with practical automation across Sheets, Apps Script,
-            and internal tools.
-          </p>
-        </div>
-
-        <!-- Inventory Visibility -->
-        <div
-          class="glass-card-premium p-8 rounded-3xl group hover:bg-white/[0.05] transition-all duration-300 hover:-translate-y-1 border-t border-t-white/5 hover:border-t-[#00FF94]/50 shadow-lg cursor-default h-full flex flex-col">
-          <div
-            class="w-16 h-16 rounded-2xl bg-[#00FF94]/10 flex items-center justify-center text-3xl mb-6 text-[#00FF94] group-hover:scale-110 group-hover:bg-[#00FF94]/20 transition-all duration-300 shadow-[0_0_20px_rgba(0,255,148,0.1)]">
-            <i class="fas fa-boxes-stacked"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Inventory Visibility</h3>
-          <p class="text-gray-400 text-sm leading-relaxed flex-grow">
-            Tracking stock movement, low-stock risk, and item status in one place so teams can spot issues before they
-            become purchasing or operations problems.
-          </p>
-        </div>
-
-        <!-- KPI Dashboards -->
-        <div
-          class="glass-card-premium p-8 rounded-3xl group hover:bg-white/[0.05] transition-all duration-300 hover:-translate-y-1 border-t border-t-white/5 hover:border-t-[#FFE600]/50 shadow-lg cursor-default h-full flex flex-col">
-          <div
-            class="w-16 h-16 rounded-2xl bg-[#FFE600]/10 flex items-center justify-center text-3xl mb-6 text-[#FFE600] group-hover:scale-110 group-hover:bg-[#FFE600]/20 transition-all duration-300 shadow-[0_0_20px_rgba(255,230,0,0.1)]">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">KPI Dashboards</h3>
-          <p class="text-gray-400 text-sm leading-relaxed flex-grow">
-            Building dashboards around
-            <span class="text-gray-200 font-semibold">stock cover days, dead stock, turnover rate,</span> and
-            <span class="text-gray-200 font-semibold">demand vs usage</span> for faster decisions.
-          </p>
-        </div>
-
-        <!-- Data Reliability -->
-        <div
-          class="glass-card-premium p-8 rounded-3xl group hover:bg-white/[0.05] transition-all duration-300 hover:-translate-y-1 border-t border-t-white/5 hover:border-t-[#00D9FF]/50 shadow-lg cursor-default h-full flex flex-col">
-          <div
-            class="w-16 h-16 rounded-2xl bg-[#00D9FF]/10 flex items-center justify-center text-3xl mb-6 text-[#00D9FF] group-hover:scale-110 group-hover:bg-[#00D9FF]/20 transition-all duration-300 shadow-[0_0_20px_rgba(0,217,255,0.1)]">
-            <i class="fas fa-shield-halved"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Data Reliability</h3>
-          <p class="text-gray-400 text-sm leading-relaxed flex-grow">
-            Applying <span class="text-gray-200 font-semibold">lab-grade precision</span> to data validation,
-            traceability, and exception handling so reports are trusted by the people using them.
+            Reduce repeat spreadsheet work with clean data flows, alerts, and reusable reporting steps.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Portfolio Flow Section -->
+  <!-- Featured Project -->
   <section class="py-16 px-4 border-t border-white/5 bg-[#0a0a0f]">
     <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-14 section-reveal">
-        <span class="text-[#00FF94] text-sm font-bold tracking-[0.14em] uppercase mb-4 block">Presentation Flow</span>
-        <h2 class="text-4xl sm:text-5xl font-bold font-heading text-white mb-5">
-          A Clear <span class="text-gradient">Story Arc</span>
-        </h2>
-        <p class="text-gray-400 max-w-2xl mx-auto text-lg">
-          ผู้อ่านเห็นตัวตน แนวคิด ผลงาน หลักฐานความสามารถ และช่องทางติดต่อได้ครบในลำดับเดียว.
-        </p>
-      </div>
+      <div class="grid lg:grid-cols-[0.92fr_1.08fr] gap-8 items-center premium-card rounded-[2rem] p-6 md:p-8 overflow-hidden project-preview-card premium-reveal">
+        <div>
+          <span class="premium-eyebrow mb-5">
+            <span class="premium-dot"></span>
+            Featured Proof
+          </span>
+          <h2 class="text-4xl sm:text-5xl font-bold font-heading text-white leading-tight">
+            Inventory Analytics Dashboard
+          </h2>
+          <p class="text-gray-400 mt-4 text-lg leading-relaxed">
+            A portfolio case showing stock cover, dead stock, turnover, reorder risk, and weekly action summaries.
+          </p>
+          <div class="grid sm:grid-cols-3 gap-3 mt-6">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p class="text-2xl font-bold text-[#00D9FF]">1,200+</p>
+              <p class="text-sm text-gray-400">simulated SKU records</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p class="text-2xl font-bold text-[#00FF94]">6 KPIs</p>
+              <p class="text-sm text-gray-400">inventory health views</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p class="text-2xl font-bold text-amber-700">Weekly</p>
+              <p class="text-sm text-gray-400">action summary</p>
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3 mt-7">
+            <a href="inventory-analytics-dashboard.html"
+              class="premium-cta px-6 py-3 rounded-xl bg-[#111827] text-white font-semibold inline-flex items-center justify-center gap-2">
+              Open Dashboard
+              <i class="fas fa-chart-line text-sm"></i>
+            </a>
+            <a href="portfolio.html"
+              class="px-6 py-3 rounded-xl premium-card font-semibold inline-flex items-center justify-center gap-2">
+              View Projects
+              <i class="fas fa-arrow-right text-sm"></i>
+            </a>
+          </div>
+        </div>
 
-      <div class="grid md:grid-cols-4 gap-5 section-reveal">
-        <a href="about.html"
-          class="group rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:border-[#00D9FF]/60 hover:-translate-y-1 transition-all">
-          <p class="text-xs uppercase tracking-[0.12em] text-gray-500 mb-3">Step 01</p>
-          <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-[#00D9FF] transition-colors">About</h3>
-          <p class="text-sm text-gray-400">เริ่มจาก background, mindset และวิธีคิดในการทำงาน</p>
-        </a>
-        <a href="portfolio.html"
-          class="group rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:border-[#00FF94]/60 hover:-translate-y-1 transition-all">
-          <p class="text-xs uppercase tracking-[0.12em] text-gray-500 mb-3">Step 02</p>
-          <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-[#00FF94] transition-colors">Projects</h3>
-          <p class="text-sm text-gray-400">โชว์งาน inventory, dashboard และ automation พร้อม business impact ที่วัดได้</p>
-        </a>
-        <a href="certificates.html"
-          class="group rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:border-[#FFE600]/60 hover:-translate-y-1 transition-all">
-          <p class="text-xs uppercase tracking-[0.12em] text-gray-500 mb-3">Step 03</p>
-          <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-[#FFE600] transition-colors">Certificates</h3>
-          <p class="text-sm text-gray-400">ยืนยันความรู้ด้วยใบรับรองที่จัดหมวดและตรวจสอบได้ง่าย</p>
-        </a>
-        <a href="contact.html"
-          class="group rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:border-[#00D9FF]/60 hover:-translate-y-1 transition-all">
-          <p class="text-xs uppercase tracking-[0.12em] text-gray-500 mb-3">Step 04</p>
-          <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-[#00D9FF] transition-colors">Contact</h3>
-          <p class="text-sm text-gray-400">ปิดด้วย CTA ชัดเจนสำหรับคุยงานและร่วมงานทันที</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Brief Tech Stack / Skills Marquee -->
-  <section class="py-14 bg-[#0a0a0f] border-t border-white/5">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <p class="text-xs text-gray-500 uppercase tracking-[0.18em] mb-10 font-bold">Technologies I Work With</p>
-
-      <div
-        class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
-        <div class="group flex flex-col items-center gap-2 transition-transform hover:-translate-y-1">
-          <i class="fab fa-python text-5xl group-hover:text-[#3776AB] transition-colors"></i>
-          <span class="text-xs opacity-0 group-hover:opacity-100 transition-opacity">Python</span>
-        </div>
-        <div class="group flex flex-col items-center gap-2 transition-transform hover:-translate-y-1">
-          <i class="fab fa-google text-4xl group-hover:text-[#4285F4] transition-colors"></i>
-          <span class="text-xs opacity-0 group-hover:opacity-100 transition-opacity">Cloud</span>
-        </div>
-        <div class="group flex flex-col items-center gap-2 transition-transform hover:-translate-y-1">
-          <i class="fas fa-database text-4xl group-hover:text-[#00D9FF] transition-colors"></i>
-          <span class="text-xs opacity-0 group-hover:opacity-100 transition-opacity">SQL</span>
-        </div>
-        <div class="group flex flex-col items-center gap-2 transition-transform hover:-translate-y-1">
-          <i class="fab fa-js text-5xl group-hover:text-[#F7DF1E] transition-colors"></i>
-          <span class="text-xs opacity-0 group-hover:opacity-100 transition-opacity">JS</span>
-        </div>
-        <div class="group flex flex-col items-center gap-2 transition-transform hover:-translate-y-1">
-          <i class="fab fa-react text-5xl group-hover:text-[#61DAFB] transition-colors"></i>
-          <span class="text-xs opacity-0 group-hover:opacity-100 transition-opacity">React</span>
-        </div>
-        <div class="group flex flex-col items-center gap-2 transition-transform hover:-translate-y-1">
-          <i class="fab fa-css3-alt text-5xl group-hover:text-[#1572B6] transition-colors"></i>
-          <span class="text-xs opacity-0 group-hover:opacity-100 transition-opacity">CSS3</span>
-        </div>
-        <div class="group flex flex-col items-center gap-2 transition-transform hover:-translate-y-1">
-          <i class="fas fa-chart-bar text-4xl group-hover:text-[#F2C811] transition-colors"></i>
-          <span class="text-xs opacity-0 group-hover:opacity-100 transition-opacity">Power BI</span>
-        </div>
-        <div class="group flex flex-col items-center gap-2 transition-transform hover:-translate-y-1">
-          <i class="fab fa-fly text-4xl group-hover:text-[#02569B] transition-colors"></i>
-          <span class="text-xs opacity-0 group-hover:opacity-100 transition-opacity">Flutter</span>
+        <div class="rounded-[1.5rem] overflow-hidden bg-[#111827] p-4">
+          <img src="assets/projects/inventory-analytics-dashboard/cover.svg" alt="Inventory Analytics Dashboard preview"
+            class="w-full rounded-2xl border border-white/10">
         </div>
       </div>
     </div>
@@ -424,21 +353,20 @@
   <!-- Featured Certificates -->
   <section class="py-20 px-4 border-t border-white/5 bg-[#0a0a0f]">
     <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12 section-reveal">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 premium-reveal">
         <div>
-          <span class="text-[#FFE600] text-sm font-bold tracking-[0.14em] uppercase block mb-3">Credentials</span>
-          <h2 class="text-4xl sm:text-5xl font-bold font-heading text-white">Featured Certificates</h2>
-          <p class="text-gray-400 mt-4 max-w-2xl">หลักฐานความสามารถล่าสุดที่เกี่ยวข้องกับ Data, Inventory, Automation และ
-            Development.</p>
+          <span class="text-amber-700 text-sm font-bold tracking-[0.14em] uppercase block mb-3">Credentials</span>
+          <h2 class="text-4xl sm:text-5xl font-bold font-heading text-white">Selected Proof</h2>
+          <p class="text-gray-400 mt-4 max-w-2xl">Certificates that support analytics, automation, and reliable data work.</p>
         </div>
         <a href="certificates.html"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-sm font-semibold text-white hover:border-[#FFE600]/60 hover:text-[#FFE600] transition-all">
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-sm font-semibold hover:border-amber-300 hover:text-amber-700 transition-all">
           View All Certificates
           <i class="fas fa-arrow-right text-xs"></i>
         </a>
       </div>
 
-      <div id="certificate-highlight-grid" class="grid md:grid-cols-3 gap-6 section-reveal">
+      <div id="certificate-highlight-grid" class="grid md:grid-cols-3 gap-6 premium-reveal">
         <article class="rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden">
           <div class="aspect-[16/10] bg-gradient-to-br from-[#00D9FF]/20 to-transparent flex items-center justify-center">
             <i class="fas fa-certificate text-4xl text-[#00D9FF]"></i>
@@ -452,39 +380,10 @@
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-16 px-4 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-t from-[#00D9FF]/10 to-transparent"></div>
-    <div
-      class="max-w-4xl mx-auto glass-card-premium rounded-3xl p-10 md:p-16 text-center relative z-10 border border-white/5 hover:border-[#00D9FF]/30 transition-all duration-500 group">
-      <div
-        class="absolute -top-10 -right-10 w-40 h-40 bg-[#00D9FF]/20 rounded-full blur-[50px] group-hover:bg-[#00D9FF]/30 transition-all">
-      </div>
-      <div
-        class="absolute -bottom-10 -left-10 w-40 h-40 bg-[#00FF94]/20 rounded-full blur-[50px] group-hover:bg-[#00FF94]/30 transition-all">
-      </div>
-
-      <h2 class="text-3xl md:text-5xl font-bold font-heading text-white mb-6">Let's Build Something <br> <span
-          class="text-gradient">Amazing Together</span></h2>
-      <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto">
-        Whether you have a project in mind or just want to say hi, I'm always open to discussing new opportunities.
-      </p>
-      <a href="contact.html"
-        class="inline-flex items-center justify-center px-10 py-4 rounded-xl bg-white text-black font-bold text-lg hover:bg-[#00D9FF]/10 hover:scale-105 transition-all shadow-[0_0_30px_rgba(255,255,255,0.3)]">
-        Say Hello <i class="fas fa-arrow-right ml-2"></i>
-      </a>
-    </div>
-  </section>
 
   <!-- Footer -->
   <footer class="py-12 px-4 border-t border-white/5 mt-auto bg-[#0a0a0f]">
     <div class="max-w-6xl mx-auto flex flex-col items-center justify-center text-center">
-      <a href="index.html" aria-label="Back to top" class="flex items-center gap-2 mb-8 group scroll-smooth">
-        <div
-          class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center text-black font-bold text-2xl group-hover:rotate-12 transition-transform shadow-lg shadow-[#00D9FF]/20">
-          NW
-        </div>
-      </a>
 
       <p class="text-gray-400 text-sm mb-8 font-medium tracking-wide">Chemistry → Inventory → Automation & Analytics</p>
 
@@ -505,13 +404,14 @@
 
       <div class="text-gray-600 text-xs flex flex-col md:flex-row items-center gap-4">
         <span>© 2026 Nattapart Worakun. All rights reserved.</span>
-        <span class="hidden md:block w-1 h-1 bg-gray-700 rounded-full"></span>
-        <span>Designed & Built with <i class="fas fa-heart text-red-900 mx-1"></i></span>
       </div>
     </div>
   </footer>
 
   <script src="assets/js/common.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script src="assets/js/animations.js"></script>
   <script src="cache-bust.js"></script>
   <script>
     window.PortfolioCommon?.initMobileMenu({ lockScroll: true, closeOnBackdrop: true });
@@ -534,6 +434,10 @@
         element.classList.add('opacity-100', 'translate-y-0');
         element.classList.remove('opacity-0', 'translate-y-10');
       }
+    });
+    window.PortfolioCommon?.initRevealObserver({
+      selector: '.premium-reveal',
+      threshold: 0.12
     });
 
     // Featured certificates on homepage
@@ -598,7 +502,7 @@
           const imageAlt = escapeHTML(cert?.image?.alt || cert?.title || 'Certificate image');
 
           return `
-            <article class="rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden hover:-translate-y-1 hover:border-[#00D9FF]/50 transition-all duration-300">
+            <article class="premium-card rounded-2xl overflow-hidden hover:-translate-y-1 transition-all duration-300">
               <div class="aspect-[16/10] bg-[#111827] p-2">
                 ${imageSrc
                   ? `<img src="${escapeHTML(imageSrc)}" alt="${imageAlt}" loading="lazy" decoding="async" data-cert-image class="w-full h-full object-contain rounded-lg bg-[#0d121b]">`
@@ -633,6 +537,75 @@
     }
 
     loadCertificateHighlights();
+  </script>
+
+  <!-- Curtain overlay with name -->
+  <script>
+  (function() {
+    if (typeof gsap === 'undefined') return;
+
+    // Create curtain
+    const curtain = document.createElement('div');
+    curtain.id = 'page-curtain';
+    curtain.style.cssText = 'position:fixed;inset:0;z-index:99999;background:#e8e4dd;display:flex;align-items:center;justify-content:center;will-change:transform;overflow:hidden;';
+
+    // Name container
+    const nameWrap = document.createElement('div');
+    nameWrap.style.cssText = 'font-family:"Space Grotesk",sans-serif;font-size:clamp(4rem,14vw,12rem);font-weight:800;letter-spacing:-0.03em;text-transform:uppercase;color:#2d2a26;font-kerning:none;white-space:nowrap;line-height:1;';
+    nameWrap.textContent = 'NATTAPART';
+    curtain.appendChild(nameWrap);
+
+    document.body.prepend(curtain);
+    document.body.classList.add('page-ready');
+
+    // Split into chars
+    const text = nameWrap.textContent;
+    nameWrap.innerHTML = text.split('').map(c =>
+      `<span style="display:inline-block;transform-origin:center center;will-change:transform,opacity;">${c}</span>`
+    ).join('');
+    const chars = Array.from(nameWrap.querySelectorAll('span'));
+
+    // Scatter directions for each char (alternating up/down + rotate)
+    const scatterY = chars.map((_, i) => (i % 2 === 0 ? -1 : 1) * (120 + Math.random() * 80));
+    const scatterX = chars.map((_, i) => (i - chars.length / 2) * 30 + (Math.random() - 0.5) * 60);
+    const scatterRot = chars.map(() => (Math.random() - 0.5) * 40);
+
+    const tl = gsap.timeline();
+
+    // 1. Chars scaleY squeeze → expand
+    gsap.set(chars, { scaleY: 0, opacity: 0 });
+    tl.to(chars, {
+      scaleY: 1,
+      opacity: 1,
+      duration: 1,
+      stagger: 0.045,
+      ease: 'power4.out',
+    });
+
+    // 2. Hold
+    tl.to({}, { duration: 0.5 });
+
+    // 3. Each char scatters out individually
+    chars.forEach((ch, i) => {
+      tl.to(ch, {
+        y: scatterY[i],
+        x: scatterX[i],
+        rotation: scatterRot[i],
+        opacity: 0,
+        scale: 0.6,
+        duration: 0.7,
+        ease: 'power3.in',
+      }, '-=0.62');
+    });
+
+    // 4. Curtain background fades out
+    tl.to(curtain, {
+      opacity: 0,
+      duration: 0.5,
+      ease: 'power2.inOut',
+      onComplete: () => curtain.remove(),
+    }, '-=0.2');
+  })();
   </script>
 </body>
 
