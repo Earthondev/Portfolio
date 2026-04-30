@@ -1,5 +1,26 @@
 [
   {
+    "id": "mini-data-science-bootcamp-datarockie",
+    "title": "Mini Data Science Bootcamp",
+    "issuer": "DataRockie School",
+    "issued": "2026-04-30",
+    "category": "Data",
+    "credentialId": "cert_gqxx4tx0",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/mini-data-science-bootcamp-datarockie.png",
+      "alt": "Mini Data Science Bootcamp certificate by DataRockie School"
+    },
+    "skills": [
+      "Python",
+      "SQL",
+      "Data Analysis",
+      "Statistics",
+      "Data Visualization"
+    ],
+    "featured": true
+  },
+  {
     "id": "correlation-and-regression-for-the-curious",
     "title": "Correlation and Regression for The Curious",
     "issuer": "DataRockie School",
@@ -31,11 +52,7 @@
       "src": "./assets/certificates/prompt-engineering-agentic-ai-by-ais-academy-certificate-2026.jpg",
       "alt": "Prompt Engineering and Agentic AI by AIS Academy certificate"
     },
-    "skills": [
-      "Prompt Engineering",
-      "Agentic AI",
-      "AI Workflow Automation"
-    ],
+    "skills": ["Prompt Engineering", "Agentic AI", "AI Workflow Automation"],
     "featured": true
   },
   {
@@ -50,11 +67,7 @@
       "src": "./assets/certificates/digital-risk-management-data-security-privacy-part-2-coniverse-boston-network.png",
       "alt": "Digital Risk Management for Data Security and Data Privacy Part 2 certificate"
     },
-    "skills": [
-      "Digital Risk Management",
-      "Data Security",
-      "Data Privacy"
-    ],
+    "skills": ["Digital Risk Management", "Data Security", "Data Privacy"],
     "featured": false
   },
   {
@@ -69,11 +82,7 @@
       "src": "./assets/certificates/digital-risk-management-data-security-privacy-part-3-coniverse-boston-network.png",
       "alt": "Digital Risk Management for Data Security and Data Privacy Part 3 certificate"
     },
-    "skills": [
-      "Digital Risk Management",
-      "Data Security",
-      "Data Privacy"
-    ],
+    "skills": ["Digital Risk Management", "Data Security", "Data Privacy"],
     "featured": false
   },
   {
@@ -88,11 +97,7 @@
       "src": "./assets/certificates/digital-risk-management-data-security-privacy-part-4-coniverse-boston-network.png",
       "alt": "Digital Risk Management for Data Security and Data Privacy Part 4 certificate"
     },
-    "skills": [
-      "Digital Risk Management",
-      "Data Security",
-      "Data Privacy"
-    ],
+    "skills": ["Digital Risk Management", "Data Security", "Data Privacy"],
     "featured": false
   },
   {
@@ -126,11 +131,7 @@
       "src": "./assets/certificates/google-certified-educator-level-1.png",
       "alt": "Google Certified Educator Level 1 certificate"
     },
-    "skills": [
-      "Google Workspace",
-      "Digital Learning",
-      "Classroom Technology"
-    ],
+    "skills": ["Google Workspace", "Digital Learning", "Classroom Technology"],
     "featured": true
   },
   {
@@ -145,11 +146,7 @@
       "src": "./assets/certificates/datarockie-data-science-bootcamp-2025.png",
       "alt": "Data Science Bootcamp 2025 certificate"
     },
-    "skills": [
-      "Python",
-      "SQL",
-      "Statistics"
-    ],
+    "skills": ["Python", "SQL", "Statistics"],
     "featured": true
   },
   {
@@ -164,11 +161,7 @@
       "src": "./assets/certificates/chatgpt-for-developers.png",
       "alt": "ChatGPT for Developers certificate"
     },
-    "skills": [
-      "Prompt Engineering",
-      "API Workflow",
-      "Automation"
-    ],
+    "skills": ["Prompt Engineering", "API Workflow", "Automation"],
     "featured": true
   },
   {
@@ -183,11 +176,7 @@
       "src": "./assets/certificates/essential-sql-for-everyone.png",
       "alt": "Essential SQL for Everyone certificate"
     },
-    "skills": [
-      "SQL",
-      "Data Modeling",
-      "Query Optimization"
-    ],
+    "skills": ["SQL", "Data Modeling", "Query Optimization"],
     "featured": true
   },
   {
@@ -202,11 +191,7 @@
       "src": "./assets/certificates/sgs-method-validation-chemical-testing-eurachem-2025.jpg",
       "alt": "SGS Method Validation for Chemical Testing certificate"
     },
-    "skills": [
-      "Method Validation",
-      "EURACHEM",
-      "Chemical Testing"
-    ],
+    "skills": ["Method Validation", "EURACHEM", "Chemical Testing"],
     "featured": false
   },
   {
@@ -221,11 +206,7 @@
       "src": "./assets/certificates/gemini-certified-educator.png",
       "alt": "Gemini Certified Educator certificate"
     },
-    "skills": [
-      "Generative AI",
-      "Productivity",
-      "Workflow Design"
-    ],
+    "skills": ["Generative AI", "Productivity", "Workflow Design"],
     "featured": false
   },
   {
@@ -240,11 +221,7 @@
       "src": "./assets/certificates/glp-gmp-quality-systems.png",
       "alt": "GLP and GMP Quality Systems certificate"
     },
-    "skills": [
-      "Quality Systems",
-      "Compliance",
-      "SOP"
-    ],
+    "skills": ["Quality Systems", "Compliance", "SOP"],
     "featured": false
   },
   {
@@ -259,11 +236,7 @@
       "src": "./assets/certificates/firebase-for-web-apps.png",
       "alt": "Firebase for Modern Web Apps certificate"
     },
-    "skills": [
-      "Firebase",
-      "Authentication",
-      "Realtime Database"
-    ],
+    "skills": ["Firebase", "Authentication", "Realtime Database"],
     "featured": false
   },
   {
@@ -278,11 +251,7 @@
       "src": "./assets/certificates/power-bi-dashboard-design.png",
       "alt": "Power BI Dashboard Design certificate"
     },
-    "skills": [
-      "Power BI",
-      "Data Visualization",
-      "Business Reporting"
-    ],
+    "skills": ["Power BI", "Data Visualization", "Business Reporting"],
     "featured": false
   },
   {
@@ -297,11 +266,7 @@
       "src": "./assets/certificates/kmitl-chemical-safety-hazardous-emergency-response-2021.jpg",
       "alt": "Chemical Safety and Hazardous Emergency Response certificate"
     },
-    "skills": [
-      "Chemical Safety",
-      "Hazardous Materials",
-      "Emergency Response"
-    ],
+    "skills": ["Chemical Safety", "Hazardous Materials", "Emergency Response"],
     "featured": false
   },
   {

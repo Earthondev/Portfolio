@@ -1,876 +1,1336 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="h-full">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Nattapart Worakun (ณัฐภัทร วรกุล) — 18+ professional certificates in Data Science, SQL, Power BI, AI Automation, QA, and Cloud. DataRockie, Google, AIS Academy, and more. Data Analyst in Bangkok."
+        />
+        <meta name="author" content="Nattapart Worakun" />
+        <meta name="robots" content="index, follow" />
+        <meta
+            name="keywords"
+            content="Nattapart Worakun, ณัฐภัทร วรกุล, Certificates, Data Science, SQL, Power BI, Google Certified, DataRockie, Prompt Engineering, Data Analyst Bangkok"
+        />
+        <meta name="theme-color" content="#fbfaf7" />
+        <meta name="color-scheme" content="dark light" />
+        <link
+            rel="canonical"
+            href="https://earthondev.github.io/Portfolio/certificates.html"
+        />
+        <link rel="icon" href="favicon.ico" />
+
+        <meta property="og:site_name" content="Nattapart Worakun | Portfolio" />
+        <meta property="og:title" content="Certificates | Nattapart Worakun" />
+        <meta
+            property="og:description"
+            content="Verified credentials in Data, Automation, QA, and Development."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:url"
+            content="https://earthondev.github.io/Portfolio/certificates.html"
+        />
+        <meta
+            property="og:image"
+            content="https://earthondev.github.io/Portfolio/assets/og/og-image.png"
+        />
+
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale:alternate" content="th_TH" />
+        <title>
+            Certificates | Nattapart Worakun (ณัฐภัทร) — 18+ Professional
+            Credentials
+        </title>
+
+        <script src="./assets/vendor/tailwind-play-cdn.js"></script>
+        <script src="assets/js/common.js"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            heading: ["Space Grotesk", "sans-serif"],
+                            body: ["Sarabun", "sans-serif"],
+                        },
+                    },
+                },
+            };
+        </script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "WebPage",
+                        "@id": "https://earthondev.github.io/Portfolio/certificates.html#page",
+                        "name": "Certificates | Nattapart Worakun (ณัฐภัทร วรกุล)",
+                        "url": "https://earthondev.github.io/Portfolio/certificates.html",
+                        "description": "18+ professional certificates of Nattapart Worakun in Data Science, SQL, AI Automation, and QA.",
+                        "isPartOf": {
+                            "@id": "https://earthondev.github.io/Portfolio/#website"
+                        },
+                        "about": {
+                            "@id": "https://earthondev.github.io/Portfolio/#person"
+                        }
+                    },
+                    {
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://earthondev.github.io/Portfolio/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Certificates",
+                                "item": "https://earthondev.github.io/Portfolio/certificates.html"
+                            }
+                        ]
+                    }
+                ]
+            }
+        </script>
+
+        <style>
+            body {
+                background: var(--bg) !important;
+                color: var(--text) !important;
+                visibility: hidden;
+            }
+            body.page-ready {
+                visibility: visible;
+            }
+
+            body > .fixed.inset-0.overflow-hidden.pointer-events-none {
+                display: none;
+            }
+
+            .cert-hero {
+                display: grid;
+                grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+                gap: 32px;
+                align-items: end;
+            }
+
+            .cert-main {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .cert-main > section:nth-of-type(1) {
+                order: 1;
+            }
+
+            .cert-main > section:nth-of-type(2) {
+                order: 2;
+            }
+
+            .cert-main > section:nth-of-type(3) {
+                order: 5;
+            }
+
+            .cert-main > section:nth-of-type(4) {
+                order: 3;
+            }
+
+            .cert-main > section:nth-of-type(5) {
+                order: 4;
+            }
+
+            .cert-kicker {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 12px;
+                border-radius: 999px;
+                border: 1px solid rgba(17, 24, 39, 0.12);
+                background: var(--surface-2);
+                color: var(--text-muted);
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+            }
+
+            .cert-lead {
+                max-width: 760px;
+                color: var(--text-muted);
+                font-size: 18px;
+                line-height: 1.75;
+            }
+
+            .cert-stat-grid {
+                display: grid;
+                gap: 12px;
+            }
+
+            .cert-card {
+                background: var(--surface) !important;
+                border: 1px solid var(--border) !important;
+                box-shadow: var(--shadow-sm) !important;
+                transition:
+                    transform 160ms ease,
+                    border-color 160ms ease,
+                    box-shadow 160ms ease;
+            }
+
+            .cert-card:hover {
+                transform: translateY(-3px);
+                border-color: rgba(17, 24, 39, 0.18) !important;
+                box-shadow: var(--shadow-md) !important;
+            }
+
+            .cert-image-shell {
+                background: var(--surface-2);
+                border-bottom: 1px solid var(--border);
+            }
+
+            .cert-card h3 {
+                word-break: break-word;
+                overflow-wrap: anywhere;
+            }
+
+            .cert-card img {
+                background: #f8fafc !important;
+            }
+
+            .chip {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                border-radius: 999px;
+                border: 1px solid var(--border);
+                background: rgba(255, 255, 255, 0.86);
+                padding: 5px 10px;
+                font-size: 11px;
+                color: var(--text-muted);
+                font-weight: 700;
+                line-height: 1.2;
+            }
+
+            .track-card {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .track-card::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    135deg,
+                    rgba(0, 217, 255, 0.08),
+                    transparent 46%,
+                    rgba(255, 230, 0, 0.08)
+                );
+                pointer-events: none;
+            }
+
+            .track-card > * {
+                position: relative;
+                z-index: 1;
+            }
+
+            .tag-pill {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                padding: 6px 10px;
+                border-radius: 999px;
+                font-size: 11px;
+                line-height: 1;
+                border: 1px solid var(--border);
+                background: var(--surface-2);
+                color: var(--text-muted);
+                font-weight: 700;
+            }
+
+            .fade-up {
+                opacity: 0;
+                transform: translateY(14px);
+                transition:
+                    opacity 0.45s ease,
+                    transform 0.45s ease;
+            }
+
+            .fade-up.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .modal-overlay {
+                opacity: 0;
+                visibility: hidden;
+                transition:
+                    opacity 0.25s ease,
+                    visibility 0.25s ease;
+            }
+
+            .modal-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .modal-panel {
+                transform: translateY(16px) scale(0.98);
+                transition: transform 0.25s ease;
+                background: var(--surface) !important;
+                border-color: var(--border) !important;
+                box-shadow: var(--shadow-md);
+            }
+
+            .modal-overlay.active .modal-panel {
+                transform: translateY(0) scale(1);
+            }
+
+            .floating {
+                animation: float 8s ease-in-out infinite;
+            }
+
+            #search-input,
+            #sort-select {
+                min-height: 48px;
+                background: var(--surface) !important;
+                border: 1px solid var(--border) !important;
+                color: var(--text) !important;
+                box-shadow: var(--shadow-sm);
+            }
+
+            #search-input::placeholder {
+                color: var(--text-soft);
+            }
+
+            #search-input:focus,
+            #sort-select:focus {
+                border-color: rgba(17, 24, 39, 0.22) !important;
+                box-shadow: var(--ring);
+            }
+
+            #clear-filters {
+                min-height: 48px;
+                background: var(--surface) !important;
+                border-color: var(--border) !important;
+                color: var(--text-muted) !important;
+            }
+
+            #clear-filters:hover {
+                background: var(--surface-2) !important;
+                color: var(--text) !important;
+                border-color: rgba(17, 24, 39, 0.18) !important;
+            }
+
+            .filter-btn,
+            .focus-btn {
+                min-height: 40px;
+                border-radius: 999px;
+            }
+
+            .focus-btn {
+                border-radius: 16px;
+                max-width: 240px;
+            }
+
+            .certificate-modal-body {
+                background: var(--surface-2) !important;
+            }
+
+            @media (max-width: 900px) {
+                .cert-hero {
+                    grid-template-columns: 1fr;
+                    gap: 22px;
+                }
+            }
+
+            @media (max-width: 640px) {
+                main.cert-main {
+                    padding-top: 112px;
+                }
+
+                main.cert-main > section:nth-of-type(2) {
+                    order: 4;
+                }
+
+                main.cert-main > section:nth-of-type(4) {
+                    order: 2;
+                }
+
+                main.cert-main > section:nth-of-type(5) {
+                    order: 3;
+                }
+
+                .cert-stat-grid {
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                }
+
+                .cert-stat-grid article {
+                    padding: 14px !important;
+                }
+
+                .cert-stat-grid .text-3xl {
+                    font-size: 1.45rem;
+                    line-height: 1.15;
+                }
+
+                .cert-stat-grid .text-2xl {
+                    font-size: 1rem;
+                    line-height: 1.25;
+                }
+
+                .cert-stat-grid p:last-child {
+                    font-size: 11px;
+                    line-height: 1.35;
+                }
+
+                .cert-lead {
+                    font-size: 16px;
+                    line-height: 1.7;
+                }
+
+                #focus-buttons,
+                #role-tracks {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    gap: 12px;
+                    overflow-x: auto;
+                    padding-bottom: 4px;
+                    scroll-snap-type: x mandatory;
+                    scrollbar-width: none;
+                }
+
+                #focus-buttons::-webkit-scrollbar,
+                #role-tracks::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .focus-btn {
+                    flex: 0 0 240px;
+                    max-width: none;
+                    text-align: left;
+                    scroll-snap-align: start;
+                }
+
+                #role-tracks .track-card {
+                    flex: 0 0 82vw;
+                    scroll-snap-align: start;
+                }
+
+                #role-tracks .track-card .border-t {
+                    display: none;
+                }
+
+                #filters {
+                    flex-wrap: nowrap;
+                    overflow-x: auto;
+                    padding-bottom: 4px;
+                    scrollbar-width: none;
+                }
+
+                #filters::-webkit-scrollbar {
+                    display: none;
+                }
+
+                #filters .filter-btn {
+                    flex: 0 0 auto;
+                }
+
+                .cert-card .chip {
+                    font-size: 10px;
+                    padding: 5px 8px;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .fade-up,
+                .cert-card,
+                .modal-overlay,
+                .modal-panel {
+                    transition: none !important;
+                }
+            }
+
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0px);
+                }
+
+                50% {
+                    transform: translateY(-18px);
+                }
+            }
+        </style>
+    </head>
+
+    <body class="h-full overflow-x-hidden">
+        <nav
+            class="fixed top-0 w-full z-50 glass-nav transition-all duration-300"
+            id="navbar"
+        >
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <!-- Logo -->
+                    <a href="index.html" class="flex items-center gap-2 group">
+                        <span
+                            class="font-heading font-semibold text-base tracking-[0.08em] group-hover:opacity-60 transition-opacity"
+                            >Nattapart</span
+                        >
+                    </a>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a
+                            href="index.html"
+                            class="text-sm font-medium text-gray-400 hover:text-[var(--text)] hover:border-b-2 hover:border-gray-700 py-1 transition-all"
+                            >Home</a
+                        >
+                        <a
+                            href="certificates.html"
+                            class="text-sm font-medium border-b-2 border-[#00D9FF] py-1"
+                            >Certificates</a
+                        >
+                        <a
+                            href="portfolio.html"
+                            class="text-sm font-medium text-gray-400 hover:text-[var(--text)] hover:border-b-2 hover:border-gray-700 py-1 transition-all"
+                            >Projects</a
+                        >
+                        <a
+                            href="contact.html"
+                            class="text-sm font-medium text-gray-400 hover:text-[var(--text)] hover:border-b-2 hover:border-gray-700 py-1 transition-all"
+                            >Contact</a
+                        >
+                    </div>
+
+                    <!-- CTA & Mobile Menu -->
+                    <div class="flex items-center gap-4">
+                        <a
+                            href="resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="hidden sm:inline-flex items-center justify-center px-5 py-2 text-sm font-medium transition-all bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-[#00D9FF]/50 hover:shadow-[0_0_15px_rgba(0,217,255,0.3)]"
+                        >
+                            Resume
+                        </a>
+                        <button
+                            id="mobile-menu-btn"
+                            class="md:hidden text-gray-300 hover:text-[var(--text)] p-2"
+                        >
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div
+                id="mobile-menu"
+                class="hidden md:hidden fixed top-20 left-0 w-full bg-[#fbfaf7]/95 backdrop-blur-xl border-t border-black/5 shadow-2xl z-40"
+            >
+                <div class="px-4 pt-2 pb-6 space-y-2">
+                    <a
+                        href="index.html"
+                        class="block px-3 py-3 rounded-lg text-base font-medium text-gray-500 hover:text-[var(--text)] hover:bg-black/5"
+                        >Home</a
+                    >
+                    <a
+                        href="certificates.html"
+                        class="block px-3 py-3 rounded-lg text-base font-medium border-l-4 border-[#00D9FF] bg-black/5"
+                        >Certificates</a
+                    >
+                    <a
+                        href="portfolio.html"
+                        class="block px-3 py-3 rounded-lg text-base font-medium text-gray-500 hover:text-[var(--text)] hover:bg-black/5"
+                        >Projects</a
+                    >
+                    <a
+                        href="contact.html"
+                        class="block px-3 py-3 rounded-lg text-base font-medium text-gray-500 hover:text-[var(--text)] hover:bg-black/5"
+                        >Contact</a
+                    >
+                </div>
+            </div>
+        </nav>
+
+        <main
+            class="cert-main relative z-10 max-w-7xl mx-auto px-4 pt-32 pb-20"
+        >
+            <section class="mb-12 fade-up cert-hero">
+                <div>
+                    <div class="cert-kicker">
+                        <i class="fas fa-certificate"></i>
+                        Professional Credentials
+                    </div>
+                    <h1
+                        class="text-4xl sm:text-6xl font-bold font-heading mt-6 leading-tight"
+                        data-reveal-hero
+                        data-reveal-delay="0.1"
+                    >
+                        Certificates that support
+                        <span class="gradient-text">real project delivery</span>
+                    </h1>
+                    <p class="cert-lead mt-5">
+                        Credentials grouped around the work I want to be hired
+                        for: inventory analytics, reporting automation, reliable
+                        data handling, and operational quality control.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-5 max-w-2xl">
+                    <article
+                        class="glass-card rounded-2xl p-7 fade-up border border-white/5 hover:border-white/10 transition-all"
+                    >
+                        <p
+                            class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-3"
+                        >
+                            Total Earned
+                        </p>
+                        <p
+                            class="text-5xl font-bold font-heading text-white leading-none"
+                            id="cert-total"
+                        >
+                            0
+                        </p>
+                        <p class="text-sm text-gray-400 mt-2">Certificates</p>
+                    </article>
+                    <article
+                        class="glass-card rounded-2xl p-7 fade-up border border-white/5 hover:border-white/10 transition-all"
+                    >
+                        <p
+                            class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-3"
+                        >
+                            Most Recent
+                        </p>
+                        <p
+                            class="text-2xl font-bold font-heading text-white leading-tight"
+                            id="cert-latest"
+                        >
+                            -
+                        </p>
+                        <p class="text-sm text-gray-400 mt-2">
+                            Latest Issue Date
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="mb-10 fade-up">
+                <div class="grid xl:grid-cols-[1.3fr_1fr] gap-5">
+                    <article class="glass-card rounded-2xl p-6 track-card">
+                        <div class="flex flex-wrap items-center gap-3 mb-4">
+                            <span class="chip"
+                                ><i class="fas fa-bullseye"></i> Role Fit
+                                Narrative</span
+                            >
+                            <span
+                                id="focus-summary"
+                                class="text-xs text-gray-400 uppercase tracking-[0.12em]"
+                                >Loading certificates...</span
+                            >
+                        </div>
+                        <h2
+                            class="text-2xl sm:text-3xl font-bold font-heading text-white leading-tight"
+                        >
+                            These credentials back up
+                            <span class="gradient-text"
+                                >analytics, automation, and control</span
+                            >
+                            work for inventory-heavy teams.
+                        </h2>
+                        <p
+                            class="mt-4 text-sm sm:text-base text-gray-300 max-w-3xl"
+                        >
+                            Instead of showing certificates as isolated
+                            achievements, this page groups them by the business
+                            capability they support: reporting, operational
+                            decision-making, automation, QA discipline, and data
+                            reliability.
+                        </p>
+                        <div
+                            id="focus-buttons"
+                            class="mt-5 flex flex-wrap gap-2"
+                        ></div>
+                    </article>
+
+                    <article class="glass-card rounded-2xl p-6">
+                        <p
+                            class="text-xs uppercase tracking-[0.14em] text-gray-500 mb-2"
+                        >
+                            Recruiter Shortcut
+                        </p>
+                        <h3 class="text-xl font-semibold text-white">
+                            Why this page matters for Inventory Analytics
+                        </h3>
+                        <ul class="mt-4 space-y-3 text-sm text-gray-300">
+                            <li class="flex gap-3">
+                                <i
+                                    class="fas fa-chart-line text-[#00D9FF] mt-0.5"
+                                ></i
+                                ><span
+                                    >Data and reporting certificates support
+                                    dashboard, KPI, and SQL-oriented work.</span
+                                >
+                            </li>
+                            <li class="flex gap-3">
+                                <i
+                                    class="fas fa-gears text-[#00FF94] mt-0.5"
+                                ></i
+                                ><span
+                                    >Automation and AI training supports
+                                    workflow improvement and reporting
+                                    efficiency.</span
+                                >
+                            </li>
+                            <li class="flex gap-3">
+                                <i
+                                    class="fas fa-shield-halved text-[#FFE600] mt-0.5"
+                                ></i
+                                ><span
+                                    >QA, validation, and security topics
+                                    reinforce control-minded operations and
+                                    reliable data handling.</span
+                                >
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <section class="mb-10 fade-up">
+                <div id="role-tracks" class="grid lg:grid-cols-3 gap-4"></div>
+            </section>
+
+            <section class="glass-card rounded-2xl p-4 md:p-5 mb-10 fade-up">
+                <div class="grid lg:grid-cols-[1fr_auto] gap-4">
+                    <label class="relative block">
+                        <i
+                            class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"
+                        ></i>
+                        <input
+                            id="search-input"
+                            type="search"
+                            placeholder="Search by certificate, issuer, skill..."
+                            class="w-full bg-[#0f131a] border border-white/10 rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[#00D9FF]/60"
+                        />
+                    </label>
+
+                    <div class="flex flex-wrap gap-3">
+                        <select
+                            id="sort-select"
+                            class="bg-[#0f131a] border border-white/10 rounded-xl px-4 py-3 text-sm text-gray-100 focus:outline-none focus:border-[#00D9FF]/60"
+                        >
+                            <option value="newest">Newest first</option>
+                            <option value="oldest">Oldest first</option>
+                            <option value="title">Title A-Z</option>
+                            <option value="issuer">Issuer A-Z</option>
+                        </select>
+                        <button
+                            id="clear-filters"
+                            type="button"
+                            class="px-4 py-3 rounded-xl border border-white/10 text-sm text-gray-200 hover:border-[#FFE600]/60 hover:text-[#FFE600] transition-colors"
+                        >
+                            Reset
+                        </button>
+                    </div>
+                </div>
+
+                <div
+                    class="mt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3"
+                >
+                    <div id="filters" class="flex flex-wrap gap-2"></div>
+                    <p
+                        id="result-count"
+                        class="text-xs text-gray-400 uppercase tracking-[0.12em]"
+                    >
+                        0 results
+                    </p>
+                </div>
+                <p class="mt-3 text-xs text-gray-500">
+                    Tip: Click a category chip to filter certificates.
+                </p>
+            </section>
+
+            <section>
+                <div
+                    id="certificates-grid"
+                    class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+                ></div>
+                <div id="empty-state" class="hidden text-center py-16">
+                    <i class="fas fa-search text-4xl text-gray-500 mb-4"></i>
+                    <h3 class="text-2xl font-bold text-gray-300 mb-2">
+                        No certificates found
+                    </h3>
+                    <p class="text-gray-500">
+                        Try changing filter, keyword, or sort.
+                    </p>
+                </div>
+            </section>
+        </main>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Professional certificates of Nattapart Worakun in Data, Automation, QA, and Web Development.">
-  <meta name="author" content="Nattapart Worakun">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#fbfaf7">
-  <meta name="color-scheme" content="dark light">
-  <link rel="canonical" href="https://earthondev.github.io/Portfolio/certificates.html">
-  <link rel="icon" href="favicon.ico">
-
-  <meta property="og:site_name" content="Nattapart Worakun | Portfolio">
-  <meta property="og:title" content="Certificates | Nattapart Worakun">
-  <meta property="og:description" content="Verified credentials in Data, Automation, QA, and Development.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://earthondev.github.io/Portfolio/certificates.html">
-  <meta property="og:image" content="https://earthondev.github.io/Portfolio/assets/og/og-image.png">
-
-  <title>Certificates | Nattapart Worakun</title>
-
-  <script src="./assets/vendor/tailwind-play-cdn.js"></script>
-  <script src="assets/js/common.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            heading: ['Space Grotesk', 'sans-serif'],
-            body: ['Sarabun', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      background: var(--bg) !important;
-      color: var(--text) !important;
-      visibility: hidden;
-    }
-    body.page-ready {
-      visibility: visible;
-    }
-
-    body > .fixed.inset-0.overflow-hidden.pointer-events-none {
-      display: none;
-    }
-
-    .cert-hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-      gap: 32px;
-      align-items: end;
-    }
-
-    .cert-main {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .cert-main > section:nth-of-type(1) {
-      order: 1;
-    }
-
-    .cert-main > section:nth-of-type(2) {
-      order: 2;
-    }
-
-    .cert-main > section:nth-of-type(3) {
-      order: 5;
-    }
-
-    .cert-main > section:nth-of-type(4) {
-      order: 3;
-    }
-
-    .cert-main > section:nth-of-type(5) {
-      order: 4;
-    }
-
-    .cert-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(17, 24, 39, 0.12);
-      background: var(--surface-2);
-      color: var(--text-muted);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .cert-lead {
-      max-width: 760px;
-      color: var(--text-muted);
-      font-size: 18px;
-      line-height: 1.75;
-    }
-
-    .cert-stat-grid {
-      display: grid;
-      gap: 12px;
-    }
-
-    .cert-card {
-      background: var(--surface) !important;
-      border: 1px solid var(--border) !important;
-      box-shadow: var(--shadow-sm) !important;
-      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
-    }
-
-    .cert-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(17, 24, 39, 0.18) !important;
-      box-shadow: var(--shadow-md) !important;
-    }
-
-    .cert-image-shell {
-      background: var(--surface-2);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .cert-card h3 {
-      word-break: break-word;
-      overflow-wrap: anywhere;
-    }
-
-    .cert-card img {
-      background: #f8fafc !important;
-    }
-
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.86);
-      padding: 5px 10px;
-      font-size: 11px;
-      color: var(--text-muted);
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    .track-card {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .track-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(0, 217, 255, 0.08), transparent 46%, rgba(255, 230, 0, 0.08));
-      pointer-events: none;
-    }
-
-    .track-card > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .tag-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 11px;
-      line-height: 1;
-      border: 1px solid var(--border);
-      background: var(--surface-2);
-      color: var(--text-muted);
-      font-weight: 700;
-    }
-
-    .fade-up {
-      opacity: 0;
-      transform: translateY(14px);
-      transition: opacity 0.45s ease, transform 0.45s ease;
-    }
-
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .modal-overlay {
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.25s ease, visibility 0.25s ease;
-    }
-
-    .modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .modal-panel {
-      transform: translateY(16px) scale(0.98);
-      transition: transform 0.25s ease;
-      background: var(--surface) !important;
-      border-color: var(--border) !important;
-      box-shadow: var(--shadow-md);
-    }
-
-    .modal-overlay.active .modal-panel {
-      transform: translateY(0) scale(1);
-    }
-
-    .floating {
-      animation: float 8s ease-in-out infinite;
-    }
-
-    #search-input,
-    #sort-select {
-      min-height: 48px;
-      background: var(--surface) !important;
-      border: 1px solid var(--border) !important;
-      color: var(--text) !important;
-      box-shadow: var(--shadow-sm);
-    }
-
-    #search-input::placeholder {
-      color: var(--text-soft);
-    }
-
-    #search-input:focus,
-    #sort-select:focus {
-      border-color: rgba(17, 24, 39, 0.22) !important;
-      box-shadow: var(--ring);
-    }
-
-    #clear-filters {
-      min-height: 48px;
-      background: var(--surface) !important;
-      border-color: var(--border) !important;
-      color: var(--text-muted) !important;
-    }
-
-    #clear-filters:hover {
-      background: var(--surface-2) !important;
-      color: var(--text) !important;
-      border-color: rgba(17, 24, 39, 0.18) !important;
-    }
-
-    .filter-btn,
-    .focus-btn {
-      min-height: 40px;
-      border-radius: 999px;
-    }
-
-    .focus-btn {
-      border-radius: 16px;
-      max-width: 240px;
-    }
-
-    .certificate-modal-body {
-      background: var(--surface-2) !important;
-    }
-
-    @media (max-width: 900px) {
-      .cert-hero {
-        grid-template-columns: 1fr;
-        gap: 22px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      main.cert-main {
-        padding-top: 112px;
-      }
-
-      main.cert-main > section:nth-of-type(2) {
-        order: 4;
-      }
-
-      main.cert-main > section:nth-of-type(4) {
-        order: 2;
-      }
-
-      main.cert-main > section:nth-of-type(5) {
-        order: 3;
-      }
-
-      .cert-stat-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .cert-stat-grid article {
-        padding: 14px !important;
-      }
-
-      .cert-stat-grid .text-3xl {
-        font-size: 1.45rem;
-        line-height: 1.15;
-      }
-
-      .cert-stat-grid .text-2xl {
-        font-size: 1rem;
-        line-height: 1.25;
-      }
-
-      .cert-stat-grid p:last-child {
-        font-size: 11px;
-        line-height: 1.35;
-      }
-
-      .cert-lead {
-        font-size: 16px;
-        line-height: 1.7;
-      }
-
-      #focus-buttons,
-      #role-tracks {
-        display: flex;
-        flex-wrap: nowrap;
-        gap: 12px;
-        overflow-x: auto;
-        padding-bottom: 4px;
-        scroll-snap-type: x mandatory;
-        scrollbar-width: none;
-      }
-
-      #focus-buttons::-webkit-scrollbar,
-      #role-tracks::-webkit-scrollbar {
-        display: none;
-      }
-
-      .focus-btn {
-        flex: 0 0 240px;
-        max-width: none;
-        text-align: left;
-        scroll-snap-align: start;
-      }
-
-      #role-tracks .track-card {
-        flex: 0 0 82vw;
-        scroll-snap-align: start;
-      }
-
-      #role-tracks .track-card .border-t {
-        display: none;
-      }
-
-      #filters {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        padding-bottom: 4px;
-        scrollbar-width: none;
-      }
-
-      #filters::-webkit-scrollbar {
-        display: none;
-      }
-
-      #filters .filter-btn {
-        flex: 0 0 auto;
-      }
-
-      .cert-card .chip {
-        font-size: 10px;
-        padding: 5px 8px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .fade-up,
-      .cert-card,
-      .modal-overlay,
-      .modal-panel {
-        transition: none !important;
-      }
-    }
-
-    @keyframes float {
-      0%,
-      100% {
-        transform: translateY(0px);
-      }
-
-      50% {
-        transform: translateY(-18px);
-      }
-    }
-  </style>
-</head>
-
-<body class="h-full overflow-x-hidden">
-
-  <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="navbar">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
-        <!-- Logo -->
-        <a href="index.html" class="flex items-center gap-2 group">
-          <span class="font-heading font-semibold text-base tracking-[0.08em] group-hover:opacity-60 transition-opacity">Nattapart</span>
-        </a>
-
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="index.html" class="text-sm font-medium text-gray-400 hover:text-[var(--text)] hover:border-b-2 hover:border-gray-700 py-1 transition-all">Home</a>
-          <a href="certificates.html" class="text-sm font-medium border-b-2 border-[#00D9FF] py-1">Certificates</a>
-          <a href="portfolio.html" class="text-sm font-medium text-gray-400 hover:text-[var(--text)] hover:border-b-2 hover:border-gray-700 py-1 transition-all">Projects</a>
-          <a href="contact.html" class="text-sm font-medium text-gray-400 hover:text-[var(--text)] hover:border-b-2 hover:border-gray-700 py-1 transition-all">Contact</a>
-        </div>
-
-        <!-- CTA & Mobile Menu -->
-        <div class="flex items-center gap-4">
-          <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
-            class="hidden sm:inline-flex items-center justify-center px-5 py-2 text-sm font-medium transition-all bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-[#00D9FF]/50 hover:shadow-[0_0_15px_rgba(0,217,255,0.3)]">
-            Resume
-          </a>
-          <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-[var(--text)] p-2">
-            <i class="fas fa-bars text-xl"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu"
-      class="hidden md:hidden fixed top-20 left-0 w-full bg-[#fbfaf7]/95 backdrop-blur-xl border-t border-black/5 shadow-2xl z-40">
-      <div class="px-4 pt-2 pb-6 space-y-2">
-        <a href="index.html"
-          class="block px-3 py-3 rounded-lg text-base font-medium text-gray-500 hover:text-[var(--text)] hover:bg-black/5">Home</a>
-        <a href="certificates.html"
-          class="block px-3 py-3 rounded-lg text-base font-medium border-l-4 border-[#00D9FF] bg-black/5">Certificates</a>
-        <a href="portfolio.html"
-          class="block px-3 py-3 rounded-lg text-base font-medium text-gray-500 hover:text-[var(--text)] hover:bg-black/5">Projects</a>
-        <a href="contact.html"
-          class="block px-3 py-3 rounded-lg text-base font-medium text-gray-500 hover:text-[var(--text)] hover:bg-black/5">Contact</a>
-      </div>
-    </div>
-  </nav>
-
-  <main class="cert-main relative z-10 max-w-7xl mx-auto px-4 pt-32 pb-20">
-    <section class="mb-12 fade-up cert-hero">
-      <div>
-        <div class="cert-kicker">
-          <i class="fas fa-certificate"></i>
-          Professional Credentials
-        </div>
-        <h1 class="text-4xl sm:text-6xl font-bold font-heading mt-6 leading-tight" data-reveal-hero data-reveal-delay="0.1">
-          Certificates that support <span class="gradient-text">real project delivery</span>
-        </h1>
-        <p class="cert-lead mt-5">
-          Credentials grouped around the work I want to be hired for: inventory analytics, reporting automation,
-          reliable data handling, and operational quality control.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-2 gap-5 max-w-2xl">
-        <article class="glass-card rounded-2xl p-7 fade-up border border-white/5 hover:border-white/10 transition-all">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-3">Total Earned</p>
-          <p class="text-5xl font-bold font-heading text-white leading-none" id="cert-total">0</p>
-          <p class="text-sm text-gray-400 mt-2">Certificates</p>
-        </article>
-        <article class="glass-card rounded-2xl p-7 fade-up border border-white/5 hover:border-white/10 transition-all">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-3">Most Recent</p>
-          <p class="text-2xl font-bold font-heading text-white leading-tight" id="cert-latest">-</p>
-          <p class="text-sm text-gray-400 mt-2">Latest Issue Date</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="mb-10 fade-up">
-      <div class="grid xl:grid-cols-[1.3fr_1fr] gap-5">
-        <article class="glass-card rounded-2xl p-6 track-card">
-          <div class="flex flex-wrap items-center gap-3 mb-4">
-            <span class="chip"><i class="fas fa-bullseye"></i> Role Fit Narrative</span>
-            <span id="focus-summary" class="text-xs text-gray-400 uppercase tracking-[0.12em]">Loading certificates...</span>
-          </div>
-          <h2 class="text-2xl sm:text-3xl font-bold font-heading text-white leading-tight">
-            These credentials back up
-            <span class="gradient-text">analytics, automation, and control</span>
-            work for inventory-heavy teams.
-          </h2>
-          <p class="mt-4 text-sm sm:text-base text-gray-300 max-w-3xl">
-            Instead of showing certificates as isolated achievements, this page groups them by the business capability they support:
-            reporting, operational decision-making, automation, QA discipline, and data reliability.
-          </p>
-          <div id="focus-buttons" class="mt-5 flex flex-wrap gap-2"></div>
-        </article>
-
-        <article class="glass-card rounded-2xl p-6">
-          <p class="text-xs uppercase tracking-[0.14em] text-gray-500 mb-2">Recruiter Shortcut</p>
-          <h3 class="text-xl font-semibold text-white">Why this page matters for Inventory Analytics</h3>
-          <ul class="mt-4 space-y-3 text-sm text-gray-300">
-            <li class="flex gap-3"><i class="fas fa-chart-line text-[#00D9FF] mt-0.5"></i><span>Data and reporting certificates support dashboard, KPI, and SQL-oriented work.</span></li>
-            <li class="flex gap-3"><i class="fas fa-gears text-[#00FF94] mt-0.5"></i><span>Automation and AI training supports workflow improvement and reporting efficiency.</span></li>
-            <li class="flex gap-3"><i class="fas fa-shield-halved text-[#FFE600] mt-0.5"></i><span>QA, validation, and security topics reinforce control-minded operations and reliable data handling.</span></li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="mb-10 fade-up">
-      <div id="role-tracks" class="grid lg:grid-cols-3 gap-4"></div>
-    </section>
-
-    <section class="glass-card rounded-2xl p-4 md:p-5 mb-10 fade-up">
-      <div class="grid lg:grid-cols-[1fr_auto] gap-4">
-        <label class="relative block">
-          <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
-          <input id="search-input" type="search" placeholder="Search by certificate, issuer, skill..."
-            class="w-full bg-[#0f131a] border border-white/10 rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[#00D9FF]/60">
-        </label>
-
-        <div class="flex flex-wrap gap-3">
-          <select id="sort-select"
-            class="bg-[#0f131a] border border-white/10 rounded-xl px-4 py-3 text-sm text-gray-100 focus:outline-none focus:border-[#00D9FF]/60">
-            <option value="newest">Newest first</option>
-            <option value="oldest">Oldest first</option>
-            <option value="title">Title A-Z</option>
-            <option value="issuer">Issuer A-Z</option>
-          </select>
-          <button id="clear-filters" type="button"
-            class="px-4 py-3 rounded-xl border border-white/10 text-sm text-gray-200 hover:border-[#FFE600]/60 hover:text-[#FFE600] transition-colors">
-            Reset
-          </button>
-        </div>
-      </div>
-
-      <div class="mt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-        <div id="filters" class="flex flex-wrap gap-2"></div>
-        <p id="result-count" class="text-xs text-gray-400 uppercase tracking-[0.12em]">0 results</p>
-      </div>
-      <p class="mt-3 text-xs text-gray-500">Tip: Click a category chip to filter certificates.</p>
-    </section>
-
-    <section>
-      <div id="certificates-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-      <div id="empty-state" class="hidden text-center py-16">
-        <i class="fas fa-search text-4xl text-gray-500 mb-4"></i>
-        <h3 class="text-2xl font-bold text-gray-300 mb-2">No certificates found</h3>
-        <p class="text-gray-500">Try changing filter, keyword, or sort.</p>
-      </div>
-    </section>
-  </main>
-
-  <div id="preview-modal" class="modal-overlay fixed inset-0 z-[60] bg-black/70 p-4 flex items-center justify-center">
-    <div class="modal-panel w-full max-w-5xl rounded-2xl border border-white/10 overflow-hidden">
-      <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
-        <h2 id="modal-title" class="text-lg font-semibold">Certificate Preview</h2>
-        <button id="close-modal" type="button" aria-label="Close certificate preview"
-          class="w-9 h-9 rounded-full border border-white/15 hover:border-[#00D9FF] hover:text-[#00D9FF] transition-colors">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="certificate-modal-body p-4 max-h-[80vh] overflow-auto">
-        <img id="modal-image" src="" alt="Certificate preview" class="w-full h-auto rounded-xl border border-white/10">
-      </div>
-    </div>
-  </div>
-
-  <footer class="py-12 px-4 border-t border-white/10 mt-10">
-    <div class="max-w-6xl mx-auto text-center">
-      <div class="flex items-center justify-center space-x-2 mb-4">
         <div
-          class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center font-bold text-[#0a0a0f]">
-          NW
+            id="preview-modal"
+            class="modal-overlay fixed inset-0 z-[60] bg-black/70 p-4 flex items-center justify-center"
+        >
+            <div
+                class="modal-panel w-full max-w-5xl rounded-2xl border border-white/10 overflow-hidden"
+            >
+                <div
+                    class="flex items-center justify-between px-5 py-4 border-b border-white/10"
+                >
+                    <h2 id="modal-title" class="text-lg font-semibold">
+                        Certificate Preview
+                    </h2>
+                    <button
+                        id="close-modal"
+                        type="button"
+                        aria-label="Close certificate preview"
+                        class="w-9 h-9 rounded-full border border-white/15 hover:border-[#00D9FF] hover:text-[#00D9FF] transition-colors"
+                    >
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div
+                    class="certificate-modal-body p-4 max-h-[80vh] overflow-auto"
+                >
+                    <img
+                        id="modal-image"
+                        src=""
+                        alt="Certificate preview"
+                        class="w-full h-auto rounded-xl border border-white/10"
+                    />
+                </div>
+            </div>
         </div>
-        <span class="font-semibold text-lg font-heading">Nattapart Worakun</span>
-      </div>
-      <p class="text-gray-500 text-sm">Chemistry → Automation → Data & QA</p>
-      <div class="flex justify-center gap-4 mt-6">
-        <a href="https://github.com/earthondev" target="_blank" rel="noopener noreferrer"
-          class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white transition-all">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="mailto:earthlikemwbb@gmail.com"
-          class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white transition-all">
-          <i class="fas fa-envelope"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/earthondev/" target="_blank" rel="noopener noreferrer"
-          class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white transition-all">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-      </div>
-      <p class="text-gray-600 text-xs mt-4">© 2026 Nattapart Worakun. All rights reserved.</p>
-    </div>
-  </footer>
 
-  <script src="assets/js/common.js"></script>
-  <script>
-    const filtersEl = document.getElementById('filters');
-    const gridEl = document.getElementById('certificates-grid');
-    const emptyEl = document.getElementById('empty-state');
-    const totalEl = document.getElementById('cert-total');
-    const latestEl = document.getElementById('cert-latest');
-    const searchInput = document.getElementById('search-input');
-    const sortSelect = document.getElementById('sort-select');
-    const clearFiltersBtn = document.getElementById('clear-filters');
-    const resultCountEl = document.getElementById('result-count');
-    const roleTracksEl = document.getElementById('role-tracks');
-    const focusButtonsEl = document.getElementById('focus-buttons');
-    const focusSummaryEl = document.getElementById('focus-summary');
+        <footer class="py-12 px-4 border-t border-white/10 mt-10">
+            <div class="max-w-6xl mx-auto text-center">
+                <div class="flex items-center justify-center space-x-2 mb-4">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center font-bold text-[#0a0a0f]"
+                    >
+                        NW
+                    </div>
+                    <span class="font-semibold text-lg font-heading"
+                        >Nattapart Worakun</span
+                    >
+                </div>
+                <p class="text-gray-500 text-sm">
+                    Chemistry → Automation → Data & QA
+                </p>
+                <p class="text-gray-600 text-xs mt-1">
+                    ณัฐภัทร วรกุล (Nattapart Worakun) · Data Analyst · Bangkok,
+                    Thailand
+                </p>
+                <div class="flex justify-center gap-4 mt-6">
+                    <a
+                        href="https://github.com/earthondev"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white transition-all"
+                    >
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a
+                        href="mailto:earthlikemwbb@gmail.com"
+                        class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white transition-all"
+                    >
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/earthondev/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white transition-all"
+                    >
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+                <p class="text-gray-600 text-xs mt-4">
+                    © 2026 Nattapart Worakun. All rights reserved.
+                </p>
+            </div>
+        </footer>
 
-    const modal = document.getElementById('preview-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalImage = document.getElementById('modal-image');
-    const closeModalBtn = document.getElementById('close-modal');
+        <script src="assets/js/common.js"></script>
+        <script>
+            const filtersEl = document.getElementById("filters");
+            const gridEl = document.getElementById("certificates-grid");
+            const emptyEl = document.getElementById("empty-state");
+            const totalEl = document.getElementById("cert-total");
+            const latestEl = document.getElementById("cert-latest");
+            const searchInput = document.getElementById("search-input");
+            const sortSelect = document.getElementById("sort-select");
+            const clearFiltersBtn = document.getElementById("clear-filters");
+            const resultCountEl = document.getElementById("result-count");
+            const roleTracksEl = document.getElementById("role-tracks");
+            const focusButtonsEl = document.getElementById("focus-buttons");
+            const focusSummaryEl = document.getElementById("focus-summary");
 
-    let allCertificates = [];
-    let activeFilter = 'All';
-    let searchQuery = '';
-    let sortMode = 'newest';
-    let focusMode = 'all';
+            const modal = document.getElementById("preview-modal");
+            const modalTitle = document.getElementById("modal-title");
+            const modalImage = document.getElementById("modal-image");
+            const closeModalBtn = document.getElementById("close-modal");
 
-    window.PortfolioCommon?.initMobileMenu();
+            let allCertificates = [];
+            let activeFilter = "All";
+            let searchQuery = "";
+            let sortMode = "newest";
+            let focusMode = "all";
 
-    function escapeHTML(value = '') {
-      return String(value)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
-    }
+            function escapeHTML(value = "") {
+                return String(value)
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#39;");
+            }
 
-    function formatDate(isoDate) {
-      if (!isoDate) return 'Date not specified';
-      const date = new Date(isoDate);
-      if (Number.isNaN(date.getTime())) return isoDate;
-      return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-    }
+            function formatDate(isoDate) {
+                if (!isoDate) return "Date not specified";
+                const date = new Date(isoDate);
+                if (Number.isNaN(date.getTime())) return isoDate;
+                return date.toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                });
+            }
 
-    function withCacheBust(url, token) {
-      if (!url) return '';
-      const separator = url.includes('?') ? '&' : '?';
-      return `${url}${separator}v=${encodeURIComponent(token || Date.now())}`;
-    }
+            function withCacheBust(url, token) {
+                if (!url) return "";
+                const separator = url.includes("?") ? "&" : "?";
+                return `${url}${separator}v=${encodeURIComponent(token || Date.now())}`;
+            }
 
-    function normalize(text = '') {
-      return String(text).toLowerCase().trim();
-    }
+            function normalize(text = "") {
+                return String(text).toLowerCase().trim();
+            }
 
-    function issuedAt(cert) {
-      const value = new Date(cert?.issued || 0).getTime();
-      return Number.isNaN(value) ? 0 : value;
-    }
+            function issuedAt(cert) {
+                const value = new Date(cert?.issued || 0).getTime();
+                return Number.isNaN(value) ? 0 : value;
+            }
 
-    function keywordPool(cert) {
-      return [
-        cert?.title,
-        cert?.issuer,
-        cert?.category,
-        cert?.credentialId,
-        ...(Array.isArray(cert?.skills) ? cert.skills : [])
-      ].filter(Boolean).map(normalize).join(' ');
-    }
+            function keywordPool(cert) {
+                return [
+                    cert?.title,
+                    cert?.issuer,
+                    cert?.category,
+                    cert?.credentialId,
+                    ...(Array.isArray(cert?.skills) ? cert.skills : []),
+                ]
+                    .filter(Boolean)
+                    .map(normalize)
+                    .join(" ");
+            }
 
-    function includesAny(source, keywords) {
-      return keywords.some((keyword) => source.includes(keyword));
-    }
+            function includesAny(source, keywords) {
+                return keywords.some((keyword) => source.includes(keyword));
+            }
 
-    function matchesTrack(cert, track) {
-      const pool = keywordPool(cert);
-      const category = normalize(cert?.category || '');
+            function matchesTrack(cert, track) {
+                const pool = keywordPool(cert);
+                const category = normalize(cert?.category || "");
 
-      if (track === 'inventory') {
-        return category === 'data' ||
-          includesAny(pool, ['sql', 'power bi', 'dashboard', 'report', 'statistics', 'data science', 'data modeling', 'query', 'business reporting', 'data security', 'data privacy', 'validation', 'automation', 'workflow']);
-      }
+                if (track === "inventory") {
+                    return (
+                        category === "data" ||
+                        includesAny(pool, [
+                            "sql",
+                            "power bi",
+                            "dashboard",
+                            "report",
+                            "statistics",
+                            "data science",
+                            "data modeling",
+                            "query",
+                            "business reporting",
+                            "data security",
+                            "data privacy",
+                            "validation",
+                            "automation",
+                            "workflow",
+                        ])
+                    );
+                }
 
-      if (track === 'automation') {
-        return ['automation', 'cloud', 'web development', 'data'].includes(category) ||
-          includesAny(pool, ['automation', 'prompt', 'agentic', 'ai', 'api', 'firebase', 'workflow', 'cloud']);
-      }
+                if (track === "automation") {
+                    return (
+                        [
+                            "automation",
+                            "cloud",
+                            "web development",
+                            "data",
+                        ].includes(category) ||
+                        includesAny(pool, [
+                            "automation",
+                            "prompt",
+                            "agentic",
+                            "ai",
+                            "api",
+                            "firebase",
+                            "workflow",
+                            "cloud",
+                        ])
+                    );
+                }
 
-      if (track === 'qa') {
-        return ['qa', 'security', 'environment'].includes(category) ||
-          includesAny(pool, ['quality', 'validation', 'privacy', 'risk', 'safety', 'compliance', 'eurachem', 'gmp', 'glp', 'sop']);
-      }
+                if (track === "qa") {
+                    return (
+                        ["qa", "security", "environment"].includes(category) ||
+                        includesAny(pool, [
+                            "quality",
+                            "validation",
+                            "privacy",
+                            "risk",
+                            "safety",
+                            "compliance",
+                            "eurachem",
+                            "gmp",
+                            "glp",
+                            "sop",
+                        ])
+                    );
+                }
 
-      return true;
-    }
+                return true;
+            }
 
-    function trackScore(cert, track) {
-      const pool = keywordPool(cert);
-      const category = normalize(cert?.category || '');
-      let score = 0;
+            function trackScore(cert, track) {
+                const pool = keywordPool(cert);
+                const category = normalize(cert?.category || "");
+                let score = 0;
 
-      if (track === 'inventory') {
-        if (category === 'data') score += 4;
-        if (includesAny(pool, ['sql', 'power bi', 'dashboard', 'report', 'statistics', 'data science', 'data modeling', 'query', 'business reporting'])) score += 3;
-        if (includesAny(pool, ['validation', 'data security', 'data privacy', 'automation', 'workflow'])) score += 1;
-      }
+                if (track === "inventory") {
+                    if (category === "data") score += 4;
+                    if (
+                        includesAny(pool, [
+                            "sql",
+                            "power bi",
+                            "dashboard",
+                            "report",
+                            "statistics",
+                            "data science",
+                            "data modeling",
+                            "query",
+                            "business reporting",
+                        ])
+                    )
+                        score += 3;
+                    if (
+                        includesAny(pool, [
+                            "validation",
+                            "data security",
+                            "data privacy",
+                            "automation",
+                            "workflow",
+                        ])
+                    )
+                        score += 1;
+                }
 
-      if (track === 'automation') {
-        if (category === 'automation') score += 4;
-        if (['cloud', 'web development'].includes(category)) score += 2;
-        if (includesAny(pool, ['automation', 'prompt', 'agentic', 'ai', 'api', 'firebase', 'workflow', 'cloud'])) score += 3;
-      }
+                if (track === "automation") {
+                    if (category === "automation") score += 4;
+                    if (["cloud", "web development"].includes(category))
+                        score += 2;
+                    if (
+                        includesAny(pool, [
+                            "automation",
+                            "prompt",
+                            "agentic",
+                            "ai",
+                            "api",
+                            "firebase",
+                            "workflow",
+                            "cloud",
+                        ])
+                    )
+                        score += 3;
+                }
 
-      if (track === 'qa') {
-        if (['qa', 'security', 'environment'].includes(category)) score += 4;
-        if (includesAny(pool, ['quality', 'validation', 'privacy', 'risk', 'safety', 'compliance', 'eurachem', 'gmp', 'glp', 'sop'])) score += 3;
-      }
+                if (track === "qa") {
+                    if (["qa", "security", "environment"].includes(category))
+                        score += 4;
+                    if (
+                        includesAny(pool, [
+                            "quality",
+                            "validation",
+                            "privacy",
+                            "risk",
+                            "safety",
+                            "compliance",
+                            "eurachem",
+                            "gmp",
+                            "glp",
+                            "sop",
+                        ])
+                    )
+                        score += 3;
+                }
 
-      return score;
-    }
+                return score;
+            }
 
-    function primaryTrack(cert) {
-      const category = normalize(cert?.category || '');
-      const pool = keywordPool(cert);
+            function primaryTrack(cert) {
+                const category = normalize(cert?.category || "");
+                const pool = keywordPool(cert);
 
-      if (['qa', 'security', 'environment'].includes(category) ||
-        includesAny(pool, ['quality', 'validation', 'privacy', 'risk', 'safety', 'compliance', 'eurachem', 'gmp', 'glp', 'sop'])) {
-        return 'QA / Control';
-      }
+                if (
+                    ["qa", "security", "environment"].includes(category) ||
+                    includesAny(pool, [
+                        "quality",
+                        "validation",
+                        "privacy",
+                        "risk",
+                        "safety",
+                        "compliance",
+                        "eurachem",
+                        "gmp",
+                        "glp",
+                        "sop",
+                    ])
+                ) {
+                    return "QA / Control";
+                }
 
-      if (['automation', 'cloud', 'web development'].includes(category) ||
-        includesAny(pool, ['automation', 'prompt', 'agentic', 'ai', 'api', 'firebase', 'workflow', 'cloud'])) {
-        return 'Automation Workflow';
-      }
+                if (
+                    ["automation", "cloud", "web development"].includes(
+                        category,
+                    ) ||
+                    includesAny(pool, [
+                        "automation",
+                        "prompt",
+                        "agentic",
+                        "ai",
+                        "api",
+                        "firebase",
+                        "workflow",
+                        "cloud",
+                    ])
+                ) {
+                    return "Automation Workflow";
+                }
 
-      if (['data'].includes(category) ||
-        includesAny(pool, ['sql', 'power bi', 'dashboard', 'report', 'statistics', 'data'])) {
-        return 'Inventory Analytics Fit';
-      }
+                if (
+                    ["data"].includes(category) ||
+                    includesAny(pool, [
+                        "sql",
+                        "power bi",
+                        "dashboard",
+                        "report",
+                        "statistics",
+                        "data",
+                    ])
+                ) {
+                    return "Inventory Analytics Fit";
+                }
 
-      return '';
-    }
+                return "";
+            }
 
-    function sortCertificates(list) {
-      const sorted = [...list];
-      if (sortMode === 'oldest') {
-        return sorted.sort((a, b) =>
-          issuedAt(a) - issuedAt(b) ||
-          String(a.title || '').localeCompare(String(b.title || ''), 'en', { sensitivity: 'base' })
-        );
-      }
-      if (sortMode === 'title') {
-        return sorted.sort((a, b) => String(a.title || '').localeCompare(String(b.title || ''), 'en', { sensitivity: 'base' }));
-      }
-      if (sortMode === 'issuer') {
-        return sorted.sort((a, b) => String(a.issuer || '').localeCompare(String(b.issuer || ''), 'en', { sensitivity: 'base' }));
-      }
-      return sorted.sort((a, b) =>
-        issuedAt(b) - issuedAt(a) ||
-        String(a.title || '').localeCompare(String(b.title || ''), 'en', { sensitivity: 'base' })
-      );
-    }
+            function sortCertificates(list) {
+                const sorted = [...list];
+                if (sortMode === "oldest") {
+                    return sorted.sort(
+                        (a, b) =>
+                            issuedAt(a) - issuedAt(b) ||
+                            String(a.title || "").localeCompare(
+                                String(b.title || ""),
+                                "en",
+                                { sensitivity: "base" },
+                            ),
+                    );
+                }
+                if (sortMode === "title") {
+                    return sorted.sort((a, b) =>
+                        String(a.title || "").localeCompare(
+                            String(b.title || ""),
+                            "en",
+                            { sensitivity: "base" },
+                        ),
+                    );
+                }
+                if (sortMode === "issuer") {
+                    return sorted.sort((a, b) =>
+                        String(a.issuer || "").localeCompare(
+                            String(b.issuer || ""),
+                            "en",
+                            { sensitivity: "base" },
+                        ),
+                    );
+                }
+                return sorted.sort(
+                    (a, b) =>
+                        issuedAt(b) - issuedAt(a) ||
+                        String(a.title || "").localeCompare(
+                            String(b.title || ""),
+                            "en",
+                            { sensitivity: "base" },
+                        ),
+                );
+            }
 
-    function renderStats() {
-      const categories = new Set(allCertificates.map(item => item.category).filter(Boolean));
-      const latest = sortCertificates(allCertificates)[0];
+            function renderStats() {
+                const categories = new Set(
+                    allCertificates
+                        .map((item) => item.category)
+                        .filter(Boolean),
+                );
+                const latest = sortCertificates(allCertificates)[0];
 
-      totalEl.textContent = String(allCertificates.length);
-      latestEl.textContent = latest ? formatDate(latest.issued) : '-';
-    }
+                totalEl.textContent = String(allCertificates.length);
+                latestEl.textContent = latest ? formatDate(latest.issued) : "-";
+            }
 
-    function renderFocusButtons() {
-      const buttons = [
-        {
-          id: 'all',
-          title: 'All Credentials',
-          description: 'Browse the full certificate list'
-        },
-        {
-          id: 'inventory',
-          title: 'Inventory Analytics Fit',
-          description: 'Highlight data, reporting, automation, and control-relevant evidence'
-        },
-        {
-          id: 'automation',
-          title: 'Automation Stack',
-          description: 'Focus on workflow, AI, and modern tooling'
-        },
-        {
-          id: 'qa',
-          title: 'QA and Governance',
-          description: 'Show validation, compliance, and risk-oriented certificates'
-        }
-      ];
+            function renderFocusButtons() {
+                const buttons = [
+                    {
+                        id: "all",
+                        title: "All Credentials",
+                        description: "Browse the full certificate list",
+                    },
+                    {
+                        id: "inventory",
+                        title: "Inventory Analytics Fit",
+                        description:
+                            "Highlight data, reporting, automation, and control-relevant evidence",
+                    },
+                    {
+                        id: "automation",
+                        title: "Automation Stack",
+                        description:
+                            "Focus on workflow, AI, and modern tooling",
+                    },
+                    {
+                        id: "qa",
+                        title: "QA and Governance",
+                        description:
+                            "Show validation, compliance, and risk-oriented certificates",
+                    },
+                ];
 
-      focusButtonsEl.innerHTML = buttons.map((button) => {
-        const active = button.id === focusMode;
-        return `
+                focusButtonsEl.innerHTML = buttons
+                    .map((button) => {
+                        const active = button.id === focusMode;
+                        return `
           <button
             type="button"
-            class="focus-btn ${active ? 'active' : ''} rounded-2xl px-4 py-3 text-left"
+            class="focus-btn ${active ? "active" : ""} rounded-2xl px-4 py-3 text-left"
             data-focus="${escapeHTML(button.id)}"
           >
             <span class="block text-sm font-semibold">${escapeHTML(button.title)}</span>
             <span class="block mt-1 text-xs opacity-80">${escapeHTML(button.description)}</span>
           </button>
         `;
-      }).join('');
+                    })
+                    .join("");
 
-      focusButtonsEl.querySelectorAll('[data-focus]').forEach((button) => {
-        button.addEventListener('click', () => {
-          focusMode = button.dataset.focus || 'all';
-          renderFocusButtons();
-          renderFocusSummary();
-          renderCertificates();
-        });
-      });
-    }
+                focusButtonsEl
+                    .querySelectorAll("[data-focus]")
+                    .forEach((button) => {
+                        button.addEventListener("click", () => {
+                            focusMode = button.dataset.focus || "all";
+                            renderFocusButtons();
+                            renderFocusSummary();
+                            renderCertificates();
+                        });
+                    });
+            }
 
-    function renderFocusSummary() {
-      if (!focusSummaryEl) return;
-      if (focusMode === 'all') {
-        focusSummaryEl.textContent = 'Showing the complete credential set';
-        return;
-      }
+            function renderFocusSummary() {
+                if (!focusSummaryEl) return;
+                if (focusMode === "all") {
+                    focusSummaryEl.textContent =
+                        "Showing the complete credential set";
+                    return;
+                }
 
-      const matched = allCertificates.filter((cert) => matchesTrack(cert, focusMode)).length;
-      const labelMap = {
-        inventory: 'inventory and reporting fit',
-        automation: 'automation and tooling fit',
-        qa: 'quality and governance fit'
-      };
-      focusSummaryEl.textContent = `${matched} certificates support ${labelMap[focusMode] || 'this focus'}`;
-    }
+                const matched = allCertificates.filter((cert) =>
+                    matchesTrack(cert, focusMode),
+                ).length;
+                const labelMap = {
+                    inventory: "inventory and reporting fit",
+                    automation: "automation and tooling fit",
+                    qa: "quality and governance fit",
+                };
+                focusSummaryEl.textContent = `${matched} certificates support ${labelMap[focusMode] || "this focus"}`;
+            }
 
-    function renderRoleTracks() {
-      const tracks = [
-        {
-          id: 'inventory',
-          label: 'Inventory Analytics',
-          accent: 'text-[#00D9FF]',
-          icon: 'fa-chart-column',
-          summary: 'Supports dashboarding, SQL, KPI interpretation, and operational stock decisions.',
-          tags: ['Power BI', 'SQL', 'Statistics', 'Reporting']
-        },
-        {
-          id: 'automation',
-          label: 'Automation and AI',
-          accent: 'text-[#00FF94]',
-          icon: 'fa-robot',
-          summary: 'Supports workflow design, prompt engineering, cloud tools, and process acceleration.',
-          tags: ['Prompting', 'Automation', 'Cloud', 'Workflow']
-        },
-        {
-          id: 'qa',
-          label: 'QA and Governance',
-          accent: 'text-[#FFE600]',
-          icon: 'fa-shield-halved',
-          summary: 'Supports validation discipline, data handling, compliance thinking, and quality control.',
-          tags: ['Validation', 'Compliance', 'Data Security', 'SOP']
-        }
-      ];
+            function renderRoleTracks() {
+                const tracks = [
+                    {
+                        id: "inventory",
+                        label: "Inventory Analytics",
+                        accent: "text-[#00D9FF]",
+                        icon: "fa-chart-column",
+                        summary:
+                            "Supports dashboarding, SQL, KPI interpretation, and operational stock decisions.",
+                        tags: ["Power BI", "SQL", "Statistics", "Reporting"],
+                    },
+                    {
+                        id: "automation",
+                        label: "Automation and AI",
+                        accent: "text-[#00FF94]",
+                        icon: "fa-robot",
+                        summary:
+                            "Supports workflow design, prompt engineering, cloud tools, and process acceleration.",
+                        tags: ["Prompting", "Automation", "Cloud", "Workflow"],
+                    },
+                    {
+                        id: "qa",
+                        label: "QA and Governance",
+                        accent: "text-[#FFE600]",
+                        icon: "fa-shield-halved",
+                        summary:
+                            "Supports validation discipline, data handling, compliance thinking, and quality control.",
+                        tags: [
+                            "Validation",
+                            "Compliance",
+                            "Data Security",
+                            "SOP",
+                        ],
+                    },
+                ];
 
-      roleTracksEl.innerHTML = tracks.map((track) => {
-        const matched = allCertificates.filter((cert) => matchesTrack(cert, track.id));
-        const topItems = [...matched]
-          .sort((a, b) =>
-            trackScore(b, track.id) - trackScore(a, track.id) ||
-            issuedAt(b) - issuedAt(a) ||
-            String(a.title || '').localeCompare(String(b.title || ''), 'en', { sensitivity: 'base' })
-          )
-          .slice(0, 3)
-          .map((item) => item.title);
+                roleTracksEl.innerHTML = tracks
+                    .map((track) => {
+                        const matched = allCertificates.filter((cert) =>
+                            matchesTrack(cert, track.id),
+                        );
+                        const topItems = [...matched]
+                            .sort(
+                                (a, b) =>
+                                    trackScore(b, track.id) -
+                                        trackScore(a, track.id) ||
+                                    issuedAt(b) - issuedAt(a) ||
+                                    String(a.title || "").localeCompare(
+                                        String(b.title || ""),
+                                        "en",
+                                        { sensitivity: "base" },
+                                    ),
+                            )
+                            .slice(0, 3)
+                            .map((item) => item.title);
 
-        return `
+                        return `
           <article class="glass-card rounded-2xl p-5 track-card">
             <div class="flex items-center justify-between gap-3">
               <div class="inline-flex items-center gap-2 text-sm font-semibold ${track.accent}">
@@ -881,97 +1341,108 @@
             </div>
             <p class="mt-4 text-sm text-gray-300">${escapeHTML(track.summary)}</p>
             <div class="mt-4 flex flex-wrap gap-2">
-              ${track.tags.map((tag) => `<span class="tag-pill">${escapeHTML(tag)}</span>`).join('')}
+              ${track.tags.map((tag) => `<span class="tag-pill">${escapeHTML(tag)}</span>`).join("")}
             </div>
             <div class="mt-5 border-t border-white/10 pt-4">
               <p class="text-xs uppercase tracking-[0.12em] text-gray-500 mb-2">Strongest examples</p>
               <div class="space-y-2 text-sm text-gray-200">
-                ${topItems.map((title) => `<p>${escapeHTML(title)}</p>`).join('')}
+                ${topItems.map((title) => `<p>${escapeHTML(title)}</p>`).join("")}
               </div>
             </div>
           </article>
         `;
-      }).join('');
-    }
+                    })
+                    .join("");
+            }
 
-    function renderFilters() {
-      const counts = allCertificates.reduce((acc, item) => {
-        const key = item.category || 'General';
-        acc[key] = (acc[key] || 0) + 1;
-        return acc;
-      }, {});
-      const latestByCategory = allCertificates.reduce((acc, item) => {
-        const key = item.category || 'General';
-        acc[key] = Math.max(acc[key] || 0, issuedAt(item));
-        return acc;
-      }, {});
-      const categories = Object.keys(counts).sort((a, b) =>
-        (latestByCategory[b] || 0) - (latestByCategory[a] || 0) ||
-        a.localeCompare(b, 'en', { sensitivity: 'base' })
-      );
-      const filterItems = [{ name: 'All', count: allCertificates.length }, ...categories.map((c) => ({ name: c, count: counts[c] }))];
+            function renderFilters() {
+                const counts = allCertificates.reduce((acc, item) => {
+                    const key = item.category || "General";
+                    acc[key] = (acc[key] || 0) + 1;
+                    return acc;
+                }, {});
+                const latestByCategory = allCertificates.reduce((acc, item) => {
+                    const key = item.category || "General";
+                    acc[key] = Math.max(acc[key] || 0, issuedAt(item));
+                    return acc;
+                }, {});
+                const categories = Object.keys(counts).sort(
+                    (a, b) =>
+                        (latestByCategory[b] || 0) -
+                            (latestByCategory[a] || 0) ||
+                        a.localeCompare(b, "en", { sensitivity: "base" }),
+                );
+                const filterItems = [
+                    { name: "All", count: allCertificates.length },
+                    ...categories.map((c) => ({ name: c, count: counts[c] })),
+                ];
 
-      filtersEl.innerHTML = filterItems.map((item) => {
-        const isActive = item.name === activeFilter;
-        return `
-          <button class="filter-btn ${isActive ? 'active' : ''} px-4 py-2 rounded-full text-sm font-medium" data-category="${escapeHTML(item.name)}">
+                filtersEl.innerHTML = filterItems
+                    .map((item) => {
+                        const isActive = item.name === activeFilter;
+                        return `
+          <button class="filter-btn ${isActive ? "active" : ""} px-4 py-2 rounded-full text-sm font-medium" data-category="${escapeHTML(item.name)}">
             ${escapeHTML(item.name)}
             <span class="ml-1 text-xs opacity-80">(${item.count})</span>
           </button>`;
-      }).join('');
+                    })
+                    .join("");
 
-      filtersEl.querySelectorAll('[data-category]').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          activeFilter = btn.dataset.category || 'All';
-          renderFilters();
-          renderCertificates();
-        });
-      });
-    }
+                filtersEl.querySelectorAll("[data-category]").forEach((btn) => {
+                    btn.addEventListener("click", () => {
+                        activeFilter = btn.dataset.category || "All";
+                        renderFilters();
+                        renderCertificates();
+                    });
+                });
+            }
 
-    function openModal(title, imageSrc, imageAlt) {
-      if (!imageSrc) return;
-      modalTitle.textContent = title || 'Certificate Preview';
-      modalImage.src = imageSrc;
-      modalImage.alt = imageAlt || title || 'Certificate preview';
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
+            function openModal(title, imageSrc, imageAlt) {
+                if (!imageSrc) return;
+                modalTitle.textContent = title || "Certificate Preview";
+                modalImage.src = imageSrc;
+                modalImage.alt = imageAlt || title || "Certificate preview";
+                modal.classList.add("active");
+                document.body.style.overflow = "hidden";
+            }
 
-    function closeModal() {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
+            function closeModal() {
+                modal.classList.remove("active");
+                document.body.style.overflow = "";
+            }
 
-    function matchQuery(cert, query) {
-      if (!query) return true;
-      return keywordPool(cert).includes(query);
-    }
+            function matchQuery(cert, query) {
+                if (!query) return true;
+                return keywordPool(cert).includes(query);
+            }
 
-    function toCardHTML(cert) {
-      const imageSrc = withCacheBust(
-        cert?.image?.src || '',
-        cert?.image?.version || cert?.issued || cert?.id
-      );
-      const imageAlt = cert?.image?.alt || cert?.title || 'Certificate image';
-      const title = cert?.title || 'Untitled Certificate';
-      const issuer = cert?.issuer || 'Unknown Issuer';
-      const category = cert?.category || 'General';
-      const issued = formatDate(cert?.issued);
-      const credentialId = cert?.credentialId || '-';
-      const credentialUrl = cert?.credentialUrl || '';
-      const skills = Array.isArray(cert?.skills) ? cert.skills : [];
-      const featured = Boolean(cert?.featured);
-      const trackLabel = primaryTrack(cert);
+            function toCardHTML(cert) {
+                const imageSrc = withCacheBust(
+                    cert?.image?.src || "",
+                    cert?.image?.version || cert?.issued || cert?.id,
+                );
+                const imageAlt =
+                    cert?.image?.alt || cert?.title || "Certificate image";
+                const title = cert?.title || "Untitled Certificate";
+                const issuer = cert?.issuer || "Unknown Issuer";
+                const category = cert?.category || "General";
+                const issued = formatDate(cert?.issued);
+                const credentialId = cert?.credentialId || "-";
+                const credentialUrl = cert?.credentialUrl || "";
+                const skills = Array.isArray(cert?.skills) ? cert.skills : [];
+                const featured = Boolean(cert?.featured);
+                const trackLabel = primaryTrack(cert);
 
-      return `
+                return `
         <article class="cert-card glass-card rounded-2xl overflow-hidden fade-up">
           <div class="cert-image-shell aspect-[16/10] p-3 relative">
-            ${featured ? '<span class="absolute top-3 left-3 chip"><i class="fas fa-star text-[#FFE600]"></i> Featured</span>' : ''}
-            ${trackLabel ? `<span class="absolute top-3 right-3 chip">${escapeHTML(trackLabel)}</span>` : ''}
-            ${imageSrc
-              ? `<img src="${escapeHTML(imageSrc)}" alt="${escapeHTML(imageAlt)}" loading="lazy" decoding="async" data-cert-image class="w-full h-full object-contain rounded-lg bg-[#0c1016]">`
-              : '<div class="w-full h-full rounded-lg flex items-center justify-center bg-gradient-to-br from-[#00D9FF]/15 to-transparent text-[#00D9FF]"><i class="fas fa-certificate text-5xl"></i></div>'}
+            ${featured ? '<span class="absolute top-3 left-3 chip"><i class="fas fa-star text-[#FFE600]"></i> Featured</span>' : ""}
+            ${trackLabel ? `<span class="absolute top-3 right-3 chip">${escapeHTML(trackLabel)}</span>` : ""}
+            ${
+                imageSrc
+                    ? `<img src="${escapeHTML(imageSrc)}" alt="${escapeHTML(imageAlt)}" loading="lazy" decoding="async" data-cert-image class="w-full h-full object-contain rounded-lg bg-[#0c1016]">`
+                    : '<div class="w-full h-full rounded-lg flex items-center justify-center bg-gradient-to-br from-[#00D9FF]/15 to-transparent text-[#00D9FF]"><i class="fas fa-certificate text-5xl"></i></div>'
+            }
           </div>
 
           <div class="p-5">
@@ -984,215 +1455,276 @@
             <p class="text-sm text-gray-400 mt-2">Issued by ${escapeHTML(issuer)}</p>
             <p class="text-xs text-gray-500 mt-3">Credential ID: <span class="text-gray-300">${escapeHTML(credentialId)}</span></p>
 
-            ${skills.length
-              ? `<div class="mt-4 flex flex-wrap gap-2">${skills.map((skill) => `<span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-xs text-gray-300">${escapeHTML(skill)}</span>`).join('')}</div>`
-              : ''}
+            ${
+                skills.length
+                    ? `<div class="mt-4 flex flex-wrap gap-2">${skills.map((skill) => `<span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-xs text-gray-300">${escapeHTML(skill)}</span>`).join("")}</div>`
+                    : ""
+            }
 
             <div class="mt-5 flex flex-wrap gap-2">
-              ${credentialUrl
-                ? `<a href="${escapeHTML(credentialUrl)}" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-lg bg-gradient-to-r from-[#00D9FF] to-[#00FF94] text-[#0a0a0f] text-sm font-semibold">Verify</a>`
-                : ''}
-              ${imageSrc
-                ? `<button type="button" data-preview-title="${escapeHTML(title)}" data-preview-image="${escapeHTML(imageSrc)}" data-preview-alt="${escapeHTML(imageAlt)}" class="px-3.5 py-2 rounded-lg border border-white/15 text-sm font-semibold text-gray-100 hover:border-[#FFE600] hover:text-[#FFE600] transition-colors">Preview</button>`
-                : ''}
+              ${
+                  credentialUrl
+                      ? `<a href="${escapeHTML(credentialUrl)}" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-lg bg-gradient-to-r from-[#00D9FF] to-[#00FF94] text-[#0a0a0f] text-sm font-semibold">Verify</a>`
+                      : ""
+              }
+              ${
+                  imageSrc
+                      ? `<button type="button" data-preview-title="${escapeHTML(title)}" data-preview-image="${escapeHTML(imageSrc)}" data-preview-alt="${escapeHTML(imageAlt)}" class="px-3.5 py-2 rounded-lg border border-white/15 text-sm font-semibold text-gray-100 hover:border-[#FFE600] hover:text-[#FFE600] transition-colors">Preview</button>`
+                      : ""
+              }
             </div>
           </div>
         </article>`;
-    }
+            }
 
-    function applyRevealAnimations() {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.08 });
+            function applyRevealAnimations() {
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("visible");
+                            }
+                        });
+                    },
+                    { threshold: 0.08 },
+                );
 
-      document.querySelectorAll('.fade-up').forEach((el, index) => {
-        el.style.transitionDelay = `${Math.min(index * 35, 280)}ms`;
-        observer.observe(el);
-      });
-    }
+                document.querySelectorAll(".fade-up").forEach((el, index) => {
+                    el.style.transitionDelay = `${Math.min(index * 35, 280)}ms`;
+                    observer.observe(el);
+                });
+            }
 
-    function renderCertificates() {
-      let list = activeFilter === 'All'
-        ? [...allCertificates]
-        : allCertificates.filter(item => (item.category || 'General') === activeFilter);
+            function renderCertificates() {
+                let list =
+                    activeFilter === "All"
+                        ? [...allCertificates]
+                        : allCertificates.filter(
+                              (item) =>
+                                  (item.category || "General") === activeFilter,
+                          );
 
-      if (focusMode !== 'all') {
-        list = list.filter((item) => matchesTrack(item, focusMode));
-      }
+                if (focusMode !== "all") {
+                    list = list.filter((item) => matchesTrack(item, focusMode));
+                }
 
-      const query = normalize(searchQuery);
-      list = list.filter((item) => matchQuery(item, query));
-      list = sortCertificates(list);
+                const query = normalize(searchQuery);
+                list = list.filter((item) => matchQuery(item, query));
+                list = sortCertificates(list);
 
-      resultCountEl.textContent = `${list.length} result${list.length === 1 ? '' : 's'}`;
+                resultCountEl.textContent = `${list.length} result${list.length === 1 ? "" : "s"}`;
 
-      if (!list.length) {
-        gridEl.innerHTML = '';
-        emptyEl.classList.remove('hidden');
-        return;
-      }
+                if (!list.length) {
+                    gridEl.innerHTML = "";
+                    emptyEl.classList.remove("hidden");
+                    return;
+                }
 
-      emptyEl.classList.add('hidden');
-      gridEl.innerHTML = list.map(toCardHTML).join('');
+                emptyEl.classList.add("hidden");
+                gridEl.innerHTML = list.map(toCardHTML).join("");
 
-      gridEl.querySelectorAll('img[data-cert-image]').forEach((img) => {
-        img.addEventListener('error', () => {
-          const parent = img.parentElement;
-          if (!parent) return;
-          parent.innerHTML = '<div class="w-full h-full rounded-lg flex items-center justify-center bg-gradient-to-br from-[#00D9FF]/15 to-transparent text-[#00D9FF]"><i class="fas fa-certificate text-5xl"></i></div>';
-        }, { once: true });
-      });
+                gridEl
+                    .querySelectorAll("img[data-cert-image]")
+                    .forEach((img) => {
+                        img.addEventListener(
+                            "error",
+                            () => {
+                                const parent = img.parentElement;
+                                if (!parent) return;
+                                parent.innerHTML =
+                                    '<div class="w-full h-full rounded-lg flex items-center justify-center bg-gradient-to-br from-[#00D9FF]/15 to-transparent text-[#00D9FF]"><i class="fas fa-certificate text-5xl"></i></div>';
+                            },
+                            { once: true },
+                        );
+                    });
 
-      gridEl.querySelectorAll('[data-preview-image]').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          openModal(btn.dataset.previewTitle, btn.dataset.previewImage, btn.dataset.previewAlt);
-        });
-      });
+                gridEl
+                    .querySelectorAll("[data-preview-image]")
+                    .forEach((btn) => {
+                        btn.addEventListener("click", () => {
+                            openModal(
+                                btn.dataset.previewTitle,
+                                btn.dataset.previewImage,
+                                btn.dataset.previewAlt,
+                            );
+                        });
+                    });
 
-      applyRevealAnimations();
-    }
+                applyRevealAnimations();
+            }
 
-    async function loadCertificates() {
-      try {
-        const res = await fetch(`certificates.json?v=${Date.now()}`, { cache: 'no-store' });
-        if (!res.ok) throw new Error(`Failed to load certificates.json (${res.status})`);
+            async function loadCertificates() {
+                try {
+                    const res = await fetch(
+                        `certificates.json?v=${Date.now()}`,
+                        { cache: "no-store" },
+                    );
+                    if (!res.ok)
+                        throw new Error(
+                            `Failed to load certificates.json (${res.status})`,
+                        );
 
-        const json = await res.json();
-        allCertificates = sortCertificates(Array.isArray(json) ? json : []);
-        sortMode = 'newest';
-        sortSelect.value = 'newest';
+                    const json = await res.json();
+                    allCertificates = sortCertificates(
+                        Array.isArray(json) ? json : [],
+                    );
+                    sortMode = "newest";
+                    sortSelect.value = "newest";
 
-        renderStats();
-        renderFocusButtons();
-        renderFocusSummary();
-        renderRoleTracks();
-        renderFilters();
-        renderCertificates();
-      } catch (error) {
-        console.error('Error loading certificates:', error);
-        filtersEl.innerHTML = '';
-        gridEl.innerHTML = `
+                    renderStats();
+                    renderFocusButtons();
+                    renderFocusSummary();
+                    renderRoleTracks();
+                    renderFilters();
+                    renderCertificates();
+                } catch (error) {
+                    console.error("Error loading certificates:", error);
+                    filtersEl.innerHTML = "";
+                    gridEl.innerHTML = `
           <article class="glass-card rounded-2xl p-8 text-center border border-red-500/30 bg-red-500/10 lg:col-span-2">
             <h3 class="text-xl font-semibold text-red-200 mb-2">Unable to load certificates data</h3>
             <p class="text-sm text-red-100/80">Please check <code>certificates.json</code> format and file paths.</p>
           </article>`;
-      }
-    }
+                }
+            }
 
-    searchInput.addEventListener('input', (event) => {
-      searchQuery = event.target.value || '';
-      renderCertificates();
-    });
+            searchInput.addEventListener("input", (event) => {
+                searchQuery = event.target.value || "";
+                renderCertificates();
+            });
 
-    sortSelect.addEventListener('change', (event) => {
-      sortMode = event.target.value || 'newest';
-      renderCertificates();
-    });
+            sortSelect.addEventListener("change", (event) => {
+                sortMode = event.target.value || "newest";
+                renderCertificates();
+            });
 
-    clearFiltersBtn.addEventListener('click', () => {
-      activeFilter = 'All';
-      searchQuery = '';
-      sortMode = 'newest';
-      focusMode = 'all';
-      searchInput.value = '';
-      sortSelect.value = 'newest';
-      renderFocusButtons();
-      renderFocusSummary();
-      renderFilters();
-      renderCertificates();
-    });
+            clearFiltersBtn.addEventListener("click", () => {
+                activeFilter = "All";
+                searchQuery = "";
+                sortMode = "newest";
+                focusMode = "all";
+                searchInput.value = "";
+                sortSelect.value = "newest";
+                renderFocusButtons();
+                renderFocusSummary();
+                renderFilters();
+                renderCertificates();
+            });
 
-    closeModalBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (event) => {
-      if (event.target === modal) closeModal();
-    });
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') closeModal();
-    });
+            closeModalBtn.addEventListener("click", closeModal);
+            modal.addEventListener("click", (event) => {
+                if (event.target === modal) closeModal();
+            });
+            document.addEventListener("keydown", (event) => {
+                if (event.key === "Escape") closeModal();
+            });
 
-    loadCertificates();
-    applyRevealAnimations();
-    window.PortfolioCommon?.initMobileMenu({ lockScroll: true, closeOnBackdrop: true });
-    window.PortfolioCommon?.initNavbarScroll({ selector: '#navbar', threshold: 20 });
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
-  <script src="assets/js/animations.js"></script>
+            loadCertificates();
+            applyRevealAnimations();
+            window.PortfolioCommon?.initMobileMenu({
+                lockScroll: true,
+                closeOnBackdrop: true,
+            });
+            window.PortfolioCommon?.initNavbarScroll({
+                selector: "#navbar",
+                threshold: 20,
+            });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+        <script src="assets/js/animations.js"></script>
 
-  <!-- Page entrance: curtain from left with CERTIFICATES -->
-  <script>
-  (function() {
-    if (typeof gsap === 'undefined') return;
+        <!-- Page entrance: curtain from left with CERTIFICATES -->
+        <script>
+            (function () {
+                if (typeof gsap === "undefined") return;
 
-    // Curtain
-    const curtain = document.createElement('div');
-    curtain.style.cssText = 'position:fixed;inset:0;z-index:99999;background:#d4cfc7;display:flex;align-items:center;justify-content:center;will-change:transform;overflow:hidden;';
+                // Curtain
+                const curtain = document.createElement("div");
+                curtain.style.cssText =
+                    "position:fixed;inset:0;z-index:99999;background:#d4cfc7;display:flex;align-items:center;justify-content:center;will-change:transform;overflow:hidden;";
 
-    // Text
-    const txt = document.createElement('div');
-    txt.style.cssText = 'font-family:"Space Grotesk",sans-serif;font-size:clamp(2.8rem,10vw,9rem);font-weight:800;letter-spacing:-0.03em;text-transform:uppercase;color:#2d2a26;font-kerning:none;white-space:nowrap;line-height:1;opacity:0;';
-    txt.textContent = 'CERTIFICATES';
-    curtain.appendChild(txt);
-    document.body.prepend(curtain);
+                // Text
+                const txt = document.createElement("div");
+                txt.style.cssText =
+                    'font-family:"Space Grotesk",sans-serif;font-size:clamp(2.8rem,10vw,9rem);font-weight:800;letter-spacing:-0.03em;text-transform:uppercase;color:#2d2a26;font-kerning:none;white-space:nowrap;line-height:1;opacity:0;';
+                txt.textContent = "CERTIFICATES";
+                curtain.appendChild(txt);
+                document.body.prepend(curtain);
 
-    // Curtain covers screen → now safe to show body
-    document.body.classList.add('page-ready');
+                // Curtain covers screen → now safe to show body
+                document.body.classList.add("page-ready");
 
-    // Split chars
-    const word = txt.textContent;
-    txt.innerHTML = word.split('').map(c =>
-      `<span style="display:inline-block;transform-origin:center center;">${c}</span>`
-    ).join('');
-    const chars = Array.from(txt.querySelectorAll('span'));
+                // Split chars
+                const word = txt.textContent;
+                txt.innerHTML = word
+                    .split("")
+                    .map(
+                        (c) =>
+                            `<span style="display:inline-block;transform-origin:center center;">${c}</span>`,
+                    )
+                    .join("");
+                const chars = Array.from(txt.querySelectorAll("span"));
 
-    const tl = gsap.timeline({ delay: 0.1 });
+                const tl = gsap.timeline({ delay: 0.1 });
 
-    // 1. Text chars stagger in from left
-    tl.to(txt, { opacity: 1, duration: 0.01 });
-    tl.fromTo(chars, {
-      x: -40,
-      opacity: 0,
-      rotateY: -60,
-    }, {
-      x: 0,
-      opacity: 1,
-      rotateY: 0,
-      duration: 0.6,
-      stagger: 0.035,
-      ease: 'power3.out',
-    }, '-=0.01');
+                // 1. Text chars stagger in from left
+                tl.to(txt, { opacity: 1, duration: 0.01 });
+                tl.fromTo(
+                    chars,
+                    {
+                        x: -40,
+                        opacity: 0,
+                        rotateY: -60,
+                    },
+                    {
+                        x: 0,
+                        opacity: 1,
+                        rotateY: 0,
+                        duration: 0.6,
+                        stagger: 0.035,
+                        ease: "power3.out",
+                    },
+                    "-=0.01",
+                );
 
-    // 3. Hold
-    tl.to({}, { duration: 0.45 });
+                // 3. Hold
+                tl.to({}, { duration: 0.45 });
 
-    // 4. Chars fly out — each goes to a random direction
-    chars.forEach((ch, i) => {
-      const angle = ((i / chars.length) * Math.PI * 2) + (Math.random() * 0.5);
-      const dist = 150 + Math.random() * 120;
-      tl.to(ch, {
-        x: Math.cos(angle) * dist,
-        y: Math.sin(angle) * dist,
-        rotation: (Math.random() - 0.5) * 50,
-        opacity: 0,
-        scale: 0.5,
-        duration: 0.6,
-        ease: 'power2.in',
-      }, i === 0 ? '+=0' : '-=0.54');
-    });
+                // 4. Chars fly out — each goes to a random direction
+                chars.forEach((ch, i) => {
+                    const angle =
+                        (i / chars.length) * Math.PI * 2 + Math.random() * 0.5;
+                    const dist = 150 + Math.random() * 120;
+                    tl.to(
+                        ch,
+                        {
+                            x: Math.cos(angle) * dist,
+                            y: Math.sin(angle) * dist,
+                            rotation: (Math.random() - 0.5) * 50,
+                            opacity: 0,
+                            scale: 0.5,
+                            duration: 0.6,
+                            ease: "power2.in",
+                        },
+                        i === 0 ? "+=0" : "-=0.54",
+                    );
+                });
 
-    // 5. Curtain fades out
-    tl.to(curtain, {
-      opacity: 0,
-      duration: 0.4,
-      ease: 'power2.inOut',
-      onComplete: () => curtain.remove(),
-    }, '-=0.15');
-  })();
-  </script>
-</body>
-
+                // 5. Curtain fades — hero reveal fires as curtain starts to fade
+                tl.to(
+                    curtain,
+                    {
+                        opacity: 0,
+                        duration: 0.4,
+                        ease: "power2.inOut",
+                        onStart: () =>
+                            window.PortfolioAnimations?.triggerHeroReveal?.(),
+                        onComplete: () => curtain.remove(),
+                    },
+                    "-=0.15",
+                );
+            })();
+        </script>
+    </body>
 </html>

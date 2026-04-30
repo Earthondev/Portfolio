@@ -1,518 +1,1009 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Nattapart Worakun (ณัฐภัทร วรกุล) — Data Analyst &amp; BI Developer in Bangkok. Portfolio of inventory analytics dashboards, SQL reporting, Power BI, Python automation, and 18+ professional certifications. Former chemist turned data builder."
+        />
+        <meta name="author" content="Nattapart Worakun" />
+        <meta name="robots" content="index, follow" />
+        <meta name="theme-color" content="#fbfaf7" />
+        <meta
+            name="keywords"
+            content="Nattapart Worakun, ณัฐภัทร วรกุล, ณัฐภัทร, Data Analyst, BI Developer, Inventory Analytics, Power BI, SQL, Bangkok, Thailand, Data Analyst Portfolio, earthondev, Data Science, Workflow Automation"
+        />
+        <link rel="canonical" href="https://earthondev.github.io/Portfolio/" />
+        <link rel="icon" href="favicon.ico" />
+        <link rel="me" href="https://github.com/earthondev" />
+        <link rel="me" href="https://www.linkedin.com/in/earthondev/" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Portfolio of Nattapart Worakun, a data-driven problem solver with chemistry and R&amp;D background building inventory reporting, dashboards, and workflow automation.">
-  <meta name="author" content="Nattapart Worakun">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#fbfaf7">
-  <link rel="canonical" href="https://earthondev.github.io/Portfolio/">
-  <link rel="icon" href="favicon.ico">
+        <!-- Open Graph -->
+        <meta property="og:site_name" content="Nattapart Worakun | Portfolio" />
+        <meta
+            property="og:title"
+            content="Nattapart Worakun (ณัฐภัทร วรกุล) | Data Analyst &amp; BI Developer"
+        />
+        <meta
+            property="og:description"
+            content="Nattapart Worakun (ณัฐภัทร วรกุล) — Data Analyst &amp; BI Developer in Bangkok. Inventory analytics dashboards, SQL reporting, Power BI, and automation projects."
+        />
+        <meta property="og:type" content="profile" />
+        <meta
+            property="og:url"
+            content="https://earthondev.github.io/Portfolio/"
+        />
+        <meta
+            property="og:image"
+            content="https://earthondev.github.io/Portfolio/assets/og/og-image.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale:alternate" content="th_TH" />
+        <meta property="profile:first_name" content="Nattapart" />
+        <meta property="profile:last_name" content="Worakun" />
 
-  <!-- Open Graph / SEO -->
-  <meta property="og:site_name" content="Nattapart Worakun | Portfolio">
-  <meta property="og:title" content="Nattapart Worakun | Inventory Analytics &amp; Workflow Automation">
-  <meta property="og:description"
-    content="Data-driven problem solver with chemistry and R&amp;D background building inventory reporting, dashboards, and workflow automation.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://earthondev.github.io/Portfolio/">
-  <meta property="og:image" content="https://earthondev.github.io/Portfolio/assets/og/og-image.png">
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="Nattapart Worakun | Data Analyst &amp; BI Developer"
+        />
+        <meta
+            name="twitter:description"
+            content="Portfolio of Nattapart Worakun (ณัฐภัทร วรกุล) — Data Analyst in Bangkok. Inventory analytics, Power BI, SQL, Python automation."
+        />
+        <meta
+            name="twitter:image"
+            content="https://earthondev.github.io/Portfolio/assets/og/og-image.png"
+        />
 
-  <title>Nattapart Worakun | Inventory Analytics &amp; Workflow Automation</title>
+        <title>
+            Nattapart Worakun (ณัฐภัทร) | Data Analyst &amp; BI Developer
+            Portfolio | Bangkok
+        </title>
 
-  <!-- Tailwind CSS -->
-  <script src="./assets/vendor/tailwind-play-cdn.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            bg: '#0a0a0f', // Updated to match portfolio
-            surface: '#111827',
-            primary: '#00D9FF', // Neon Cyan
-            secondary: '#00FF94', // Neon Green
-            accent: '#FFE600', // Neon Yellow
-          },
-          fontFamily: {
-            sans: ['Sarabun', 'sans-serif'],
-            heading: ['Space Grotesk', 'sans-serif'],
-          },
-          animation: {
-            'float': 'float 6s ease-in-out infinite',
-            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'blob': 'blob 7s infinite',
-            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-20px)' },
-            },
-            blob: {
-              '0%': { transform: 'translate(0px, 0px) scale(1)' },
-              '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-              '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-              '100%': { transform: 'translate(0px, 0px) scale(1)' },
-            },
-            fadeInUp: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
+        <!-- Tailwind CSS -->
+        <script src="./assets/vendor/tailwind-play-cdn.js"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            bg: "#0a0a0f", // Updated to match portfolio
+                            surface: "#111827",
+                            primary: "#00D9FF", // Neon Cyan
+                            secondary: "#00FF94", // Neon Green
+                            accent: "#FFE600", // Neon Yellow
+                        },
+                        fontFamily: {
+                            sans: ["Sarabun", "sans-serif"],
+                            heading: ["Space Grotesk", "sans-serif"],
+                        },
+                        animation: {
+                            float: "float 6s ease-in-out infinite",
+                            "pulse-slow":
+                                "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                            blob: "blob 7s infinite",
+                            "fade-in-up": "fadeInUp 0.8s ease-out forwards",
+                        },
+                        keyframes: {
+                            float: {
+                                "0%, 100%": { transform: "translateY(0)" },
+                                "50%": { transform: "translateY(-20px)" },
+                            },
+                            blob: {
+                                "0%": {
+                                    transform: "translate(0px, 0px) scale(1)",
+                                },
+                                "33%": {
+                                    transform:
+                                        "translate(30px, -50px) scale(1.1)",
+                                },
+                                "66%": {
+                                    transform:
+                                        "translate(-20px, 20px) scale(0.9)",
+                                },
+                                "100%": {
+                                    transform: "translate(0px, 0px) scale(1)",
+                                },
+                            },
+                            fadeInUp: {
+                                "0%": {
+                                    opacity: "0",
+                                    transform: "translateY(20px)",
+                                },
+                                "100%": {
+                                    opacity: "1",
+                                    transform: "translateY(0)",
+                                },
+                            },
+                        },
+                    },
+                },
+            };
+        </script>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        />
+
+        <!-- Custom Styles -->
+        <link rel="stylesheet" href="style.css" />
+        <style>
+            body {
+                visibility: hidden;
             }
-          }
-        }
-      }
-    }
-  </script>
+            body.page-ready {
+                visibility: visible;
+            }
+        </style>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <!-- Schema.org Structured Data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "Person",
+                        "@id": "https://earthondev.github.io/Portfolio/#person",
+                        "name": "Nattapart Worakun",
+                        "alternateName": [
+                            "ณัฐภัทร วรกุล",
+                            "ณัฐภัทร",
+                            "Nattapart",
+                            "earthondev"
+                        ],
+                        "jobTitle": [
+                            "Data Analyst",
+                            "BI Developer",
+                            "Inventory Analyst"
+                        ],
+                        "description": "Data Analyst and BI Developer based in Bangkok, Thailand. Specializes in inventory analytics, Power BI dashboards, SQL reporting, and workflow automation. Background in analytical chemistry and laboratory operations.",
+                        "url": "https://earthondev.github.io/Portfolio/",
+                        "image": {
+                            "@type": "ImageObject",
+                            "url": "https://earthondev.github.io/Portfolio/assets/og/og-image.png",
+                            "width": 1200,
+                            "height": 630
+                        },
+                        "email": "earthlikemwbb@gmail.com",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Bangkok",
+                            "addressCountry": "TH"
+                        },
+                        "knowsAbout": [
+                            "Data Analysis",
+                            "Business Intelligence",
+                            "SQL",
+                            "Power BI",
+                            "Inventory Management",
+                            "Python",
+                            "R Programming",
+                            "AppSheet",
+                            "Workflow Automation",
+                            "Data Visualization",
+                            "Analytical Chemistry",
+                            "Flutter",
+                            "React",
+                            "Firebase"
+                        ],
+                        "hasCredential": [
+                            {
+                                "@type": "EducationalOccupationalCredential",
+                                "name": "Mini Data Science Bootcamp",
+                                "credentialCategory": "certificate",
+                                "recognizedBy": {
+                                    "@type": "Organization",
+                                    "name": "DataRockie School"
+                                }
+                            },
+                            {
+                                "@type": "EducationalOccupationalCredential",
+                                "name": "Google Certified Educator Level 1",
+                                "credentialCategory": "certificate",
+                                "recognizedBy": {
+                                    "@type": "Organization",
+                                    "name": "Google for Education"
+                                }
+                            },
+                            {
+                                "@type": "EducationalOccupationalCredential",
+                                "name": "Prompt Engineering & Agentic AI",
+                                "credentialCategory": "certificate",
+                                "recognizedBy": {
+                                    "@type": "Organization",
+                                    "name": "AIS Academy"
+                                }
+                            }
+                        ],
+                        "sameAs": [
+                            "https://github.com/earthondev",
+                            "https://www.linkedin.com/in/earthondev/"
+                        ]
+                    },
+                    {
+                        "@type": "WebSite",
+                        "@id": "https://earthondev.github.io/Portfolio/#website",
+                        "name": "Nattapart Worakun | Portfolio",
+                        "url": "https://earthondev.github.io/Portfolio/",
+                        "description": "Portfolio of Nattapart Worakun (ณัฐภัทร วรกุล), Data Analyst and BI Developer in Bangkok, Thailand.",
+                        "author": {
+                            "@id": "https://earthondev.github.io/Portfolio/#person"
+                        },
+                        "inLanguage": ["en", "th"],
+                        "potentialAction": {
+                            "@type": "SearchAction",
+                            "target": "https://earthondev.github.io/Portfolio/portfolio.html?q={search_term_string}",
+                            "query-input": "required name=search_term_string"
+                        }
+                    },
+                    {
+                        "@type": "ProfilePage",
+                        "@id": "https://earthondev.github.io/Portfolio/#page",
+                        "name": "Nattapart Worakun — Data Analyst Portfolio",
+                        "url": "https://earthondev.github.io/Portfolio/",
+                        "mainEntity": {
+                            "@id": "https://earthondev.github.io/Portfolio/#person"
+                        },
+                        "about": {
+                            "@id": "https://earthondev.github.io/Portfolio/#person"
+                        }
+                    }
+                ]
+            }
+        </script>
+    </head>
 
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body { visibility: hidden; }
-    body.page-ready { visibility: visible; }
-  </style>
-</head>
-
-<body class="premium-shell overflow-x-hidden antialiased">
-
-  <!-- Intro overlay strips -->
-  <div id="intro-overlay" aria-hidden="true">
-    <div class="strip"></div>
-    <div class="strip"></div>
-    <div class="strip"></div>
-    <div class="strip"></div>
-    <div class="strip"></div>
-  </div>
-
-  <!-- Navbar -->
-  <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="navbar">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
-        <!-- Logo -->
-        <a href="index.html" class="flex items-center gap-2 group">
-          <span class="font-heading font-semibold text-base tracking-[0.08em] group-hover:opacity-60 transition-opacity">Nattapart</span>
-        </a>
-
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="index.html" class="text-sm font-medium text-white border-b-2 border-[#00D9FF] py-1">Home</a>
-          <a href="certificates.html"
-            class="text-sm font-medium text-gray-400 hover:text-white hover:border-b-2 hover:border-gray-700 py-1 transition-all">Certificates</a>
-          <a href="portfolio.html"
-            class="text-sm font-medium text-gray-400 hover:text-white hover:border-b-2 hover:border-gray-700 py-1 transition-all">Projects</a>
-          <a href="contact.html"
-            class="text-sm font-medium text-gray-400 hover:text-white hover:border-b-2 hover:border-gray-700 py-1 transition-all">Contact</a>
+    <body class="premium-shell overflow-x-hidden antialiased">
+        <!-- Intro overlay strips -->
+        <div id="intro-overlay" aria-hidden="true">
+            <div class="strip"></div>
+            <div class="strip"></div>
+            <div class="strip"></div>
+            <div class="strip"></div>
+            <div class="strip"></div>
         </div>
 
-        <!-- CTA & Mobile Menu -->
-        <div class="flex items-center gap-4">
-          <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
-            class="hidden sm:inline-flex items-center justify-center px-5 py-2 text-sm font-medium text-white transition-all bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-[#00D9FF]/50 hover:shadow-[0_0_15px_rgba(0,217,255,0.3)]">
-            Resume
-          </a>
-          <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white p-2">
-            <i class="fas fa-bars text-xl"></i>
-          </button>
-        </div>
-      </div>
-    </div>
+        <!-- Navbar -->
+        <nav
+            class="fixed top-0 w-full z-50 glass-nav transition-all duration-300"
+            id="navbar"
+        >
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <!-- Logo -->
+                    <a href="index.html" class="flex items-center gap-2 group">
+                        <span
+                            class="font-heading font-semibold text-base tracking-[0.08em] group-hover:opacity-60 transition-opacity"
+                            >Nattapart</span
+                        >
+                    </a>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu"
-      class="hidden md:hidden fixed top-20 left-0 w-full bg-[#0a0a0f]/95 backdrop-blur-xl border-t border-white/5 shadow-2xl z-40">
-      <div class="px-4 pt-2 pb-6 space-y-2">
-        <a href="index.html"
-          class="block px-3 py-3 rounded-lg text-base font-medium text-white bg-white/5 border-l-4 border-[#00D9FF]">Home</a>
-        <a href="certificates.html"
-          class="block px-3 py-3 rounded-lg text-base font-medium text-gray-400 hover:text-white hover:bg-white/5">Certificates</a>
-        <a href="portfolio.html"
-          class="block px-3 py-3 rounded-lg text-base font-medium text-gray-400 hover:text-white hover:bg-white/5">Projects</a>
-        <a href="contact.html"
-          class="block px-3 py-3 rounded-lg text-base font-medium text-gray-400 hover:text-white hover:bg-white/5">Contact</a>
-      </div>
-    </div>
-  </nav>
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a
+                            href="index.html"
+                            class="text-sm font-medium text-white border-b-2 border-[#00D9FF] py-1"
+                            >Home</a
+                        >
+                        <a
+                            href="certificates.html"
+                            class="text-sm font-medium text-gray-400 hover:text-white hover:border-b-2 hover:border-gray-700 py-1 transition-all"
+                            >Certificates</a
+                        >
+                        <a
+                            href="portfolio.html"
+                            class="text-sm font-medium text-gray-400 hover:text-white hover:border-b-2 hover:border-gray-700 py-1 transition-all"
+                            >Projects</a
+                        >
+                        <a
+                            href="contact.html"
+                            class="text-sm font-medium text-gray-400 hover:text-white hover:border-b-2 hover:border-gray-700 py-1 transition-all"
+                            >Contact</a
+                        >
+                    </div>
 
-  <!-- Marquee ticker -->
-  <div class="w-full overflow-hidden border-y border-black/5 py-4 mt-20">
-    <div class="marquee-track">
-      <span class="marquee-item">Inventory Analytics <span class="marquee-dot"></span></span>
-      <span class="marquee-item">Power BI Dashboards <span class="marquee-dot"></span></span>
-      <span class="marquee-item">Workflow Automation <span class="marquee-dot"></span></span>
-      <span class="marquee-item">SQL Reporting <span class="marquee-dot"></span></span>
-      <span class="marquee-item">R Statistical Analysis <span class="marquee-dot"></span></span>
-      <span class="marquee-item">Data-Driven Decisions <span class="marquee-dot"></span></span>
-      <span class="marquee-item">Stock Analytics <span class="marquee-dot"></span></span>
-      <!-- duplicate for seamless loop -->
-      <span class="marquee-item">Inventory Analytics <span class="marquee-dot"></span></span>
-      <span class="marquee-item">Power BI Dashboards <span class="marquee-dot"></span></span>
-      <span class="marquee-item">Workflow Automation <span class="marquee-dot"></span></span>
-      <span class="marquee-item">SQL Reporting <span class="marquee-dot"></span></span>
-      <span class="marquee-item">R Statistical Analysis <span class="marquee-dot"></span></span>
-      <span class="marquee-item">Data-Driven Decisions <span class="marquee-dot"></span></span>
-      <span class="marquee-item">Stock Analytics <span class="marquee-dot"></span></span>
-    </div>
-  </div>
-
-  <!-- Hero Section -->
-  <section class="relative min-h-[90vh] flex items-center pt-8 pb-12 px-4 overflow-hidden">
-    <div class="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center relative z-10 w-full">
-      <div class="min-w-0 text-center lg:text-left space-y-7 hero-stagger">
-        <div class="premium-eyebrow mx-auto lg:mx-0">
-          <span class="premium-dot"></span>
-          Inventory/Data Analyst
-        </div>
-
-        <div>
-          <p class="masked-reveal text-sm sm:text-base font-semibold text-gray-500 mb-3">Nattapart Worakun</p>
-          <h1 class="hero-title font-heading text-5xl sm:text-7xl font-bold leading-[1.03] text-white" data-reveal-hero data-reveal-delay="0.1">
-            I turn stock data into <span class="lux-underline">decision-ready reporting</span>.
-          </h1>
-        </div>
-
-        <div class="text-xl sm:text-2xl font-semibold text-gray-400">
-          Focused on
-          <span class="role-rotator font-heading">
-            <span>Inventory Reporting</span>
-            <span>Power BI Dashboards</span>
-            <span>Workflow Automation</span>
-          </span>
-        </div>
-
-        <p class="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-          Chemist turned data builder. I help operations teams see stock risk, KPI trends, and weekly actions without
-          chasing scattered spreadsheets.
-        </p>
-
-        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2">
-          <a href="mailto:earthlikemwbb@gmail.com" data-magnetic
-            class="premium-cta w-full sm:w-auto px-7 py-4 rounded-xl bg-[#111827] text-white font-semibold flex items-center justify-center gap-2 hover:shadow-[0_18px_34px_rgba(17,24,39,0.18)] hover:-translate-y-0.5 transition-all duration-300">
-            Email Me
-            <i class="fas fa-arrow-right text-sm"></i>
-          </a>
-          <a href="resume.pdf" target="_blank" rel="noopener noreferrer" data-magnetic
-            class="w-full sm:w-auto px-7 py-4 rounded-xl premium-card text-gray-200 font-semibold flex items-center justify-center gap-2">
-            View Resume
-            <i class="fas fa-file-lines text-sm"></i>
-          </a>
-        </div>
-
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 max-w-2xl mx-auto lg:mx-0">
-          <div class="premium-card rounded-2xl p-4 text-left">
-            <p class="text-2xl font-bold font-heading text-white">SQL</p>
-            <p class="text-xs text-gray-500 mt-1">clean queries</p>
-          </div>
-          <div class="premium-card rounded-2xl p-4 text-left">
-            <p class="text-2xl font-bold font-heading text-white">R</p>
-            <p class="text-xs text-gray-500 mt-1">stats &amp; ggplot2</p>
-          </div>
-          <div class="premium-card rounded-2xl p-4 text-left">
-            <p class="text-2xl font-bold font-heading text-white">Power BI</p>
-            <p class="text-xs text-gray-500 mt-1">KPI dashboards</p>
-          </div>
-          <div class="premium-card rounded-2xl p-4 text-left">
-            <p class="text-2xl font-bold font-heading text-white">Automation</p>
-            <p class="text-xs text-gray-500 mt-1">less manual work</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="relative hidden lg:block">
-        <div class="project-preview-card premium-card rounded-[2rem] p-4 overflow-hidden">
-          <div class="aspect-[4/5] rounded-[1.5rem] overflow-hidden bg-[#111827] relative">
-            <img src="assets/Profile/IMG_9526.JPG" alt="Nattapart Worakun"
-              class="w-full h-full object-cover object-center saturate-[0.92] contrast-105">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-            <div class="absolute left-6 right-6 bottom-6 text-white">
-              <p class="text-xs uppercase tracking-[0.18em] text-white/70">Ready for inventory analytics roles</p>
-              <h2 class="font-heading text-3xl font-bold mt-2 text-white">Reporting that operations can act on.</h2>
+                    <!-- CTA & Mobile Menu -->
+                    <div class="flex items-center gap-4">
+                        <a
+                            href="resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="hidden sm:inline-flex items-center justify-center px-5 py-2 text-sm font-medium text-white transition-all bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-[#00D9FF]/50 hover:shadow-[0_0_15px_rgba(0,217,255,0.3)]"
+                        >
+                            Resume
+                        </a>
+                        <button
+                            id="mobile-menu-btn"
+                            class="md:hidden text-gray-300 hover:text-white p-2"
+                        >
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <div class="absolute -left-8 top-16 premium-card rounded-2xl p-4 w-56">
-          <p class="text-xs uppercase tracking-[0.14em] text-gray-500">Proof</p>
-          <p class="font-semibold mt-1">Inventory Analytics Dashboard</p>
-        </div>
-        <div class="absolute -right-6 bottom-20 premium-card rounded-2xl p-4 w-52">
-          <p class="text-xs uppercase tracking-[0.14em] text-gray-500">Stack</p>
-          <p class="font-semibold mt-1">SQL • R • Power BI</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Impact Section (Bento Grid) -->
-  <section id="impact" class="py-20 px-4 relative z-10 bg-[#0a0a0f]">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-12 premium-reveal">
-        <span class="text-[#00D9FF] text-sm font-bold tracking-[0.14em] uppercase mb-4 block">What I Deliver</span>
-        <h2 class="text-4xl sm:text-5xl font-bold font-heading text-white mb-6">
-          The work HR should remember
-        </h2>
-        <p class="text-gray-400 max-w-2xl mx-auto text-lg">
-          Inventory visibility, reporting clarity, and practical automation.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6 px-2">
-        <div
-          class="premium-card premium-reveal p-8 rounded-3xl group cursor-default h-full flex flex-col">
-          <div
-            class="w-14 h-14 rounded-2xl bg-[#00FF94]/10 flex items-center justify-center text-2xl mb-6 text-[#00FF94]">
-            <i class="fas fa-boxes-stacked"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Inventory Reporting</h3>
-          <p class="text-gray-400 text-sm leading-relaxed flex-grow">
-            Turn stock movement, low-stock risk, and weekly action items into a view managers can scan fast.
-          </p>
-        </div>
-
-        <div
-          class="premium-card premium-reveal p-8 rounded-3xl group cursor-default h-full flex flex-col">
-          <div
-            class="w-14 h-14 rounded-2xl bg-[#00D9FF]/10 flex items-center justify-center text-2xl mb-6 text-[#00D9FF]">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Power BI Dashboards</h3>
-          <p class="text-gray-400 text-sm leading-relaxed flex-grow">
-            Build KPI views around stock cover, turnover, dead stock, and demand vs usage.
-          </p>
-        </div>
-
-        <div
-          class="premium-card premium-reveal p-8 rounded-3xl group cursor-default h-full flex flex-col">
-          <div
-            class="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center text-2xl mb-6 text-amber-700">
-            <i class="fas fa-bolt"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Workflow Automation</h3>
-          <p class="text-gray-400 text-sm leading-relaxed flex-grow">
-            Reduce repeat spreadsheet work with clean data flows, alerts, and reusable reporting steps.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured Project -->
-  <section class="py-16 px-4 border-t border-white/5 bg-[#0a0a0f]">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid lg:grid-cols-[0.92fr_1.08fr] gap-8 items-center premium-card rounded-[2rem] p-6 md:p-8 overflow-hidden project-preview-card premium-reveal">
-        <div>
-          <span class="premium-eyebrow mb-5">
-            <span class="premium-dot"></span>
-            Featured Proof
-          </span>
-          <h2 class="text-4xl sm:text-5xl font-bold font-heading text-white leading-tight">
-            Inventory Analytics Dashboard
-          </h2>
-          <p class="text-gray-400 mt-4 text-lg leading-relaxed">
-            A portfolio case showing stock cover, dead stock, turnover, reorder risk, and weekly action summaries.
-          </p>
-          <div class="grid sm:grid-cols-3 gap-3 mt-6">
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-              <p class="text-2xl font-bold text-[#00D9FF]">1,200+</p>
-              <p class="text-sm text-gray-400">simulated SKU records</p>
+            <!-- Mobile Menu -->
+            <div
+                id="mobile-menu"
+                class="hidden md:hidden fixed top-20 left-0 w-full bg-[#0a0a0f]/95 backdrop-blur-xl border-t border-white/5 shadow-2xl z-40"
+            >
+                <div class="px-4 pt-2 pb-6 space-y-2">
+                    <a
+                        href="index.html"
+                        class="block px-3 py-3 rounded-lg text-base font-medium text-white bg-white/5 border-l-4 border-[#00D9FF]"
+                        >Home</a
+                    >
+                    <a
+                        href="certificates.html"
+                        class="block px-3 py-3 rounded-lg text-base font-medium text-gray-400 hover:text-white hover:bg-white/5"
+                        >Certificates</a
+                    >
+                    <a
+                        href="portfolio.html"
+                        class="block px-3 py-3 rounded-lg text-base font-medium text-gray-400 hover:text-white hover:bg-white/5"
+                        >Projects</a
+                    >
+                    <a
+                        href="contact.html"
+                        class="block px-3 py-3 rounded-lg text-base font-medium text-gray-400 hover:text-white hover:bg-white/5"
+                        >Contact</a
+                    >
+                </div>
             </div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-              <p class="text-2xl font-bold text-[#00FF94]">6 KPIs</p>
-              <p class="text-sm text-gray-400">inventory health views</p>
+        </nav>
+
+        <!-- Marquee ticker -->
+        <div class="w-full overflow-hidden border-y border-white/10 py-4 mt-20">
+            <div class="marquee-track">
+                <span class="marquee-item"
+                    >Inventory Analytics <span class="marquee-dot"></span
+                ></span>
+                <span class="marquee-item"
+                    >Power BI Dashboards <span class="marquee-dot"></span
+                ></span>
+                <span class="marquee-item"
+                    >Workflow Automation <span class="marquee-dot"></span
+                ></span>
+                <span class="marquee-item"
+                    >SQL Reporting <span class="marquee-dot"></span
+                ></span>
+                <span class="marquee-item"
+                    >R Statistical Analysis <span class="marquee-dot"></span
+                ></span>
+                <span class="marquee-item"
+                    >Data-Driven Decisions <span class="marquee-dot"></span
+                ></span>
+                <span class="marquee-item"
+                    >Stock Analytics <span class="marquee-dot"></span
+                ></span>
+                <!-- duplicate for seamless loop -->
+                <span class="marquee-item"
+                    >Inventory Analytics <span class="marquee-dot"></span
+                ></span>
+                <span class="marquee-item"
+                    >Power BI Dashboards <span class="marquee-dot"></span
+                ></span>
+                <span class="marquee-item"
+                    >Workflow Automation <span class="marquee-dot"></span
+                ></span>
+                <span class="marquee-item"
+                    >SQL Reporting <span class="marquee-dot"></span
+                ></span>
+                <span class="marquee-item"
+                    >R Statistical Analysis <span class="marquee-dot"></span
+                ></span>
+                <span class="marquee-item"
+                    >Data-Driven Decisions <span class="marquee-dot"></span
+                ></span>
+                <span class="marquee-item"
+                    >Stock Analytics <span class="marquee-dot"></span
+                ></span>
             </div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-              <p class="text-2xl font-bold text-amber-700">Weekly</p>
-              <p class="text-sm text-gray-400">action summary</p>
+        </div>
+
+        <!-- Hero Section -->
+        <section
+            class="relative min-h-[90vh] flex items-center pt-8 pb-12 px-4 overflow-hidden"
+        >
+            <div
+                class="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center relative z-10 w-full"
+            >
+                <div
+                    class="min-w-0 text-center lg:text-left space-y-7 hero-stagger"
+                >
+                    <div class="premium-eyebrow mx-auto lg:mx-0">
+                        <span class="premium-dot"></span>
+                        Inventory/Data Analyst
+                    </div>
+
+                    <div>
+                        <p
+                            class="masked-reveal text-sm sm:text-base font-semibold text-gray-500 mb-3"
+                        >
+                            Nattapart Worakun
+                        </p>
+                        <h1
+                            class="hero-title font-heading text-5xl sm:text-7xl font-bold leading-[1.03] text-white"
+                            data-reveal-hero
+                            data-reveal-delay="0.1"
+                        >
+                            I turn stock data into
+                            <span class="lux-underline"
+                                >decision-ready reporting</span
+                            >.
+                        </h1>
+                    </div>
+
+                    <div
+                        class="text-xl sm:text-2xl font-semibold text-gray-400"
+                    >
+                        Focused on
+                        <span class="role-rotator font-heading">
+                            <span>Inventory Reporting</span>
+                            <span>Power BI Dashboards</span>
+                            <span>Workflow Automation</span>
+                        </span>
+                    </div>
+
+                    <p
+                        class="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+                    >
+                        Chemist turned data builder. I help operations teams see
+                        stock risk, KPI trends, and weekly actions without
+                        chasing scattered spreadsheets.
+                    </p>
+
+                    <div
+                        class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2"
+                    >
+                        <a
+                            href="mailto:earthlikemwbb@gmail.com"
+                            data-magnetic
+                            class="premium-cta w-full sm:w-auto px-7 py-4 rounded-xl bg-[#111827] text-white font-semibold flex items-center justify-center gap-2 hover:shadow-[0_18px_34px_rgba(17,24,39,0.18)] hover:-translate-y-0.5 transition-all duration-300"
+                        >
+                            Email Me
+                            <i class="fas fa-arrow-right text-sm"></i>
+                        </a>
+                        <a
+                            href="resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            data-magnetic
+                            class="w-full sm:w-auto px-7 py-4 rounded-xl premium-card text-gray-200 font-semibold flex items-center justify-center gap-2"
+                        >
+                            View Resume
+                            <i class="fas fa-file-lines text-sm"></i>
+                        </a>
+                    </div>
+
+                    <div
+                        class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 max-w-2xl mx-auto lg:mx-0"
+                    >
+                        <div class="premium-card rounded-2xl p-4 text-left">
+                            <p
+                                class="text-2xl font-bold font-heading text-white"
+                            >
+                                SQL
+                            </p>
+                            <p class="text-xs text-gray-500 mt-1">
+                                clean queries
+                            </p>
+                        </div>
+                        <div class="premium-card rounded-2xl p-4 text-left">
+                            <p
+                                class="text-2xl font-bold font-heading text-white"
+                            >
+                                R
+                            </p>
+                            <p class="text-xs text-gray-500 mt-1">
+                                stats &amp; ggplot2
+                            </p>
+                        </div>
+                        <div class="premium-card rounded-2xl p-4 text-left">
+                            <p
+                                class="text-2xl font-bold font-heading text-white"
+                            >
+                                Power BI
+                            </p>
+                            <p class="text-xs text-gray-500 mt-1">
+                                KPI dashboards
+                            </p>
+                        </div>
+                        <div class="premium-card rounded-2xl p-4 text-left">
+                            <p
+                                class="text-2xl font-bold font-heading text-white"
+                            >
+                                Automation
+                            </p>
+                            <p class="text-xs text-gray-500 mt-1">
+                                less manual work
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative hidden lg:block">
+                    <div
+                        class="project-preview-card premium-card rounded-[2rem] p-4 overflow-hidden"
+                    >
+                        <div
+                            class="aspect-[4/5] rounded-[1.5rem] overflow-hidden bg-[#111827] relative"
+                        >
+                            <img
+                                src="assets/Profile/IMG_9526.JPG"
+                                alt="Nattapart Worakun"
+                                class="w-full h-full object-cover object-center saturate-[0.92] contrast-105"
+                            />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"
+                            ></div>
+                            <div
+                                class="absolute left-6 right-6 bottom-6 text-white"
+                            >
+                                <p
+                                    class="text-xs uppercase tracking-[0.18em] text-white/70"
+                                >
+                                    Ready for inventory analytics roles
+                                </p>
+                                <h2
+                                    class="font-heading text-3xl font-bold mt-2 text-white"
+                                >
+                                    Reporting that operations can act on.
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="absolute -left-8 top-16 premium-card rounded-2xl p-4 w-56"
+                    >
+                        <p
+                            class="text-xs uppercase tracking-[0.14em] text-gray-500"
+                        >
+                            Proof
+                        </p>
+                        <p class="font-semibold mt-1">
+                            Inventory Analytics Dashboard
+                        </p>
+                    </div>
+                    <div
+                        class="absolute -right-6 bottom-20 premium-card rounded-2xl p-4 w-52"
+                    >
+                        <p
+                            class="text-xs uppercase tracking-[0.14em] text-gray-500"
+                        >
+                            Stack
+                        </p>
+                        <p class="font-semibold mt-1">SQL • R • Power BI</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="flex flex-col sm:flex-row gap-3 mt-7">
-            <a href="inventory-analytics-dashboard.html"
-              class="premium-cta px-6 py-3 rounded-xl bg-[#111827] text-white font-semibold inline-flex items-center justify-center gap-2">
-              Open Dashboard
-              <i class="fas fa-chart-line text-sm"></i>
-            </a>
-            <a href="portfolio.html"
-              class="px-6 py-3 rounded-xl premium-card font-semibold inline-flex items-center justify-center gap-2">
-              View Projects
-              <i class="fas fa-arrow-right text-sm"></i>
-            </a>
-          </div>
-        </div>
+        </section>
 
-        <div class="rounded-[1.5rem] overflow-hidden bg-[#111827] p-4">
-          <img src="assets/projects/inventory-analytics-dashboard/cover.svg" alt="Inventory Analytics Dashboard preview"
-            class="w-full rounded-2xl border border-white/10">
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- Impact Section (Bento Grid) -->
+        <section id="impact" class="py-20 px-4 relative z-10 bg-[#0a0a0f]">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12 premium-reveal">
+                    <span
+                        class="text-[#00D9FF] text-sm font-bold tracking-[0.14em] uppercase mb-4 block"
+                        >What I Deliver</span
+                    >
+                    <h2
+                        class="text-4xl sm:text-5xl font-bold font-heading text-white mb-6"
+                    >
+                        The work HR should remember
+                    </h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+                        Inventory visibility, reporting clarity, and practical
+                        automation.
+                    </p>
+                </div>
 
-  <!-- Featured Certificates -->
-  <section class="py-20 px-4 border-t border-white/5 bg-[#0a0a0f]">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 premium-reveal">
-        <div>
-          <span class="text-amber-700 text-sm font-bold tracking-[0.14em] uppercase block mb-3">Credentials</span>
-          <h2 class="text-4xl sm:text-5xl font-bold font-heading text-white">Selected Proof</h2>
-          <p class="text-gray-400 mt-4 max-w-2xl">Certificates that support analytics, automation, and reliable data work.</p>
-        </div>
-        <a href="certificates.html"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-sm font-semibold hover:border-amber-300 hover:text-amber-700 transition-all">
-          View All Certificates
-          <i class="fas fa-arrow-right text-xs"></i>
-        </a>
-      </div>
+                <div class="grid md:grid-cols-3 gap-6 px-2">
+                    <div
+                        class="premium-card premium-reveal p-8 rounded-3xl group cursor-default h-full flex flex-col"
+                    >
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-[#00FF94]/10 flex items-center justify-center text-2xl mb-6 text-[#00FF94]"
+                        >
+                            <i class="fas fa-boxes-stacked"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">
+                            Inventory Reporting
+                        </h3>
+                        <p
+                            class="text-gray-400 text-sm leading-relaxed flex-grow"
+                        >
+                            Turn stock movement, low-stock risk, and weekly
+                            action items into a view managers can scan fast.
+                        </p>
+                    </div>
 
-      <div id="certificate-highlight-grid" class="grid md:grid-cols-3 gap-6 premium-reveal">
-        <article class="rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden">
-          <div class="aspect-[16/10] bg-gradient-to-br from-[#00D9FF]/20 to-transparent flex items-center justify-center">
-            <i class="fas fa-certificate text-4xl text-[#00D9FF]"></i>
-          </div>
-          <div class="p-5">
-            <p class="text-xs uppercase tracking-[0.18em] text-gray-500">Loading</p>
-            <h3 class="text-lg font-semibold mt-2 text-white">Preparing certificates...</h3>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+                    <div
+                        class="premium-card premium-reveal p-8 rounded-3xl group cursor-default h-full flex flex-col"
+                    >
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-[#00D9FF]/10 flex items-center justify-center text-2xl mb-6 text-[#00D9FF]"
+                        >
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">
+                            Power BI Dashboards
+                        </h3>
+                        <p
+                            class="text-gray-400 text-sm leading-relaxed flex-grow"
+                        >
+                            Build KPI views around stock cover, turnover, dead
+                            stock, and demand vs usage.
+                        </p>
+                    </div>
 
+                    <div
+                        class="premium-card premium-reveal p-8 rounded-3xl group cursor-default h-full flex flex-col"
+                    >
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center text-2xl mb-6 text-amber-700"
+                        >
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">
+                            Workflow Automation
+                        </h3>
+                        <p
+                            class="text-gray-400 text-sm leading-relaxed flex-grow"
+                        >
+                            Reduce repeat spreadsheet work with clean data
+                            flows, alerts, and reusable reporting steps.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Footer -->
-  <footer class="py-12 px-4 border-t border-white/5 mt-auto bg-[#0a0a0f]">
-    <div class="max-w-6xl mx-auto flex flex-col items-center justify-center text-center">
+        <!-- Featured Project -->
+        <section class="py-16 px-4 border-t border-white/5 bg-[#0a0a0f]">
+            <div class="max-w-7xl mx-auto">
+                <div
+                    class="grid lg:grid-cols-[0.92fr_1.08fr] gap-8 items-center premium-card rounded-[2rem] p-6 md:p-8 overflow-hidden project-preview-card premium-reveal"
+                >
+                    <div>
+                        <span class="premium-eyebrow mb-5">
+                            <span class="premium-dot"></span>
+                            Featured Proof
+                        </span>
+                        <h2
+                            class="text-4xl sm:text-5xl font-bold font-heading text-white leading-tight"
+                        >
+                            Inventory Analytics Dashboard
+                        </h2>
+                        <p class="text-gray-400 mt-4 text-lg leading-relaxed">
+                            A portfolio case showing stock cover, dead stock,
+                            turnover, reorder risk, and weekly action summaries.
+                        </p>
+                        <div class="grid sm:grid-cols-3 gap-3 mt-6">
+                            <div
+                                class="rounded-2xl border border-white/10 bg-white/5 p-4"
+                            >
+                                <p class="text-2xl font-bold text-[#00D9FF]">
+                                    1,200+
+                                </p>
+                                <p class="text-sm text-gray-400">
+                                    simulated SKU records
+                                </p>
+                            </div>
+                            <div
+                                class="rounded-2xl border border-white/10 bg-white/5 p-4"
+                            >
+                                <p class="text-2xl font-bold text-[#00FF94]">
+                                    6 KPIs
+                                </p>
+                                <p class="text-sm text-gray-400">
+                                    inventory health views
+                                </p>
+                            </div>
+                            <div
+                                class="rounded-2xl border border-white/10 bg-white/5 p-4"
+                            >
+                                <p class="text-2xl font-bold text-amber-700">
+                                    Weekly
+                                </p>
+                                <p class="text-sm text-gray-400">
+                                    action summary
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-3 mt-7">
+                            <a
+                                href="inventory-analytics-dashboard.html"
+                                class="premium-cta px-6 py-3 rounded-xl bg-[#111827] text-white font-semibold inline-flex items-center justify-center gap-2"
+                            >
+                                Open Dashboard
+                                <i class="fas fa-chart-line text-sm"></i>
+                            </a>
+                            <a
+                                href="portfolio.html"
+                                class="px-6 py-3 rounded-xl premium-card font-semibold inline-flex items-center justify-center gap-2"
+                            >
+                                View Projects
+                                <i class="fas fa-arrow-right text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
 
-      <p class="text-gray-400 text-sm mb-8 font-medium tracking-wide">Chemistry → Inventory → Automation & Analytics</p>
+                    <div
+                        class="rounded-[1.5rem] overflow-hidden bg-[#111827] p-4"
+                    >
+                        <img
+                            src="assets/projects/inventory-analytics-dashboard/cover.svg"
+                            alt="Inventory Analytics Dashboard preview"
+                            class="w-full rounded-2xl border border-white/10"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <div class="flex space-x-6 mb-10">
-        <a href="https://github.com/earthondev" target="_blank" rel="noopener noreferrer"
-          class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white hover:-translate-y-1 transition-all border border-transparent hover:border-white/10">
-          <i class="fab fa-github text-xl"></i>
-        </a>
-        <a href="mailto:earthlikemwbb@gmail.com"
-          class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white hover:-translate-y-1 transition-all border border-transparent hover:border-white/10">
-          <i class="fas fa-envelope text-xl"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/earthondev/" target="_blank" rel="noopener noreferrer"
-          class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white hover:-translate-y-1 transition-all border border-transparent hover:border-white/10">
-          <i class="fab fa-linkedin text-xl"></i>
-        </a>
-      </div>
+        <!-- Featured Certificates -->
+        <section class="py-20 px-4 border-t border-white/5 bg-[#0a0a0f]">
+            <div class="max-w-7xl mx-auto">
+                <div
+                    class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 premium-reveal"
+                >
+                    <div>
+                        <span
+                            class="text-amber-700 text-sm font-bold tracking-[0.14em] uppercase block mb-3"
+                            >Credentials</span
+                        >
+                        <h2
+                            class="text-4xl sm:text-5xl font-bold font-heading text-white"
+                        >
+                            Selected Proof
+                        </h2>
+                        <p class="text-gray-400 mt-4 max-w-2xl">
+                            Certificates that support analytics, automation, and
+                            reliable data work.
+                        </p>
+                    </div>
+                    <a
+                        href="certificates.html"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-sm font-semibold hover:border-amber-300 hover:text-amber-700 transition-all"
+                    >
+                        View All Certificates
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
 
-      <div class="text-gray-600 text-xs flex flex-col md:flex-row items-center gap-4">
-        <span>© 2026 Nattapart Worakun. All rights reserved.</span>
-      </div>
-    </div>
-  </footer>
+                <div
+                    id="certificate-highlight-grid"
+                    class="grid md:grid-cols-3 gap-6 premium-reveal"
+                >
+                    <article
+                        class="rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden"
+                    >
+                        <div
+                            class="aspect-[16/10] bg-gradient-to-br from-[#00D9FF]/20 to-transparent flex items-center justify-center"
+                        >
+                            <i
+                                class="fas fa-certificate text-4xl text-[#00D9FF]"
+                            ></i>
+                        </div>
+                        <div class="p-5">
+                            <p
+                                class="text-xs uppercase tracking-[0.18em] text-gray-500"
+                            >
+                                Loading
+                            </p>
+                            <h3 class="text-lg font-semibold mt-2 text-white">
+                                Preparing certificates...
+                            </h3>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-  <script src="assets/js/common.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
-  <script src="assets/js/animations.js"></script>
-  <script src="cache-bust.js"></script>
-  <script>
-    window.PortfolioCommon?.initMobileMenu({ lockScroll: true, closeOnBackdrop: true });
-    window.PortfolioCommon?.initNavbarScroll({
-      selector: '#navbar',
-      topBackground: 'rgba(251, 250, 247, 0.72)',
-      scrolledBackground: 'rgba(251, 250, 247, 0.92)',
-      topBlur: 'blur(12px)',
-      scrolledBlur: 'blur(14px)',
-      threshold: 20
-    });
+        <!-- Footer -->
+        <footer class="py-12 px-4 border-t border-white/5 mt-auto bg-[#0a0a0f]">
+            <div
+                class="max-w-6xl mx-auto flex flex-col items-center justify-center text-center"
+            >
+                <p class="text-gray-400 text-sm mb-8 font-medium tracking-wide">
+                    Chemistry → Inventory → Automation & Analytics
+                </p>
+                <p class="text-gray-500 text-xs mb-2">
+                    ณัฐภัทร วรกุล (Nattapart Worakun) · Data Analyst · Bangkok,
+                    Thailand
+                </p>
 
-    document.querySelectorAll('.section-reveal').forEach((section) => {
-      section.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
-    });
-    window.PortfolioCommon?.initRevealObserver({
-      selector: '.section-reveal',
-      threshold: 0.1,
-      onEnter: (element) => {
-        element.classList.add('opacity-100', 'translate-y-0');
-        element.classList.remove('opacity-0', 'translate-y-10');
-      }
-    });
-    window.PortfolioCommon?.initRevealObserver({
-      selector: '.premium-reveal',
-      threshold: 0.12
-    });
+                <div class="flex space-x-6 mb-10">
+                    <a
+                        href="https://github.com/earthondev"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white hover:-translate-y-1 transition-all border border-transparent hover:border-white/10"
+                    >
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a
+                        href="mailto:earthlikemwbb@gmail.com"
+                        class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white hover:-translate-y-1 transition-all border border-transparent hover:border-white/10"
+                    >
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/earthondev/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white hover:-translate-y-1 transition-all border border-transparent hover:border-white/10"
+                    >
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                </div>
 
-    // Featured certificates on homepage
-    const certificateHighlightGrid = document.getElementById('certificate-highlight-grid');
+                <div
+                    class="text-gray-600 text-xs flex flex-col md:flex-row items-center gap-4"
+                >
+                    <span>© 2026 Nattapart Worakun. All rights reserved.</span>
+                </div>
+            </div>
+        </footer>
 
-    function escapeHTML(value = '') {
-      return String(value)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
-    }
+        <script src="assets/js/common.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+        <script src="assets/js/animations.js"></script>
+        <script src="cache-bust.js"></script>
+        <script>
+            window.PortfolioCommon?.initMobileMenu({
+                lockScroll: true,
+                closeOnBackdrop: true,
+            });
+            window.PortfolioCommon?.initNavbarScroll({
+                selector: "#navbar",
+                topBackground: "rgba(251, 250, 247, 0.72)",
+                scrolledBackground: "rgba(251, 250, 247, 0.92)",
+                topBlur: "blur(12px)",
+                scrolledBlur: "blur(14px)",
+                threshold: 20,
+            });
 
-    function formatIssuedDate(isoDate) {
-      if (!isoDate) return 'Date not specified';
-      const date = new Date(isoDate);
-      if (Number.isNaN(date.getTime())) return isoDate;
-      return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
-    }
+            document.querySelectorAll(".section-reveal").forEach((section) => {
+                section.classList.add(
+                    "opacity-0",
+                    "translate-y-10",
+                    "transition-all",
+                    "duration-700",
+                );
+            });
+            window.PortfolioCommon?.initRevealObserver({
+                selector: ".section-reveal",
+                threshold: 0.1,
+                onEnter: (element) => {
+                    element.classList.add("opacity-100", "translate-y-0");
+                    element.classList.remove("opacity-0", "translate-y-10");
+                },
+            });
+            window.PortfolioCommon?.initRevealObserver({
+                selector: ".premium-reveal",
+                threshold: 0.12,
+            });
 
-    function withCacheBust(url, token) {
-      if (!url) return '';
-      const separator = url.includes('?') ? '&' : '?';
-      return `${url}${separator}v=${encodeURIComponent(token || Date.now())}`;
-    }
+            // Featured certificates on homepage
+            const certificateHighlightGrid = document.getElementById(
+                "certificate-highlight-grid",
+            );
 
-    async function loadCertificateHighlights() {
-      if (!certificateHighlightGrid) return;
+            function escapeHTML(value = "") {
+                return String(value)
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#39;");
+            }
 
-      try {
-        const res = await fetch(`certificates.json?v=${Date.now()}`, { cache: 'no-store' });
-        if (!res.ok) throw new Error(`Failed to load certificates.json (${res.status})`);
+            function formatIssuedDate(isoDate) {
+                if (!isoDate) return "Date not specified";
+                const date = new Date(isoDate);
+                if (Number.isNaN(date.getTime())) return isoDate;
+                return date.toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                });
+            }
 
-        const allCertificates = await res.json();
-        const sortedCertificates = (Array.isArray(allCertificates) ? allCertificates : [])
-          .sort((a, b) => new Date(b.issued || 0) - new Date(a.issued || 0));
+            function withCacheBust(url, token) {
+                if (!url) return "";
+                const separator = url.includes("?") ? "&" : "?";
+                return `${url}${separator}v=${encodeURIComponent(token || Date.now())}`;
+            }
 
-        const pinned = sortedCertificates.filter((item) => item?.featured);
-        const fallback = sortedCertificates.filter((item) => !item?.featured);
-        const featured = [...pinned, ...fallback].slice(0, 3);
+            async function loadCertificateHighlights() {
+                if (!certificateHighlightGrid) return;
 
-        if (!featured.length) {
-          certificateHighlightGrid.innerHTML = `
+                try {
+                    const res = await fetch(
+                        `certificates.json?v=${Date.now()}`,
+                        { cache: "no-store" },
+                    );
+                    if (!res.ok)
+                        throw new Error(
+                            `Failed to load certificates.json (${res.status})`,
+                        );
+
+                    const allCertificates = await res.json();
+                    const sortedCertificates = (
+                        Array.isArray(allCertificates) ? allCertificates : []
+                    ).sort(
+                        (a, b) =>
+                            new Date(b.issued || 0) - new Date(a.issued || 0),
+                    );
+
+                    const pinned = sortedCertificates.filter(
+                        (item) => item?.featured,
+                    );
+                    const fallback = sortedCertificates.filter(
+                        (item) => !item?.featured,
+                    );
+                    const featured = [...pinned, ...fallback].slice(0, 3);
+
+                    if (!featured.length) {
+                        certificateHighlightGrid.innerHTML = `
             <article class="rounded-2xl border border-white/10 bg-white/[0.02] p-8 text-center">
               <i class="fas fa-certificate text-4xl text-[#FFE600] mb-4"></i>
               <h3 class="text-xl font-semibold text-white mb-2">Add your first certificate</h3>
               <p class="text-sm text-gray-400">Place image files in <code>assets/certificates/</code> and update <code>certificates.json</code>.</p>
             </article>`;
-          return;
-        }
+                        return;
+                    }
 
-        certificateHighlightGrid.innerHTML = featured.map((cert) => {
-          const imageSrc = withCacheBust(
-            cert?.image?.src || '',
-            cert?.image?.version || cert?.issued || cert?.id
-          );
-          const title = escapeHTML(cert?.title || 'Certificate');
-          const issuer = escapeHTML(cert?.issuer || 'Issuer');
-          const category = escapeHTML(cert?.category || 'General');
-          const issued = escapeHTML(formatIssuedDate(cert?.issued));
-          const imageAlt = escapeHTML(cert?.image?.alt || cert?.title || 'Certificate image');
+                    certificateHighlightGrid.innerHTML = featured
+                        .map((cert) => {
+                            const imageSrc = withCacheBust(
+                                cert?.image?.src || "",
+                                cert?.image?.version ||
+                                    cert?.issued ||
+                                    cert?.id,
+                            );
+                            const title = escapeHTML(
+                                cert?.title || "Certificate",
+                            );
+                            const issuer = escapeHTML(cert?.issuer || "Issuer");
+                            const category = escapeHTML(
+                                cert?.category || "General",
+                            );
+                            const issued = escapeHTML(
+                                formatIssuedDate(cert?.issued),
+                            );
+                            const imageAlt = escapeHTML(
+                                cert?.image?.alt ||
+                                    cert?.title ||
+                                    "Certificate image",
+                            );
 
-          return `
+                            return `
             <article class="premium-card rounded-2xl overflow-hidden hover:-translate-y-1 transition-all duration-300">
               <div class="aspect-[16/10] bg-[#111827] p-2">
-                ${imageSrc
-                  ? `<img src="${escapeHTML(imageSrc)}" alt="${imageAlt}" loading="lazy" decoding="async" data-cert-image class="w-full h-full object-contain rounded-lg bg-[#0d121b]">`
-                  : `<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#00D9FF]/20 to-transparent"><i class="fas fa-certificate text-4xl text-[#00D9FF]"></i></div>`}
+                ${
+                    imageSrc
+                        ? `<img src="${escapeHTML(imageSrc)}" alt="${imageAlt}" loading="lazy" decoding="async" data-cert-image class="w-full h-full object-contain rounded-lg bg-[#0d121b]">`
+                        : `<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#00D9FF]/20 to-transparent"><i class="fas fa-certificate text-4xl text-[#00D9FF]"></i></div>`
+                }
               </div>
               <div class="p-5">
                 <div class="flex items-center justify-between gap-3 mb-3">
@@ -523,96 +1014,129 @@
                 <p class="text-sm text-gray-400 mt-2">${issuer}</p>
               </div>
             </article>`;
-        }).join('');
+                        })
+                        .join("");
 
-        certificateHighlightGrid.querySelectorAll('img[data-cert-image]').forEach((img) => {
-          img.addEventListener('error', () => {
-            const parent = img.parentElement;
-            if (!parent) return;
-            parent.innerHTML = '<div class=\"w-full h-full flex items-center justify-center bg-gradient-to-br from-[#00D9FF]/20 to-transparent\"><i class=\"fas fa-certificate text-4xl text-[#00D9FF]\"></i></div>';
-          }, { once: true });
-        });
-      } catch (error) {
-        console.error('Error loading certificate highlights:', error);
-        certificateHighlightGrid.innerHTML = `
+                    certificateHighlightGrid
+                        .querySelectorAll("img[data-cert-image]")
+                        .forEach((img) => {
+                            img.addEventListener(
+                                "error",
+                                () => {
+                                    const parent = img.parentElement;
+                                    if (!parent) return;
+                                    parent.innerHTML =
+                                        '<div class=\"w-full h-full flex items-center justify-center bg-gradient-to-br from-[#00D9FF]/20 to-transparent\"><i class=\"fas fa-certificate text-4xl text-[#00D9FF]\"></i></div>';
+                                },
+                                { once: true },
+                            );
+                        });
+                } catch (error) {
+                    console.error(
+                        "Error loading certificate highlights:",
+                        error,
+                    );
+                    certificateHighlightGrid.innerHTML = `
           <article class="rounded-2xl border border-red-500/30 bg-red-500/10 p-8 text-center">
             <h3 class="text-lg font-semibold text-red-200 mb-2">Unable to load certificates</h3>
             <p class="text-sm text-red-100/80">Please check <code>certificates.json</code>.</p>
           </article>`;
-      }
-    }
+                }
+            }
 
-    loadCertificateHighlights();
-  </script>
+            loadCertificateHighlights();
+        </script>
 
-  <!-- Curtain overlay with name -->
-  <script>
-  (function() {
-    if (typeof gsap === 'undefined') return;
+        <!-- Curtain overlay with name -->
+        <script>
+            (function () {
+                if (typeof gsap === "undefined") return;
 
-    // Create curtain
-    const curtain = document.createElement('div');
-    curtain.id = 'page-curtain';
-    curtain.style.cssText = 'position:fixed;inset:0;z-index:99999;background:#e8e4dd;display:flex;align-items:center;justify-content:center;will-change:transform;overflow:hidden;';
+                // Create curtain
+                const curtain = document.createElement("div");
+                curtain.id = "page-curtain";
+                curtain.style.cssText =
+                    "position:fixed;inset:0;z-index:99999;background:#e8e4dd;display:flex;align-items:center;justify-content:center;will-change:transform;overflow:hidden;";
 
-    // Name container
-    const nameWrap = document.createElement('div');
-    nameWrap.style.cssText = 'font-family:"Space Grotesk",sans-serif;font-size:clamp(4rem,14vw,12rem);font-weight:800;letter-spacing:-0.03em;text-transform:uppercase;color:#2d2a26;font-kerning:none;white-space:nowrap;line-height:1;';
-    nameWrap.textContent = 'NATTAPART';
-    curtain.appendChild(nameWrap);
+                // Name container
+                const nameWrap = document.createElement("div");
+                nameWrap.style.cssText =
+                    'font-family:"Space Grotesk",sans-serif;font-size:clamp(4rem,14vw,12rem);font-weight:800;letter-spacing:-0.03em;text-transform:uppercase;color:#2d2a26;font-kerning:none;white-space:nowrap;line-height:1;';
+                nameWrap.textContent = "NATTAPART";
+                curtain.appendChild(nameWrap);
 
-    document.body.prepend(curtain);
-    document.body.classList.add('page-ready');
+                document.body.prepend(curtain);
+                document.body.classList.add("page-ready");
 
-    // Split into chars
-    const text = nameWrap.textContent;
-    nameWrap.innerHTML = text.split('').map(c =>
-      `<span style="display:inline-block;transform-origin:center center;will-change:transform,opacity;">${c}</span>`
-    ).join('');
-    const chars = Array.from(nameWrap.querySelectorAll('span'));
+                // Split into chars
+                const text = nameWrap.textContent;
+                nameWrap.innerHTML = text
+                    .split("")
+                    .map(
+                        (c) =>
+                            `<span style="display:inline-block;transform-origin:center center;will-change:transform,opacity;">${c}</span>`,
+                    )
+                    .join("");
+                const chars = Array.from(nameWrap.querySelectorAll("span"));
 
-    // Scatter directions for each char (alternating up/down + rotate)
-    const scatterY = chars.map((_, i) => (i % 2 === 0 ? -1 : 1) * (120 + Math.random() * 80));
-    const scatterX = chars.map((_, i) => (i - chars.length / 2) * 30 + (Math.random() - 0.5) * 60);
-    const scatterRot = chars.map(() => (Math.random() - 0.5) * 40);
+                // Scatter directions for each char (alternating up/down + rotate)
+                const scatterY = chars.map(
+                    (_, i) =>
+                        (i % 2 === 0 ? -1 : 1) * (120 + Math.random() * 80),
+                );
+                const scatterX = chars.map(
+                    (_, i) =>
+                        (i - chars.length / 2) * 30 +
+                        (Math.random() - 0.5) * 60,
+                );
+                const scatterRot = chars.map(() => (Math.random() - 0.5) * 40);
 
-    const tl = gsap.timeline();
+                const tl = gsap.timeline();
 
-    // 1. Chars scaleY squeeze → expand
-    gsap.set(chars, { scaleY: 0, opacity: 0 });
-    tl.to(chars, {
-      scaleY: 1,
-      opacity: 1,
-      duration: 1,
-      stagger: 0.045,
-      ease: 'power4.out',
-    });
+                // 1. Chars scaleY squeeze → expand
+                gsap.set(chars, { scaleY: 0, opacity: 0 });
+                tl.to(chars, {
+                    scaleY: 1,
+                    opacity: 1,
+                    duration: 1,
+                    stagger: 0.045,
+                    ease: "power4.out",
+                });
 
-    // 2. Hold
-    tl.to({}, { duration: 0.5 });
+                // 2. Hold
+                tl.to({}, { duration: 0.5 });
 
-    // 3. Each char scatters out individually
-    chars.forEach((ch, i) => {
-      tl.to(ch, {
-        y: scatterY[i],
-        x: scatterX[i],
-        rotation: scatterRot[i],
-        opacity: 0,
-        scale: 0.6,
-        duration: 0.7,
-        ease: 'power3.in',
-      }, '-=0.62');
-    });
+                // 3. Each char scatters out individually
+                chars.forEach((ch, i) => {
+                    tl.to(
+                        ch,
+                        {
+                            y: scatterY[i],
+                            x: scatterX[i],
+                            rotation: scatterRot[i],
+                            opacity: 0,
+                            scale: 0.6,
+                            duration: 0.7,
+                            ease: "power3.in",
+                        },
+                        "-=0.62",
+                    );
+                });
 
-    // 4. Curtain background fades out
-    tl.to(curtain, {
-      opacity: 0,
-      duration: 0.5,
-      ease: 'power2.inOut',
-      onComplete: () => curtain.remove(),
-    }, '-=0.2');
-  })();
-  </script>
-</body>
-
+                // 4. Curtain fades — hero reveal fires as curtain starts to fade
+                tl.to(
+                    curtain,
+                    {
+                        opacity: 0,
+                        duration: 0.5,
+                        ease: "power2.inOut",
+                        onStart: () =>
+                            window.PortfolioAnimations?.triggerHeroReveal?.(),
+                        onComplete: () => curtain.remove(),
+                    },
+                    "-=0.2",
+                );
+            })();
+        </script>
+    </body>
 </html>

@@ -1,958 +1,1489 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="h-full">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Nattapart Worakun (ณัฐภัทร วรกุล) — Project portfolio featuring inventory analytics dashboards, Power BI, SQL reporting, Flutter apps, Python automation, and web development. Data Analyst based in Bangkok."
+        />
+        <meta name="author" content="Nattapart Worakun" />
+        <meta name="robots" content="index, follow" />
+        <meta
+            name="keywords"
+            content="Nattapart Worakun, ณัฐภัทร วรกุล, Data Analyst Portfolio, BI Developer Projects, Inventory Analytics, Power BI Dashboard, SQL, Python, Flutter, Bangkok Thailand"
+        />
+        <meta name="theme-color" content="#fbfaf7" />
+        <meta name="color-scheme" content="dark light" />
+        <link
+            rel="canonical"
+            href="https://earthondev.github.io/Portfolio/portfolio.html"
+        />
+        <link rel="icon" href="favicon.ico" />
+        <meta property="og:site_name" content="Nattapart Worakun | Portfolio" />
+        <meta
+            property="og:title"
+            content="Projects | Nattapart Worakun (ณัฐภัทร วรกุล) — Data Analyst Portfolio"
+        />
+        <meta
+            property="og:description"
+            content="Explore real-world projects in inventory analytics, dashboards, automation, and product work with clear results."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:url"
+            content="https://earthondev.github.io/Portfolio/portfolio.html"
+        />
+        <meta
+            property="og:image"
+            content="https://earthondev.github.io/Portfolio/assets/og/og-image.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/png" />
+        <meta
+            property="og:image:alt"
+            content="Nattapart Worakun portfolio preview"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Projects | Nattapart Worakun" />
+        <meta
+            name="twitter:description"
+            content="Explore real-world projects in inventory analytics, dashboards, automation, and product work with clear results."
+        />
+        <meta
+            name="twitter:image"
+            content="https://earthondev.github.io/Portfolio/assets/og/og-image.png"
+        />
+        <meta
+            name="twitter:image:alt"
+            content="Nattapart Worakun portfolio preview"
+        />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale:alternate" content="th_TH" />
+        <title>
+            Projects | Nattapart Worakun (ณัฐภัทร) — Data Analyst Portfolio
+            Bangkok
+        </title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Portfolio showcase of inventory analytics, dashboards, automation, and product projects with measurable impact.">
-    <meta name="author" content="Nattapart Worakun">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#fbfaf7">
-    <meta name="color-scheme" content="dark light">
-    <link rel="canonical" href="https://earthondev.github.io/Portfolio/portfolio.html">
-    <link rel="icon" href="favicon.ico">
-    <meta property="og:site_name" content="Nattapart Worakun | Portfolio">
-    <meta property="og:title" content="Projects | Nattapart Worakun">
-    <meta property="og:description"
-        content="Explore real-world projects in inventory analytics, dashboards, automation, and product work with clear results.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://earthondev.github.io/Portfolio/portfolio.html">
-    <meta property="og:image" content="https://earthondev.github.io/Portfolio/assets/og/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:alt" content="Nattapart Worakun portfolio preview">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Projects | Nattapart Worakun">
-    <meta name="twitter:description"
-        content="Explore real-world projects in inventory analytics, dashboards, automation, and product work with clear results.">
-    <meta name="twitter:image" content="https://earthondev.github.io/Portfolio/assets/og/og-image.png">
-    <meta name="twitter:image:alt" content="Nattapart Worakun portfolio preview">
-    <title>Projects | Nattapart Worakun</title>
+        <!-- Tailwind CSS -->
+        <script src="./assets/vendor/tailwind-play-cdn.js"></script>
+        <script src="assets/js/common.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+        <script src="assets/js/animations.js"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            heading: ["Space Grotesk", "sans-serif"],
+                            body: ["Sarabun", "sans-serif"],
+                            mono: ["JetBrains Mono", "monospace"],
+                        },
+                    },
+                },
+            };
+        </script>
 
-    <!-- Tailwind CSS -->
-    <script src="./assets/vendor/tailwind-play-cdn.js"></script>
-    <script src="assets/js/common.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
-    <script src="assets/js/animations.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        heading: ['Space Grotesk', 'sans-serif'],
-                        body: ['Sarabun', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        />
+        <link rel="stylesheet" href="style.css" />
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "WebPage",
+                        "@id": "https://earthondev.github.io/Portfolio/portfolio.html#page",
+                        "name": "Projects | Nattapart Worakun — Data Analyst Portfolio",
+                        "url": "https://earthondev.github.io/Portfolio/portfolio.html",
+                        "description": "Project portfolio of Nattapart Worakun (ณัฐภัทร วรกุล), Data Analyst in Bangkok.",
+                        "isPartOf": {
+                            "@id": "https://earthondev.github.io/Portfolio/#website"
+                        },
+                        "about": {
+                            "@id": "https://earthondev.github.io/Portfolio/#person"
+                        }
+                    },
+                    {
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://earthondev.github.io/Portfolio/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Projects",
+                                "item": "https://earthondev.github.io/Portfolio/portfolio.html"
+                            }
+                        ]
                     }
+                ]
+            }
+        </script>
+
+        <style>
+            body {
+                visibility: hidden;
+            }
+            body.page-ready {
+                visibility: visible;
+            }
+
+            .filter-btn {
+                transition: all 0.2s ease;
+                border: 1px solid var(--border);
+                background: var(--surface);
+                color: var(--text-muted);
+            }
+
+            .filter-btn:hover {
+                border-color: rgba(17, 24, 39, 0.18);
+                background: var(--surface-2);
+                color: var(--text);
+            }
+
+            .filter-btn.active {
+                background: var(--accent);
+                border-color: rgba(17, 24, 39, 0.6);
+                color: #ffffff;
+                font-weight: 600;
+            }
+
+            .control-input {
+                background: var(--surface);
+                border: 1px solid var(--border);
+                color: var(--text);
+            }
+
+            .control-input::placeholder {
+                color: var(--text-soft);
+            }
+
+            .control-input:focus {
+                outline: none;
+                border-color: rgba(17, 24, 39, 0.22);
+                box-shadow: var(--ring);
+            }
+
+            .tech-tag {
+                transition: all 0.2s ease;
+            }
+
+            .tech-tag:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 217, 255, 0.2);
+            }
+
+            .modal-overlay {
+                background: rgba(10, 10, 15, 0.95);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .modal-overlay.active {
+                opacity: 1;
+            }
+
+            .modal-content {
+                transform: scale(0.9) translateY(20px);
+                transition: transform 0.3s ease;
+            }
+            /* Force readable colors on dark modal bg */
+            .modal-content h2,
+            .modal-content h3,
+            .modal-content h4 {
+                color: #ffffff !important;
+            }
+            .modal-content p,
+            .modal-content li {
+                color: #d4d4d8 !important;
+            }
+            .modal-content .text-gray-400,
+            .modal-content .text-gray-500,
+            .modal-content .text-gray-600,
+            .modal-content .text-gray-700 {
+                color: #a1a1aa !important;
+            }
+            .modal-content .text-gray-300 {
+                color: #d4d4d8 !important;
+            }
+            /* Cards inside modal use dark glassy bg, not light theme surface */
+            .modal-content .glass-card,
+            .modal-content .project-card,
+            .modal-content .contact-card {
+                background: rgba(20, 22, 28, 0.85) !important;
+                border-color: rgba(255, 255, 255, 0.1) !important;
+                color: #e5e5e5;
+            }
+
+            .modal-overlay.active .modal-content {
+                transform: scale(1) translateY(0);
+            }
+
+            .metric-card {
+                background: rgba(0, 217, 255, 0.05);
+                border: 1px solid rgba(0, 217, 255, 0.2);
+            }
+
+            .fade-in {
+                animation: fadeIn 0.6s ease forwards;
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            @keyframes fadeIn {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
                 }
             }
-        }
-    </script>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "Projects | Nattapart Worakun",
-            "url": "https://earthondev.github.io/Portfolio/portfolio.html",
-            "description": "Portfolio showcase of inventory analytics, dashboards, automation, and product projects with measurable impact.",
-            "isPartOf": {
-                "@type": "WebSite",
-                "name": "Nattapart Worakun | Portfolio",
-                "url": "https://earthondev.github.io/Portfolio/"
+            .shimmer {
+                position: relative;
+                overflow: hidden;
             }
-        }
-    </script>
 
-    <style>
-        body { visibility: hidden; }
-        body.page-ready { visibility: visible; }
+            .shimmer::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.1),
+                    transparent
+                );
+                animation: shimmer 3s infinite;
+            }
 
-        .filter-btn {
-            transition: all 0.2s ease;
-            border: 1px solid var(--border);
-            background: var(--surface);
-            color: var(--text-muted);
-        }
+            @keyframes shimmer {
+                to {
+                    left: 100%;
+                }
+            }
 
-        .filter-btn:hover {
-            border-color: rgba(17, 24, 39, 0.18);
-            background: var(--surface-2);
-            color: var(--text);
-        }
+            .floating {
+                animation: float 6s ease-in-out infinite;
+            }
 
-        .filter-btn.active {
-            background: var(--accent);
-            border-color: rgba(17, 24, 39, 0.6);
-            color: #ffffff;
-            font-weight: 600;
-        }
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0px);
+                }
 
-        .control-input {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            color: var(--text);
-        }
+                50% {
+                    transform: translateY(-20px);
+                }
+            }
 
-        .control-input::placeholder {
-            color: var(--text-soft);
-        }
+            .nav-link {
+                position: relative;
+            }
 
-        .control-input:focus {
-            outline: none;
-            border-color: rgba(17, 24, 39, 0.22);
-            box-shadow: var(--ring);
-        }
+            .nav-link::after {
+                content: "";
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: linear-gradient(90deg, #00d9ff, #00ff94);
+                transition: width 0.3s ease;
+            }
 
-        .tech-tag {
-            transition: all 0.2s ease;
-        }
+            .nav-link:hover::after {
+                width: 100%;
+            }
 
-        .tech-tag:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 217, 255, 0.2);
-        }
+            /* ── Cinematic 3-col slider ───────────────────────── */
+            .cin-slot {
+                border-radius: 10px;
+                overflow: hidden;
+                background: rgba(0, 0, 0, 0.04);
+                border: 1px solid rgba(0, 0, 0, 0.07);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: box-shadow 0.3s ease;
+            }
 
-        .modal-overlay {
-            background: rgba(10, 10, 15, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+            .cin-slot img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+                transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            }
 
-        .modal-overlay.active {
-            opacity: 1;
-        }
+            .cin-slot:hover img {
+                transform: scale(1.03);
+            }
 
-        .modal-content {
-            transform: scale(0.9) translateY(20px);
-            transition: transform 0.3s ease;
-        }
-        /* Force readable colors on dark modal bg */
-        .modal-content h2,
-        .modal-content h3,
-        .modal-content h4 {
-            color: #ffffff !important;
-        }
-        .modal-content p,
-        .modal-content li {
-            color: #d4d4d8 !important;
-        }
-        .modal-content .text-gray-400,
-        .modal-content .text-gray-500,
-        .modal-content .text-gray-600,
-        .modal-content .text-gray-700 {
-            color: #a1a1aa !important;
-        }
-        .modal-content .text-gray-300 {
-            color: #d4d4d8 !important;
-        }
-        /* Cards inside modal use dark glassy bg, not light theme surface */
-        .modal-content .glass-card,
-        .modal-content .project-card,
-        .modal-content .contact-card {
-            background: rgba(20, 22, 28, 0.85) !important;
-            border-color: rgba(255, 255, 255, 0.1) !important;
-            color: #e5e5e5;
-        }
+            .cin-center {
+                height: 300px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            }
 
-        .modal-overlay.active .modal-content {
-            transform: scale(1) translateY(0);
-        }
+            .cin-side {
+                height: 200px;
+                opacity: 0.7;
+                transition: opacity 0.4s ease;
+            }
 
-        .metric-card {
-            background: rgba(0, 217, 255, 0.05);
-            border: 1px solid rgba(0, 217, 255, 0.2);
-        }
-
-        .fade-in {
-            animation: fadeIn 0.6s ease forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        @keyframes fadeIn {
-            to {
+            .cin-side:hover {
                 opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .shimmer {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .shimmer::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            to {
-                left: 100%;
-            }
-        }
-
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
             }
 
-            50% {
-                transform: translateY(-20px);
+            .cin-arrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                border: 1px solid rgba(0, 0, 0, 0.12);
+                background: rgba(255, 255, 255, 0.9);
+                backdrop-filter: blur(8px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                color: #111827;
+                z-index: 10;
+                transition:
+                    background 0.2s,
+                    border-color 0.2s,
+                    transform 0.2s;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             }
-        }
 
-        .nav-link {
-            position: relative;
-        }
+            .cin-arrow:hover {
+                background: #111827;
+                border-color: #111827;
+                color: #fff;
+            }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #00D9FF, #00FF94);
-            transition: width 0.3s ease;
-        }
+            .cin-arrow svg {
+                width: 16px;
+                height: 16px;
+            }
 
-        .nav-link:hover::after {
-            width: 100%;
-        }
+            .cin-dot {
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background: rgba(0, 0, 0, 0.15);
+                cursor: pointer;
+                transition:
+                    background 0.3s,
+                    transform 0.3s;
+            }
 
-        /* ── Cinematic 3-col slider ───────────────────────── */
-        .cin-slot {
-            border-radius: 10px;
-            overflow: hidden;
-            background: rgba(0,0,0,0.04);
-            border: 1px solid rgba(0,0,0,0.07);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: box-shadow 0.3s ease;
-        }
+            .cin-dot.active {
+                background: #111827;
+                transform: scale(1.5);
+            }
 
-        .cin-slot img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-            transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
-        }
+            /* ── Project Row Layout (Jasmine-style) ──────────── */
+            .projects-row-list {
+                border-top: 1px solid var(--border, rgba(0, 0, 0, 0.1));
+            }
 
-        .cin-slot:hover img { transform: scale(1.03); }
+            .project-row {
+                position: relative;
+                border-bottom: 1px solid var(--border, rgba(0, 0, 0, 0.1));
+                cursor: pointer;
+                overflow: hidden;
+            }
 
-        .cin-center {
-            height: 300px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-        }
-
-        .cin-side {
-            height: 200px;
-            opacity: 0.7;
-            transition: opacity 0.4s ease;
-        }
-
-        .cin-side:hover { opacity: 1; }
-
-        .cin-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 38px; height: 38px;
-            border-radius: 50%;
-            border: 1px solid rgba(0,0,0,0.12);
-            background: rgba(255,255,255,0.9);
-            backdrop-filter: blur(8px);
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer;
-            color: #111827;
-            z-index: 10;
-            transition: background 0.2s, border-color 0.2s, transform 0.2s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .cin-arrow:hover {
-            background: #111827;
-            border-color: #111827;
-            color: #fff;
-        }
-
-        .cin-arrow svg { width: 16px; height: 16px; }
-
-        .cin-dot {
-            width: 5px; height: 5px;
-            border-radius: 50%;
-            background: rgba(0,0,0,0.15);
-            cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        .cin-dot.active {
-            background: #111827;
-            transform: scale(1.5);
-        }
-
-        /* ── Project Row Layout (Jasmine-style) ──────────── */
-        .projects-row-list {
-            border-top: 1px solid var(--border, rgba(0,0,0,0.1));
-        }
-
-        .project-row {
-            position: relative;
-            border-bottom: 1px solid var(--border, rgba(0,0,0,0.1));
-            cursor: pointer;
-            overflow: hidden;
-        }
-
-        .project-row-inner {
-            display: grid;
-            grid-template-columns: 3rem 1fr auto auto 2rem;
-            align-items: center;
-            gap: 1.5rem;
-            padding: 1.6rem 0.5rem;
-            transition: padding 0.35s cubic-bezier(0.22,1,0.36,1);
-        }
-
-        .project-row:hover .project-row-inner {
-            padding-left: 1.2rem;
-        }
-
-        .project-row-num {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--text-muted, #9ca3af);
-            letter-spacing: 0.08em;
-            font-variant-numeric: tabular-nums;
-        }
-
-        .project-row-title {
-            font-family: var(--font-heading, 'Space Grotesk', sans-serif);
-            font-size: clamp(1.3rem, 3vw, 2.2rem);
-            font-weight: 700;
-            color: var(--text, #111827);
-            letter-spacing: -0.02em;
-            transition: color 0.25s ease;
-            margin: 0;
-        }
-
-        .project-row:hover .project-row-title {
-            color: #00D9FF;
-        }
-
-        .project-row-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .project-row-tag {
-            font-size: 0.68rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-muted, #6b7280);
-            border: 1px solid var(--border, rgba(0,0,0,0.12));
-            padding: 3px 10px;
-            border-radius: 999px;
-        }
-
-        .project-row-year {
-            font-size: 0.78rem;
-            color: var(--text-muted, #9ca3af);
-            letter-spacing: 0.05em;
-            white-space: nowrap;
-        }
-
-        .project-row-arrow {
-            color: var(--text-muted, #9ca3af);
-            font-size: 0.85rem;
-            transform: rotate(0deg);
-            transition: transform 0.3s ease, color 0.25s ease;
-        }
-
-        .project-row:hover .project-row-arrow {
-            transform: rotate(-45deg);
-            color: #00D9FF;
-        }
-
-        /* Hover image that follows cursor */
-        .project-row-hover-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 240px;
-            height: 160px;
-            border-radius: 12px;
-            overflow: hidden;
-            pointer-events: none;
-            opacity: 0;
-            scale: 0.88;
-            transition: opacity 0.3s ease, scale 0.3s cubic-bezier(0.22,1,0.36,1);
-            z-index: 10;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-        }
-
-        .project-row-hover-img.is-visible {
-            opacity: 1;
-            scale: 1;
-        }
-
-        .project-row-hover-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        @media (max-width: 640px) {
             .project-row-inner {
-                grid-template-columns: 2rem 1fr 2rem;
-                gap: 0.75rem;
+                display: grid;
+                grid-template-columns: 3rem 1fr auto auto 2rem;
+                align-items: center;
+                gap: 1.5rem;
+                padding: 1.6rem 0.5rem;
+                transition: padding 0.35s cubic-bezier(0.22, 1, 0.36, 1);
             }
-            .project-row-tags,
-            .project-row-year { display: none; }
-            .project-row-title { font-size: 1.15rem; }
-            .project-row-hover-img { display: none; }
-        }
-    </style>
-</head>
 
-<body class="h-full overflow-x-hidden">
+            .project-row:hover .project-row-inner {
+                padding-left: 1.2rem;
+            }
 
-    <!-- Background removed for clean luxury theme -->
+            .project-row-num {
+                font-size: 0.75rem;
+                font-weight: 600;
+                color: var(--text-muted, #9ca3af);
+                letter-spacing: 0.08em;
+                font-variant-numeric: tabular-nums;
+            }
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <a href="index.html" class="flex items-center gap-2 group">
-                    <span class="font-heading font-semibold text-base tracking-[0.08em] group-hover:opacity-60 transition-opacity">Nattapart</span>
-                </a>
+            .project-row-title {
+                font-family: var(--font-heading, "Space Grotesk", sans-serif);
+                font-size: clamp(1.3rem, 3vw, 2.2rem);
+                font-weight: 700;
+                color: var(--text, #111827);
+                letter-spacing: -0.02em;
+                transition: color 0.25s ease;
+                margin: 0;
+            }
 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-sm font-medium text-gray-400 hover:text-[var(--text)] hover:border-b-2 hover:border-gray-700 py-1 transition-all">Home</a>
-                    <a href="certificates.html" class="text-sm font-medium text-gray-400 hover:text-[var(--text)] hover:border-b-2 hover:border-gray-700 py-1 transition-all">Certificates</a>
-                    <a href="portfolio.html" class="text-sm font-medium border-b-2 border-[#00D9FF] py-1">Projects</a>
-                    <a href="contact.html" class="text-sm font-medium text-gray-400 hover:text-[var(--text)] hover:border-b-2 hover:border-gray-700 py-1 transition-all">Contact</a>
-                </div>
+            .project-row:hover .project-row-title {
+                color: #00d9ff;
+            }
 
-                <!-- CTA & Mobile Menu -->
-                <div class="flex items-center gap-4">
-                    <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
-                        class="hidden sm:inline-flex items-center justify-center px-5 py-2 text-sm font-medium transition-all bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-[#00D9FF]/50 hover:shadow-[0_0_15px_rgba(0,217,255,0.3)]">
-                        Resume
+            .project-row-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+
+            .project-row-tag {
+                font-size: 0.68rem;
+                font-weight: 600;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--text-muted, #6b7280);
+                border: 1px solid var(--border, rgba(0, 0, 0, 0.12));
+                padding: 3px 10px;
+                border-radius: 999px;
+            }
+
+            .project-row-year {
+                font-size: 0.78rem;
+                color: var(--text-muted, #9ca3af);
+                letter-spacing: 0.05em;
+                white-space: nowrap;
+            }
+
+            .project-row-arrow {
+                color: var(--text-muted, #9ca3af);
+                font-size: 0.85rem;
+                transform: rotate(0deg);
+                transition:
+                    transform 0.3s ease,
+                    color 0.25s ease;
+            }
+
+            .project-row:hover .project-row-arrow {
+                transform: rotate(-45deg);
+                color: #00d9ff;
+            }
+
+            /* Hover image that follows cursor */
+            .project-row-hover-img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 240px;
+                height: 160px;
+                border-radius: 12px;
+                overflow: hidden;
+                pointer-events: none;
+                opacity: 0;
+                scale: 0.88;
+                transition:
+                    opacity 0.3s ease,
+                    scale 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+                z-index: 10;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            }
+
+            .project-row-hover-img.is-visible {
+                opacity: 1;
+                scale: 1;
+            }
+
+            .project-row-hover-img img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            @media (max-width: 640px) {
+                .project-row-inner {
+                    grid-template-columns: 2rem 1fr 2rem;
+                    gap: 0.75rem;
+                }
+                .project-row-tags,
+                .project-row-year {
+                    display: none;
+                }
+                .project-row-title {
+                    font-size: 1.15rem;
+                }
+                .project-row-hover-img {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+
+    <body class="h-full overflow-x-hidden">
+        <!-- Background removed for clean luxury theme -->
+
+        <!-- Navigation -->
+        <nav
+            class="fixed top-0 w-full z-50 glass-nav transition-all duration-300"
+            id="navbar"
+        >
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <!-- Logo -->
+                    <a href="index.html" class="flex items-center gap-2 group">
+                        <span
+                            class="font-heading font-semibold text-base tracking-[0.08em] group-hover:opacity-60 transition-opacity"
+                            >Nattapart</span
+                        >
                     </a>
-                    <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-[var(--text)] p-2">
-                        <i class="fas fa-bars text-xl"></i>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a
+                            href="index.html"
+                            class="text-sm font-medium text-gray-400 hover:text-[var(--text)] hover:border-b-2 hover:border-gray-700 py-1 transition-all"
+                            >Home</a
+                        >
+                        <a
+                            href="certificates.html"
+                            class="text-sm font-medium text-gray-400 hover:text-[var(--text)] hover:border-b-2 hover:border-gray-700 py-1 transition-all"
+                            >Certificates</a
+                        >
+                        <a
+                            href="portfolio.html"
+                            class="text-sm font-medium border-b-2 border-[#00D9FF] py-1"
+                            >Projects</a
+                        >
+                        <a
+                            href="contact.html"
+                            class="text-sm font-medium text-gray-400 hover:text-[var(--text)] hover:border-b-2 hover:border-gray-700 py-1 transition-all"
+                            >Contact</a
+                        >
+                    </div>
+
+                    <!-- CTA & Mobile Menu -->
+                    <div class="flex items-center gap-4">
+                        <a
+                            href="resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="hidden sm:inline-flex items-center justify-center px-5 py-2 text-sm font-medium transition-all bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-[#00D9FF]/50 hover:shadow-[0_0_15px_rgba(0,217,255,0.3)]"
+                        >
+                            Resume
+                        </a>
+                        <button
+                            id="mobile-menu-btn"
+                            class="md:hidden text-gray-300 hover:text-[var(--text)] p-2"
+                        >
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div
+                id="mobile-menu"
+                class="hidden md:hidden fixed top-20 left-0 w-full bg-[#fbfaf7]/95 backdrop-blur-xl border-t border-black/5 shadow-2xl z-40"
+            >
+                <div class="px-4 pt-2 pb-6 space-y-2">
+                    <a
+                        href="index.html"
+                        class="block px-3 py-3 rounded-lg text-base font-medium text-gray-500 hover:text-[var(--text)] hover:bg-black/5"
+                        >Home</a
+                    >
+                    <a
+                        href="certificates.html"
+                        class="block px-3 py-3 rounded-lg text-base font-medium text-gray-500 hover:text-[var(--text)] hover:bg-black/5"
+                        >Certificates</a
+                    >
+                    <a
+                        href="portfolio.html"
+                        class="block px-3 py-3 rounded-lg text-base font-medium border-l-4 border-[#00D9FF] bg-black/5"
+                        >Projects</a
+                    >
+                    <a
+                        href="contact.html"
+                        class="block px-3 py-3 rounded-lg text-base font-medium text-gray-500 hover:text-[var(--text)] hover:bg-black/5"
+                        >Contact</a
+                    >
+                </div>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header class="relative py-16 px-4 text-center pt-36">
+            <div class="max-w-3xl mx-auto">
+                <h1
+                    class="font-heading text-5xl sm:text-7xl font-bold leading-[1.04]"
+                    data-reveal-hero
+                    data-reveal-delay="0.1"
+                >
+                    Work that ships<br class="hidden sm:block" />
+                    and holds up.
+                </h1>
+            </div>
+        </header>
+
+        <section
+            class="relative px-4 mb-12 fade-in"
+            style="animation-delay: 0.1s"
+        >
+            <div class="max-w-6xl mx-auto">
+                <div
+                    class="project-card rounded-3xl p-8 lg:p-10 overflow-hidden"
+                >
+                    <div
+                        class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,217,255,0.16),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(0,255,148,0.14),transparent_30%)]"
+                    ></div>
+                    <div
+                        class="relative z-10 grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center"
+                    >
+                        <div>
+                            <div
+                                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold tracking-[0.18em] uppercase"
+                            >
+                                Featured for Inventory Roles
+                            </div>
+                            <h2
+                                class="mt-5 text-3xl sm:text-5xl font-bold font-heading text-white leading-tight"
+                            >
+                                Inventory Analytics Dashboard
+                            </h2>
+                            <p
+                                class="mt-4 text-lg text-gray-300 leading-relaxed max-w-2xl"
+                            >
+                                A portfolio case built to show how I approach
+                                inventory reporting: demand vs stock, dead
+                                stock, turnover, reorder risk, and weekly action
+                                summaries from a business point of view.
+                            </p>
+                            <div class="mt-6 grid sm:grid-cols-3 gap-3">
+                                <div class="metric-card rounded-2xl p-4">
+                                    <p
+                                        class="text-2xl font-bold text-[#00D9FF]"
+                                    >
+                                        1,200+
+                                    </p>
+                                    <p class="text-sm text-gray-400 mt-1">
+                                        Simulated SKU records for analysis
+                                    </p>
+                                </div>
+                                <div class="metric-card rounded-2xl p-4">
+                                    <p
+                                        class="text-2xl font-bold text-[#00FF94]"
+                                    >
+                                        6 KPIs
+                                    </p>
+                                    <p class="text-sm text-gray-400 mt-1">
+                                        Stock cover, turnover, dead stock, and
+                                        more
+                                    </p>
+                                </div>
+                                <div class="metric-card rounded-2xl p-4">
+                                    <p
+                                        class="text-2xl font-bold text-[#f5e49c]"
+                                    >
+                                        Weekly
+                                    </p>
+                                    <p class="text-sm text-gray-400 mt-1">
+                                        Management-ready summary and action list
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="mt-8 flex flex-wrap gap-3">
+                                <a
+                                    href="./inventory-analytics-dashboard.html"
+                                    class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[#00D9FF]/30 bg-[#00D9FF]/10 text-[#0f172a] font-semibold hover:border-[#00D9FF]/50 hover:bg-[#00D9FF]/15 transition-all"
+                                >
+                                    Open Live Dashboard
+                                    <i class="fas fa-chart-line text-sm"></i>
+                                </a>
+                                <a
+                                    href="./case-studies/inventory-analytics-dashboard.html"
+                                    class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#e8e4dd] text-[#2d2a26] font-semibold hover:bg-[#ddd9d0] transition-colors"
+                                >
+                                    View Case Study
+                                    <i class="fas fa-arrow-right text-sm"></i>
+                                </a>
+                                <a
+                                    href="#project-inventory-analytics-dashboard"
+                                    class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white hover:border-[#00D9FF]/40 hover:text-[#00D9FF] transition-all"
+                                >
+                                    Jump to Project Card
+                                </a>
+                            </div>
+                        </div>
+
+                        <div
+                            class="rounded-3xl border border-white/10 bg-[#0b1017] p-5"
+                        >
+                            <img
+                                src="./assets/projects/inventory-analytics-dashboard/cover.svg"
+                                alt="Inventory Analytics Dashboard preview"
+                                class="w-full rounded-2xl border border-white/5"
+                            />
+                            <div class="mt-5 grid grid-cols-2 gap-3 text-sm">
+                                <div
+                                    class="rounded-2xl bg-black/5 border border-black/10 p-4"
+                                >
+                                    <p
+                                        class="text-xs uppercase tracking-[0.18em] text-gray-500 mb-2"
+                                    >
+                                        Analysis Focus
+                                    </p>
+                                    <p class="text-gray-700">
+                                        Stock vs demand, ABC mix, slow-moving
+                                        review
+                                    </p>
+                                </div>
+                                <div
+                                    class="rounded-2xl bg-black/5 border border-black/10 p-4"
+                                >
+                                    <p
+                                        class="text-xs uppercase tracking-[0.18em] text-gray-500 mb-2"
+                                    >
+                                        Tools
+                                    </p>
+                                    <p class="text-gray-700">
+                                        Power BI, SQL logic, Google Sheets,
+                                        AppSheet
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section
+            class="relative px-4 mb-10 fade-in"
+            style="animation-delay: 0.2s"
+        >
+            <div class="max-w-6xl mx-auto">
+                <div
+                    class="flex flex-col lg:flex-row gap-4 lg:items-center lg:justify-between mb-6"
+                >
+                    <p id="result-count" class="text-sm text-gray-400">
+                        Showing 0 projects
+                    </p>
+                    <div
+                        class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto"
+                    >
+                        <input
+                            id="project-search"
+                            type="search"
+                            placeholder="Search project or tech..."
+                            class="control-input w-full sm:w-72 px-4 py-2.5 rounded-xl text-sm"
+                        />
+                        <select
+                            id="sort-select"
+                            class="control-input px-4 py-2.5 rounded-xl text-sm"
+                        >
+                            <option value="newest">Sort: Newest</option>
+                            <option value="title">Sort: A-Z</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <button
+                        class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium active"
+                        data-filter="all"
+                    >
+                        All
+                    </button>
+                    <button
+                        class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium"
+                        data-filter="analytics"
+                    >
+                        Analytics
+                    </button>
+                    <button
+                        class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium"
+                        data-filter="inventory"
+                    >
+                        Inventory
+                    </button>
+                    <button
+                        class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium"
+                        data-filter="webapp"
+                    >
+                        Web App
+                    </button>
+                    <button
+                        class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium"
+                        data-filter="mobile"
+                    >
+                        Mobile App
+                    </button>
+                    <button
+                        class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium"
+                        data-filter="automation"
+                    >
+                        Automation
+                    </button>
+                    <button
+                        class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium"
+                        data-filter="watchos"
+                    >
+                        watchOS
+                    </button>
+                    <button
+                        class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium"
+                        data-filter="game"
+                    >
+                        Game
                     </button>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu"
-            class="hidden md:hidden fixed top-20 left-0 w-full bg-[#fbfaf7]/95 backdrop-blur-xl border-t border-black/5 shadow-2xl z-40">
-            <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="index.html"
-                    class="block px-3 py-3 rounded-lg text-base font-medium text-gray-500 hover:text-[var(--text)] hover:bg-black/5">Home</a>
-                <a href="certificates.html"
-                    class="block px-3 py-3 rounded-lg text-base font-medium text-gray-500 hover:text-[var(--text)] hover:bg-black/5">Certificates</a>
-                <a href="portfolio.html"
-                    class="block px-3 py-3 rounded-lg text-base font-medium border-l-4 border-[#00D9FF] bg-black/5">Projects</a>
-                <a href="contact.html"
-                    class="block px-3 py-3 rounded-lg text-base font-medium text-gray-500 hover:text-[var(--text)] hover:bg-black/5">Contact</a>
-            </div>
-        </div>
-    </nav>
+        <!-- Cinematic 3-col slider -->
+        <section class="relative pb-24 px-4">
+            <div class="max-w-7xl mx-auto">
+                <!-- Slider stage -->
+                <div
+                    id="cin-stage"
+                    class="relative select-none"
+                    style="padding-bottom: 2rem"
+                >
+                    <!-- 3-col grid -->
+                    <div
+                        id="cin-grid"
+                        style="
+                            display: grid;
+                            grid-template-columns: 1fr 1.3fr 1fr;
+                            gap: 14px;
+                            align-items: center;
+                        "
+                    >
+                        <div class="cin-slot cin-side" id="cin-left">
+                            <img id="cin-img-left" src="" alt="" />
+                        </div>
+                        <div
+                            class="cin-slot cin-center"
+                            id="cin-center"
+                            style="position: relative"
+                        >
+                            <img id="cin-img-center" src="" alt="" />
+                            <div
+                                id="cin-center-caption"
+                                style="
+                                    position: absolute;
+                                    left: 0;
+                                    right: 0;
+                                    bottom: 0;
+                                    padding: 1.25rem 1.5rem;
+                                    background: linear-gradient(
+                                        to top,
+                                        rgba(0, 0, 0, 0.78) 0%,
+                                        rgba(0, 0, 0, 0.4) 60%,
+                                        transparent 100%
+                                    );
+                                    pointer-events: none;
+                                    border-radius: 0 0 inherit inherit;
+                                "
+                            >
+                                <p
+                                    id="cin-center-title"
+                                    style="
+                                        font-family:
+                                            &quot;Space Grotesk&quot;,
+                                            sans-serif;
+                                        font-size: clamp(1rem, 1.8vw, 1.35rem);
+                                        font-weight: 700;
+                                        color: #fff;
+                                        letter-spacing: -0.01em;
+                                        line-height: 1.2;
+                                    "
+                                ></p>
+                                <p
+                                    id="cin-center-stack"
+                                    style="
+                                        font-size: 0.68rem;
+                                        letter-spacing: 0.14em;
+                                        text-transform: uppercase;
+                                        color: rgba(255, 255, 255, 0.75);
+                                        margin-top: 4px;
+                                    "
+                                ></p>
+                            </div>
+                        </div>
+                        <div class="cin-slot cin-side" id="cin-right">
+                            <img id="cin-img-right" src="" alt="" />
+                        </div>
+                    </div>
 
-    <!-- Header -->
-    <header class="relative py-16 px-4 text-center pt-36">
-        <div class="max-w-3xl mx-auto">
-            <h1 class="font-heading text-5xl sm:text-7xl font-bold leading-[1.04]" data-reveal-hero data-reveal-delay="0.1">
-                Work that ships<br class="hidden sm:block"> and holds up.
-            </h1>
-        </div>
-    </header>
+                    <!-- nav arrows -->
+                    <button
+                        id="cin-prev"
+                        class="cin-arrow"
+                        style="left: 0"
+                        aria-label="Previous"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                    </button>
+                    <button
+                        id="cin-next"
+                        class="cin-arrow"
+                        style="right: 0"
+                        aria-label="Next"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </button>
+                </div>
 
-    <section class="relative px-4 mb-12 fade-in" style="animation-delay: 0.1s;">
-        <div class="max-w-6xl mx-auto">
-            <div class="project-card rounded-3xl p-8 lg:p-10 overflow-hidden">
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,217,255,0.16),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(0,255,148,0.14),transparent_30%)]"></div>
-                <div class="relative z-10 grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
+                <!-- Meta row -->
+                <div
+                    style="
+                        display: flex;
+                        align-items: flex-end;
+                        justify-content: space-between;
+                        margin-top: 1.25rem;
+                        padding: 0 2px;
+                    "
+                >
                     <div>
-                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold tracking-[0.18em] uppercase">
-                            Featured for Inventory Roles
-                        </div>
-                        <h2 class="mt-5 text-3xl sm:text-5xl font-bold font-heading text-white leading-tight">
-                            Inventory Analytics Dashboard
-                        </h2>
-                        <p class="mt-4 text-lg text-gray-300 leading-relaxed max-w-2xl">
-                            A portfolio case built to show how I approach inventory reporting: demand vs stock, dead
-                            stock, turnover, reorder risk, and weekly action summaries from a business point of view.
-                        </p>
-                        <div class="mt-6 grid sm:grid-cols-3 gap-3">
-                            <div class="metric-card rounded-2xl p-4">
-                                <p class="text-2xl font-bold text-[#00D9FF]">1,200+</p>
-                                <p class="text-sm text-gray-400 mt-1">Simulated SKU records for analysis</p>
-                            </div>
-                            <div class="metric-card rounded-2xl p-4">
-                                <p class="text-2xl font-bold text-[#00FF94]">6 KPIs</p>
-                                <p class="text-sm text-gray-400 mt-1">Stock cover, turnover, dead stock, and more</p>
-                            </div>
-                            <div class="metric-card rounded-2xl p-4">
-                                <p class="text-2xl font-bold text-[#f5e49c]">Weekly</p>
-                                <p class="text-sm text-gray-400 mt-1">Management-ready summary and action list</p>
-                            </div>
-                        </div>
-                        <div class="mt-8 flex flex-wrap gap-3">
-                            <a href="./inventory-analytics-dashboard.html"
-                                class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[#00D9FF]/30 bg-[#00D9FF]/10 text-[#0f172a] font-semibold hover:border-[#00D9FF]/50 hover:bg-[#00D9FF]/15 transition-all">
-                                Open Live Dashboard
-                                <i class="fas fa-chart-line text-sm"></i>
-                            </a>
-                            <a href="./case-studies/inventory-analytics-dashboard.html"
-                                class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#e8e4dd] text-[#2d2a26] font-semibold hover:bg-[#ddd9d0] transition-colors">
-                                View Case Study
-                                <i class="fas fa-arrow-right text-sm"></i>
-                            </a>
-                            <a href="#project-inventory-analytics-dashboard"
-                                class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white hover:border-[#00D9FF]/40 hover:text-[#00D9FF] transition-all">
-                                Jump to Project Card
-                            </a>
-                        </div>
+                        <p
+                            id="cin-title"
+                            style="
+                                font-family:
+                                    &quot;Space Grotesk&quot;, sans-serif;
+                                font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+                                font-weight: 700;
+                                letter-spacing: -0.02em;
+                                color: var(--text);
+                            "
+                        ></p>
+                        <p
+                            id="cin-stack"
+                            style="
+                                font-size: 0.72rem;
+                                letter-spacing: 0.14em;
+                                text-transform: uppercase;
+                                color: var(--text-muted);
+                                margin-top: 4px;
+                            "
+                        ></p>
                     </div>
-
-                    <div class="rounded-3xl border border-white/10 bg-[#0b1017] p-5">
-                        <img src="./assets/projects/inventory-analytics-dashboard/cover.svg"
-                            alt="Inventory Analytics Dashboard preview" class="w-full rounded-2xl border border-white/5">
-                        <div class="mt-5 grid grid-cols-2 gap-3 text-sm">
-                            <div class="rounded-2xl bg-black/5 border border-black/10 p-4">
-                                <p class="text-xs uppercase tracking-[0.18em] text-gray-500 mb-2">Analysis Focus</p>
-                                <p class="text-gray-700">Stock vs demand, ABC mix, slow-moving review</p>
-                            </div>
-                            <div class="rounded-2xl bg-black/5 border border-black/10 p-4">
-                                <p class="text-xs uppercase tracking-[0.18em] text-gray-500 mb-2">Tools</p>
-                                <p class="text-gray-700">Power BI, SQL logic, Google Sheets, AppSheet</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Filter Section -->
-    <section class="relative px-4 mb-10 fade-in" style="animation-delay: 0.2s;">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col lg:flex-row gap-4 lg:items-center lg:justify-between mb-6">
-                <p id="result-count" class="text-sm text-gray-400">Showing 0 projects</p>
-                <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
-                    <input id="project-search" type="search" placeholder="Search project or tech..."
-                        class="control-input w-full sm:w-72 px-4 py-2.5 rounded-xl text-sm">
-                    <select id="sort-select" class="control-input px-4 py-2.5 rounded-xl text-sm">
-                        <option value="newest">Sort: Newest</option>
-                        <option value="title">Sort: A-Z</option>
-                    </select>
-                </div>
-            </div>
-            <div class="flex flex-wrap justify-center gap-3">
-                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium active"
-                    data-filter="all">All</button>
-                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium"
-                    data-filter="analytics">Analytics</button>
-                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium"
-                    data-filter="inventory">Inventory</button>
-                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium" data-filter="webapp">Web
-                    App</button>
-                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium" data-filter="mobile">Mobile
-                    App</button>
-                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium"
-                    data-filter="automation">Automation</button>
-                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium"
-                    data-filter="watchos">watchOS</button>
-                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium" data-filter="game">Game</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cinematic 3-col slider -->
-    <section class="relative pb-24 px-4">
-        <div class="max-w-7xl mx-auto">
-
-            <!-- Slider stage -->
-            <div id="cin-stage" class="relative select-none" style="padding-bottom:2rem">
-                <!-- 3-col grid -->
-                <div id="cin-grid" style="
-                    display:grid;
-                    grid-template-columns:1fr 1.3fr 1fr;
-                    gap:14px;
-                    align-items:center;
-                ">
-                    <div class="cin-slot cin-side" id="cin-left">
-                        <img id="cin-img-left" src="" alt="" />
-                    </div>
-                    <div class="cin-slot cin-center" id="cin-center" style="position:relative;">
-                        <img id="cin-img-center" src="" alt="" />
-                        <div id="cin-center-caption" style="position:absolute;left:0;right:0;bottom:0;padding:1.25rem 1.5rem;background:linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);pointer-events:none;border-radius:0 0 inherit inherit;">
-                            <p id="cin-center-title" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1rem,1.8vw,1.35rem);font-weight:700;color:#fff;letter-spacing:-0.01em;line-height:1.2;"></p>
-                            <p id="cin-center-stack" style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-top:4px;"></p>
-                        </div>
-                    </div>
-                    <div class="cin-slot cin-side" id="cin-right">
-                        <img id="cin-img-right" src="" alt="" />
+                    <div
+                        style="display: flex; align-items: center; gap: 1.25rem"
+                    >
+                        <div
+                            id="cin-dots"
+                            style="display: flex; gap: 6px; align-items: center"
+                        ></div>
+                        <span
+                            id="cin-counter"
+                            style="
+                                font-size: 0.72rem;
+                                letter-spacing: 0.14em;
+                                color: var(--text-muted);
+                                min-width: 3rem;
+                                text-align: right;
+                            "
+                        ></span>
                     </div>
                 </div>
 
-                <!-- nav arrows -->
-                <button id="cin-prev" class="cin-arrow" style="left:0" aria-label="Previous">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-                </button>
-                <button id="cin-next" class="cin-arrow" style="right:0" aria-label="Next">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-                </button>
-            </div>
-
-            <!-- Meta row -->
-            <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-top:1.25rem;padding:0 2px;">
-                <div>
-                    <p id="cin-title" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1.1rem,2.5vw,1.6rem);font-weight:700;letter-spacing:-0.02em;color:var(--text);"></p>
-                    <p id="cin-stack" style="font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);margin-top:4px;"></p>
+                <!-- Progress bar -->
+                <div
+                    style="
+                        height: 1px;
+                        background: var(--border, rgba(0, 0, 0, 0.1));
+                        margin-top: 1rem;
+                        border-radius: 1px;
+                        overflow: hidden;
+                    "
+                >
+                    <div
+                        id="cin-progress"
+                        style="
+                            height: 100%;
+                            background: var(--text, #111827);
+                            width: 0%;
+                            transition: width 1s cubic-bezier(0.76, 0, 0.24, 1);
+                        "
+                    ></div>
                 </div>
-                <div style="display:flex;align-items:center;gap:1.25rem;">
-                    <div id="cin-dots" style="display:flex;gap:6px;align-items:center;"></div>
-                    <span id="cin-counter" style="font-size:0.72rem;letter-spacing:0.14em;color:var(--text-muted);min-width:3rem;text-align:right;"></span>
-                </div>
             </div>
+        </section>
 
-            <!-- Progress bar -->
-            <div style="height:1px;background:var(--border,rgba(0,0,0,0.1));margin-top:1rem;border-radius:1px;overflow:hidden;">
-                <div id="cin-progress" style="height:100%;background:var(--text,#111827);width:0%;transition:width 1s cubic-bezier(0.76,0,0.24,1);"></div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Modal -->
-    <div id="project-modal" class="modal-overlay fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <!-- Modal -->
         <div
-            class="modal-content max-w-4xl w-full bg-[#0f0f14] rounded-3xl border border-white/10 max-h-[90vh] overflow-y-auto">
-            <div class="sticky top-0 bg-[#0f0f14] border-b border-white/10 p-6 flex items-center justify-between z-10">
-                <h2 id="modal-title" class="text-2xl font-bold font-heading">Project Details</h2>
-                <button id="close-modal" class="text-gray-400 hover:text-white transition-colors">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-            <div class="p-8">
-                <!-- Modal content populated by JavaScript -->
-                <div id="modal-body"></div>
+            id="project-modal"
+            class="modal-overlay fixed inset-0 z-50 hidden flex items-center justify-center p-4"
+        >
+            <div
+                class="modal-content max-w-4xl w-full bg-[#0f0f14] rounded-3xl border border-white/10 max-h-[90vh] overflow-y-auto"
+            >
+                <div
+                    class="sticky top-0 bg-[#0f0f14] border-b border-white/10 p-6 flex items-center justify-between z-10"
+                >
+                    <h2
+                        id="modal-title"
+                        class="text-2xl font-bold font-heading"
+                    >
+                        Project Details
+                    </h2>
+                    <button
+                        id="close-modal"
+                        class="text-gray-400 hover:text-white transition-colors"
+                    >
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div class="p-8">
+                    <!-- Modal content populated by JavaScript -->
+                    <div id="modal-body"></div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <footer class="py-12 px-4 border-t border-white/10 mt-10">
-        <div class="max-w-6xl mx-auto text-center">
-            <p class="text-gray-500 text-sm">Chemistry → Inventory → Automation & Analytics</p>
-            <div class="flex justify-center gap-4 mt-6">
-                <a href="https://github.com/earthondev" target="_blank" rel="noopener noreferrer"
-                    class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white transition-all">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:earthlikemwbb@gmail.com"
-                    class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white transition-all">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/earthondev/" target="_blank" rel="noopener noreferrer"
-                    class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white transition-all">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
+        <footer class="py-12 px-4 border-t border-white/10 mt-10">
+            <div class="max-w-6xl mx-auto text-center">
+                <p class="text-gray-500 text-sm">
+                    Chemistry → Inventory → Automation & Analytics
+                </p>
+                <p class="text-gray-600 text-xs mt-1">
+                    ณัฐภัทร วรกุล (Nattapart Worakun) · Data Analyst · Bangkok,
+                    Thailand
+                </p>
+                <div class="flex justify-center gap-4 mt-6">
+                    <a
+                        href="https://github.com/earthondev"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white transition-all"
+                    >
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a
+                        href="mailto:earthlikemwbb@gmail.com"
+                        class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white transition-all"
+                    >
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/earthondev/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white transition-all"
+                    >
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+                <p class="text-gray-600 text-xs mt-4">
+                    © 2026 Nattapart Worakun. All rights reserved.
+                </p>
             </div>
-            <p class="text-gray-600 text-xs mt-4">© 2026 Nattapart Worakun. All rights reserved.</p>
-        </div>
-    </footer>
+        </footer>
 
-    <script>
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const emptyState = document.getElementById('empty-state');
-        const projectsGrid = document.getElementById('projects-grid');
-        const projectSearch = document.getElementById('project-search');
-        const sortSelect = document.getElementById('sort-select');
-        const resultCount = document.getElementById('result-count');
+        <script>
+            const filterButtons = document.querySelectorAll(".filter-btn");
+            const emptyState = document.getElementById("empty-state");
+            const projectsGrid = document.getElementById("projects-grid");
+            const projectSearch = document.getElementById("project-search");
+            const sortSelect = document.getElementById("sort-select");
+            const resultCount = document.getElementById("result-count");
 
-        const modal = document.getElementById('project-modal');
-        const modalTitle = document.getElementById('modal-title');
-        const modalBody = document.getElementById('modal-body');
-        const closeModalBtn = document.getElementById('close-modal');
+            const modal = document.getElementById("project-modal");
+            const modalTitle = document.getElementById("modal-title");
+            const modalBody = document.getElementById("modal-body");
+            const closeModalBtn = document.getElementById("close-modal");
 
-        let projectList = [];
-        let projectMap = new Map();
-        let activeFilter = 'all';
-        let searchQuery = '';
-        let sortMode = 'newest';
-        let currentGallery = [];
-        let currentIndex = 0;
+            let projectList = [];
+            let projectMap = new Map();
+            let activeFilter = "all";
+            let searchQuery = "";
+            let sortMode = "newest";
+            let currentGallery = [];
+            let currentIndex = 0;
 
-        function escapeHTML(value = '') {
-            return String(value)
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;')
-                .replace(/'/g, '&#39;');
-        }
+            function escapeHTML(value = "") {
+                return String(value)
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#39;");
+            }
 
-        function toCategoryTokens(project) {
-            const haystack = [
-                ...(Array.isArray(project.tags) ? project.tags : []),
-                ...(Array.isArray(project.stack) ? project.stack : []),
-                project.title,
-                project.summary,
-                project.status
-            ].join(' ').toLowerCase();
+            function toCategoryTokens(project) {
+                const haystack = [
+                    ...(Array.isArray(project.tags) ? project.tags : []),
+                    ...(Array.isArray(project.stack) ? project.stack : []),
+                    project.title,
+                    project.summary,
+                    project.status,
+                ]
+                    .join(" ")
+                    .toLowerCase();
 
-            const categories = new Set();
-            if (haystack.includes('analytics') || haystack.includes('dashboard') || haystack.includes('power bi') || haystack.includes('sql') || haystack.includes('reporting') || haystack.includes('bi')) categories.add('analytics');
-            if (haystack.includes('inventory') || haystack.includes('stock') || haystack.includes('reorder') || haystack.includes('warehouse') || haystack.includes('appsheet')) categories.add('inventory');
-            if (haystack.includes('web app') || haystack.includes('react') || haystack.includes('javascript') || haystack.includes('html')) categories.add('webapp');
-            if (haystack.includes('mobile app') || haystack.includes('flutter') || haystack.includes('android') || haystack.includes('ios')) categories.add('mobile');
-            if (haystack.includes('automation') || haystack.includes('appsheet') || haystack.includes('bot') || haystack.includes('python')) categories.add('automation');
-            if (haystack.includes('watchos') || haystack.includes('swiftui') || haystack.includes('watchkit')) categories.add('watchos');
-            if (haystack.includes('game')) categories.add('game');
+                const categories = new Set();
+                if (
+                    haystack.includes("analytics") ||
+                    haystack.includes("dashboard") ||
+                    haystack.includes("power bi") ||
+                    haystack.includes("sql") ||
+                    haystack.includes("reporting") ||
+                    haystack.includes("bi")
+                )
+                    categories.add("analytics");
+                if (
+                    haystack.includes("inventory") ||
+                    haystack.includes("stock") ||
+                    haystack.includes("reorder") ||
+                    haystack.includes("warehouse") ||
+                    haystack.includes("appsheet")
+                )
+                    categories.add("inventory");
+                if (
+                    haystack.includes("web app") ||
+                    haystack.includes("react") ||
+                    haystack.includes("javascript") ||
+                    haystack.includes("html")
+                )
+                    categories.add("webapp");
+                if (
+                    haystack.includes("mobile app") ||
+                    haystack.includes("flutter") ||
+                    haystack.includes("android") ||
+                    haystack.includes("ios")
+                )
+                    categories.add("mobile");
+                if (
+                    haystack.includes("automation") ||
+                    haystack.includes("appsheet") ||
+                    haystack.includes("bot") ||
+                    haystack.includes("python")
+                )
+                    categories.add("automation");
+                if (
+                    haystack.includes("watchos") ||
+                    haystack.includes("swiftui") ||
+                    haystack.includes("watchkit")
+                )
+                    categories.add("watchos");
+                if (haystack.includes("game")) categories.add("game");
 
-            if (!categories.size) categories.add('webapp');
-            return [...categories];
-        }
+                if (!categories.size) categories.add("webapp");
+                return [...categories];
+            }
 
-        function normalizeProject(raw) {
-            const cover = raw?.coverImage?.src || '';
-            const gallery = Array.isArray(raw?.gallery) ? raw.gallery.map((item) => item?.src).filter(Boolean) : [];
-            const links = raw?.links || {};
-            const categories = toCategoryTokens(raw);
-            const stack = Array.isArray(raw?.stack) ? raw.stack : [];
-            const tags = Array.isArray(raw?.tags) ? raw.tags : [];
-            const roles = Array.isArray(raw?.role) ? raw.role : [];
-            const highlights = Array.isArray(raw?.highlights) ? raw.highlights : [];
-            const metrics = Array.isArray(raw?.metrics) ? raw.metrics : [];
+            function normalizeProject(raw) {
+                const cover = raw?.coverImage?.src || "";
+                const gallery = Array.isArray(raw?.gallery)
+                    ? raw.gallery.map((item) => item?.src).filter(Boolean)
+                    : [];
+                const links = raw?.links || {};
+                const categories = toCategoryTokens(raw);
+                const stack = Array.isArray(raw?.stack) ? raw.stack : [];
+                const tags = Array.isArray(raw?.tags) ? raw.tags : [];
+                const roles = Array.isArray(raw?.role) ? raw.role : [];
+                const highlights = Array.isArray(raw?.highlights)
+                    ? raw.highlights
+                    : [];
+                const metrics = Array.isArray(raw?.metrics) ? raw.metrics : [];
 
-            const uniqueGallery = [...new Set([cover, ...gallery].filter(Boolean))];
+                const uniqueGallery = [
+                    ...new Set([cover, ...gallery].filter(Boolean)),
+                ];
 
-            return {
-                id: raw?.id || '',
-                title: raw?.title || 'Untitled project',
-                summary: raw?.summary || '',
-                year: Number(raw?.year || 0),
-                status: raw?.status || 'Active',
-                stack,
-                tags,
-                roles,
-                highlights,
-                metrics,
-                image: cover,
-                imageAlt: raw?.coverImage?.alt || raw?.title || 'Project cover',
-                gallery: uniqueGallery,
-                links: {
-                    live: links.live || '',
-                    repo: links.repo || '',
-                    caseStudy: links.caseStudy || ''
-                },
-                categories
-            };
-        }
+                return {
+                    id: raw?.id || "",
+                    title: raw?.title || "Untitled project",
+                    summary: raw?.summary || "",
+                    year: Number(raw?.year || 0),
+                    status: raw?.status || "Active",
+                    stack,
+                    tags,
+                    roles,
+                    highlights,
+                    metrics,
+                    image: cover,
+                    imageAlt:
+                        raw?.coverImage?.alt || raw?.title || "Project cover",
+                    gallery: uniqueGallery,
+                    links: {
+                        live: links.live || "",
+                        repo: links.repo || "",
+                        caseStudy: links.caseStudy || "",
+                    },
+                    categories,
+                };
+            }
 
-        function statusClass(status = '') {
-            const key = status.toLowerCase();
-            if (key.includes('development') || key.includes('draft')) return 'text-[#00FF94]';
-            if (key.includes('complete') || key.includes('production') || key.includes('live') || key.includes('active')) return 'text-[#00D9FF]';
-            if (key.includes('use')) return 'text-[#FFE600]';
-            return 'text-gray-300';
-        }
+            function statusClass(status = "") {
+                const key = status.toLowerCase();
+                if (key.includes("development") || key.includes("draft"))
+                    return "text-[#00FF94]";
+                if (
+                    key.includes("complete") ||
+                    key.includes("production") ||
+                    key.includes("live") ||
+                    key.includes("active")
+                )
+                    return "text-[#00D9FF]";
+                if (key.includes("use")) return "text-[#FFE600]";
+                return "text-gray-300";
+            }
 
-        function projectCardTemplate(project, index) {
-            const tags = project.stack.slice(0, 3);
-            const num = String(index + 1).padStart(2, '0');
-            return `
+            function projectCardTemplate(project, index) {
+                const tags = project.stack.slice(0, 3);
+                const num = String(index + 1).padStart(2, "0");
+                return `
                 <article class="project-row group"
                     id="project-${escapeHTML(project.id)}"
-                    data-category="${escapeHTML(project.categories.join(' '))}"
+                    data-category="${escapeHTML(project.categories.join(" "))}"
                     data-project="${escapeHTML(project.id)}"
                     style="animation-delay: ${Math.min(index * 0.06, 0.5)}s;">
                     <div class="project-row-inner">
                         <span class="project-row-num">${num}</span>
                         <h3 class="project-row-title">${escapeHTML(project.title)}</h3>
                         <div class="project-row-tags">
-                            ${tags.map(t => `<span class="project-row-tag">${escapeHTML(t)}</span>`).join('')}
+                            ${tags.map((t) => `<span class="project-row-tag">${escapeHTML(t)}</span>`).join("")}
                         </div>
-                        <span class="project-row-year">${project.year || '—'}</span>
+                        <span class="project-row-year">${project.year || "—"}</span>
                         <span class="project-row-arrow"><i class="fas fa-arrow-right"></i></span>
                     </div>
-                    ${project.image ? `<div class="project-row-hover-img">
+                    ${
+                        project.image
+                            ? `<div class="project-row-hover-img">
                         <img src="${escapeHTML(project.image)}" alt="${escapeHTML(project.imageAlt)}" loading="lazy">
-                    </div>` : ''}
+                    </div>`
+                            : ""
+                    }
                 </article>`;
-        }
-
-        function sortProjects(projects) {
-            const sorted = [...projects];
-            if (sortMode === 'title') {
-                return sorted.sort((a, b) => a.title.localeCompare(b.title, 'en', { sensitivity: 'base' }));
-            }
-            return sorted.sort((a, b) => (b.year - a.year) || a.title.localeCompare(b.title, 'en', { sensitivity: 'base' }));
-        }
-
-        function renderProjectCards(projects) {
-            if (!projects.length) {
-                projectsGrid.innerHTML = '';
-                emptyState.style.display = 'block';
-                resultCount.textContent = 'Showing 0 projects';
-                return;
             }
 
-            emptyState.style.display = 'none';
-            projectsGrid.innerHTML = projects.map((project, index) => projectCardTemplate(project, index)).join('');
-            resultCount.textContent = `Showing ${projects.length} project${projects.length === 1 ? '' : 's'}`;
+            function sortProjects(projects) {
+                const sorted = [...projects];
+                if (sortMode === "title") {
+                    return sorted.sort((a, b) =>
+                        a.title.localeCompare(b.title, "en", {
+                            sensitivity: "base",
+                        }),
+                    );
+                }
+                return sorted.sort(
+                    (a, b) =>
+                        b.year - a.year ||
+                        a.title.localeCompare(b.title, "en", {
+                            sensitivity: "base",
+                        }),
+                );
+            }
 
-            projectsGrid.querySelectorAll('.project-row').forEach((row) => {
-                row.addEventListener('click', () => openModal(row.dataset.project));
-            });
-            initRowHover();
-        }
-
-        function initRowHover() {
-            document.querySelectorAll('.project-row').forEach(row => {
-                const img = row.querySelector('.project-row-hover-img');
-                if (!img) return;
-                let raf;
-                let tx = 0, ty = 0, cx = 0, cy = 0;
-
-                function lerp(a, b, n) { return (1 - n) * a + n * b; }
-                function loop() {
-                    cx = lerp(cx, tx, 0.12);
-                    cy = lerp(cy, ty, 0.12);
-                    img.style.transform = `translate(${cx}px, ${cy}px) scale(1)`;
-                    raf = requestAnimationFrame(loop);
+            function renderProjectCards(projects) {
+                if (!projects.length) {
+                    projectsGrid.innerHTML = "";
+                    emptyState.style.display = "block";
+                    resultCount.textContent = "Showing 0 projects";
+                    return;
                 }
 
-                row.addEventListener('mouseenter', () => {
-                    img.classList.add('is-visible');
-                    raf = requestAnimationFrame(loop);
-                });
-                row.addEventListener('mouseleave', () => {
-                    img.classList.remove('is-visible');
-                    cancelAnimationFrame(raf);
-                });
-                row.addEventListener('mousemove', (e) => {
-                    const rect = row.getBoundingClientRect();
-                    tx = e.clientX - rect.left - 120;
-                    ty = e.clientY - rect.top - 90;
-                });
-            });
-        }
+                emptyState.style.display = "none";
+                projectsGrid.innerHTML = projects
+                    .map((project, index) =>
+                        projectCardTemplate(project, index),
+                    )
+                    .join("");
+                resultCount.textContent = `Showing ${projects.length} project${projects.length === 1 ? "" : "s"}`;
 
-        function applyProjectControls() {
-            const filtered = projectList.filter((project) => {
-                const filterMatch = activeFilter === 'all' || project.categories.includes(activeFilter);
-                const searchPool = [project.title, project.summary, ...project.stack, ...project.tags, ...project.roles].join(' ').toLowerCase();
-                const searchMatch = !searchQuery || searchPool.includes(searchQuery);
-                return filterMatch && searchMatch;
-            });
-
-            renderProjectCards(sortProjects(filtered));
-        }
-
-        function updateModalImage(index) {
-            currentIndex = index;
-            const mainImg = document.getElementById('modal-main-img');
-            if (mainImg) {
-                mainImg.src = currentGallery[currentIndex];
+                projectsGrid.querySelectorAll(".project-row").forEach((row) => {
+                    row.addEventListener("click", () =>
+                        openModal(row.dataset.project),
+                    );
+                });
+                initRowHover();
             }
-            document.querySelectorAll('.gallery-thumb').forEach((thumb, i) => {
-                thumb.classList.toggle('border-[#00D9FF]', i === currentIndex);
-                thumb.classList.toggle('border-white/10', i !== currentIndex);
-            });
-        }
 
-        window.updateModalImage = updateModalImage;
-        window.prevImage = (event) => {
-            event.stopPropagation();
-            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-            updateModalImage(currentIndex);
-        };
-        window.nextImage = (event) => {
-            event.stopPropagation();
-            currentIndex = (currentIndex + 1) % currentGallery.length;
-            updateModalImage(currentIndex);
-        };
+            function initRowHover() {
+                document.querySelectorAll(".project-row").forEach((row) => {
+                    const img = row.querySelector(".project-row-hover-img");
+                    if (!img) return;
+                    let raf;
+                    let tx = 0,
+                        ty = 0,
+                        cx = 0,
+                        cy = 0;
 
-        function openModal(projectId) {
-            const project = projectMap.get(projectId);
-            if (!project) return;
+                    function lerp(a, b, n) {
+                        return (1 - n) * a + n * b;
+                    }
+                    function loop() {
+                        cx = lerp(cx, tx, 0.12);
+                        cy = lerp(cy, ty, 0.12);
+                        img.style.transform = `translate(${cx}px, ${cy}px) scale(1)`;
+                        raf = requestAnimationFrame(loop);
+                    }
 
-            modalTitle.textContent = project.title;
-            currentGallery = [...project.gallery];
-            currentIndex = 0;
+                    row.addEventListener("mouseenter", () => {
+                        img.classList.add("is-visible");
+                        raf = requestAnimationFrame(loop);
+                    });
+                    row.addEventListener("mouseleave", () => {
+                        img.classList.remove("is-visible");
+                        cancelAnimationFrame(raf);
+                    });
+                    row.addEventListener("mousemove", (e) => {
+                        const rect = row.getBoundingClientRect();
+                        tx = e.clientX - rect.left - 120;
+                        ty = e.clientY - rect.top - 90;
+                    });
+                });
+            }
 
-            modalBody.innerHTML = `
+            function applyProjectControls() {
+                const filtered = projectList.filter((project) => {
+                    const filterMatch =
+                        activeFilter === "all" ||
+                        project.categories.includes(activeFilter);
+                    const searchPool = [
+                        project.title,
+                        project.summary,
+                        ...project.stack,
+                        ...project.tags,
+                        ...project.roles,
+                    ]
+                        .join(" ")
+                        .toLowerCase();
+                    const searchMatch =
+                        !searchQuery || searchPool.includes(searchQuery);
+                    return filterMatch && searchMatch;
+                });
+
+                renderProjectCards(sortProjects(filtered));
+            }
+
+            function updateModalImage(index) {
+                currentIndex = index;
+                const mainImg = document.getElementById("modal-main-img");
+                if (mainImg) {
+                    mainImg.src = currentGallery[currentIndex];
+                }
+                document
+                    .querySelectorAll(".gallery-thumb")
+                    .forEach((thumb, i) => {
+                        thumb.classList.toggle(
+                            "border-[#00D9FF]",
+                            i === currentIndex,
+                        );
+                        thumb.classList.toggle(
+                            "border-white/10",
+                            i !== currentIndex,
+                        );
+                    });
+            }
+
+            window.updateModalImage = updateModalImage;
+            window.prevImage = (event) => {
+                event.stopPropagation();
+                currentIndex =
+                    (currentIndex - 1 + currentGallery.length) %
+                    currentGallery.length;
+                updateModalImage(currentIndex);
+            };
+            window.nextImage = (event) => {
+                event.stopPropagation();
+                currentIndex = (currentIndex + 1) % currentGallery.length;
+                updateModalImage(currentIndex);
+            };
+
+            function openModal(projectId) {
+                const project = projectMap.get(projectId);
+                if (!project) return;
+
+                modalTitle.textContent = project.title;
+                currentGallery = [...project.gallery];
+                currentIndex = 0;
+
+                modalBody.innerHTML = `
                 <div class="space-y-8">
                     <div class="relative group rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-[#0b0b10] p-2">
                         <img src="${escapeHTML(project.image)}" alt="${escapeHTML(project.imageAlt)}" id="modal-main-img"
                             class="w-full max-h-[520px] object-contain transition-all duration-300">
 
-                        ${currentGallery.length > 1 ? `
+                        ${
+                            currentGallery.length > 1
+                                ? `
                         <button onclick="prevImage(event)" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all border border-white/10 hover:bg-[#00D9FF] hover:text-black">
                             <i class="fas fa-chevron-left"></i>
                         </button>
                         <button onclick="nextImage(event)" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all border border-white/10 hover:bg-[#00D9FF] hover:text-black">
                             <i class="fas fa-chevron-right"></i>
-                        </button>` : ''}
+                        </button>`
+                                : ""
+                        }
                     </div>
 
-                    ${currentGallery.length > 1 ? `
+                    ${
+                        currentGallery.length > 1
+                            ? `
                     <div>
                         <h3 class="text-lg font-semibold mb-4 text-white">Project Gallery</h3>
                         <div class="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
-                            ${currentGallery.map((img, index) => `
-                                <div class="gallery-thumb flex-shrink-0 w-32 aspect-video rounded-lg overflow-hidden cursor-pointer border-2 ${index === 0 ? 'border-[#00D9FF]' : 'border-white/10'} hover:border-[#00D9FF]/50 transition-all"
+                            ${currentGallery
+                                .map(
+                                    (img, index) => `
+                                <div class="gallery-thumb flex-shrink-0 w-32 aspect-video rounded-lg overflow-hidden cursor-pointer border-2 ${index === 0 ? "border-[#00D9FF]" : "border-white/10"} hover:border-[#00D9FF]/50 transition-all"
                                      onclick="updateModalImage(${index})">
                                     <img src="${escapeHTML(img)}" alt="Gallery ${index + 1}" loading="lazy" decoding="async" class="w-full h-full object-cover">
-                                </div>`).join('')}
+                                </div>`,
+                                )
+                                .join("")}
                         </div>
-                    </div>` : ''}
+                    </div>`
+                            : ""
+                    }
 
                     <div>
                         <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
                             <h3 class="text-xl font-bold text-white">Overview</h3>
                             <div class="flex items-center gap-3">
-                                ${project.links.live ? `<a href="${escapeHTML(project.links.live)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#00D9FF] to-[#00FF94] text-[#0a0a0f] font-semibold text-sm hover:opacity-90 transition-opacity"><i class="fas fa-external-link-alt"></i> Live</a>` : ''}
-                                ${project.links.repo && project.links.repo !== '#' ? `<a href="${escapeHTML(project.links.repo)}" target="_blank" rel="noopener noreferrer" class="text-[#00D9FF] hover:underline flex items-center gap-1 text-sm"><i class="fab fa-github"></i> Code</a>` : ''}
-                                ${project.links.caseStudy ? `<a href="${escapeHTML(project.links.caseStudy)}" class="text-[#FFE600] hover:underline flex items-center gap-1 text-sm"><i class="fas fa-file-lines"></i> Case Study</a>` : ''}
+                                ${project.links.live ? `<a href="${escapeHTML(project.links.live)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#00D9FF] to-[#00FF94] text-[#0a0a0f] font-semibold text-sm hover:opacity-90 transition-opacity"><i class="fas fa-external-link-alt"></i> Live</a>` : ""}
+                                ${project.links.repo && project.links.repo !== "#" ? `<a href="${escapeHTML(project.links.repo)}" target="_blank" rel="noopener noreferrer" class="text-[#00D9FF] hover:underline flex items-center gap-1 text-sm"><i class="fab fa-github"></i> Code</a>` : ""}
+                                ${project.links.caseStudy ? `<a href="${escapeHTML(project.links.caseStudy)}" class="text-[#FFE600] hover:underline flex items-center gap-1 text-sm"><i class="fas fa-file-lines"></i> Case Study</a>` : ""}
                             </div>
                         </div>
                         <p class="text-lg text-gray-300 leading-relaxed">${escapeHTML(project.summary)}</p>
@@ -962,310 +1493,455 @@
                         <div class="glass-card rounded-2xl p-6 border border-white/5 bg-white/5">
                             <h3 class="text-lg font-semibold mb-3 text-white">Role</h3>
                             <div class="flex flex-wrap gap-2">
-                                ${(project.roles.length ? project.roles : ['Not specified']).map((role) => `<span class="px-3 py-1.5 rounded-lg bg-[#00FF94]/10 text-[#00FF94] border border-[#00FF94]/20 text-sm">${escapeHTML(role)}</span>`).join('')}
+                                ${(project.roles.length ? project.roles : ["Not specified"]).map((role) => `<span class="px-3 py-1.5 rounded-lg bg-[#00FF94]/10 text-[#00FF94] border border-[#00FF94]/20 text-sm">${escapeHTML(role)}</span>`).join("")}
                             </div>
                         </div>
                         <div class="glass-card rounded-2xl p-6 border border-white/5 bg-white/5">
                             <h3 class="text-lg font-semibold mb-3 text-white">Status</h3>
                             <p class="text-gray-300">${escapeHTML(project.status)}</p>
-                            <p class="text-gray-500 text-sm mt-2">Year: ${project.year || '-'}</p>
+                            <p class="text-gray-500 text-sm mt-2">Year: ${project.year || "-"}</p>
                         </div>
                     </div>
 
                     <div>
                         <h3 class="text-lg font-semibold mb-4 text-white">Tech Stack</h3>
                         <div class="flex flex-wrap gap-2">
-                            ${project.stack.map((tech) => `<span class="px-3 py-1.5 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] border border-[#00D9FF]/20 text-sm font-medium">${escapeHTML(tech)}</span>`).join('')}
+                            ${project.stack.map((tech) => `<span class="px-3 py-1.5 rounded-lg bg-[#00D9FF]/10 text-[#00D9FF] border border-[#00D9FF]/20 text-sm font-medium">${escapeHTML(tech)}</span>`).join("")}
                         </div>
                     </div>
 
                     <div>
                         <h3 class="text-lg font-semibold mb-4 text-white">Highlights</h3>
                         <ul class="space-y-2">
-                            ${(project.highlights.length ? project.highlights : ['Details will be updated soon.']).map((item) => `<li class="flex items-start gap-3 text-gray-300"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#00FF94] flex-shrink-0"></span><span>${escapeHTML(item)}</span></li>`).join('')}
+                            ${(project.highlights.length ? project.highlights : ["Details will be updated soon."]).map((item) => `<li class="flex items-start gap-3 text-gray-300"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#00FF94] flex-shrink-0"></span><span>${escapeHTML(item)}</span></li>`).join("")}
                         </ul>
                     </div>
 
-                    ${project.metrics.length ? `
+                    ${
+                        project.metrics.length
+                            ? `
                     <div>
                         <h3 class="text-lg font-semibold mb-4 text-white">Key Metrics</h3>
                         <div class="grid sm:grid-cols-3 gap-3">
-                            ${project.metrics.map((metric) => `
+                            ${project.metrics
+                                .map(
+                                    (metric) => `
                                 <div class="metric-card rounded-2xl p-4">
-                                    <p class="text-2xl font-bold text-white">${escapeHTML(metric.value || '-')}</p>
-                                    <p class="text-sm text-gray-400 mt-1">${escapeHTML(metric.label || '')}</p>
-                                </div>`).join('')}
+                                    <p class="text-2xl font-bold text-white">${escapeHTML(metric.value || "-")}</p>
+                                    <p class="text-sm text-gray-400 mt-1">${escapeHTML(metric.label || "")}</p>
+                                </div>`,
+                                )
+                                .join("")}
                         </div>
-                    </div>` : ''}
+                    </div>`
+                            : ""
+                    }
                 </div>`;
 
-            modal.classList.remove('hidden');
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+                modal.classList.remove("hidden");
+                modal.classList.add("active");
+                document.body.style.overflow = "hidden";
+            }
 
-        async function loadProjects() {
-            try {
-                const response = await fetch(`projects.json?v=${Date.now()}`, { cache: 'no-store' });
-                if (!response.ok) throw new Error(`Failed to load projects.json (${response.status})`);
+            async function loadProjects() {
+                try {
+                    const response = await fetch(
+                        `projects.json?v=${Date.now()}`,
+                        { cache: "no-store" },
+                    );
+                    if (!response.ok)
+                        throw new Error(
+                            `Failed to load projects.json (${response.status})`,
+                        );
 
-                const raw = await response.json();
-                projectList = (Array.isArray(raw) ? raw : [])
-                    .map(normalizeProject)
-                    .filter((project) => project.id && project.title && project.image);
+                    const raw = await response.json();
+                    projectList = (Array.isArray(raw) ? raw : [])
+                        .map(normalizeProject)
+                        .filter(
+                            (project) =>
+                                project.id && project.title && project.image,
+                        );
 
-                projectMap = new Map(projectList.map((project) => [project.id, project]));
-                applyProjectControls();
-            } catch (error) {
-                projectsGrid.innerHTML = `<article class="project-card rounded-2xl p-8 text-center lg:col-span-3 border border-red-500/30 bg-red-500/10">
+                    projectMap = new Map(
+                        projectList.map((project) => [project.id, project]),
+                    );
+                    applyProjectControls();
+                } catch (error) {
+                    projectsGrid.innerHTML = `<article class="project-card rounded-2xl p-8 text-center lg:col-span-3 border border-red-500/30 bg-red-500/10">
                     <h3 class="text-xl font-semibold text-red-200 mb-2">Unable to load projects</h3>
                     <p class="text-sm text-red-100/80">Please check <code>projects.json</code> format.</p>
                 </article>`;
-                resultCount.textContent = 'Showing 0 projects';
-                emptyState.style.display = 'none';
-                console.error(error);
+                    resultCount.textContent = "Showing 0 projects";
+                    emptyState.style.display = "none";
+                    console.error(error);
+                }
             }
-        }
 
-        filterButtons.forEach((btn) => {
-            btn.addEventListener('click', () => {
-                activeFilter = btn.dataset.filter || 'all';
-                filterButtons.forEach((item) => item.classList.remove('active'));
-                btn.classList.add('active');
+            filterButtons.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    activeFilter = btn.dataset.filter || "all";
+                    filterButtons.forEach((item) =>
+                        item.classList.remove("active"),
+                    );
+                    btn.classList.add("active");
+                    applyProjectControls();
+                });
+            });
+
+            projectSearch?.addEventListener("input", (event) => {
+                searchQuery = String(event.target.value || "")
+                    .toLowerCase()
+                    .trim();
                 applyProjectControls();
             });
-        });
 
-        projectSearch?.addEventListener('input', (event) => {
-            searchQuery = String(event.target.value || '').toLowerCase().trim();
-            applyProjectControls();
-        });
+            sortSelect?.addEventListener("change", (event) => {
+                sortMode = event.target.value || "newest";
+                applyProjectControls();
+            });
 
-        sortSelect?.addEventListener('change', (event) => {
-            sortMode = event.target.value || 'newest';
-            applyProjectControls();
-        });
-
-        closeModalBtn.addEventListener('click', () => {
-            modal.classList.remove('active');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }, 300);
-        });
-
-        modal.addEventListener('click', (event) => {
-            if (event.target === modal) closeModalBtn.click();
-        });
-
-        window.PortfolioCommon?.initMobileMenu({ lockScroll: true, closeOnBackdrop: true });
-        window.PortfolioCommon?.initNavbarScroll({ selector: '#navbar', threshold: 20 });
-        window.PortfolioCommon?.initRevealObserver({ selector: '.premium-reveal', threshold: 0.1 });
-
-        loadProjects();
-    </script>
-
-    <!-- Cinematic slider JS -->
-    <script>
-    (function() {
-        const SLIDES = [
-            { id: 'inventory-analytics-dashboard', title: 'Inventory Analytics Dashboard', stack: 'Power BI · SQL · AppSheet', img: 'assets/projects/inventory-analytics-dashboard/cover.svg' },
-            { id: 'inventory-amino',               title: 'Inventory Amino',               stack: 'AppSheet · Google Sheets', img: 'assets/projects/Inventory Amino/Cover.png' },
-            { id: 'hanaihang',                     title: 'Hanaihang',                     stack: 'React · Node.js',          img: 'assets/projects/hanaihang/cover.png' },
-            { id: 'care-for-mom',                  title: 'Care for Mom',                  stack: 'Flutter · Firebase',       img: 'assets/projects/care-for-mom/Cover.png' },
-            { id: 'laundry-app',                   title: 'Laundry App',                   stack: 'Flutter · Dart',           img: 'assets/projects/LaundryApp_Project/Cover.png' },
-            { id: 'sentaiwatch',                   title: 'SentaiWatch DX',                stack: 'SwiftUI · watchOS',        img: 'assets/projects/sentaiwatch-dx/cover.png' },
-            { id: 'tonfern-pdf',                   title: 'Tonfern PDF',                   stack: 'JavaScript · HTML · CSS',  img: 'assets/projects/tonfern-pdf/cover.png' },
-            { id: 'expense-tracker',               title: 'Expense Tracker',               stack: 'JavaScript · LocalStorage',img: 'assets/projects/expense-tracker/cover.png' },
-            { id: 'slack-drive-bot',               title: 'Slack Drive Bot',               stack: 'Python · Slack API',       img: 'assets/projects/slack-drive-bot/cover.png' },
-            { id: 'chemical-cabinet-label-maker',  title: 'Chem Label Maker',              stack: 'JavaScript · PDF.js',      img: 'assets/projects/chemical-cabinet-label-maker/Cover.png' },
-            { id: 'guessing-game-quest',           title: 'Guessing Game Quest',           stack: 'JavaScript · Canvas',      img: 'assets/projects/guessing-game-quest/Cover.png' },
-        ];
-
-        const N = SLIDES.length;
-        let cur = 0, busy = false;
-
-        const imgL = document.getElementById('cin-img-left');
-        const imgC = document.getElementById('cin-img-center');
-        const imgR = document.getElementById('cin-img-right');
-        const slotL = document.getElementById('cin-left');
-        const slotC = document.getElementById('cin-center');
-        const slotR = document.getElementById('cin-right');
-        const titleEl   = document.getElementById('cin-title');
-        const stackEl   = document.getElementById('cin-stack');
-        const centerTitleEl = document.getElementById('cin-center-title');
-        const centerStackEl = document.getElementById('cin-center-stack');
-        const counterEl = document.getElementById('cin-counter');
-        const dotsEl    = document.getElementById('cin-dots');
-        const progressEl= document.getElementById('cin-progress');
-
-        function idx(n) { return ((n % N) + N) % N; }
-
-        // Build dots
-        SLIDES.forEach((_, i) => {
-            const d = document.createElement('span');
-            d.className = 'cin-dot' + (i === 0 ? ' active' : '');
-            d.addEventListener('click', () => goTo(i));
-            dotsEl.appendChild(d);
-        });
-
-        function updateDots() {
-            dotsEl.querySelectorAll('.cin-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
-        }
-
-        function setImages(c) {
-            imgL.src = SLIDES[idx(c - 1)].img;  imgL.alt = SLIDES[idx(c - 1)].title;
-            imgC.src = SLIDES[idx(c)].img;       imgC.alt = SLIDES[idx(c)].title;
-            imgR.src = SLIDES[idx(c + 1)].img;   imgR.alt = SLIDES[idx(c + 1)].title;
-        }
-
-        function updateMeta(c, instant) {
-            const s = SLIDES[idx(c)];
-            const animate = (el, val) => {
-                if (instant) { el.textContent = val; el.style.opacity = 1; return; }
-                el.style.transition = 'opacity .2s, transform .2s';
-                el.style.opacity = 0; el.style.transform = 'translateY(6px)';
+            closeModalBtn.addEventListener("click", () => {
+                modal.classList.remove("active");
                 setTimeout(() => {
-                    el.textContent = val;
-                    el.style.opacity = 1; el.style.transform = 'translateY(0)';
-                }, 180);
-            };
-            animate(titleEl, s.title);
-            animate(stackEl, s.stack);
-            animate(centerTitleEl, s.title);
-            animate(centerStackEl, s.stack);
-            animate(counterEl, String(idx(c) + 1).padStart(2, '0') + ' / ' + String(N).padStart(2, '0'));
-            progressEl.style.width = ((idx(c) + 1) / N * 100) + '%';
-            updateDots();
-        }
+                    modal.classList.add("hidden");
+                    document.body.style.overflow = "auto";
+                }, 300);
+            });
 
-        function goTo(next, dir) {
-            if (busy || next === cur) return;
-            busy = true;
+            modal.addEventListener("click", (event) => {
+                if (event.target === modal) closeModalBtn.click();
+            });
 
-            const prev = cur;
-            cur = idx(next);
+            window.PortfolioCommon?.initMobileMenu({
+                lockScroll: true,
+                closeOnBackdrop: true,
+            });
+            window.PortfolioCommon?.initNavbarScroll({
+                selector: "#navbar",
+                threshold: 20,
+            });
+            window.PortfolioCommon?.initRevealObserver({
+                selector: ".premium-reveal",
+                threshold: 0.1,
+            });
 
-            // fade out sides
-            [slotL, slotR].forEach(s => { s.style.transition = 'opacity .3s'; s.style.opacity = 0; });
+            loadProjects();
+        </script>
 
-            // slide center out
-            imgC.style.transition = 'opacity .35s, transform .35s cubic-bezier(0.4,0,0.2,1)';
-            imgC.style.opacity = 0;
-            imgC.style.transform = dir > 0 ? 'translateX(-24px)' : 'translateX(24px)';
+        <!-- Cinematic slider JS -->
+        <script>
+            (function () {
+                const SLIDES = [
+                    {
+                        id: "inventory-analytics-dashboard",
+                        title: "Inventory Analytics Dashboard",
+                        stack: "Power BI · SQL · AppSheet",
+                        img: "assets/projects/inventory-analytics-dashboard/cover.svg",
+                    },
+                    {
+                        id: "inventory-amino",
+                        title: "Inventory Amino",
+                        stack: "AppSheet · Google Sheets",
+                        img: "assets/projects/Inventory Amino/Cover.png",
+                    },
+                    {
+                        id: "hanaihang",
+                        title: "Hanaihang",
+                        stack: "React · Node.js",
+                        img: "assets/projects/hanaihang/cover.png",
+                    },
+                    {
+                        id: "care-for-mom",
+                        title: "Care for Mom",
+                        stack: "Flutter · Firebase",
+                        img: "assets/projects/care-for-mom/Cover.png",
+                    },
+                    {
+                        id: "laundry-app",
+                        title: "Laundry App",
+                        stack: "Flutter · Dart",
+                        img: "assets/projects/LaundryApp_Project/Cover.png",
+                    },
+                    {
+                        id: "sentaiwatch",
+                        title: "SentaiWatch DX",
+                        stack: "SwiftUI · watchOS",
+                        img: "assets/projects/sentaiwatch-dx/cover.png",
+                    },
+                    {
+                        id: "tonfern-pdf",
+                        title: "Tonfern PDF",
+                        stack: "JavaScript · HTML · CSS",
+                        img: "assets/projects/tonfern-pdf/cover.png",
+                    },
+                    {
+                        id: "expense-tracker",
+                        title: "Expense Tracker",
+                        stack: "JavaScript · LocalStorage",
+                        img: "assets/projects/expense-tracker/cover.png",
+                    },
+                    {
+                        id: "slack-drive-bot",
+                        title: "Slack Drive Bot",
+                        stack: "Python · Slack API",
+                        img: "assets/projects/slack-drive-bot/cover.png",
+                    },
+                    {
+                        id: "chemical-cabinet-label-maker",
+                        title: "Chem Label Maker",
+                        stack: "JavaScript · PDF.js",
+                        img: "assets/projects/chemical-cabinet-label-maker/Cover.png",
+                    },
+                    {
+                        id: "guessing-game-quest",
+                        title: "Guessing Game Quest",
+                        stack: "JavaScript · Canvas",
+                        img: "assets/projects/guessing-game-quest/Cover.png",
+                    },
+                ];
 
-            setTimeout(() => {
-                setImages(cur);
-                updateMeta(cur);
-
-                // slide center in
-                imgC.style.transition = 'none';
-                imgC.style.transform = dir > 0 ? 'translateX(24px)' : 'translateX(-24px)';
-                imgC.style.opacity = 0;
-
-                requestAnimationFrame(() => requestAnimationFrame(() => {
-                    imgC.style.transition = 'opacity .55s, transform .55s cubic-bezier(0.22,1,0.36,1)';
-                    imgC.style.opacity = 1;
-                    imgC.style.transform = 'translateX(0)';
-                }));
-
-                // fade in sides
-                setTimeout(() => {
-                    [slotL, slotR].forEach(s => { s.style.opacity = ''; });
+                const N = SLIDES.length;
+                let cur = 0,
                     busy = false;
-                }, 200);
-            }, 320);
-        }
 
-        function next() { goTo(cur + 1, 1); }
-        function prev() { goTo(cur - 1, -1); }
+                const imgL = document.getElementById("cin-img-left");
+                const imgC = document.getElementById("cin-img-center");
+                const imgR = document.getElementById("cin-img-right");
+                const slotL = document.getElementById("cin-left");
+                const slotC = document.getElementById("cin-center");
+                const slotR = document.getElementById("cin-right");
+                const titleEl = document.getElementById("cin-title");
+                const stackEl = document.getElementById("cin-stack");
+                const centerTitleEl =
+                    document.getElementById("cin-center-title");
+                const centerStackEl =
+                    document.getElementById("cin-center-stack");
+                const counterEl = document.getElementById("cin-counter");
+                const dotsEl = document.getElementById("cin-dots");
+                const progressEl = document.getElementById("cin-progress");
 
-        // Click center → open modal
-        slotC.style.cursor = 'pointer';
-        slotC.addEventListener('click', () => {
-            if (busy) return;
-            const slideId = SLIDES[idx(cur)]?.id;
-            if (slideId) openModal(slideId);
-        });
+                function idx(n) {
+                    return ((n % N) + N) % N;
+                }
 
-        // Click side previews → navigate
-        slotL.style.cursor = 'pointer';
-        slotR.style.cursor = 'pointer';
-        slotL.addEventListener('click', prev);
-        slotR.addEventListener('click', next);
+                // Build dots
+                SLIDES.forEach((_, i) => {
+                    const d = document.createElement("span");
+                    d.className = "cin-dot" + (i === 0 ? " active" : "");
+                    d.addEventListener("click", () => goTo(i));
+                    dotsEl.appendChild(d);
+                });
 
-        document.getElementById('cin-prev').addEventListener('click', prev);
-        document.getElementById('cin-next').addEventListener('click', next);
+                function updateDots() {
+                    dotsEl
+                        .querySelectorAll(".cin-dot")
+                        .forEach((d, i) =>
+                            d.classList.toggle("active", i === cur),
+                        );
+                }
 
-        document.addEventListener('keydown', e => {
-            if (document.getElementById('project-modal')?.classList.contains('active')) return;
-            if (e.key === 'ArrowRight') next();
-            if (e.key === 'ArrowLeft')  prev();
-        });
+                function setImages(c) {
+                    imgL.src = SLIDES[idx(c - 1)].img;
+                    imgL.alt = SLIDES[idx(c - 1)].title;
+                    imgC.src = SLIDES[idx(c)].img;
+                    imgC.alt = SLIDES[idx(c)].title;
+                    imgR.src = SLIDES[idx(c + 1)].img;
+                    imgR.alt = SLIDES[idx(c + 1)].title;
+                }
 
-        // Init
-        setImages(0);
-        updateMeta(0, true);
-    })();
-    </script>
+                function updateMeta(c, instant) {
+                    const s = SLIDES[idx(c)];
+                    const animate = (el, val) => {
+                        if (instant) {
+                            el.textContent = val;
+                            el.style.opacity = 1;
+                            return;
+                        }
+                        el.style.transition = "opacity .2s, transform .2s";
+                        el.style.opacity = 0;
+                        el.style.transform = "translateY(6px)";
+                        setTimeout(() => {
+                            el.textContent = val;
+                            el.style.opacity = 1;
+                            el.style.transform = "translateY(0)";
+                        }, 180);
+                    };
+                    animate(titleEl, s.title);
+                    animate(stackEl, s.stack);
+                    animate(centerTitleEl, s.title);
+                    animate(centerStackEl, s.stack);
+                    animate(
+                        counterEl,
+                        String(idx(c) + 1).padStart(2, "0") +
+                            " / " +
+                            String(N).padStart(2, "0"),
+                    );
+                    progressEl.style.width = ((idx(c) + 1) / N) * 100 + "%";
+                    updateDots();
+                }
 
-    <!-- Page entrance: curtain with PROJECTS — split wipe reveal + dissolve exit -->
-    <script>
-    (function() {
-        if (typeof gsap === 'undefined') return;
+                function goTo(next, dir) {
+                    if (busy || next === cur) return;
+                    busy = true;
 
-        // Curtain
-        const curtain = document.createElement('div');
-        curtain.style.cssText = 'position:fixed;inset:0;z-index:99999;background:#c8d5c3;display:flex;align-items:center;justify-content:center;overflow:hidden;';
+                    const prev = cur;
+                    cur = idx(next);
 
-        // Text
-        const txt = document.createElement('div');
-        txt.style.cssText = 'font-family:"Space Grotesk",sans-serif;font-size:clamp(4rem,15vw,13rem);font-weight:800;letter-spacing:-0.04em;text-transform:uppercase;color:#1a2e1a;font-kerning:none;white-space:nowrap;line-height:1;';
-        txt.textContent = 'PROJECTS';
-        curtain.appendChild(txt);
-        document.body.prepend(curtain);
-        document.body.classList.add('page-ready');
+                    // fade out sides
+                    [slotL, slotR].forEach((s) => {
+                        s.style.transition = "opacity .3s";
+                        s.style.opacity = 0;
+                    });
 
-        // Split chars
-        const word = txt.textContent;
-        txt.innerHTML = word.split('').map(c =>
-            `<span style="display:inline-block;transform-origin:center center;will-change:transform,opacity,filter;">${c}</span>`
-        ).join('');
-        const chars = Array.from(txt.querySelectorAll('span'));
+                    // slide center out
+                    imgC.style.transition =
+                        "opacity .35s, transform .35s cubic-bezier(0.4,0,0.2,1)";
+                    imgC.style.opacity = 0;
+                    imgC.style.transform =
+                        dir > 0 ? "translateX(-24px)" : "translateX(24px)";
 
-        const tl = gsap.timeline({ delay: 0.1 });
+                    setTimeout(() => {
+                        setImages(cur);
+                        updateMeta(cur);
 
-        // 1. Each char clip reveals from bottom (stagger)
-        gsap.set(chars, { clipPath: 'inset(100% 0 0 0)', opacity: 1 });
-        tl.to(chars, {
-            clipPath: 'inset(0% 0 0 0)',
-            duration: 1,
-            stagger: 0.06,
-            ease: 'power3.out',
-        });
+                        // slide center in
+                        imgC.style.transition = "none";
+                        imgC.style.transform =
+                            dir > 0 ? "translateX(24px)" : "translateX(-24px)";
+                        imgC.style.opacity = 0;
 
-        // 2. Hold
-        tl.to({}, { duration: 0.6 });
+                        requestAnimationFrame(() =>
+                            requestAnimationFrame(() => {
+                                imgC.style.transition =
+                                    "opacity .55s, transform .55s cubic-bezier(0.22,1,0.36,1)";
+                                imgC.style.opacity = 1;
+                                imgC.style.transform = "translateX(0)";
+                            }),
+                        );
 
-        // 3. Each char dissolves out — blur + scale up + fade
-        tl.to(chars, {
-            filter: 'blur(14px)',
-            scale: 1.2,
-            opacity: 0,
-            duration: 1,
-            stagger: { each: 0.05, from: 'center' },
-            ease: 'power2.in',
-        });
+                        // fade in sides
+                        setTimeout(() => {
+                            [slotL, slotR].forEach((s) => {
+                                s.style.opacity = "";
+                            });
+                            busy = false;
+                        }, 200);
+                    }, 320);
+                }
 
-        // 4. Curtain fades
-        tl.to(curtain, {
-            opacity: 0,
-            duration: 0.5,
-            ease: 'power2.inOut',
-            onComplete: () => curtain.remove(),
-        }, '-=0.3');
-    })();
-    </script>
-</body>
+                function next() {
+                    goTo(cur + 1, 1);
+                }
+                function prev() {
+                    goTo(cur - 1, -1);
+                }
 
+                // Click center → open modal
+                slotC.style.cursor = "pointer";
+                slotC.addEventListener("click", () => {
+                    if (busy) return;
+                    const slideId = SLIDES[idx(cur)]?.id;
+                    if (slideId) openModal(slideId);
+                });
+
+                // Click side previews → navigate
+                slotL.style.cursor = "pointer";
+                slotR.style.cursor = "pointer";
+                slotL.addEventListener("click", prev);
+                slotR.addEventListener("click", next);
+
+                document
+                    .getElementById("cin-prev")
+                    .addEventListener("click", prev);
+                document
+                    .getElementById("cin-next")
+                    .addEventListener("click", next);
+
+                document.addEventListener("keydown", (e) => {
+                    if (
+                        document
+                            .getElementById("project-modal")
+                            ?.classList.contains("active")
+                    )
+                        return;
+                    if (e.key === "ArrowRight") next();
+                    if (e.key === "ArrowLeft") prev();
+                });
+
+                // Init
+                setImages(0);
+                updateMeta(0, true);
+            })();
+        </script>
+
+        <!-- Page entrance: curtain with PROJECTS — split wipe reveal + dissolve exit -->
+        <script>
+            (function () {
+                if (typeof gsap === "undefined") return;
+
+                // Curtain
+                const curtain = document.createElement("div");
+                curtain.style.cssText =
+                    "position:fixed;inset:0;z-index:99999;background:#c8d5c3;display:flex;align-items:center;justify-content:center;overflow:hidden;";
+
+                // Text
+                const txt = document.createElement("div");
+                txt.style.cssText =
+                    'font-family:"Space Grotesk",sans-serif;font-size:clamp(4rem,15vw,13rem);font-weight:800;letter-spacing:-0.04em;text-transform:uppercase;color:#1a2e1a;font-kerning:none;white-space:nowrap;line-height:1;';
+                txt.textContent = "PROJECTS";
+                curtain.appendChild(txt);
+                document.body.prepend(curtain);
+                document.body.classList.add("page-ready");
+
+                // Split chars
+                const word = txt.textContent;
+                txt.innerHTML = word
+                    .split("")
+                    .map(
+                        (c) =>
+                            `<span style="display:inline-block;transform-origin:center center;will-change:transform,opacity,filter;">${c}</span>`,
+                    )
+                    .join("");
+                const chars = Array.from(txt.querySelectorAll("span"));
+
+                const tl = gsap.timeline({ delay: 0.1 });
+
+                // 1. Each char clip reveals from bottom (stagger)
+                gsap.set(chars, { clipPath: "inset(100% 0 0 0)", opacity: 1 });
+                tl.to(chars, {
+                    clipPath: "inset(0% 0 0 0)",
+                    duration: 1,
+                    stagger: 0.06,
+                    ease: "power3.out",
+                });
+
+                // 2. Hold
+                tl.to({}, { duration: 0.6 });
+
+                // 3. Each char dissolves out — blur + scale up + fade
+                tl.to(chars, {
+                    filter: "blur(14px)",
+                    scale: 1.2,
+                    opacity: 0,
+                    duration: 1,
+                    stagger: { each: 0.05, from: "center" },
+                    ease: "power2.in",
+                });
+
+                // 4. Curtain fades — hero reveal fires as curtain starts to fade
+                tl.to(
+                    curtain,
+                    {
+                        opacity: 0,
+                        duration: 0.5,
+                        ease: "power2.inOut",
+                        onStart: () =>
+                            window.PortfolioAnimations?.triggerHeroReveal?.(),
+                        onComplete: () => curtain.remove(),
+                    },
+                    "-=0.3",
+                );
+            })();
+        </script>
+    </body>
 </html>
