@@ -21,6 +21,27 @@
     "featured": true
   },
   {
+    "id": "datarockie-data-science-bootcamp-2025",
+    "title": "Mini Bootcamp 2025",
+    "issuer": "DataRockie School",
+    "issued": "2026-05-03",
+    "category": "Data",
+    "credentialId": "cert_6h3y53j0",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/datarockie-data-science-bootcamp-2025.png",
+      "alt": "Mini Bootcamp 2025 certificate by DataRockie School"
+    },
+    "skills": [
+      "Data Analysis",
+      "Python",
+      "SQL",
+      "Statistics",
+      "Data Visualization"
+    ],
+    "featured": true
+  },
+  {
     "id": "mini-data-science-bootcamp-datarockie",
     "title": "Mini Data Science Bootcamp",
     "issuer": "DataRockie School",
@@ -156,21 +177,6 @@
     "featured": true
   },
   {
-    "id": "datarockie-data-science-bootcamp-2025",
-    "title": "Data Science Bootcamp 2025",
-    "issuer": "DataRockie",
-    "issued": "2025-10-10",
-    "category": "Data",
-    "credentialId": "DRK-DSB-2025",
-    "credentialUrl": "",
-    "image": {
-      "src": "./assets/certificates/datarockie-data-science-bootcamp-2025.png",
-      "alt": "Data Science Bootcamp 2025 certificate"
-    },
-    "skills": ["Python", "SQL", "Statistics"],
-    "featured": true
-  },
-  {
     "id": "chatgpt-for-developers",
     "title": "ChatGPT for Developers",
     "issuer": "OpenAI Learning",
@@ -239,8 +245,8 @@
     "credentialId": "QCI-GLP-GMP-2024",
     "credentialUrl": "",
     "image": {
-      "src": "./assets/certificates/glp-gmp-quality-systems.png",
-      "alt": "GLP and GMP Quality Systems certificate"
+      "src": "./assets/certificates/glp-gmp-quality-systems.svg",
+      "alt": "GLP and GMP Quality Systems certificate placeholder"
     },
     "skills": ["Quality Systems", "Compliance", "SOP"],
     "featured": false
@@ -254,8 +260,8 @@
     "credentialId": "GFD-FIREBASE-2024",
     "credentialUrl": "",
     "image": {
-      "src": "./assets/certificates/firebase-for-web-apps.png",
-      "alt": "Firebase for Modern Web Apps certificate"
+      "src": "./assets/certificates/firebase-for-web-apps.svg",
+      "alt": "Firebase for Modern Web Apps certificate placeholder"
     },
     "skills": ["Firebase", "Authentication", "Realtime Database"],
     "featured": false
@@ -269,8 +275,8 @@
     "credentialId": "MSL-PBI-2024",
     "credentialUrl": "",
     "image": {
-      "src": "./assets/certificates/power-bi-dashboard-design.png",
-      "alt": "Power BI Dashboard Design certificate"
+      "src": "./assets/certificates/power-bi-dashboard-design.svg",
+      "alt": "Power BI Dashboard Design certificate placeholder"
     },
     "skills": ["Power BI", "Data Visualization", "Business Reporting"],
     "featured": false
