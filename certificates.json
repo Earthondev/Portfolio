@@ -1,5 +1,26 @@
 [
   {
+    "id": "mini-bootcamp-2024-datarockie",
+    "title": "Mini Bootcamp 2024",
+    "issuer": "DataRockie School",
+    "issued": "2026-05-03",
+    "category": "Data",
+    "credentialId": "cert_5sg6bqqq",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/mini-data-science-bootcamp-datarockie-2024.png",
+      "alt": "Mini Bootcamp 2024 certificate by DataRockie School"
+    },
+    "skills": [
+      "Data Analysis",
+      "Python",
+      "SQL",
+      "Statistics",
+      "Data Visualization"
+    ],
+    "featured": true
+  },
+  {
     "id": "mini-data-science-bootcamp-datarockie",
     "title": "Mini Data Science Bootcamp",
     "issuer": "DataRockie School",
