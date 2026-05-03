@@ -8,7 +8,7 @@
 
 | สิ่งที่แก้ | ผลลัพธ์ |
 |---|---|
-| เพิ่มชื่อไทย "ณัฐภัทร วรกุล" ในทุกหน้า | Google อ่านชื่อไทยได้แล้ว |
+| เพิ่มชื่อไทย "ณัฐภาส วรคันธ์" ในทุกหน้า | Google อ่านชื่อไทยได้แล้ว |
 | Schema.org `Person` บน index.html | Google รู้ว่า portfolio นี้เป็นของใคร |
 | `keywords` meta ทุกหน้า | ครอบคลุม Bing/Yahoo |
 | `BreadcrumbList` schema ทุก sub-page | Google แสดง breadcrumb ใน search results |
@@ -72,7 +72,7 @@
 | **วันที่ submit sitemap** | Google เริ่ม crawl เว็บ |
 | **1-3 วัน** | หน้า index.html ถูก index |
 | **1-2 สัปดาห์** | ค้นหา "Nattapart Worakun" → เจอเว็บ |
-| **2-4 สัปดาห์** | ค้นหา "ณัฐภัทร วรกุล" → เจอเว็บ |
+| **2-4 สัปดาห์** | ค้นหา "ณัฐภาส วรคันธ์" → เจอเว็บ |
 | **1-2 เดือน** | ค้นหา "data analyst portfolio Bangkok" → เจอเว็บ |
 | **2-3 เดือน** | เริ่มขึ้น Google Knowledge Panel |
 
@@ -83,8 +83,8 @@
 | คำค้นหา | โอกาสติดหน้า 1 |
 |---|---|
 | `Nattapart Worakun` | ⭐⭐⭐⭐⭐ (ชื่อเฉพาะ) |
-| `ณัฐภัทร วรกุล` | ⭐⭐⭐⭐⭐ (ชื่อไทยเฉพาะ) |
-| `ณัฐภัทร data analyst` | ⭐⭐⭐⭐ |
+| `ณัฐภาส วรคันธ์` | ⭐⭐⭐⭐⭐ (ชื่อไทยเฉพาะ) |
+| `ณัฐภาส data analyst` | ⭐⭐⭐⭐ |
 | `earthondev` | ⭐⭐⭐⭐⭐ (username เฉพาะ) |
 | `Nattapart data analyst Bangkok` | ⭐⭐⭐⭐ |
 | `data analyst portfolio Bangkok` | ⭐⭐ (แข่งขันสูง) |

@@ -6,7 +6,7 @@
 
 ## 📋 ภาพรวมของ Project
 
-เว็บไซต์ Portfolio ส่วนตัวของ **Nattapart Worakun (ณัฐภัทร วรกุล)** — Data Analyst & BI Developer ที่มีพื้นฐานจากสายเคมี แล้วเปลี่ยนมาสาย Tech
+เว็บไซต์ Portfolio ส่วนตัวของ **Nattapart Worakun (ณัฐภาส วรคันธ์)** — Data Analyst & BI Developer ที่มีพื้นฐานจากสายเคมี แล้วเปลี่ยนมาสาย Tech
 
 ### จุดประสงค์
 - แสดงผลงาน projects ทั้งหมด (Web App, Mobile App, Automation, watchOS)
