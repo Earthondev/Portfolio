@@ -24,7 +24,7 @@ I am a chemist who evolved into a tech enthusiast. Starting from optimizing lab 
 
 | Category | Tools |
 | :--- | :--- |
-| **Frontend** | HTML5, Tailwind CSS (CDN), Vanilla JavaScript (ES6+) |
+| **Frontend** | HTML5, Tailwind CSS CLI, Vanilla JavaScript (ES6+) |
 | **Animation** | GSAP 3.12, Lenis (smooth scroll), custom CSS keyframes |
 | **Design** | Pastel curtain transitions, split-text hover effects, glassmorphism cards |
 | **Performance** | Lazy loading, `preconnect` hints, Service Worker (PWA), compressed images |
@@ -61,7 +61,7 @@ Each page features a unique cinematic entrance:
 
 ---
 
-## 🏅 Certificates (20)
+## 🏅 Certificates (21)
 
 Credentials grouped by focus area — Data, Automation, QA/Governance, Security, Cloud, and Education.  
 Full list: [earthondev.github.io/Portfolio/certificates.html](https://earthondev.github.io/Portfolio/certificates.html)
@@ -85,7 +85,7 @@ Portfolio/
 ├── style.css                           # Design tokens & global styles
 ├── cache-bust.js                       # Cache busting helper
 ├── sw.js                               # Service Worker (PWA)
-├── certificates.json                   # Certificates data (20 entries)
+├── certificates.json                   # Certificates data (21 entries)
 ├── projects.json                       # Projects data (9 entries)
 ├── sitemap.xml                         # SEO sitemap
 ├── assets/
@@ -98,7 +98,7 @@ Portfolio/
 │   │   ├── animations.js               # GSAP/CSS animation helpers
 │   │   ├── common.js                   # Shared nav/scroll/mobile-menu helpers
 │   │   └── inventory-analytics-dashboard.js
-│   └── vendor/                         # Tailwind play CDN (local)
+│   └── css/                            # Tailwind input and generated CSS
 └── .github/                            # GitHub Actions
 ```
 

@@ -67,24 +67,11 @@
         </title>
 
         <!-- Tailwind CSS -->
-        <script src="./assets/vendor/tailwind-play-cdn.js"></script>
+        <link rel="stylesheet" href="./assets/css/tailwind-built.css" />
         <script src="assets/js/common.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
         <script src="assets/js/animations.js"></script>
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        fontFamily: {
-                            heading: ["Space Grotesk", "sans-serif"],
-                            body: ["Sarabun", "sans-serif"],
-                            mono: ["JetBrains Mono", "monospace"],
-                        },
-                    },
-                },
-            };
-        </script>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1136,6 +1123,7 @@
             let activeFilter = "all";
             let searchQuery = "";
             let sortMode = "newest";
+            const hasProjectGrid = Boolean(projectsGrid && emptyState);
             let currentGallery = [];
             let currentIndex = 0;
 
@@ -1315,6 +1303,13 @@
             }
 
             function renderProjectCards(projects) {
+                if (!hasProjectGrid) {
+                    if (resultCount) {
+                        resultCount.textContent = `Showing ${projects.length} project${projects.length === 1 ? "" : "s"}`;
+                    }
+                    return;
+                }
+
                 if (!projects.length) {
                     projectsGrid.innerHTML = "";
                     emptyState.style.display = "block";
@@ -1567,12 +1562,14 @@
                     );
                     applyProjectControls();
                 } catch (error) {
-                    projectsGrid.innerHTML = `<article class="project-card rounded-2xl p-8 text-center lg:col-span-3 border border-red-500/30 bg-red-500/10">
+                    if (projectsGrid) {
+                        projectsGrid.innerHTML = `<article class="project-card rounded-2xl p-8 text-center lg:col-span-3 border border-red-500/30 bg-red-500/10">
                     <h3 class="text-xl font-semibold text-red-200 mb-2">Unable to load projects</h3>
                     <p class="text-sm text-red-100/80">Please check <code>projects.json</code> format.</p>
                 </article>`;
-                    resultCount.textContent = "Showing 0 projects";
-                    emptyState.style.display = "none";
+                    }
+                    if (resultCount) resultCount.textContent = "Showing 0 projects";
+                    if (emptyState) emptyState.style.display = "none";
                     console.error(error);
                 }
             }

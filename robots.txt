@@ -5,7 +5,6 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 Disallow: /add-project.html
-Disallow: /assets/vendor/
 
 # Sitemaps
 Sitemap: https://earthondev.github.io/Portfolio/sitemap.xml

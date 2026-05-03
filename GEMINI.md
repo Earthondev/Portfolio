@@ -53,7 +53,7 @@ Portfolio/
 
 ### Frontend
 - **HTML5** — Semantic markup, SEO-optimized
-- **Tailwind CSS (CDN)** — ใช้ผ่าน `cdn.tailwindcss.com` พร้อม custom config inline
+- **Tailwind CSS CLI** — build เป็น static CSS ที่ `assets/css/tailwind-built.css`
 - **Vanilla JavaScript (ES6+)** — ไม่ใช้ framework ใดๆ
 - **Font Awesome 6.5** — Icons
 

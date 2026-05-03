@@ -63,6 +63,27 @@
     "featured": true
   },
   {
+    "id": "sql-crash-course-datarockie",
+    "title": "SQL Crash Course",
+    "issuer": "DataRockie School",
+    "issued": "2026-05-03",
+    "category": "Data",
+    "credentialId": "cert_nycgsh4w",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/sql-crash-course-datarockie.png",
+      "alt": "SQL Crash Course certificate by DataRockie School"
+    },
+    "skills": [
+      "SQL",
+      "Relational Databases",
+      "Data Querying",
+      "Data Analysis",
+      "Database Fundamentals"
+    ],
+    "featured": true
+  },
+  {
     "id": "mini-data-science-bootcamp-datarockie",
     "title": "Mini Data Science Bootcamp",
     "issuer": "DataRockie School",
