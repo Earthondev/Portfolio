@@ -95,5 +95,5 @@
 ## 📝 หมายเหตุเพิ่มเติม
 
 - **Google ไม่รับประกันอันดับ** — SEO ใช้เวลาและขึ้นกับหลายปัจจัย
-- **สำหรับชื่อสะกดผิด** เช่น "Nattpaart" หรือ "ณัฐภาส" — Google มี spell correction อยู่แล้ว ถ้าค้น "Nattpaart Worakun" Google จะถามว่า "หมายถึง Nattapart Worakun หรือเปล่า?"
+- **สำหรับชื่อสะกดผิด** — Google มี spell correction อยู่แล้ว ถ้าค้นชื่อใกล้เคียง Google อาจถามว่า "หมายถึง Nattapart Worakun หรือเปล่า?"
 - **Backlinks** ช่วยมาก — ถ้าแชร์เว็บในกลุ่ม tech, LinkedIn, หรือ GitHub จะช่วยให้ rank เร็วขึ้น
