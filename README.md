@@ -61,12 +61,12 @@ Each page features a unique cinematic entrance:
 
 ---
 
-## 🏅 Certificates (22)
+## 🏅 Certificates (24)
 
 Credentials grouped by focus area — Data, Automation, QA/Governance, Security, Cloud, and Education.  
 Full list: [earthondev.github.io/Portfolio/certificates.html](https://earthondev.github.io/Portfolio/certificates.html)
 
-Most recent: **Google Sheets Crash Course** — DataRockie School (2026-05-03)
+Most recent: **Introduction to Large Language Models** — Google Cloud Skills Boost (2026-05-03)
 
 ---
 
@@ -85,7 +85,7 @@ Portfolio/
 ├── style.css                           # Design tokens & global styles
 ├── cache-bust.js                       # Cache busting helper
 ├── sw.js                               # Service Worker (PWA)
-├── certificates.json                   # Certificates data (22 entries)
+├── certificates.json                   # Certificates data (24 entries)
 ├── projects.json                       # Projects data (9 entries)
 ├── sitemap.xml                         # SEO sitemap
 ├── assets/

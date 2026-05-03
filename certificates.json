@@ -21,6 +21,46 @@
     "featured": true
   },
   {
+    "id": "google-cloud-introduction-to-generative-ai",
+    "title": "Introduction to Generative AI",
+    "issuer": "Google Cloud Skills Boost",
+    "issued": "2026-05-03",
+    "category": "Automation",
+    "credentialId": "",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/google-cloud-introduction-to-generative-ai-badge.png",
+      "alt": "Introduction to Generative AI completion badge by Google Cloud"
+    },
+    "skills": [
+      "Generative AI",
+      "Google Cloud",
+      "AI Fundamentals",
+      "Machine Learning Concepts"
+    ],
+    "featured": true
+  },
+  {
+    "id": "google-cloud-introduction-to-large-language-models",
+    "title": "Introduction to Large Language Models",
+    "issuer": "Google Cloud Skills Boost",
+    "issued": "2026-05-03",
+    "category": "Automation",
+    "credentialId": "",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/google-cloud-introduction-to-large-language-models-badge.png",
+      "alt": "Introduction to Large Language Models completion badge by Google Cloud"
+    },
+    "skills": [
+      "Large Language Models",
+      "Generative AI",
+      "Google Cloud",
+      "AI Fundamentals"
+    ],
+    "featured": true
+  },
+  {
     "id": "mini-bootcamp-2024-datarockie",
     "title": "Mini Bootcamp 2024",
     "issuer": "DataRockie School",
