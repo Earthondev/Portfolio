@@ -1,6 +1,6 @@
-# Nattapart Worakun — Portfolio Website
+# ณัฐภาส วรคันธ์ (Nattapart Worakun) — Portfolio Website
 
-A modern, high-performance portfolio website showcasing my journey from Chemistry Lab to Automation, Data & QA. Built with **Vanilla HTML/CSS/JS**, animated with **GSAP**, and styled with a luxury **pastel + dark** aesthetic with cinematic page entrances.
+A modern, high-performance portfolio website for **ณัฐภาส วรคันธ์ (Nattapart Worakun)**, showcasing my journey from Chemistry Lab to Automation, Data & QA. Built with **Vanilla HTML/CSS/JS**, animated with **GSAP**, and styled with a luxury **pastel + dark** aesthetic with cinematic page entrances.
 
 ## 🚀 Live Demo
 **Website**: [https://earthondev.github.io/Portfolio/](https://earthondev.github.io/Portfolio/)
