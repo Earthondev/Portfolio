@@ -778,6 +778,18 @@ a:hover {
     box-shadow: var(--shadow-md) !important;
 }
 
+.hero-stat-card {
+    min-width: 0;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+}
+
+.hero-stat-title {
+    font-size: clamp(1.125rem, 1.4vw, 1.1875rem);
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
 .premium-reveal {
     opacity: 0;
     transform: translateY(22px) scale(0.98);
