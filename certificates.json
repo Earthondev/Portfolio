@@ -1,5 +1,26 @@
 [
   {
+    "id": "google-sheets-crash-course-datarockie",
+    "title": "Google Sheets Crash Course",
+    "issuer": "DataRockie School",
+    "issued": "2026-05-03",
+    "category": "Data",
+    "credentialId": "cert_lv1fjdxr",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/google-sheets-crash-course-datarockie.png",
+      "alt": "Google Sheets Crash Course certificate by DataRockie School"
+    },
+    "skills": [
+      "Google Sheets",
+      "Spreadsheet Analysis",
+      "Data Cleaning",
+      "Formulas",
+      "Data Visualization"
+    ],
+    "featured": true
+  },
+  {
     "id": "mini-bootcamp-2024-datarockie",
     "title": "Mini Bootcamp 2024",
     "issuer": "DataRockie School",
