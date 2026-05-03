@@ -63,6 +63,27 @@
     "featured": true
   },
   {
+    "id": "r-crash-course-datarockie",
+    "title": "R Crash Course",
+    "issuer": "DataRockie School",
+    "issued": "2026-05-03",
+    "category": "Data",
+    "credentialId": "cert_f7v1wthh",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/r-crash-course-datarockie.png",
+      "alt": "R Crash Course certificate by DataRockie School"
+    },
+    "skills": [
+      "R Programming",
+      "Data Analysis",
+      "Data Visualization",
+      "Statistics",
+      "RStudio"
+    ],
+    "featured": true
+  },
+  {
     "id": "sql-crash-course-datarockie",
     "title": "SQL Crash Course",
     "issuer": "DataRockie School",

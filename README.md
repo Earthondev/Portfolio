@@ -61,7 +61,7 @@ Each page features a unique cinematic entrance:
 
 ---
 
-## 🏅 Certificates (21)
+## 🏅 Certificates (22)
 
 Credentials grouped by focus area — Data, Automation, QA/Governance, Security, Cloud, and Education.  
 Full list: [earthondev.github.io/Portfolio/certificates.html](https://earthondev.github.io/Portfolio/certificates.html)
@@ -85,7 +85,7 @@ Portfolio/
 ├── style.css                           # Design tokens & global styles
 ├── cache-bust.js                       # Cache busting helper
 ├── sw.js                               # Service Worker (PWA)
-├── certificates.json                   # Certificates data (21 entries)
+├── certificates.json                   # Certificates data (22 entries)
 ├── projects.json                       # Projects data (9 entries)
 ├── sitemap.xml                         # SEO sitemap
 ├── assets/
