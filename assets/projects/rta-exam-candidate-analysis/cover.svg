@@ -1,0 +1,47 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" rx="40" fill="#F7F2EA"/>
+  <path d="M0 0H1600V1000H0V0Z" fill="url(#grid)" opacity="0.45"/>
+  <rect x="72" y="72" width="1456" height="856" rx="30" fill="#FFFDF8" stroke="#DDD2BF"/>
+  <rect x="112" y="112" width="1376" height="96" rx="18" fill="#244C38"/>
+  <text x="152" y="173" fill="#FFF7EA" font-family="Sarabun, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="3">PUBLIC DATA CASE STUDY</text>
+  <text x="1180" y="172" fill="#D6B16A" font-family="JetBrains Mono, monospace" font-size="24" font-weight="700">2026</text>
+  <text x="120" y="300" fill="#18231F" font-family="Sarabun, Arial, sans-serif" font-size="64" font-weight="800">RTA Exam Candidate</text>
+  <text x="120" y="376" fill="#244C38" font-family="Sarabun, Arial, sans-serif" font-size="64" font-weight="800">Structure Analysis</text>
+  <text x="120" y="430" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="24">Privacy-aware analysis from an official public announcement PDF</text>
+
+  <rect x="120" y="506" width="300" height="130" rx="18" fill="#F9F1E3" stroke="#E3D6C3"/>
+  <text x="150" y="550" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="20">Rows parsed</text>
+  <text x="150" y="606" fill="#244C38" font-family="Sarabun, Arial, sans-serif" font-size="46" font-weight="800">15,817</text>
+
+  <rect x="450" y="506" width="300" height="130" rx="18" fill="#F9F1E3" stroke="#E3D6C3"/>
+  <text x="480" y="550" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="20">ID checksum</text>
+  <text x="480" y="606" fill="#244C38" font-family="Sarabun, Arial, sans-serif" font-size="46" font-weight="800">100%</text>
+
+  <rect x="780" y="506" width="300" height="130" rx="18" fill="#F9F1E3" stroke="#E3D6C3"/>
+  <text x="810" y="550" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="20">Top prefix</text>
+  <text x="810" y="606" fill="#18231F" font-family="JetBrains Mono, monospace" font-size="42" font-weight="800">11037</text>
+
+  <rect x="1110" y="506" width="300" height="130" rx="18" fill="#F9F1E3" stroke="#E3D6C3"/>
+  <text x="1140" y="550" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="20">Mapped to</text>
+  <text x="1140" y="604" fill="#18231F" font-family="Sarabun, Arial, sans-serif" font-size="30" font-weight="800">ราชเทวี</text>
+
+  <rect x="120" y="704" width="640" height="154" rx="22" fill="#FFFFFF" stroke="#DDD2BF"/>
+  <text x="152" y="754" fill="#18231F" font-family="Sarabun, Arial, sans-serif" font-size="28" font-weight="800">Method</text>
+  <text x="152" y="800" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="22">PDF parsing • data cleaning • checksum validation • R-Code mapping</text>
+  <text x="152" y="836" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="22">Aggregate reporting with masked personally identifiable information</text>
+
+  <rect x="812" y="704" width="596" height="154" rx="22" fill="#FFFFFF" stroke="#DDD2BF"/>
+  <text x="844" y="754" fill="#18231F" font-family="Sarabun, Arial, sans-serif" font-size="28" font-weight="800">Outcome</text>
+  <rect x="844" y="790" width="492" height="18" rx="9" fill="#EDE4D6"/>
+  <rect x="844" y="790" width="249" height="18" rx="9" fill="#244C38"/>
+  <rect x="844" y="826" width="492" height="18" rx="9" fill="#EDE4D6"/>
+  <rect x="844" y="826" width="244" height="18" rx="9" fill="#9A6D2F"/>
+  <text x="1350" y="810" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="18">50.5%</text>
+  <text x="1350" y="846" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="18">49.5%</text>
+
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" stroke="#D9CDBA" stroke-width="1"/>
+    </pattern>
+  </defs>
+</svg>

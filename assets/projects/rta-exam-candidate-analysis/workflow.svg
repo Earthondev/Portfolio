@@ -1,0 +1,42 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" rx="40" fill="#FFFDF8"/>
+  <rect x="70" y="70" width="1460" height="760" rx="28" fill="#F7F2EA" stroke="#DDD2BF"/>
+  <text x="120" y="150" fill="#18231F" font-family="Sarabun, Arial, sans-serif" font-size="48" font-weight="800">Analysis Workflow</text>
+  <text x="120" y="198" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="24">From public PDF to privacy-aware dashboard</text>
+
+  <rect x="120" y="292" width="286" height="220" rx="22" fill="#FFFFFF" stroke="#DCD2C1"/>
+  <text x="154" y="350" fill="#9A6D2F" font-family="Sarabun, Arial, sans-serif" font-size="23" font-weight="800">1. Collect</text>
+  <text x="154" y="402" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="20">Official announcement PDF</text>
+  <text x="154" y="438" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="20">Candidate list</text>
+  <text x="154" y="474" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="20">BORA R-Code source</text>
+
+  <path d="M432 402H502" stroke="#244C38" stroke-width="6" stroke-linecap="round"/>
+  <path d="M480 376L512 402L480 428" stroke="#244C38" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="532" y="292" width="286" height="220" rx="22" fill="#FFFFFF" stroke="#DCD2C1"/>
+  <text x="566" y="350" fill="#244C38" font-family="Sarabun, Arial, sans-serif" font-size="23" font-weight="800">2. Parse</text>
+  <text x="566" y="402" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="20">Extract row patterns</text>
+  <text x="566" y="438" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="20">Seat number + ID + venue</text>
+  <text x="566" y="474" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="20">Normalize venue strings</text>
+
+  <path d="M844 402H914" stroke="#244C38" stroke-width="6" stroke-linecap="round"/>
+  <path d="M892 376L924 402L892 428" stroke="#244C38" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="944" y="292" width="286" height="220" rx="22" fill="#FFFFFF" stroke="#DCD2C1"/>
+  <text x="978" y="350" fill="#244C38" font-family="Sarabun, Arial, sans-serif" font-size="23" font-weight="800">3. Validate</text>
+  <text x="978" y="402" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="20">13-digit checksum</text>
+  <text x="978" y="438" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="20">Seat sequence check</text>
+  <text x="978" y="474" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="20">Mask personal IDs</text>
+
+  <path d="M1256 402H1326" stroke="#244C38" stroke-width="6" stroke-linecap="round"/>
+  <path d="M1304 376L1336 402L1304 428" stroke="#244C38" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="1356" y="292" width="124" height="220" rx="22" fill="#244C38"/>
+  <text x="1418" y="334" fill="#FFF7EA" font-family="Sarabun, Arial, sans-serif" font-size="22" font-weight="800" text-anchor="middle">4</text>
+  <text x="1418" y="392" fill="#FFF7EA" font-family="Sarabun, Arial, sans-serif" font-size="21" font-weight="800" text-anchor="middle">Insight</text>
+  <text x="1418" y="432" fill="#D8C99F" font-family="Sarabun, Arial, sans-serif" font-size="16" text-anchor="middle">Dashboard</text>
+
+  <rect x="240" y="612" width="1120" height="120" rx="26" fill="#FFFFFF" stroke="#DCD2C1"/>
+  <text x="290" y="664" fill="#18231F" font-family="Sarabun, Arial, sans-serif" font-size="28" font-weight="800">Final output</text>
+  <text x="290" y="708" fill="#607067" font-family="Sarabun, Arial, sans-serif" font-size="22">Venue distribution • Top prefixes • R-Code mapping • privacy-safe limitations</text>
+</svg>

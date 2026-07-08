@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard ผู้มีสิทธิ์สอบ ภาค ก ปริญญาตรี 2570</title>
+  <style>
+    :root {
+      --bg: #f3f5f7;
+      --surface: #ffffff;
+      --surface-2: #eef3ef;
+      --text: #142019;
+      --muted: #5b6a61;
+      --line: #d6ddd8;
+      --brand: #245c3a;
+      --brand-2: #3b8c5a;
+      --brand-3: #8fc2a0;
+      --warn: #8a4b08;
+      --warn-bg: #fff5e8;
+      --shadow: 0 10px 24px rgba(10, 31, 18, 0.08);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .hero, .panel, .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 24px;
+      display: grid;
+      gap: 16px;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 20px; }
+    h3 { font-size: 16px; }
+    .muted { color: var(--muted); }
+    .tiny { font-size: 12px; color: var(--muted); }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--brand);
+      border: 1px solid #d7e5db;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .hero-note {
+      padding: 12px 14px;
+      border-radius: var(--radius);
+      background: var(--warn-bg);
+      color: var(--warn);
+      border: 1px solid #f0dcc0;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .card {
+      padding: 16px;
+      min-height: 120px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .stat-value {
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: 0;
+      margin-bottom: 6px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .panel {
+      padding: 18px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .bar-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .bar-row {
+      display: grid;
+      gap: 6px;
+    }
+
+    .bar-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 14px;
+    }
+
+    .bar-track {
+      width: 100%;
+      height: 12px;
+      background: #e7ece8;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--brand), var(--brand-2));
+      border-radius: 999px;
+    }
+
+    .bar-fill.alt {
+      background: linear-gradient(90deg, #5671b8, #7b95db);
+    }
+
+    .bar-fill.soft {
+      background: linear-gradient(90deg, #7e9684, #9cb5a4);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px 8px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    th {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .source-list {
+      display: grid;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .source-list a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+
+    .source-list a:hover { text-decoration: underline; }
+
+    .donut-wrap {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .donut {
+      width: 180px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      position: relative;
+      background: conic-gradient(var(--brand) 0 var(--p1), var(--brand-3) var(--p1) 100%);
+    }
+
+    .donut::after {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      background: var(--surface);
+      border-radius: 50%;
+      border: 1px solid var(--line);
+    }
+
+    .donut-center {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      z-index: 1;
+      text-align: center;
+      padding: 32px;
+      font-weight: 800;
+      font-size: 22px;
+    }
+
+    .legend {
+      display: grid;
+      gap: 10px;
+    }
+
+    .legend-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .legend-name {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot.a { background: var(--brand); }
+    .dot.b { background: var(--brand-3); }
+
+    ul.clean {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    code {
+      background: #eef2ef;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 980px) {
+      .grid-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .layout, .two-col, .donut-wrap { grid-template-columns: 1fr; }
+      .donut { margin: 0 auto; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 14px; }
+      .grid-cards { grid-template-columns: 1fr; }
+      h1 { font-size: 22px; }
+      .stat-value { font-size: 26px; }
+      table { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-top">
+        <div>
+          <span class="tag">Dashboard วิเคราะห์เชิงโครงสร้าง</span>
+          <h1>ผู้มีสิทธิ์สอบ ภาค ก ระดับปริญญาตรี ปี 2570</h1>
+          <p class="muted">วิเคราะห์จากบัญชีรายชื่อผู้มีสิทธิ์สอบตัวจริงของกรมยุทธศึกษาทหารบก โดย mask เลขบัตรและแสดงผลเชิงภาพรวมเท่านั้น</p>
+        </div>
+        <div class="tiny">
+          แฟ้มรายชื่อ: <code>690707-ภาค ก-ผู้มีสิทธิ์สอบ-ปริญญาตรี.pdf</code><br />
+          ข้อมูลใน dashboard นี้ครอบคลุมเฉพาะชุด <strong>ปริญญาตรี</strong>
+        </div>
+      </div>
+      <div class="hero-note">
+        สิ่งที่สรุปได้จริงจากชุดข้อมูลนี้: จำนวนผู้เข้าสอบ, การกระจายสนามสอบ, ช่วงเลขที่นั่งสอบ, ความถูกต้องเชิงโครงสร้างของเลขบัตร, และรูปแบบ prefix ของเลขบัตรบางส่วน<br />
+        สิ่งที่สรุปไม่ได้จากไฟล์นี้เพียงอย่างเดียว: อายุ, เพศ, ชื่อ, จังหวัดปัจจุบัน, อาชีพ, หรือภูมิหลังรายบุคคล
+      </div>
+    </section>
+
+    <section class="grid-cards" id="cards"></section>
+
+    <section class="layout">
+      <div class="panel">
+        <div>
+          <h2>การกระจายสนามสอบ</h2>
+          <p class="muted">การจัดที่นั่งแบ่งเกือบสมดุลระหว่าง 2 สนาม และช่วงเลขที่นั่งต่อเนื่องไม่มีช่องว่าง</p>
+        </div>
+        <div class="donut-wrap">
+          <div class="donut" id="venueDonut">
+            <div class="donut-center" id="donutCenter"></div>
+          </div>
+          <div class="legend" id="venueLegend"></div>
+        </div>
+        <div class="bar-list" id="venueBars"></div>
+      </div>
+
+      <div class="panel">
+        <div>
+          <h2>Insight หลัก</h2>
+          <p class="muted">สรุปสิ่งที่เห็นจากข้อมูล โดยหลีกเลี่ยงการตีความเกินจากเอกสาร</p>
+        </div>
+        <ul class="clean" id="insights"></ul>
+      </div>
+    </section>
+
+    <section class="layout">
+      <div class="panel">
+        <div>
+          <h2>แปลความหมายเลข 11037</h2>
+          <p class="muted">ตัวอย่างการอ่าน prefix ที่พบมากที่สุดในชุดข้อมูลนี้</p>
+        </div>
+        <div class="two-col">
+          <div>
+            <h3>โครงสร้าง</h3>
+            <ul class="clean">
+              <li><code>1 | 1037 | xxxxxxx | xx | x</code></li>
+              <li><code>1</code> = ประเภทบุคคลตามโครงสร้างเลขบัตร</li>
+              <li><code>1037</code> = รหัสสำนักทะเบียน/หน่วยงานที่กำหนดเลข</li>
+              <li>เลขช่วงถัดไปเป็นเลขกลุ่มและลำดับภายในระบบทะเบียน</li>
+              <li>หลักสุดท้ายเป็น <code>check digit</code> สำหรับตรวจความถูกต้อง</li>
+            </ul>
+          </div>
+          <div>
+            <h3>แปลผลที่ยืนยันได้</h3>
+            <ul class="clean">
+              <li>เลขหลักแรก <code>1</code> อยู่ในกลุ่มคนสัญชาติไทยตามโครงสร้างเลขทะเบียนที่ใช้ทั่วไป</li>
+              <li><code>1037</code> สามารถเทียบได้กับ <strong>ท้องถิ่นเขตราชเทวี</strong> จากตาราง R-Code ของสำนักบริหารการทะเบียน</li>
+              <li>ตัวอย่างเทียบรหัสจากตารางเดียวกัน: <code>1020</code> = <strong>ท้องถิ่นเขตบางกอกน้อย</strong></li>
+              <li><code>11037</code> เป็น prefix ที่พบมากสุดในชุดนี้ จำนวน <strong>622 คน</strong> หรือ <strong>3.93%</strong></li>
+              <li>จึงบอกได้ว่าในผู้เข้าสอบปริญญาตรีมีการกระจุกตัวของผู้สมัครที่เลขขึ้นต้นสัมพันธ์กับสำนักทะเบียนกลุ่ม <strong>ราชเทวี</strong> ค่อนข้างชัด</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hero-note">
+          ข้อจำกัดที่ยังต้องระวัง: <strong>11037 ไม่ได้บอกอายุ ไม่ได้บอกเพศ และไม่ได้ยืนยันว่าเป็นที่อยู่ปัจจุบัน</strong> มันบอกได้เพียงความเชื่อมโยงกับรหัสสำนักทะเบียนตามตาราง R-Code
+        </div>
+      </div>
+
+      <div class="panel">
+        <div>
+          <h2>อะไรสรุปได้จริง</h2>
+          <p class="muted">แบ่งให้ชัดระหว่างข้อเท็จจริงจากข้อมูล กับข้อสรุปที่ยังทำไม่ได้</p>
+        </div>
+        <div class="two-col">
+          <div>
+            <h3>สรุปได้</h3>
+            <ul class="clean">
+              <li>จำนวนผู้มีสิทธิ์สอบในชุดนี้</li>
+              <li>สนามสอบและช่วงเลขที่นั่งสอบ</li>
+              <li>ความถูกต้องเชิงโครงสร้างของเลขบัตรจาก checksum</li>
+              <li>ความถี่ของเลขหลักแรกและ prefix บางกลุ่ม</li>
+              <li>การจัดข้อมูลเป็นบล็อกตามสนามสอบ</li>
+            </ul>
+          </div>
+          <div>
+            <h3>ยังสรุปไม่ได้</h3>
+            <ul class="clean">
+              <li>อายุหรือวันเดือนปีเกิด</li>
+              <li>เพศ</li>
+              <li>ชื่อ-นามสกุล</li>
+              <li>ภูมิลำเนาปัจจุบัน</li>
+              <li>การตี prefix เป็นจังหวัดแบบยืนยันได้</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout">
+      <div class="panel">
+        <div>
+          <h2>การกระจายเลขหลักแรกของบัตร</h2>
+          <p class="muted">ใช้เป็นสัญญาณเชิงโครงสร้างของการจัดประเภทเลขทะเบียนเท่านั้น ไม่ใช้แทนอายุหรือเพศ</p>
+        </div>
+        <div class="bar-list" id="digitBars"></div>
+      </div>
+
+      <div class="panel">
+        <div>
+          <h2>Top 15 prefix 5 หลักแรก</h2>
+          <p class="muted">แสดงการกระจุกตัวของเลขขึ้นต้นบางกลุ่ม โดยยังไม่ map เป็นจังหวัดเพื่อเลี่ยงการตีความเกินหลักฐาน</p>
+        </div>
+        <div class="bar-list" id="prefixBars"></div>
+      </div>
+    </section>
+
+    <section class="layout">
+      <div class="panel">
+        <div>
+          <h2>Top Prefix -> ชื่อสำนักทะเบียน</h2>
+          <p class="muted">เทียบ prefix 5 หลักจากชุดข้อมูลกับ R-Code 4 หลักของสำนักบริหารการทะเบียน</p>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Prefix</th>
+              <th>แยกโครงสร้าง</th>
+              <th>ชื่อสำนักทะเบียน</th>
+              <th>จำนวน</th>
+              <th>สัดส่วน</th>
+            </tr>
+          </thead>
+          <tbody id="prefixMapBody"></tbody>
+        </table>
+        <div class="tiny">วิธีอ่าน: ตัวอย่าง <code>11037</code> = <code>1</code> + <code>1037</code> โดย <code>1037</code> เทียบได้กับ <strong>ท้องถิ่นเขตราชเทวี</strong></div>
+      </div>
+
+      <div class="panel">
+        <div>
+          <h2>ตัวอย่างข้อมูลแบบ Mask</h2>
+          <p class="muted">แสดงบางรายการเท่าที่จำเป็นเพื่อยืนยันรูปแบบข้อมูล โดยไม่เปิดเลขบัตรเต็ม</p>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>เลขที่นั่งสอบ</th>
+              <th>เลขบัตร (mask)</th>
+              <th>สนามสอบ</th>
+            </tr>
+          </thead>
+          <tbody id="sampleBody"></tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <div>
+          <h2>วิธีอ่านข้อมูล</h2>
+          <p class="muted">จุดที่ควรใช้ระวังในการวิเคราะห์</p>
+        </div>
+        <ul class="clean">
+          <li>เลขบัตรประชาชน 13 หลักผ่าน <strong>checksum</strong> ครบทุกแถวในชุดข้อมูลนี้ จึงบอกได้ว่าไฟล์ค่อนข้างสะอาดในเชิงรูปแบบ</li>
+          <li>ไฟล์รายชื่อนี้ไม่บอกชื่อ, วันเกิด, เพศ หรือจังหวัดที่อยู่ปัจจุบัน จึงไม่ควรสรุป demographic ระดับบุคคล</li>
+          <li>เลขหลักแรกของบัตรสะท้อนประเภทการกำหนดเลขในทะเบียนราษฎรบางอย่าง แต่ไม่ใช่ตัวแทนอายุโดยตรง</li>
+          <li>prefix 5 หลักช่วยให้เห็นการกระจุกตัวเชิงโครงสร้างของเลข แต่ยังไม่ควรตีเป็นถิ่นกำเนิดโดยไม่มี mapping ทางการ</li>
+          <li>ถ้าต้องการลึกกว่านี้จริง ๆ ต้องมีชุดข้อมูลสมัครเดิมเพิ่ม เช่น วุฒิ, ตำแหน่งที่สมัคร, ภูมิลำเนา, หรือสาขาวิชา</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="layout">
+      <div class="panel">
+        <div>
+          <h2>แหล่งข้อมูล</h2>
+          <p class="muted">ลิงก์ต้นทางที่ใช้ประกอบ dashboard นี้</p>
+        </div>
+        <div class="source-list">
+          <a href="https://drive.google.com/file/d/1u3NcaewwD--O3okvqkCmkzbX0OmsvU98/view?usp=sharing" target="_blank" rel="noreferrer">บัญชีรายชื่อผู้มีสิทธิ์สอบ ภาค ก ระดับปริญญาตรี</a>
+          <a href="https://drive.google.com/file/d/1sYj3m_wsoD8oXXCG4Rv7U_07IgfpiZdx/view?usp=sharing" target="_blank" rel="noreferrer">คำแนะนำแนบท้ายประกาศผู้มีสิทธิ์สอบ</a>
+          <a href="https://recruitment.rta.mi.th/2026/07/08/news/%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B2%E0%B8%A8%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%A1%E0%B8%B5%E0%B8%AA%E0%B8%B4%E0%B8%97%E0%B8%98%E0%B8%B4%E0%B9%8C%E0%B8%AA%E0%B8%AD%E0%B8%9A%E0%B8%81%E0%B8%B2/" target="_blank" rel="noreferrer">หน้าประกาศผู้มีสิทธิ์สอบจากเว็บทางการ</a>
+          <a href="https://www.bora.dopa.go.th/bora/sbp/9314/" target="_blank" rel="noreferrer">ตาราง R-Code สำนักทะเบียน จากสำนักบริหารการทะเบียน (พบว่า 1037 = ท้องถิ่นเขตราชเทวี)</a>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div>
+          <h2>ขอบเขตของ dashboard</h2>
+          <p class="muted">สิ่งที่รวม และสิ่งที่ยังไม่รวม</p>
+        </div>
+        <ul class="clean">
+          <li>รวม: ชุดข้อมูล <strong>ผู้มีสิทธิ์สอบภาค ก ระดับปริญญาตรี</strong> จำนวน 15,817 แถว</li>
+          <li>ยังไม่รวม: ชุด ม.ปลาย/ประทวน/นักเรียนนายสิบ ซึ่งเป็นอีกไฟล์คนละชุด</li>
+          <li>การแสดงผลตั้งใจให้เหมาะกับการดูภาพรวม ไม่ใช่ใช้ค้นหรือเผยแพร่ข้อมูลรายบุคคล</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const data = {
+      title: "690707-ภาค ก-ผู้มีสิทธิ์สอบ-ปริญญาตรี.pdf",
+      total: 15817,
+      checksumValid: 15817,
+      checksumInvalid: 0,
+      seatOverallMin: 1000001,
+      seatOverallMax: 1015817,
+      venueStats: [
+        { venue: "มหาวิทยาลัยรามคำแหง (หัวหมาก)", count: 7987, pct: 50.5, seatMin: 1000001, seatMax: 1007987 },
+        { venue: "มหาวิทยาลัยรามคำแหง (วิทยาเขตบางนา)", count: 7830, pct: 49.5, seatMin: 1007988, seatMax: 1015817 }
+      ],
+      firstDigitStats: [
+        { digit: "1", count: 15490, pct: 97.93 },
+        { digit: "2", count: 183, pct: 1.16 },
+        { digit: "3", count: 106, pct: 0.67 },
+        { digit: "4", count: 3, pct: 0.02 },
+        { digit: "5", count: 25, pct: 0.16 },
+        { digit: "8", count: 10, pct: 0.06 }
+      ],
+      topPrefixes: [
+        { prefix: "11037", count: 622, pct: 3.93 },
+        { prefix: "11020", count: 305, pct: 1.93 },
+        { prefix: "13099", count: 296, pct: 1.87 },
+        { prefix: "11007", count: 274, pct: 1.73 },
+        { prefix: "11601", count: 265, pct: 1.68 },
+        { prefix: "19098", count: 263, pct: 1.66 },
+        { prefix: "18099", count: 245, pct: 1.55 },
+        { prefix: "17099", count: 241, pct: 1.52 },
+        { prefix: "14099", count: 216, pct: 1.37 },
+        { prefix: "16599", count: 200, pct: 1.26 },
+        { prefix: "15099", count: 187, pct: 1.18 },
+        { prefix: "11005", count: 169, pct: 1.07 },
+        { prefix: "18699", count: 166, pct: 1.05 },
+        { prefix: "11002", count: 165, pct: 1.04 },
+        { prefix: "17399", count: 161, pct: 1.02 }
+      ],
+      prefixMap: {
+        "11037": "ท้องถิ่นเขตราชเทวี",
+        "11020": "ท้องถิ่นเขตบางกอกน้อย",
+        "13099": "อำเภอโนนสูง",
+        "11007": "ท้องถิ่นเขตปทุมวัน",
+        "11601": "อำเภอเมืองลพบุรี",
+        "19098": "ท้องถิ่นเทศบาลนครหาดใหญ่",
+        "18099": "อำเภอโนนไทย",
+        "17099": "ท้องถิ่นเทศบาลเมืองราชบุรี",
+        "14099": "ท้องถิ่นเทศบาลนครขอนแก่น",
+        "16599": "ท้องถิ่นเทศบาลนครพิษณุโลก",
+        "15099": "ท้องถิ่นเทศบาลนครเชียงใหม่",
+        "11005": "ท้องถิ่นเขตบางเขน",
+        "18699": "ท้องถิ่นเทศบาลเมืองชุมพร",
+        "11002": "ท้องถิ่นเขตดุสิต",
+        "17399": "ท้องถิ่นเทศบาลนครนครปฐม"
+      },
+      samples: [
+        { seat: "1000001", maskedId: "11999xxxxx090", venue: "มหาวิทยาลัยรามคำแหง (หัวหมาก)" },
+        { seat: "1000002", maskedId: "11006xxxxx181", venue: "มหาวิทยาลัยรามคำแหง (หัวหมาก)" },
+        { seat: "1000003", maskedId: "11601xxxxx937", venue: "มหาวิทยาลัยรามคำแหง (หัวหมาก)" },
+        { seat: "1000004", maskedId: "11996xxxxx331", venue: "มหาวิทยาลัยรามคำแหง (หัวหมาก)" },
+        { seat: "1000005", maskedId: "18099xxxxx793", venue: "มหาวิทยาลัยรามคำแหง (หัวหมาก)" },
+        { seat: "1000006", maskedId: "11496xxxxx331", venue: "มหาวิทยาลัยรามคำแหง (หัวหมาก)" },
+        { seat: "1000007", maskedId: "19699xxxxx785", venue: "มหาวิทยาลัยรามคำแหง (หัวหมาก)" },
+        { seat: "1000008", maskedId: "12399xxxxx945", venue: "มหาวิทยาลัยรามคำแหง (หัวหมาก)" },
+        { seat: "1000009", maskedId: "16705xxxxx617", venue: "มหาวิทยาลัยรามคำแหง (หัวหมาก)" },
+        { seat: "1000010", maskedId: "17105xxxxx951", venue: "มหาวิทยาลัยรามคำแหง (หัวหมาก)" },
+        { seat: "1000011", maskedId: "26799xxxxx815", venue: "มหาวิทยาลัยรามคำแหง (หัวหมาก)" },
+        { seat: "1000012", maskedId: "15099xxxxx130", venue: "มหาวิทยาลัยรามคำแหง (หัวหมาก)" }
+      ]
+    };
+
+    const cards = [
+      ["ผู้เข้าสอบในชุดนี้", data.total.toLocaleString("th-TH"), "ผู้มีสิทธิ์สอบภาค ก ระดับปริญญาตรี"],
+      ["สนามสอบ", data.venueStats.length.toLocaleString("th-TH"), "หัวหมาก และ วิทยาเขตบางนา"],
+      ["ช่วงเลขที่นั่งสอบ", `${data.seatOverallMin.toLocaleString("th-TH")} - ${data.seatOverallMax.toLocaleString("th-TH")}`, "ลำดับต่อเนื่องไม่มี gap"],
+      ["Checksum ผ่าน", `${((data.checksumValid / data.total) * 100).toFixed(2)}%`, `${data.checksumValid.toLocaleString("th-TH")} / ${data.total.toLocaleString("th-TH")} แถว`],
+      ["Prefix 11037", data.topPrefixes[0].count.toLocaleString("th-TH"), `คิดเป็น ${data.topPrefixes[0].pct}% ของชุดข้อมูล`]
+    ];
+
+    document.getElementById("cards").innerHTML = cards.map(([label, value, desc]) => `
+      <div class="card">
+        <div class="stat-label">${label}</div>
+        <div class="stat-value">${value}</div>
+        <div class="muted">${desc}</div>
+      </div>
+    `).join("");
+
+    const maxVenue = Math.max(...data.venueStats.map(v => v.count));
+    document.getElementById("venueBars").innerHTML = data.venueStats.map((item, idx) => `
+      <div class="bar-row">
+        <div class="bar-head">
+          <span>${item.venue}</span>
+          <strong>${item.count.toLocaleString("th-TH")} คน (${item.pct}%)</strong>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill ${idx === 1 ? "soft" : ""}" style="width:${(item.count / maxVenue) * 100}%"></div>
+        </div>
+        <div class="tiny">ช่วงเลขที่นั่งสอบ ${item.seatMin.toLocaleString("th-TH")} - ${item.seatMax.toLocaleString("th-TH")}</div>
+      </div>
+    `).join("");
+
+    const p1 = `${data.venueStats[0].pct}%`;
+    document.getElementById("venueDonut").style.setProperty("--p1", p1);
+    document.getElementById("donutCenter").innerHTML = `
+      <div>
+        ${data.total.toLocaleString("th-TH")}<br />
+        <span class="tiny">คน</span>
+      </div>
+    `;
+    document.getElementById("venueLegend").innerHTML = data.venueStats.map((item, idx) => `
+      <div class="legend-item">
+        <span class="legend-name"><span class="dot ${idx === 0 ? "a" : "b"}"></span>${item.venue}</span>
+        <strong>${item.pct}%</strong>
+      </div>
+    `).join("");
+
+    const maxDigit = Math.max(...data.firstDigitStats.map(d => d.count));
+    document.getElementById("digitBars").innerHTML = data.firstDigitStats.map(item => `
+      <div class="bar-row">
+        <div class="bar-head">
+          <span>เลขหลักแรก ${item.digit}</span>
+          <strong>${item.count.toLocaleString("th-TH")} คน (${item.pct}%)</strong>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill alt" style="width:${(item.count / maxDigit) * 100}%"></div>
+        </div>
+      </div>
+    `).join("");
+
+    const maxPrefix = Math.max(...data.topPrefixes.map(p => p.count));
+    document.getElementById("prefixBars").innerHTML = data.topPrefixes.map(item => `
+      <div class="bar-row">
+        <div class="bar-head">
+          <span>Prefix ${item.prefix}</span>
+          <strong>${item.count.toLocaleString("th-TH")} คน (${item.pct}%)</strong>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill soft" style="width:${(item.count / maxPrefix) * 100}%"></div>
+        </div>
+      </div>
+    `).join("");
+
+    document.getElementById("prefixMapBody").innerHTML = data.topPrefixes.map(item => {
+      const typeDigit = item.prefix.slice(0, 1);
+      const rCode = item.prefix.slice(1);
+      const office = data.prefixMap[item.prefix] || "ยังไม่ map";
+      return `
+        <tr>
+          <td><code>${item.prefix}</code></td>
+          <td><code>${typeDigit}</code> + <code>${rCode}</code></td>
+          <td>${office}</td>
+          <td>${item.count.toLocaleString("th-TH")}</td>
+          <td>${item.pct}%</td>
+        </tr>
+      `;
+    }).join("");
+
+    document.getElementById("sampleBody").innerHTML = data.samples.map(row => `
+      <tr>
+        <td>${row.seat}</td>
+        <td><code>${row.maskedId}</code></td>
+        <td>${row.venue}</td>
+      </tr>
+    `).join("");
+
+    const insights = [
+      `ชุดข้อมูลนี้มีผู้เข้าสอบปริญญาตรีทั้งหมด ${data.total.toLocaleString("th-TH")} คน`,
+      `การแบ่งสนามสอบเกือบสมดุล: หัวหมาก ${data.venueStats[0].pct}% และบางนา ${data.venueStats[1].pct}%`,
+      `เลขที่นั่งสอบถูกจัดแบบแบ่งบล็อกชัดเจน: หัวหมาก ${data.venueStats[0].seatMin.toLocaleString("th-TH")} - ${data.venueStats[0].seatMax.toLocaleString("th-TH")} แล้วต่อด้วยบางนา ${data.venueStats[1].seatMin.toLocaleString("th-TH")} - ${data.venueStats[1].seatMax.toLocaleString("th-TH")}`,
+      `เลขบัตรทุกแถวผ่าน checksum 13 หลักครบ แปลว่าข้อมูลสะอาดเชิงรูปแบบ 100%`,
+      `เลขหลักแรกเป็น 1 มากถึง ${data.firstDigitStats[0].pct}% ของชุดข้อมูล จึงสะท้อนว่าผู้สมัครส่วนใหญ่เป็นกลุ่มเลขทะเบียนแบบไทยทั่วไปตามโครงสร้างเลขบัตร`,
+      `prefix 5 หลักที่พบมากสุดคือ ${data.topPrefixes[0].prefix} จำนวน ${data.topPrefixes[0].count.toLocaleString("th-TH")} คน (${data.topPrefixes[0].pct}%) และเมื่อเทียบกับตาราง R-Code พบว่า 1037 คือท้องถิ่นเขตราชเทวี`,
+      `อย่างไรก็ดี รหัสสำนักทะเบียนไม่ได้แปลเป็นอายุ เพศ หรือที่อยู่ปัจจุบันของผู้สมัครโดยตรง`
+    ];
+
+    document.getElementById("insights").innerHTML = insights.map(item => `<li>${item}</li>`).join("");
+  </script>
+</body>
+</html>

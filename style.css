@@ -30,6 +30,22 @@
     --glass-blur: blur(0px);
 }
 
+html,
+body {
+    cursor: auto;
+}
+
+a,
+button,
+summary,
+[role="button"],
+input,
+textarea,
+select,
+label {
+    cursor: revert;
+}
+
 /* Global Reset & Base */
 body {
     background-color: var(--bg) !important;
@@ -913,104 +929,6 @@ a:hover {
     .contact-action {
         min-height: auto;
     }
-}
-
-/* ============================================================
-   Custom Cursor
-   ============================================================ */
-@media (hover: hover) {
-    body {
-        cursor: none;
-    }
-    a,
-    button,
-    [data-magnetic],
-    input,
-    textarea,
-    select,
-    label,
-    [role="button"] {
-        cursor: none;
-    }
-}
-
-#lux-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 8px;
-    height: 8px;
-    margin: -4px 0 0 -4px;
-    border-radius: 50%;
-    background: var(--text);
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0;
-    transition:
-        opacity 0.3s ease,
-        width 0.25s ease,
-        height 0.25s ease,
-        background 0.25s ease,
-        margin 0.25s ease;
-    will-change: transform;
-}
-
-#lux-cursor.is-hovering {
-    width: 14px;
-    height: 14px;
-    margin: -7px 0 0 -7px;
-    background: #00d9ff;
-}
-
-#lux-cursor.is-clicking {
-    width: 10px;
-    height: 10px;
-    margin: -5px 0 0 -5px;
-    background: #ef4444;
-}
-
-#lux-cursor-ring {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 38px;
-    height: 38px;
-    margin: -19px 0 0 -19px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(17, 24, 39, 0.28);
-    pointer-events: none;
-    z-index: 9998;
-    opacity: 0;
-    transition:
-        opacity 0.3s ease,
-        width 0.35s cubic-bezier(0.19, 1, 0.22, 1),
-        height 0.35s cubic-bezier(0.19, 1, 0.22, 1),
-        margin 0.35s cubic-bezier(0.19, 1, 0.22, 1),
-        border-color 0.2s ease,
-        border-width 0.2s ease,
-        box-shadow 0.2s ease;
-    will-change: transform;
-}
-
-#lux-cursor-ring.is-hovering {
-    width: 54px;
-    height: 54px;
-    margin: -27px 0 0 -27px;
-    border-color: rgba(0, 217, 255, 0.5);
-}
-
-#lux-cursor-ring.is-clicking {
-    width: 44px;
-    height: 44px;
-    margin: -22px 0 0 -22px;
-    border-color: #ef4444;
-    border-width: 2px;
-    /* crosshair lines via box-shadow */
-    box-shadow:
-        0 -14px 0 0 #ef4444,
-        0 14px 0 0 #ef4444,
-        -14px 0 0 0 #ef4444,
-        14px 0 0 0 #ef4444;
 }
 
 /* ============================================================

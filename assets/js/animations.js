@@ -3,7 +3,6 @@
      Portfolio Animations
      - Lenis smooth scroll
      - GSAP text reveal (line-by-line, cinematic)
-     - Custom circular cursor
      - Magnetic buttons / headings
      ============================================================ */
 
@@ -136,85 +135,10 @@
     });
   }
 
-  /* ── 3. Custom Cursor ───────────────────────────────────── */
+  /* ── 3. Cursor ───────────────────────────────────────────── */
   function initCursor() {
-    // Skip on touch devices
-    if (window.matchMedia("(hover: none)").matches) return;
-
-    const cursor = document.createElement("div");
-    cursor.id = "lux-cursor";
-    cursor.innerHTML = '<div class="lux-cursor-dot"></div>';
-    document.body.appendChild(cursor);
-
-    const follower = document.createElement("div");
-    follower.id = "lux-cursor-ring";
-    document.body.appendChild(follower);
-
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let ringX = mouseX;
-    let ringY = mouseY;
-    let isVisible = false;
-
-    document.addEventListener("mousemove", (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-
-      if (!isVisible) {
-        isVisible = true;
-        cursor.style.opacity = "1";
-        follower.style.opacity = "1";
-      }
-    });
-
-    document.addEventListener("mouseleave", () => {
-      cursor.style.opacity = "0";
-      follower.style.opacity = "0";
-      isVisible = false;
-    });
-
-    // Lerp ring to mouse
-    function lerp(a, b, n) {
-      return (1 - n) * a + n * b;
-    }
-
-    function loop() {
-      ringX = lerp(ringX, mouseX, 0.18);
-      ringY = lerp(ringY, mouseY, 0.18);
-
-      cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-      follower.style.transform = `translate(${ringX}px, ${ringY}px)`;
-
-      requestAnimationFrame(loop);
-    }
-    loop();
-
-    // State changes
-    const clickTargets =
-      'a, button, [data-magnetic], input, textarea, select, label, [role="button"], [type="submit"]';
-
-    document.addEventListener("mouseover", (e) => {
-      if (e.target.closest(clickTargets)) {
-        cursor.classList.add("is-hovering");
-        follower.classList.add("is-hovering");
-      }
-    });
-
-    document.addEventListener("mouseout", (e) => {
-      if (e.target.closest(clickTargets)) {
-        cursor.classList.remove("is-hovering");
-        follower.classList.remove("is-hovering");
-      }
-    });
-
-    document.addEventListener("mousedown", (e) => {
-      cursor.classList.add("is-clicking");
-      follower.classList.add("is-clicking");
-    });
-    document.addEventListener("mouseup", () => {
-      cursor.classList.remove("is-clicking");
-      follower.classList.remove("is-clicking");
-    });
+    document.documentElement.style.cursor = "";
+    document.body.style.cursor = "";
   }
 
   /* ── 4. Magnetic Effect ─────────────────────────────────── */

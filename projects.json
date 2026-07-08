@@ -1,10 +1,75 @@
 [
   {
+    "id": "rta-exam-candidate-structure-analysis",
+    "title": "RTA Exam Candidate Structure Analysis",
+    "slug": "rta-exam-candidate-structure-analysis",
+    "year": 2026,
+    "summary": "Public-sector data case study built from the Royal Thai Army degree-level exam announcement. Parsed 15,817 candidate rows from PDF, validated Thai ID structure, mapped top prefixes to BORA R-Code offices, and presented privacy-safe insights in a browser dashboard.",
+    "role": [
+      "Data Analyst",
+      "Data Cleaning & Validation",
+      "Dashboard Designer"
+    ],
+    "stack": [
+      "JavaScript",
+      "HTML/CSS",
+      "Public PDF Parsing",
+      "Data Validation"
+    ],
+    "highlights": [
+      "Parsed 15,817 degree-level exam candidate rows from the official announcement PDF into structured records",
+      "Validated every 13-digit ID using checksum logic and normalized venue data before analysis",
+      "Mapped high-frequency 5-digit prefixes to BORA R-Code registry offices while masking personally identifiable information",
+      "Framed the work as a source-grounded, privacy-aware dashboard instead of raw record exposure"
+    ],
+    "metrics": [
+      {
+        "value": "15,817",
+        "label": "Candidate rows parsed"
+      },
+      {
+        "value": "100%",
+        "label": "Checksum validation pass"
+      },
+      {
+        "value": "15",
+        "label": "Top prefixes mapped"
+      }
+    ],
+    "coverImage": {
+      "src": "./assets/projects/rta-exam-candidate-analysis/cover.svg",
+      "alt": "RTA Exam Candidate Structure Analysis cover"
+    },
+    "gallery": [
+      {
+        "src": "./assets/projects/rta-exam-candidate-analysis/dashboard-preview.svg",
+        "alt": "RTA Exam Candidate Structure Analysis dashboard preview"
+      },
+      {
+        "src": "./assets/projects/rta-exam-candidate-analysis/workflow.svg",
+        "alt": "RTA Exam Candidate Structure Analysis workflow"
+      }
+    ],
+    "links": {
+      "live": "./rta-exam-dashboard-degree-2570.html",
+      "caseStudy": "./case-studies/rta-exam-candidate-structure-analysis.html"
+    },
+    "tags": [
+      "Dashboard",
+      "Public Data",
+      "Data Cleaning",
+      "Analytics"
+    ],
+    "cta": "View Case Study",
+    "status": "Portfolio Case Study",
+    "caseStudy": true
+  },
+  {
     "id": "inventory-analytics-dashboard",
     "title": "Inventory Analytics Dashboard",
     "slug": "inventory-analytics-dashboard",
     "year": 2026,
-    "summary": "Portfolio case study สำหรับงาน Inventory Reporting & Analytics: จำลอง dataset สต็อกและ demand เพื่อวิเคราะห์ stock cover, dead stock, turnover rate และ reorder risk ในมุมธุรกิจ",
+    "summary": "Portfolio case study สำหรับงาน Inventory Reporting & Analytics ระดับองค์กร: จำลอง dataset สต็อกและ demand เพื่อวิเคราะห์ stock cover, dead stock, turnover rate, reorder risk และ weekly action summary ในบริบท food, retail, and distribution operations",
     "role": [
       "Data Analyst",
       "Dashboard Builder",
@@ -17,14 +82,14 @@
       "AppSheet"
     ],
     "highlights": [
-      "Built a simulated 1,200+ SKU dataset with stock, demand history, lead time, and safety stock assumptions",
+      "Built a scenario-modeled 1,200+ SKU dataset with stock, demand history, lead time, and safety stock assumptions for enterprise-scale inventory operations",
       "Designed KPI views for stock cover days, dead stock %, turnover rate, ABC mix, and reorder risk",
       "Framed the output as a weekly management review with exception-based action instead of passive charts"
     ],
     "metrics": [
       {
         "value": "1,200+",
-        "label": "Simulated SKU records"
+        "label": "Modeled SKU records"
       },
       {
         "value": "6 KPIs",
@@ -36,10 +101,18 @@
       }
     ],
     "coverImage": {
-      "src": "./assets/projects/inventory-analytics-dashboard/cover.svg",
-      "alt": "Inventory Analytics Dashboard cover"
+      "src": "./assets/projects/inventory-analytics-dashboard/realistic-cover/enterprise-ops-dashboard.png",
+      "alt": "Enterprise inventory analytics operations dashboard cover"
     },
     "gallery": [
+      {
+        "src": "./assets/projects/inventory-analytics-dashboard/realistic-cover/enterprise-ops-dashboard.png",
+        "alt": "Enterprise inventory analytics operations room"
+      },
+      {
+        "src": "./assets/projects/inventory-analytics-dashboard/cover.svg",
+        "alt": "Inventory Analytics Dashboard concept cover"
+      },
       {
         "src": "./assets/projects/inventory-analytics-dashboard/dashboard.svg",
         "alt": "Inventory Analytics Dashboard KPI screen"

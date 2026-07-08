@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="RTA Exam Candidate Structure Analysis case study by Nattapart Worakun covering public PDF parsing, checksum validation, R-Code mapping, and privacy-aware dashboard design.">
+  <meta name="theme-color" content="#f7f2ea">
+  <link rel="icon" href="../favicon.ico">
+  <title>RTA Exam Candidate Structure Analysis | Case Study</title>
+  <link rel="stylesheet" href="../assets/css/tailwind-built.css" />
+  <script src="../assets/js/common.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=14">
+  <style>
+    :root {
+      --case-paper: #f7f2ea;
+      --case-ink: #18231f;
+      --case-muted: #607067;
+      --case-green: #244c38;
+      --case-green-2: #426b55;
+      --case-brass: #9a6d2f;
+      --case-card: rgba(255, 252, 246, 0.92);
+      --case-line: rgba(36, 76, 56, 0.14);
+      --case-shadow: 0 22px 60px rgba(54, 43, 29, 0.12);
+    }
+
+    body.rta-case {
+      background:
+        radial-gradient(circle at 12% 10%, rgba(154, 109, 47, 0.11), transparent 28rem),
+        linear-gradient(135deg, rgba(36, 76, 56, 0.06) 0 1px, transparent 1px),
+        var(--case-paper);
+      background-size: auto, 28px 28px, auto;
+      color: var(--case-ink);
+      font-family: "Sarabun", system-ui, sans-serif;
+      cursor: auto;
+    }
+
+    .case-backdrop {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(24, 35, 31, 0.06) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(24, 35, 31, 0.04) 1px, transparent 1px);
+      background-size: 96px 96px;
+      mask-image: linear-gradient(to bottom, black, transparent 76%);
+      opacity: 0.65;
+    }
+
+    .rta-case .case-nav {
+      background: rgba(247, 242, 234, 0.86);
+      border-bottom: 1px solid var(--case-line);
+      color: var(--case-ink);
+    }
+
+    .rta-case .case-nav a {
+      color: var(--case-green);
+    }
+
+    .rta-case .gradient-text {
+      background: none;
+      -webkit-text-fill-color: currentColor;
+      color: var(--case-green);
+    }
+
+    .rta-case .glass-card {
+      background: var(--case-card);
+      border: 1px solid var(--case-line);
+      box-shadow: var(--case-shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .rta-case h1,
+    .rta-case h2,
+    .rta-case .text-white {
+      color: var(--case-ink) !important;
+    }
+
+    .rta-case .text-gray-300,
+    .rta-case .text-gray-400,
+    .rta-case .text-gray-500 {
+      color: var(--case-muted) !important;
+    }
+
+    .rta-case .case-eyebrow {
+      color: var(--case-brass) !important;
+    }
+
+    .rta-case .case-stat {
+      background: #fffaf1;
+      border: 1px solid rgba(154, 109, 47, 0.18);
+      box-shadow: none;
+    }
+
+    .rta-case .case-stat strong,
+    .rta-case .case-stat p:first-child {
+      color: var(--case-green) !important;
+    }
+
+    .rta-case .case-btn {
+      border-radius: 999px;
+      border: 1px solid var(--case-line);
+      box-shadow: 0 12px 26px rgba(36, 76, 56, 0.1);
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .rta-case .case-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .rta-case .case-btn-primary {
+      background: var(--case-green);
+      color: #fffaf1 !important;
+      border-color: var(--case-green);
+    }
+
+    .rta-case .case-btn-secondary {
+      background: rgba(255, 250, 241, 0.72);
+      color: var(--case-green) !important;
+    }
+
+    .rta-case .case-question {
+      background: #fffaf1;
+      border: 1px solid var(--case-line);
+      color: var(--case-ink);
+    }
+
+    .rta-case img {
+      border-color: rgba(36, 76, 56, 0.12) !important;
+    }
+
+    .rta-case .case-note {
+      background: rgba(36, 76, 56, 0.08);
+      color: var(--case-green);
+      border: 1px solid rgba(36, 76, 56, 0.14);
+    }
+  </style>
+</head>
+
+<body class="rta-case min-h-full">
+  <div class="case-backdrop"></div>
+
+  <nav class="case-nav sticky top-0 z-20 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+      <a href="../portfolio.html" class="text-sm font-semibold">Back to Portfolio</a>
+      <div class="flex items-center gap-4">
+        <a href="../rta-exam-dashboard-degree-2570.html" class="text-sm font-semibold">Open Live Dashboard</a>
+        <a href="../index.html" class="text-sm">Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="relative z-10 px-4 py-12">
+    <section class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <div>
+        <p class="case-eyebrow text-sm font-semibold uppercase tracking-[0.22em]">Case Study</p>
+        <h1 class="mt-4 text-4xl font-bold leading-tight sm:text-6xl">
+          RTA Exam Candidate <span class="gradient-text">Structure Analysis</span>
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-gray-300">
+          A public-sector data case study built from an official Royal Thai Army exam announcement. I turned a long-form
+          PDF candidate list into a structured, privacy-aware dashboard that validates row quality, analyzes venue
+          allocation, and maps high-frequency prefixes to BORA registry-office codes.
+        </p>
+        <div class="mt-8 grid gap-3 sm:grid-cols-3">
+          <div class="case-stat glass-card rounded-2xl p-4">
+            <p class="text-2xl font-bold">15,817</p>
+            <p class="mt-1 text-sm text-gray-400">Degree-level rows parsed</p>
+          </div>
+          <div class="case-stat glass-card rounded-2xl p-4">
+            <p class="text-2xl font-bold">100%</p>
+            <p class="mt-1 text-sm text-gray-400">Checksum validation pass</p>
+          </div>
+          <div class="case-stat glass-card rounded-2xl p-4">
+            <p class="text-2xl font-bold">15</p>
+            <p class="mt-1 text-sm text-gray-400">Top prefixes mapped</p>
+          </div>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="../rta-exam-dashboard-degree-2570.html"
+            class="case-btn case-btn-primary inline-flex items-center gap-2 px-5 py-3 text-sm font-semibold">
+            Open Live Dashboard
+            <span aria-hidden="true">→</span>
+          </a>
+          <a href="https://www.bora.dopa.go.th/bora/sbp/9314/" target="_blank" rel="noreferrer"
+            class="case-btn case-btn-secondary inline-flex items-center gap-2 px-5 py-3 text-sm font-semibold">
+            View BORA R-Code Source
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="glass-card rounded-[2rem] p-5">
+        <img src="../assets/projects/rta-exam-candidate-analysis/cover.svg"
+          alt="RTA Exam Candidate Structure Analysis cover"
+          class="w-full rounded-[1.5rem] border border-white/5">
+      </div>
+    </section>
+
+    <section class="mx-auto mt-14 grid max-w-6xl gap-6 md:grid-cols-3">
+      <article class="glass-card rounded-3xl p-6">
+        <p class="case-eyebrow text-sm font-semibold uppercase tracking-[0.18em]">Problem</p>
+        <p class="mt-4 text-gray-300">
+          The source was a public PDF announcement with thousands of candidate rows. Useful signals were buried in text,
+          and direct record exposure would be inappropriate for a portfolio.
+        </p>
+      </article>
+      <article class="glass-card rounded-3xl p-6">
+        <p class="case-eyebrow text-sm font-semibold uppercase tracking-[0.18em]">Approach</p>
+        <p class="mt-4 text-gray-300">
+          Parse the PDF into structured rows, validate the ID format, normalize venues, map top prefixes to official
+          R-Code offices, and present only aggregate insights with masked identifiers.
+        </p>
+      </article>
+      <article class="glass-card rounded-3xl p-6">
+        <p class="case-eyebrow text-sm font-semibold uppercase tracking-[0.18em]">Outcome</p>
+        <p class="mt-4 text-gray-300">
+          A source-grounded dashboard that shows data cleaning quality, venue distribution, registry-office clustering,
+          and clear analytical limits.
+        </p>
+      </article>
+    </section>
+
+    <section class="mx-auto mt-14 grid max-w-6xl gap-8 lg:grid-cols-[1fr_0.92fr]">
+      <article class="glass-card rounded-[2rem] p-6">
+        <h2 class="text-2xl font-bold text-white">Dataset & Validation Logic</h2>
+        <ul class="mt-6 space-y-3 text-gray-300">
+          <li>Source dataset: the official degree-level candidate list for the Army general knowledge exam (ภาค ก).</li>
+          <li>Core fields extracted per row: seat number, 13-digit ID number, and exam venue.</li>
+          <li>Validation step: every ID was checked with Thai 13-digit checksum logic before aggregate analysis.</li>
+          <li>Cleaning step: venue strings were normalized to remove page artifacts and preserve a reliable two-venue distribution.</li>
+          <li>Privacy step: all examples in the dashboard mask the ID number and avoid showing raw row dumps as the main output.</li>
+        </ul>
+        <img src="../assets/projects/rta-exam-candidate-analysis/workflow.svg"
+          alt="RTA exam candidate analysis workflow"
+          class="mt-6 w-full rounded-[1.5rem] border border-white/5">
+      </article>
+
+      <article class="glass-card rounded-[2rem] p-6">
+        <h2 class="text-2xl font-bold text-white">What the Analysis Answers</h2>
+        <div class="mt-6 space-y-4 text-gray-300">
+          <div class="case-question rounded-2xl p-4">
+            How many degree-level candidates were listed, and how were they split across exam venues?
+          </div>
+          <div class="case-question rounded-2xl p-4">
+            Was the extracted data structurally clean enough to analyze with confidence?
+          </div>
+          <div class="case-question rounded-2xl p-4">
+            Which 5-digit prefixes appeared most often, and what BORA registry offices do those R-Codes map to?
+          </div>
+          <div class="case-question rounded-2xl p-4">
+            What can be stated safely from public data, and what must be left unsaid without stronger evidence?
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="mx-auto mt-14 max-w-6xl">
+      <article class="glass-card rounded-[2rem] p-6">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+          <div class="max-w-2xl">
+            <h2 class="text-2xl font-bold text-white">Dashboard Preview</h2>
+            <p class="mt-3 text-gray-300">
+              The output focuses on quality, structure, and limitations. It highlights venue allocation, top prefixes,
+              and R-Code mapping while explicitly warning against unsupported demographic claims such as age or gender.
+            </p>
+          </div>
+          <div class="case-note rounded-2xl px-4 py-3 text-sm">
+            Stack used: HTML/CSS/JS dashboard + source verification + ID checksum validation
+          </div>
+        </div>
+        <img src="../assets/projects/rta-exam-candidate-analysis/dashboard-preview.svg"
+          alt="RTA exam candidate dashboard preview"
+          class="mt-6 w-full rounded-[1.5rem] border border-white/5">
+      </article>
+    </section>
+
+    <section class="mx-auto mt-14 max-w-6xl">
+      <article class="glass-card rounded-[2rem] p-6">
+        <h2 class="text-2xl font-bold text-white">Key Insights</h2>
+        <ul class="mt-6 grid gap-4 text-gray-300 md:grid-cols-2">
+          <li class="case-question rounded-2xl p-4">The degree-level announcement contained 15,817 candidate rows, clean enough for row-level parsing.</li>
+          <li class="case-question rounded-2xl p-4">Checksum validation passed for every extracted ID row, which increased confidence in structural quality.</li>
+          <li class="case-question rounded-2xl p-4">Venue allocation was nearly balanced across the two Ramkhamhaeng campuses.</li>
+          <li class="case-question rounded-2xl p-4">The most frequent prefix was 11037, which can be decomposed into type digit 1 and R-Code 1037, mapped to Rajthevi local registration office from BORA’s table.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="mx-auto mt-14 max-w-6xl">
+      <article class="glass-card rounded-[2rem] p-6">
+        <h2 class="text-2xl font-bold text-white">Data Governance & Limits</h2>
+        <ul class="mt-6 space-y-3 text-gray-300">
+          <li>This project intentionally avoids exposing full identification numbers and does not treat a public candidate list as license to publish raw personal data.</li>
+          <li>R-Code mapping supports a registry-office interpretation, not definitive claims about current address, age, gender, or personal background.</li>
+          <li>The work demonstrates the judgment to separate what the data can support from what would be overreach.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
