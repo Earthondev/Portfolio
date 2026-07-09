@@ -851,6 +851,28 @@
             </div>
         </section>
 
+        <!-- Project Cards -->
+        <section class="relative px-4 pb-14">
+            <div class="max-w-6xl mx-auto">
+                <div
+                    id="projects-grid"
+                    class="space-y-4"
+                    aria-live="polite"
+                ></div>
+                <div
+                    id="empty-state"
+                    class="hidden rounded-3xl border border-black/10 bg-white/70 p-8 text-center"
+                >
+                    <h2 class="text-2xl font-bold text-[#111827]">
+                        No matching projects
+                    </h2>
+                    <p class="mt-2 text-gray-600">
+                        Try a different keyword or project category.
+                    </p>
+                </div>
+            </div>
+        </section>
+
         <!-- Cinematic 3-col slider -->
         <section class="relative pb-24 px-4">
             <div class="max-w-7xl mx-auto">
@@ -1334,6 +1356,31 @@
                 initRowHover();
             }
 
+            function matchesProjectSearch(project, query) {
+                if (!query) return true;
+                const searchPool = [
+                    project.title,
+                    project.summary,
+                    ...project.stack,
+                    ...project.tags,
+                    ...project.roles,
+                ]
+                    .join(" ")
+                    .toLowerCase();
+
+                if (query.length <= 3) {
+                    const escapedQuery = query.replace(
+                        /[.*+?^${}()|[\]\\]/g,
+                        "\\$&",
+                    );
+                    return new RegExp(
+                        `(^|[^a-z0-9])${escapedQuery}([^a-z0-9]|$)`,
+                    ).test(searchPool);
+                }
+
+                return searchPool.includes(query);
+            }
+
             function initRowHover() {
                 document.querySelectorAll(".project-row").forEach((row) => {
                     const img = row.querySelector(".project-row-hover-img");
@@ -1375,17 +1422,10 @@
                     const filterMatch =
                         activeFilter === "all" ||
                         project.categories.includes(activeFilter);
-                    const searchPool = [
-                        project.title,
-                        project.summary,
-                        ...project.stack,
-                        ...project.tags,
-                        ...project.roles,
-                    ]
-                        .join(" ")
-                        .toLowerCase();
-                    const searchMatch =
-                        !searchQuery || searchPool.includes(searchQuery);
+                    const searchMatch = matchesProjectSearch(
+                        project,
+                        searchQuery,
+                    );
                     return filterMatch && searchMatch;
                 });
 
