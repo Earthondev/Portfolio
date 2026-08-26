@@ -1,5 +1,65 @@
 [
   {
+    "id": "canva-ai-smarter-workflows",
+    "title": "ใช้ Canva AI ทำงานให้สมาร์ทกว่าเดิม (Work Smarter with Canva AI)",
+    "issuer": "Canva Design School × SkillLane",
+    "issued": "2026-08-25",
+    "category": "Design",
+    "credentialId": "M34MRU8",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/canva-ai-smarter-workflows.png",
+      "alt": "Work Smarter with Canva AI certificate by Canva Design School x SkillLane"
+    },
+    "skills": [
+      "Canva AI",
+      "AI-Assisted Design",
+      "Workflow Automation",
+      "Productivity"
+    ],
+    "featured": true
+  },
+  {
+    "id": "content-creation-with-canva",
+    "title": "ทำคอนเทนต์ให้ปังด้วย Canva (Create Standout Content with Canva)",
+    "issuer": "Canva Design School × SkillLane",
+    "issued": "2026-08-25",
+    "category": "Design",
+    "credentialId": "U1VSUV8",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/content-creation-with-canva.png",
+      "alt": "Create Standout Content with Canva certificate by Canva Design School x SkillLane"
+    },
+    "skills": [
+      "Canva",
+      "Content Creation",
+      "Social Media Design",
+      "Visual Storytelling"
+    ],
+    "featured": true
+  },
+  {
+    "id": "canva-visual-suite-introduction",
+    "title": "มารู้จักกับ Canva Visual Suite (Get to Know Canva Visual Suite)",
+    "issuer": "Canva Design School × SkillLane",
+    "issued": "2026-08-25",
+    "category": "Design",
+    "credentialId": "FFKYSCF",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/canva-visual-suite-introduction.png",
+      "alt": "Get to Know Canva Visual Suite certificate by Canva Design School x SkillLane"
+    },
+    "skills": [
+      "Canva",
+      "Visual Design",
+      "Content Design",
+      "Design Tools"
+    ],
+    "featured": true
+  },
+  {
     "id": "google-sheets-crash-course-datarockie",
     "title": "Google Sheets Crash Course",
     "issuer": "DataRockie School",
