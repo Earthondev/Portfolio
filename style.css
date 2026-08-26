@@ -461,6 +461,17 @@ a:hover {
     color: var(--text) !important;
 }
 
+/* Darkened accent variants for stat numbers on light cards —
+   the raw neon cyan/green (#00D9FF/#00FF94) was tuned for a dark
+   background and fails WCAG AA on the light "clean luxury" cards. */
+.stat-cyan-dark {
+    color: #0e7490;
+}
+
+.stat-green-dark {
+    color: #047857;
+}
+
 .text-gray-300,
 .text-gray-400,
 .text-gray-500,
@@ -511,6 +522,12 @@ a:hover {
         background 160ms ease,
         color 160ms ease,
         box-shadow 160ms ease;
+}
+
+@media (min-width: 768px) {
+    #mobile-menu-btn {
+        display: none;
+    }
 }
 
 #mobile-menu-btn:hover {
@@ -1075,51 +1092,6 @@ a:hover {
 }
 
 /* ============================================================
-   Marquee ticker
-   ============================================================ */
-.marquee-track {
-    display: flex;
-    width: max-content;
-    animation: marqueeScroll 22s linear infinite;
-}
-
-.marquee-track:hover {
-    animation-play-state: paused;
-}
-
-@keyframes marqueeScroll {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
-}
-
-.marquee-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 24px;
-    padding: 0 32px;
-    white-space: nowrap;
-    font-family: var(--font-heading, "Space Grotesk", sans-serif);
-    font-size: clamp(1.1rem, 2vw, 1.5rem);
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--text-muted, #6b7280);
-}
-
-.marquee-item .marquee-dot {
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #00d9ff;
-    flex-shrink: 0;
-}
-
-/* ============================================================
    Staggered hero load-in
    — Delays set to 3.2s+ as CSS fallback (after curtain finishes ~3s)
    — GSAP triggerHeroReveal() takes over when curtain starts to fade
@@ -1204,11 +1176,6 @@ a:hover {
         transition:
             opacity 0.55s ease,
             transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    /* Faster marquee on mobile — users see less text at once */
-    .marquee-track {
-        animation-duration: 14s;
     }
 }
 

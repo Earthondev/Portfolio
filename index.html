@@ -318,58 +318,9 @@
             </div>
         </nav>
 
-        <!-- Marquee ticker -->
-        <div class="w-full overflow-hidden border-y border-white/10 py-4 mt-20">
-            <div class="marquee-track">
-                <span class="marquee-item"
-                    >Inventory Analytics <span class="marquee-dot"></span
-                ></span>
-                <span class="marquee-item"
-                    >Power BI Dashboards <span class="marquee-dot"></span
-                ></span>
-                <span class="marquee-item"
-                    >Workflow Automation <span class="marquee-dot"></span
-                ></span>
-                <span class="marquee-item"
-                    >SQL Reporting <span class="marquee-dot"></span
-                ></span>
-                <span class="marquee-item"
-                    >R Statistical Analysis <span class="marquee-dot"></span
-                ></span>
-                <span class="marquee-item"
-                    >Data-Driven Decisions <span class="marquee-dot"></span
-                ></span>
-                <span class="marquee-item"
-                    >Stock Analytics <span class="marquee-dot"></span
-                ></span>
-                <!-- duplicate for seamless loop -->
-                <span class="marquee-item"
-                    >Inventory Analytics <span class="marquee-dot"></span
-                ></span>
-                <span class="marquee-item"
-                    >Power BI Dashboards <span class="marquee-dot"></span
-                ></span>
-                <span class="marquee-item"
-                    >Workflow Automation <span class="marquee-dot"></span
-                ></span>
-                <span class="marquee-item"
-                    >SQL Reporting <span class="marquee-dot"></span
-                ></span>
-                <span class="marquee-item"
-                    >R Statistical Analysis <span class="marquee-dot"></span
-                ></span>
-                <span class="marquee-item"
-                    >Data-Driven Decisions <span class="marquee-dot"></span
-                ></span>
-                <span class="marquee-item"
-                    >Stock Analytics <span class="marquee-dot"></span
-                ></span>
-            </div>
-        </div>
-
         <!-- Hero Section -->
         <section
-            class="relative min-h-[90vh] flex items-center pt-8 pb-12 px-4 overflow-hidden"
+            class="relative min-h-[90vh] flex items-center mt-20 pt-8 pb-12 px-4 overflow-hidden"
         >
             <div
                 class="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center relative z-10 w-full"
@@ -538,29 +489,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div
-                        class="absolute -left-8 top-16 premium-card rounded-2xl p-4 w-56"
-                    >
-                        <p
-                            class="text-xs uppercase tracking-[0.14em] text-gray-500"
-                        >
-                            Proof
-                        </p>
-                        <p class="font-semibold mt-1">
-                            Inventory Analytics Dashboard
-                        </p>
-                    </div>
-                    <div
-                        class="absolute -right-6 bottom-20 premium-card rounded-2xl p-4 w-52"
-                    >
-                        <p
-                            class="text-xs uppercase tracking-[0.14em] text-gray-500"
-                        >
-                            Stack
-                        </p>
-                        <p class="font-semibold mt-1">SQL • R • Power BI</p>
-                    </div>
                 </div>
             </div>
         </section>
@@ -671,7 +599,7 @@
                             <div
                                 class="rounded-2xl border border-white/10 bg-white/5 p-4"
                             >
-                                <p class="text-2xl font-bold text-[#00D9FF]">
+                                <p class="text-2xl font-bold stat-cyan-dark">
                                     1,200+
                                 </p>
                                 <p class="text-sm text-gray-400">
@@ -681,7 +609,7 @@
                             <div
                                 class="rounded-2xl border border-white/10 bg-white/5 p-4"
                             >
-                                <p class="text-2xl font-bold text-[#00FF94]">
+                                <p class="text-2xl font-bold stat-green-dark">
                                     6 KPIs
                                 </p>
                                 <p class="text-sm text-gray-400">
@@ -918,21 +846,44 @@
                             `Failed to load certificates.json (${res.status})`,
                         );
 
-                    const allCertificates = await res.json();
-                    const sortedCertificates = (
-                        Array.isArray(allCertificates) ? allCertificates : []
-                    ).sort(
+                    const rawCertificates = await res.json();
+                    const allCertificates = Array.isArray(rawCertificates)
+                        ? rawCertificates
+                        : [];
+
+                    // Curated homepage spotlight: deliberately chosen certs
+                    // that best support the Data Analyst positioning, rather
+                    // than a raw newest-first sort (which lets any new
+                    // certificate — regardless of relevance — bump the
+                    // homepage highlight just by having a later issue date).
+                    const homepageSpotlightIds = [
+                        "sql-crash-course-datarockie",
+                        "r-crash-course-datarockie",
+                        "power-bi-dashboard-design",
+                    ];
+                    const byId = new Map(
+                        allCertificates.map((item) => [item?.id, item]),
+                    );
+                    const curated = homepageSpotlightIds
+                        .map((id) => byId.get(id))
+                        .filter(Boolean);
+
+                    const sortedCertificates = [...allCertificates].sort(
                         (a, b) =>
                             new Date(b.issued || 0) - new Date(a.issued || 0),
                     );
-
                     const pinned = sortedCertificates.filter(
                         (item) => item?.featured,
                     );
                     const fallback = sortedCertificates.filter(
                         (item) => !item?.featured,
                     );
-                    const featured = [...pinned, ...fallback].slice(0, 3);
+                    const dateSorted = [...pinned, ...fallback];
+
+                    const featured =
+                        curated.length === homepageSpotlightIds.length
+                            ? curated
+                            : dateSorted.slice(0, 3);
 
                     if (!featured.length) {
                         certificateHighlightGrid.innerHTML = `
@@ -1022,7 +973,10 @@
         <!-- Curtain overlay with name -->
         <script>
             (function () {
-                if (typeof gsap === "undefined") return;
+                if (typeof gsap === "undefined") {
+                    document.body.classList.add("page-ready");
+                    return;
+                }
 
                 // Create curtain
                 const curtain = document.createElement("div");
