@@ -1,5 +1,25 @@
 [
   {
+    "id": "basic-cybersecurity-mooc-ncsa-2026",
+    "title": "Basic Cybersecurity",
+    "issuer": "National Cyber Security Agency (NCSA) Thailand",
+    "issued": "2026-08-27",
+    "category": "Security",
+    "credentialId": "SPG-MHJPJRFMP68WY",
+    "credentialUrl": "https://media.mooc.ncsa.or.th/certificate/MHJPJRFMP68WY.pdf",
+    "image": {
+      "src": "./assets/certificates/basic-cybersecurity.png",
+      "alt": "Basic Cybersecurity certificate from MOOC by NCSA Thailand"
+    },
+    "skills": [
+      "Cybersecurity Fundamentals",
+      "Network Security",
+      "Wireless Security",
+      "Cryptography"
+    ],
+    "featured": true
+  },
+  {
     "id": "canva-ai-smarter-workflows",
     "title": "ใช้ Canva AI ทำงานให้สมาร์ทกว่าเดิม (Work Smarter with Canva AI)",
     "issuer": "Canva Design School × SkillLane",
