@@ -20,6 +20,26 @@
     "featured": true
   },
   {
+    "id": "ai-companion-toolkit-2026",
+    "title": "ปัญญาประดิษฐ์เพื่อนคู่คิด Tool Kit เพื่อความสุขสำเร็จ",
+    "issuer": "สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติ (BDE)",
+    "issued": "2026-09-07",
+    "category": "Education",
+    "credentialId": "",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/ai-companion-toolkit-2026.jpeg",
+      "alt": "AI Companion Toolkit certificate from the National Board of Digital Economy and Society Office, Thailand"
+    },
+    "skills": [
+      "AI Fundamentals",
+      "AI-Assisted Learning",
+      "Digital Literacy",
+      "Google for Education"
+    ],
+    "featured": true
+  },
+  {
     "id": "daily-work-productivity-with-ai-2026",
     "title": "เพิ่มประสิทธิภาพงานประจำวันด้วย AI",
     "issuer": "สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติ (BDE)",
