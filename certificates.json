@@ -1,5 +1,45 @@
 [
   {
+    "id": "ai-basic-thai-ai-skills-2026",
+    "title": "AI Basic: ทักษะเอไอระดับพื้นฐาน",
+    "issuer": "สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติ (BDE)",
+    "issued": "2026-09-07",
+    "category": "Automation",
+    "credentialId": "",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/ai-basic-thai-ai-skills-2026.jpeg",
+      "alt": "AI Basic certificate from the National Board of Digital Economy and Society Office, Thailand"
+    },
+    "skills": [
+      "AI Fundamentals",
+      "Digital Literacy",
+      "Prompting",
+      "Responsible AI"
+    ],
+    "featured": true
+  },
+  {
+    "id": "daily-work-productivity-with-ai-2026",
+    "title": "เพิ่มประสิทธิภาพงานประจำวันด้วย AI",
+    "issuer": "สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติ (BDE)",
+    "issued": "2026-09-07",
+    "category": "Automation",
+    "credentialId": "",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/daily-work-productivity-with-ai-2026.jpeg",
+      "alt": "Daily Work Productivity with AI certificate from the National Board of Digital Economy and Society Office, Thailand"
+    },
+    "skills": [
+      "AI Productivity",
+      "Digital Literacy",
+      "Prompting",
+      "Workflow Automation"
+    ],
+    "featured": true
+  },
+  {
     "id": "basic-cybersecurity-mooc-ncsa-2026",
     "title": "Basic Cybersecurity",
     "issuer": "National Cyber Security Agency (NCSA) Thailand",
