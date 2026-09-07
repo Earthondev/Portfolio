@@ -40,6 +40,26 @@
     "featured": true
   },
   {
+    "id": "ai-scam-awareness-2026",
+    "title": "รู้ทันกลโกง AI ป้องกันตัวก่อนโดนหลอก",
+    "issuer": "สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติ (BDE)",
+    "issued": "2026-09-07",
+    "category": "Security",
+    "credentialId": "",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/ai-scam-awareness-2026.jpeg",
+      "alt": "AI Scam Awareness certificate from the National Board of Digital Economy and Society Office, Thailand"
+    },
+    "skills": [
+      "AI Safety",
+      "Scam Awareness",
+      "Digital Security",
+      "Online Fraud Prevention"
+    ],
+    "featured": true
+  },
+  {
     "id": "basic-cybersecurity-mooc-ncsa-2026",
     "title": "Basic Cybersecurity",
     "issuer": "National Cyber Security Agency (NCSA) Thailand",
