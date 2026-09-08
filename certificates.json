@@ -1,5 +1,26 @@
 [
   {
+    "id": "fta-fund-free-trade-agriculture-2026",
+    "title": "กองทุน FTA เข้าใจง่าย และการค้าเสรีสำหรับเกษตรกรยุคใหม่",
+    "issuer": "สำนักงานเศรษฐกิจการเกษตร กระทรวงเกษตรและสหกรณ์ × มหาวิทยาลัยเกษตรศาสตร์",
+    "issued": "2026-09-08",
+    "category": "Business",
+    "credentialId": "KumoocFTA69-100012569306197",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/fta-fund-free-trade-agriculture-2026.jpeg",
+      "thumbnail": "./assets/certificates/thumbnails/fta-fund-free-trade-agriculture-2026.webp",
+      "alt": "FTA fund and free trade for modern Thai farmers certificate from the Office of Agricultural Economics and Kasetsart University"
+    },
+    "skills": [
+      "FTA Fund",
+      "Free Trade",
+      "Agriculture",
+      "Policy Literacy"
+    ],
+    "featured": true
+  },
+  {
     "id": "ai-digital-marketing-ads-2026",
     "title": "การตลาดออนไลน์ยุค AI: ยิงโฆษณาแม่น ปิดยอดทะลุเป้า",
     "issuer": "สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติ (BDE)",
