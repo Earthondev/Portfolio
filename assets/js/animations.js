@@ -21,11 +21,11 @@
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
-
     if (typeof gsap !== "undefined" && gsap.ticker) {
       gsap.ticker.add((time) => lenis.raf(time * 1000));
       gsap.ticker.lagSmoothing(0);
+    } else {
+      requestAnimationFrame(raf);
     }
 
     window._lenis = lenis;
@@ -170,14 +170,10 @@
   function initPageTransitions() {
     const overlay = document.createElement("div");
     overlay.id = "page-transition-overlay";
+    overlay.classList.add("is-leaving");
     document.body.appendChild(overlay);
 
-    // Reveal on load — double rAF ensures browser paints overlay first, then transitions it away
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        overlay.classList.add("is-leaving");
-      });
-    });
+    // Keep the overlay off-screen until a local navigation starts.
 
     document.querySelectorAll("a[href]").forEach((link) => {
       const href = link.getAttribute("href");
@@ -191,6 +187,7 @@
         return;
 
       link.addEventListener("click", (e) => {
+        if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || link.hasAttribute("download")) return;
         e.preventDefault();
         overlay.classList.remove("is-leaving");
         overlay.classList.add("is-entering");
@@ -445,6 +442,7 @@
 
   /* ── Init all ───────────────────────────────────────────── */
   function init() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     initLenis();
     initCursor();
     initMagnetic();

@@ -73,29 +73,19 @@
         <link rel="stylesheet" href="./assets/css/tailwind-built.css" />
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
         <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <link rel="stylesheet" href="assets/css/fonts.css?v=1" />
+        <link rel="preload" href="assets/fonts/space-grotesk-latin-300-700.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="assets/fonts/sarabun-latin-400.woff2" as="font" type="font/woff2" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            rel="stylesheet"
+            rel="stylesheet" media="print" onload="this.media='all'"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         />
 
         <!-- Custom Styles -->
-        <link rel="stylesheet" href="style.css?v=14" />
-        <style>
-            body {
-                visibility: hidden;
-            }
-            body.page-ready {
-                visibility: visible;
-            }
-        </style>
+        <link rel="stylesheet" href="style.css?v=15" />
+
 
         <!-- Schema.org Structured Data -->
         <script type="application/ld+json">
@@ -220,15 +210,6 @@
     </head>
 
     <body class="premium-shell overflow-x-hidden antialiased">
-        <!-- Intro overlay strips -->
-        <div id="intro-overlay" aria-hidden="true">
-            <div class="strip"></div>
-            <div class="strip"></div>
-            <div class="strip"></div>
-            <div class="strip"></div>
-            <div class="strip"></div>
-        </div>
-
         <!-- Navbar -->
         <nav
             class="fixed top-0 w-full z-50 glass-nav transition-all duration-300"
@@ -326,7 +307,7 @@
                 class="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center relative z-10 w-full"
             >
                 <div
-                    class="min-w-0 text-center lg:text-left space-y-7 hero-stagger"
+                    class="min-w-0 text-center lg:text-left space-y-7"
                 >
                     <div class="premium-eyebrow mx-auto lg:mx-0">
                         <span class="premium-dot"></span>
@@ -335,14 +316,12 @@
 
                     <div>
                         <p
-                            class="masked-reveal text-sm sm:text-base font-semibold text-gray-500 mb-3"
+                            class="text-sm sm:text-base font-semibold text-gray-500 mb-3"
                         >
                             Data Analyst Portfolio
                         </p>
                         <h1
                             class="hero-title font-heading text-5xl sm:text-7xl font-bold leading-[1.03] text-white"
-                            data-reveal-hero
-                            data-reveal-delay="0.1"
                         >
                             ณัฐภาส วรคันธ์
                             <span
@@ -466,7 +445,8 @@
                             class="aspect-[4/5] rounded-[1.5rem] overflow-hidden bg-[#111827] relative"
                         >
                             <img
-                                src="assets/Profile/IMG_9526.JPG"
+                                src="assets/images/profile-600.webp"
+                                width="600" height="900" fetchpriority="high" decoding="async"
                                 alt="Nattapart Worakun"
                                 class="w-full h-full object-cover object-center saturate-[0.92] contrast-105"
                             />
@@ -649,7 +629,10 @@
                         class="rounded-[1.5rem] overflow-hidden bg-[#111827] p-4"
                     >
                         <img
-                            src="assets/projects/inventory-analytics-dashboard/realistic-cover/enterprise-ops-dashboard.png"
+                            src="assets/images/enterprise-dashboard-960.webp"
+                            srcset="assets/images/enterprise-dashboard-640.webp 640w, assets/images/enterprise-dashboard-960.webp 960w"
+                            sizes="(min-width: 1024px) 50vw, 100vw"
+                            width="1586" height="992" loading="lazy" decoding="async"
                             alt="Enterprise inventory analytics operations dashboard preview"
                             class="w-full rounded-2xl border border-white/10"
                         />
@@ -764,10 +747,9 @@
         </footer>
 
         <script src="assets/js/common.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
-        <script src="assets/js/animations.js?v=2"></script>
-        <script src="cache-bust.js"></script>
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+        <script src="assets/js/animations.js?v=3" defer></script>
         <script>
             window.PortfolioCommon?.initMobileMenu({
                 lockScroll: true,
@@ -838,8 +820,8 @@
 
                 try {
                     const res = await fetch(
-                        `certificates.json?v=${Date.now()}`,
-                        { cache: "no-store" },
+                        "certificates.json",
+                        { cache: "no-cache" },
                     );
                     if (!res.ok)
                         throw new Error(
@@ -898,7 +880,7 @@
                     certificateHighlightGrid.innerHTML = featured
                         .map((cert) => {
                             const imageSrc = withCacheBust(
-                                cert?.image?.src || "",
+                                cert?.image?.thumbnail || cert?.image?.src || "",
                                 cert?.image?.version ||
                                     cert?.issued ||
                                     cert?.id,
@@ -924,7 +906,7 @@
               <div class="aspect-[16/10] bg-[#111827] p-2">
                 ${
                     imageSrc
-                        ? `<img src="${escapeHTML(imageSrc)}" alt="${imageAlt}" loading="lazy" decoding="async" data-cert-image class="w-full h-full object-contain rounded-lg bg-[#0d121b]">`
+                        ? `<img src="${escapeHTML(imageSrc)}" alt="${imageAlt}" width="720" height="540" loading="lazy" decoding="async" data-cert-image class="w-full h-full object-contain rounded-lg bg-[#0d121b]">`
                         : `<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#00D9FF]/20 to-transparent"><i class="fas fa-certificate text-4xl text-[#00D9FF]"></i></div>`
                 }
               </div>
@@ -970,99 +952,5 @@
             loadCertificateHighlights();
         </script>
 
-        <!-- Curtain overlay with name -->
-        <script>
-            (function () {
-                if (typeof gsap === "undefined") {
-                    document.body.classList.add("page-ready");
-                    return;
-                }
-
-                // Create curtain
-                const curtain = document.createElement("div");
-                curtain.id = "page-curtain";
-                curtain.style.cssText =
-                    "position:fixed;inset:0;z-index:99999;background:#e8e4dd;display:flex;align-items:center;justify-content:center;will-change:transform;overflow:hidden;";
-
-                // Name container
-                const nameWrap = document.createElement("div");
-                nameWrap.style.cssText =
-                    'font-family:"Space Grotesk",sans-serif;font-size:clamp(4rem,14vw,12rem);font-weight:800;letter-spacing:-0.03em;text-transform:uppercase;color:#2d2a26;font-kerning:none;white-space:nowrap;line-height:1;';
-                nameWrap.textContent = "NATTAPART";
-                curtain.appendChild(nameWrap);
-
-                document.body.prepend(curtain);
-                document.body.classList.add("page-ready");
-
-                // Split into chars
-                const text = nameWrap.textContent;
-                nameWrap.innerHTML = text
-                    .split("")
-                    .map(
-                        (c) =>
-                            `<span style="display:inline-block;transform-origin:center center;will-change:transform,opacity;">${c}</span>`,
-                    )
-                    .join("");
-                const chars = Array.from(nameWrap.querySelectorAll("span"));
-
-                // Scatter directions for each char (alternating up/down + rotate)
-                const scatterY = chars.map(
-                    (_, i) =>
-                        (i % 2 === 0 ? -1 : 1) * (120 + Math.random() * 80),
-                );
-                const scatterX = chars.map(
-                    (_, i) =>
-                        (i - chars.length / 2) * 30 +
-                        (Math.random() - 0.5) * 60,
-                );
-                const scatterRot = chars.map(() => (Math.random() - 0.5) * 40);
-
-                const tl = gsap.timeline();
-
-                // 1. Chars scaleY squeeze → expand
-                gsap.set(chars, { scaleY: 0, opacity: 0 });
-                tl.to(chars, {
-                    scaleY: 1,
-                    opacity: 1,
-                    duration: 1,
-                    stagger: 0.045,
-                    ease: "power4.out",
-                });
-
-                // 2. Hold
-                tl.to({}, { duration: 0.5 });
-
-                // 3. Each char scatters out individually
-                chars.forEach((ch, i) => {
-                    tl.to(
-                        ch,
-                        {
-                            y: scatterY[i],
-                            x: scatterX[i],
-                            rotation: scatterRot[i],
-                            opacity: 0,
-                            scale: 0.6,
-                            duration: 0.7,
-                            ease: "power3.in",
-                        },
-                        "-=0.62",
-                    );
-                });
-
-                // 4. Curtain fades — hero reveal fires as curtain starts to fade
-                tl.to(
-                    curtain,
-                    {
-                        opacity: 0,
-                        duration: 0.5,
-                        ease: "power2.inOut",
-                        onStart: () =>
-                            window.PortfolioAnimations?.triggerHeroReveal?.(),
-                        onComplete: () => curtain.remove(),
-                    },
-                    "-=0.2",
-                );
-            })();
-        </script>
     </body>
 </html>

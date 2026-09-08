@@ -6,6 +6,7 @@
   "scripts": {
     "start": "python3 -m http.server 8000",
     "dev": "python3 -m http.server 8000",
+    "build:images": "node scripts/build-images.js",
     "check:certificates": "node scripts/check-certificates.js",
     "fix:certificates-order": "node scripts/check-certificates.js --fix-order",
     "build:tailwind": "BROWSERSLIST_IGNORE_OLD_DATA=1 tailwindcss -c tailwind.config.js -i ./assets/css/tailwind.css -o ./assets/css/tailwind-built.css --minify"

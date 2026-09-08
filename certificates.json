@@ -9,6 +9,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/ai-ready-organization-change-2026.jpeg",
+      "thumbnail": "./assets/certificates/thumbnails/ai-ready-organization-change-2026.webp",
       "alt": "AI-ready organization change management certificate from the National Board of Digital Economy and Society Office, Thailand"
     },
     "skills": [
@@ -29,6 +30,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/ai-basic-thai-ai-skills-2026.jpeg",
+      "thumbnail": "./assets/certificates/thumbnails/ai-basic-thai-ai-skills-2026.webp",
       "alt": "AI Basic certificate from the National Board of Digital Economy and Society Office, Thailand"
     },
     "skills": [
@@ -49,6 +51,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/ai-companion-toolkit-2026.jpeg",
+      "thumbnail": "./assets/certificates/thumbnails/ai-companion-toolkit-2026.webp",
       "alt": "AI Companion Toolkit certificate from the National Board of Digital Economy and Society Office, Thailand"
     },
     "skills": [
@@ -69,6 +72,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/daily-work-productivity-with-ai-2026.jpeg",
+      "thumbnail": "./assets/certificates/thumbnails/daily-work-productivity-with-ai-2026.webp",
       "alt": "Daily Work Productivity with AI certificate from the National Board of Digital Economy and Society Office, Thailand"
     },
     "skills": [
@@ -89,6 +93,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/ai-scam-awareness-2026.jpeg",
+      "thumbnail": "./assets/certificates/thumbnails/ai-scam-awareness-2026.webp",
       "alt": "AI Scam Awareness certificate from the National Board of Digital Economy and Society Office, Thailand"
     },
     "skills": [
@@ -109,6 +114,7 @@
     "credentialUrl": "https://media.mooc.ncsa.or.th/certificate/MHJPJRFMP68WY.pdf",
     "image": {
       "src": "./assets/certificates/basic-cybersecurity.png",
+      "thumbnail": "./assets/certificates/thumbnails/basic-cybersecurity-mooc-ncsa-2026.webp",
       "alt": "Basic Cybersecurity certificate from MOOC by NCSA Thailand"
     },
     "skills": [
@@ -129,6 +135,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/canva-ai-smarter-workflows.png",
+      "thumbnail": "./assets/certificates/thumbnails/canva-ai-smarter-workflows.webp",
       "alt": "Work Smarter with Canva AI certificate by Canva Design School x SkillLane"
     },
     "skills": [
@@ -149,6 +156,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/content-creation-with-canva.png",
+      "thumbnail": "./assets/certificates/thumbnails/content-creation-with-canva.webp",
       "alt": "Create Standout Content with Canva certificate by Canva Design School x SkillLane"
     },
     "skills": [
@@ -169,6 +177,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/canva-visual-suite-introduction.png",
+      "thumbnail": "./assets/certificates/thumbnails/canva-visual-suite-introduction.webp",
       "alt": "Get to Know Canva Visual Suite certificate by Canva Design School x SkillLane"
     },
     "skills": [
@@ -189,6 +198,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/google-sheets-crash-course-datarockie.png",
+      "thumbnail": "./assets/certificates/thumbnails/google-sheets-crash-course-datarockie.webp",
       "alt": "Google Sheets Crash Course certificate by DataRockie School"
     },
     "skills": [
@@ -210,6 +220,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/google-cloud-introduction-to-generative-ai-badge.png",
+      "thumbnail": "./assets/certificates/thumbnails/google-cloud-introduction-to-generative-ai.webp",
       "alt": "Introduction to Generative AI completion badge by Google Cloud"
     },
     "skills": [
@@ -230,6 +241,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/google-cloud-introduction-to-large-language-models-badge.png",
+      "thumbnail": "./assets/certificates/thumbnails/google-cloud-introduction-to-large-language-models.webp",
       "alt": "Introduction to Large Language Models completion badge by Google Cloud"
     },
     "skills": [
@@ -250,6 +262,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/mini-data-science-bootcamp-datarockie-2024.png",
+      "thumbnail": "./assets/certificates/thumbnails/mini-bootcamp-2024-datarockie.webp",
       "alt": "Mini Bootcamp 2024 certificate by DataRockie School"
     },
     "skills": [
@@ -271,6 +284,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/datarockie-data-science-bootcamp-2025.png",
+      "thumbnail": "./assets/certificates/thumbnails/datarockie-data-science-bootcamp-2025.webp",
       "alt": "Mini Bootcamp 2025 certificate by DataRockie School"
     },
     "skills": [
@@ -292,6 +306,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/r-crash-course-datarockie.png",
+      "thumbnail": "./assets/certificates/thumbnails/r-crash-course-datarockie.webp",
       "alt": "R Crash Course certificate by DataRockie School"
     },
     "skills": [
@@ -313,6 +328,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/sql-crash-course-datarockie.png",
+      "thumbnail": "./assets/certificates/thumbnails/sql-crash-course-datarockie.webp",
       "alt": "SQL Crash Course certificate by DataRockie School"
     },
     "skills": [
@@ -334,6 +350,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/mini-data-science-bootcamp-datarockie.png",
+      "thumbnail": "./assets/certificates/thumbnails/mini-data-science-bootcamp-datarockie.webp",
       "alt": "Mini Data Science Bootcamp certificate by DataRockie School"
     },
     "skills": [
@@ -355,6 +372,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/correlation-and-regression-for-the-curious.png",
+      "thumbnail": "./assets/certificates/thumbnails/correlation-and-regression-for-the-curious.webp",
       "alt": "Correlation and Regression for The Curious certificate by DataRockie School"
     },
     "skills": [
@@ -375,6 +393,7 @@
     "credentialUrl": "https://www.credly.com/badges/00231c1c-d3ce-48cf-816e-61cf63b2b623",
     "image": {
       "src": "./assets/certificates/prompt-engineering-agentic-ai-by-ais-academy-certificate-2026.jpg",
+      "thumbnail": "./assets/certificates/thumbnails/prompt-engineering-agentic-ai-by-ais-academy.webp",
       "alt": "Prompt Engineering and Agentic AI by AIS Academy certificate"
     },
     "skills": ["Prompt Engineering", "Agentic AI", "AI Workflow Automation"],
@@ -390,6 +409,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/digital-risk-management-data-security-privacy-part-2-coniverse-boston-network.png",
+      "thumbnail": "./assets/certificates/thumbnails/digital-risk-management-data-security-privacy-part-2-coniverse-boston-network.webp",
       "alt": "Digital Risk Management for Data Security and Data Privacy Part 2 certificate"
     },
     "skills": ["Digital Risk Management", "Data Security", "Data Privacy"],
@@ -405,6 +425,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/digital-risk-management-data-security-privacy-part-3-coniverse-boston-network.png",
+      "thumbnail": "./assets/certificates/thumbnails/digital-risk-management-data-security-privacy-part-3-coniverse-boston-network.webp",
       "alt": "Digital Risk Management for Data Security and Data Privacy Part 3 certificate"
     },
     "skills": ["Digital Risk Management", "Data Security", "Data Privacy"],
@@ -420,6 +441,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/digital-risk-management-data-security-privacy-part-4-coniverse-boston-network.png",
+      "thumbnail": "./assets/certificates/thumbnails/digital-risk-management-data-security-privacy-part-4-coniverse-boston-network.webp",
       "alt": "Digital Risk Management for Data Security and Data Privacy Part 4 certificate"
     },
     "skills": ["Digital Risk Management", "Data Security", "Data Privacy"],
@@ -435,6 +457,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/introduction-to-cloud-computing-conicle-boston-network.png",
+      "thumbnail": "./assets/certificates/thumbnails/introduction-to-cloud-computing-conicle-boston-network.webp",
       "alt": "Introduction to Cloud Computing certificate"
     },
     "skills": [
@@ -454,6 +477,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/google-certified-educator-level-1.png",
+      "thumbnail": "./assets/certificates/thumbnails/google-certified-educator-level-1.webp",
       "alt": "Google Certified Educator Level 1 certificate"
     },
     "skills": ["Google Workspace", "Digital Learning", "Classroom Technology"],
@@ -469,6 +493,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/chatgpt-for-developers.png",
+      "thumbnail": "./assets/certificates/thumbnails/chatgpt-for-developers.webp",
       "alt": "ChatGPT for Developers certificate"
     },
     "skills": ["Prompt Engineering", "API Workflow", "Automation"],
@@ -484,6 +509,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/essential-sql-for-everyone.png",
+      "thumbnail": "./assets/certificates/thumbnails/essential-sql-for-everyone.webp",
       "alt": "Essential SQL for Everyone certificate"
     },
     "skills": ["SQL", "Data Modeling", "Query Optimization"],
@@ -499,6 +525,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/sgs-method-validation-chemical-testing-eurachem-2025.jpg",
+      "thumbnail": "./assets/certificates/thumbnails/analytical-chemistry-method-validation.webp",
       "alt": "SGS Method Validation for Chemical Testing certificate"
     },
     "skills": ["Method Validation", "EURACHEM", "Chemical Testing"],
@@ -514,6 +541,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/gemini-certified-educator.png",
+      "thumbnail": "./assets/certificates/thumbnails/gemini-certified-educator.webp",
       "alt": "Gemini Certified Educator certificate"
     },
     "skills": ["Generative AI", "Productivity", "Workflow Design"],
@@ -574,6 +602,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/kmitl-chemical-safety-hazardous-emergency-response-2021.jpg",
+      "thumbnail": "./assets/certificates/thumbnails/kmitl-chemical-safety-hazardous-emergency-response-2021.webp",
       "alt": "Chemical Safety and Hazardous Emergency Response certificate"
     },
     "skills": ["Chemical Safety", "Hazardous Materials", "Emergency Response"],
@@ -589,6 +618,7 @@
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/environmental-youth-network-sustainable-city-2020.jpg",
+      "thumbnail": "./assets/certificates/thumbnails/environmental-youth-network-sustainable-city-2020.webp",
       "alt": "National Youth Environmental Network Program certificate"
     },
     "skills": [

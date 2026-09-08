@@ -131,6 +131,13 @@ if (Array.isArray(certificates)) {
       return;
     }
 
+    if (cert.image.thumbnail) {
+      const thumbnailPath = path.resolve(rootDir, normalizeAssetPath(cert.image.thumbnail));
+      if (!thumbnailPath.startsWith(certificateAssetsDir + path.sep) || !fs.existsSync(thumbnailPath)) {
+        fail(`${prefix}: invalid or missing thumbnail "${cert.image.thumbnail}".`);
+      }
+    }
+
     const ids = fileToIds.get(absolutePath) || [];
     ids.push(cert.id);
     fileToIds.set(absolutePath, ids);
