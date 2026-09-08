@@ -1,5 +1,25 @@
 [
   {
+    "id": "ai-digital-marketing-ads-2026",
+    "title": "การตลาดออนไลน์ยุค AI: ยิงโฆษณาแม่น ปิดยอดทะลุเป้า",
+    "issuer": "สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติ (BDE)",
+    "issued": "2026-09-08",
+    "category": "Marketing",
+    "credentialId": "",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/ai-digital-marketing-ads-2026.jpeg",
+      "thumbnail": "./assets/certificates/thumbnails/ai-digital-marketing-ads-2026.webp",
+      "alt": "AI online marketing, targeted advertising and sales certificate from the National Board of Digital Economy and Society Office, Thailand"
+    },
+    "skills": [
+      "AI Marketing",
+      "Digital Advertising",
+      "Sales Conversion"
+    ],
+    "featured": true
+  },
+  {
     "id": "ai-ready-organization-change-2026",
     "title": "การบริหารสู่องค์กรที่พร้อมเปลี่ยนแปลงด้วย AI",
     "issuer": "สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติ (BDE)",
