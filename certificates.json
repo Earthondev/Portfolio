@@ -21,6 +21,27 @@
     "featured": true
   },
   {
+    "id": "fta-free-trade-modern-farmers-2026",
+    "title": "กองทุน FTA เข้าใจง่าย และการค้าเสรีสำหรับเกษตรกรยุคใหม่ (FTA69-2)",
+    "issuer": "สำนักงานเศรษฐกิจการเกษตร กระทรวงเกษตรและสหกรณ์ × มหาวิทยาลัยเกษตรศาสตร์",
+    "issued": "2026-09-08",
+    "category": "Business",
+    "credentialId": "KumoocFTA69-200012569306197",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/fta-free-trade-modern-farmers-2026.jpeg",
+      "thumbnail": "./assets/certificates/thumbnails/fta-free-trade-modern-farmers-2026.webp",
+      "alt": "FTA69-2 certificate covering the FTA fund and free trade for modern Thai farmers from the Office of Agricultural Economics and Kasetsart University"
+    },
+    "skills": [
+      "FTA Fund",
+      "Free Trade",
+      "Agriculture",
+      "Policy Literacy"
+    ],
+    "featured": true
+  },
+  {
     "id": "ai-digital-marketing-ads-2026",
     "title": "การตลาดออนไลน์ยุค AI: ยิงโฆษณาแม่น ปิดยอดทะลุเป้า",
     "issuer": "สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติ (BDE)",
@@ -437,7 +458,11 @@
       "thumbnail": "./assets/certificates/thumbnails/prompt-engineering-agentic-ai-by-ais-academy.webp",
       "alt": "Prompt Engineering and Agentic AI by AIS Academy certificate"
     },
-    "skills": ["Prompt Engineering", "Agentic AI", "AI Workflow Automation"],
+    "skills": [
+      "Prompt Engineering",
+      "Agentic AI",
+      "AI Workflow Automation"
+    ],
     "featured": true
   },
   {
@@ -453,7 +478,11 @@
       "thumbnail": "./assets/certificates/thumbnails/digital-risk-management-data-security-privacy-part-2-coniverse-boston-network.webp",
       "alt": "Digital Risk Management for Data Security and Data Privacy Part 2 certificate"
     },
-    "skills": ["Digital Risk Management", "Data Security", "Data Privacy"],
+    "skills": [
+      "Digital Risk Management",
+      "Data Security",
+      "Data Privacy"
+    ],
     "featured": false
   },
   {
@@ -469,7 +498,11 @@
       "thumbnail": "./assets/certificates/thumbnails/digital-risk-management-data-security-privacy-part-3-coniverse-boston-network.webp",
       "alt": "Digital Risk Management for Data Security and Data Privacy Part 3 certificate"
     },
-    "skills": ["Digital Risk Management", "Data Security", "Data Privacy"],
+    "skills": [
+      "Digital Risk Management",
+      "Data Security",
+      "Data Privacy"
+    ],
     "featured": false
   },
   {
@@ -485,7 +518,11 @@
       "thumbnail": "./assets/certificates/thumbnails/digital-risk-management-data-security-privacy-part-4-coniverse-boston-network.webp",
       "alt": "Digital Risk Management for Data Security and Data Privacy Part 4 certificate"
     },
-    "skills": ["Digital Risk Management", "Data Security", "Data Privacy"],
+    "skills": [
+      "Digital Risk Management",
+      "Data Security",
+      "Data Privacy"
+    ],
     "featured": false
   },
   {
@@ -521,7 +558,11 @@
       "thumbnail": "./assets/certificates/thumbnails/google-certified-educator-level-1.webp",
       "alt": "Google Certified Educator Level 1 certificate"
     },
-    "skills": ["Google Workspace", "Digital Learning", "Classroom Technology"],
+    "skills": [
+      "Google Workspace",
+      "Digital Learning",
+      "Classroom Technology"
+    ],
     "featured": true
   },
   {
@@ -537,7 +578,11 @@
       "thumbnail": "./assets/certificates/thumbnails/chatgpt-for-developers.webp",
       "alt": "ChatGPT for Developers certificate"
     },
-    "skills": ["Prompt Engineering", "API Workflow", "Automation"],
+    "skills": [
+      "Prompt Engineering",
+      "API Workflow",
+      "Automation"
+    ],
     "featured": true
   },
   {
@@ -553,7 +598,11 @@
       "thumbnail": "./assets/certificates/thumbnails/essential-sql-for-everyone.webp",
       "alt": "Essential SQL for Everyone certificate"
     },
-    "skills": ["SQL", "Data Modeling", "Query Optimization"],
+    "skills": [
+      "SQL",
+      "Data Modeling",
+      "Query Optimization"
+    ],
     "featured": true
   },
   {
@@ -569,7 +618,11 @@
       "thumbnail": "./assets/certificates/thumbnails/analytical-chemistry-method-validation.webp",
       "alt": "SGS Method Validation for Chemical Testing certificate"
     },
-    "skills": ["Method Validation", "EURACHEM", "Chemical Testing"],
+    "skills": [
+      "Method Validation",
+      "EURACHEM",
+      "Chemical Testing"
+    ],
     "featured": false
   },
   {
@@ -585,7 +638,11 @@
       "thumbnail": "./assets/certificates/thumbnails/gemini-certified-educator.webp",
       "alt": "Gemini Certified Educator certificate"
     },
-    "skills": ["Generative AI", "Productivity", "Workflow Design"],
+    "skills": [
+      "Generative AI",
+      "Productivity",
+      "Workflow Design"
+    ],
     "featured": false
   },
   {
@@ -600,7 +657,11 @@
       "src": "./assets/certificates/glp-gmp-quality-systems.svg",
       "alt": "GLP and GMP Quality Systems certificate placeholder"
     },
-    "skills": ["Quality Systems", "Compliance", "SOP"],
+    "skills": [
+      "Quality Systems",
+      "Compliance",
+      "SOP"
+    ],
     "featured": false
   },
   {
@@ -615,7 +676,11 @@
       "src": "./assets/certificates/firebase-for-web-apps.svg",
       "alt": "Firebase for Modern Web Apps certificate placeholder"
     },
-    "skills": ["Firebase", "Authentication", "Realtime Database"],
+    "skills": [
+      "Firebase",
+      "Authentication",
+      "Realtime Database"
+    ],
     "featured": false
   },
   {
@@ -630,7 +695,11 @@
       "src": "./assets/certificates/power-bi-dashboard-design.svg",
       "alt": "Power BI Dashboard Design certificate placeholder"
     },
-    "skills": ["Power BI", "Data Visualization", "Business Reporting"],
+    "skills": [
+      "Power BI",
+      "Data Visualization",
+      "Business Reporting"
+    ],
     "featured": false
   },
   {
@@ -646,7 +715,11 @@
       "thumbnail": "./assets/certificates/thumbnails/kmitl-chemical-safety-hazardous-emergency-response-2021.webp",
       "alt": "Chemical Safety and Hazardous Emergency Response certificate"
     },
-    "skills": ["Chemical Safety", "Hazardous Materials", "Emergency Response"],
+    "skills": [
+      "Chemical Safety",
+      "Hazardous Materials",
+      "Emergency Response"
+    ],
     "featured": false
   },
   {
