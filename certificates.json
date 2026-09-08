@@ -1,5 +1,25 @@
 [
   {
+    "id": "ai-ready-organization-change-2026",
+    "title": "การบริหารสู่องค์กรที่พร้อมเปลี่ยนแปลงด้วย AI",
+    "issuer": "สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติ (BDE)",
+    "issued": "2026-09-08",
+    "category": "Automation",
+    "credentialId": "",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/ai-ready-organization-change-2026.jpeg",
+      "alt": "AI-ready organization change management certificate from the National Board of Digital Economy and Society Office, Thailand"
+    },
+    "skills": [
+      "AI Strategy",
+      "Change Management",
+      "Digital Transformation",
+      "Organizational Leadership"
+    ],
+    "featured": true
+  },
+  {
     "id": "ai-basic-thai-ai-skills-2026",
     "title": "AI Basic: ทักษะเอไอระดับพื้นฐาน",
     "issuer": "สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติ (BDE)",
