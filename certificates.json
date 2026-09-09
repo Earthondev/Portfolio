@@ -1,5 +1,25 @@
 [
   {
+    "id": "ai-agent-work-assistant-bde-2026",
+    "title": "AI Agent การสร้างผู้ช่วยอัจฉริยะเพื่อการทำงาน",
+    "issuer": "สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติ (BDE)",
+    "issued": "2026-09-09",
+    "category": "Automation",
+    "credentialId": "",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/ai-agent-work-assistant-bde-2026.jpeg",
+      "thumbnail": "./assets/certificates/thumbnails/ai-agent-work-assistant-bde-2026.webp",
+      "alt": "AI Agent intelligent work assistant certificate from the National Board of Digital Economy and Society Office, Thailand"
+    },
+    "skills": [
+      "AI Agents",
+      "Intelligent Assistants",
+      "Workplace Automation"
+    ],
+    "featured": true
+  },
+  {
     "id": "canva-media-design-kumooc-2026",
     "title": "สื่อสวย ด้วยมือเรา เริ่มต้นที่ Canva",
     "issuer": "มหาวิทยาลัยเกษตรศาสตร์ (KUMOOC)",
