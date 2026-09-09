@@ -1,5 +1,25 @@
 [
   {
+    "id": "canva-media-design-kumooc-2026",
+    "title": "สื่อสวย ด้วยมือเรา เริ่มต้นที่ Canva",
+    "issuer": "มหาวิทยาลัยเกษตรศาสตร์ (KUMOOC)",
+    "issued": "2026-09-09",
+    "category": "Design",
+    "credentialId": "KumoocKUMOOC05100012569306197",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/canva-media-design-kumooc-2026.jpeg",
+      "thumbnail": "./assets/certificates/thumbnails/canva-media-design-kumooc-2026.webp",
+      "alt": "Canva media design certificate from Kasetsart University KUMOOC"
+    },
+    "skills": [
+      "Canva",
+      "Media Design",
+      "Visual Communication"
+    ],
+    "featured": true
+  },
+  {
     "id": "fta-fund-free-trade-agriculture-2026",
     "title": "กองทุน FTA เข้าใจง่าย และการค้าเสรีสำหรับเกษตรกรยุคใหม่",
     "issuer": "สำนักงานเศรษฐกิจการเกษตร กระทรวงเกษตรและสหกรณ์ × มหาวิทยาลัยเกษตรศาสตร์",
