@@ -1,5 +1,25 @@
 [
   {
+    "id": "content-creator-online-set-2026",
+    "title": "Content Creator ออนไลน์ : อาชีพยอดฮิตพิชิตเงินล้าน",
+    "issuer": "ตลาดหลักทรัพย์แห่งประเทศไทย (SET)",
+    "issued": "2026-09-11",
+    "category": "Marketing",
+    "credentialId": "SETWMD1022TM000125693506019",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/content-creator-online-set-2026.jpeg",
+      "thumbnail": "./assets/certificates/thumbnails/content-creator-online-set-2026.webp",
+      "alt": "Online Content Creator course certificate from the Stock Exchange of Thailand (SET)"
+    },
+    "skills": [
+      "Content Creation",
+      "Digital Content",
+      "Creator Business"
+    ],
+    "featured": true
+  },
+  {
     "id": "ai-agent-work-assistant-bde-2026",
     "title": "AI Agent การสร้างผู้ช่วยอัจฉริยะเพื่อการทำงาน",
     "issuer": "สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติ (BDE)",
