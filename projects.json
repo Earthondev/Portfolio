@@ -1,5 +1,67 @@
 [
   {
+    "id": "jae-noi-pork-shop",
+    "title": "Jae Noi Pork Shop",
+    "slug": "jae-noi-pork-shop",
+    "year": 2026,
+    "summary": "ร้านค้าออนไลน์สำหรับเจ๊น้อย เขียงหมูตะคร้อ รองรับการเลือกสินค้า พรีออเดอร์ ชำระเงิน และติดตามออเดอร์จริงบนระบบ Cloudflare",
+    "role": [
+      "Full-stack Developer",
+      "E-commerce Builder",
+      "Deployment & Operations"
+    ],
+    "stack": [
+      "Next.js",
+      "TypeScript",
+      "Cloudflare Workers",
+      "D1 Database",
+      "R2 Storage"
+    ],
+    "highlights": [
+      "Built a production storefront for fresh pork products, regional food, and pre-order rounds",
+      "Connected catalog, cart, order tracking, payment confirmation, and admin workflows into one system",
+      "Deployed the live store to jaenoishop.com with Cloudflare Workers, D1, and R2",
+      "Designed responsive shopping flows for both mobile customers and desktop operations"
+    ],
+    "metrics": [
+      {
+        "value": "Live",
+        "label": "Production storefront"
+      },
+      {
+        "value": "24/7",
+        "label": "Online ordering"
+      },
+      {
+        "value": "Cloudflare",
+        "label": "Edge deployment"
+      }
+    ],
+    "coverImage": {
+      "src": "./assets/projects/jae-noi-pork-shop/cover.webp",
+      "alt": "Jae Noi Pork Shop online storefront homepage"
+    },
+    "gallery": [
+      {
+        "src": "./assets/projects/jae-noi-pork-shop/cover.webp",
+        "alt": "Jae Noi Pork Shop storefront homepage"
+      }
+    ],
+    "links": {
+      "live": "https://jaenoishop.com/",
+      "repo": "https://github.com/Earthondev/jae-noi-pork-shop"
+    },
+    "tags": [
+      "E-commerce",
+      "Web App",
+      "Cloudflare",
+      "Full-stack"
+    ],
+    "cta": "Visit Store",
+    "status": "Live Production",
+    "caseStudy": false
+  },
+  {
     "id": "rta-exam-candidate-structure-analysis",
     "title": "RTA Exam Candidate Structure Analysis",
     "slug": "rta-exam-candidate-structure-analysis",
