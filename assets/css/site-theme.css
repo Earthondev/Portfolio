@@ -53,6 +53,9 @@ body.portfolio-content {
 .portfolio-content :is(.tech-tag,.tag-pill,.chip) { border-radius: 3px; color: var(--site-muted); background: var(--site-soft); border-color: var(--site-rule); }
 .portfolio-content .filter-btn.active { background: var(--site-ink); color: var(--site-surface); border-color: var(--site-ink); }
 .portfolio-content .filter-btn { border-radius: 3px; }
+.portfolio-content .metric-card { background: var(--site-soft) !important; border: 1px solid var(--site-rule) !important; border-radius: 4px !important; box-shadow: none !important; }
+.portfolio-content a.liquid-shimmer[href="./inventory-analytics-dashboard.html"] { background: var(--site-ink) !important; border-color: var(--site-ink) !important; color: var(--site-surface) !important; }
+.portfolio-content .liquid-shimmer::before { display: none; }
 .portfolio-content :is(.text-gray-300,.text-gray-400,.text-gray-500) { color: var(--site-muted); }
 .portfolio-content [class*="text-[#00D9FF]"],.portfolio-content [class*="text-[#00FF94]"] { color: var(--site-copper-dark) !important; }
 .portfolio-content [class*="border-[#00D9FF]"] { border-color: var(--site-rule) !important; }

@@ -86,6 +86,7 @@ export async function mountBadge(host: HTMLElement): Promise<void> {
     // theta'' = -(g/L) sin(theta) - damping * theta'.
     let angle = 0;
     let angularVelocity = 0;
+    let maximumAngle = 0.3;
 
     const raycaster = new THREE.Raycaster();
     const cursor = new THREE.Vector2();
@@ -112,7 +113,8 @@ export async function mountBadge(host: HTMLElement): Promise<void> {
     function release(): void {
         if (!drag) return;
         if (canvas!.hasPointerCapture(drag.pointerId)) canvas!.releasePointerCapture(drag.pointerId);
-        angularVelocity = THREE.MathUtils.clamp(angularVelocity * 0.7, -0.8, 0.8);
+        angularVelocity *= 0.7;
+        boundVelocity();
         drag = undefined;
         host.classList.remove('is-dragging');
         announce('Released. The card is swinging under gravity.');
@@ -130,6 +132,13 @@ export async function mountBadge(host: HTMLElement): Promise<void> {
     function kick(amount: number): void {
         setPaused(false);
         angularVelocity = THREE.MathUtils.clamp(angularVelocity + amount * 2, -0.8, 0.8);
+        boundVelocity();
+    }
+    function boundVelocity(): void {
+        // Limit kinetic energy so free motion cannot exceed the visible angular arc.
+        const availableEnergy = Math.max(0, Math.cos(angle) - Math.cos(maximumAngle));
+        const limit = Math.min(0.8, Math.sqrt(2 * GRAVITY / PENDULUM_LENGTH * availableEnergy) * 0.95);
+        angularVelocity = THREE.MathUtils.clamp(angularVelocity, -limit, limit);
     }
     function reset(): void {
         release();
@@ -160,7 +169,8 @@ export async function mountBadge(host: HTMLElement): Promise<void> {
             if (raycaster.ray.intersectPlane(drag.plane, hitPoint)) {
                 // Horizontal movement chooses an angle on the same fixed-radius arc.
                 // Vertical pointer movement cannot lift, stretch or compress the strap.
-                const x = THREE.MathUtils.clamp(hitPoint.x - drag.offsetX - FIXED.x, -2.3, 2.3);
+                const horizontalLimit = PENDULUM_LENGTH * Math.sin(maximumAngle * 0.85);
+                const x = THREE.MathUtils.clamp(hitPoint.x - drag.offsetX - FIXED.x, -horizontalLimit, horizontalLimit);
                 drag.targetAngle = Math.asin(x / PENDULUM_LENGTH);
 
             }
@@ -216,6 +226,8 @@ export async function mountBadge(host: HTMLElement): Promise<void> {
         host.dataset.badgeY = badge.position.y.toFixed(3);
         host.dataset.badgeSpeed = (Math.abs(angularVelocity) * PENDULUM_LENGTH).toFixed(3);
         host.dataset.badgeRadius = badge.position.distanceTo(suspension).toFixed(6);
+        host.dataset.badgeAngle = angle.toFixed(6);
+        host.dataset.badgeLimit = maximumAngle.toFixed(6);
     }
     function render(now: number): void {
         if (destroyed) return;
@@ -257,6 +269,17 @@ export async function mountBadge(host: HTMLElement): Promise<void> {
         camera.aspect = width / height;
         camera.position.z = width / height < 0.63 ? 12 : 10.5;
         camera.updateProjectionMatrix();
+        const halfWidth = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.position.z * camera.aspect;
+        let low = 0;
+        let high = 0.55;
+        for (let i = 0; i < 24; i++) {
+            const candidate = (low + high) / 2;
+            const extent = (PENDULUM_LENGTH + BADGE.anchorY + 0.18) * Math.sin(candidate) + BADGE.width / 2 * Math.cos(candidate);
+            if (extent < halfWidth - 0.16) low = candidate; else high = candidate;
+        }
+        maximumAngle = Math.max(0.015, low);
+        angle = THREE.MathUtils.clamp(angle, -maximumAngle, maximumAngle);
+        boundVelocity();
         needsRender = true;
     }
     const resizeObserver = new ResizeObserver(resize);
