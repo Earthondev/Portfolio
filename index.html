@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
             name="description"
-            content="ณัฐภาส วรคันธ์ (Nattapart Worakun) — Data Analyst &amp; BI Developer in Bangkok. Portfolio of inventory analytics dashboards, SQL reporting, Power BI, Python automation, and 39+ professional certifications."
+            content="ณัฐภาส วรคันธ์ (Nattapart Worakun) — Data Analyst &amp; BI Developer in Bangkok. Portfolio of inventory analytics dashboards, SQL reporting, Power BI, Python automation, and 40+ professional certifications."
         />
         <meta name="author" content="ณัฐภาส วรคันธ์ (Nattapart Worakun)" />
         <meta name="robots" content="index, follow" />
@@ -81,7 +81,7 @@
         <link rel="stylesheet" href="assets/css/icons.css?v=1" />
 
         <!-- Custom Styles -->
-        <link rel="stylesheet" href="style.css?v=15" />
+        <link rel="stylesheet" href="style.css?v=18" />
 
 
         <!-- Schema.org Structured Data -->
@@ -204,549 +204,106 @@
                 ]
             }
         </script>
-    </head>
+    <link rel="stylesheet" href="assets/css/site-theme.css?v=1" />
+</head>
 
-    <body class="premium-shell overflow-x-hidden antialiased">
-        <!-- Navbar -->
-        <nav
-            class="fixed top-0 w-full z-50 glass-nav transition-all duration-300"
-            id="navbar"
-        >
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-20">
-                    <!-- Logo -->
-                    <a href="index.html" class="flex items-center gap-2 group">
-                        <span
-                            class="font-heading font-semibold text-base tracking-[0.08em] group-hover:opacity-60 transition-opacity"
-                            >Nattapart</span
-                        >
-                    </a>
+    <body class="portfolio-home premium-shell overflow-x-hidden antialiased">
+        <nav class="home-nav" id="navbar" aria-label="Main navigation">
+ <div class="home-nav__inner">
+  <a class="home-brand" href="index.html" aria-label="Nattapart Worakun home"><span class="home-brand__mark">NW</span><span>Nattapart <span class="home-brand__surname">Worakun</span></span></a>
+  <div class="home-nav__links"><a href="index.html#featured-case-study">Featured Case</a><a href="portfolio.html">Selected Work</a><a href="index.html#technical-stack">Toolkit</a><a href="certificates.html">Credentials</a><a href="contact.html">Contact</a></div>
+  <a class="home-nav__cta" href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+  <button id="mobile-menu-btn" class="home-menu-btn" type="button" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false"><i class="fas fa-bars" aria-hidden="true"></i></button>
+ </div>
+ <div id="mobile-menu" class="home-mobile-menu hidden"><a href="index.html#featured-case-study">Featured Case</a><a href="portfolio.html">Selected Work</a><a href="index.html#technical-stack">Toolkit</a><a href="certificates.html">Credentials</a><a href="contact.html">Contact</a><a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></div>
+</nav>
 
-                    <!-- Desktop Menu -->
-                    <div class="hidden md:flex items-center space-x-8">
-                        <a
-                            href="index.html"
-                            class="text-sm font-medium text-white border-b-2 border-[#00D9FF] py-1"
-                            >Home</a
-                        >
-                        <a
-                            href="certificates.html"
-                            class="text-sm font-medium text-gray-400 hover:text-white hover:border-b-2 hover:border-gray-700 py-1 transition-all"
-                            >Certificates</a
-                        >
-                        <a
-                            href="portfolio.html"
-                            class="text-sm font-medium text-gray-400 hover:text-white hover:border-b-2 hover:border-gray-700 py-1 transition-all"
-                            >Projects</a
-                        >
-                        <a
-                            href="contact.html"
-                            class="text-sm font-medium text-gray-400 hover:text-white hover:border-b-2 hover:border-gray-700 py-1 transition-all"
-                            >Contact</a
-                        >
+        <main>
+            <section class="home-hero" aria-labelledby="home-title">
+                <div class="home-hero__inner">
+                    <div class="home-hero__copy">
+                        <h1 id="home-title">Turning inventory data into <em>clear decisions.</em></h1>
+                        <p class="home-hero__intro">I’m Nattapart Worakun, a chemist-turned-data analyst building practical reporting for teams that need to see stock risk, KPI movement, and what to do next.</p>
+                        <div class="home-hero__tags" aria-label="Areas of focus"><span>Inventory analytics</span><span>Power BI</span><span>SQL reporting</span><span>Workflow automation</span></div>
+                        <div class="home-hero__actions">
+                            <a class="home-button home-button--primary" href="#featured-case-study">Explore the case study <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
+                            <a class="home-button home-button--quiet" href="mailto:earthlikemwbb@gmail.com">Get in touch <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                        </div>
+                        <p class="home-location"><i class="fas fa-location-dot" aria-hidden="true"></i> Bangkok, Thailand <span>·</span> Open to analytics opportunities</p>
                     </div>
-
-                    <!-- CTA & Mobile Menu -->
-                    <div class="flex items-center gap-4">
-                        <a
-                            href="resume.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="hidden sm:inline-flex items-center justify-center px-5 py-2 text-sm font-medium text-white transition-all bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-[#00D9FF]/50 hover:shadow-[0_0_15px_rgba(0,217,255,0.3)]"
-                        >
-                            Resume
-                        </a>
-                        <button
-                            id="mobile-menu-btn"
-                            class="md:hidden text-gray-300 hover:text-white p-2"
-                        >
-                            <i class="fas fa-bars text-xl"></i>
-                        </button>
+                    <div class="badge-scene badge-scene--hero" data-badge-scene role="group" aria-label="Interactive portfolio identity card">
+                        <div class="badge-scene__fallback" aria-hidden="true"><img src="assets/models/badge/front.png" width="1024" height="1536" alt="" /></div>
+                        <canvas class="badge-scene__canvas" tabindex="0" role="img" aria-label="3D identity card with Nattapart's real photo. Drag and release to swing. Arrow keys apply a push, Space pauses, R resets."></canvas>
+                        <span class="badge-scene__status" data-badge-status role="status" aria-live="polite"></span>
                     </div>
                 </div>
-            </div>
+                <div class="home-hero__bottom"><span>SCROLL TO EXPLORE</span><span class="home-hero__line"></span><span>01 — PORTFOLIO</span></div>
+            </section>
 
-            <!-- Mobile Menu -->
-            <div
-                id="mobile-menu"
-                class="hidden md:hidden fixed top-20 left-0 w-full bg-[#0a0a0f]/95 backdrop-blur-xl border-t border-white/5 shadow-2xl z-40"
-            >
-                <div class="px-4 pt-2 pb-6 space-y-2">
-                    <a
-                        href="index.html"
-                        class="block px-3 py-3 rounded-lg text-base font-medium text-white bg-white/5 border-l-4 border-[#00D9FF]"
-                        >Home</a
-                    >
-                    <a
-                        href="certificates.html"
-                        class="block px-3 py-3 rounded-lg text-base font-medium text-gray-400 hover:text-white hover:bg-white/5"
-                        >Certificates</a
-                    >
-                    <a
-                        href="portfolio.html"
-                        class="block px-3 py-3 rounded-lg text-base font-medium text-gray-400 hover:text-white hover:bg-white/5"
-                        >Projects</a
-                    >
-                    <a
-                        href="contact.html"
-                        class="block px-3 py-3 rounded-lg text-base font-medium text-gray-400 hover:text-white hover:bg-white/5"
-                        >Contact</a
-                    >
+            <section class="home-case" id="featured-case-study" aria-labelledby="case-title">
+                <div class="home-section-head">
+                    <h2 id="case-title">From raw stock records<br /><em>to a weekly action view.</em></h2>
+                    <p>An illustrative portfolio project built with modeled inventory data. It brings operational signals into one place so teams can spot risk and prioritize follow-up.</p>
                 </div>
-            </div>
-        </nav>
-
-        <!-- Hero Section -->
-        <section
-            class="relative min-h-[90vh] flex items-center mt-20 pt-8 pb-12 px-4 overflow-hidden"
-        >
-            <div
-                class="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center relative z-10 w-full"
-            >
-                <div
-                    class="min-w-0 text-center lg:text-left space-y-7"
-                >
-                    <div class="premium-eyebrow mx-auto lg:mx-0">
-                        <span class="premium-dot"></span>
-                        Inventory/Data Analyst
+                <div class="home-case__layout">
+                    <div class="home-dashboard-frame">
+                        <img src="assets/images/enterprise-dashboard-960.webp" srcset="assets/images/enterprise-dashboard-640.webp 640w, assets/images/enterprise-dashboard-960.webp 960w" sizes="(min-width: 1024px) 58vw, 100vw" width="1586" height="992" loading="lazy" decoding="async" alt="Inventory analytics dashboard concept showing stock and operations indicators" />
+                        <span class="home-image-caption">INVENTORY ANALYTICS · DASHBOARD CONCEPT</span>
                     </div>
-
-                    <div>
-                        <p
-                            class="text-sm sm:text-base font-semibold text-gray-500 mb-3"
-                        >
-                            Data Analyst Portfolio
-                        </p>
-                        <h1
-                            class="hero-title font-heading text-5xl sm:text-7xl font-bold leading-[1.03] text-white"
-                        >
-                            ณัฐภาส วรคันธ์
-                            <span
-                                class="block mt-3 text-3xl sm:text-5xl text-gray-500"
-                                >Nattapart Worakun</span
-                            >
-                        </h1>
-                        <p
-                            class="mt-6 font-heading text-3xl sm:text-5xl font-bold leading-tight text-white"
-                        >
-                            I turn stock data into
-                            <span class="lux-underline"
-                                >decision-ready reporting</span
-                            >.
-                        </p>
-                    </div>
-
-                    <div
-                        class="text-xl sm:text-2xl font-semibold text-gray-400"
-                    >
-                        Focused on
-                        <span class="role-rotator font-heading">
-                            <span>Inventory Reporting</span>
-                            <span>Power BI Dashboards</span>
-                            <span>Workflow Automation</span>
-                        </span>
-                    </div>
-
-                    <p
-                        class="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto lg:mx-0"
-                    >
-                        Chemist turned data builder. I help operations teams see
-                        stock risk, KPI trends, and weekly actions without
-                        chasing scattered spreadsheets.
-                    </p>
-
-                    <div
-                        class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2"
-                    >
-                        <a
-                            href="mailto:earthlikemwbb@gmail.com"
-                            data-magnetic
-                            class="premium-cta w-full sm:w-auto px-7 py-4 rounded-xl bg-[#111827] text-white font-semibold flex items-center justify-center gap-2 hover:shadow-[0_18px_34px_rgba(17,24,39,0.18)] hover:-translate-y-0.5 transition-all duration-300"
-                        >
-                            Email Me
-                            <i class="fas fa-arrow-right text-sm"></i>
-                        </a>
-                        <a
-                            href="resume.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            data-magnetic
-                            class="w-full sm:w-auto px-7 py-4 rounded-xl premium-card text-gray-200 font-semibold flex items-center justify-center gap-2"
-                        >
-                            View Resume
-                            <i class="fas fa-file-lines text-sm"></i>
-                        </a>
-                        <a
-                            href="https://www.linkedin.com/in/earthondev/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            data-magnetic
-                            class="w-full sm:w-auto px-7 py-4 rounded-xl premium-card text-gray-200 font-semibold flex items-center justify-center gap-2"
-                        >
-                            LinkedIn
-                            <i class="fab fa-linkedin text-sm"></i>
-                        </a>
-                    </div>
-
-                    <div
-                        class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 max-w-2xl mx-auto lg:mx-0"
-                    >
-                        <div class="hero-stat-card premium-card rounded-2xl p-4 text-left">
-                            <p
-                                class="hero-stat-title font-bold font-heading text-white"
-                            >
-                                1,200+
-                            </p>
-                            <p class="text-xs text-gray-500 mt-1">
-                                SKUs modeled
-                            </p>
-                        </div>
-                        <div class="hero-stat-card premium-card rounded-2xl p-4 text-left">
-                            <p
-                                class="hero-stat-title font-bold font-heading text-white"
-                            >
-                                30-50%
-                            </p>
-                            <p class="text-xs text-gray-500 mt-1">
-                                faster picking
-                            </p>
-                        </div>
-                        <div class="hero-stat-card premium-card rounded-2xl p-4 text-left">
-                            <p
-                                class="hero-stat-title font-bold font-heading text-white"
-                            >
-                                -40%
-                            </p>
-                            <p class="text-xs text-gray-500 mt-1">
-                                handling errors
-                            </p>
-                        </div>
-                        <div class="hero-stat-card premium-card rounded-2xl p-4 text-left">
-                            <p
-                                class="hero-stat-title font-bold font-heading text-white"
-                            >
-                                90%
-                            </p>
-                            <p class="text-xs text-gray-500 mt-1">
-                                less admin time
-                            </p>
-                        </div>
+                    <div class="home-case__detail">
+                        <p class="home-mono-label">PROJECT SNAPSHOT</p>
+                        <h3 id="case-title-detail">A clearer picture of inventory health.</h3>
+                        <p>Designed around stock cover, turnover, dead stock, demand versus usage, and reorder signals—with a weekly summary to guide the next review.</p>
+                        <dl class="home-facts">
+                            <div><dt>1,200+</dt><dd>modeled SKU records</dd></div>
+                            <div><dt>06</dt><dd>inventory KPIs brought together</dd></div>
+                            <div><dt>Weekly</dt><dd>review and action summary</dd></div>
+                        </dl>
+                        <p class="home-disclosure">Portfolio demonstration using modeled data; the figures describe project scope, not measured business results.</p>
+                        <a class="home-text-link" href="inventory-analytics-dashboard.html">View the dashboard <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
+            </section>
 
-                <div class="relative hidden lg:block">
-                    <div
-                        class="project-preview-card premium-card rounded-[2rem] p-4 overflow-hidden"
-                    >
-                        <div
-                            class="aspect-[4/5] rounded-[1.5rem] overflow-hidden bg-[#111827] relative"
-                        >
-                            <img
-                                src="assets/images/profile-600.webp"
-                                width="600" height="900" fetchpriority="high" decoding="async"
-                                alt="Nattapart Worakun"
-                                class="w-full h-full object-cover object-center saturate-[0.92] contrast-105"
-                            />
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"
-                            ></div>
-                            <div
-                                class="absolute left-6 right-6 bottom-6 text-white"
-                            >
-                                <p
-                                    class="text-xs uppercase tracking-[0.18em] text-white/70"
-                                >
-                                    Ready for inventory analytics roles
-                                </p>
-                                <h2
-                                    class="font-heading text-3xl font-bold mt-2 text-white"
-                                >
-                                    Reporting that operations can act on.
-                                </h2>
-                            </div>
-                        </div>
-                    </div>
+            <section class="home-capabilities" id="impact" aria-labelledby="capabilities-title">
+                <div class="home-section-head home-section-head--row">
+                    <div><h2 id="capabilities-title">Useful work for<br /><em>busy operations teams.</em></h2></div>
+                    <p>Clear views, dependable reporting, and less friction between data and the next decision.</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Impact Section (Bento Grid) -->
-        <section id="impact" class="py-20 px-4 relative z-10 bg-[#0a0a0f]">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-12 premium-reveal">
-                    <span
-                        class="text-[#00D9FF] text-sm font-bold tracking-[0.14em] uppercase mb-4 block"
-                        >What I Deliver</span
-                    >
-                    <h2
-                        class="text-4xl sm:text-5xl font-bold font-heading text-white mb-6"
-                    >
-                        The work HR should remember
-                    </h2>
-                    <p class="text-gray-400 max-w-2xl mx-auto text-lg">
-                        Inventory visibility, reporting clarity, and practical
-                        automation.
-                    </p>
+                <div class="home-capability-list">
+                    <article><span class="home-capability-list__number">01</span><div><h3>Inventory reporting</h3><p>Organize stock movement, low-stock exposure, and follow-up priorities into a view that is easier to review.</p></div><i class="fas fa-boxes-stacked" aria-hidden="true"></i></article>
+                    <article><span class="home-capability-list__number">02</span><div><h3>Business intelligence</h3><p>Connect operational questions to focused KPI definitions, data models, and Power BI dashboard views.</p></div><i class="fas fa-chart-column" aria-hidden="true"></i></article>
+                    <article><span class="home-capability-list__number">03</span><div><h3>Workflow automation</h3><p>Make recurring spreadsheet and reporting tasks more consistent with reusable data flows and practical automation.</p></div><i class="fas fa-arrows-rotate" aria-hidden="true"></i></article>
                 </div>
+            </section>
 
-                <div class="grid md:grid-cols-3 gap-6 px-2">
-                    <div
-                        class="premium-card premium-reveal p-8 rounded-3xl group cursor-default h-full flex flex-col"
-                    >
-                        <div
-                            class="w-14 h-14 rounded-2xl bg-[#00FF94]/10 flex items-center justify-center text-2xl mb-6 text-[#00FF94]"
-                        >
-                            <i class="fas fa-boxes-stacked"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">
-                            Inventory Reporting
-                        </h3>
-                        <p
-                            class="text-gray-400 text-sm leading-relaxed flex-grow"
-                        >
-                            Turn stock movement, low-stock risk, and weekly
-                            action items into a view managers can scan fast.
-                        </p>
-                    </div>
+            <section class="home-toolkit" id="technical-stack" aria-labelledby="toolkit-title">
+                <div class="home-toolkit__intro"><h2 id="toolkit-title">A toolkit for<br /><em>reliable analysis.</em></h2><p>Built through hands-on projects across reporting, analytics, and application work.</p></div>
+                <div class="home-toolkit__items"><span>Power BI <small>VISUALIZATION</small></span><span>SQL <small>DATA QUERYING</small></span><span>Python <small>AUTOMATION</small></span><span>R <small>ANALYSIS</small></span><span>Google Sheets <small>REPORTING</small></span><span>AppSheet <small>WORKFLOWS</small></span></div>
+                <a class="home-text-link" href="portfolio.html">Explore selected projects <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </section>
 
-                    <div
-                        class="premium-card premium-reveal p-8 rounded-3xl group cursor-default h-full flex flex-col"
-                    >
-                        <div
-                            class="w-14 h-14 rounded-2xl bg-[#00D9FF]/10 flex items-center justify-center text-2xl mb-6 text-[#00D9FF]"
-                        >
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">
-                            Power BI Dashboards
-                        </h3>
-                        <p
-                            class="text-gray-400 text-sm leading-relaxed flex-grow"
-                        >
-                            Build KPI views around stock cover, turnover, dead
-                            stock, and demand vs usage.
-                        </p>
-                    </div>
-
-                    <div
-                        class="premium-card premium-reveal p-8 rounded-3xl group cursor-default h-full flex flex-col"
-                    >
-                        <div
-                            class="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center text-2xl mb-6 text-amber-700"
-                        >
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">
-                            Workflow Automation
-                        </h3>
-                        <p
-                            class="text-gray-400 text-sm leading-relaxed flex-grow"
-                        >
-                            Reduce repeat spreadsheet work with clean data
-                            flows, alerts, and reusable reporting steps.
-                        </p>
-                    </div>
+            <section class="home-credentials" id="credentials" aria-labelledby="credentials-title">
+                <div class="home-section-head home-section-head--row">
+                    <div><h2 id="credentials-title">Proof of continued<br /><em>learning.</em></h2></div>
+                    <a class="home-text-link" href="certificates.html">Browse all certificates <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
-            </div>
-        </section>
-
-        <!-- Featured Project -->
-        <section class="py-16 px-4 border-t border-white/5 bg-[#0a0a0f]">
-            <div class="max-w-7xl mx-auto">
-                <div
-                    class="grid lg:grid-cols-[0.92fr_1.08fr] gap-8 items-center premium-card rounded-[2rem] p-6 md:p-8 overflow-hidden project-preview-card premium-reveal"
-                >
-                    <div>
-                        <span class="premium-eyebrow mb-5">
-                            <span class="premium-dot"></span>
-                            Featured Proof
-                        </span>
-                        <h2
-                            class="text-4xl sm:text-5xl font-bold font-heading text-gray-100 leading-tight"
-                        >
-                            Inventory Analytics Dashboard
-                        </h2>
-                        <p class="text-gray-400 mt-4 text-lg leading-relaxed">
-                            A portfolio case showing enterprise inventory
-                            reporting for food, retail, and distribution
-                            operations: stock cover, dead stock, turnover,
-                            reorder risk, and weekly action summaries.
-                        </p>
-                        <div class="grid sm:grid-cols-3 gap-3 mt-6">
-                            <div
-                                class="rounded-2xl border border-white/10 bg-white/5 p-4"
-                            >
-                                <p class="text-2xl font-bold stat-cyan-dark">
-                                    1,200+
-                                </p>
-                                <p class="text-sm text-gray-400">
-                                    modeled SKU records
-                                </p>
-                            </div>
-                            <div
-                                class="rounded-2xl border border-white/10 bg-white/5 p-4"
-                            >
-                                <p class="text-2xl font-bold stat-green-dark">
-                                    6 KPIs
-                                </p>
-                                <p class="text-sm text-gray-400">
-                                    enterprise inventory views
-                                </p>
-                            </div>
-                            <div
-                                class="rounded-2xl border border-white/10 bg-white/5 p-4"
-                            >
-                                <p class="text-2xl font-bold text-amber-700">
-                                    Weekly
-                                </p>
-                                <p class="text-sm text-gray-400">
-                                    action plan
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col sm:flex-row gap-3 mt-7">
-                            <a
-                                href="inventory-analytics-dashboard.html"
-                                class="premium-cta px-6 py-3 rounded-xl bg-[#111827] text-white font-semibold inline-flex items-center justify-center gap-2"
-                            >
-                                Open Dashboard
-                                <i class="fas fa-chart-line text-sm"></i>
-                            </a>
-                            <a
-                                href="portfolio.html"
-                                class="px-6 py-3 rounded-xl premium-card font-semibold inline-flex items-center justify-center gap-2"
-                            >
-                                View Projects
-                                <i class="fas fa-arrow-right text-sm"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div
-                        class="rounded-[1.5rem] overflow-hidden bg-[#111827] p-4"
-                    >
-                        <img
-                            src="assets/images/enterprise-dashboard-960.webp"
-                            srcset="assets/images/enterprise-dashboard-640.webp 640w, assets/images/enterprise-dashboard-960.webp 960w"
-                            sizes="(min-width: 1024px) 50vw, 100vw"
-                            width="1586" height="992" loading="lazy" decoding="async"
-                            alt="Enterprise inventory analytics operations dashboard preview"
-                            class="w-full rounded-2xl border border-white/10"
-                        />
-                    </div>
+                <div id="certificate-highlight-grid" class="home-certificate-grid" aria-live="polite">
+                    <article class="home-cert-loading"><i class="fas fa-certificate" aria-hidden="true"></i><p>Loading selected certificates…</p></article>
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
 
-        <!-- Featured Certificates -->
-        <section class="py-20 px-4 border-t border-white/5 bg-[#0a0a0f]">
-            <div class="max-w-7xl mx-auto">
-                <div
-                    class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 premium-reveal"
-                >
-                    <div>
-                        <span
-                            class="text-amber-700 text-sm font-bold tracking-[0.14em] uppercase block mb-3"
-                            >Credentials</span
-                        >
-                        <h2
-                            class="text-4xl sm:text-5xl font-bold font-heading text-white"
-                        >
-                            Selected Proof
-                        </h2>
-                        <p class="text-gray-400 mt-4 max-w-2xl">
-                            Certificates that support analytics, automation, and
-                            reliable data work.
-                        </p>
-                    </div>
-                    <a
-                        href="certificates.html"
-                        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-sm font-semibold hover:border-amber-300 hover:text-amber-700 transition-all"
-                    >
-                        View All Certificates
-                        <i class="fas fa-arrow-right text-xs"></i>
-                    </a>
-                </div>
-
-                <div
-                    id="certificate-highlight-grid"
-                    class="grid md:grid-cols-3 gap-6 premium-reveal"
-                >
-                    <article
-                        class="rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden"
-                    >
-                        <div
-                            class="aspect-[16/10] bg-gradient-to-br from-[#00D9FF]/20 to-transparent flex items-center justify-center"
-                        >
-                            <i
-                                class="fas fa-certificate text-4xl text-[#00D9FF]"
-                            ></i>
-                        </div>
-                        <div class="p-5">
-                            <p
-                                class="text-xs uppercase tracking-[0.18em] text-gray-500"
-                            >
-                                Loading
-                            </p>
-                            <h3 class="text-lg font-semibold mt-2 text-white">
-                                Preparing certificates...
-                            </h3>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="py-12 px-4 border-t border-white/5 mt-auto bg-[#0a0a0f]">
-            <div
-                class="max-w-6xl mx-auto flex flex-col items-center justify-center text-center"
-            >
-                <p class="text-gray-400 text-sm mb-8 font-medium tracking-wide">
-                    Chemistry → Inventory → Automation & Analytics
-                </p>
-                <p class="text-gray-500 text-xs mb-2">
-                    ณัฐภาส วรคันธ์ (Nattapart Worakun) · Data Analyst · Bangkok,
-                    Thailand
-                </p>
-
-                <div class="flex space-x-6 mb-10">
-                    <a
-                        href="https://github.com/earthondev"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white hover:-translate-y-1 transition-all border border-transparent hover:border-white/10"
-                    >
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a
-                        href="mailto:earthlikemwbb@gmail.com"
-                        class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white hover:-translate-y-1 transition-all border border-transparent hover:border-white/10"
-                    >
-                        <i class="fas fa-envelope text-xl"></i>
-                    </a>
-                    <a
-                        href="https://www.linkedin.com/in/earthondev/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white hover:-translate-y-1 transition-all border border-transparent hover:border-white/10"
-                    >
-                        <i class="fab fa-linkedin text-xl"></i>
-                    </a>
-                </div>
-
-                <div
-                    class="text-gray-600 text-xs flex flex-col md:flex-row items-center gap-4"
-                >
-                    <span>© 2026 Nattapart Worakun. All rights reserved.</span>
-                </div>
-            </div>
+        <footer class="home-footer">
+            <div class="home-footer__top"><p>Have a data problem worth untangling?</p><a href="mailto:earthlikemwbb@gmail.com">Let’s talk <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+            <div class="home-footer__bottom"><a class="home-brand" href="index.html"><span class="home-brand__mark">NW</span><span>Nattapart Worakun</span></a><span>Bangkok, Thailand · © 2026</span><div class="home-footer__social"><a href="https://github.com/earthondev" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/earthondev/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a><a href="mailto:earthlikemwbb@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a></div></div>
         </footer>
 
+        <script type="module" src="assets/js/badge/entry.js?v=18"></script>
         <script src="assets/js/common.js"></script>
         <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
-        <script src="assets/js/animations.js?v=3" defer></script>
+        <script src="assets/js/animations.js?v=4" defer></script>
         <script>
             window.PortfolioCommon?.initMobileMenu({
                 lockScroll: true,

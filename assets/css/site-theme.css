@@ -1,0 +1,89 @@
+/* Shared public portfolio identity: the approved cream / copper homepage. */
+:root {
+    --site-paper: #fbf8f2;
+    --site-surface: #fffefa;
+    --site-soft: #efe8dc;
+    --site-ink: #211f1b;
+    --site-muted: #6d6861;
+    --site-rule: #ded8cf;
+    --site-copper: #b9583c;
+    --site-copper-dark: #97412c;
+    --home-paper: var(--site-paper);
+    --home-white: var(--site-surface);
+    --home-ink: var(--site-ink);
+    --home-muted: var(--site-muted);
+    --home-rule: var(--site-rule);
+    --home-clay: var(--site-copper);
+    --home-clay-dark: var(--site-copper-dark);
+}
+body.portfolio-content {
+    --bg: var(--site-paper);
+    --surface: var(--site-surface);
+    --surface-2: var(--site-soft);
+    --border: var(--site-rule);
+    --text: var(--site-ink);
+    --text-muted: var(--site-muted);
+    --text-soft: #766e64;
+    --accent: var(--site-copper-dark);
+    --accent-soft: #f1dfd4;
+    --ring: 0 0 0 3px #e9c6b4;
+    --case-paper: var(--site-paper);
+    --case-ink: var(--site-ink);
+    --case-muted: var(--site-muted);
+    --case-green: var(--site-copper-dark);
+    --case-green-2: var(--site-copper);
+    --case-card: var(--site-surface);
+    --case-line: var(--site-rule);
+    background: var(--site-paper) !important;
+    color: var(--site-ink) !important;
+    font-family: "Sarabun", sans-serif;
+}
+.portfolio-content ::selection { background: #e8b29a; color: var(--site-ink); }
+.portfolio-content { scrollbar-color: #bcaa94 var(--site-paper); }
+.portfolio-content input,.portfolio-content textarea { caret-color: var(--site-copper-dark); }
+.portfolio-content :focus-visible { outline: 2px solid var(--site-copper-dark); outline-offset: 3px; box-shadow: none; }
+.portfolio-content .home-nav { background: #fbf8f2f5 !important; border-bottom: 1px solid var(--site-rule) !important; backdrop-filter: none !important; box-shadow: none !important; }
+.home-nav__links a[aria-current="page"],.home-mobile-menu a[aria-current="page"] { color: var(--site-copper-dark); }
+.portfolio-content h1 { font-family: "Space Grotesk",sans-serif; font-weight: 500; font-size: clamp(42px,5.2vw,72px); line-height: 1.06; letter-spacing: -.035em; text-wrap: balance; }
+.portfolio-content h2,.portfolio-content h3 { font-family: "Space Grotesk",sans-serif; letter-spacing: -.02em; }
+.portfolio-content .gradient-text,.portfolio-content .text-gradient { color: var(--site-copper-dark) !important; background: none !important; -webkit-text-fill-color: currentColor !important; }
+.portfolio-content :is(.premium-eyebrow,.cert-kicker),.portfolio-content .contact-hero-labels { display: none; }
+.portfolio-content :is(.glass-card,.project-card,.cert-card,.track-card,.project-preview-card,.contact-card) { border-radius: 4px !important; background: var(--site-surface) !important; border: 1px solid var(--site-rule) !important; box-shadow: none !important; }
+.portfolio-content .project-card::before,.portfolio-content .track-card::before,.portfolio-content .project-card::after { display: none !important; }
+.portfolio-content :is(.tech-tag,.tag-pill,.chip) { border-radius: 3px; color: var(--site-muted); background: var(--site-soft); border-color: var(--site-rule); }
+.portfolio-content .filter-btn.active { background: var(--site-ink); color: var(--site-surface); border-color: var(--site-ink); }
+.portfolio-content .filter-btn { border-radius: 3px; }
+.portfolio-content :is(.text-gray-300,.text-gray-400,.text-gray-500) { color: var(--site-muted); }
+.portfolio-content [class*="text-[#00D9FF]"],.portfolio-content [class*="text-[#00FF94]"] { color: var(--site-copper-dark) !important; }
+.portfolio-content [class*="border-[#00D9FF]"] { border-color: var(--site-rule) !important; }
+.portfolio-content [class*="bg-gradient"]:not(img) { background-image: none !important; }
+.portfolio-content .cert-image-shell { background: var(--site-soft) !important; }
+.portfolio-content [data-cert-image] { background: var(--site-soft) !important; }
+.portfolio-content :is(input,select,textarea,.control-input) { border-radius: 3px !important; background: var(--site-surface) !important; color: var(--site-ink) !important; border-color: var(--site-rule) !important; }
+.portfolio-content :is(input,textarea)::placeholder { color: var(--site-muted); }
+.portfolio-content :is(.modal-overlay,.project-modal) { background: #211f1bbf !important; backdrop-filter: none !important; }
+.portfolio-content :is(.modal-content,.modal-panel,.certificate-modal-panel) { background: var(--site-surface) !important; color: var(--site-ink) !important; border-radius: 8px !important; }
+.portfolio-content .modal-content :is(h2,h3,h4,p,li,.text-gray-300,.text-gray-400,.text-gray-500) { color: var(--site-ink) !important; }
+.portfolio-content .modal-content :is(.glass-card,.project-card) { background: var(--site-soft) !important; color: var(--site-ink) !important; }
+.portfolio-content .contact-hero { background: var(--site-paper); padding-top: 112px; }
+.portfolio-content .contact-hero-name { font-size: clamp(60px,11vw,96px); font-weight: 500; color: var(--site-copper-dark); visibility: visible !important; }
+.portfolio-content #hero-name,.portfolio-content #hero-photo { opacity: 1 !important; transform: none !important; }
+.portfolio-content .case-backdrop { display: none; }
+.portfolio-content .fade-in,.portfolio-content .fade-up { opacity: 1 !important; transform: none !important; animation: none !important; }
+.portfolio-content .modal-content .sticky { background: var(--site-surface) !important; border-color: var(--site-rule) !important; }
+.portfolio-content .cin-dot-fill { width: 100% !important; transform-origin: left; }
+.portfolio-content .cin-dot.active .cin-dot-fill { width: 100%; }
+.portfolio-content .contact-below { background: var(--site-paper); }
+.portfolio-content #entrance-overlay,.portfolio-content #entrance-text { display: none !important; }
+.portfolio-content footer { background: var(--site-soft) !important; border-color: var(--site-rule) !important; }
+.portfolio-content.is-case-study main { padding-top: 125px; }
+.portfolio-content.is-case-study .home-nav { position: fixed; }
+@media (max-width: 680px) {
+    .portfolio-content h1 { font-size: clamp(39px,10vw,52px); }
+    .portfolio-content .contact-hero { padding-top: 94px; }
+    .portfolio-content .contact-hero-name { font-size: 58px; }
+    .portfolio-content.is-case-study main { padding-top: 98px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .portfolio-content .liquid-shimmer::before,.portfolio-content .floating { animation: none !important; }
+}

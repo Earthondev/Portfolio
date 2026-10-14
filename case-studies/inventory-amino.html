@@ -12,14 +12,22 @@
   <link rel="stylesheet" href="../assets/css/tailwind-built.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=14">
+  <link rel="stylesheet" href="../assets/css/fonts.css?v=1" />
+  <link rel="stylesheet" href="../style.css?v=18">
   <style></style>
+<link rel="stylesheet" href="../assets/css/site-theme.css?v=1" />
 </head>
 
-<body class="min-h-full">
+<body class="portfolio-content is-case-study min-h-full">
+<nav class="home-nav" id="navbar" aria-label="Main navigation">
+ <div class="home-nav__inner">
+  <a class="home-brand" href="../index.html" aria-label="Nattapart Worakun home"><span class="home-brand__mark">NW</span><span>Nattapart <span class="home-brand__surname">Worakun</span></span></a>
+  <div class="home-nav__links"><a href="../index.html#featured-case-study">Featured Case</a><a href="../portfolio.html">Selected Work</a><a href="../index.html#technical-stack">Toolkit</a><a href="../certificates.html">Credentials</a><a href="../contact.html">Contact</a></div>
+  <a class="home-nav__cta" href="../resume.pdf" target="_blank" rel="noopener noreferrer">Resume <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+  <button id="mobile-menu-btn" class="home-menu-btn" type="button" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false"><i class="fas fa-bars" aria-hidden="true"></i></button>
+ </div>
+ <div id="mobile-menu" class="home-mobile-menu hidden"><a href="../index.html#featured-case-study">Featured Case</a><a href="../portfolio.html">Selected Work</a><a href="../index.html#technical-stack">Toolkit</a><a href="../certificates.html">Credentials</a><a href="../contact.html">Contact</a><a href="../resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></div>
+</nav>
   <main class="px-4 py-12">
     <section class="mx-auto max-w-5xl">
       <a href="../portfolio.html" class="text-sm font-semibold text-[#00D9FF]">Back to Portfolio</a>
@@ -91,6 +99,7 @@
       </article>
     </section>
   </main>
+<script src="../assets/js/common.js"></script><script>PortfolioCommon.initMobileMenu();</script>
 </body>
 
 </html>

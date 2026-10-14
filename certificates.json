@@ -1,5 +1,26 @@
 [
   {
+    "id": "ai-leadership-organization-trust-2026",
+    "title": "ผู้นำยุค AI: พร้อมสร้างความเชื่อมั่นในองค์กร",
+    "issuer": "สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติ (BDE)",
+    "issued": "2026-09-24",
+    "category": "Automation",
+    "credentialId": "",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/ai-leadership-organization-trust-2026.jpeg",
+      "thumbnail": "./assets/certificates/thumbnails/ai-leadership-organization-trust-2026.webp",
+      "alt": "AI Leadership and Building Organizational Trust certificate from the National Board of Digital Economy and Society Office, Thailand"
+    },
+    "skills": [
+      "AI Leadership",
+      "Organizational Trust",
+      "AI Strategy",
+      "Digital Transformation"
+    ],
+    "featured": true
+  },
+  {
     "id": "content-creator-online-set-2026",
     "title": "Content Creator ออนไลน์ : อาชีพยอดฮิตพิชิตเงินล้าน",
     "issuer": "ตลาดหลักทรัพย์แห่งประเทศไทย (SET)",

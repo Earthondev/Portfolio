@@ -144,10 +144,11 @@
   /* ── 4. Magnetic Effect ─────────────────────────────────── */
   function initMagnetic() {
     if (window.matchMedia("(hover: none)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const targets = document.querySelectorAll("[data-magnetic]");
     targets.forEach((el) => {
-      const strength = parseFloat(el.dataset.magneticStrength || 0.35);
+      const strength = parseFloat(el.dataset.magneticStrength || 0.28);
 
       el.addEventListener("mousemove", (e) => {
         const rect = el.getBoundingClientRect();
@@ -155,13 +156,39 @@
         const cy = rect.top + rect.height / 2;
         const dx = (e.clientX - cx) * strength;
         const dy = (e.clientY - cy) * strength;
-        el.style.transform = `translate(${dx}px, ${dy}px)`;
-        el.style.transition = "transform 0.15s ease";
+        el.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
+        el.style.transition = "transform 0.12s ease-out";
       });
 
       el.addEventListener("mouseleave", () => {
-        el.style.transform = "translate(0, 0)";
-        el.style.transition = "transform 0.55s cubic-bezier(0.19,1,0.22,1)";
+        el.style.transform = "translate3d(0, 0, 0)";
+        el.style.transition = "transform 0.55s cubic-bezier(0.22, 1, 0.36, 1)";
+      });
+    });
+  }
+
+  /* ── 4b. Cursor-Tracking Spotlight Glow (Section 2.3) ─────── */
+  function initSpotlightGlow() {
+    if (window.matchMedia("(hover: none)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const cards = document.querySelectorAll(
+      ".project-card, .project-preview-card, [data-spotlight]"
+    );
+
+    cards.forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.setProperty("--spotlight-x", `${x}px`);
+        card.style.setProperty("--spotlight-y", `${y}px`);
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.setProperty("--spotlight-x", "-1000px");
+        card.style.setProperty("--spotlight-y", "-1000px");
       });
     });
   }
@@ -446,6 +473,7 @@
     initLenis();
     initCursor();
     initMagnetic();
+    initSpotlightGlow();
     initTextReveal();
     initPageTransitions();
     initScramble();
@@ -470,6 +498,7 @@
   window.PortfolioAnimations = {
     initTextReveal,
     initMagnetic,
+    initSpotlightGlow,
     initCursor,
     scrambleText,
     initScramble,
