@@ -238,12 +238,12 @@
       }
     ],
     "coverImage": {
-      "src": "./assets/projects/inventory-analytics-dashboard/realistic-cover/enterprise-ops-dashboard.png",
+      "src": "./assets/projects/inventory-analytics-dashboard/realistic-cover/gallery-cover.webp",
       "alt": "Enterprise inventory analytics operations dashboard cover"
     },
     "gallery": [
       {
-        "src": "./assets/projects/inventory-analytics-dashboard/realistic-cover/enterprise-ops-dashboard.png",
+        "src": "./assets/projects/inventory-analytics-dashboard/realistic-cover/gallery-cover.webp",
         "alt": "Enterprise inventory analytics operations room"
       },
       {
@@ -294,7 +294,7 @@
       "Print-Ready Output: จัดรูปแบบพร้อมพิมพ์ใช้งานจริงในห้องแล็บ"
     ],
     "coverImage": {
-      "src": "./assets/projects/chemical-cabinet-label-maker/Cover.png",
+      "src": "./assets/projects/chemical-cabinet-label-maker/gallery-cover.webp",
       "alt": "Chemical Cabinet Label Maker Cover"
     },
     "gallery": [
@@ -345,7 +345,7 @@
       "Score Tracking: ระบบนับคะแนนแบบ Real-time"
     ],
     "coverImage": {
-      "src": "./assets/projects/guessing-game-quest/Cover.png",
+      "src": "./assets/projects/guessing-game-quest/gallery-cover.webp",
       "alt": "Guessing Game Quest Cover"
     },
     "gallery": [
@@ -400,7 +400,7 @@
       "Google Sheets Backend: ใช้ Google Sheets เป็นฐานข้อมูลที่เข้าถึงง่ายและไม่มีค่าใช้จ่าย"
     ],
     "coverImage": {
-      "src": "./assets/projects/LaundryApp_Project/Cover.png",
+      "src": "./assets/projects/LaundryApp_Project/gallery-cover.webp",
       "alt": "Promptly Laundry App Interface"
     },
     "gallery": [
@@ -465,7 +465,7 @@
       "Multi-language (TH/EN) & Offline-first architecture"
     ],
     "coverImage": {
-      "src": "./assets/projects/care-for-mom/Cover.png",
+      "src": "./assets/projects/care-for-mom/gallery-cover.webp",
       "alt": "Care for Mom App Interface"
     },
     "gallery": [
@@ -512,7 +512,7 @@
       "Automated Filing: ลดเวลางาน Admin 90% ด้วยระบบ Download → Rename → Upload แบบ Batch Processing"
     ],
     "coverImage": {
-      "src": "./assets/projects/slack-drive-bot/cover.png",
+      "src": "./assets/projects/slack-drive-bot/gallery-cover.webp",
       "alt": "Lab Assistant Bot System Control Center"
     },
     "gallery": [
@@ -558,7 +558,7 @@
       "Monthly Reports: สรุปยอดใช้จ่ายแยกตามหมวดหมู่"
     ],
     "coverImage": {
-      "src": "./assets/projects/expense-tracker/cover.png",
+      "src": "./assets/projects/expense-tracker/gallery-cover.webp",
       "alt": "Expense Tracker Dashboard"
     },
     "links": {
@@ -602,7 +602,7 @@
       "Performance Optimization: ระบบ Caching ข้อมูลห้างและผังชั้นเพื่อลดการทำงานของฐานข้อมูลและโหลดข้อมูลไวขึ้น"
     ],
     "coverImage": {
-      "src": "./assets/projects/hanaihang/cover.png",
+      "src": "./assets/projects/hanaihang/gallery-cover.webp",
       "alt": "HaaNaiHang Landing Page"
     },
     "gallery": [
@@ -666,7 +666,7 @@
       }
     ],
     "coverImage": {
-      "src": "./assets/projects/Inventory Amino/Cover.png",
+      "src": "./assets/projects/Inventory Amino/gallery-cover.webp",
       "alt": "Inventory Amino App Interface"
     },
     "gallery": [
@@ -712,7 +712,7 @@
       "watchOS Optimized: ปรับแต่ง haptics และระบบเสียงให้ทำงานลื่นไหลที่สุดบน Apple Watch"
     ],
     "coverImage": {
-      "src": "./assets/projects/sentaiwatch-dx/cover.png",
+      "src": "./assets/projects/sentaiwatch-dx/gallery-cover.webp",
       "alt": "SentaiWatch DX Digitizer Cover"
     },
     "gallery": [
@@ -768,7 +768,7 @@
       "Professional Toolkit: รวมฟีเจอร์ Merge, Split, Compress, Image Extraction และ Password Protection"
     ],
     "coverImage": {
-      "src": "./assets/projects/tonfern-pdf/cover.png",
+      "src": "./assets/projects/tonfern-pdf/gallery-cover.webp",
       "alt": "TonfernPDF v3.0 Interface"
     },
     "gallery": [
