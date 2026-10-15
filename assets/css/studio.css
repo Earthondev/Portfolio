@@ -1,0 +1,408 @@
+.scroll-studio {
+  --studio-top: 78px;
+  position: relative;
+  height: 430svh;
+  background: var(--site-paper);
+  border-top: 1px solid var(--site-rule);
+  border-bottom: 1px solid var(--site-rule);
+  font-family: "Sarabun", sans-serif;
+}
+.studio-sticky {
+  position: sticky;
+  top: var(--studio-top);
+  height: calc(100svh - var(--studio-top));
+  max-width: 1440px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 40px 0;
+  overflow: hidden;
+}
+.studio-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-shrink: 0;
+  max-width: 1160px;
+  width: 100%;
+  margin: 0 auto;
+}
+.studio-heading h2 {
+  font:
+    500 clamp(27px, 3vw, 40px) / 1.35 "Sarabun",
+    sans-serif;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.studio-heading h2 em {
+  font-style: normal;
+  color: var(--site-copper-dark);
+}
+.studio-heading > p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--site-muted);
+  max-width: 36ch;
+}
+.studio-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.7fr);
+  gap: 16px;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+.studio-narrative {
+  padding: 32px 0 24px max(0px, calc((100vw - 1240px) / 2 - 40px));
+  align-self: center;
+  z-index: 1;
+}
+.studio-narrative article {
+  max-width: 340px;
+}
+.studio-narrative article[hidden],
+.studio-client[hidden] {
+  display: none;
+}
+.studio-narrative h3 {
+  font:
+    500 clamp(30px, 3vw, 42px) / 1.45 "Sarabun",
+    sans-serif;
+  letter-spacing: -0.025em;
+  margin: 0 0 18px;
+}
+.studio-narrative p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--site-muted);
+  margin: 0 0 20px;
+}
+.studio-narrative .studio-note {
+  font-size: 13px;
+}
+.studio-client {
+  padding-top: 20px;
+  border-top: 1px solid var(--site-rule);
+}
+.studio-client strong {
+  display: block;
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.studio-client > span {
+  display: block;
+  color: var(--site-muted);
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+.studio-narrative .home-text-link {
+  font-family: "Sarabun", sans-serif;
+  font-size: 13px;
+}
+.studio-visual {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  align-self: stretch;
+}
+.studio-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+.studio-static-image {
+  position: absolute;
+  width: 90%;
+  height: auto;
+  max-height: 80%;
+  object-fit: contain;
+  left: 5%;
+  top: 10%;
+  border-radius: 4px;
+  opacity: 1;
+  transition: opacity 0.25s;
+}
+.scroll-studio[data-studio-state="ready"] .studio-static-image {
+  opacity: 0;
+  pointer-events: none;
+}
+.scroll-studio:not([data-studio-state="ready"]) .studio-canvas {
+  visibility: hidden;
+}
+.studio-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  max-width: 1160px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 16px 0 20px;
+  flex-shrink: 0;
+}
+.studio-controls button {
+  font:
+    13px "Sarabun",
+    sans-serif;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--site-muted);
+  cursor: pointer;
+}
+.studio-controls button:hover {
+  background: var(--site-soft);
+  color: var(--site-ink);
+}
+.studio-controls button[aria-current="step"] {
+  background: var(--site-ink);
+  color: var(--site-paper);
+}
+.studio-scroll-hint {
+  font-size: 11px;
+  color: var(--site-muted);
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.studio-scroll-hint i {
+  transform: rotate(90deg);
+}
+.studio-progress {
+  height: 2px;
+  background: var(--site-rule);
+  width: 100%;
+  flex-shrink: 0;
+}
+.studio-progress > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--site-copper-dark);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.studio-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.studio-actions .home-button {
+  font-family: "Sarabun", sans-serif;
+  font-size: 13px;
+  gap: 10px;
+}
+.scroll-studio[data-studio-state="static"] {
+  height: auto;
+}
+.scroll-studio[data-studio-state="static"] .studio-sticky {
+  position: relative;
+  height: auto;
+  overflow: visible;
+}
+.scroll-studio[data-studio-state="static"] .studio-narrative article {
+  display: block !important;
+  margin-bottom: 40px;
+}
+.scroll-studio[data-studio-state="static"] .studio-controls,
+.scroll-studio[data-studio-state="static"] .studio-progress {
+  display: none;
+}
+.scroll-studio[data-studio-state="static"] .studio-visual {
+  min-height: 400px;
+  align-self: start;
+}
+.scroll-studio[data-studio-state="static"] .studio-static-image {
+  max-height: 100%;
+}
+@media (max-width: 900px) {
+  .studio-sticky {
+    padding: 28px 24px 0;
+  }
+  .studio-layout {
+    grid-template-columns: minmax(240px, 1fr) minmax(0, 1.4fr);
+  }
+  .studio-narrative {
+    padding-left: 0;
+  }
+  .studio-heading > p {
+    max-width: 30ch;
+    font-size: 13px;
+  }
+  .studio-narrative h3 {
+    font-size: 32px;
+  }
+  .studio-narrative p {
+    font-size: 14px;
+  }
+}
+@media (max-width: 680px) {
+  .scroll-studio {
+    --studio-top: 64px;
+    height: 400svh;
+  }
+  .studio-sticky {
+    padding: 18px 20px 0;
+  }
+  .studio-heading {
+    gap: 16px;
+    align-items: start;
+  }
+  .studio-heading h2 {
+    font-size: 24px;
+    line-height: 1.35;
+  }
+  .studio-heading h2 br {
+    display: none;
+  }
+  .studio-heading > p {
+    display: none;
+  }
+  .studio-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .studio-narrative {
+    padding: 20px 0 0;
+    align-self: stretch;
+    flex-shrink: 0;
+  }
+  .studio-narrative article {
+    max-width: none;
+  }
+  .studio-narrative h3 {
+    font-size: 27px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+  .studio-narrative h3 br {
+    display: none;
+  }
+  .studio-narrative p {
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+    max-width: 52ch;
+  }
+  .studio-narrative .studio-note {
+    display: none;
+  }
+  .studio-client {
+    padding-top: 12px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4px 12px;
+  }
+  .studio-client strong {
+    font-size: 14px;
+    margin: 0;
+  }
+  .studio-client > span {
+    font-size: 11px;
+    margin: 0;
+    grid-row: 2;
+    grid-column: 1;
+  }
+  .studio-client a {
+    grid-column: 2;
+    grid-row: 1/3;
+    align-self: center;
+  }
+  .studio-visual {
+    flex: 1;
+    min-height: 190px;
+    width: 100%;
+  }
+  .studio-controls {
+    gap: 3px;
+    padding: 10px 0 14px;
+  }
+  .studio-controls button {
+    padding: 10px;
+    font-size: 12px;
+  }
+  .studio-scroll-hint {
+    display: none;
+  }
+  .studio-actions {
+    gap: 8px;
+  }
+  .studio-actions .home-button {
+    font-size: 12px;
+    padding: 0 10px;
+    min-height: 44px;
+  }
+  .scroll-studio[data-studio-state="static"] .studio-layout {
+    display: flex;
+  }
+  .scroll-studio[data-studio-state="static"] .studio-visual {
+    min-height: 270px;
+    flex: auto;
+  }
+  .scroll-studio[data-studio-state="static"] .studio-narrative article {
+    margin-bottom: 32px;
+  }
+}
+@media (max-height: 650px) and (min-width: 681px) {
+  .studio-heading h2 {
+    font-size: 27px;
+  }
+  .studio-sticky {
+    padding-top: 16px;
+  }
+  .studio-narrative {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .studio-narrative h3 {
+    font-size: 29px;
+  }
+  .studio-narrative p {
+    font-size: 13px;
+  }
+  .studio-controls {
+    padding: 8px 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-studio {
+    height: auto;
+  }
+  .studio-sticky {
+    position: relative;
+    height: auto;
+    overflow: visible;
+  }
+  .studio-narrative article[hidden] {
+    display: block;
+  }
+  .studio-narrative article {
+    margin-bottom: 32px;
+  }
+  .studio-controls,
+  .studio-progress,
+  .studio-canvas {
+    display: none;
+  }
+  .studio-static-image {
+    transition: none;
+  }
+  .studio-visual {
+    min-height: 300px;
+    align-self: start;
+  }
+}
+
+@media (max-width: 680px) {
+  .studio-visual {
+    max-height: 410px;
+    margin: auto 0;
+  }
+}

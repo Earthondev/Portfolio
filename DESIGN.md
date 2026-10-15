@@ -9,3 +9,7 @@ The badge remains an independent transparent, fixed-length pendulum using the us
 ## Services
 
 The homepage now leads with Thai website design and AI training offers. Order: service introduction, explicit deliverables, live client websites, illustrative AI lesson with a reusable prompt, real automation/credential links, working process, supporting dashboard and toolkit. Two service-specific contact routes preselect the topic and preserve user-written subjects. No learner counts, testimonials or outcome claims are invented.
+
+## Scroll studio
+
+A single sticky Three.js workspace follows the introduction. A modeled graphite/aluminium laptop shows the actual three client screenshots; the camera then moves to explicitly labelled teaching notes and a printed Slack-to-Drive automation diagram, before a final service choice. Scroll progress controls the camera in both directions. Real HTML retains all text and contact routes. Reduced motion collapses the sequence into static chapters. No generated face or invented testimonial is used.
