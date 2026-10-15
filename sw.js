@@ -1,139 +1,84 @@
-const CACHE_VERSION = 'v14';
-const STATIC_CACHE = `static-${CACHE_VERSION}`;
-const DYNAMIC_CACHE = `dynamic-${CACHE_VERSION}`;
-
-const urlsToCache = [
-  '/',
-  '/index.html',
-  '/certificates.html',
-  '/contact.html',
-  '/portfolio.html',
-  '/inventory-analytics-dashboard.html',
-  '/style.css',
-  '/assets/css/tailwind-built.css',
-  '/cache-bust.js',
-  '/assets/js/common.js',
-  '/assets/js/inventory-analytics-dashboard.js',
-  '/projects.json',
-  '/certificates.json',
-  '/favicon.ico'
+const CACHE_NAME = "nattapart-portfolio-v15";
+const BASE = new URL("./", self.location.href);
+const FILES = [
+  "index.html",
+  "portfolio.html",
+  "certificates.html",
+  "contact.html",
+  "style.css",
+  "assets/css/site-theme.css",
+  "assets/css/work.css",
+  "assets/css/tailwind-built.css",
+  "assets/css/fonts.css",
+  "assets/css/icons.css",
+  "assets/js/common.js",
+  "assets/js/projects.js",
+  "assets/js/contact.js",
+  "projects.json",
+  "certificates.json",
+  "favicon.ico",
 ];
-
-// Cache strategies
-const CACHE_STRATEGIES = {
-  CACHE_FIRST: 'cache-first',
-  NETWORK_FIRST: 'network-first',
-  STALE_WHILE_REVALIDATE: 'stale-while-revalidate'
-};
-
-// Install event
-self.addEventListener('install', event => {
+self.addEventListener("install", (event) =>
   event.waitUntil(
-    caches.open(STATIC_CACHE)
-      .then(cache => cache.addAll(urlsToCache))
-      .then(() => self.skipWaiting())
-  );
-});
-
-// Fetch event with modern strategies
-self.addEventListener('fetch', event => {
-  const { request } = event;
-  const url = new URL(request.url);
-  
-  // Skip non-GET requests
-  if (request.method !== 'GET') return;
-  
-  // Skip external requests
-  if (url.origin !== location.origin) return;
-
-  // Prefer fresh HTML for navigations
-  if (request.mode === 'navigate' || request.destination === 'document') {
-    event.respondWith(networkFirstStrategy(request));
+    caches
+      .open(CACHE_NAME)
+      .then((cache) =>
+        cache.addAll(FILES.map((path) => new URL(path, BASE).href)),
+      )
+      .then(() => self.skipWaiting()),
+  ),
+);
+self.addEventListener("activate", (event) =>
+  event.waitUntil(
+    caches
+      .keys()
+      .then((keys) =>
+        Promise.all(
+          keys
+            .filter(
+              (key) =>
+                key.startsWith("nattapart-portfolio-") &&
+                key !== CACHE_NAME,
+            )
+            .map((key) => caches.delete(key)),
+        ),
+      )
+      .then(() => self.clients.claim()),
+  ),
+);
+self.addEventListener("fetch", (event) => {
+  const request = event.request,
+    url = new URL(request.url);
+  if (
+    request.method !== "GET" ||
+    url.origin !== BASE.origin ||
+    !url.pathname.startsWith(BASE.pathname)
+  )
     return;
-  }
-  
-  // Apply different strategies based on resource type
-  if (request.url.includes('.json')) {
-    event.respondWith(networkFirstStrategy(request));
-  } else if (request.url.includes('.css') || request.url.includes('.js')) {
-    event.respondWith(staleWhileRevalidateStrategy(request));
-  } else {
-    event.respondWith(cacheFirstStrategy(request));
-  }
-});
-
-// Cache-first strategy for static assets
-async function cacheFirstStrategy(request) {
-  const cachedResponse = await caches.match(request);
-  if (cachedResponse) {
-    return cachedResponse;
-  }
-  
-  try {
-    const networkResponse = await fetch(request);
-    const cache = await caches.open(DYNAMIC_CACHE);
-    cache.put(request, networkResponse.clone());
-    return networkResponse;
-  } catch (error) {
-    return new Response('Offline', { status: 503 });
-  }
-}
-
-// Network-first strategy for dynamic content
-async function networkFirstStrategy(request) {
-  try {
-    const networkResponse = await fetch(request);
-    const cache = await caches.open(DYNAMIC_CACHE);
-    cache.put(request, networkResponse.clone());
-    return networkResponse;
-  } catch (error) {
-    const cachedResponse = await caches.match(request);
-    return cachedResponse || new Response('Offline', { status: 503 });
-  }
-}
-
-// Stale-while-revalidate strategy for scripts/styles
-async function staleWhileRevalidateStrategy(request) {
-  const cachedResponse = await caches.match(request);
-  
-  const fetchPromise = fetch(request).then(networkResponse => {
-    const cache = caches.open(DYNAMIC_CACHE);
-    cache.then(c => c.put(request, networkResponse.clone()));
-    return networkResponse;
-  });
-  
-  return cachedResponse || fetchPromise;
-}
-
-// Activate event
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (![STATIC_CACHE, DYNAMIC_CACHE].includes(cacheName)) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    }).then(() => self.clients.claim())
+  event.respondWith(
+    (async () => {
+      const cache = await caches.open(CACHE_NAME);
+      try {
+        const response = await fetch(request);
+        if (response.ok && response.type === "basic")
+          await cache.put(request, response.clone());
+        return response;
+      } catch {
+        const match = await cache.match(request);
+        return (
+          match ||
+          new Response(
+            "This page is unavailable offline. Please reconnect and reload.",
+            {
+              status: 503,
+              headers: { "Content-Type": "text/plain; charset=utf-8" },
+            },
+          )
+        );
+      }
+    })(),
   );
 });
-
-// Allow page to trigger immediate SW update
-self.addEventListener('message', event => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
+self.addEventListener("message", (event) => {
+  if (event.data?.type === "SKIP_WAITING") self.skipWaiting();
 });
-
-// Background sync for offline actions
-self.addEventListener('sync', event => {
-  if (event.tag === 'contact-form') {
-    event.waitUntil(syncContactForm());
-  }
-});
-
-async function syncContactForm() {
-  // Reserved for future offline contact form sync support.
-}

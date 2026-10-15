@@ -37,6 +37,7 @@
         document.body.style.overflow = open ? 'hidden' : '';
       }
       syncButton(open);
+      if (open) menu.querySelector('a')?.focus();
     }
 
     button.addEventListener('click', () => setOpen(!isOpen));
@@ -45,7 +46,7 @@
       const linkPath = new URL(link.getAttribute('href'), window.location.href).pathname.split('/').pop() || 'index.html';
       const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 
-      if (linkPath === currentPath) {
+      if (linkPath === currentPath && !new URL(link.href).hash) {
         link.setAttribute('aria-current', 'page');
       }
 
@@ -59,6 +60,12 @@
     }
 
     document.addEventListener('keydown', (event) => {
+      if (event.key === 'Tab' && isOpen) {
+        const items = [button, ...menu.querySelectorAll('a[href]')];
+        const first = items[0], last = items[items.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
       if (event.key === 'Escape' && isOpen) {
         setOpen(false);
         button.focus();

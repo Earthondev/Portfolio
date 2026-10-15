@@ -14,7 +14,7 @@
             content="Nattapart Worakun, ณัฐภาส วรคันธ์, Certificates, Data Science, SQL, Power BI, Google Certified, DataRockie, Prompt Engineering, Data Analyst Bangkok"
         />
         <meta name="theme-color" content="#fbfaf7" />
-        <meta name="color-scheme" content="dark light" />
+        <meta name="color-scheme" content="light" />
         <link
             rel="canonical"
             href="https://earthondev.github.io/Portfolio/certificates.html"
@@ -459,10 +459,10 @@
                 }
             }
         </style>
-    <link rel="stylesheet" href="assets/css/site-theme.css?v=2" />
+    <link rel="stylesheet" href="assets/css/site-theme.css?v=3" />
 </head>
 
-    <body class="portfolio-content h-full overflow-x-hidden">
+    <body class="portfolio-content h-full overflow-x-hidden"><a class="site-skip-link" href="#main-content">Skip to content</a>
         <nav class="home-nav" id="navbar" aria-label="Main navigation">
  <div class="home-nav__inner">
   <a class="home-brand" href="index.html" aria-label="Nattapart Worakun home"><span class="home-brand__mark">NW</span><span>Nattapart <span class="home-brand__surname">Worakun</span></span></a>
@@ -473,7 +473,7 @@
  <div id="mobile-menu" class="home-mobile-menu hidden"><a href="index.html#featured-case-study">Featured Case</a><a href="portfolio.html">Selected Work</a><a href="index.html#technical-stack">Toolkit</a><a href="certificates.html" aria-current="page">Credentials</a><a href="contact.html">Contact</a><a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></div>
 </nav>
 
-        <main
+        <main id="main-content"
             class="cert-main relative z-10 max-w-7xl mx-auto px-4 pt-32 pb-20"
         >
             <section class="mb-12 fade-up cert-hero">
@@ -485,13 +485,11 @@
                     <h1
                         class="text-4xl sm:text-6xl font-bold font-heading mt-6 leading-tight"
                     >
-                        Certificates that support
-                        <span class="gradient-text">real project delivery</span>
+                        Learning behind<br>
+                        <span class="gradient-text">the work.</span>
                     </h1>
                     <p class="cert-lead mt-5">
-                        Credentials grouped around the work I want to be hired
-                        for: inventory analytics, reporting automation, reliable
-                        data handling, and operational quality control.
+                        Training in analytics, automation, AI, and quality control — grouped by the practical skills they support.
                     </p>
                 </div>
 
@@ -635,7 +633,7 @@
 
                     <div class="flex flex-wrap gap-3">
                         <select
-                            id="sort-select"
+                            id="sort-select" aria-label="Sort certificates"
                             class="bg-[#0f131a] border border-white/10 rounded-xl px-4 py-3 text-sm text-gray-100 focus:outline-none focus:border-[#00D9FF]/60"
                         >
                             <option value="newest">Newest first</option>
@@ -686,13 +684,13 @@
             </section>
         </main>
 
-        <div
+        <dialog
             id="preview-modal"
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-title"
             aria-hidden="true"
-            class="modal-overlay fixed inset-0 z-[60] bg-black/70 p-4 flex items-center justify-center"
+            class="modal-overlay certificate-preview-dialog"
         >
             <div
                 class="modal-panel w-full max-w-5xl rounded-2xl border border-white/10 overflow-hidden"
@@ -717,64 +715,16 @@
                 >
                     <img
                         id="modal-image"
-                        src=""
                         alt="Certificate preview"
                         class="w-full h-auto rounded-xl border border-white/10"
                     />
                 </div>
             </div>
-        </div>
+        </dialog>
 
-        <footer class="py-12 px-4 border-t border-white/10 mt-10">
-            <div class="max-w-6xl mx-auto text-center">
-                <div class="flex items-center justify-center space-x-2 mb-4">
-                    <div
-                        class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00D9FF] to-[#00FF94] flex items-center justify-center font-bold text-[#0a0a0f]"
-                    >
-                        NW
-                    </div>
-                    <span class="font-semibold text-lg font-heading"
-                        >Nattapart Worakun</span
-                    >
-                </div>
-                <p class="text-gray-500 text-sm">
-                    Chemistry → Automation → Data & QA
-                </p>
-                <p class="text-gray-600 text-xs mt-1">
-                    ณัฐภาส วรคันธ์ (Nattapart Worakun) · Data Analyst · Bangkok,
-                    Thailand
-                </p>
-                <div class="flex justify-center gap-4 mt-6">
-                    <a
-                        href="https://github.com/earthondev"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white transition-all"
-                    >
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a
-                        href="mailto:earthlikemwbb@gmail.com"
-                        class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white transition-all"
-                    >
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a
-                        href="https://www.linkedin.com/in/earthondev/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:text-white transition-all"
-                    >
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                </div>
-                <p class="text-gray-600 text-xs mt-4">
-                    © 2026 Nattapart Worakun. All rights reserved.
-                </p>
-            </div>
-        </footer>
+        <footer class="site-footer"><div><a class="site-footer-brand" href="index.html">Nattapart Worakun</a><p>Web development · Analytics · Automation</p></div><div class="site-footer-links"><a href="portfolio.html">Selected Work</a><a href="contact.html">Contact</a><a href="https://github.com/earthondev" target="_blank" rel="noopener noreferrer">GitHub</a><a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></div><p class="site-footer-copy">© 2026 Nattapart Worakun · Bangkok, Thailand</p></footer>
 
-        <script src="assets/js/common.js"></script>
+        <script src="assets/js/common.js?v=2"></script>
         <script>
             const filtersEl = document.getElementById("filters");
             const gridEl = document.getElementById("certificates-grid");
@@ -1139,7 +1089,7 @@
                         return `
           <button
             type="button"
-            class="focus-btn ${active ? "active" : ""} rounded-2xl px-4 py-3 text-left"
+            class="focus-btn ${active ? "active" : ""} rounded-2xl px-4 py-3 text-left" aria-pressed="${active}"
             data-focus="${escapeHTML(button.id)}"
           >
             <span class="block text-sm font-semibold">${escapeHTML(button.title)}</span>
@@ -1287,7 +1237,7 @@
                     .map((item) => {
                         const isActive = item.name === activeFilter;
                         return `
-          <button class="filter-btn ${isActive ? "active" : ""} px-4 py-2 rounded-full text-sm font-medium" data-category="${escapeHTML(item.name)}">
+          <button class="filter-btn ${isActive ? "active" : ""} px-4 py-2 rounded-full text-sm font-medium" data-category="${escapeHTML(item.name)}" aria-pressed="${isActive}">
             ${escapeHTML(item.name)}
             <span class="ml-1 text-xs opacity-80">(${item.count})</span>
           </button>`;
@@ -1312,6 +1262,7 @@
                 modalImage.src = imageSrc;
                 modalImage.alt = imageAlt || title || "Certificate preview";
                 modal.classList.add("active");
+                modal.showModal();
                 modal.setAttribute("aria-hidden", "false");
                 document.body.style.overflow = "hidden";
                 closeModalBtn.focus();
@@ -1320,6 +1271,7 @@
             function closeModal() {
                 if (!modal.classList.contains("active")) return;
                 modal.classList.remove("active");
+                modal.close();
                 modal.setAttribute("aria-hidden", "true");
                 document.body.style.overflow = "";
                 previewTrigger?.focus();
@@ -1530,6 +1482,7 @@
             });
 
             closeModalBtn.addEventListener("click", closeModal);
+            modal.addEventListener("cancel", event => { event.preventDefault(); closeModal(); });
             modal.addEventListener("click", (event) => {
                 if (event.target === modal) closeModal();
             });

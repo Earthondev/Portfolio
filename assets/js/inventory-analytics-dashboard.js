@@ -621,7 +621,7 @@
       .slice(0, 14);
 
     elements.alertTable.innerHTML = rows.map((item) => `
-      <tr class="table-row-button cursor-pointer border-b border-white/5" data-sku="${item.sku}">
+      <tr class="table-row-button cursor-pointer border-b border-white/5" data-sku="${item.sku}" tabindex="0" role="button" aria-label="Inspect ${item.sku}">
         <td class="py-3 pr-4 align-top">
           <p class="font-semibold text-white">${item.sku}</p>
           <p class="text-xs text-gray-500">${item.category}</p>
@@ -646,6 +646,9 @@
         state.selectedSku = row.dataset.sku || '';
         renderSelectedItem(items);
       });
+      row.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); row.click(); }
+      });
     });
   }
 
@@ -655,7 +658,7 @@
       .slice(0, 18);
 
     elements.detailTable.innerHTML = rows.map((item) => `
-      <tr class="table-row-button cursor-pointer border-b border-white/5" data-sku="${item.sku}">
+      <tr class="table-row-button cursor-pointer border-b border-white/5" data-sku="${item.sku}" tabindex="0" role="button" aria-label="Inspect ${item.sku}">
         <td class="py-3 pr-4">
           <p class="font-semibold text-white">${item.sku}</p>
           <p class="text-xs text-gray-500">${item.name}</p>
@@ -672,6 +675,9 @@
       row.addEventListener('click', () => {
         state.selectedSku = row.dataset.sku || '';
         renderSelectedItem(items);
+      });
+      row.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); row.click(); }
       });
     });
   }

@@ -33,16 +33,19 @@ jobs:
           npm ci
           npm run check:badge
           npm run build:badge
+          npm run check:work
+          npm run build:work
+          npm run check:certificates
       - name: Assemble the public site
         run: |
           mkdir _site
           rsync -a ./ _site/ \
             --exclude=_site --exclude=.git --exclude=.github \
             --exclude=node_modules --exclude=src --exclude=scripts \
-            --exclude=output --exclude=.playwright-mcp --exclude=.impeccable \
+            --exclude=output --exclude=outputs --exclude=.playwright-mcp --exclude=.impeccable \
             --exclude=badge-physics-preview.html --exclude=design-directions-preview.html \
             --exclude=package.json --exclude=package-lock.json \
-            --exclude=tsconfig.badge.json --exclude=BADGE_3D_PLAN.md --exclude=RELEASE_PLAN.md
+            --exclude=tsconfig.work.json --exclude=PORTFOLIO_REDESIGN_PLAN.md --exclude=DESIGN.md --exclude=tsconfig.badge.json --exclude=BADGE_3D_PLAN.md --exclude=RELEASE_PLAN.md
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

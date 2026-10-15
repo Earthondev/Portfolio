@@ -1,21 +1,94 @@
 [
   {
+    "id": "chaianan",
+    "title": "Chaianan Communication",
+    "year": 2026,
+    "summary": "An infrastructure company website that turns LAN, fiber, CCTV and data-center services into an interactive 3D walkthrough.",
+    "role": [
+      "Web Developer",
+      "3D Experience & Deployment"
+    ],
+    "stack": [
+      "React",
+      "TypeScript",
+      "Three.js",
+      "Cloudflare Workers"
+    ],
+    "highlights": [
+      "Built Thai and English service pages for an enterprise network installer.",
+      "Created a scroll-driven data-center experience with racks and network equipment.",
+      "Connected service information, portfolio examples and enquiry routes."
+    ],
+    "links": {
+      "live": "https://chaianan.com/",
+      "caseStudy": "./case-studies/chaianan.html"
+    },
+    "category": "websites",
+    "coverImage": {
+      "src": "./assets/projects/chaianan/live-home.webp",
+      "alt": "Actual Chaianan Communication homepage captured from the live website"
+    },
+    "gallery": [
+      {
+        "src": "./assets/projects/chaianan/live-home.webp",
+        "alt": "Actual Chaianan Communication homepage captured from the live website"
+      }
+    ],
+    "caseStudy": true
+  },
+  {
+    "id": "goldenland",
+    "title": "Goldenland Hotel & Seniorcare",
+    "year": 2026,
+    "summary": "A multilingual hospitality website that clearly separates hotel stays from senior care, with rooms, services and direct enquiry routes.",
+    "role": [
+      "Web Developer",
+      "Multilingual Content & Deployment"
+    ],
+    "stack": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Cloudflare Pages"
+    ],
+    "highlights": [
+      "Built a responsive website for hotel and senior-care visitors.",
+      "Structured English, Thai and German content and language navigation.",
+      "Presented real property imagery, room information and direct enquiry channels."
+    ],
+    "links": {
+      "live": "https://goldenlandseniorcare.com/",
+      "caseStudy": "./case-studies/goldenland.html"
+    },
+    "category": "websites",
+    "coverImage": {
+      "src": "./assets/projects/goldenland/live-home.webp",
+      "alt": "Actual Goldenland Hotel & Seniorcare homepage captured from the live website"
+    },
+    "gallery": [
+      {
+        "src": "./assets/projects/goldenland/live-home.webp",
+        "alt": "Actual Goldenland Hotel & Seniorcare homepage captured from the live website"
+      }
+    ],
+    "caseStudy": true
+  },
+  {
     "id": "jae-noi-pork-shop",
     "title": "Jae Noi Pork Shop",
     "slug": "jae-noi-pork-shop",
     "year": 2026,
-    "summary": "ร้านค้าออนไลน์สำหรับเจ๊น้อย เขียงหมูตะคร้อ รองรับการเลือกสินค้า พรีออเดอร์ ชำระเงิน และติดตามออเดอร์จริงบนระบบ Cloudflare",
+    "summary": "A regional food storefront with product selection, pre-order rounds, a cart, payment confirmation and order tracking.",
     "role": [
       "Full-stack Developer",
       "E-commerce Builder",
       "Deployment & Operations"
     ],
     "stack": [
-      "Next.js",
+      "React",
       "TypeScript",
       "Cloudflare Workers",
-      "D1 Database",
-      "R2 Storage"
+      "D1 & R2"
     ],
     "highlights": [
       "Built a production storefront for fresh pork products, regional food, and pre-order rounds",
@@ -38,18 +111,19 @@
       }
     ],
     "coverImage": {
-      "src": "./assets/projects/jae-noi-pork-shop/cover.webp",
-      "alt": "Jae Noi Pork Shop online storefront homepage"
+      "src": "./assets/projects/jae-noi-pork-shop/live-home.webp",
+      "alt": "Actual Jae Noi Pork Shop homepage captured from the live website"
     },
     "gallery": [
       {
-        "src": "./assets/projects/jae-noi-pork-shop/cover.webp",
-        "alt": "Jae Noi Pork Shop storefront homepage"
+        "src": "./assets/projects/jae-noi-pork-shop/live-home.webp",
+        "alt": "Actual Jae Noi Pork Shop homepage captured from the live website"
       }
     ],
     "links": {
       "live": "https://jaenoishop.com/",
-      "repo": "https://github.com/Earthondev/jae-noi-pork-shop"
+      "repo": "https://github.com/Earthondev/jae-noi-pork-shop",
+      "caseStudy": "./case-studies/jae-noi-pork-shop.html"
     },
     "tags": [
       "E-commerce",
@@ -59,7 +133,8 @@
     ],
     "cta": "Visit Store",
     "status": "Live Production",
-    "caseStudy": false
+    "caseStudy": true,
+    "category": "websites"
   },
   {
     "id": "rta-exam-candidate-structure-analysis",
@@ -144,13 +219,13 @@
       "AppSheet"
     ],
     "highlights": [
-      "Built a scenario-modeled 1,200+ SKU dataset with stock, demand history, lead time, and safety stock assumptions for enterprise-scale inventory operations",
+      "Built a scenario-modeled 200 SKU dataset with stock, demand history, lead time, and safety stock assumptions for enterprise-scale inventory operations",
       "Designed KPI views for stock cover days, dead stock %, turnover rate, ABC mix, and reorder risk",
       "Framed the output as a weekly management review with exception-based action instead of passive charts"
     ],
     "metrics": [
       {
-        "value": "1,200+",
+        "value": "200",
         "label": "Modeled SKU records"
       },
       {

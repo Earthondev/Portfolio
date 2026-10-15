@@ -11,7 +11,9 @@
     "fix:certificates-order": "node scripts/check-certificates.js --fix-order",
     "build:tailwind": "BROWSERSLIST_IGNORE_OLD_DATA=1 tailwindcss -c tailwind.config.js -i ./assets/css/tailwind.css -o ./assets/css/tailwind-built.css --minify",
     "build:badge": "node scripts/build-badge.mjs",
-    "check:badge": "tsc -p tsconfig.badge.json"
+    "check:badge": "tsc -p tsconfig.badge.json",
+    "check:work": "tsc -p tsconfig.work.json",
+    "build:work": "node scripts/build-work.mjs"
   },
   "keywords": [
     "portfolio",
