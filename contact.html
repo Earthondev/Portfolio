@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="h-full">
+<html lang="th" class="h-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -121,6 +121,7 @@
 
     <link rel="stylesheet" href="assets/css/site-theme.css?v=3" />
     <link rel="stylesheet" href="assets/css/work.css?v=1" />
+    <link rel="stylesheet" href="assets/css/services.css?v=1" />
   </head>
 
   <body class="portfolio-content work-page">
@@ -137,7 +138,7 @@
           ></a
         >
         <div class="home-nav__links">
-          <a href="index.html#featured-case-study">Featured Case</a
+          <a href="index.html#services" lang="th">บริการ</a
           ><a href="portfolio.html">Selected Work</a
           ><a href="index.html#technical-stack">Toolkit</a
           ><a href="certificates.html">Credentials</a
@@ -163,7 +164,7 @@
         </button>
       </div>
       <div id="mobile-menu" class="home-mobile-menu hidden">
-        <a href="index.html#featured-case-study">Featured Case</a
+        <a href="index.html#services" lang="th">บริการ</a
         ><a href="portfolio.html">Selected Work</a
         ><a href="index.html#technical-stack">Toolkit</a
         ><a href="certificates.html">Credentials</a
@@ -175,10 +176,10 @@
     </nav>
     <main id="main-content" class="work-main contact-main">
       <header class="work-heading">
-        <h1>Let’s build<br /><em>something useful.</em></h1>
+        <h1 lang="th">เริ่มจากโจทย์<br /><em>ของคุณ</em></h1>
         <p>
-          Tell me about your website, dashboard, or workflow. I’m also open to
-          relevant development and analytics opportunities.
+          รับออกแบบเว็บไซต์ธุรกิจ สอนใช้ AI และ Automation
+          เล่าเป้าหมายหรือสิ่งที่อยากเรียน แล้วคุยขอบเขตงานที่เหมาะกับคุณ
         </p>
       </header>
       <div class="contact-layout">
@@ -206,14 +207,23 @@
           </div>
         </section>
         <section class="contact-compose" aria-labelledby="compose-title">
-          <h2 id="compose-title">Start a conversation.</h2>
-          <p>
-            This opens a draft in your email app. You review and send it there.
-          </p>
-          <form id="contact-form">
+          <h2 id="compose-title" lang="th">คุยเรื่องงานหรือสิ่งที่อยากเรียน</h2>
+          <p>แบบฟอร์มนี้จะเปิดร่างในแอปอีเมล ให้คุณตรวจและกดส่งด้วยตัวเอง</p>
+          <form id="contact-form" lang="th">
+            <label for="service">สนใจบริการ</label
+            ><select id="service" name="service" aria-describedby="service-guidance">
+              <option value="website">ออกแบบและพัฒนาเว็บไซต์</option>
+              <option value="ai-training">สอนใช้ AI และ Automation</option>
+              <option value="other">งานอื่น ๆ / โอกาสร่วมงาน</option>
+            </select>
+            <p
+              id="service-guidance"
+              class="service-contact-guidance"
+              aria-live="polite"
+            ></p>
             <div class="contact-fields">
               <div>
-                <label for="name">Your name</label
+                <label for="name">ชื่อของคุณ</label
                 ><input
                   id="name"
                   name="name"
@@ -223,7 +233,7 @@
                 />
               </div>
               <div>
-                <label for="email">Your email</label
+                <label for="email">อีเมลสำหรับติดต่อกลับ</label
                 ><input
                   id="email"
                   name="email"
@@ -233,28 +243,28 @@
                 />
               </div>
             </div>
-            <label for="subject">Subject</label
+            <label for="subject">หัวข้อ</label
             ><input
               id="subject"
               name="subject"
               required
               minlength="3"
-              placeholder="A website, dashboard, or opportunity"
-            /><label for="message">Message</label
+              placeholder="หัวข้อที่อยากปรึกษา"
+            /><label for="message">รายละเอียด</label
             ><textarea
               id="message"
               name="message"
               rows="6"
               required
               minlength="10"
-              placeholder="A little context about what you have in mind…"
+              placeholder="เล่าโจทย์ เป้าหมาย หรือสิ่งที่อยากเรียน…"
             ></textarea
             ><button
               type="submit"
               class="home-button home-button--primary"
               id="submit-btn"
             >
-              Open email draft
+              เปิดร่างอีเมล
               <i
                 class="fas fa-arrow-up-right-from-square"
                 aria-hidden="true"
@@ -266,7 +276,7 @@
               class="home-text-link"
               href="mailto:earthlikemwbb@gmail.com"
               hidden
-              >Open the draft again</a
+              >เปิดร่างอีเมลอีกครั้ง</a
             >
           </form>
           <noscript
@@ -283,7 +293,7 @@
     <footer class="site-footer">
       <div>
         <a class="site-footer-brand" href="index.html">Nattapart Worakun</a>
-        <p>Web development · Analytics · Automation</p>
+        <p>Website design · AI training · Automation</p>
       </div>
       <div class="site-footer-links">
         <a href="portfolio.html">Selected Work</a
@@ -305,6 +315,6 @@
     <script>
       window.PortfolioCommon?.initMobileMenu();
     </script>
-    <script type="module" src="assets/js/contact.js?v=1"></script>
+    <script type="module" src="assets/js/contact.js?v=2"></script>
   </body>
 </html>
