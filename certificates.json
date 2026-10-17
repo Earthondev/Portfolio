@@ -649,10 +649,10 @@
   {
     "id": "chatgpt-for-developers",
     "title": "ChatGPT for Developers",
-    "issuer": "OpenAI Learning",
-    "issued": "2025-09-21",
+    "issuer": "borntoDev",
+    "issued": "2025-08-07",
     "category": "Automation",
-    "credentialId": "OA-DEV-LLM-2025",
+    "credentialId": "8BKa3DC6E5zZ",
     "credentialUrl": "",
     "image": {
       "src": "./assets/certificates/chatgpt-for-developers.png",
@@ -663,26 +663,6 @@
       "Prompt Engineering",
       "API Workflow",
       "Automation"
-    ],
-    "featured": true
-  },
-  {
-    "id": "essential-sql-for-everyone",
-    "title": "Essential SQL for Everyone",
-    "issuer": "Skooldio",
-    "issued": "2025-08-01",
-    "category": "Data",
-    "credentialId": "SQL-ESS-2025",
-    "credentialUrl": "",
-    "image": {
-      "src": "./assets/certificates/essential-sql-for-everyone.png",
-      "thumbnail": "./assets/certificates/thumbnails/essential-sql-for-everyone.webp",
-      "alt": "Essential SQL for Everyone certificate"
-    },
-    "skills": [
-      "SQL",
-      "Data Modeling",
-      "Query Optimization"
     ],
     "featured": true
   },
@@ -725,6 +705,26 @@
       "Workflow Design"
     ],
     "featured": false
+  },
+  {
+    "id": "essential-sql-for-everyone",
+    "title": "Essential SQL for Everyone",
+    "issuer": "borntoDev",
+    "issued": "2025-04-13",
+    "category": "Data",
+    "credentialId": "HXnZSPKZf8jb",
+    "credentialUrl": "",
+    "image": {
+      "src": "./assets/certificates/essential-sql-for-everyone.png",
+      "thumbnail": "./assets/certificates/thumbnails/essential-sql-for-everyone.webp",
+      "alt": "Essential SQL for Everyone certificate"
+    },
+    "skills": [
+      "SQL",
+      "Data Modeling",
+      "Query Optimization"
+    ],
+    "featured": true
   },
   {
     "id": "glp-gmp-quality-systems",

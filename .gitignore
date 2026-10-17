@@ -62,3 +62,7 @@ lighthouse-*.html
 .lighthouseci/lhr-*.html
 .lighthouseci/lhr-*.json
 .lighthouseci/links.json
+
+# Tool artifacts
+.impeccable/
+
